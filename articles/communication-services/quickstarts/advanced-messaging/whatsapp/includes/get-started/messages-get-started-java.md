@@ -10,25 +10,20 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-In this quick start, you'll learn about how to send messages using our Advance Messaging SDKs
+In this quick start, you'll learn about how to send messages using our Advance Messaging SDKs.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
 > Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
-- [Apache Maven](https://maven.apache.org/download.cgi).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A setup managed identity for a development environment, [see Authorize access with managed identity](../../identity/service-principal.md?pivot="programming-language-java").
-- [Create a WhatsApp Channel](../../connect-whatsapp-business-account.md).
-
 ### Prerequisite check
 
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../../create-communication-resource.md).
+- A setup managed identity for a development environment, [see Authorize access with managed identity](../../../../identity/service-principal.md?pivot="programming-language-java").
 - To view the channels that are associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/) and locate your Communication Services resource. In the navigation pane on the left, select **Advanced Messaging -> Channels**.
 
 ## Set up the application environment
@@ -105,7 +100,7 @@ There are a few different options available for authenticating an Message client
 
 #### [Connection String](#tab/connection-string)
 
-To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
 To instantiate a Notification Message client, add the following code to the `main` method:
 
@@ -179,7 +174,7 @@ MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
 
 ---
 
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
+For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
 #### Set recipient list
 You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
