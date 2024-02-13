@@ -12,7 +12,7 @@ ms.date: 02/13/2024
 
 # Observability and analytics in Azure Operator 5G Core
 
-Observability has three pillars: metrics, tracing, and logs.  Metrics show when you have a problem, tracing points you to the problem, and logs help find the root cause.  Alerts are notifications based on the metrics and logs.
+Observability has three pillars: metrics, tracing, and logs. AO5GC bundles these observability tools to help you identify, investigate, and resolve problems. In addition, AO5GC alerts provide notifications based on metrics and logs.
 
 ## Observability overview
 
