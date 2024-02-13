@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 02/13/2024
 ms.custom: template-tutorial
 ---
 
