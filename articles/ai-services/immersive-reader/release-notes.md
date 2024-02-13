@@ -13,7 +13,7 @@ ms.date: 02/07/2024
 ms.author: rwaller
 ---
 
-# Immersive Reader JavaScript SDK release notes
+# Release notes for Immersive Reader JavaScript SDK
 
 ## Version 1.4.0
 

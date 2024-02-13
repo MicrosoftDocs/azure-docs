@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: overview
-ms.date: 02/07/2024
+ms.date: 02/12/2024
 ms.author: rwaller
 keywords: readers, language learners, display pictures, improve reading, read content, translate
 #Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Azure AI services, so that I can embed this package of content into a document to accommodate users with reading differences.
@@ -18,7 +18,7 @@ keywords: readers, language learners, display pictures, improve reading, read co
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
-[Immersive Reader](https://www.onenote.com/learningtools) is part of [Azure AI services](../../ai-services/what-are-ai-services.md), and is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
+[Immersive Reader](https://www.onenote.com/learningtools), part of [Azure AI services](../../ai-services/what-are-ai-services.md), is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
 
 This documentation contains the following types of articles:  
 
@@ -27,7 +27,7 @@ This documentation contains the following types of articles:
 
 ## Use Immersive Reader to improve reading accessibility
 
-Immersive Reader is designed to make reading easier and more accessible for everyone. Let's take a look at a few of Immersive Reader's core features.
+Immersive Reader is designed to make reading easier and more accessible for everyone. Take a look at a few of Immersive Reader's core features.
 
 ### Isolate content for improved readability
 
@@ -37,7 +37,7 @@ Immersive Reader isolates content to improve readability.
 
 ### Display pictures for common words
 
-Immersive Reader displays a picture for commonly used terms.
+Immersive Reader displays pictures for commonly used terms.
 
 :::image type="content" source="media/picture-dictionary.png" alt-text="Screenshot of Immersive Reader's picture dictionary displaying a picture of a tool for the word tool.":::
 
@@ -49,13 +49,13 @@ Immersive Reader can help learners understand parts of speech and grammar by hig
 
 ### Read content aloud
 
-Speech synthesis (or text to speech) is baked into the Immersive Reader service. Readers can select text to be read aloud.
+Speech synthesis, or text to speech, is baked into the Immersive Reader service. Readers can select text to be read aloud.
 
 :::image type="content" source="media/read-aloud.png" alt-text="Screenshot of Immersive Reader's text-to-speech feature that reads text aloud.":::
 
 ### Translate content in real-time
 
-Immersive Reader can translate text into many languages in real time, which is helpful to improve comprehension for readers learning a new language.
+Immersive Reader can translate text into many languages in real time, which helps to improve comprehension for readers learning a new language.
 
 :::image type="content" source="media/translation.png" alt-text="Screenshot of Immersive Reader's language translation feature.":::
 
