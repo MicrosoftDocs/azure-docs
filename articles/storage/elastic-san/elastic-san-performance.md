@@ -10,7 +10,7 @@ ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# How performance works when Virtual Machines are connected to Elastic SAN volumes
+# How performance works when virtual machines are connected to Elastic SAN volumes
 
 This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
