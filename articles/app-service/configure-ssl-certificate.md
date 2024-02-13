@@ -251,7 +251,7 @@ You're now ready upload the certificate to App Service.
 Public certificates are supported in the *.cer* format.
 
 > [!NOTE]
-> After you upload a public certificate to an app, it is only accessible by the app it is uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates)
+> After you upload a public certificate to an app, it is only accessible by the app it is uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates.md)
 >
 > You can upload up to 1000 public certificates per App Service Plan.
 
