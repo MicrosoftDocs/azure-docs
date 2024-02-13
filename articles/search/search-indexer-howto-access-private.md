@@ -282,11 +282,13 @@ This section assumes manual approval and the portal for this step, but you can a
 
 After the private endpoint is approved, Azure AI Search creates the necessary DNS zone mappings in the DNS zone that's created for it.
 
-The private endpoint link on the page only resolves to the private link definition in Azure AI Search if there's shared tenancy between Azure AI Search and the Azure PaaS resource.
+The private endpoint link on the page only resolves to the private link definition in Azure AI Search if there's shared tenancy between Azure AI Search backend private link and the Azure PaaS resource.
 
 :::image type="content" source="media/search-indexer-howto-secure-access/private-endpoint-link.png" alt-text="Screenshot of the private endpoint link in the Azure PaaS networking page.":::
 
-A status message of `"The access token is from the wrong issuer"` and `must match the tenant associated with this subscription` appears because the private endpoint resource is provisioned in a Microsoft-managed tenant, while the linked resource (Azure AI Search) is in your tenant. It's by design you can't' access the private endpoint resource by selecting the private endpoint connection link. Follow the instructions in the next section to revisit your shared private link definition.
+A status message of `"The access token is from the wrong issuer"` and `must match the tenant associated with this subscription` appears because the backend private endpoint resource is provisioned in a Microsoft-managed tenant, while the linked resource (Azure AI Search) is in your tenant. It's by design you can't access the private endpoint resource by selecting the private endpoint connection link. 
+
+Follow the instructions in the next section to check the status of your shared private link.
 
 ## 3 - Check shared private link status
 
