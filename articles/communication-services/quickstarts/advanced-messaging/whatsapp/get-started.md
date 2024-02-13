@@ -9,7 +9,7 @@ ms.author: memontic
 ms.date: 02/12/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system, acs-js-csharp-java
+zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system,acs-js-csharp-java
 ---
 
 # Quickstart: Add Advanced Messaging to your app
