@@ -123,11 +123,13 @@ Provisioned throughput commitments are created and managed from the **Manage Com
 
 From the Manage Commitments view, you can do several things:
 
-- Purchase new commitments, or edit existing commitments.
+- Purchase new commitments or edit existing commitments.
 - Monitor all commitments in your subscription.
-- Identify and take action on commitments that might cause unexpected billing
+- Identify and take action on commitments that might cause unexpected billing.
 
 The sections below will take you through these tasks.
+
+### Purchase a Provisioned Throughput Commitment
 
 With your commitment plan ready, the next step is to create the commitments. Commitments are created manually via Azure OpenAI Studio and require the user creating the commitment to have either the [Contributor or Cognitive Services Contributor role](./role-based-access-control.md) at the subscription level.
 
@@ -157,7 +159,7 @@ For each new commitment you need to create, follow these steps:
 > [!IMPORTANT]
 > A new commitment is billed up-front for the entire term.  If the renewal settings are set to auto-renew, then you will be billed again on each renewal date based on the renewal settings.
 
-## Editing an existing Provisioned Throughput commitment
+## Edit an existing Provisioned Throughput commitment
 
 From the Manage Commitments view, you can also edit an existing commitment.  There are two types of changes you can make to an existing commitment:
 
