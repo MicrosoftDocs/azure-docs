@@ -61,7 +61,7 @@ There are remediation failures for gallery images which have a reference to the 
 The VM Contributor role doesn’t have enough permissions.
 
 ### Resolution
--	For all the new assignments, assign the contributor role to the managed identity created during policy assignment or remediation.
+-	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
 -	For any previous assignments if you are experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
 -	Also, in scenarios where the Contributor role doesn’t work either for the linked resources (gallery image) or for the disk in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
