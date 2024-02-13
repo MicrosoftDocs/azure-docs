@@ -67,7 +67,7 @@ In this section, you create two Ranger policies
 
 1. Select **Add** to save the policy. 
 
-1. Open Zepplin notebook and run the following command to verify the policy. 
+1. Open Zeppelin notebook and run the following command to verify the policy. 
  
      ```%sql 
 
@@ -85,7 +85,7 @@ In this section, you create two Ranger policies
 #### Create Ranger masking policy 
  
 
-The following example will explain how to create a policy to mask a column 
+The following example explains how to create a policy to mask a column 
 
 1. Create another policy under **Masking** tab with the following properties using Ranger Admin UI 
 
@@ -123,7 +123,7 @@ The following example will explain how to create a policy to mask a column
      
           select clientId, deviceMake from hivesampletable; 
      ```
-     :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows open zipline notebook." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows open zeppelin notebook." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
 
  
 
@@ -134,7 +134,7 @@ The following example will explain how to create a policy to mask a column
  
 ### Known issues 
  
-1. Apache Ranger Spark-sql integration will not work if Ranger admin is down. 
+1. Apache Ranger Spark-sql integration not works if Ranger admin is down. 
 
 1. Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
  
@@ -147,7 +147,7 @@ The following example will explain how to create a policy to mask a column
  
 **Scenario 1**: Using new Ranger database while creating HDInsight 5.1 Spark cluster 
  
-When the cluster is created, the relevant Ranger repo containing the Hive and Spark Ranger policies will be created under the name <hive_and_spark> in the Hadoop SQL service on the Ranger DB. 
+When the cluster is created, the relevant Ranger repo containing the Hive and Spark Ranger policies are created under the name <hive_and_spark> in the Hadoop SQL service on the Ranger DB. 
  
 :::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
 
@@ -157,8 +157,8 @@ You can edit the policies and these policies gets applied to both Hive and Spark
  
 Points to consider: 
 
-1.In case you have two metastore databases with the same name used for both hive (e.g. DB1) and spark (e.g. DB1) catalogs.  
-     If spark uses spark catalog (metastore.catalog.default=spark), the policy will apply to the DB1 of the spark catalog.  
+1.In case you have two metastore databases with the same name used for both hive (for example, DB1) and spark (for example, DB1) catalogs.  
+     If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
      If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
       
      
@@ -170,7 +170,7 @@ Points to consider:
 
 1. In case you use ‘hive’ catalog for both Hive and Spark.  
 
-    Let’s say you create a table **table1**  through Hive with current ‘xyz’ user. It creates a HDFS file called **table1.db** whose owner will be ‘xyz’ user.  
+    Let’s say you create a table **table1**  through Hive with current ‘xyz’ user. It creates an HDFS file called **table1.db** whose owner is ‘xyz’ user.  
      
      Now consider, the user ‘abc’ is used while launching the Spark Sql session. In this session of user ‘abc’, if you try to write anything to **table1**, it is bound to fail since the table owner is ‘xyz’.  
      In such case, it is recommended to use the same user in Hive and Spark SQL for updating the table and that user should have sufficient privileges to perform update operations. 
@@ -194,7 +194,7 @@ Points to consider:
 
 1. Open Ambari UI from your new HDInsight 5.1 cluster 
 
-1. Go to Spark3 service -> Configs 
+1. Go to Spark 3 service -> Configs 
 
 1. Open “ranger-spark-security” security config. 
 
@@ -202,7 +202,7 @@ Points to consider:
 
      Or Open “ranger-spark-security” security config in /etc/spark3/conf using SSH 
       
-      :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
+      :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows Ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
 
  
 
@@ -210,7 +210,7 @@ Points to consider:
 
      Ambari 
      
-     :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows config update service name ambari." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows config update service name Ambari." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
       
      XML file 
 
@@ -220,7 +220,7 @@ Points to consider:
 
 1. Restart Ranger and Spark services from Ambari. 
 
-     The policies get applied on databases in the spark catalog. If you want to access the databases under hive catalog, please go to Ambari -> SPARK3 -> Configs -> Change “metastore.catalog.default” from spark to hive. 
+     The policies get applied on databases in the spark catalog. If you want to access the databases under hive catalog,  go to Ambari -> SPARK3 -> Configs -> Change “metastore.catalog.default” from spark to hive. 
  
       :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot shows change metastore config." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
 
