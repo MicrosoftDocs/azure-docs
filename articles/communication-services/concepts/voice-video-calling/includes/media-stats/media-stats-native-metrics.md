@@ -14,7 +14,7 @@ ms.subservice: calling
 
 ## Best practices
 
-If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
+If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
 ### Outgoing audio metrics
 
@@ -24,7 +24,7 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `Bitrate` | Audio send bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `PacketsPerSecond` | Packet rate (packets per second) | |
-| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 | `AvailableBitrate` | Bandwidth estimation (bits per second) | |
 
 ### Incoming audio metrics
@@ -43,7 +43,7 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `CodecName` | Codec name | |
 | `Bitrate` | Video send bitrate (bits per second) | |
 | `PacketsPerSecond` | Packet rate (packets per second) | |
-| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 | `AvailableBitrate` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
 | `FrameRateSent` | Frame rate sent on the RTP stream (frames per second) | |
 | `FrameWidthSent` | Frame width of the encoded frame (pixels) | |
