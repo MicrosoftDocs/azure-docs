@@ -89,16 +89,16 @@ You can convert your model to [Open Neural Network Exchange](https://onnx.ai) (O
 
 For more information on ONNX with Machine Learning, see [Create and accelerate machine learning models](concept-onnx.md).
 
-### Use models
+### Deploy models
 
 You can deploy trained machine learning models as [endpoints](concept-endpoints.md) in the cloud or locally. Deployments use CPU and GPU for inferencing.
 
 When deploying a model as an endpoint, you need to provide the following items:
 
-* The models that are used to score data submitted to the service or device.
-* An entry script<sup>1</sup>. This script accepts requests, uses the models to score the data, and returns a response.
-* An environment<sup>2</sup> that describes the pip and conda dependencies required by the models and entry script.
-* Any other assets, such as text and data, that are required by the models and entry script.
+* The __model__ that is used to score data submitted to the service or device.
+* An __entry script__<sup>1</sup>. This script accepts requests, uses the models to score the data, and returns a response.
+* An __environment__<sup>2</sup> that describes the pip and conda dependencies required by the models and entry script.
+* Any __other assets__, such as text and data, that are required by the models and entry script.
 
 You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning, such as assets needed to run the web service, are also added.
 
@@ -106,78 +106,70 @@ You also provide the configuration of the target deployment platform. For exampl
 
 #### Batch scoring
 
-Batch scoring is supported through batch endpoints. For more information, see [endpoints](concept-endpoints.md).
+Batch scoring is supported through batch endpoints. For more information on batch scoring, see [Batch endpoints](concept-endpoints-batch.md).
 
-#### Online endpoints
+#### Real-time scoring
 
-You can use your models with an online endpoint. Online endpoints can use the following compute targets:
+You can use your models with an online endpoint for real-time scoring. Online endpoints can use the following compute targets:
 
 * Managed online endpoints
 * Azure Kubernetes Service
 * Local development environment
 
-To deploy the model to an endpoint, you must provide the following items:
+To deploy a model to an endpoint, you must provide the following items:
 
 * The model or ensemble of models.
 * Dependencies required to use the model. Examples are a script that accepts requests and invokes the model and conda dependencies.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy online endpoints](how-to-deploy-online-endpoints.md).
+For more information on deployment for real-time scoring, see [Deploy online endpoints](how-to-deploy-online-endpoints.md).
 
-#### Controlled rollout
+#### Controlled rollout for online endpoints
 
 When deploying to an online endpoint, you can use controlled rollout to enable the following scenarios:
 
-* Create multiple versions of an endpoint for a deployment
+* Create multiple versions of an endpoint for a deployment.
 * Perform A/B testing by routing traffic to different deployments within the endpoint.
-* Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
+* Switch between endpoint deployments by updating the traffic percentage in the endpoint configuration.
 
-For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-online-endpoints.md).
+For more information on deployment using a controlled rollout, see [Perform safe rollout of new deployments for real-time inference](./how-to-safely-rollout-online-endpoints.md).
 
 ### Analytics
 
-Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Machine Learning integration in Power BI (preview)](/power-bi/service-machine-learning-integration).
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI)](/power-bi/service-machine-learning-integration.md#azure-machine-learning-integration-in-power-bi).
 
 ## Capture the governance data required for MLOps
 
-Machine Learning gives you the capability to track the end-to-end audit trail of all your machine learning assets by using metadata. For example:
+Azure Machine Learning gives you the capability to track the end-to-end audit trail of all your machine learning assets by using metadata. For example:
 
-- [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
-- [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
-- Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
-- The [Machine Learning Model Registry](./how-to-manage-models.md?tabs=use-local#create-a-model-in-the-model-registry) captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
-- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (job) events.
+- [Azure Machine Learning data assets](how-to-create-register-datasets.md) help you track, profile, and version data.
+- [Model interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for a given input.
+- Azure Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
+- [Azure Machine Learning model registry](./how-to-manage-models.md?tabs=use-local#create-a-model-in-the-model-registry) captures all the metadata associated with your model. For example, which experiment trained the model, where the model is being deployed, and if the model's deployments are healthy.
+- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events, such as model registration, deployment, data drift, and training (job) events, in the machine learning lifecycle.
 
 > [!TIP]
-> While some information on models and datasets is automatically captured, you can add more information by using _tags_. When you look for registered models and datasets in your workspace, you can use tags as a filter.
+> While some information on models and data assets is automatically captured, you can add more information by using _tags_. When you look for registered models and data assets in your workspace, you can use tags as a filter.
 
 ## Notify, automate, and alert on events in the machine learning lifecycle
 
-Machine Learning publishes key events to Azure Event Grid, which can be used to notify and automate on events in the machine learning lifecycle. For more information, see [Use Event Grid](how-to-use-event-grid.md).
+Azure Machine Learning publishes key events to Azure Event Grid, which can be used to notify and automate on events in the machine learning lifecycle. For more information on how to set up event-driven processes based on Azure Machine Learning events, see [Custom CI/CD and event-driven workflows](how-to-use-event-grid.md).
 
 ## Automate the machine learning lifecycle
 
-You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into the Git repo for a project, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+You can use GitHub and [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into a project's Git repo, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
 The [Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
 
 * Enables workspace selection when you define a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Machine Learning, see:
-
-* [Continuous integration and deployment of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
-* [Machine Learning MLOps](https://github.com/Azure/mlops-v2) repository
+For more information on using Azure Pipelines with Machine Learning, see [Use Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md).
 
 
-## Next steps
+## Related content
 
-Learn more by reading and exploring the following resources:
+- [Set up MLOps with Azure DevOps](how-to-setup-mlops-azureml.md)
+- [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
+- [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 
-+ [Set up MLOps with Azure DevOps](how-to-setup-mlops-azureml.md)
-+ [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
-+ [How to deploy a model to an online endpoint](how-to-deploy-online-endpoints.md) with Machine Learning
-+ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
-+ [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
-+ [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
-+ [Azure AI reference architectures and best practices repo](https://github.com/microsoft/AI)
