@@ -481,7 +481,7 @@ public class Function {
             name = "databaseOutput",
             databaseName = "TelemetryDb",
             containerName = "TelemetryInfo",
-            connection = "CosmosDBConnectionString")
+            connection = "CosmosDBConnectionSetting")
             OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 
