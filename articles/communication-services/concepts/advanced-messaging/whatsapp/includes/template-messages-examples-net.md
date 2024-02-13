@@ -2,10 +2,10 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 07/12/2023
+ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -47,11 +47,13 @@ string templateName = "sample_shipping_confirmation";
 string templateLanguage = "en_us"; 
 
 var threeDays = new MessageTemplateText("threeDays", "3");
-IEnumerable<MessageTemplateValue> values = 
-    new List<MessageTemplateValue> { threeDays };
-MessageTemplateWhatsAppBindings bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { threeDays.Name });
-var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(threeDays.Name));
+
+MessageTemplate shippingConfirmationTemplate  = new(templateName, templateLanguage);
+shippingConfirmationTemplate.Bindings = bindings;
+shippingConfirmationTemplate.Values.Add(threeDays);
 ``````
 
 ### Use sample template sample_movie_ticket_confirmation
@@ -88,18 +90,21 @@ var title = new MessageTemplateText("title", "Contoso");
 var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
 var venue = new MessageTemplateText("venue", "Southridge Video");
 var seats = new MessageTemplateText("seats", "Seat 1A");
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    image,
-    title,
-    time,
-    venue,
-    seats
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { image.Name },
-    body: new[] { title.Name, time.Name, venue.Name, seats.Name });
-MessageTemplate movieTicketConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(title.Name));
+bindings.Body.Add(new(time.Name));
+bindings.Body.Add(new(venue.Name));
+bindings.Body.Add(new(seats.Name));
+
+MessageTemplate movieTicketConfirmationTemplate = new(templateName, templateLanguage);
+movieTicketConfirmationTemplate.Values.Add(image);
+movieTicketConfirmationTemplate.Values.Add(title);
+movieTicketConfirmationTemplate.Values.Add(time);
+movieTicketConfirmationTemplate.Values.Add(venue);
+movieTicketConfirmationTemplate.Values.Add(seats);
+movieTicketConfirmationTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_happy_hour_announcement
@@ -135,18 +140,16 @@ var videoUrl = new Uri("< Your .mp4 Video URL >");
 var video = new MessageTemplateVideo("video", videoUrl);
 var venue = new MessageTemplateText("venue", "Fourth Coffee");
 var time = new MessageTemplateText("time", "Today 2-4PM");
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(video.Name));
+bindings.Body.Add(new(venue.Name));
+bindings.Body.Add(new(time.Name));
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    video,
-    venue,
-    time
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { video.Name },
-    body: new[] { venue.Name, time.Name });
-
-var happyHourAnnouncementTemplate = MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate happyHourAnnouncementTemplate = new(templateName, templateLanguage);
+happyHourAnnouncementTemplate.Values.Add(venue);
+happyHourAnnouncementTemplate.Values.Add(time);
+happyHourAnnouncementTemplate.Values.Add(video);
+happyHourAnnouncementTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_flight_confirmation
@@ -184,18 +187,18 @@ var firstName = new MessageTemplateText("firstName", "Kat");
 var lastName = new MessageTemplateText("lastName", "Larssen");
 var date = new MessageTemplateText("date", "July 1st, 2023");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    document,
-    firstName,
-    lastName,
-    date
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { document.Name },
-    body: new[] { firstName.Name, lastName.Name, date.Name });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(document.Name));
+bindings.Body.Add(new(firstName.Name));
+bindings.Body.Add(new(lastName.Name));
+bindings.Body.Add(new(date.Name));
 
-var flightConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate flightConfirmationTemplate = new(templateName, templateLanguage);
+flightConfirmationTemplate.Values.Add(document);
+flightConfirmationTemplate.Values.Add(firstName);
+flightConfirmationTemplate.Values.Add(lastName);
+flightConfirmationTemplate.Values.Add(date);
+flightConfirmationTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_issue_resolution
@@ -248,22 +251,16 @@ var name = new MessageTemplateText(name: "name", text: "Kat");
 var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
 var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    name,
-    yes,
-    no
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { name.Name },
-    button: new[] {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply),
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply)
-    });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(name.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name));
 
-var issueResolutionTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate issueResolutionTemplate = new(templateName, templateLanguage);
+issueResolutionTemplate.Values.Add(name);
+issueResolutionTemplate.Values.Add(yes);
+issueResolutionTemplate.Values.Add(no);
+issueResolutionTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_purchase_feedback
@@ -329,20 +326,14 @@ var image = new MessageTemplateImage(name: "image", uri: imageUrl);
 var product = new MessageTemplateText(name: "product", text: "coffee");
 var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    image,
-    product,
-    urlSuffix
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { image.Name },
-    body: new[] { product.Name },
-    button: new[]
-    {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
-            MessageTemplateValueWhatsAppSubType.Url)
-    });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(product.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name));
 
-var purchaseFeedbackTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate purchaseFeedbackTemplate = new("sample_purchase_feedback", "en_us");
+purchaseFeedbackTemplate.Values.Add(image);
+purchaseFeedbackTemplate.Values.Add(product);
+purchaseFeedbackTemplate.Values.Add(urlSuffix);
+purchaseFeedbackTemplate.Bindings = bindings;
 ``````

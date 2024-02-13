@@ -2,9 +2,9 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
-ms.date: 06/20/2023
+ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -139,7 +139,7 @@ The Channel Registration ID GUID was created during channel registration. You ca
 
 Assign it to a variable called channelRegistrationId   
 ```csharp
-string channelRegistrationId = "<your channel registration id GUID>";
+var channelRegistrationId = new Guid("<your channel registration id GUID>");
 ```
 
 ## Set recipient list
@@ -190,12 +190,12 @@ For further requirements on templates, refer to the guidelines in the WhatsApp B
 
 Assemble the template message:
 ```csharp
-var sendTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, messageTemplate);
+var templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
 ```
 
 Then send the template message:
 ```csharp
-Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
+Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendAsync(templateContent);
 ```
 
 Now, the user needs to respond to template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
@@ -218,12 +218,12 @@ In the text message, provide text to send to the recipient. In this example, we 
 
 Assemble the text message:
 ```csharp
-var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, "Thanks for your feedback.");
+var textContent = = new TextNotificationContent(channelRegistrationId, recipientList, "Thanks for your feedback.");
 ```
 
 Then send the text message:
 ```csharp
-Response<SendMessageResult> sendTextMessageResult = await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
+Response<SendMessageResult> sendTextMessageResult = await notificationMessagesClient.SendAsync(textContent);
 ```
 
 ## Send a media message to WhatsApp user
@@ -237,12 +237,12 @@ var uri = new Uri("https://aka.ms/acsicon1");
 
 Assemble the media message:
 ```csharp
-var sendMediaMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, uri);
+var mediaContent = new MediaNotificationContent(channelRegistrationId, recipientList, uri);
 ```
 
 Then send the media message:
 ```csharp
-Response<SendMessageResult> sendMediaMessageResult = await notificationMessagesClient.SendMessageAsync(sendMediaMessageOptions);
+Response<SendMessageResult> sendMediaMessageResult = await notificationMessagesClient.SendMessageAsync(mediaContent);
 ```
 
 ## Full code example
