@@ -46,17 +46,48 @@ sections:
           You can create databases by using one of these tools:
           
           - [Azure portal](quickstart-portal.md#)
-          - API for NoSQL SDKs
+          - API for NoSQL client (data-plane) SDKs
             - [.NET](quickstart-dotnet.md)
             - [Python](quickstart-python.md)
             - [JavaScript](quickstart-nodejs.md)
             - [Java](quickstart-java.md)
             - [Go](quickstart-go.md)
+          - API for NoSQL management (control-plane) SDKs
+            - [.NET](/dotnet/api/overview/azure/resourcemanager.cosmosdb-readme)
+            - [Python](/python/api/overview/azure/mgmt-cosmosdb-readme)
+            - [JavaScript](/javascript/api/overview/azure/arm-cosmosdb-readme)
+            - [Java](/java/api/overview/azure/resourcemanager-cosmos-readme)
+            - [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmos/armcosmos)
+          - Azure Resource Manager
+            - [JSON template](/azure/templates/microsoft.documentdb/databaseaccounts?pivots=deployment-language-bicep)
+            - [Bicep](/azure/templates/microsoft.documentdb/databaseaccounts?pivots=deployment-language-arm-template)
+            - [Terraform](/azure/templates/microsoft.documentdb/databaseaccounts?pivots=deployment-language-terraform)
           - [REST API](/rest/api/cosmos-db/)
       - question: |
-          How do I configure Azure Cosmos DB for NoSQL users and permissions?
+          How do I configure Azure Cosmos DB for NoSQL database-native users and permissions?
         answer: |
           You can create users and permissions by using one of the Azure Cosmos DB for NoSQL SDKs or the [REST API](/rest/api/cosmos-db/). For more information, see [configure users and resource tokens](../secure-access-to-data.md#resource-tokens). Creating permissions by using resource tokens is allowed at the container level and its descendants (such as documents, attachments). Creating a permission at the database or an account level isn't currently allowed.
+      - question: |
+          Can I authenticate to Azure Cosmos DB for NoSQL using my existing Microsoft Entra ID accounts?
+        answer:
+          Yes! Azure Cosmos DB supports Microsoft Entra authentication to manage the service and its resources (control-plane) and to execute data, operations, and queries (data-plane).
+
+          Control-plane authentication is performed using the [role-based access control]() feature of Azure. You can use a preconfigured built-in role](../../role-based-access-control/built-in-roles.md) or you can [create a custom role](../../role-based-access-control/custom-roles.md). With Azure role-based access control, you can manage accounts, databases, containers, and metadata. The control-plane includes operations including, but not limited to these examples.
+
+          - Creating, replacing, or deleting databases
+          - Creating, replacing, or deleting containers
+          - Reading or replacing database throughput
+          - Reading or replacing container throughput
+
+          For more information, see [Azure Cosmos DB control-plane role-based access control](../role-based-access-control).
+
+          Data-plane authentication uses a custom API for NoSQL-native role-based access control implementation. With this native implementation, you can also use preconfigured or custom roles. With native role-based access control, you can execute queries, manage items, or perform other common operations. The data-plane includes operations including, but not limited to these examples.
+
+          - Creating, replacing, updating, or deleting items
+          - Patching items
+          - Executing queries
+
+          For more information, see [Azure Cosmos DB data-plane role-based access control](../how-to-setup-role-based access control.md).
       - question: |
           Does Azure Cosmos DB for NoSQL support the SQL query language?
         answer: |
@@ -74,7 +105,8 @@ sections:
       - question: |
           How can I bulk-insert documents into Azure Cosmos DB for NoSQL?
         answer: |
-          Use the [bulk import feature](tutorial-dotnet-bulk-import.md) in the .NET SDK for the API for NoSQL. This feature optimizes provisioned throughput to import large sets of data.
+          Use the bulk import feature in the [.NET SDK](tutorial-dotnet-bulk-import.md) or the [Java SDK](bulk-executor-java.md) for the API for NoSQL to import large sets of data. This feature optimizes provisioned throughput to import large sets of data.
+          Alternatively, use [Apache Spark](tutorial-spark-connector.md) to import data at scale using Python or Scala.
       - question: |
           Does Azure Cosmos DB for NoSQL support resource link caching?
         answer: |
