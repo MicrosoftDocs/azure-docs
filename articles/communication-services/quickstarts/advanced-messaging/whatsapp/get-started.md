@@ -9,7 +9,7 @@ ms.author: memontic
 ms.date: 06/20/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
+zone_pivot_groups: acs-js-csharp-java
 ---
 
 # Quickstart: Add Advanced Messaging to your app
@@ -24,7 +24,13 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 - [Connecting a WhatsApp Business Account](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
 - Active WhatsApp Phone Number
 
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-get-started-net.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send WhatsApp Messages with Java](./includes/get-started/messages-get-started-java.md)]
+::: zone-end
 
 ## Next steps
 
