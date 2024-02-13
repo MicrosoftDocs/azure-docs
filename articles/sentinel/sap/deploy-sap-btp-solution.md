@@ -1,5 +1,5 @@
 ---
-title: Deploy Microsoft Sentinel Solution for SAP BTP
+title: Deploy Microsoft Sentinel solution for SAP BTP
 description: Learn how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system.
 author: batamig
 ms.author: bagol
@@ -9,12 +9,12 @@ ms.date: 03/30/2023
 # customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
 ---
 
-# Deploy the Microsoft Sentinel solution forSAP BTP
+# Deploy the Microsoft Sentinel solution for SAP BTP
 
-This article describes how to deploy the Microsoft Sentinel solution forSAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution forSAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel solution forSAP BTP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel solution for SAP BTP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -64,12 +64,12 @@ To set up the BTP account and the solution:
 
 1. Select **Create**.
 
-    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot that shows how to create the Microsoft Sentinel Solution  for SAP BTP." lightbox="./media/deploy-sap-btp-solution/sap-btp-create-solution.png":::
+    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot that shows how to create the Microsoft Sentinel solution  for SAP BTP." lightbox="./media/deploy-sap-btp-solution/sap-btp-create-solution.png":::
 
 1. Select the resource group and the Microsoft Sentinel workspace in which to deploy the solution.
 1. Select **Next** until you pass validation, and then select **Create**.
 1. When the solution deployment is finished, return to your Microsoft Sentinel workspace and select **Data connectors**.
-1. In the search bar, type *BTP*, and then select **SAP BTP (using Azure Function)**.
+1. In the search bar, enter **BTP**, and then select **SAP BTP (using Azure Function)**.
 1. Select **Open connector page**.
 1. On the connector page, make sure that you meet the required prerequisites and complete the configuration steps. In step 2 of the data connector configuration, specify the parameters that you defined in step 4 in this section.
 
@@ -87,11 +87,11 @@ To set up the BTP account and the solution:
 
 ## Consider your account auditing configurations
 
-Consider your global account and subaccount auditing configurations.
+The final step in the deployment process is to consider your global account and subaccount auditing configurations.
 
 ### Global account auditing configuration
 
-When you enable audit log retrieval in the BTP cockpit for the global account: If the subaccount for which you want to entitle the Audit Log Management Service is under a directory, you must entitle the service at the directory level first. Only then can you can entitle the service at the subaccount level.
+When you enable audit log retrieval in the BTP cockpit for the global account: If the subaccount for which you want to entitle the Audit Log Management Service is under a directory, you must entitle the service at the directory level first. Only then can you entitle the service at the subaccount level.
 
 ### Subaccount auditing configuration
 
@@ -101,7 +101,7 @@ The API documentation describes how to enable the audit log retrieval by using t
 
 You also can retrieve the logs via the UI:
 
-1. In your subaccount in Service Marketplace, create an instance of **Audit Log Management Service**.
+1. In your subaccount in SAP Service Marketplace, create an instance of **Audit Log Management Service**.
 1. In the new instance, create a service key.
 1. View the service key and retrieve the required parameters from step 4 of the configuration instructions in the data connector UI (**url**, **uaa.url**, **uaa.clientid**, and **uaa.clientsecret**).
 

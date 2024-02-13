@@ -67,34 +67,35 @@ To deploy SAP solution security content:
 
 1. To start the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription and resource group.
 
-1. For the **Deployment target workspace**, select the Log Analytics workspace (the one that Microsoft Sentinel uses) where you want to deploy the solution.
+1. For the **Deployment target workspace**, select the Log Analytics workspace (the one that Microsoft Sentinel uses) where you want to deploy the solution.<a id="multi-workspace"></a>
 
-<a id="multi-workspace"></a>
+1. If you want to [work with the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md) (preview), select **Some of the data is on a different workspace**, and then do the following steps:
 
-1. If you want to [work with the Microsoft Sentinel solution for SAP applications across multiple workspaces](cross-workspace.md) (preview), select **Some of the data is on a different workspace**, and then do the following steps:
-    1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace.
-    1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
+   1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace.
 
-    For example:
+   1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
 
-    :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
+   For example:
 
-    > [!Note]
-    > If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. If you want the SOC and SAP data to be kept on the same workspace, but to apply additional access controls, review [this scenario](cross-workspace.md#scenario-2-sap-data-is-kept-in-the-soc-workspace).
+   :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
+
+   > [!NOTE]
+   > If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. If you want the SOC and SAP data to be kept on the same workspace, but to apply additional access controls, review [this scenario](cross-workspace.md#scenario-2-sap-data-is-kept-in-the-soc-workspace).
 
 1. Select **Next** to cycle through the **Data Connectors**, **Analytics**, and **Workbooks** tabs, where you can learn about the components that are deployed with this solution.
 
-    For more information, see [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
+   For more information, see [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
 
 1. On the **Review + create tab** pane, wait for the **Validation Passed** message, and then select **Create** to deploy the solution.
 
-    > [!TIP]
-    > You can also select **Download a template** for a link to deploy the solution as code.
+   > [!TIP]
+   > You can also select **Download a template** for a link to deploy the solution as code.
 
-1. When deployment is finished, to display the newly deployed content, go to:
+1. When deployment is finished, to display the newly deployed content:
 
-    - **Threat Management** > **Workbooks** > **My workbooks**, to find the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks).
-    - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
+    - For the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks), go to **Threat Management** > **Workbooks** > **My workbooks**.
+
+    - For a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules), go to **Configuration** > **Analytics**.
 
 1. In Microsoft Sentinel, go to the **Microsoft Sentinel for SAP** data connector to confirm the connection:
 
@@ -104,7 +105,7 @@ To deploy SAP solution security content:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
 
-    For more information, see [Microsoft Sentinel solution for SAP® applications solution logs reference](sap-solution-log-reference.md).
+    For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
 
 ## Troubleshoot
 

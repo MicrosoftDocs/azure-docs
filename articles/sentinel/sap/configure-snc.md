@@ -96,7 +96,7 @@ To associate the certificate with a user account:
 
     ![Screenshot that shows how to create a new entry in the USERACLEXT table.](./media/configure-snc/usraclext-new-entry.png)
 
-1. For **User**, enter the user's username. For **SNC Name**, enter the user's certificate subject name prefixed with **p:**. Select **Save**.
+1. For **User**, enter the user's username. For **SNC Name**, enter the user's certificate subject name prefixed with **p:**, and then select **Save**.
 
     ![Screenshot that shows how to create a new user in USERACLEXT table.](./media/configure-snc/usraclext-new-user.png)
 
@@ -132,11 +132,11 @@ To map ABAP service provider users to external user IDs:
 
 1. In **Determine Work Area: Entry**, select the **DN** ID type for **Work Area**.
 
-1. Enter these details:
+1. Enter the following values:
 
-    - **External ID**: **CN=Sentinel**, **C=US**
-    - **Seq. No**: **000**
-    - **User**: **SENTINEL**
+    - For **External ID**, enter **CN=Sentinel**, **C=US**.
+    - For **Seq. No**, enter **000**.
+    - For **User**, enter **SENTINEL**.
 
 1. Select **Save**, and then select **Enter**.
 
@@ -149,17 +149,17 @@ To map ABAP service provider users to external user IDs:
 
 To set up the container:
 
-1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the target system where the container will be created.
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where the container will be created.
 
-1. Transfer the client certificate (both private and public keys) to the target system where the container will be created.
+1. Transfer the client certificate (both private and public keys) to the system where the container will be created.
 
     The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
 
-1. Transfer the server certificate (public key only) to the target system where the container will be created.
+1. Transfer the server certificate (public key only) to the system where the container will be created.
 
     The server certificate must be in Base64 *.crt* format.
 
-1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the target system where the container will be created.
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
 
 1. Get the kickstart script from the Microsoft Sentinel GitHub repository:
 
@@ -190,7 +190,7 @@ To set up the container:
     --client-key <path to client certificate private key> \
     ```
 
-    If the client certificate is in *.pfx* or *.p12* format:
+    If the client certificate is in *.pfx* or *.p12* format, use these switches:
 
     ```bash
     --client-pfx <pfx filename>

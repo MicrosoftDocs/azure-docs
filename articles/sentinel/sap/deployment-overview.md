@@ -6,12 +6,12 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 06/19/2023
 
-# customer intent: As a business user or decision maker, I want to get an overview of how to deploy the Microsoft Sentinel solution for SAP applications so that I know the extent of what information I need and how to access it.
+# customer intent: As a business user or decision maker, I want to get an overview of how to deploy the Microsoft Sentinel solution for SAP applications so that I know the scope of the information I need and how to access it.
 ---
 
 # Deploy Microsoft Sentinel solution for SAP applications
 
-This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP® applications. The full process is detailed in a set of articles linked under [Deployment milestones](#deployment-milestones).
+This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP applications. The full process is detailed in a set of articles linked under [Deployment milestones](#deployment-milestones).
 
 > [!TIP]
 > Learn how to [monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
@@ -55,7 +55,7 @@ Follow your deployment journey through this series of articles, in which you lea
 
 | Milestone | Article |
 | --------- | ------- |
-| **1. Deployment overview** | **YOU ARE HERE** |
+| **1. Deployment overview** | *YOU ARE HERE* |
 | **2. Plan your architecture** | Learn how to [work with the solution in multiple workspaces](cross-workspace.md) (preview) |
 | **3. Deployment prerequisites** | [Prerequisites for deploying the Microsoft Sentinel solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
 | **4. Prepare your SAP environment** | [Deploy SAP change requests and configure authorization](preparing-sap.md) |
