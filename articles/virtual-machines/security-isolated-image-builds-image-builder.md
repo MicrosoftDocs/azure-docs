@@ -43,7 +43,7 @@ Your image builds will automatically be migrated to Isolated Image Builds and yo
 >
 > After successfully registering your subscription, make sure there are no Azure Policies in your subscription that deny deployment of required resources. Policies allowing only a restricted set of resource types not including Azure Container Instance would block deployment. 
 >
-> Ensure that your subscription also has a sufficient [quota of resources](https://learn.microsoft.com/azure/container-instances/container-instances-resource-and-quota-limits) required for deployment of Azure Container Instance resources.
+> Ensure that your subscription also has a sufficient [quota of resources](../container-instances/container-instances-resource-and-quota-limits.md) required for deployment of Azure Container Instance resources.
 >
 
 > [!IMPORTANT]
