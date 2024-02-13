@@ -14,13 +14,11 @@ ms.author: rwaller
 
 # Create an Immersive Reader resource and configure Microsoft Entra authentication
 
-In this article, we provide a script that creates an Immersive Reader resource and configures Microsoft Entra authentication. Each time an Immersive Reader resource is created, whether with this script or in the portal, it must also be configured with Microsoft Entra permissions.
+This article explains how to create an Immersive Reader resource by using the provided script. This script also configures Microsoft Entra authentication. Each time an Immersive Reader resource is created, whether with this script or in the portal, it must be configured with Microsoft Entra permissions.
 
-The script creates and configures all the necessary Immersive Reader and Microsoft Entra resources for you, all in one step. However, you can also configure Microsoft Entra authentication for an existing Immersive Reader resource, if you already created one in the Azure portal.
+The script creates and configures all the necessary Immersive Reader and Microsoft Entra resources for you. However, you can also configure Microsoft Entra authentication for an existing Immersive Reader resource, if you already created one in the Azure portal. The script first looks for existing Immersive Reader and Microsoft Entra resources in your subscription, and creates them only if they don't already exist.
 
 For some customers, it might be necessary to create multiple Immersive Reader resources, for development versus production, or perhaps for different regions where your service is deployed. For those cases, you can come back and use the script multiple times to create different Immersive Reader resources and get them configured with Microsoft Entra permissions.
-
-The script is designed to be flexible. It first looks for existing Immersive Reader and Microsoft Entra resources in your subscription, and creates them only if they don't already exist.
 
 ## Permissions
 
