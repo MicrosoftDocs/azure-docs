@@ -119,8 +119,7 @@ For example:
 
 Provisioned throughput commitments are created and managed from the **Manage Commitments** view in Azure OpenAI Studio.  You can navigate to this view by selecting **Manage Commitments** from the Quota pane:
 
-:::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
-
+:::image type="content" source="../media/how-to/provisioned-onboarding/notifications.png" alt-text="Screenshot of commitment purchase UI with notifications." lightbox="../media/how-to/provisioned-onboarding/notifications.png":::
 
 From the Manage Commitments view, you can do several things:
 
@@ -135,6 +134,8 @@ With your commitment plan ready, the next step is to create the commitments. Com
 For each new commitment you need to create, follow these steps:
 
 1. Launch the Provisioned Throughput purchase dialog by selecting  **Quotas** > **Provisioned** > **Manage Commitments**.
+
+:::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
 2. Select **Purchase commitment**.
 
@@ -188,8 +189,6 @@ The manage commitments pane provides a subscription wide overview of all resourc
 - **PTUs Committed, Deployed and Usage** – These figures provide the sizes of your commitments, and how much is in use by deployments.  Maximize your investment by using all of your committed PTUs.
 - **Expiration policy and date** - The expiration date and policy tell you when a commitment will expire and what will happen when it does.  A commitment set to auto-renew will generate a billing event on the renewal date.  For commitments that are expiring, be sure you delete deployments from these resources prior to the expiration date to prevent hourly overage billingThe current renewal settings for a commitment. 
 - **Notifications** - Alerts regarding important conditions like unused commitments, and configurations that might result in billing overages. Billing overages can be caused by situations such as when a commitment has expired and deployments are still present, but have shifted to hourly billing.
-
-:::image type="content" source="../media/how-to/provisioned-onboarding/notifications.png" alt-text="Screenshot of commitment purchase UI with notifications." lightbox="../media/how-to/provisioned-onboarding/notifications.png":::
 
 ## Common Commitment Management Scenarios
 
