@@ -24,7 +24,7 @@ The `mediaStatisticsCallFeature` object has the following API structure:
 
 - The `didReceiveReport` delegate method listens for periodic reports of the media statistics.
 - `reportIntervalInSeconds` gets the interval, in seconds, of the media statistics report generation. The SDK uses `10` second as default.
-- `updateReportInterval(inSeconds)` updates the interval, in seconds, of the the media statistics report generation. The SDK uses `10` second as default.
+- `updateReportInterval(inSeconds)` updates the interval, in seconds, of the media statistics report generation. The SDK uses `10` second as default.
 - A `MediaStatisticsReport` object contains the definition of the outgoing and incoming media statistics, categorized by audio, video, and screen share.
   - `outgoingMediaStatistics`: The list of media statistics for outgoing media.
     - `audio`: The list of media statistics for the outgoing audio.
