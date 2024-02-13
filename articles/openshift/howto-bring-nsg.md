@@ -20,7 +20,7 @@ During the cluster creation process, the ARO Resource Provider (RP) establishes 
 
 :::image type="content" source="media/howto-bring-nsg/network-security-group-old.png" alt-text="Diagram showing an overview of how network security groups work in a typical ARO cluster.":::
 
-This article shows how to use the "bring your own" Network Security Group (NSG) feature to attach your own NSG residing in the Base/VNET RG (as shown in the following diagram) to the ARO cluster subnets. Since you own this NSG, you can add/remove rules during the lifetime of the ARO cluster.
+This article shows how to use the "bring your own" Network Security Group (NSG) feature to attach your own NSG residing in the Base/VNET resource group (RG) (as shown in the following diagram) to the ARO cluster subnets. Since you own this NSG, you can add/remove rules during the lifetime of the ARO cluster.
 
 :::image type="content" source="media/howto-bring-nsg/network-security-group-new.png" alt-text="Diagram showing an overview of how to bring your own network security group works in Azure Red Hat OpenShift.":::
 
@@ -30,7 +30,7 @@ This article shows how to use the "bring your own" Network Security Group (NSG) 
 
 1. You can choose to use the same or different preconfigured NSGs for master and worker subnets.
 
-1. When using your own NSG, the ARO RP still creates an NSG in the Managed RG (default NSG), but that NSG isn't attached to the worker or master subnets.
+1. When using your own NSG, the ARO RP still creates an NSG in the Managed Resource Group (default NSG), but that NSG isn't attached to the worker or master subnets.
 
 1. Preconfigured NSGs aren't automatically updated with rules when you create Kubernetes LoadBalancer type services or OpenShift routes within the ARO cluster. Update these rules. This behavior is different from the original ARO behavior wherein the default NSG is programmatically updated in such situations.
 
