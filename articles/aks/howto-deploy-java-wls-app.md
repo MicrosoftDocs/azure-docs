@@ -616,13 +616,10 @@ In the previous steps, you created the auxiliary image including models and WDT.
            sourceWDTInstallHome: /auxiliary/weblogic-deploy
    ```
 
-   Increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
+   Use the following commands to increase the `restartVersion` value and use `kubectl patch` to apply the auxiliary image to the domain CRD using the definition shown:
 
    ```bash
    export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
-   ```
-
-   ```bash
    export VERSION=$((VERSION+1))
 
    cat <<EOF >patch-file.json
@@ -644,14 +641,10 @@ In the previous steps, you created the auxiliary image including models and WDT.
      }
    ]
    EOF
-   ```
 
-   Run the `kubectl patch` command.
-   
-   ```bash
    kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
-     --type=json \
-     --patch-file patch-file.json
+       --type=json \
+       --patch-file patch-file.json
 
    kubectl get pod -n ${WLS_DOMAIN_NS} -w
    ```
