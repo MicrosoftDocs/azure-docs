@@ -107,7 +107,7 @@ You remove the outbound rule and the associated frontend IP configuration from y
 
 ### Create NAT gateway
 
-In this section, you create a NAT gateway with the IP address previously used for outbound rule and assign it to your pre-created subnet within your virtual network. The subnet name for this example is **myBackendSubnet**.
+In this section, you create a NAT gateway with the IP address previously used for outbound rule and assign it to your precreated subnet within your virtual network. The subnet name for this example is **myBackendSubnet**.
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways**.
 
