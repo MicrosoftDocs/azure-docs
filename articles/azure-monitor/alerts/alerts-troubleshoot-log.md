@@ -83,7 +83,7 @@ When the scope resources of an alert rule are no longer valid, rule execution fa
 
 If a log search alert fails continuously for a week, Azure Monitor disables it.
 
-### Query used in a log search alert isn't valid
+### <a name="query-used-in-a-log-alert-isnt-valid"></a>Query used in a log search alert isn't valid
 
 When a log search alert rule is created, the query is validated for correct syntax. But sometimes, the query provided in the log search alert rule can start to fail. Some common reasons are:
 

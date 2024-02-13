@@ -14,7 +14,7 @@ You can use webhook actions in a log search alert rule to invoke a single HTTP P
 
 We recommend that you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
-For log search alert rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described in [Common alert schema](../alerts/alerts-common-schema.md#alert-context-fields-for-log-alerts). If you want to have a custom JSON payload defined, the webhook can't use the common alert schema.
+For log search alert rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described in [Common alert schema](../alerts/alerts-common-schema.md#alert-context-fields-for-log-search-alerts). If you want to have a custom JSON payload defined, the webhook can't use the common alert schema.
 
 Alerts with the common schema enabled have an upper size limit of 256 KB per alert. A bigger alert doesn't include search results. When the search results aren't included, use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 

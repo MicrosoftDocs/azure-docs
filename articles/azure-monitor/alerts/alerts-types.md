@@ -120,7 +120,7 @@ Dynamic thresholds help you:
 
 See [dynamic thresholds](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
-## Log search alerts
+## <a name="log-alerts"></a>Log search alerts
 
 A log search alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, you can perform advanced logic operations on your data and use the robust KQL features to manipulate log data.
 
