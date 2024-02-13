@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 02/12/2024
 ms.author: rwaller
 ---
 
@@ -16,11 +16,11 @@ ms.author: rwaller
 
 In this article, we provide a script that creates an Immersive Reader resource and configures Microsoft Entra authentication. Each time an Immersive Reader resource is created, whether with this script or in the portal, it must also be configured with Microsoft Entra permissions.
 
-The script is designed to create and configure all the necessary Immersive Reader and Microsoft Entra resources for you all in one step. However, you can also configure Microsoft Entra authentication for an existing Immersive Reader resource, if for instance, you already created one in the Azure portal.
+The script creates and configures all the necessary Immersive Reader and Microsoft Entra resources for you, all in one step. However, you can also configure Microsoft Entra authentication for an existing Immersive Reader resource, if you already created one in the Azure portal.
 
-For some customers, it might be necessary to create multiple Immersive Reader resources, for development versus production, or perhaps for multiple different regions your service is deployed in. For those cases, you can come back and use the script multiple times to create different Immersive Reader resources and get them configured with Microsoft Entra permissions.
+For some customers, it might be necessary to create multiple Immersive Reader resources, for development versus production, or perhaps for different regions where your service is deployed. For those cases, you can come back and use the script multiple times to create different Immersive Reader resources and get them configured with Microsoft Entra permissions.
 
-The script is designed to be flexible. It first looks for existing Immersive Reader and Microsoft Entra resources in your subscription, and creates them only as necessary if they don't already exist. If it's your first time creating an Immersive Reader resource, the script does everything you need.
+The script is designed to be flexible. It first looks for existing Immersive Reader and Microsoft Entra resources in your subscription, and creates them only if they don't already exist.
 
 ## Permissions
 
@@ -40,7 +40,7 @@ For more information, see [Microsoft Entra built-in roles](../../active-director
 
 ## Set up PowerShell resources
 
-1. Start by opening the [Azure Cloud Shell](../../cloud-shell/overview.md). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
+1. Start by opening the [Azure Cloud Shell](../../cloud-shell/overview.md). Ensure that Cloud Shell is set to **PowerShell** in the upper-left hand dropdown or by typing `pwsh`.
 
 1. Copy and paste the following code snippet into the shell.
 
@@ -175,7 +175,7 @@ For more information, see [Microsoft Entra built-in roles](../../active-director
     Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<MICROSOFT_ENTRA_DISPLAY_NAME>' -AADAppIdentifierUri '<MICROSOFT_ENTRA_IDENTIFIER_URI>' -AADAppClientSecretExpiration '<MICROSOFT_ENTRA_CLIENT_SECRET_EXPIRATION>'
     ```
 
-    The full command looks something like the following. Here we put each parameter on its own line for clarity, so you can see the whole command. __Do not copy or use this command as-is.__ Copy and use the command with your own values. This example has dummy values for the '<PARAMETER_VALUES>'. Yours might be different, as you come up with your own names for these values.
+    The full command looks something like the following. Here we put each parameter on its own line for clarity, so you can see the whole command. __Do not copy or use this command as-is.__ Copy and use the command with your own values. This example has dummy values for the `<PARAMETER_VALUES>`. Yours might be different, as you come up with your own names for these values.
 
     ```
     Create-ImmersiveReaderResource
@@ -194,17 +194,17 @@ For more information, see [Microsoft Entra built-in roles](../../active-director
     | Parameter | Comments |
     | --- | --- |
     | SubscriptionName |Name of the Azure subscription to use for your Immersive Reader resource. You must have a subscription in order to create a resource. |
-    | ResourceName |  Must be alphanumeric, and might contain `-`, as long as the `-` isn't the first or last character. Length can't exceed 63 characters.|
-    | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and might contain `-`, as long as the `-` isn't the first or last character. Length can't exceed 63 characters. This parameter is optional if the resource already exists. |
+    | ResourceName |  Must be alphanumeric, and can contain `-`, as long as the `-` isn't the first or last character. Length can't exceed 63 characters.|
+    | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and can contain `-`, as long as the `-` isn't the first or last character. Length can't exceed 63 characters. This parameter is optional if the resource already exists. |
     | ResourceSKU |Options: `S0` (Standard tier) or `S1` (Education/Nonprofit organizations). To learn more about each available SKU, visit our [Azure AI services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/). This parameter is optional if the resource already exists. |
     | ResourceLocation |Options: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `germanywestcentral`, `japaneast`, `japanwest`, `jioindiawest`, `koreacentral`, `northcentralus`, `northeurope`, `norwayeast`, `southafricanorth`, `southcentralus`, `southeastasia`, `swedencentral`, `switzerlandnorth`, `switzerlandwest`, `uaenorth`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `westus3`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group doesn't already exist, a new one with this name is created. |
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Microsoft Entra application display name. If an existing Microsoft Entra application isn't found, a new one with this name is created. This parameter is optional if the Microsoft Entra application already exists. |
     | AADAppIdentifierUri |The URI for the Microsoft Entra application. If an existing Microsoft Entra application isn't found, a new one with this URI is created. For example, `api://MyOrganizationImmersiveReaderAADApp`. Here we're using the default Microsoft Entra URI scheme prefix of `api://` for compatibility with the [Microsoft Entra policy of using verified domains](../../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains). |
-    | AADAppClientSecretExpiration |The date or datetime after which your Microsoft Entra Application Client Secret (password) will expire (for example, '2020-12-31T11:59:59+00:00' or '2020-12-31'). This function creates a client secret for you. |
+    | AADAppClientSecretExpiration |The date or datetime after which your Microsoft Entra Application Client Secret (password) expires (for example, '2020-12-31T11:59:59+00:00' or '2020-12-31'). This function creates a client secret for you. |
 
-    To manage your Microsoft Entra application client secrets after you create this resource, visit the [Azure portal](https://portal.azure.com) and go to Home -> Microsoft Entra ID -> App Registrations -> (your app) `[AADAppDisplayName]` -> Certificates and Secrets section -> Client Secrets section.
+    To manage your Microsoft Entra application client secrets after you create this resource, visit the [Azure portal](https://portal.azure.com) and go to **Home** -> **Microsoft Entra ID** -> **App Registrations** -> (your app) `[AADAppDisplayName]` -> **Certificates and Secrets** section -> **Client Secrets** section.
 
     :::image type="content" source="media/client-secrets-blade.png" alt-text="Screenshot of the Azure portal Certificates and Secrets pane." lightbox="media/client-secrets-blade.png":::
 
