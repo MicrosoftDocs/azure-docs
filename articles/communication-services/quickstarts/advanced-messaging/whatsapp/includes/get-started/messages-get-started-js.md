@@ -61,7 +61,7 @@ In the following sections, you'll add all the source code for this quickstart to
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services SMS SDK for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Advance Messaging SDK for JavaScript.
 
 ```console
 npm install @azure-rest/communication-messages --save
@@ -120,7 +120,7 @@ const client:MessagesServiceClient = MessageClient(endpoint, credential);
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+MessagesService clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```typescript
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -203,7 +203,8 @@ Template definition:
 
 ### Send a Text Message
 
-`Note: Business can't start a conversation with a text message. It needs to be user initiated.`
+> [!NOTE]
+> Business can't start a conversation with a text message. It needs to be user initiated.
 
 ```typescript
     // Quickstart code
@@ -229,7 +230,8 @@ Template definition:
 
 ### Send a Media Message
 
-`Note: Business can't start a conversation with a media message. It needs to be user initiated.`
+> [!NOTE]
+> Business can't start a conversation with a media message. It needs to be user initiated.
 
 ```typescript
     // Quickstart code
