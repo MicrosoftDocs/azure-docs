@@ -19,7 +19,7 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- An Azure OpenAI resource created in the `SwedenCentral` region.
+- An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 #### [DALL-E 2](#tab/dalle2)
