@@ -4,7 +4,6 @@ description: Learn how to enable enhanced security features in Microsoft Defende
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 08/09/2023
 ---
 

@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/28/2023
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
@@ -63,7 +62,7 @@ Addresses can be resized in the following ways:
 
 - Resizing of address space is supported cross-tenant
 
-Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
+Syncing of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
 
 > [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.date: 01/25/2023
-ms.custom: UpdateFrequency5, devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1
 ---
 
 # Train a regression model with AutoML and Python (SDK v1)

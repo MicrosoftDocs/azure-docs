@@ -42,7 +42,7 @@ The following are available input parameters:
 
 ## Outputs
 
-The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Faiss Index Search, the following fields are populated:
+The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by the `promptflow-vectordb` SDK. For the Faiss Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |

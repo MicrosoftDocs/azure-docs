@@ -8,7 +8,6 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for users to resources so that they can perform their job.

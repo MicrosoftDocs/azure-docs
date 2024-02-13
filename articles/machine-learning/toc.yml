@@ -114,10 +114,6 @@
       href: ./v1/tutorial-train-deploy-notebook.md
     - name: "Build a training pipeline (Python)"
       href: "./v1/tutorial-pipeline-python-sdk.md"
-    - name: Microsoft Power BI integration
-      items:
-        - name: "Train and deploy models"
-          href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
 - name: Interact with Azure Machine Learning
   items:

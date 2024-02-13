@@ -5,11 +5,14 @@ author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.date: 4/28/2022
 ---
 
 # Deploy an application with a custom container image
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -111,7 +114,7 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
 | API portal for VMware Tanzu                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
 | Spring Cloud Gateway for VMware Tanzu              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.         
+| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.
 | Application Live View for VMware Tanzu             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VMware Tanzu Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
