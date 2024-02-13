@@ -64,7 +64,7 @@ sections:
       - question: |
           Does Azure Cosmos DB for NoSQL support SQL aggregation functions?
         answer: |
-          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions such as: `COUNT`, `MAX`, `AVG`, and `SUM` via the NoSQL query language.
+          The API for NoSQL supports aggregation via aggregate functions such as: `COUNT`, `MAX`, `AVG`, and `SUM` via the NoSQL query language.
       - question: |
           How does Azure Cosmos DB for NoSQL provide concurrency?
         answer: |
