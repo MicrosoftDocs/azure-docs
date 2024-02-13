@@ -21,7 +21,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-4](#gpt-4-and-gpt-4-turbo-preview) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
-| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
 | [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
 
 ## GPT-4 and GPT-4 Turbo Preview
@@ -55,9 +55,9 @@ The previous embeddings models have been consolidated into the following new rep
 
 `text-embedding-ada-002`
 
-## DALL-E (Preview)
+## DALL-E
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+The DALL-E models generate images from text prompts that the user provides.
 
 ## Whisper (Preview)
 
@@ -181,7 +181,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |--|--|
 |`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
-### DALL-E models (Preview)
+### DALL-E models
 
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
