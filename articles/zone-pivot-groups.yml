@@ -1565,6 +1565,14 @@ groups:
     title: Web
   - id: platform-mobile
     title: Mobile
+- id: acs-plat-web-native
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-native
+    title: Native
 - id: acs-plat-web-ios-android-windows
   title: Platform
   prompt: Choose a platform

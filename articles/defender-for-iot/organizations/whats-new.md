@@ -16,11 +16,24 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## February 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console) |
+
+### Alert ID now aligned on the Azure portal and sensor console
+
+The alert ID in the **Id** column on the Azure portal **Alerts** page now displays the same alert ID as the sensor console. [Learn more about alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal).
+
+> [!NOTE]
+> If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
+
 ## January 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
+| **OT networks** | [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) |
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
