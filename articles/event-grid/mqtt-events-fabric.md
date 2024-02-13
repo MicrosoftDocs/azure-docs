@@ -30,7 +30,7 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
     1. [Create an Event Grid namespace and a topic](create-view-manage-namespace-topics.md#create-a-namespace-topic). 
     1. [Enable managed identity on the namespace](event-grid-namespace-managed-identity.md).
     1. [Add the identity to Azure Event Hubs Data Sender role on the Event Hubs namespace or event hub](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). 
-    1. [Create an event subscription to the topic using Azure Event Hubs as the destination type and select your event hub](mqtt-routing-to-event-hubs-portal.md#create-an-event-subscription-with-event-hubs-as-the-endpoint). 
+    1. [Create a subscription to the topic using Azure Event Hubs as the destination type and select your event hub](mqtt-routing-to-event-hubs-portal.md#create-an-event-subscription-with-event-hubs-as-the-endpoint). 
     1. [Create an Event Grid namespace and enable MQTT broker](mqtt-publish-and-subscribe-portal.md#create-a-namespace). 
     1. [Enable routing to a namespace topic](mqtt-routing-to-event-hubs-portal.md#configure-routing-in-the-event-grid-namespace).     
 1. In Microsoft Fabric, do these steps:
