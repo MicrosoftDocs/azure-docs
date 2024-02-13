@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Understand path lengths in Azure NetApp Files 
 
-File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor if the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of ASCII uses 8-bit encoding, which means that file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
+File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor if the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of ASCII uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
 
 The following table shows the supported component and path lengths in Azure NetApp Files volumes:
 
@@ -26,7 +26,7 @@ The following table shows the supported component and path lengths in Azure NetA
 
 If an SMB share name is `\\SMB-SHARE`, the share name adds 11 Unicode characters to the path length because each character is 1 byte. If the path to a specific file is `\\SMB-SHARE\apps\archive\file`, it's 29 Unicode characters; each character, including the slashes, is 1 byte. For NFS mounts, the same concepts apply. The mount path  `/AzureNetAppFiles` is 17 Unicode characters of 1 byte each. 
 
-Azure NetApp Files supports the same path length for SMB shares that modern Windows servers support: [up to 32,767 bytes](/windows/win32/fileio/maximum-file-path-limitation). However, depending on the version of the Windows client, some applications might not be able to [support paths longer than 260 bytes](/windows/win32/fileio/naming-a-file). Individual path components (the values between slashes, such as file or folder names) support up to 255 bytes. For instance, a file name using the Latin capital “A” (which takes up 1 byte per character) in a file path in Azure NetApp Files can't exceed 255 characters. 
+Azure NetApp Files supports the same path length for SMB shares that modern Windows servers support: [up to 32,767 bytes](/windows/win32/fileio/maximum-file-path-limitation). However, depending on the version of the Windows client, some applications can't [support paths longer than 260 bytes](/windows/win32/fileio/naming-a-file). Individual path components (the values between slashes, such as file or folder names) support up to 255 bytes. For instance, a file name using the Latin capital “A” (which takes up 1 byte per character) in a file path in Azure NetApp Files can't exceed 255 characters. 
 
 ```
 # mkdir 256charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
@@ -92,7 +92,7 @@ character  byte       UTF-32 encoded as  glyph   name
 
 **Result 4:** A file named 😃😃😃 uses 12 bytes out of 255.
 
-Most emojis fall into the 4-byte range, while others can extend out to up to 7 bytes. Of the more than one thousand standard emojis, approximately 180 are in the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane), which means they can be displayed as text or emoji in Azure NetApp Files, depending on the client’s support for the language type.
+Most emojis fall into the 4-byte range but can go up to 7 bytes. Of the more than one thousand standard emojis, approximately 180 are in the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane), which means they can be displayed as text or emoji in Azure NetApp Files, depending on the client’s support for the language type.
 
 For more detailed information on the BMP and other Unicode planes, see [Understand volume languages in Azure NetApp Files](understand-volume-languages.md).
 
@@ -112,7 +112,7 @@ Consider the following scenarios:
 
 -	**A file or folder repeats the grinning face emoji (😃) in its name.**
 
-A grinning face emoji (😃) uses 4 bytes, which means that a file name with only that emoji would allow a total of 64 characters (255 bytes/4 bytes).
+A grinning face emoji (😃) uses 4 bytes, meaning a file name with only that emoji would allow a total of 64 characters (255 bytes/4 bytes).
 
 - A file or folder uses a combination of different characters (ie, Name字😃). 
 
@@ -120,7 +120,7 @@ When different characters with different byte sizes are used in a file or folder
 
 #### Special emoji concepts
 
-Special emojis, such as a flag emoji, fall into the BMP classification: the emoji renders as text or an image depending on client support. When a client doesn't support the image designation, it instead uses regional text-based designations. 
+Special emojis, such as a flag emoji, exist under the BMP classification: the emoji renders as text or image depending on client support. When a client doesn't support the image designation, it instead uses regional text-based designations. 
 
 For instance, the [United States flag](https://emojipedia.org/flag-united-states) use the characters "us" (which resemble the Latin characters U+S, but are actually special characters that use different encodings). Uniname shows the differences between the characters.
 
@@ -139,23 +139,22 @@ character  byte  UTF-32   encoded as     glyph  name
 
 Characters designated for the flag emojis translate to flag images in supported systems, but remain as text values in unsupported systems. These characters use 4 bytes per character for a total of 8 bytes when a flag emoji is used. As such, a total of 31 flag emojis are allowed in a file name (255 bytes/8 bytes).
 
-
 ## SMB path limits 
 
-By default, Windows servers and clients support path lengths up to 260 bytes, but the actual file path lengths are shorter due to extra metadata added to Windows paths, such as [the `<NUL>` value](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry), domain information, etc.
+By default, Windows servers and clients support path lengths up to 260 bytes, but the actual file path lengths are shorter due to metadata added to Windows paths such as [the `<NUL>` value](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry) and domain information.
 
 When a path limit is exceeded in Windows, a dialog box appears:
 
 :::image type="content" source="./media/understand-path-lengths/path-length-warning.png" alt-text="Screenshot of path length dialog warning.":::
 
 
-SMB path lengths can be extended when using Windows 10/Windows server 2016, version 1607 or later by changing a registry value as covered in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry). When this value is changed, path lengths can extend out to up to 32,767 bytes (minus metadata values).
+SMB path lengths can be extended when using Windows 10/Windows Server 2016 version 1607 or later by changing a registry value as covered in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry). When this value is changed, path lengths can extend out to up to 32,767 bytes (minus metadata values).
 
 :::image type="content" source="./media/understand-path-lengths/path-group-policy-management.png" alt-text="Screenshot of Group Policy Management window.":::
 
 :::image type="content" source="./media/understand-path-lengths/enable-long-paths.png" alt-text="Screenshot of window to enable long file paths.":::
 
-Once this feature is enabled, the SMB share needs to be accessed using `\\?\` in the path to allow longer path lengths. This method doesn't support UNC paths, so the SMB share needs to be mapped to a drive letter.
+Once this feature is enabled, you must access the SMB share needs using `\\?\` in the path to allow longer path lengths. This method doesn't support UNC paths, so the SMB share needs to be mapped to a drive letter.
 
 :::image type="content" source="./media/understand-path-lengths/dialog-cannot-find.png" alt-text="Screenshot of dialog window with undiscoverable path.":::
 
@@ -164,7 +163,7 @@ Using `\\?\Z:` instead allows access and supports longer file paths.
 :::image type="content" source="./media/understand-path-lengths/longer-path-name-directory.png" alt-text="Screenshot of a directory with a long name.":::
 
 >[!NOTE]
->The Windows CMD does not currently support the use of `\\?\`.
+>The Windows CMD doesn't currently support the use of `\\?\`.
 
 ### Workaround if the max path length cannot be increased
 
@@ -181,17 +180,17 @@ In most cases, Unicode characters are 1 byte or less, so the 4,096-byte limit co
 The path length max can be queried using the `getconf PATH_MAX /NFSmountpoint` command.
 
 >[!NOTE]
->The limit is defined in the `limits.h` file on the NFS client.You should not adjust these limits.
+>The limit is defined in the `limits.h` file on the NFS client. You shouldn't adjust these limits.
 
 ## Dual-protocol volume considerations 
 
-When using Azure NetApp Files for dual protocol access (SMB and NFS on the same datasets), the difference in how path lengths are handled in those protocols can create incompatibilities across file and folders. For instance, Windows SMB supports up to 32,767 characters in a path (provided the long path feature is enabled on the SMB client), but NFS support can exceed that amount. As such, if a path length is created in NFS that exceeds the support of SMB, clients are unable to access the data once the path length maximums have been reached. In those cases, either take care to consider the lower end limits of file path lengths across protocols when creating file and folder names (and folder path depth) or map SMB shares closer to the desired folder path to reduce the path length.
+When using Azure NetApp Files for dual-protocol access, the difference in how path lengths are handled in NFS and SMB protocols can create incompatibilities across file and folders. For instance, Windows SMB supports up to 32,767 characters in a path (provided the long path feature is enabled on the SMB client), but NFS support can exceed that amount. As such, if a path length is created in NFS that exceeds the support of SMB, clients are unable to access the data once the path length maximums have been reached. In those cases, either take care to consider the lower end limits of file path lengths across protocols when creating file and folder names (and folder path depth) or map SMB shares closer to the desired folder path to reduce the path length.
 
 Instead of mapping the SMB share to the top level of the volume to navigate down to a path of `\\share\folder1\folder2\folder3\folder4`, consider mapping the SMB share to the entire path of `\\share\folder1\folder2\folder3\folder4`. As a result, a drive letter mapping to `Z:` lands in the desired folder and reduces the path length from `Z:\folder1\folder2\folder3\folder4\file` to `Z:\file`.
 
 ### Special character considerations
 
-Azure NetApp Files volumes use a volume language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8), which covers many countries and languages including German, Cyrillic, Hebrew, most Chinese/Japanese/Korean (CJK), and others. Most common text characters in Unicode are 3 bytes or less. Special characters, such as emojis, musical symbols, and mathematical symbols are often larger than 3 bytes in size. Some use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
+Azure NetApp Files volumes use a language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8), which covers many countries and languages including German, Cyrillic, Hebrew, and most Chinese/Japanese/Korean (CJK). Most common text characters in Unicode are 3 bytes or less. Special characters--such as emojis, musical symbols, and mathematical symbols--are often larger than 3 bytes. Some use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
 
 If you use a character that Azure NetApp Files doesn't support, you might see a warning requesting a different file name. 
 

@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Understand volume languages in Azure NetApp Files
 
-Volume language (akin to system locales on client operating systems) on an Azure NetApp Files volume controls the supported languages and character sets when using [NFS and SMB protocols](network-attached-storage-protocols.md). Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane) (including Japanese, German, most of Hebrew and Cyrillic, and others). For more information about the BMP, see [Unicode](#unicode).
+Volume language (akin to system locales on client operating systems) on an Azure NetApp Files volume controls the supported languages and character sets when using [NFS and SMB protocols](network-attached-storage-protocols.md). Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane) (including Japanese, German, and  most of Hebrew and Cyrillic). For more information about the BMP, see [Unicode](#unicode).
 
 Characters outside of the BMP sometimes exceed the 3-byte size supported by Azure NetApp Files. They thus need to use [surrogate pair logic](/globalization/encoding/surrogate-pairs), where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are supported in Azure NetApp Files in scenarios where UTF-8 isn't enforced: such as Windows clients that use UTF-16 encoding or NFSv3 that doesn't enforce UTF-8. NFSv4.x does enforce UTF-8, meaning surrogate pair characters don't display properly when using NFSv4.x. 
 
@@ -26,21 +26,21 @@ In an Azure NetApp Files file sharing environment, file and folder names are rep
 
 For instance, the Japanese character for data is 資. Since this character can't be represented in ASCII, a client using ASCII encoding show a “?” instead of 資.
 
-[ASCII supports only 95 printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters), principally those found in the English language. Each of those characters uses 1 byte, which is factored into the [total file path length](understand-path-lengths.md) on an Azure NetApp Files volume. This limits the internationalization of datasets, since file names may have a variety of characters not recognized by ASCII, from Japanese to Cyrillic to emoji. An international standard ([ISO/IEC 8859](https://en.wikipedia.org/wiki/ISO/IEC_8859)) further attempted to support more international characters, but also had its limitations. Most modern clients send and receive characters using some form of Unicode.   
+[ASCII supports only 95 printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters), principally those found in the English language. Each of those characters uses 1 byte, which is factored into the [total file path length](understand-path-lengths.md) on an Azure NetApp Files volume. This limits the internationalization of datasets, since file names can have a variety of characters not recognized by ASCII, from Japanese to Cyrillic to emoji. An international standard ([ISO/IEC 8859](https://en.wikipedia.org/wiki/ISO/IEC_8859)) attempted to support more international characters, but also had its limitations. Most modern clients send and receive characters using some form of Unicode.   
 
 ### Unicode
 
-As a result of the limitations of ASCII and ISO/IEC 8859 encodings, the [Unicode](https://home.unicode.org/) standard was established so that anyone in any country in the world is able to view their home regions language from their devices. 
+As a result of the limitations of ASCII and ISO/IEC 8859 encodings, the [Unicode](https://home.unicode.org/) standard was established so anyone can view their home region's language from their devices. 
 
-* Unicode can support over a million character sets by increasing both the number of bytes per character allowed (up to 4 bytes) and the total number of bytes allowed in a file path as opposed to older encodings, such as ASCII.  
+* Unicode supports over one million character sets by increasing both the number of bytes per character allowed (up to 4 bytes) and the total number of bytes allowed in a file path as opposed to older encodings, such as ASCII.  
 * Unicode supports backwards compatibility by reserving the first 128 characters for ASCII, while also ensuring the first 256 code points are identical to ISO/IEC 8859 standards. 
-* In the Unicode standard, character sets are broken down into planes, which is a continuous group of 65,536 code points. In total, there are 17 planes (0-16) in the Unicode standard. The limit is 17 due to the limitations of UTF-16. 
+* In the Unicode standard, character sets are broken down into planes. A plane is8 a continuous group of 65,536 code points. In total, there are 17 planes (0-16) in the Unicode standard. The limit is 17 due to the limitations of UTF-16. 
 * Plane 0 is the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane). This plane contains the most commonly used characters across multiple languages. 
 * Of the 17 planes, only five currently have assigned character sets as of [Unicode version 15.1](https://www.unicode.org/versions/Unicode15.1.0/). 
 * Planes 1-17 are known as [Supplementary Multilingual Planes (SMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Supplementary_Multilingual_Plane) and contain less-used character sets, for example ancient writing systems such as cuneiform and hieroglyphs, as well as special Chinese/Japanese/Korean (CJK) characters. 
-* For methods to see character lengths and path sizes, as well as controlling the encoding sent to a system, see the section below called [Converting files to different encodings](#converting-files-to-different-encodings). 
+* For methods to see character lengths and path sizes and to control the encoding sent to a system, see [Converting files to different encodings](#converting-files-to-different-encodings). 
 
-Unicode leverages [Unicode Transformation Format](https://unicode.org/faq/utf_bom.html) as its standard, with UTF-8 and UTF-16 being the two main formats. 
+Unicode uses [Unicode Transformation Format](https://unicode.org/faq/utf_bom.html) as its standard, with UTF-8 and UTF-16 being the two main formats. 
 
 #### Unicode planes
 
@@ -69,7 +69,7 @@ Characters in UTF-8 format each use 1 to 4 bytes, but nearly all characters in a
 - A copyright symbol "©" uses 2 bytes.
 - The character "ä" uses 2 bytes. (1 byte for "a" + 1 byte for the umlaut)
 - The Japanese Kanji symbol for data (資) uses 3 bytes.
-- A grinning face emjoiemoji (😃) uses 4 bytes.
+- A grinning face emoji (😃) uses 4 bytes.
 
 Language locales can use either computer standard UTF-8 (C.UTF-8) or a more [region-specific format](https://docs.moodle.org/403/en/Table_of_locales), such as en\_US.UTF-8, ja.UTF-8, etc. You should use UTF-8 encoding for Linux clients when accessing Azure NetApp Files whenever possible. As of OS X, macOS clients also use UTF-8 for its default encoding and shouldn't be adjusted.
 
@@ -77,11 +77,11 @@ Windows clients use UTF-16. In most cases, this setting should be left as the de
 
 #### UTF-16
 
-UTF-16 uses 16-bit encoding and is capable of encoding all 1,112,064 code points of Unicode. The encoding for UTF-16 can use one or two 16-bit code units, each 2 bytes in size. This means all characters in UTF-16 use 2 or 4-byte sizes. Characters in UTF-16 that use 4 bytes do so by leveraging [surrogate pairs](/windows/win32/intl/surrogates-and-supplementary-characters), which combine two separate 2-byte characters to create a new character. These supplementary characters fall outside of the standard BMP plane and into one of the other multilingual planes.
+UTF-16 uses 16-bit encoding and is capable of encoding all 1,112,064 code points of Unicode. The encoding for UTF-16 can use one or two 16-bit code units, each 2 bytes in size. All characters in UTF-16 use 2 or 4-byte sizes. Characters in UTF-16 that use 4 bytes leverage [surrogate pairs](/windows/win32/intl/surrogates-and-supplementary-characters), which combine two separate 2-byte characters to create a new character. These supplementary characters fall outside of the standard BMP plane and into one of the other multilingual planes.
 
-UTF-16 is used in Windows operating systems and APIs, Java, and JavaScript. Since it doesn't support backwards compatibility with ASCII formats, it never gained popularity on the web. As such, UTF-16 only makes up around 0.002% of all pages on the internet. The [Web Hypertext Application Technology Working Group (WHATWG)](https://en.wikipedia.org/wiki/WHATWG) considers UTF-8 "the mandatory encoding for all text" and recommends applications not use UTF-16 for browser security.
+UTF-16 is used in Windows operating systems and APIs, Java, and JavaScript. Since it doesn't support backwards compatibility with ASCII formats, it never gained popularity on the web. UTF-16 only makes up around 0.002% of all pages on the internet. The [Web Hypertext Application Technology Working Group (WHATWG)](https://en.wikipedia.org/wiki/WHATWG) considers UTF-8 "the mandatory encoding for all text" and recommends applications not use UTF-16 for browser security.
 
-Azure NetApp Files supports most UTF-16 characters, including those that leverage surrogate pairs. In cases where the character isn't supported, Windows clients report a "file name you specified isn't valid or too long" error.
+Azure NetApp Files supports most UTF-16 characters, including surrogate pairs. In cases where the character isn't supported, Windows clients report an error of "file name you specified isn't valid or too long."
 
 ## Character set handling over remote clients
 
@@ -91,7 +91,7 @@ For instance, using an encoding of UTF-8 for the remote connection shows predict
 
 ### Character encoding in PuTTY
 
-When a [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) window uses UTF-8 (found in Windows' translation settings), the character is represented properly for an NFSv3 mounted volume in Azure NetApp Files:
+When a [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) window uses UTF-8 (found in Windows's translation settings), the character is represented properly for an NFSv3 mounted volume in Azure NetApp Files:
 
 :::image type="content" source="./media/understand-volume-languages/putty-utf-8.png" alt-text="Screenshot of PuTTY Reconfiguration window." lightbox="./media/understand-volume-languages/putty-utf-8.png":::
 
@@ -155,22 +155,22 @@ When using either CMD or [PowerShell](/powershell/scripting/dev-cross-plat/vscod
 
 :::image type="content" source="./media/understand-volume-languages/command-prompt-font.png" alt-text="Screenshot of command prompt font options.":::
 
-File names may not display as expected depending on the font used as some consoles don't natively support Segoe UI or other fonts that render special characters properly. 
+File names might not display as expected depending on the font used as some consoles don't natively support Segoe UI or other fonts that render special characters properly. 
 
 :::image type="content" source="./media/understand-volume-languages/nfsv3-directory.png" alt-text="Screenshot of dir output.":::
 
-This can be addressed on Windows clients by using [PowerShell ISE](/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise), which provides more robust font changes. For instance, setting the PowerShell ISE to Segoe UI displays the file names with supported characters properly.
+This issue can be addressed on Windows clients by using [PowerShell ISE](/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise), which provides more robust font support. For instance, setting the PowerShell ISE to Segoe UI displays the file names with supported characters properly.
 
-:::image type="content" source="./media/understand-volume-languages/powershell-nfsv3-output.png" alt-text="Screenshot of dir output in PowerShell.":::
+:::image type="content" source="./media/understand-volume-languages/powershell-nfsv3-output.png" lightbox="./media/understand-volume-languages/powershell-nfsv3-output.png" alt-text="Screenshot of dir output in PowerShell.":::
 
 However, PowerShell ISE is designed for scripting, rather than managing shares. Newer Windows versions offer [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701), which allows for control over the fonts and encoding values.
 
 >[!NOTE]
-> Use the `[chcp](/windows-server/administration/windows-commands/chcp)` command to view the encoding for the terminal. For a complete list of code pages, see [Code page identifiers](/windows/win32/intl/code-page-identifiers).
+> Use the [`chcp`](/windows-server/administration/windows-commands/chcp) command to view the encoding for the terminal. For a complete list of code pages, see [Code page identifiers](/windows/win32/intl/code-page-identifiers).
 
 :::image type="content" source="./media/understand-volume-languages/chcp-output.png" alt-text="Screenshot of command output.":::
 
-If the volume is enabled for dual-protocol (both NFS and SMB), you might observe different behaviors. For more information, see [Dual protocol behaviors with special character sets](#dual-protocol-behaviors).
+If the volume is enabled for dual-protocol (both NFS and SMB), you might observe different behaviors. For more information, see [Dual-protocol behaviors with special character sets](#dual-protocol-behaviors).
 
 
 ## NFS behaviors
@@ -202,7 +202,7 @@ NFSv3 doesn't enforce UTF encoding on files and folders. In most cases, special 
 
 In the following screenshot, Bastion is unable to copy and paste the values to the CLI prompt from outside of the browser when naming a directory over NFSv3. When attempting to copy and paste the value of `NFSv3Bastion_ _𓀀 __𫝁__ 😃__𐒸_`, the special characters display as quotation marks in the input.
 
-:::image type="content" source="./media/understand-volume-languages/nfsv3-directory.png" alt-text="Screenshot mkdir command in Bastion.":::
+:::image type="content" source="./media/understand-volume-languages/bastion-mkdir.png" alt-text="Screenshot mkdir command in Bastion.":::
 
 The copy-paste command is permitted over NFSv3, but the characters are created as their numeric values, affecting their display:
 
@@ -276,7 +276,7 @@ Change: 2024-01-10 17:31:35.049770000 +0000
 Birth: -
 ```
 
-Even though the folder is confirmed to exist, wildcard commands won't work, as the client can't officially "see" the folder in the display.
+Even though the folder is confirmed to exist, wildcard commands don't work, as the client can't officially "see" the folder in the display.
 
 ```
 root@ubuntu:/NFSv4/NFS$ cp \* /NFSv3/
@@ -284,16 +284,16 @@ root@ubuntu:/NFSv4/NFS$ cp \* /NFSv3/
 cp: can't stat '\*': No such file or directory
 ```
 
-Another way character formatting behavior can manifest when using NFSv4.1 is when a character is used that doesn't rely on UTF-8 encoding. In those scenarios, NFSv4.1 sends an error to the client.
+NFSv4.1 sends an error to the client when it encounters a character that doesn't rely on UTF-8 encoding. 
 
-For example, when using Bastion to attempt access to the same directory we created using PuTTY over NFSv4.1, this is the result.
+For example, when using Bastion to attempt access to the same directory we created using PuTTY over NFSv4.1, this is the result:
 
 ```
 root@ubuntu:/NFSv4/NFS$ cd "NFSv4 Putty 𓀀𫝁😃�"
 
 -bash: cd: $'NFSv4 Putty \262\270\355\240\214\355\260\200\355\241\255\355\275\201\355\240\275\355\270\203\355\240\201\355': Invalid argument
 
-"Invalid argument" is less than useful in understanding what the root cause of the issue may be, but a packet capture shines a light further on the problem:
+The "invalid argument" error message doesn't help diagnose the root cause, but a packet capture shines a light on the problem:
 
 78 1.704856 y.y.y.y x.x.x.x NFS 346 V4 Call (Reply In 79) LOOKUP DH: 0x44caa451/NFSv4 Putty ��������
 
@@ -302,7 +302,7 @@ root@ubuntu:/NFSv4/NFS$ cd "NFSv4 Putty 𓀀𫝁😃�"
 [NFS4ERR\_INVAL](https://www.rfc-editor.org/rfc/rfc8881.html#name-utf-8-related-errors) is covered in RFC-8881.
 ```
 
-Since the folder can be accessed from PuTTY (due to the encoding being sent and received), it can be copied if the name is specified. After copying that folder from the NFSv4.1 Azure NetApp Files volume to the NFSv3 Azure NetApp Files volume, this is how the folder name displays:
+Since the folder can be accessed from PuTTY (due to the encoding being sent and received), it can be copied if the name is specified. After copying that folder from the NFSv4.1 Azure NetApp Files volume to the NFSv3 Azure NetApp Files volume, the folder name displays:
 
 ```
 root@ubuntu:/NFSv4/NFS$ cp -r /NFSv4/NFS/"NFSv4 Putty 𓀀𫝁😃𐒸" /NFSv3/NFSv3/
@@ -323,7 +323,7 @@ For more information, see [Converting files to different encodings](#converting-
 
 ## Dual protocol behaviors
 
-Azure NetApp Files allows volumes to be accessed by both NFS and SMB via dual-protocol access. Because of the vast differences in the language encoding used by NFS (UTF-8) and SMB (UTF-16SMB), character sets, file and folder names, and path lengths can have very different behaviors across those protocols.
+Azure NetApp Files allows volumes to be accessed by both NFS and SMB via dual-protocol access. Because of the vast differences in the language encoding used by NFS (UTF-8) and SMB (UTF-16), character sets, file and folder names, and path lengths can have very different behaviors across protocols.
 
 ### Viewing NFS-created files and folders from SMB
 
@@ -356,7 +356,7 @@ From Windows SMB, the folders with characters found in the BMP display properly,
 
 #### NFSv4.1-created files and SMB behaviors with character sets
 
-In the previous examples, a folder named `NFSv4 Putty 𓀀𫝁😃𐒸` was created on an Azure NetApp Files volume over NFSv4.1, but was unable to be viewed using NFSv4.1. However, it can be seen using SMB. The name is truncated in SMB to a supported 8.3 format due to the unsupported character sets created from the NFS client and the incompatible UTF-8/UTF-16 conversion for characters in different Unicode planes.
+In the previous examples, a folder named `NFSv4 Putty 𓀀𫝁😃𐒸` was created on an Azure NetApp Files volume over NFSv4.1, but wasn't viewable using NFSv4.1. However, it can be seen using SMB. The name is truncated in SMB to a supported 8.3 format due to the unsupported character sets created from the NFS client and the incompatible UTF-8/UTF-16 conversion for characters in different Unicode planes.
 
 :::image type="content" source="./media/understand-volume-languages/nfsv4-unicode.png" alt-text="Screenshot of NFSv4.x directory in Windows Explorer.":::
 
@@ -475,17 +475,17 @@ Once that file is saved in that format, the characters get converted to question
 
 :::image type="content" source="./media/understand-volume-languages/question-mark-character-conversion.png" alt-text="Screenshot of characters converted to question marks.":::
 
-File encodings can be viewed from NAS clients. On Windows clients, an application like Notepad or Notepad++ can be used to view an encoding of a file, or if [Windows Subsystem for Linux (WSL)](https://apps.microsoft.com/detail/9P9TQF7MRM4R) or [Git](https://git-scm.com/download/win) are installed on the client, the `file` command can be used.
+File encodings can be viewed from NAS clients. On Windows clients, you can use an application like Notepad or Notepad++ to view an encoding of a file. If [Windows Subsystem for Linux (WSL)](https://apps.microsoft.com/detail/9P9TQF7MRM4R) or [Git](https://git-scm.com/download/win) are installed on the client, the `file` command can be used.
 
 :::image type="content" source="./media/understand-volume-languages/explorer-ansi-encoding.png" alt-text="Screenshot of the ANSI encoding option.":::
 
-These applications also allow you to change the file's encoding by saving as different encoding types. In addition, PowerShell can be used to convert encoding on files with the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) and [Set-Content](/powershell/module/microsoft.powershell.management/set-content) cmdlets.
+These applications also allow you to change the file's encoding by saving as different encoding types. In addition, PowerShell can be used to convert encoding on files with the [`Get-Content`](/powershell/module/microsoft.powershell.management/get-content) and [`Set-Content`](/powershell/module/microsoft.powershell.management/set-content) cmdlets.
 
-For example, the file utf8-text.txt is encoded as UTF-8 and contains characters outside of the BMP. Because UTF-8 is used, the characters are displayed properly.
+For example, the file `utf8-text.txt` is encoded as UTF-8 and contains characters outside of the BMP. Because UTF-8 is used, the characters are displayed properly.
 
 :::image type="content" source="./media/understand-volume-languages/utf-8-correct.png" alt-text="Screenshot of correctly rendered UTF-8 characters.":::
 
-If the encoding is converted to UTF-32, the characters have issues displaying properly.
+If the encoding is converted to UTF-32, the characters don't display properly.
 
 ```powershell
 PS Z:\SMB\> Get-Content .\utf8-text.txt |Set-Content -Encoding UTF32 -Path utf32-text.txt
