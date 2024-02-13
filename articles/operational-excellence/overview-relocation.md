@@ -36,7 +36,7 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Azure services relocation guides
 
-The following tables provide links to each Azure service relocation document. It also provides information on which kind of relocation method is supported.
+The following tables provide links to each Azure service relocation document. The tables also provide information on which kind of relocation method is supported.
 
 ### ![An icon that signifies this service is foundational.](./media/relocation/icon-foundational.svg) Foundational services 
 
