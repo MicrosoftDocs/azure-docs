@@ -92,12 +92,6 @@ Once deployed, Azure Operator 5G Core provides an inventory view of clusters and
   
 Disconnected "break-glass" mode maintains data when connectivity between the Azure public cloud regions and local on-premises platforms is lost. Azure Operator 5G Core also allows operators to ingest the telemetry data into their chosen analytics solution for further analysis.  
 
-## Azure Operator 5G Core architecture
-
-The following diagram depicts the high-level architecture of Azure Operator 5G Core as it pertains to Public Preview supported components:
-
-:::image type="content" source="media/overview-product/architecture-5g-core-overview.png" alt-text="Diagram illustrating the high-level architecture of supported features in Azure Operator 5G Core at Public Preview.":::
-
 ## Supported Regions
 
 Azure Operator 5G Core deployment is supported in:
