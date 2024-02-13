@@ -192,6 +192,6 @@ For more information about setting up and configuring Marketplace product collec
 
 ## Next steps
 
-- To learn more about creating the private marketplace, see [Create private Azure Marketplace](/marketplace/create-manage-private-azure-marketplace-new#create-private-azure-marketplace)
+- To learn more about creating the private marketplace, see [Create private Azure Marketplace](/marketplace/create-manage-private-azure-marketplace-new#create-private-azure-marketplace).
 - To learn more about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).
 - To read more about the Marketplace in the [Microsoft commercial marketplace customer documentation](/marketplace/).
