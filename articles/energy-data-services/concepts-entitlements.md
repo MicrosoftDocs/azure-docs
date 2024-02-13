@@ -19,6 +19,7 @@ The entitlement service of Azure Data Manager for Energy allows you to create gr
 
 Different groups and associated user entitlements must be set for every *new data partition*, even in the same Azure Data Manager for Energy instance.
 
+## Types of OSDU groups
 The entitlement service enables three use cases for authorization:
 
 ### Data groups
@@ -43,15 +44,15 @@ The entitlement service enables three use cases for authorization:
 
 - You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
 
-#### Default groups
+## Default groups
 - Some OSDU groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
 - `data.default.viewers` and `data.default.owners` groups have `users` group as its member by default.
   
-#### Peculiarity of `users@` group
+### Peculiarity of `users@` group
 - There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
 - It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
 
-#### Peculiarity of `users.data.root@` group
+### Peculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
 - users.data.root becomes automatically the default and permanent owner of all the data records when the records get created in the system as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98). As a result, irrespective of the OSDU membership of the user, the system checks if the user is “DataManager”, i.e., part of data.root group, to grant access of the data record.
 - The default membership in users.data.root is only the `app-id` that is used to set up the instance. You can add other users explicitly to this group to give them default access of data records. 
