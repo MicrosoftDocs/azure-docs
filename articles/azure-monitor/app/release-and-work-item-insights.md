@@ -125,6 +125,8 @@ If all the following criteria are met, the deployment task creates the release a
 
 > [!NOTE]
 > If you're still using the Application Insights annotation deployment task, you should delete it.
+> Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
+> If you've customized this script and receive the error, "The request contains an entity body but no Content-Type header", you can try removing the replace parameters. `$body = (ConvertTo-Json $annotation -Compress)`
 
 ### Configure release annotations
 
