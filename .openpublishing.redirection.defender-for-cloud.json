@@ -931,6 +931,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-aws",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",
             "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
             "redirect_document_id": true
