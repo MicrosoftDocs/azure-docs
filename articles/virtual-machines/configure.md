@@ -13,6 +13,9 @@ author: ju-shim
 
 # Configure and optimize VMs
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article shares some guidance on configuring and optimizing the InfiniBand-enabled [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs for HPC.
