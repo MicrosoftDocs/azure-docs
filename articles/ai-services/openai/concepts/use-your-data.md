@@ -69,7 +69,7 @@ When you choose the following data sources, your data is ingested into an Azure 
 |Data source  | Description  |
 |---------|---------|
 |Upload files      | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
-|URL/Web pages        | Web content from the URLs is stored in an Azure Blob Storage account.         |
+|URL/Web address        | Web content from the URLs is stored in an Azure Blob Storage account.         |
 |Azure Blob storage account | Upload files from an Azure Blob Storage account to be ingested into an Azure AI Search index.         |
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI on your data.      |
 
@@ -128,6 +128,45 @@ In this example, the fields mapped to **Content data** and **Title** provide inf
 
 Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../reference.md#completions-extensions) using the `fieldsMapping` parameter.   
 
+# [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
+
+### Prerequisites
+* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) account
+* A deployed [embedding model](../concepts/understand-embeddings.md)
+
+### Limitations
+* Only Azure Cosmos DB for MongoDB vCore is supported.
+* The search type is limited to [Azure Cosmos DB for MongoDB vCore vector search](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
+* This implementation works best on unstructured and spatial data.
+
+### Data preparation
+
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
+
+<!--### Add your data source in Azure OpenAI Studio
+
+To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
+
+1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
+1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
+    
+    :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
+
+1. **Select Database**. In the dropdown menus, select the database name, database collection, and index name that you want to use as your data source. Select the embedding model deployment you would like to use for vector search on this data source, and acknowledge that you will incur charges for using vector search. Then select **Next**.
+
+    :::image type="content" source="../media/use-your-data/select-mongo-database.png" alt-text="A screenshot showing the screen for adding Mongo DB settings in Azure OpenAI Studio." lightbox="../media/use-your-data/select-mongo-database.png":::
+-->
+
+### Index field mapping
+
+When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify  data fields to properly map your data for retrieval.
+
+* Content data (required): One or more provided fields that will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
+* File name/title/URL: Used to display more information when a document is referenced in the chat.
+* Vector fields (required): Select the field in your database that contains the vectors.
+
+:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
+
 # [Azure Blob Storage (preview)](#tab/blob-storage)
 
 You might want to use Azure Blob Storage as a data source if you want to connect to existing Azure Blob Storage and use files stored in your containers.
@@ -170,7 +209,7 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 Using Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
-# [Web pages (preview)](#tab/web-pages)
+# [URL/Web address (preview)](#tab/web-pages)
 
 You can paste URLs and the service will store the webpage content, using it when generating responses from the model. The content in URLs/web addresses that you use need to have the following characteristics to be properly ingested:
 
@@ -193,45 +232,6 @@ Azure OpenAI on your data provides keyword search if you add URL as a data sourc
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
 | *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
-
-# [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
-
-### Prerequisites
-* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) account
-* A deployed [embedding model](../concepts/understand-embeddings.md)
-
-### Limitations
-* Only Azure Cosmos DB for MongoDB vCore is supported.
-* The search type is limited to [Azure Cosmos DB for MongoDB vCore vector search](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
-* This implementation works best on unstructured and spatial data.
-
-### Data preparation
-
-Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
-
-<!--### Add your data source in Azure OpenAI Studio
-
-To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
-
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
-1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
-    
-    :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
-
-1. **Select Database**. In the dropdown menus, select the database name, database collection, and index name that you want to use as your data source. Select the embedding model deployment you would like to use for vector search on this data source, and acknowledge that you will incur charges for using vector search. Then select **Next**.
-
-    :::image type="content" source="../media/use-your-data/select-mongo-database.png" alt-text="A screenshot showing the screen for adding Mongo DB settings in Azure OpenAI Studio." lightbox="../media/use-your-data/select-mongo-database.png":::
--->
-
-### Index field mapping
-
-When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify  data fields to properly map your data for retrieval.
-
-* Content data (required): One or more provided fields that will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
-* File name/title/URL: Used to display more information when a document is referenced in the chat.
-* Vector fields (required): Select the field in your database that contains the vectors.
-
-:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
 <!--
 # [Pinecone (preview)](#tab/pinecone)
@@ -265,8 +265,8 @@ You can use the following parameter to change how your data is ingested in Azure
 ### Using the model
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
-* [Web app](../how-to/use-web-app.md)
-* [Microsoft Copilot Studio copilot](#deploy-to-a-copilot-preview)
+* [Deploy a web app](../how-to/use-web-app.md)
+* [Deploy a copilot in Microsoft Copilot Studio](#deploy-to-a-copilot-preview)
 * [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
@@ -278,7 +278,7 @@ After ingesting your data, you can start chatting with the model on your data us
 
 You can use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md).
 
-## Improve model response quality
+## Best practices
 
 Use the following sections to learn how to improve the quality of responses given by the model.
 
