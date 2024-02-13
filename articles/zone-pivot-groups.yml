@@ -1356,6 +1356,16 @@ groups:
     title: .NET
   - id: platform-powershell
     title: PowerShell
+- id: acs-js-csharp-java
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
