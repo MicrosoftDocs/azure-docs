@@ -39,9 +39,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 ## Using Windows GPU with automatic driver installation
 
-Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more.
-
-When you use GPUs with a Windows node pool, GPU driver installation and NVIDIA device plugin installation occurs by default.
+Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -244,18 +242,12 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
     kubectl describe node aks-gpunp-28993262-0
     ```
 
-    Under the *Capacity* section, the GPU should list as `nvidia.com/gpu:  1`. Your output should look similar to the following condensed example output:
+    Under the *Capacity* section, the GPU should list as `microsoft.com/directx: 1`. Your output should look similar to the following condensed example output:
 
-    ```console
-    Name:               aks-gpunp-28993262-0
-    Roles:              agent
-    Labels:             accelerator=nvidia
-
-    [...]
-
+    ```output
     Capacity:
     [...]
-     nvidia.com/gpu:                 1
+     microsoft.com.directx/gpu:                 1
     [...]
     ```
 
@@ -263,7 +255,7 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
 
 To see the GPU in action, you can schedule a GPU-enabled workload with the appropriate resource request. In this example, you run a [Tensorflow](https://www.tensorflow.org/) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-1. Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest, which includes a resource limit of `microsoft.com/directx: 1`:
+1. Create a file named *windows-gpu-workload.yaml* and paste the following YAML manifest, which includes a resource limit of `microsoft.com/directx: 1`:
 
     > [!NOTE]
     > If you receive a version mismatch error when calling into drivers, such as "CUDA driver version is insufficient for CUDA runtime version", review the [NVIDIA driver matrix compatibility chart](https://docs.nvidia.com/deploy/cuda-compatibility/index.html).
@@ -273,17 +265,17 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
     kind: Job
     metadata:
       labels:
-        app: samples-tf-mnist-demo
-      name: samples-tf-mnist-demo
+        app: windows-gpu-workload
+      name: windows-gpu-workload
     spec:
       template:
         metadata:
           labels:
-            app: samples-tf-mnist-demo
+            app: windows-gpu-workload
         spec:
           containers:
-          - name: samples-tf-mnist-demo
-            image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
+          - name: windows-gpu-workload
+            image: mcr.microsoft.com/azuredocs/windows-gpu-workload:gpu
             args: ["--max_steps", "500"]
             imagePullPolicy: IfNotPresent
             resources:
@@ -300,7 +292,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 2. Run the job using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
 
     ```console
-    kubectl apply -f samples-tf-mnist-demo.yaml
+    kubectl apply -f windows-gpu-workload.yaml
     ```
 
 ## View the status of the GPU-enabled workload
@@ -308,7 +300,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 1. Monitor the progress of the job using the [`kubectl get jobs`][kubectl-get] command with the `--watch` flag. It may take a few minutes to first pull the image and process the dataset.
 
     ```console
-    kubectl get jobs samples-tf-mnist-demo --watch
+    kubectl get jobs windows-gpu-workload --watch
     ```
 
     When the *COMPLETIONS* column shows *1/1*, the job has successfully finished, as shown in the following example output:
@@ -316,8 +308,8 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
     ```console
     NAME                    COMPLETIONS   DURATION   AGE
 
-    samples-tf-mnist-demo   0/1           3m29s      3m29s
-    samples-tf-mnist-demo   1/1   3m10s   3m36s
+    windows-gpu-workload    0/1           3m29s      3m29s
+    windows-gpu-workload    1/1   3m10s   3m36s
     ```
 
 2. Exit the `kubectl --watch` process with *Ctrl-C*.
@@ -325,13 +317,13 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 3. Get the name of the pod using the [`kubectl get pods`][kubectl-get] command.
 
     ```console
-    kubectl get pods --selector app=samples-tf-mnist-demo
+    kubectl get pods --selector app=windows-gpu-workload
     ```
 
 4. View the output of the GPU-enabled workload using the [`kubectl logs`][kubectl-logs] command.
 
     ```console
-    kubectl logs samples-tf-mnist-demo-smnr6
+    kubectl logs windows-gpu-workload-smnr6
     ```
 
     The following condensed example output of the pod logs confirms that the appropriate GPU device, `Tesla K80`, has been discovered:
@@ -397,7 +389,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 * Remove the associated Kubernetes objects you created in this article using the [`kubectl delete job`][kubectl delete] command.
 
     ```console
-    kubectl delete jobs samples-tf-mnist-demo
+    kubectl delete jobs windows-gpu-workload
     ```
 
 ## Next steps
