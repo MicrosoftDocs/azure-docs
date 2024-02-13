@@ -118,7 +118,7 @@ For example:
 
 ### Managing Provisioned Throughput Commitments
 
-Provisioned throughput commitments are created and managed from the Manage Commitments view in Azure OpenAI Studio.  You can navigate to this view by selecting **Manage Commitments** from the Quota pane:
+Provisioned throughput commitments are created and managed from the **Manage Commitments** view in Azure OpenAI Studio.  You can navigate to this view by selecting **Manage Commitments** from the Quota pane:
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
@@ -127,7 +127,7 @@ From the Manage Commitments view, you can do several things:
 
 - Purchase new commitments, or edit existing commitments.
 - Monitor all commitments in your subscription.
-- Identify and take action on commitments that may cause unexpected billing
+- Identify and take action on commitments that might cause unexpected billing
 
 The sections below will take you through these tasks.
 
@@ -179,7 +179,7 @@ Adding PTUs to an existing commitment will allow you to create larger or more nu
 
 ### Changing renewal settings
 
-Commitment renewal settings can be changed at any time before the expiration date of your commitment.  Reasons you may want to change the renewal settings include ending your use of provisioned throughput by setting the commitment to not auto-renew, or to decrease usage of provisioned throughput by lowering the number of PTUs that will be committed in the next period.
+Commitment renewal settings can be changed at any time before the expiration date of your commitment.  Reasons you might want to change the renewal settings include ending your use of provisioned throughput by setting the commitment to not auto-renew, or to decrease usage of provisioned throughput by lowering the number of PTUs that will be committed in the next period.
 
 > ![IMPORTANT]
 > If you allow a commitment to expire or decrease in size such that the deployments under the resource require more PTUs than you have in your resource commitment, you will receive hourly overage charges for any excess PTUs.  For example, a resource that has deployments that total 500 PTUs and a commitment for 300 PTUs will generate hourly overage charges for 200 PTUs.
@@ -189,7 +189,7 @@ Commitment renewal settings can be changed at any time before the expiration dat
 The manage commitments pane provides a subscription wide overview of all resources with commitments and PTU usage within a given Azure Subscription. Of particular importance interest are:
 
 - **PTUs Committed, Deployed and Usage** – These figures provide the sizes of your commitments, and how much is in use by deployments.  Maximize your investment by using all of your committed PTUs.
-- **Expiration policy and date** - The expiration date and policy tell you when a commitment will expire and what will happen when it does.  A commitment set to auto-renew will generate a billing event on the renewal date.  For commitments are expiring, be sure you delete deployments from these resources prior to the expiration date to prevent hourly overage billingThe current renewal settings for a commitment. 
+- **Expiration policy and date** - The expiration date and policy tell you when a commitment will expire and what will happen when it does.  A commitment set to auto-renew will generate a billing event on the renewal date.  For commitments that are expiring, be sure you delete deployments from these resources prior to the expiration date to prevent hourly overage billingThe current renewal settings for a commitment. 
 - **Notifications** - Alerts regarding important conditions like unused commitments, and configurations that might result in billing overages. Billing overages can be caused by situations such as when a commitment has expired and deployments are still present, but have shifted to hourly billing.
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/notifications.png" alt-text="Screenshot of commitment purchase UI with notifications." lightbox="../media/how-to/provisioned-onboarding/notifications.png":::
