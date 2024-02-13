@@ -37,8 +37,8 @@ See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined
 
 In this section, you create two Ranger policies  
 
-- [Access policy for accessing “hivesampletable” from spark-sql](#create-ranger-access-policies] 
-- [Masking policy for obfuscating the columns in hivesampletable](#create-ranger-masking-policies] 
+- [Access policy for accessing “hivesampletable” from spark-sql](/azure/hdinsight/spark/ranger-policies-for-spark#to-create-ranger-policies)
+- [Masking policy for obfuscating the columns in hivesampletable](/azure/hdinsight/spark/ranger-policies-for-spark#create-ranger-masking-policy)
 
 ### To create Ranger policies
 
@@ -52,14 +52,14 @@ In this section, you create two Ranger policies
 
    :::image type="content" source="./media/ranger-policies-for-spark/add-new-policy-screenshot.png" alt-text="Screenshot shows select  hive." lightbox="./media/ranger-policies-for-spark/add-new-policy-screenshot.png":::
 
-     |Property |Value | 
+   | Property | Value | 
     |---|---| 
-    |Policy Name|read-hivesampletable-all| 
-    |Hive Database|default| 
-    |table|hivesampletable| 
-    |Hive Column|*| 
-    |Select User|sparkuser1| 
-    |Permissions|select| 
+    | Policy Name | read-hivesampletable-all | 
+    | Hive Database | default | 
+    | table | hivesampletable | 
+    | Hive Column | * | 
+    | Select User | sparkuser1 |  
+    | Permissions | select | 
 
      :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot shows sample policy details." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
 
