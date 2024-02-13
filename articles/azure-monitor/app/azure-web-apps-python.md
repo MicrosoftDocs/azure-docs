@@ -86,7 +86,11 @@ You can configure with [OpenTelemetry environment variables][ot_env_vars] such a
 
 ### Add a community instrumentation library
 
-#### TODO
+You can collect more data automatically when you include instrumentation libraries from the OpenTelemetry community.
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-community-library-warning.md)]
+
+To add a community OpenTelemetry Instrumentation Library (not officially supported/included in Azure Monitor distro), install the OpenTelemetry Instrumentation library via your app's `requirements.txt` file. OpenTelemetry Auto-Instrumentation will automatically pick up all installed instrumentaiton libraries and attempt instrumentation. The list of community instrumentation libraries can be found [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation).
 
 ## Automate monitoring
 
@@ -119,8 +123,6 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 ## Troubleshooting
 
 Here's our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using extensions/agents.
-
-# [Linux](#tab/linux)
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
 2. Navigate to */var/log/applicationinsights/* and open *status.json*.
