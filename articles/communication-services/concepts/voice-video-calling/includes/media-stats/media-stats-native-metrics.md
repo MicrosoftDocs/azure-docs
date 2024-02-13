@@ -43,12 +43,8 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `CodecName` | Codec name | |
 | `Bitrate` | Video send bitrate (bits per second) | |
 | `PacketsPerSecond` | Packet rate (packets per second) | |
-| `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
 | `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 | `AvailableBitrate` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
-| `FrameRateInput` | Frame rate that originates from the video source (frames per second) | |
-| `FrameWidthInput` | Frame width of the last frame that originates from the video source (pixels) | |
-| `FrameHeightInput` | Frame height of the last frame that originates from the video source (pixels) | |
 | `FrameRateSent` | Frame rate sent on the RTP stream (frames per second) | |
 | `FrameWidthSent` | Frame width of the encoded frame (pixels) | |
 | `FrameHeightSent` | Frame height of the encoded frame (pixels) | |
@@ -68,10 +64,10 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `FrameHeightReceived` | Frame height of the decoded frame (pixels) | |
 | `TotalFreezeDurationInMs` | Total freeze duration (milliseconds) | |
 
-### Screen-share send metrics
+### Outgoing screen share metrics
 
-Currently, statistics fields are the same as *video send metrics*.
+Currently, statistics fields are the same as *Outgoing video metrics*.
 
-### Screen-share receive metrics
+### Incoming screen share metrics
 
-Currently, statistics fields are the same as *video receive metrics*.
+Currently, statistics fields are the same as *Incoming video metrics*.
