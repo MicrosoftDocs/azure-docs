@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's REST API. In this article, you lear
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 02/13/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
