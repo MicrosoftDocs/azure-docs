@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory)<br>- [Newly supported protocols](#newly-supported-protocols)|
+| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory)<br>- [Newly supported protocols](#newly-supported-protocols)<br>- [L60 hardware profile is no longer supported](#l60-hardware-profile-is-no-longer-supported)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -67,6 +67,12 @@ We now support these protocols:
 - Schneider NetManage
 
 [See the updated protocol list](concept-supported-protocols.md).
+
+### L60 hardware profile is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB (the minimum hardware profile is now [L100](ot-virtual-appliances.md)).
+
+To migrate from the L60 profile to a supported profile follow the [Back up and restore OT network sensor](back-up-restore-sensor.md) procedure.
 
 ## January 2024
 
