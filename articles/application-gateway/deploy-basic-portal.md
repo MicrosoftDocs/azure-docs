@@ -5,7 +5,7 @@ description: Learn how to deploy Application Gateway Basic.
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 02/14/2024
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
