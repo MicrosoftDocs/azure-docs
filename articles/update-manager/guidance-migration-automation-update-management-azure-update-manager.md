@@ -117,7 +117,7 @@ This step involves using an automation runbook to migrate all the machines and s
 
 **Follow these steps:**
 
-1. Import [migration runbook](https://github.com/azureautomation/Migrate-from-Azure-Automation-Update-Management-to-Azure-Update-Manager) from the runbooks gallery and publish. Search for **azure automation update** from browse gallery, and import the migration runbook named **Migrate from Azure Automation Update Management to Azure Update Manager** and publish the runbook.
+1. Import [migration runbook](https://github.com/azureautomation/Migrate-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/Migration.ps1) from the runbooks gallery and publish. Search for **azure automation update** from browse gallery, and import the migration runbook named **Migrate from Azure Automation Update Management to Azure Update Manager** and publish the runbook.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png":::
 
