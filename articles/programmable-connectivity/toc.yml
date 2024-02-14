@@ -19,8 +19,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Key concepts
-    href: azure-programmable-connectivity-key-concepts.md
   - name: Network APIs
     href: azure-programmable-connectivity-network-apis.md
   - name: Locations and partners
