@@ -17,7 +17,11 @@ ms.custom:
 This article provides reference documentation for Python and REST for the new Azure OpenAI on your data API (Preview). The latest preview api-version is `2024-02-15-preview`.
 
 > [!NOTE]
-> In earlier API versions, Azure OpenAI on your data used api path `/extensions/chat/completions`. Since `2024-02-15-preview`, Azure OpenAI on your data uses api path `/extensions/chat/completions`.
+> Since `2024-02-15-preview` we introduced the following breaking changes comparing to earlier API versions:
+> * API path is changed from `/extensions/chat/completions` to `/chat/completions`.
+> * Naming convention of property keys and enum values is changed from camel casing to snake casing. Example: `deploymentName` is changed to `deployment_name`.
+> * The data source type `AzureCognitiveSearch` is changed to `azure_search`.
+> * The citations and intent is moved from assistant message's context tool messages to assistant message's context root level with explicit [schema defined](#context).
 
 ```http
 POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=2024-02-15-preview

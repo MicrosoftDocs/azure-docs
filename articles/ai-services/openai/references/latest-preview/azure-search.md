@@ -110,9 +110,11 @@ The type of Azure Search retrieval query that should be executed when using it a
 
 # Examples
 
-Before run this example, make sure to setup the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+Before run this example, make sure to:
+* Setup the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
 
-# [Python 1.x](#tab/python)
+# [Python](#tab/python)
 
 ```python
 
@@ -122,7 +124,7 @@ from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 endpoint = os.environ.get("AOAIEndpoint")
-deployment = os.environ.get("AOAIDeploymentId")
+deployment = os.environ.get("ChatCompletionsDeploymentName")
 search_endpoint = os.environ.get("SearchEndpoint")
 search_index = os.environ.get("SearchIndex")
 
@@ -166,7 +168,7 @@ print(completion.model_dump_json(indent=2))
 
 ```bash
 az rest --method POST \
- --uri $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/chat/completions?api-version=2024-02-15-preview \
+ --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '
