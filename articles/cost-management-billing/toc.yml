@@ -171,8 +171,6 @@
       items:
       - name: EA roles in Azure
         href: manage/understand-ea-roles.md
-      - name: Azure EA portal administration
-        href: manage/ea-portal-administration.md
       - name: EA billing administration
         href: manage/direct-ea-administration.md
       - name: Azure portal administration for partners

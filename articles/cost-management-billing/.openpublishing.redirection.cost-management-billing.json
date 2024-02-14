@@ -192,7 +192,17 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-administration.md",
-            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-administration",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-administration.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/ea-partner-portal-administration.md",
+            "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
             "redirect_document_id": true
         },
         {
