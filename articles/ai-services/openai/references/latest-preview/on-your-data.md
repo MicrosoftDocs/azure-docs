@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI on your data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API with Assistants.
+description: Learn how to use Azure OpenAI on your data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -70,8 +70,8 @@ The [citation] schema is below:
 
 The schema of the supported data sources configuration can be found below:
 
-* Azure AI Search
-* Azure Machine Learning index
-* Azure Cosmos DB for MongoDB vCore
-* Elasticsearch
-* Pinecone
+* [Azure AI Search](./azure-search.md)
+* [Azure Cosmos DB for MongoDB vCore](./cosmos-db.md)
+* [Azure Machine Learning index](./azure-ml.md)
+* [Elasticsearch](./elasticsearch.md)
+* [Pinecone](/pinecone.md)
