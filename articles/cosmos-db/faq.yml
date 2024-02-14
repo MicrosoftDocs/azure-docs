@@ -8,7 +8,6 @@ metadata:
   ms.service: cosmos-db
   ms.topic: faq
   ms.date: 09/01/2019
-  ms.custom: seodec18, ignite-2022
 title: Frequently asked questions about different APIs in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]

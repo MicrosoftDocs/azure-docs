@@ -6,9 +6,8 @@ metadata:
   author: keithp
   manager: rkarlin
   tags: azure-resource-manager
-  ms.custom: "mvc, seodec18"
+  ms.custom: mvc
   ms.service: key-vault
-  ms.workload: identity
   ms.tgt_pltfrm: na
   ms.topic: faq
   ms.date: 03/25/2021

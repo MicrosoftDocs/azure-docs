@@ -1,15 +1,14 @@
 ---
-title: Optimize performance on Lsv3, Lasv3, and Lsv2-series Linux VMs 
+title: Optimize performance on Lsv3, Lasv3, and Lsv2-series Linux VMs
 description: Learn how to optimize performance for your solution on the Lsv3, Lasv3, and Lsv2-series Linux virtual machines (VMs) on Azure.
-author: sasha-melamed 
-ms.service: virtual-machines 
+author: sasha-melamed
+ms.service: virtual-machines
 ms.subservice: sizes
-ms.collection: linux 
-ms.topic: conceptual 
-ms.tgt_pltfrm: vm-linux 
-ms.workload: infrastructure-services 
+ms.collection: linux
+ms.topic: conceptual
+ms.tgt_pltfrm: vm-linux
 ms.date: 06/01/2022
-ms.author: sasham 
+ms.author: sasham
 --- 
 
 # Optimize performance on Lsv3, Lasv3, and Lsv2-series Linux VMs

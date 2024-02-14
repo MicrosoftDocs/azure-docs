@@ -1,7 +1,7 @@
 ---
 title: Monitor AKS data reference
-description: Important reference material needed when you monitor AKS 
-ms.custom: subject-monitoring, ignite-2022
+description: Important reference material needed when you monitor AKS
+ms.custom: subject-monitoring
 ms.date: 08/01/2023
 ms.topic: conceptual
 ---

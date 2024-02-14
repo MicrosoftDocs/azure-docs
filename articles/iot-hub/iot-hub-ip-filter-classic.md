@@ -7,6 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: upgrade-and-migration-article
 ms.date: 10/16/2020
+ROBOTS: NOINDEX
 ---
 
 # IoT Hub classic IP filter and how to upgrade 

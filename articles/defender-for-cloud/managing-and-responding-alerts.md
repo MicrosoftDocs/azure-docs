@@ -35,14 +35,14 @@ When triaging security alerts, you should prioritize alerts based on their alert
 
 Each alert contains information regarding the alert that assists you in your investigation.
 
-**To investigate a security alert**: 
+**To investigate a security alert**:
 
-1. Select an alert. A side pane opens and shows a description of the alert and all the affected resources. 
+1. Select an alert. A side pane opens and shows a description of the alert and all the affected resources.
 
     :::image type="content" source="./media/managing-and-responding-alerts/alerts-details-pane.png" alt-text="Screenshot of the high-level details view of a security alert.":::
 
 1. Review the high-level information about the security alert.
-    
+
     - Alert severity, status, and activity time
     - Description that explains the precise activity that was detected
     - Affected resources
@@ -51,7 +51,7 @@ Each alert contains information regarding the alert that assists you in your inv
 1. Select **View full details**.
 
     The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
-     
+
     :::image type="content" source="./media/managing-and-responding-alerts/security-center-alert-remediate.png" alt-text="Screenshot that shows the full details page for an alert.":::
 
     Also in the right pane is the **Take action** tab. Use this tab to take further actions regarding the security alert. Actions such as:
@@ -71,13 +71,13 @@ The alerts list includes checkboxes so you can handle multiple alerts at once. F
 
 1. Filter according to the alerts you want to handle in bulk.
 
-    In this example, the alerts with severity of `Informational` for the resource `ASC-AKS-CLOUD-TALK` are selected. 
+    In this example, the alerts with severity of `Informational` for the resource `ASC-AKS-CLOUD-TALK` are selected.
 
     :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-filter.png" alt-text="Screenshot that shows how to filter alerts to show related alerts.":::
 
-1. Use the checkboxes to select the alerts to be processed. 
+1. Use the checkboxes to select the alerts to be processed.
 
-    In this example, all alerts are selected. The **Change status** button is now available. 
+    In this example, all alerts are selected. The **Change status** button is now available.
 
     :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-select.png" alt-text="Screenshot of selecting all alerts to handle in bulk.":::
 
@@ -85,7 +85,7 @@ The alerts list includes checkboxes so you can handle multiple alerts at once. F
 
     :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" alt-text="Screenshot of the security alerts status tab.":::
 
-The alerts shown in the current page have their status changed to the selected value. 
+The alerts shown in the current page have their status changed to the selected value.
 
 ## Respond to a security alert
 
@@ -97,7 +97,7 @@ After investigating a security alert, you can respond to the alert from within M
 
     :::image type="content" source="./media/managing-and-responding-alerts/alert-details-take-action.png" alt-text="Screenshot of the security alerts take action tab." lightbox="./media/managing-and-responding-alerts/alert-details-take-action.png":::
 
-1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
+1. Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
 
 1. To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
 
@@ -113,11 +113,11 @@ After investigating a security alert, you can respond to the alert from within M
 
     The alert is removed from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
-1.	We encourage you to provide feedback about the alert to Microsoft:
+1. We encourage you to provide feedback about the alert to Microsoft:
     1. Marking the alert as **Useful** or **Not useful**.
     1. Select a reason and add a comment.
 
-        :::image type="content" source="./media/managing-and-responding-alerts/alert-feedback.png" alt-text="Screenshot of the provide feedback to Microsoft window which allows you to select the usefulness of an alert.":::
+        :::image type="content" source="./media/managing-and-responding-alerts/alert-feedback.png" alt-text="Screenshot of the provide feedback to Microsoft window that allows you to select the usefulness of an alert.":::
 
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.

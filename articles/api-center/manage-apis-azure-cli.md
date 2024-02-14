@@ -3,6 +3,7 @@ title: Manage API inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: api-center
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/12/2024
 ms.author: danlep 
@@ -12,6 +13,8 @@ ms.author: danlep
 # Use the Azure CLI to manage your API inventory
 
 This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
+
+> [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 

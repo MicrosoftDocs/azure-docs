@@ -34,12 +34,13 @@ The following are available input parameters:
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| mlindex_content | string | Type of Index to be used. Input depends on Index type. Example of an Azure Cog Search Index JSON can be seen below the table* | Yes |
-| queries | string, Union[string, List[String]] | The text to be queried.| Yes |
-|query_type | string | The type of query to be performed. Options include Keyword, Semantic, Hybrid, etc.  | Yes |
+| mlindex_content | string | Type of index to be used. Input depends on the index type. An example of an Azure AI Search index JSON can be seen below the table. | Yes |
+| queries | string, `Union[string, List[String]]` | The text to be queried.| Yes |
+|query_type | string | The type of query to be performed. Options include Keyword, Semantic, Hybrid, and others.  | Yes |
 | top_k | integer | The count of top-scored entities to return. Default value is 3. | No |
 
-\**ACS JSON Example:*
+Here's an example of an Azure AI Search index input.
+
 ```json
 embeddings:
   api_base: <api_base>
@@ -68,14 +69,11 @@ index:
   index: <index_name>
   kind: acs
   semantic_configuration_name: azureml-default
-
-
-
 ```
 
 ## Outputs
 
-The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Vector Index Search, the following fields are populated:
+The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by the `promptflow-vectordb` SDK. For the Vector Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |

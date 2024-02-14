@@ -5,7 +5,6 @@ description: This document outlines a list of important actions administrators s
 
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2022
 

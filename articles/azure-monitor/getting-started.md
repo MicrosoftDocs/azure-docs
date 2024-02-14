@@ -40,7 +40,7 @@ This section provides answers to common questions.
 
 ### How do I enable Azure Monitor?
 
-Azure Monitor is enabled the moment that you create a new Azure subscription, and [activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add monitoring solutions to provide extra analysis on collected data for particular services.
 
 ### How do I access Azure Monitor?
 
