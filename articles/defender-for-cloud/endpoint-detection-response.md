@@ -199,7 +199,7 @@ When Defender for Cloud finds misconfigurations in your endpoint detection and r
 
     :::image type="content" source="media/endpoint-detection-response/affected-resources-section.png" alt-text="Screenshot that shows you where you need to select on screen to expand the affected resources section.":::
 
-1. Select an unhealthy resource to review it's findings.
+1. Select an unhealthy resource to review its findings.
 
     :::image type="content" source="media/endpoint-detection-response/resources-findings.png" alt-text="Screenshot that shows the findings of an affected unhealthy resource." lightbox="media/endpoint-detection-response/resources-findings.png":::
 
