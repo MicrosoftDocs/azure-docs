@@ -14,7 +14,7 @@ ms.custom: monitoring
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). 
 
-To learn more about how to create an alert, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
+This article shows you how to create alerts on throttling, capacity, egress, and high server latency. To learn more about creating alerts, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 For more information about alert types and alerts, see [Monitor Azure Files](storage-files-monitoring.md#alerts).
 
@@ -158,10 +158,10 @@ To create an alert for high server latency (average), follow these steps.
 
 8. Select **Review + create** to create the alert.
 
-## Next steps
+## Related content
 
 - [Monitor Azure Files](storage-files-monitoring.md)
-- [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
+- [Analyze Azure Files metrics](analyze-files-metrics.md)
 - [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)

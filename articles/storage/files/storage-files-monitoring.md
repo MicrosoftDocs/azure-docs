@@ -126,15 +126,30 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ANALYSIS SECTION START -------------------------------------->
 
 <!-- ## Analyze data. Required section. -->
-<a name="analyzing-logs"></a>
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 <!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
+### Analyze metrics for Azure Files
+
+Metrics for Azure Files are in these namespaces: 
+
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/fileServices
+
+For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
+
+For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
+For detailed instructions on how to analyze Azure Files metrics such as availability, latency, and utilization, see [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md).
+
+<a name="analyzing-logs"></a>
 ### Analyze logs for Azure Files
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+
+To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
@@ -220,6 +235,8 @@ The following table lists common and recommended alert rules for Azure Files and
 |Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (premium file share only) |
 |Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
 |Metric | High server latency. | Success Server Latency<br>Dimension name: API Name, for example Read and Write API|
+
+For instructions on how to create alerts on throttling, capacity, egress, and high server latency, see [Create monitoring alerts for Azure Files](files-monitoring-alerts.md).
 
 <!-- ### Advisor recommendations -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
