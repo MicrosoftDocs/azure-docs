@@ -12,6 +12,8 @@ ms.author: banders
 
 # Get started with your Enterprise Agreement billing account
 
+> On February 15, 2024, the [EA portal](https://ea.azure.com) retired. It's now read only. All EA customers and partners use Cost Management + Billing in the Azure portal to manage their enrollments.
+
 This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers with their billing administration on the [Azure portal](https://portal.azure.com). Get basic information about:
 
 - Roles used to manage the Enterprise billing account in the Azure portal

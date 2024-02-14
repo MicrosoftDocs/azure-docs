@@ -183,7 +183,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | Element Name  | Required | Type   | Description |
 |---------------|----------|--------|----|
 | `Name` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like *Microsoft Azure Enterprise*. |
-| `OfferType`   | Yes      | String | The subscription offer. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [enabled in the Azure portal](direct-ea-administration#enable-the-enterprise-devtest-offer)).                |
+| `OfferType`   | Yes      | String | The subscription offer. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [enabled in the Azure portal](direct-ea-administration.md#enable-the-enterprise-devtest-offer)).                |
 | `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. The value is a GUID that you get from `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | String | The Object ID of any user to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `OwnerSignInName`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`.|
@@ -203,7 +203,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | Element Name  | Required | Type   | Description |
 |---------------|----------|--------|------------|
 | `display-name` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like *Microsoft Azure Enterprise*.|
-| `offer-type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [enabled in the Azure portal](direct-ea-administration#enable-the-enterprise-devtest-offer)).                |
+| `offer-type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [enabled in the Azure portal](direct-ea-administration.md#enable-the-enterprise-devtest-offer)).                |
 | `enrollment-account-object-id`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. The value is a GUID that you get from `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | String | The Object ID of any user to add as an Azure RBAC Owner on the subscription when it's created.  |
 | `owner-upn`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`.|

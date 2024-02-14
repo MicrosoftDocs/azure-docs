@@ -193,22 +193,22 @@
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-administration.md",
             "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-administration.md",
             "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-partner-portal-administration.md",
             "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-get-started.md",
             "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-agreements.md",
@@ -217,8 +217,8 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-enrollment-invoices.md",
-            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-enrollment-invoices",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-get-started.md",
@@ -238,7 +238,7 @@
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-troubleshoot.md",
             "redirect_url": "/azure/cost-management-billing/manage/direct-ea-administration",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/troubleshoot-billing/ea-portal-troubleshoot.md",
@@ -1143,7 +1143,7 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-troubleshoot.md",
             "redirect_url": "/azure/cost-management-billing/manage/direct-ea-administration",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view.md",

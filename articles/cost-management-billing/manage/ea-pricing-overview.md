@@ -66,4 +66,4 @@ Enterprise administrators can enable account owners to create subscriptions base
 
 ## Next steps
 
-- For more information, see [Enterprise enrollment invoices](ea-portal-enrollment-invoices.md).
+- Learn more about EA administrative tasks at [EA Billing administration on the Azure portal](direct-ea-administration.md).

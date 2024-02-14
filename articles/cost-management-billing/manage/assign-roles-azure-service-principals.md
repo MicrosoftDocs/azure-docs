@@ -226,4 +226,4 @@ If you receive the following error when making your API call, then you may be in
 
 ## Next steps
 
-[Get started with your Enterprise Agreement billing account](ea-direct-portal-get-started).
+[Get started with your Enterprise Agreement billing account](ea-direct-portal-get-started.md).

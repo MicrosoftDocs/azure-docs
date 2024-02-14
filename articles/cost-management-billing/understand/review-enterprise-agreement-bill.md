@@ -378,7 +378,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 > [!TIP]
 >
-> - For more information about API keys, see [API key generation](manage/enterprise-rest-apis.md#api-key-generation).
+> - For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 > - For more information about connecting Power BI to your Azure consumption, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### To access the legacy Power BI EA content pack:
@@ -395,7 +395,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. Select **Next**.
 1. In **Authentication Key** box, enter the API key.
 
-    You can get the API key in the Azure portal. For more information about API keys, see [API key generation](manage/enterprise-rest-apis.md#api-key-generation).
+    You can get the API key in the Azure portal. For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
 
 ## Next steps
