@@ -438,10 +438,10 @@ When you chat with a model, providing a history of the chat will help the model 
 
 | Model                   | Total tokens available | Max tokens for system message | Max tokens for model response |
 |-------------------------|------------------------|------------------------------------|------------------------------------|
-| ChatGPT Turbo (0301) 8k | 8000                   | 400                                | 1500                               |
-| ChatGPT Turbo 16k       | 16000                  | 1000                               | 3200                               |
-| GPT-4 (8k)              | 8000                   | 400                                | 1500                               |
-| GPT-4 32k               | 32000                  | 2000                               | 6400                               |
+| GPT-35-0301 | 8000                   | 400                                | 1500                               |
+| GPT-35-0613-16K       | 16000                  | 1000                               | 3200                               |
+| GPT-4-0613-8K              | 8000                   | 400                                | 1500                               |
+| GPT-4-0613-32K                | 32000                  | 2000                               | 6400                               |
 
 The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
