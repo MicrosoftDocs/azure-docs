@@ -36,7 +36,7 @@ ms.custom: "include file"
 
       :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Screenshot showing the Advanced tab in the working pane and the available option to select.":::
 
-   - - For Basic or Standard caches, toggle the selection for a non-TLS port. You can also select if you want to enable **Microsoft Entra Authentication**.
+   - For Basic or Standard caches, toggle the selection for a non-TLS port. You can also select if you want to enable **Microsoft Entra Authentication**.
    - For a Premium cache, configure the settings for non-TLS port, clustering, managed identity, and data persistence. You can also select if you want to enable **Microsoft Entra Authentication**.
 
 1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
