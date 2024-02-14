@@ -147,3 +147,224 @@ For example, the operator can use the following statement to continue the evalua
   }
 }
 ```
+
+## Use the IP Community properties to add, remove, or overwrite community values and extended community values of the routes
+
+-   The IP Community properties of the action property specify how to add, remove, or overwrite community values and extended community values of the routes. The IP Community properties have a set property and a delete property. The set property specifies the IP Community and IP Extended Community resources to add or overwrite to the routes. The delete property specifies the IP Community and IP Extended Community resources to remove from the routes.
+
+-   The set property has an ipCommunityIds property and an ipExtendedCommunityIds property. The ipCommunityIds property is an array of strings that reference IP Community resources that define the community values to add or overwrite to the routes. The ipExtendedCommunityIds property is an array of strings that reference IP Extended Community resources that define the extended community values to add or overwrite to the routes.
+
+-   The delete property has an ipCommunityIds property and an ipExtendedCommunityIds property. The ipCommunityIds property is an array of strings that reference IP Community resources that define the community values to remove from the routes. The ipExtendedCommunityIds property is an array of strings that reference IP Extended Community resources that define the extended community values to remove from the routes.
+
+-   The add property has an ipCommunityIds property and an ipExtendedCommunityIds property. The ipCommunityIds property is an array of strings that reference IP Community resources that define the community values to add to the routes. The ipExtendedCommunityIds property is an array of strings that reference IP Extended Community resources that define the extended community values to remove from the routes.
+
+-   If the set property is used, the add and delete properties can't be used.
+
+-   For example, the operator can use the following statement to permit any route that has an IP Prefix equal to the IP Prefix resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}` and add the IP Community value from the IP Community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName1}` and overwrite the IP Extended Community value with the IP Extended Community resource with the ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName2}`.
+
+```json
+{
+  "sequenceNumber": 40,
+  "condition": {
+    "ipPrefixId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}"
+  },
+  "action": {
+    "actionType": "Permit",
+    "ipCommunityProperties": {
+      "set": {
+        "ipCommunityIds": [
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName1}"
+        ],
+        "ipExtendedCommunityIds": [
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName2}"
+        ]
+      }
+    }
+  }
+}
+```
+
+## More Examples
+
+### Example 1: Permit and Set IP Community
+
+In this example, the route policy has one statement that permits traffic from a specific IP prefix (`ipprefixv4-1204-cn1`) and sets an IP community property (`ipcommunity-2701`) to it.
+
+```json
+{
+  "name": "rcf-op1-l3domain-v6-connsubnet-ext-policy",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-op1-l3domain-v6-connsubnet-ext-policy",
+  "type": "Microsoft.ManagedNetworkFabric/routePolicies",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "statements": [
+      {
+        "condition": {
+          "ipPrefixId": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefixv4-1204-cn1"
+        },
+        "sequenceNumber": 10,
+        "action": {
+          "actionType": "Permit",
+          "ipCommunityProperties": {
+            "set": {
+              "ipCommunityIds": [
+                "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Example 2: Continue and IP Prefix and IP Community
+
+In this example, the route policy has two statements that apply to the IPv4 address family. The first statement continues to the next statement if the traffic matches either of two IP prefixes (`ipprefix-example-3` or `ipprefix-example-4`). Traffic that matches either of the IP prefixes won't be filtered or modified, but will be evaluated by the next statement. The second statement permits the traffic if it matches either of two IP communities (`ipcommunity-example-3` or `ipcommunity-example-4`.
+
+```json
+{
+  "name": "routePolicy8",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicy8",
+  "type": "Microsoft.ManagedNetworkFabric/routePolicies",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressFamilyType": "IPv4",
+    "statements": [
+      {
+        "condition": {
+          "ipPrefixIds": [
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefix-example-3",
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefix-example-4"
+          ],
+          "type": "Or"
+        },
+        "action": {
+          "actionType": "Continue"
+        },
+        "sequenceNumber": 10
+      },
+      {
+        "condition": {
+          "ipCommunityIds": [
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-example-3",
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-example-4"
+          ],
+          "type": "Or"
+        },
+        "action": {
+          "actionType": "Permit"
+        },
+        "sequenceNumber": 20
+      }
+    ]
+  }
+}
+```
+
+### Example 3: Deny when both IP Prefix and IP Community match
+
+In this example, the route policy has one statement that applies to the IPv6 address family. The statement discards the traffic if it matches both an IP prefix (`ipprefix-example-1`) and an IP community (`ipcommunity-example-1`).
+
+```json
+{
+  "name": "routePolicy1",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicy1",
+  "type": "Microsoft.ManagedNetworkFabric/routePolicies",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "addressFamilyType": "IPv6",
+    "statements": [
+      {
+        "condition": {
+          "ipPrefixIds": [
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefix-example-1"
+          ],
+          "ipCommunityIds": [
+            "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-example-1"
+          ],
+          "type": "And"
+        },
+        "action": {
+          "actionType": "Deny"
+        },
+        "sequenceNumber": 10
+      }
+    ]
+  }
+}
+```
+
+### Example 4: Permit and Overwrite IP Community
+
+In this example, the route policy has one statement that permits traffic from any IP prefix and overwrites the IP extended community property to a new value (`ipextendedcommunity-2702`).
+
+```json
+{
+  "name": "routePolicy2",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicy2",
+  "type": "Microsoft.ManagedNetworkFabric/routePolicies",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "statements": [
+      {
+        "condition": {
+          "ipPrefixId": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefix-example-1"
+        },
+        "action": {
+          "actionType": "Permit",
+          "ipExtendedCommunityProperties": {
+            "set": {
+              "ipExtendedCommunityIds": [
+                "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextendedcommunity-2702"
+              ]
+            }
+          }
+        },
+        "sequenceNumber": 10
+      }
+    ]
+  }
+}
+```
+
+### Example 5: Update a Route Policy
+
+In this example, the route policy `routePolicy2` is updated to include an extra IP Community.
+
+```json
+{
+  "name": "routePolicy2",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicy2",
+  "type": "Microsoft.ManagedNetworkFabric/routePolicies",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "statements": [
+      {
+        "condition": {
+          "ipPrefixId": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/ipprefix-example-1"
+        },
+        "action": {
+          "actionType": "Permit",
+          "ipCommunityProperties": {
+            "add": {
+              "ipCommunityIds": [
+                "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701"
+              ]
+            },
+            "ipExtendedCommunityProperties": {
+              "set": {
+                "ipExtendedCommunityIds": [
+                  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextendedcommunity-2702"
+                ]
+              }
+            }
+          }
+        },
+        "sequenceNumber": 10
+      }
+    ]
+  }
+}
+```
