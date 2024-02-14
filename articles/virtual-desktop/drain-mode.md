@@ -20,7 +20,7 @@ If you're using either the Azure portal or PowerShell method, you'll need the fo
 
 - A host pool with at least one session host.
 - An Azure account assigned the [Desktop Virtualization Session Host Operator](rbac.md#desktop-virtualization-session-host-operator) role.
-- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 
 ## Enable drain mode
