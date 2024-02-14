@@ -1,17 +1,17 @@
 ---
-title: Quickstart for using Azure Container Storage with Azure Kubernetes Service (AKS)
+title: Quickstart for using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
 description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 02/13/2024
+ms.date: 11/15/2023
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
   - ignite-2023-container-storage
 ---
 
-# Quickstart: Use Azure Container Storage with Azure Kubernetes Service
+# Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to create a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 
@@ -23,11 +23,17 @@ ms.custom:
 
 - Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
 
-- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
 
-## Install the required extension
+## Install the required extensions
+
+Upgrade to the latest version of the `aks-preview` cli extension by running the following command.
+
+```azurecli-interactive
+az extension add --upgrade --name aks-preview
+```
 
 Add or upgrade to the latest version of `k8s-extension` by running the following command.
 
@@ -58,8 +64,8 @@ An Azure resource group is a logical group that holds your Azure resources that 
 
 When you create a resource group, you're prompted to specify a location. This location is:
 
-- The storage location of your resource group metadata.
-- Where your resources will run in Azure if you don't specify another region during resource creation.
+* The storage location of your resource group metadata.
+* Where your resources will run in Azure if you don't specify another region during resource creation.
 
 Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*. See this [list of Azure regions](container-storage-introduction.md#regional-availability) where Azure Container Storage is available.
 
@@ -86,11 +92,11 @@ If the resource group was created successfully, you'll see output similar to thi
 
 Before deploying Azure Container Storage, you'll need to decide which back-end storage option you want to use to create your storage pool and persistent volumes. Three options are currently available:
 
-- **Azure Elastic SAN**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CI/CD environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
+- **Azure Elastic SAN**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CI/CD environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
 - **Azure Disks**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
-- **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
+- **Ephemeral Disk**: This option uses local NVMe drives on the AKS cluster nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment. 
 
 You'll specify the storage pool type when you install Azure Container Storage.
 
@@ -99,10 +105,10 @@ You'll specify the storage pool type when you install Azure Container Storage.
 
 ## Choose a VM type for your cluster
 
-If you intend to use Azure Elastic SAN or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. You'll specify the VM type when you create the cluster in the next section.
+If you intend to use Azure Elastic SAN or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives. You'll specify the VM type when you create the cluster in the next section.
 
 > [!IMPORTANT]
-> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md). Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 ## Create a new AKS cluster and install Azure Container Storage
 
@@ -143,7 +149,7 @@ If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm
 Running this command will enable Azure Container Storage on a node pool named `nodepool1`, which is the default node pool name. If you want to install it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools).
 
 > [!IMPORTANT]
-> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
+> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
