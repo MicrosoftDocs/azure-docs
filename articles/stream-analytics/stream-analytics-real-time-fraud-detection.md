@@ -88,7 +88,7 @@ If you want to archive every event, you can use a pass-through query to read all
 
     The Stream Analytics job runs the query against the sample data from the input and displays the output at the bottom of the window. The results indicate that the Event Hubs and the Streaming Analytics job are configured correctly.
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/sample-output-passthrough.png" alt-text="Sample output from test query":::
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/sample-output-passthrough.png" alt-text="Sample output from test query.":::
 
     The exact number of records you see depends on how many records were captured in the sample.
 
@@ -179,7 +179,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 7. Your dashboard should look like the following example once both tiles are added. Notice that, if your event hub sender application and Streaming Analytics application are running, your Power BI dashboard periodically updates as new data arrives.
 
-   ![View results in Power BI dashboard](media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png)
+   ![Screenshot of results in Power BI dashboard.](media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png)
 
 ## Embedding your Power BI Dashboard in a web application
 
