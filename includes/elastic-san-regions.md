@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently, Elastic SAN is only available in the following regions with the following redundancies:
+The following list contains the regions Elastic SAN is currently available in, and which regions support both zone-redundant storage (ZRS) and locally redundant storage (LRS), or only LRS:
 
 - Brazil South - LRS
 - Canada Central - LRS
