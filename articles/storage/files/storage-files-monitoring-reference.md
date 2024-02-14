@@ -54,7 +54,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 [!INCLUDE [Microsoft.Storage/storageAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/fileServices
-The following table lists the metrics available for the Microsoft.Storage/storageAccounts/blobServices resource type.
+The following table lists the metrics available for the Microsoft.Storage/storageAccounts/fileServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-fileservices-metrics-include.md)]
 
@@ -81,6 +81,20 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
 - [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs)
+
+The following tables list the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
+
+### Fields that describe the operation
+
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
+
+### Fields that describe how the operation was authenticated
+
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
+
+### Fields that describe the service
+
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]

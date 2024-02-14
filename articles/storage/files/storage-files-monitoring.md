@@ -140,14 +140,14 @@ Metrics for Azure Files are in these namespaces:
 
 For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices).
+For a list of all Azure Monitor supported metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices).
 
-For detailed instructions on how to analyze Azure Files metrics such as availability, latency, and utilization, see [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md).
+For detailed instructions on how to access and analyze Azure Files metrics such as availability, latency, and utilization, see [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md).
 
 <a name="analyzing-logs"></a>
 ### Analyze logs for Azure Files
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to send resource logs to different destinations, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
@@ -169,47 +169,44 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 <!-- Add sample Kusto queries for your service here. -->
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
-- View SMB errors over the last week
+- View SMB errors over the last week.
 
-```Kusto
-StorageFileLogs
-| where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
-| sort by StatusCode
-```
-- Create a pie chart of SMB operations over the last week
+  ```Kusto
+  StorageFileLogs
+  | where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
+  | sort by StatusCode
+  ```
+- Create a pie chart of SMB operations over the last week.
 
-```Kusto
-StorageFileLogs
-| where Protocol == "SMB" and TimeGenerated >= ago(7d) 
-| summarize count() by OperationName
-| sort by count_ desc
-| render piechart
-```
+  ```Kusto
+  StorageFileLogs
+  | where Protocol == "SMB" and TimeGenerated >= ago(7d) 
+  | summarize count() by OperationName
+  | sort by count_ desc
+  | render piechart
+  ```
 
-- View REST errors over the last week
+- View REST errors over the last week.
 
-```Kusto
-StorageFileLogs
-| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) and StatusText !contains "Success"
-| sort by StatusText asc
-```
+  ```Kusto
+  StorageFileLogs
+  | where Protocol == "HTTPS" and TimeGenerated >= ago(7d) and StatusText !contains "Success"
+  | sort by StatusText asc
+  ```
 
-- Create a pie chart of REST operations over the last week
+- Create a pie chart of REST operations over the last week.
 
-```Kusto
-StorageFileLogs
-| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) 
-| summarize count() by OperationName
-| sort by count_ desc
-| render piechart
-```
+  ```Kusto
+  StorageFileLogs
+  | where Protocol == "HTTPS" and TimeGenerated >= ago(7d) 
+  | summarize count() by OperationName
+  | sort by count_ desc
+  | render piechart
+  ```
 
-To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
+To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs#columns).
 
-For more information on how to write queries, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
-
-<!-- ### Azure Files service-specific analytics. Optional section.
-Add short information or links to specific articles that outline how to analyze data for your service. -->
+For more information on how to write queries, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 <!-- ANALYSIS SECTION END ------------------------------------->
 

@@ -30,13 +30,17 @@ Metrics for Azure Files are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/fileServices
 
-For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
+For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md#supported-metrics-for-microsoftstoragestorageaccountsfileservices).
 
-For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices).
+For a list of all Azure Monitor supported metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#supported-metrics-per-resource-type).
+
+## View Azure Files metrics data
+
+You can analyze Azure Files metrics by using the Azure portal, PowerShell, Azure CLI, or .NET.
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics). 
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Monitor Metrics Explorer. Open metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics). 
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions).
 
