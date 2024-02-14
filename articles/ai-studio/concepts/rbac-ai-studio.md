@@ -95,6 +95,19 @@ When a user gets access to a project, two more roles are automatically assigned 
 
 In order to complete end-to-end AI development and deployment, users only need these two autoassigned roles and either the Contributor or Azure AI Developer role on a *project*.
 
+## Dependency service roles
+
+Azure AI hub and project resources have dependencies on other Azure services. The following table lists the permissions required for these services:
+
+| Permission | Description |
+|------------|-------------|
+| `Microsoft.Storage/storageAccounts/write` | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+| `Microsoft.KeyVault/vaults/write` | Creates a new key vault or updates the properties of an existing key vault. Certain properties may require more permissions. |
+| `Microsoft.CognitiveServices/accounts/write` | Writes API Accounts. |
+| `Microsoft.Insights/Components/Write` | Writing to an application insights component configuration. |
+| `Microsoft.OperationalInsights/workspaces/write` | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
+
+
 ## Sample enterprise RBAC setup
 Below is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
 
