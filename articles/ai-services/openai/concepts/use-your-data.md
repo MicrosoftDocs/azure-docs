@@ -260,16 +260,6 @@ You can also deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/f
 > * Deploying to a copilot in Copilot Studio is only available to US regions in preview.
 > * Copilot Studio supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
 
-## Chat on your data programmatically 
-
-Along with deploying a model from Azure OpenAI Studio, you can also chat with it programmatically. You can find a number of available 
-* [REST API](../reference.md#azure-ai-search)
-* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
-* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
-* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
-* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
-* [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
-
 ## Use Azure OpenAI On Your Data securely
 
 You can use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI On Your Data](../how-to/use-your-data-securely.md).
@@ -500,6 +490,16 @@ Break down the input documents into smaller documents and try again.
 Resolution: 
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
+
+## Programming language support 
+
+Along with deploying a model from Azure OpenAI Studio, you can also chat with it programmatically. You can find a number of available 
+* [REST API](../reference.md#azure-ai-search)
+* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
+* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
+* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
+* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
+* [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
 
 
 ## Azure OpenAI On Your Data regional availability
