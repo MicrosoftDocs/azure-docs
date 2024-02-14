@@ -20,7 +20,26 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console) |
+| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory) |
+
+### Alert suppression rules from the Azure portal (Public preview)
+
+Now you can configure alert suppression rules from the Azure portal to instruct your OT sensors to specified traffic on your network that would otherwise trigger an alert.
+
+- Configure which alerts to suppress by specifying an alert title, IP/MAC address, hostname, subnet, sensor, or site.
+- Set each suppression rule to be active always, or only during a predefined period, such as for a specific maintenance window.
+
+> [!TIP]
+> If you're currently using exclusion rules on the on-premises management console, we recommend that you migrate them to suppression rules on the Azure portal. 
+For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
+
+### Focused alerts in OT/IT environments
+
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance. 
+
+To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
+
+For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
 
 ### Alert ID now aligned on the Azure portal and sensor console
 
@@ -28,6 +47,12 @@ The alert ID in the **Id** column on the Azure portal **Alerts** page now displa
 
 > [!NOTE]
 > If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
+
+### New setting to focus local networks in the device inventory 
+
+To better focus the Azure device inventory on devices that are in your OT scope, we've added the **ICS** toggle in the **Subnets** sensor setting. This toggle marks the subnet as a subnet with OT networks. [Learn more](configure-sensor-settings-portal.md#configure-subnets-in-the-azure-portal).
+
+:::image type="content" source="media/whats-new/ics-toggle.png" alt-text="Screenshot of the ICS Subnet toggle in the Azure portal Sensor settings." border="true":::
 
 ## January 2024
 
@@ -44,6 +69,7 @@ You might want to update your sensor to a specific version for various reasons, 
 :::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
+| **OT networks** |**Version 24.1.0**: <br>- [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)|
 
 ## December 2023
 
@@ -552,7 +578,7 @@ See and filter which devices are defined as *local* or *routed*, according to yo
 Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#local-subnets)
 - [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
