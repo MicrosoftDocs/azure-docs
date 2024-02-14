@@ -69,7 +69,7 @@ metadata:
 
 Scraping these pods with specific annotations is disabled by default. To enable, in the `ama-metrics-settings-configmap`, add the regex for the namespace(s) of the pods with annotations you wish to scrape as the value of the field `podannotationnamespaceregex`.
 
-For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `default`:
+For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `my-namespace`:
 
 ```yaml
 pod-annotation-based-scraping: |-
