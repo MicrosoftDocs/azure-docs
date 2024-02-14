@@ -19,7 +19,7 @@ Use this article to learn about Azure OpenAI On Your Data, which makes it easier
 
 ## What is Azure OpenAI On Your Data
 
-Azure OpenAI On Your Data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. You can chat on top of and analyze your data with greater accuracy. You can reference specific sources to support the responses based on the latest information available in your designated data sources. You can access Azure OpenAI On Your Data using a REST API, via the SDK or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/). You can also create a web app that connects to your data to enable an enhanced chat solution or deploy it directly as a copilot in the Microsoft Copilot Studio.
+Azure OpenAI On Your Data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. You can chat on top of and analyze your data with greater accuracy. You can specify sources to support the responses based on the latest information available in your designated data sources. You can access Azure OpenAI On Your Data using a REST API, via the SDK or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/). You can also create a web app that connects to your data to enable an enhanced chat solution or deploy it directly as a copilot in the Microsoft Copilot Studio.
 
 ## Get started
 
@@ -32,9 +32,9 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 To use Azure OpenAI On Your Data fully, you need to set one or more Azure RBAC roles. See [Use Azure OpenAI On Your Data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
 
-### Data formats and file types
+## Data formats and file types
 
-Azure OpenAI On Your Data supports the following filetypes:
+Azure OpenAI On Your Data supports the following file types:
 
 * `.txt`
 * `.md`
@@ -44,10 +44,6 @@ Azure OpenAI On Your Data supports the following filetypes:
 * `.pdf`
 
 There's an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
-
-* The model provides the best citation titles from markdown (`.md`) files. 
-
-* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
 
 * If you're converting data from an unsupported format into a supported format, make sure the conversion:
 
@@ -60,7 +56,7 @@ There's an [upload limit](../quotas-limits.md), and there are some caveats about
 
 * For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation). The script chunks data so that the model's responses are more accurate. This script also supports scanned PDF files and images.
 
-### Supported data sources
+## Supported data sources
 
 You need to connect to a data source to upload your data. When you want to use your data to chat with an Azure OpenAI model, your data is chunked in a search index so that relevant data can be found based on user queries. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search is used. 
 
@@ -68,9 +64,9 @@ When you choose the following data sources, your data is ingested into an Azure 
 
 |Data source  | Description  |
 |---------|---------|
-|Upload files      | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
-|URL/Web address        | Web content from the URLs is stored in an Azure Blob Storage account.         |
-|Azure Blob storage account | Upload files from an Azure Blob Storage account to be ingested into an Azure AI Search index.         |
+|Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
+|URL/Web address (preview)        | Web content from the URLs is stored in an Azure Blob Storage account.         |
+|Azure Blob Storage account (preview) | Upload files from an Azure Blob Storage account to be ingested into an Azure AI Search index.         |
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
 
 
@@ -83,20 +79,24 @@ You might want to consider using an Azure AI Search index when you either want t
 > [!NOTE]
 > To use an existing index, it must have at least one searchable field.
 
-## Search types
+### Search types
 
-Azure OpenAI On Your Data provides several search options you can use when you add your data source, using the following types of search.
+Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
 * [Semantic search](/azure/search/semantic-search-overview)
-* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models) 
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [selected regions](models.md#embeddings-models) 
 
     To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. If you're using Azure AI Search as a data source, make sure you have a vector column in the index.
 
+If you're using your own index, you can customize the [field mapping](#index-field-mapping) when you add your data source to define the fields that will mapped when answering questions. To customize field mapping, select **Use custom field mapping** on the **Data Source** page when adding your data source.
+
+
+
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following data source languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following search languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
@@ -104,7 +104,7 @@ Azure OpenAI On Your Data provides several search options you can use when you a
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
 | *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
-| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic, and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
+| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic search, and keyword search.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 ## Intelligent search
 
@@ -113,12 +113,12 @@ Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic
 ## Document-level access control
 
 > [!NOTE] 
-> Document-level access control is supported when you select an existing Azure AI search as your data source.
+> Document-level access control is supported when you select Azure AI Search as your data source.
 
-Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response are trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI On Your Data securely](../how-to/use-your-data-securely.md) for more information.
+Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response are trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI On Your Data securely](../how-to/use-your-data-securely.md#document-level-access-control) for more information.
 
 
-## Index field mapping 
+### Index field mapping 
 
 If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
 
@@ -174,7 +174,7 @@ You might want to use Azure Blob Storage as a data source if you want to connect
 ## Schedule automatic index refreshes
 
 > [!NOTE] 
-> * Automatic index refreshing is supported for Azure Blob storage only.
+> * Automatic index refreshing is supported for Azure Blob Storage only.
 > * If a document is deleted from input blob container, the corresponding chunk index records won't be removed by the scheduled refresh.
 
 To keep your Azure AI Search index up-to-date with your latest data, you can schedule an automatic index refresh rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **Azure Blob Storage** as the data source. To enable an automatic index refresh:
@@ -208,7 +208,7 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 # [Upload files (preview)](#tab/file-upload)
 
-Using Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
+Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data, and optionally creating a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -234,17 +234,9 @@ Azure OpenAI On Your Data provides keyword search if you add URL as a data sourc
 |---------------------|------------------------|---------------------| -------- |
 | *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
 
-<!--
-# [Pinecone (preview)](#tab/pinecone)
-TBD
-
-# [Elasticsearch (preview)](#tab/elasticsearch)
-
-TBD
--->
 ---
 
-## How data is ingested into Azure AI search
+### How data is ingested into Azure AI search
 
 Data is ingested into Azure AI search using the following process:
 
@@ -252,22 +244,25 @@ Data is ingested into Azure AI search using the following process:
 
 2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
-3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index. 
+3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index.
 
-### Ingestion parameters
+## Deployment
 
-You can use the following parameter to change how your data is ingested in Azure OpenAI Studio, Azure AI Studio, and the ingestion API. Changing the parameter requires reingesting your data into Azure Search.
+After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
 
-|Parameter name  | Description  |
-|---------|---------|
-| **Chunk size** | Azure OpenAI On Your Data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens for example) more effective. Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. This is the `chunkSize` parameter in the API.|
+:::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
+This gives you the option of deploying a standalone web app for you and your users to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
 
-### Using the model
+You can also deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
-After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
-* [Deploy a web app](../how-to/use-web-app.md)
-* [Deploy a copilot in Microsoft Copilot Studio](#deploy-to-a-copilot-preview)
+> [!NOTE]
+> * Deploying to a copilot in Copilot Studio is only available to US regions in preview.
+> * Copilot Studio supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
+
+## Chat on your data programmatically 
+
+Along with deploying a model from Azure OpenAI Studio, you can also chat with it programmatically. You can find a number of available 
 * [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
@@ -298,7 +293,7 @@ You can modify the following additional settings in the **Data parameters** sect
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio and Azure AI Studio chat playgrounds, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
 
 :::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/system-message.png":::
 
@@ -373,28 +368,6 @@ Avoid asking long questions and break them down into multiple questions if possi
 *   *"**You are an AI assistant designed to help users extract information from retrieved Japanese documents. Please scrutinize the Japanese documents carefully before formulating a response. The user's query will be in Japanese, and you must response also in Japanese."*
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
-
-## Deploying the model
-
-After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
-
-:::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
-
-### Deploy to a copilot (preview)
-
-You can deploy your model to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The Copilot Studio acts as a conversational and generative AI platform, making the process of creating, publishing, and deploying a bot to any number of channels simple and accessible.
-
-While a copilot in Copilot Studio has features that leverage Azure OpenAI such as [generative answers](/microsoft-copilot-studio/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
-
-> [!NOTE]
-> Deploying to a copilot in Copilot Studio is only available to US regions.
-> Copilot Studio supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
-
-### Deploy a web app
-
-Along with Azure OpenAI Studio, Copilot Studio, and the API, you can also use the available standalone web app to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
 
 #### Streaming data
 
