@@ -364,7 +364,7 @@ The definition of a caller-specified function that chat completions can invoke i
 
 ## Completions extensions
 
-Extensions for chat completions, for example Azure OpenAI on your data.
+Extensions for chat completions, for example Azure OpenAI On Your Data.
 
 **Use chat completions extensions**
 
@@ -391,7 +391,7 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 #### Example request
 
-You can make requests using Azure AI Search, Azure Cosmos DB for MongoDB vCore, Pinecone, and Elasticsearch. For more information, see [Azure OpenAI on your data](./concepts/use-your-data.md#supported-data-sources).
+You can make requests using Azure AI Search, Azure Cosmos DB for MongoDB vCore, Pinecone, and Elasticsearch. For more information, see [Azure OpenAI On Your Data](./concepts/use-your-data.md#supported-data-sources).
 
 ##### Azure AI Search
 
@@ -621,7 +621,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `messages` | array | Required | null | The messages to generate chat completions for, in the chat format. |
-| `dataSources` | array | Required |  | The data sources to be used for the Azure OpenAI on your data feature. |
+| `dataSources` | array | Required |  | The data sources to be used for the Azure OpenAI On Your Data feature. |
 | `temperature` | number | Optional | 0 | 	What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or `top_p` but not both. |
 | `top_p` | number | Optional | 1 |An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.|
 | `stream` | boolean | Optional | false | If set, partial message deltas are sent, like in ChatGPT. Tokens are sent as data-only server-sent events as they become available, with the stream terminated by a message `"messages": [{"delta": {"content": "[DONE]"}, "index": 2, "end_turn": true}]`  |
@@ -633,7 +633,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. For Elasticsearch the value is `Elasticsearch`. For Azure Machine Learning, the value is `AzureMLIndex`. For Pinecone, the value is `Pinecone`. |
+| `type` | string | Required | null | The data source to be used for the Azure OpenAI On Your Data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. For Elasticsearch the value is `Elasticsearch`. For Azure Machine Learning, the value is `AzureMLIndex`. For Pinecone, the value is `Pinecone`. |
 | `indexName` | string | Required | null | The search index to be used. |
 | `inScope` | boolean | Optional | true | If set, this value limits responses specific to the grounding data content. |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio. |
@@ -642,7 +642,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
 | `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
-| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
+| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI On Your Data use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 

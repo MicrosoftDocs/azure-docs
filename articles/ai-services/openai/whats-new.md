@@ -50,21 +50,21 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
-### New regional support for Azure OpenAI on your data
+### New regional support for Azure OpenAI On Your Data
 
-You can now use Azure OpenAI on your data in the following Azure region:
+You can now use Azure OpenAI On Your Data in the following Azure region:
 * South Africa North
 
-### Azure OpenAI on your data general availability
+### Azure OpenAI On Your Data general availability
 
-- [Azure OpenAI on your data](./concepts/use-your-data.md) is now generally available. It additionally provides public preview support for Pinecone and Elasticsearch databases.
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now generally available. It additionally provides public preview support for Pinecone and Elasticsearch databases.
 
 ## December 2023
 
-### Azure OpenAI on your data
+### Azure OpenAI On Your Data
 
-- Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
-- New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+- Full VPN and private endpoint support for Azure OpenAI On Your Data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI On Your Data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
 
 ### GPT-4 Turbo with Vision now available
 
@@ -78,7 +78,7 @@ GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 
 
 ## November 2023
 
-### New data source support in Azure OpenAI on your data
+### New data source support in Azure OpenAI On Your Data
 
 - You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md#supported-data-sources) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
@@ -131,7 +131,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 - [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
 
-### Azure OpenAI on your data
+### Azure OpenAI On Your Data
 
 - New [custom parameters](./concepts/use-your-data.md#runtime-parameters) for determining the number of retrieved documents and strictness.
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
@@ -167,8 +167,8 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Azure OpenAI on your own data (preview) updates
 
-- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- Azure OpenAI on your data now supports private endpoints.
+- You can now deploy Azure OpenAI On Your Data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- Azure OpenAI On Your Data now supports private endpoints.
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
@@ -192,7 +192,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Use Azure OpenAI on your own data (preview)
 
-- [Azure OpenAI on your data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
 
 ### New versions of gpt-35-turbo and gpt-4 models
 
