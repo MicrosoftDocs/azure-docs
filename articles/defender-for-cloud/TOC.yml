@@ -562,7 +562,7 @@
         href: enable-defender-for-endpoint.md
       - name: Assessment checks for endpoint detection and response solutions (MMA)
         href: endpoint-protection-recommendations-technical.md
-      - name: Detect and configure endpoint detection and response solutions
+      - name: Endpoint detection and response recommendations (agentless)
         displayName: defender for endpoint, endpoint, edr
         href: endpoint-detection-response.md
     - name: Adaptive application controls
