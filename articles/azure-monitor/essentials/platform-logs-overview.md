@@ -18,7 +18,7 @@ The following table lists the platform logs that are available at different laye
 
 | Log | Layer | Description |
 |:---|:---|:---|
-| [Resource logs](./resource-logs.md) | Azure Resources | Resource logs provide an insight into operations that were performed within an Azure resource. This is know as the *data plane*. Examples include getting a secret from a key vault, or making a request to a database. The contents of resource logs varies according to the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
+| [Resource logs](./resource-logs.md) | Azure Resources | Resource logs provide an insight into operations that were performed within an Azure resource. This is known as the *data plane*. Examples include getting a secret from a key vault, or making a request to a database. The contents of resource logs varies according to the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
 | [Activity logs](../essentials/activity-log.md) | Azure Subscription |Activity logs provide an insight into the operations performed *on* each Azure resource in the subscription from the outside, known as the *management plane*. in addition to updates on Service Health events. Use the Activity log to determine *what*, *who*, and *when* for any write operation (PUT, POST, DELETE) executed on the resources in your subscription. There's a single activity log for each Azure subscription. |
 | [Microsoft Entra logs](../../active-directory/reports-monitoring/overview-reports.md) | Azure Tenant |  Microsoft Entra logs contain the history of sign-in activity and an audit trail of changes made in Microsoft Entra ID for a particular tenant.   |
 
