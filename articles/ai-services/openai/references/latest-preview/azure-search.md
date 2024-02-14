@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure Search Data Source
 
-A specific representation of configurable options for Azure Search when using it as an Azure OpenAI chat extension.
+A specific representation of configurable options for Azure Search when using Azure OpenAI on your data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -98,7 +98,7 @@ Optional settings to control how fields are processed when using a configured Az
 
 ## Query Type
 
-The type of Azure Search retrieval query that should be executed when using it as an Azure OpenAI chat extension. Use one of the value below:
+The type of Azure Search retrieval query that should be executed when using it as an Azure OpenAI on your data. Use one of the value below:
 
 |Enum Value | Description |
 |---|---|
@@ -108,3 +108,89 @@ The type of Azure Search retrieval query that should be executed when using it a
 |`vector_simple_hybrid`	|Represents a combination of the simple query strategy with vector data.|
 |`vector_semantic_hybrid`	|Represents a combination of semantic search and vector data querying.|
 
+# Examples
+
+Before run this example, make sure to setup the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+
+# [Python 1.x](#tab/python)
+
+```python
+
+
+import os
+from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+endpoint = os.environ.get("AOAIEndpoint")
+deployment = os.environ.get("AOAIDeploymentId")
+search_endpoint = os.environ.get("SearchEndpoint")
+search_index = os.environ.get("SearchIndex")
+
+token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+
+client = AzureOpenAI(
+    azure_endpoint=endpoint,
+    azure_ad_token_provider=token_provider,
+    api_version="2024-02-15-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "Who is DRI?",
+        },
+    ],
+    extra_body={
+        "data_sources": [
+            {
+                "type": "azure_search",
+                "parameters": {
+                    "endpoint": search_endpoint,
+                    "index_name": search_index,
+                    "authentication": {
+                        "type": "system_assigned_managed_identity"
+                    }
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+
+```
+
+# [REST](#tab/rest)
+
+```bash
+az rest --method POST \
+ --uri $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/chat/completions?api-version=2024-02-15-preview \
+ --resource https://cognitiveservices.azure.com/ \
+ --body \
+'
+{
+    "data_sources": [
+        {
+            "type": "azure_search",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "index_name": "'$SearchIndex'",
+                "authentication": {
+                    "type": "system_assigned_managed_identity"
+                }
+            }
+        }
+    ],
+    "messages": [
+        {
+            "role": "user",
+            "content": "Who is DRI?",
+        }
+    ]
+}
+'
+```
+
+---
