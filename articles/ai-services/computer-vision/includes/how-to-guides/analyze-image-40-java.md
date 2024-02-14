@@ -40,7 +40,7 @@ Create an `imageUrl` string to hold the publicly accessible URL of the image you
 
 ### Image buffer
 
-Alternatively, you can pass in the image as memory buffer using a [BinaryData](https://learn.microsoft.com/java/api/com.azure.core.util.binarydata) object. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as memory buffer using a [BinaryData](/java/api/com.azure.core.util.binarydata) object. For example, read from a local image file you want to analyze.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
 
