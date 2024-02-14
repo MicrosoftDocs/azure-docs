@@ -2,10 +2,12 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 10/17/2023
+ms.date: 02/13/2024
 ms.author: danlep
 ---
 ## Help and support
+
+We're here to help you with your migration to the `stv2` platform with minimal disruptions to your services.
 
 If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/apim/retirement/stv1). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 

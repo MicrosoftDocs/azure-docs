@@ -81,8 +81,14 @@
     - name: Compute platform
       displayName: stv1, stv2
       href: compute-infrastructure.md
-    - name: Migrate to stv2 platform
-      href: migrate-stv1-to-stv2.md
+    - name: Migrate from stv1 to stv2 platform
+      items:
+      - name: Scenarios to migrate to stv2
+        href: migrate-stv1-to-stv2.md
+      - name: Migrate a non-VNet-injected instance
+        href: migrate-stv1-to-stv2-no-vnet.md
+      - name: Migrate a VNet-injected instance
+        href: migrate-stv1-to-stv2-vnet.md
     - name: Validate service updates
       href: validate-service-updates.md
     - name: Move instances between regions
