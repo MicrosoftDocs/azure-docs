@@ -42,7 +42,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 * An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance). The instance must be injected in a virtual network.
 
-* A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in one or more same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
+* A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
 
@@ -58,7 +58,7 @@ Trigger migration of a network-injected API Management instance to the `stv2` pl
 You can also migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
 
 > [!IMPORTANT]
-> The VIP address of your API Management instance will change. However, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and peered VNets to use the new VIP address.
+> The VIP address(es) of your API Management instance will change. However, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and peered VNets to use the new VIP address(es).
 
 ### Update network configuration
 
@@ -89,7 +89,7 @@ You can optionally migrate back to the original VNet and subnet you used in each
 1. In the [portal](https://portal.azure.com), navigate to your original VNet.
 1. In the left menu, select **Subnets**, and then the original subnet. 
 1. Verify that the original IP addresses were released by API Management. Under **Available IPs**, note the number of IP addresses available in the subnet. All addresses (except for Azure reserved addresses) should be available. If necessary, wait for IP addresses to be released. 
-1. Repeat the migration steps in the preceding section. In each region, specify the original VNet and subnet, and a new IP address resource.
+1. Repeat the migration steps in the [preceding section](#trigger-migration-of-a-network-injected-api-management-instance). In each region, specify the original VNet and subnet, and a new IP address resource.
 1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
@@ -120,9 +120,9 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **What are the prerequisites for the migration?**
 
-   For VNet-injected instances, you'll need a new subnet and public IP address to migrate (either external or internal mode). The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
+   For VNet-injected instances, you'll need a new subnet and public IP address to migrate in each VNet (either external or internal mode). The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
   
- **Will the migration cause a downtime?**
+- **Will the migration cause a downtime?**
 
    Since the old gateway is purged only after the new compute is healthy and online, there shouldn't be any downtime if default hostnames are in use. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional. However, if custom domains are in use, they'll be pointing to the purged compute until they're updated which may cause a downtime. Alternatively, you can request for the old gateway to be retained for up to 48 hours by creating an Azure support ticket in advance. Having the old and the new compute coexist will facilitate validation, and then you can update the custom DNS entries at will.
    
@@ -145,7 +145,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Can I do the migration using the portal?**
 
-   - Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Network** blade.
+   Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Network** blade.
 
 - **Can I preserve the IP address of the instance?**
 
@@ -170,7 +170,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Is there a way to validate the VNet configuration before attempting migration?**
 
-   You can optionally deploy a new API Management instance with the new VNet, subnet, and IP address resources that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1` service.
+   You can optionally deploy a new API Management instance with the new VNet, subnet, and IP address resources that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1`-hosted service.
 
 - **Can I roll back the migration if required?**
 
@@ -193,11 +193,11 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
-   - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
+   - You can't migrate the `stv1` instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
    - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can request to increase this time to up to 48 hours by a support ticket.
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
-   - A new public IP is required for each switch
-   - Ensure that the old subnet networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
+   - A new public IP is required for each switch.
+   - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
 
 - **Can I test the new gateway before switching the live traffic?**
 

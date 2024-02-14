@@ -153,7 +153,7 @@ To verify that the migration was successful, check the [platform version](comput
 
 - **Can I roll back the migration if required?**
 
-C if there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. If the migration completes successfully, a rollback is not possible.
+    If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. If the migration completes successfully, a rollback is not possible.
 
 - **Is there any change required in custom domains/private DNS zones?**
 
@@ -163,16 +163,16 @@ C if there's a failure during the migration process, the instance will automatic
 
 <!-- Not sure if any applies to non-VNet sceario -->
 
-   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP.  Navigate to the *Locations* blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
+   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP.  Navigate to the **Locations** blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
 
 
 
 - **Can I test the new gateway before switching the live traffic?**
 
-   - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. 
-   - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
-   - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their hosts file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
-
+       - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. 
+       - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
+       - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their hosts file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
+    
 
 - **What should we consider for self hosted gateways?**
 

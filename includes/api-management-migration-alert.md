@@ -7,4 +7,4 @@ ms.author: danlep
 ---
 
 > [!IMPORTANT]
-> The infrastructure associated with the `stv1` compute platform for API Management will be retired in August 2024. If you have instances hosted on the `stv1` platform, migrate them to the `stv2` platform before that date to avoid service disruptions. [Learn more](../articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md).
+> Support for API Management instances hosted on the `stv1` platform will be retired by 31 August 2024. If you have instances hosted on the `stv1` platform, migrate them to the `stv2` platform before that date to avoid service disruptions. [Learn more](../articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md).
