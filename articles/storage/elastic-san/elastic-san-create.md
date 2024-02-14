@@ -11,7 +11,7 @@ ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 
 # Deploy an Elastic SAN
 
-This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
+This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out [this](https://aka.ms/ElasticSANPreviewSignup) optional survey.
 
 ## Prerequisites
 
