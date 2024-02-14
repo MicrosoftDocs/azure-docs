@@ -10,19 +10,14 @@ ms.custom:
   - ignite-2023
 ms.date: 11/14/2023
 
-# CustomerIntent: As an developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
+# CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
 
 # Use Dapr to develop distributed application workloads
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more.  Azure IoT MQ Preview supports two of these building blocks:
-
-- Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
-- State Management
-
-To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own pluggable component defined. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use the IoT MQ Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Prerequisites
 
