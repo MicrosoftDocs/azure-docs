@@ -457,6 +457,8 @@ items:
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
+      - name: Use Apache Spark-SQL RBAC with Apache Ranger
+        href: ./spark/ranger-policies-for-spark.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter Notebook
