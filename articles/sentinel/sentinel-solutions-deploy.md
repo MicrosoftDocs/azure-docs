@@ -25,7 +25,7 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
 
 ## Prerequisites
 
-In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level. In addition, the **Template Spec Contributor** role is still required for some edge cases. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
+In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 
 This is in addition to Sentinel specific roles. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
   
