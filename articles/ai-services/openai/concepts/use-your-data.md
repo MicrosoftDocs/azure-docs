@@ -13,13 +13,13 @@ recommendations: false
 ms.custom: references_regions 
 ---
 
-# Azure OpenAI on your data 
+# Azure OpenAI On Your Data 
 
-Use this article to learn about Azure OpenAI on your data, which makes it easier for developers to connect, ingest and ground their enterprise data to create personalized copilots easily and rapidly. It enhances user comprehension, expedites task completion, improves operational efficiency, and aids decision-making.
+Use this article to learn about Azure OpenAI On Your Data, which makes it easier for developers to connect, ingest and ground their enterprise data to create personalized copilots easily and rapidly. It enhances user comprehension, expedites task completion, improves operational efficiency, and aids decision-making.
 
-## What is Azure OpenAI on your data
+## What is Azure OpenAI On Your Data
 
-Azure OpenAI on your data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. You can chat on top of and analyze your data with greater accuracy. You can reference specific sources to support the responses based on the latest information available in your designated data sources. You can access Azure OpenAI on your data using a REST API, via the SDK or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/). You can also create a web app that connects to your data to enable an enhanced chat solution or deploy it directly as a copilot in the Microsoft Copilot Studio.
+Azure OpenAI On Your Data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. You can chat on top of and analyze your data with greater accuracy. You can reference specific sources to support the responses based on the latest information available in your designated data sources. You can access Azure OpenAI On Your Data using a REST API, via the SDK or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/). You can also create a web app that connects to your data to enable an enhanced chat solution or deploy it directly as a copilot in the Microsoft Copilot Studio.
 
 ## Get started
 
@@ -30,11 +30,11 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 ## Azure Role-based access controls (Azure RBAC) for adding data sources
 
-To use Azure OpenAI on your data fully, you need to set one or more Azure RBAC roles. See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
+To use Azure OpenAI On Your Data fully, you need to set one or more Azure RBAC roles. See [Use Azure OpenAI On Your Data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
 
 ### Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes:
+Azure OpenAI On Your Data supports the following filetypes:
 
 * `.txt`
 * `.md`
@@ -71,7 +71,7 @@ When you choose the following data sources, your data is ingested into an Azure 
 |Upload files      | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
 |URL/Web address        | Web content from the URLs is stored in an Azure Blob Storage account.         |
 |Azure Blob storage account | Upload files from an Azure Blob Storage account to be ingested into an Azure AI Search index.         |
-| [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI on your data.      |
+| [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
 
 
 # [Azure AI Search](#tab/ai-search)
@@ -85,7 +85,7 @@ You might want to consider using an Azure AI Search index when you either want t
 
 ## Search types
 
-Azure OpenAI on your data provides several search options you can use when you add your data source, using the following types of search.
+Azure OpenAI On Your Data provides several search options you can use when you add your data source, using the following types of search.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
@@ -108,14 +108,14 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 ## Intelligent search
 
-Azure OpenAI on your data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
+Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
 
 ## Document-level access control
 
 > [!NOTE] 
 > Document-level access control is supported when you select an existing Azure AI search as your data source.
 
-Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response are trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md) for more information.
+Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response are trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI On Your Data securely](../how-to/use-your-data-securely.md) for more information.
 
 
 ## Index field mapping 
@@ -226,7 +226,7 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 ### Search options
 
-Azure OpenAI on your data provides keyword search if you add URL as a data source.
+Azure OpenAI On Your Data provides keyword search if you add URL as a data source.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
@@ -260,7 +260,7 @@ You can use the following parameter to change how your data is ingested in Azure
 
 |Parameter name  | Description  |
 |---------|---------|
-| **Chunk size** | Azure OpenAI on your data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens for example) more effective. Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. This is the `chunkSize` parameter in the API.|
+| **Chunk size** | Azure OpenAI On Your Data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens for example) more effective. Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. This is the `chunkSize` parameter in the API.|
 
 
 ### Using the model
@@ -275,9 +275,9 @@ After ingesting your data, you can start chatting with the model on your data us
 * [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
 * [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
 
-## Use Azure OpenAI on your data securely
+## Use Azure OpenAI On Your Data securely
 
-You can use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md).
+You can use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI On Your Data](../how-to/use-your-data-securely.md).
 
 ## Best practices
 
@@ -296,7 +296,7 @@ You can modify the following additional settings in the **Data parameters** sect
 
 ### System message
 
-You can define a system message to steer the model's reply when using Azure OpenAI on your data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI on your data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
+You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
 Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio and Azure AI Studio chat playgrounds, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
 
@@ -321,7 +321,7 @@ You can also change the model's output by defining a system message. For example
 
 **Reaffirm critical behavior**
 
-Azure OpenAI on your data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, do not answer using your own knowledge."*.
+Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, do not answer using your own knowledge."*.
 
 **Prompt Engineering tricks**
 
@@ -335,7 +335,7 @@ There are many tricks in prompt engineering that you can try to improve the outp
 
 ### Maximum response 
 
-Set a limit on the number of tokens per model response. The upper limit for Azure OpenAI on Your Data is 1500. This is equivalent to setting the `max_tokens` parameter in the API. 
+Set a limit on the number of tokens per model response. The upper limit for Azure OpenAI On Your Data is 1500. This is equivalent to setting the `max_tokens` parameter in the API. 
 
 ### Limit responses to your data 
 
@@ -364,7 +364,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 **Multi-lingual support**  
 
-* Currently, keyword search and semantic search in Azure OpenAI on your data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
+* Currently, keyword search and semantic search in Azure OpenAI On Your Data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
 
 * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic   
 
@@ -384,7 +384,7 @@ After you connect Azure OpenAI to your data, you can deploy it using the **Deplo
 
 You can deploy your model to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The Copilot Studio acts as a conversational and generative AI platform, making the process of creating, publishing, and deploying a bot to any number of channels simple and accessible.
 
-While a copilot in Copilot Studio has features that leverage Azure OpenAI such as [generative answers](/microsoft-copilot-studio/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI on your data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
+While a copilot in Copilot Studio has features that leverage Azure OpenAI such as [generative answers](/microsoft-copilot-studio/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
@@ -459,7 +459,7 @@ When you chat with a model, providing a history of the chat will help the model 
 }
 ```
 
-## Token usage estimation for Azure OpenAI on your data
+## Token usage estimation for Azure OpenAI On Your Data
 
 
 
@@ -529,9 +529,9 @@ Resolution:
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
 
 
-## Azure OpenAI on your data regional availability
+## Azure OpenAI On Your Data regional availability
 
-You can use Azure OpenAI on your data with an Azure OpenAI resource in the following regions:
+You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the following regions:
 * Australia East
 * Brazil South
 * Canada East
@@ -560,11 +560,11 @@ You can use Azure OpenAI on your data with an Azure OpenAI resource in the follo
 * `gpt-35-turbo-16k` (0613)
 * `gpt-35-turbo` (1106)
 
-If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI on your data.
+If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
 
-* [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md)
+* [Securely use Azure OpenAI On Your Data](../how-to/use-your-data-securely.md)
 
 * [Introduction to prompt engineering](./prompt-engineering.md)

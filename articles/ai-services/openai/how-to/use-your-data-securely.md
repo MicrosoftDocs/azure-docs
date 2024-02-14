@@ -12,15 +12,15 @@ ms.date: 02/13/2024
 recommendations: false
 ---
 
-# Securely use Azure OpenAI on your data
+# Securely use Azure OpenAI On Your Data
 
-Use this article to learn how to use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
 
-This article is only applicable when using [Azure OpenAI on your data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI on your data with images](/azure/ai-services/openai/concepts/use-your-image-data).
+This article is only applicable when using [Azure OpenAI On Your Data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI On Your Data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
 ## Data ingestion architecture 
 
-When you use Azure OpenAI on your data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
+When you use Azure OpenAI On Your Data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
@@ -52,7 +52,7 @@ If an embedding deployment is provided in the inference request, the rewritten q
 > [!NOTE] 
 > Document-level access control is supported for Azure AI search only.
 
-Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
+Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
 
 1. Follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
