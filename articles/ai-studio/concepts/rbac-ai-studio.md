@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 02/14/2024
 ms.reviewer: meyetman
 ms.author: larryfr
 author: Blackmist
@@ -97,7 +97,7 @@ In order to complete end-to-end AI development and deployment, users only need t
 
 ## Dependency service roles
 
-Azure AI hub and project resources have dependencies on other Azure services. The following table lists the permissions required for these services:
+Azure AI hub and project resources have dependencies on other Azure services. The following table lists the permissions required for these services when you create an Azure AI hub resource or project:
 
 | Permission | Description |
 |------------|-------------|
@@ -105,11 +105,11 @@ Azure AI hub and project resources have dependencies on other Azure services. Th
 | `Microsoft.KeyVault/vaults/write` | Creates a new key vault or updates the properties of an existing key vault. Certain properties may require more permissions. |
 | `Microsoft.CognitiveServices/accounts/write` | Writes API Accounts. |
 | `Microsoft.Insights/Components/Write` | Writing to an application insights component configuration. |
-| `Microsoft.OperationalInsights/workspaces/write` | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
+| `Microsoft.OperationalInsights/workspaces/write` | Creates a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
 
 
 ## Sample enterprise RBAC setup
-Below is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
+The following is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
 
 | Persona | Role | Purpose |
 | --- | --- | ---|
