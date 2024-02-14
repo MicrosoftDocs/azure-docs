@@ -234,10 +234,10 @@ You need to enable guest management on the VMware VM before you can install an e
 From here additional extensions can be installed. See the [VM extensions](/azure/azure-arc/servers/manage-vm-extensions?branch=main) for a list of current extensions. 
 
 ### Install extensions
-Extensions can be added into VM following these steps:
-1.  Within the **vCenter Server Inventory >** **Virtual Machines** view choose the virtual machine you wish to add an extension into.
+To add extensions, follow these steps:
+1. Go to **vCenter Server Inventory >** **Virtual Machines** and select the virtual machine to which you need to add an extension.
 2.  Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
-3.  Select the extension you want to install. Some extensions may require additional details to be provided.
+1. Select the extension you want to install. Some extensions require additional information.
 4.  When you're done, select **Review + create**.
 
 ### Next Steps
