@@ -42,11 +42,13 @@ In this article, you learn about the steps that you and your onboarding team mus
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenant))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
 
+- If you plan to use Azure Communications Gateway's Number Management Portal to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the Project Synergy enterprise application.
+
 [!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
 ## Methods
 
-In some parts of this article, the steps you must take depend on whether your deployment includes the Number Management Portal. This article provides instructions for both types of deployment. Choose the appropriate instructions.
+In some parts of this article, the steps you must take depend on whether you are using the Number Management Portal. This article provides instructions for both types of deployment. Choose the appropriate instructions.
 
 ## Ask your onboarding team to register your test enterprise tenant
 
