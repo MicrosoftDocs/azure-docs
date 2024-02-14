@@ -20,16 +20,23 @@ This article provides reference documentation for Python and REST for the new Az
 > In earlier API versions, Azure OpenAI on your data used api path `/extensions/chat/completions`. Since `2024-02-15-preview`, Azure OpenAI on your data uses api path `/extensions/chat/completions`.
 
 ```http
-POST {endpoint}/openai/deployments/{deploymentId}/chat/completions?api-version=2024-02-15-preview
+POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=2024-02-15-preview
 ```
 
 ## URI Parameters
 
-|Name             | In   | Type     | Required | Description                                                                           |
-|---              |---   |---       |---       |---                                                                                    |
-|deploymentId     |path  |string    |True      |Specifies the chat completions model deployment name to use for this request.          |
-|endpoint         |path  |string    |True      |Azure OpenAI endpoints. For example: https://YOUR_RESOURCE_NAME.openai.azure.com       |
-|api-version      |query |string    |True      |The API version to use for this operation.                                             |
+|Name               | In   | Type     | Required | Description                                                                           |
+|---                |---   |---       |---       |---                                                                                    |
+|```deployment-id```|path  |string    |True      |Specifies the chat completions model deployment name to use for this request.          |
+|```endpoint```     |path  |string    |True      |Azure OpenAI endpoints. For example: https://YOUR_RESOURCE_NAME.openai.azure.com       |
+|```api-version```  |query |string    |True      |The API version to use for this operation.                                             |
+
+## Request Body
+
+|Name | Type | Required | Description |
+| `messages` | ChatRequestMessage[] | True | The messages to generate chat completions for, in the chat format.|
+| `data_sources` | AzureChatExtensionConfiguration[] | True | The configuration entries for Azure OpenAI on your data. This additional specification is only compatible with Azure OpenAI. If `data_sources` is not provided, the service will use chat completions model directly, and not use Azure OpenAI on your data.|
+
 
 
 ## Create an assistant
