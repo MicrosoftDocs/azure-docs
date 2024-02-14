@@ -242,11 +242,11 @@
 - name: Monitor metrics and logs
   items:
   - name: Monitor Azure Files
-    href: monitor-files.md
+    href: storage-files-monitoring.md
   - name: Analyze metrics
-    href: monitor-files.md#analyze-metrics-for-azure-files
+    href: analyze-files-metrics.md
   - name: Create alerts
-    href: monitor-files.md#create-common-alert-rules
+    href: files-monitoring-alerts.md
 - name: Application development
   items:
   - name: Configure connection strings
@@ -314,7 +314,7 @@
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
   - name: Monitoring data reference
-    href: monitor-files-reference.md
+    href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
