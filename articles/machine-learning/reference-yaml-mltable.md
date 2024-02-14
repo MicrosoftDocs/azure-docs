@@ -10,7 +10,7 @@ ms.custom: cliv2
 
 author: SturgeonMi
 ms.author: xunwan
-ms.date: 02/13/2024
+ms.date: 02/14/2024
 ms.reviewer: franksolomon
 ---
 
@@ -29,6 +29,7 @@ This article presents information about the `MLTable` YAML schema only. For more
 - MLTable *artifacts* creation
 - consumption in Pandas and Spark
 - end-to-end examples
+
 visit [Working with tables in Azure Machine Learning](how-to-mltable.md).
 
 ## YAML syntax
@@ -72,7 +73,7 @@ Examples of MLTable use. Find more examples at:
 - the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/assets/data)
 
 ### Quickstart
-This quickstart reads the famous iris dataset from a public https server. Locate the `MLTable` files in a folder. First, create the folder and `MLTable` file with:
+This quickstart reads the famous iris dataset from a public https server. To proceed, you must place the `MLTable` files in a folder. First, create the folder and `MLTable` file with:
 
 ```bash
 mkdir ./iris
@@ -80,7 +81,7 @@ cd ./iris
 touch ./MLTable
 ```
 
-Next, add these contents to the `MLTable` file:
+Next, place this content in the `MLTable` file:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
