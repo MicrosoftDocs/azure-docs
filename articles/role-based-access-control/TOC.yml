@@ -47,14 +47,10 @@
       href: delegate-role-assignments-overview.md
     - name: Authorization actions and attributes
       href: conditions-authorization-actions-attributes.md
-    - name: Example conditions
-      href: delegate-role-assignments-examples.md
   - name: ABAC conditions
     items:
     - name: Condition format
       href: conditions-format.md
-    - name: Example conditions for Blob Storage
-      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
     - name: Conditions FAQ
@@ -103,10 +99,12 @@
       href: role-assignments-template.md
   - name: Delegate
     items:
-    - name: Subscription administrator
+    - name: Subscription administrator with conditions
       href: role-assignments-portal-subscription-admin.md
     - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
   - name: Add or edit ABAC conditions
     items:
     - name: Portal
@@ -119,6 +117,8 @@
       href: conditions-role-assignments-rest.md
     - name: ARM template
       href: conditions-role-assignments-template.md
+    - name: Example conditions for Blob Storage
+      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments

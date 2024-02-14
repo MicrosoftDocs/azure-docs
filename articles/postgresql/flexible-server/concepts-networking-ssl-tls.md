@@ -4,7 +4,7 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 10/12/2023
+ms.date: 01/04/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

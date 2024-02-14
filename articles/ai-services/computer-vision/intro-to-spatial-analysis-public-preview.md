@@ -9,7 +9,6 @@ ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 01/19/2024
-ms.custom: contperf-fy22q2, ignite-2022
 ---
 
 # What is Spatial Analysis?

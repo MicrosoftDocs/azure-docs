@@ -7,7 +7,6 @@ ms.date: 10/12/2018
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Striim Azure Synapse Analytics Marketplace Offering Install Guide

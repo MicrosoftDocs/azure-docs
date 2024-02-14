@@ -2,7 +2,6 @@
 title: Azure VMs high availability for SAP NetWeaver | Microsoft Docs
 description: In this article, learn about Azure Virtual Machines high availability for SAP NetWeaver.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
@@ -11,11 +10,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver
@@ -239,4 +236,3 @@ The article covers both ![Windows logo.][Logo_Windows] **Windows** and ![Linux l
 * ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL][sap-rhel-ascs-ha]
 
 * ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL with Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
-

@@ -6,11 +6,14 @@ author: garrodonnell
 manager: CelesteDG
 
 ms.author: godonnell
-ms.date: 02/21/2023
+ms.date: 01/24/2024
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
+
+#Customer Intent: As a developer, I want to access code samples for Azure Active Directory B2C, so that I can learn how to integrate authentication and user management into my web, mobile, and desktop applications using Azure AD B2C.
+
 ---
 
 # Azure Active Directory B2C code samples

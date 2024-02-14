@@ -12,13 +12,13 @@
 
 ## Create a storage account
 
-Create an Azure storage account for the steps in this article. If you already have a storage account, you can use it instead.
+Create an Azure Storage account for the steps in this article. If you already have a storage account, you can use it instead.
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
-   
+
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a storage account** enter or select the following information:
+1. On the **Basics** tab of **Create a storage account**, enter or select the following information:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -30,7 +30,7 @@ Create an Azure storage account for the steps in this article. If you already ha
     | Location | Select **(US) East US 2**. |
     | Performance | Leave the default **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
-   
+
 1. Select **Review**.
 
 1. Select **Create**.

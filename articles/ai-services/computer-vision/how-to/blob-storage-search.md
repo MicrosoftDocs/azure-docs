@@ -1,5 +1,5 @@
 ---
-title: Configure your blob storage container for image retrieval and video search
+title: Configure your blob storage container for image retrieval
 titleSuffix: Azure AI services
 description: Configure your Azure storage account to get started with the **Search photos image retrieval** experience in Vision Studio.
 #services: cognitive-services
@@ -13,14 +13,14 @@ ms.author: pafarley
 
 ---
 
-# Configure your blob storage for image retrieval and video search in Vision Studio
+# Configure your blob storage for image retrieval in Vision Studio
 
-To get started with the **Search photos image retrieval** scenario in Vision Studio, you need to select or create a new Azure storage account. Your storage account can be in any region, but creating it in the same region as your Vision resource is more efficient and reduces cost. 
+To get started with the **Search photos with image retrieval** scenario in Vision Studio, you need to select or create a new Azure storage account. Your storage account can be in any region, but creating it in the same region as your Vision resource is more efficient and reduces cost. 
 
 > [!IMPORTANT]
-> You need to create your storage account on the same Azure subscription as the Vision resource you're using in the **Search photos image retrieval** scenario as shown below.
-
-:::image type="content" source="../media/storage-instructions/subscription.png" alt-text="Screenshot of resource selection.":::
+> You need to create your storage account on the same Azure subscription as the Vision resource you're using in the **Search photos with image retrieval** scenario.
+>
+> :::image type="content" source="../media/storage-instructions/subscription.png" alt-text="Screenshot of resource selection.":::
 
 ## Create a new storage account
 
@@ -53,13 +53,9 @@ In the Allowed Methods field, select the `GET` checkbox to allow an authenticate
 :::image type="content" source="../media/storage-instructions/cors-rule.png" alt-text="Screenshot of completed CORS screen.":::
 
 
-This allows Vision Studio to access images and videos in your blob storage container to extract insights on your data.
+This allows Vision Studio to access images in your blob storage container to extract insights on your data.
 
-## Upload images and videos in Vision Studio
+## Upload images in Vision Studio
 
-In the **Try with your own video** or **Try with your own image** section in Vision Studio, select the storage account that you configured with the CORS rule. Select the container in which your images or videos are stored. If you don't have a container, you can create one and upload the images or videos from your local device. If you have updated the CORS rules on the storage account, refresh the Blob container or Video files on container sections.
-
-
-:::image type="content" source="../media/storage-instructions/video-selection.png" alt-text="Screenshot of image upload in Vision Studio.":::
-
+In the **Search photos with image retrieval** section in Vision Studio, select the storage account that you configured with the CORS rule. Select the container in which your images are stored. If you don't have a container, you can create one and upload the images from your local device. If you have updated the CORS rules on the storage account, refresh the Blob container or Video files on container sections.
 

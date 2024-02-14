@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: olmoloce
 author: olmoloce
-ms.date: 03/24/2023
+ms.date: 12/21/2023
 ---
 
 # Connection libraries for Azure Database for PostgreSQL - Flexible Server

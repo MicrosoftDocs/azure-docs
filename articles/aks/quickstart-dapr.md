@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
 ms.date: 12/27/2023
-ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, linux-related-content
+ms.custom: template-quickstart, mode-other, devx-track-js, devx-track-python, linux-related-content
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes

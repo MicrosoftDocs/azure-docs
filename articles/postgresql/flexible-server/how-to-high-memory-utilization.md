@@ -4,7 +4,7 @@ description: Troubleshooting guide for high memory utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 10/26/2023
+ms.date: 01/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

@@ -3,7 +3,6 @@ title: Overview of the developer portal in Azure API Management
 titleSuffix: Azure API Management
 description: Learn about the developer portal in API Management - a customizable website, where API consumers can explore your APIs.
 services: api-management
-documentationcenter: API Management
 author: dlepow
 
 ms.service: api-management

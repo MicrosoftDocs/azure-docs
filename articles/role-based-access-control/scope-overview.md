@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 06/02/2023
 ms.author: rolyon
 ---

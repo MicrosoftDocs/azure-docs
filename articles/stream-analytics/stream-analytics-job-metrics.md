@@ -6,7 +6,6 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2023
-ms.custom: seodec18
 ---
 
 # Azure Stream Analytics job metrics
@@ -38,4 +37,3 @@ For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
 * [Get started with Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

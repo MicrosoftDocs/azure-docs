@@ -1,11 +1,10 @@
 ---
 title:  "Import Data: Component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Import Data component in Azure Machine Learning to load data into a machine learning pipeline from existing cloud data services.  
+description: Learn how to use the Import Data component in Azure Machine Learning to load data into a machine learning pipeline from existing cloud data services.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt

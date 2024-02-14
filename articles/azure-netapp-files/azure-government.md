@@ -4,7 +4,6 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 11/02/2023
@@ -26,15 +25,13 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
-| Azure NetApp Files large volumes | Public preview | No |
-| Edit network features for existing volumes | Public preview | No |
-| Standard storage with cool access in Azure NetApp Files | Public preview | Public preview |
+| Azure NetApp Files large volumes | Public preview | Public preview [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
 
 ## Portal access
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**. The portal site name is **Microsoft Azure Government**. For more information, see [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-![Screenshot that shows the Azure Government portal highlighting portal.azure.us as the URL.](../media/azure-netapp-files/azure-government.jpg)
+![Screenshot that shows the Azure Government portal highlighting portal.azure.us as the URL.](./media/azure-government/azure-government.jpg)
 
 From the Azure Government portal, you can access Azure NetApp Files the same way you would in the Azure portal. For example, you can enter **Azure NetApp Files** in the portal's **Search resources** box, and then select **Azure NetApp Files** from the list that appears.
 

@@ -10,7 +10,6 @@ ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 07/05/2022
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 ---
 
 # How to improve your Custom Vision model
