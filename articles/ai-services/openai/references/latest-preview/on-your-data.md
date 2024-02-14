@@ -14,7 +14,10 @@ ms.custom:
 
 # Azure OpenAI on your data API (Preview) reference
 
-This article provides reference documentation for Python and REST for the Azure OpenAI on your data API (Preview). The latest preview api-version is `2024-02-15-preview`.
+This article provides reference documentation for Python and REST for the new Azure OpenAI on your data API (Preview). The latest preview api-version is `2024-02-15-preview`.
+
+> [!NOTE]
+> In earlier API versions, Azure OpenAI on your data used api path `/extensions/chat/completions`. Since `2024-02-15-preview`, Azure OpenAI on your data uses api path `/extensions/chat/completions`.
 
 ```http
 POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/chat/completions?api-version=2024-02-15-preview

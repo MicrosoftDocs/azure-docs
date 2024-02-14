@@ -201,6 +201,10 @@ items:
          href: ./assistants-reference-messages.md
        - name: Runs
          href: ./assistants-reference-runs.md     
+    - name: On your data API Reference
+      items:
+       - name: On your data
+         href: ./references/latest-preview/on-your-data.md
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
