@@ -303,7 +303,7 @@ If you use the `resources` section, a valid resource definition needs to meet th
 | --- | --- | --- |
 | `requests:`<br>`cpu:`| Required | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it in full numbers. For example, `"1"` is equivalent to `1000m`.|
 | `requests:`<br>`memory:` | Required | String values, which can't be zero or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1024 MiB. <br>Memory can't be less than 1 MB.|
-| `limits:`<br>`cpu:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example,, `100m`. You can also specify it in full numbers. For example `"1"` is equivalent to `1000m`. |
+| `limits:`<br>`cpu:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it in full numbers. For example, `"1"` is equivalent to `1000m`. |
 | `limits:`<br>`memory:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1,024 MiB.|
 | `limits:`<br>`nvidia.com/gpu:` | Optional <br>(required only when you need GPU) | Integer values, which can't be empty and can be specified only in the `limits` section. <br>For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If you require CPU only, you can omit the entire `limits` section.|
 
