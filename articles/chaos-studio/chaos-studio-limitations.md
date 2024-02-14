@@ -38,6 +38,7 @@ The following are known limitations in Chaos Studio.
 ## Known issues
 - When selecting target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
 - When running in a Linux environment, the agent-based network latency fault (NetworkLatency-1.1) can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+- When filtering by Azure subscriptions from the Targets and/or Experiments page, you may experience long load times if you have many subscriptions with large numbers of Azure resources. As a workaround, filter down to the single specific subscription in question to quickly find your desired Targets and/or Experiments. 
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio by using the following links:

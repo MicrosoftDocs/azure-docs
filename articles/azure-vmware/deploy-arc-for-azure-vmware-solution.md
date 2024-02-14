@@ -158,7 +158,7 @@ When the script is run successfully, check the status to see if Azure Arc is now
 - Choose **Azure Arc**. 
 - Azure Arc state shows as **Configured**.
 
-Recover from failed deployments 
+To recover from failed deployments: 
 
 If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot. 
 
@@ -184,15 +184,13 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 
   The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
 
-1. Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
+Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
 
-For virtual machines, there's another section to configure **VM extensions**.  This enables guest management to facilitate more Azure extensions to be installed on the VM. The steps to enable this are:
+Additionally, for virtual machines there is an additional section to configure **VM extensions**.  This will enable guest management to facilitate additional Azure extensions to be installed on the VM. The steps to enable this would be:
 
 1. Select **Enable guest management**.
-
-1. Choose a __Connectivity Method__ for the Arc agent.
-
-1. Provide an Administrator/Root access username and password for the VM.
+2. Choose a __Connectivity Method__ for the Arc agent.
+3. Provide an Administrator/Root access username and password for the VM.
 
 If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, review the prerequisites and steps discussed in the following section. 
 
@@ -222,9 +220,9 @@ You need to enable guest management on the VMware VM before you can install an e
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** is now checked.
 
-More extensions can be installed, see the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
+From here additional extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
 
 ### Next Steps
 
-To manage Arc-enabled Azure VMware Solution, see [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution).
-To remove Arc-enabled  Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure).
+To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
+To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)

@@ -11,7 +11,7 @@ ms.author: thvankra
 
 # DBA commands for Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment, scaling, and [management operations](management-operations.md) for open-source Apache Cassandra data centers. The automation in the service should be sufficient for many use cases. However, this article describes how to run DBA commands manually when the need arises. 
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed. This article describes how to run DBA commands manually when the need arises. 
 
 > [!IMPORTANT]
 > Nodetool and sstable commands are in public preview.

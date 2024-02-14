@@ -576,7 +576,7 @@ Learn more about Creator for indoor maps by reading:
 [structures]: #structure
 <!---------   REST API Links     --------------->
 [conversion service]: /rest/api/maps-creator/conversion
-[dataset]: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview
+[dataset]: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [GeoJSON Point geometry]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
 [MultiPolygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonmultipolygon
 [Point]: /rest/api/maps-creator/wfs/get-features#geojsonpoint

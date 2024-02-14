@@ -223,11 +223,9 @@
     - name: Azure Image Builder
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)
-      items:
-      - name: Availability zones
-        href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../aks/operator-best-practices-multi-region.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Load Balancer
+      href: reliability-load-balancer.md
     - name: Azure Logic Apps
       items:
       - name: Availability zones
@@ -300,6 +298,8 @@
       href: reliability-deployment-environments.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DevOps
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Elastic SAN
+      href: reliability-elastic-san.md
     - name: Azure Health Data Services - Azure API for FHIR
       href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure IoT Hub
