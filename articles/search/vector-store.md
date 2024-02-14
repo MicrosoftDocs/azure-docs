@@ -95,9 +95,9 @@ In the following example, for each search document, there's one chunk ID, chunk,
 
 ### Schema for RAG and chat-style apps
 
-If you're designing storage for generative search, you can create separate indexes for the static content that you indexed and vectorized, and a second index for converations that can be used in prompt flows. The following indexes are created from the [**chat-with-your-data-solution-accelerator**](https://github.com/Azure-Samples/azure-search-openai-solution-accelerator) accelerator.
+If you're designing storage for generative search, you can create separate indexes for the static content that you indexed and vectorized, and a second index for conversations that can be used in prompt flows. The following indexes are created from the [**chat-with-your-data-solution-accelerator**](https://github.com/Azure-Samples/azure-search-openai-solution-accelerator) accelerator.
 
-:::image type="content" source="media/vector-search-overview/accelerator-indexes.png" alt-text="Screenshot of the indexes created by the acceletor.":::
+:::image type="content" source="media/vector-search-overview/accelerator-indexes.png" alt-text="Screenshot of the indexes created by the accelerator.":::
 
 Fields from the chat index that support generative search experience:
 
@@ -117,25 +117,48 @@ Fields from the chat index that support generative search experience:
 
 Here's a screenshot showing [Search explorer](search-explorer.md) search results for the conversations index. The search score is 1.00 because the search was unqualified. Notice the fields that exist to support orchestration and prompt flows. A conversation ID identifies a specific chat. `"type"` indicates whether the content is from the user or the assistant. Dates are used to age out chats from the history.
 
-:::image type="content" source="media/vetor-search-overview/vector-schema-search-results.png" alt-text="Screenshot of Search Explorer with results from an index designed for RAG apps.":::
+:::image type="content" source="media/vector-search-overview/vector-schema-search-results.png" alt-text="Screenshot of Search Explorer with results from an index designed for RAG apps.":::
 
 ## Physical structure and size
+
+In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, load and query its content, monitor its size, and manage capacity, but the clusters themselves (indexes, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
+
+The size and substance of an index is determined by:
+
++ Quantity and composition of your documents
++ Attributes on individual fields
++ Index configuration, including vector configuration that specifies how the internal navigation structures are created based on whether you choose HNSW or exhaustive KNN for similarity search.
 
 Vector store index limits and estimations are covered in [another article](vector-search-index-size.md), but it's highlighted here to emphasize that maximum storage varies by service tier, and also by when the search service was created. Newer same-tier services have significantly more capacity for vector indexes.
 
 + [Check the deployment date of your search service](vector-search-index-size.md#how-to-determine-service-creation-date). If it was created before July 1, 2023, consider creating a new search service for greater capacity.
 
-+ [Choose a scaleable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition. Consider Standard 1 (S1) and above for more flexibility and faster performance.
++ [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition. Consider Standard 1 (S1) and above for more flexibility and faster performance.
 
-In terms of usage metrics, a vector index is an internal data structure created for each vector field. As such, a vector sotrage is always a fraction of the overall index size. Other nonvector fields and data structures consume the remainder of the quota for index size and consumed storage at the service level.
+In terms of usage metrics, a vector index is an internal data structure created for each vector field. As such, a vector storage is always a fraction of the overall index size. Other nonvector fields and data structures consume the remainder of the quota for index size and consumed storage at the service level.
 
 ## Basic operations and interaction
+
+This section introduces vector run time operations, including connecting to and securing a single index.
+
+> [!NOTE]
+> When managing an index, be aware that there is no portal or API support for moving or copying an index. Instead, customers typically point their application deployment solution at a different search service (if using the same index name), or revise the name to create a copy on the current search service, and then build it.
+
+### Continuously available
+
+An index is immediately available for queries as soon as the first document is indexed, but won't be fully operational until all documents are indexed. Internally, an index is [distributed across partitions and executes on replicas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). The physical index is managed internally. The logical index is managed by you.
+
+An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
+
+Notice that query continuity exists for document operations (refreshing or deleting) and for modifications that don't affect the existing structure and integrity of the current index (such as adding new fields). If you need to make structural updates (changing existing fields), those are typically managed using a drop-and-rebuild workflow in a development environment, or by creating a new version of the index on production service.
+
+To avoid an [index rebuild](search-howto-reindex.md), some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
 
 ### Secure access to vector data
 
 <!-- Azure AI Search supports comprehensive security. Authentication and authorization -->
 
-## Manage vector stores
+### Manage vector stores
 
 Azure provides a monitoring platform that includes diagnostic logging and alerting.
 
@@ -146,6 +169,6 @@ Azure provides a monitoring platform that includes diagnostic logging and alerti
 
 ## See also
 
-+ [Create a vector store using REST APIs](search-get-started-vector.md)
++ [Create a vector store using REST APIs (Quickstart)](search-get-started-vector.md)
 + [Create a vector store](vector-search-how-to-create-index.md)
 + [Query a vector store](vector-search-how-to-query.md)
