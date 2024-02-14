@@ -103,7 +103,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
   name: 'myAPIM/myBackend'
   properties: {
     url: 'https://mybackend.com'
-    protocol: 'http'
+    protocol: 'https'
     circuitBreaker: {
       rules: [
         {
@@ -140,7 +140,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
   "name": "myAPIM/myBackend",
   "properties": {
     "url": "https://mybackend.com",
-    "protocol": "http",
+    "protocol": "https",
     "circuitBreaker": {
       "rules": [
         {
