@@ -92,16 +92,16 @@ sections:
           How do I use a base image that supports NVMe and create a custom image for my remote disk?
         answer: |
           Let's say you want to tag an image that supports NVMe, but it wasn't tagged yet. Follow these four steps:
-            1. Upload NVMe supported VHD to your storage account. [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) is a fast way, but you can also use Azure portal to upload.
+            1. Upload NVMe supported VHD to your storage account. [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a fast way, but you can also use Azure portal to upload.
                 ```
                 azcopy copy <local path to your vhd> <container in your storage account>
                 ```
-            2. [Create your image gallery](https://docs.microsoft.com/azure/virtual-machines/create-gallery) using PowerShell, Azure portal, or CLI.
-            3. Create the [image definition](https://docs.microsoft.com/azure/virtual-machines/image-version), make sure to include `--feature DiskControllerTypes=SCSI,NVMe`. See the following CLI example:
+            2. [Create your image gallery](/azure/virtual-machines/create-gallery) using PowerShell, Azure portal, or CLI.
+            3. Create the [image definition](/azure/virtual-machines/image-version), make sure to include `--feature DiskControllerTypes=SCSI,NVMe`. See the following CLI example:
                 ```
                 az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe
                 ```
-            4. Create the [image version](https://docs.microsoft.com/azure/virtual-machines/image-version) under the NVMe-tagged gallery with the NVMe-supported VHD. See the following CLI example:
+            4. Create the [image version](/azure/virtual-machines/image-version) under the NVMe-tagged gallery with the NVMe-supported VHD. See the following CLI example:
                 ```
                 az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>
                 ```

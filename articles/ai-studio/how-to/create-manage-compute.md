@@ -43,8 +43,6 @@ To create a compute instance in Azure AI Studio:
 
 1. Enter a custom name for your compute.
 
-    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
-
 1. Select your virtual machine type and size and then select **Next**. 
 
     - Virtual machine type: Choose CPU or GPU. The type can't be changed after creation.

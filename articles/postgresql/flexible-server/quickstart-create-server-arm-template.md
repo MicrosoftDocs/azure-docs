@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: sumuth
-ms.date: 12/12/2023
+ms.date: 01/04/2024
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server instance

@@ -6,7 +6,6 @@ ms.topic: troubleshooting
 ms.custom: references_regions, devx-track-arm-template
 ms.date: 02/17/2021
 ms.author: helohr
-manager: femila
 ---
 # Host pool creation
 

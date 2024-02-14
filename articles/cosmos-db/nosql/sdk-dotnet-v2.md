@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 03/20/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 # Azure Cosmos DB .NET SDK v2 for API for NoSQL: Download and release notes (Legacy)
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

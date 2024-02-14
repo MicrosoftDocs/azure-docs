@@ -83,10 +83,14 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
+        - name: Send events to Microsoft Fabric via Azure Event Hubs
+          href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
         - name: Troubleshoot
@@ -172,6 +176,8 @@ items:
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Pull delivery data reference
             href: monitor-pull-reference.md
           - name: Push delivery data reference
@@ -365,6 +371,8 @@ items:
             href: event-schema-service-bus.md
           - name: Azure SignalR
             href: event-schema-azure-signalr.md
+          - name: Azure Storage Actions
+            href: event-schema-storage-actions.md
           - name: Azure subscriptions
             href: event-schema-subscriptions.md
       - name: Partner Events
@@ -462,6 +470,8 @@ items:
           href: security-authorization.md
         - name: Network security
           href: network-security.md
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
       - name: Use cases
         items:
         - name: Use cases for domains
@@ -566,6 +576,8 @@ items:
           href: configure-firewall.md
         - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
       - name: Monitor
         items:
         - name: Enable diagnostic logs

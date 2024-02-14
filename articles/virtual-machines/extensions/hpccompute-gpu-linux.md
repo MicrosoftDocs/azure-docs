@@ -9,7 +9,6 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.workload: infrastructure-services
 ms.date: 07/28/2023
 ms.author: jushiman
 author: ju-shim

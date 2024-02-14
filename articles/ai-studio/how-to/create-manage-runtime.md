@@ -98,7 +98,8 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 On a flow page, you can use the following options to manage an automatic runtime:
 
-- **Install packages** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
+- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
 - **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
 - **Stop** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
@@ -138,6 +139,18 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 1. Specify the user-assigned managed identity in **Start with advanced settings** if automatic runtime isn't running, or use the **Edit** button if automatic runtime is running.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
+
+#### Change the base image for automatic runtime (preview)
+
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+```yaml
+environment:
+    image: <your-custom-image>
+    python_requirements_txt: requirements.txt
+```
 
 ### Update a compute instance runtime on a runtime page
 

@@ -38,6 +38,9 @@
   - name: Create alert on ARG query
     displayName: alerts, portal, resource graph, monitor, log analytics, query
     href: ./alerts-query-quickstart.md
+  - name: Run ARG query with Power BI connector
+    displayName: portal, resource graph, query, power bi
+    href: ./power-bi-connector-quickstart.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal

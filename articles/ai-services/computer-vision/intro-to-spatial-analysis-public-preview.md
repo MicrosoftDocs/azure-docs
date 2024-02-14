@@ -8,8 +8,7 @@ manager: nitinme
 ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 12/27/2022
-ms.custom: contperf-fy22q2, ignite-2022
+ms.date: 01/19/2024
 ---
 
 # What is Spatial Analysis?

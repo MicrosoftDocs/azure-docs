@@ -47,10 +47,10 @@ This diagram illustrates the architecture of CEF log collection in Microsoft Sen
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **CEF log sources:** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their log messages over TCP port 514, not to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
+- **CEF log sources:** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their log messages over TCP or UDP port 514 (per your preference), not to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
 
 - **Log forwarder:** This is a dedicated Linux VM that your organization sets up to collect the log messages from your CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
-    - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP port 514. The daemon then sends these logs\* to the **Azure Monitor Agent**.
+    - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (per your preference). The daemon then sends these logs\* to the **Azure Monitor Agent**.
     - The **Azure Monitor Agent** that you install on the log forwarder by [setting up the data connector according to the instructions below](#set-up-the-common-event-format-cef-via-ama-connector). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
 
 - Your **Microsoft Sentinel (Log Analytics) workspace:** CEF logs sent here end up in the *CommonSecurityLog* table, where you can query the logs and perform analytics on them to detect and respond to security threats.
@@ -88,7 +88,7 @@ The setup process for the CEF via AMA connector has two parts:
 
 - If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
 
-- The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check.
+- The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check. If using Python 3 make sure it's set as the default command on the machine, or run the scripts below with the 'python3' command instead of 'python'.
 
 - The log forwarder must have either the `syslog-ng` or `rsyslog` daemon enabled.
 
@@ -107,7 +107,7 @@ To avoid this scenario, use one of these methods:
 
     ```kusto
     source |
-    where ProcessName !contains \"CEF\"
+    where ProcessName !contains "CEF"
     ```
 
 #### Log forwarder security considerations

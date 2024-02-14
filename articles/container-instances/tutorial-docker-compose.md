@@ -16,6 +16,9 @@ In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to 
 Run containers in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
 
 > [!IMPORTANT]
+> Docker Compose's integration for ACI has been retired in November 2023. See also: [Retirement Date Pending](https://github.com/docker/compose-cli?tab=readme-ov-file#warning-retirement-date-pending).  
+
+> [!IMPORTANT]
 > Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [Docker ACI Integration](https://github.com/docker/aci-integration-beta) GitHub repository.
 
 > [!TIP]

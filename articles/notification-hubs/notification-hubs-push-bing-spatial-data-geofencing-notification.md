@@ -2,7 +2,6 @@
 title: Send push notifications with Azure Notification Hubs and Bing Spatial Data | Microsoft Docs
 description: In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data.
 services: notification-hubs
-documentationcenter: windows
 keywords: push notifications,push notifications
 author: sethmanheim
 manager: femila
@@ -10,7 +9,6 @@ editor: jwargo
 
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial

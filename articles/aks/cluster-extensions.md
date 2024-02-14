@@ -1,7 +1,6 @@
 ---
 title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
-ms.custom: event-tier1-build-2022
 ms.date: 06/30/2023
 ms.topic: article
 author: nickomang

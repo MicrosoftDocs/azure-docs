@@ -34,7 +34,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 - Linux:
    - Syslog – to eventhub and storage
    - Perf counters – to eventhub and storage
-   - Custom Logs / Log files – to eventhub and storage
+   - Custom Logs / Log files – to storage
 
 ### Operating systems
 

@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: jboback
 ms.author: jboback
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Enrich your project with active learning
@@ -73,5 +73,3 @@ By adding alternate questions along with active learning, we further enrich the 
 > To examine the list of stop words consult the [stop words article](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 
 ## Next steps
-
-

@@ -1,11 +1,13 @@
 ---
 title: Frequently asked questions about Azure Monitor metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
+ms.author: abbyweisberg
 ms.topic: troubleshooting
 ms.custom: devx-track-azurecli
 ms.date: 11/16/2023
-ms:reviwer: harelbr
+ms:reviewer: harelbr
 ---
+
 # Troubleshoot Azure Monitor metric alerts
 
 This article discusses common questions about Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
