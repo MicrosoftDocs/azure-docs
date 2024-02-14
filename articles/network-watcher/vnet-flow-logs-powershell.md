@@ -95,9 +95,9 @@ Get-AzNetworkWatcherFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceG
 
 ## Download a flow log
 
-To download VNet flow logs from your storage account, you can use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
+To download VNet flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
 
-VNet flow log files saved are saved to the storage account at the following path:
+VNet flow log files are saved to the storage account at the following path:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_{Region}/FLOWLOGS/{FlowlogResourceName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
