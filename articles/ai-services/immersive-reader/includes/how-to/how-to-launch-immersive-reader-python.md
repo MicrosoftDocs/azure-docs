@@ -153,7 +153,7 @@ When the environment is active, run the sample project by entering `flask run` f
 flask run
 ```
 
-Open your browser, and go to <http://localhost:5000>.
+Open your browser, and go to `http://localhost:5000`.
 
 ## Create a Python web app on OSX
 
@@ -290,7 +290,7 @@ When the environment is active, run the sample project by entering `flask run` f
 flask run
 ```
 
-Open your browser, and go to <http://localhost:5000>.
+Open your browser, and go to `http://localhost:5000`.
 
 ## Next step
 

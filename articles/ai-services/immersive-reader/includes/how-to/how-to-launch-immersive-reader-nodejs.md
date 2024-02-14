@@ -168,7 +168,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     npm start
     ```
 
-4. Open your browser and navigate to <http://localhost:3000>. You should see the above content on the page. Select the **Immersive Reader** button to launch the Immersive Reader with your content.
+4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select the **Immersive Reader** button to launch the Immersive Reader with your content.
 
 ## Specify the language of your content
 
@@ -189,7 +189,7 @@ The Immersive Reader has support for many different languages. You can specify t
     });
     ```
 
-3. Navigate to <http://localhost:3000> again. You should see the Spanish text on the page, and when you select **Immersive Reader**, it shows up in the Immersive Reader as well.
+3. Navigate to `http://localhost:3000` again. You should see the Spanish text on the page, and when you select **Immersive Reader**, it shows up in the Immersive Reader as well.
 
 ## Specify the language of the Immersive Reader interface
 
@@ -204,7 +204,7 @@ By default, the language of the Immersive Reader interface matches the browser's
     ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
-2. Navigate to <http://localhost:3000>. When you launch the Immersive Reader, the interface is shown in French.
+2. Navigate to `http://localhost:3000`. When you launch the Immersive Reader, the interface is shown in French.
 
 ## Launch the Immersive Reader with math content
 
@@ -235,7 +235,7 @@ You can include math content in the Immersive Reader by using [MathML](https://d
     });
     ```
 
-2. Navigate to <http://localhost:3000>. When you launch the Immersive Reader and scroll to the bottom, you'll see the math formula.
+2. Navigate to `http://localhost:3000`. When you launch the Immersive Reader and scroll to the bottom, you'll see the math formula.
 
 ## Next step
 
