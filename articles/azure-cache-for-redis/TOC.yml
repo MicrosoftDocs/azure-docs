@@ -131,10 +131,10 @@
 
 - name: Authentication and authorization
   items:
-  - name: Role-based access control
-    href: cache-configure-role-based-access-control.md
   - name: Microsoft Entra ID for authentication
     href: cache-azure-active-directory-for-authentication.md
+  - name: Role-based access control
+    href: cache-configure-role-based-access-control.md
   - name: Managed identity for storage accounts
     href: cache-managed-identity.md
 

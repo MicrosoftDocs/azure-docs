@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 02/07/2024
+ms.date: 02/13/2024
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -32,7 +32,7 @@ In this release, we've made the following changes:
 - Made the following accessibility improvements: 
   - Improved screen reader experience.
   - Greater contrast for background color of the connection bar remote commands drop-down menu. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.5112
 
@@ -55,6 +55,7 @@ In this release, we've made the following changes:
 - Fixed the [CVE-2024-21307](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21307) security vulnerability.
 - Improved accessibility by making the **Change the size of text and apps** drop-down menu more visible in the High Contrast theme.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed a Teams issue that caused incoming videos to flicker green during meeting calls.
 
 >[!NOTE]
 >This release was originally 1.2.5102 in Insiders, but we changed the Public version number to 1.2.5105 after adding the security improvements addressing [CVE-2024-21307](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21307).
