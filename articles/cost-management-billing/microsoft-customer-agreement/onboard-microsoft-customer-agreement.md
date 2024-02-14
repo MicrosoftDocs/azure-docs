@@ -2,7 +2,6 @@
 title: Onboard to the Microsoft Customer Agreement (MCA)
 description: This guide helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract.
 author: bandersmsft
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
@@ -146,7 +145,7 @@ Learn more about features that you can use to optimize your experience and accel
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management – YouTube](https://www.youtube.com/@AzureCostManagement)
+- [Microsoft Cost Management – YouTube](https://www.youtube.com/AzureCostManagement)
 
 ## Establish governance for your new MCA
 
@@ -283,7 +282,7 @@ Learn more about features that can use to optimize your experience and accelerat
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management - YouTube](https://www.youtube.com/@AzureCostManagement)
+- [Microsoft Cost Management – YouTube](https://www.youtube.com/AzureCostManagement)
 
 ## Establish governance after migration to MCA
 

@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.date: 09/12/2023
 
 ms.reviewer: nachakra
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ---
 

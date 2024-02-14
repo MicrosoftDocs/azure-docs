@@ -65,7 +65,7 @@ Related links:
 
 * [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS proxy configuration](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Geo-replicationin Azure Container Registry](container-registry-geo-replication.md)
+* [Geo-replication in Azure Container Registry](container-registry-geo-replication.md)
 * [Monitor Azure Container Registry](monitor-service.md)
 
 ### Configure public access to registry

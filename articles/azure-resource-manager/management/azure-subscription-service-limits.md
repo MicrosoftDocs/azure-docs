@@ -230,7 +230,7 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
 
 ## Azure Storage limits
 
@@ -435,7 +435,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
-### Virtual Network Gateway limits
+### VPN Gateway limits
+
+The following limits apply to VPN Gateway resources and VPN Gateway virtual network gateways, unless otherwise stated.
 
 [!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 

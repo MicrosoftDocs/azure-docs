@@ -9,11 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to set up a sign-in flow with a sign-in policy, so that users can sign in with a local or social account and reset their passwords.
+
 ---
 
 # Set up a sign-in flow in Azure Active Directory B2C

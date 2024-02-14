@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: NAS volumes as a service
+          - text: Volumes as a service
             url: network-attached-storage-concept.md 
           - text: Azure NetApp Files essentials
             url: azure-netapp-files-understand-storage-hierarchy.md

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/03/2022
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -36,7 +36,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. Select a model type, then select **Create**. You can view a list of regions that support the **Advanced** model type in the [Keyword recognition region support](../../../regions.md#speech-service) documentation. 
 
-1. It may take up to 30 minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. 
+1. It might take up to 30 minutes for the model to be generated. The keyword list changes from **Processing** to **Succeeded** when the model is complete. 
 
     :::image type="content" source="../../../media/custom-keyword/custom-kw-portal-review-keyword.png" alt-text="Review your keyword.":::
 

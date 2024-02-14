@@ -2,14 +2,9 @@
 title: Tutorial for using feature flags in a Spring Boot app - Azure App Configuration | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in Spring Boot apps.
 services: azure-app-configuration
-documentationcenter: ''
 author: mrm9084
 manager: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/27/2023
@@ -62,7 +57,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.5.0</version>
+        <version>5.8.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -83,7 +78,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.11.0</version>
+        <version>4.14.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>

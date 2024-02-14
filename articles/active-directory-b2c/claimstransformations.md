@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer creating custom policies in Azure Active Directory B2C, I want to understand how to use claims transformations, so that I can convert and manipulate claims in user journeys.
+
 ---
 
 # ClaimsTransformations

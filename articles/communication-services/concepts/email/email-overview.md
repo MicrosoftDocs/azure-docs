@@ -16,6 +16,8 @@ Azure Communication Services offers an intelligent communication platform to ena
 
 With Azure Communication Services Email, you can speed up your market entry with scalable and reliable email features using your own SMTP domains. As with other communication channels, Email lets you pay only for what you use.
 
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+
 ## Key principles of Azure Communication Services Email
 Key principles of Azure Communication Services Email Service include:
 

@@ -2,7 +2,7 @@
 title: Data collection in Azure Monitor
 description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are used for advanced analysis.
 ms.topic: conceptual
-ms.date: 07/10/2022
+ms.date: 11/01/2023
 ---
 
 # Data collection in Azure Monitor
@@ -24,7 +24,7 @@ See [Data collection rules in Azure Monitor](data-collection-rule-overview.md) f
 ## Transformations
 One of the most valuable features of the new data collection process is [data transformations](data-collection-transformations.md), which allow you to apply a KQL query to incoming data to modify it before sending it to its destination. You might filter out unwanted data or modify existing data to improve your query or reporting capabilities. 
 
-See [Data collection transformations in Azure Monitor (preview)](data-collection-transformations.md) For complete details on transformations including how to write transformation queries.
+See [Data collection transformations in Azure Monitor](data-collection-transformations.md) For complete details on transformations including how to write transformation queries.
 
 
 ## Data collection scenarios

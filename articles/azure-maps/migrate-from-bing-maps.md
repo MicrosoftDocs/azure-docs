@@ -8,7 +8,6 @@ ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: 
 ---
 
 # Tutorial: Migrate from Bing Maps to Azure Maps

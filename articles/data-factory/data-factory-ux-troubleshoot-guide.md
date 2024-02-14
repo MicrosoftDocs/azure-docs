@@ -5,7 +5,7 @@ author: ssabat
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: troubleshooting
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ms.author: susabat
 ms.reviewer: susabat
 ---

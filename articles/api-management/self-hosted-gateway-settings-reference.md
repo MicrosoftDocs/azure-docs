@@ -54,6 +54,12 @@ This guidance helps you provide the required information to define how to authen
 | neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 | v2.0+ |
 | policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 | v2.0+ |
 
+## HTTP
+
+| Name                           | Description              | Required | Default           | Availability |
+|----|------|----------|-------------------| ----|
+| net.server.http.forwarded.proto.enabled | Capability to honor `X-Forwarded-Proto` header to identify scheme to resolve called API route (http/https only). | No | false | v2.5+ |
+
 ##  Kubernetes Integration
 
 ### Kubernetes Ingress
@@ -108,11 +114,12 @@ This guidance helps you provide the required information to define how to authen
 
 ## Sovereign clouds
 
-Here is an overview of settings that need to be configured to be able to work with sovereign clouds
+Here is an overview of settings that need to be configured to be able to work with sovereign clouds:
 
 | Name                              | Public                                         | Azure China                          | US Government  |
 |-----------------------------------|------------------------------------------------|--------------------------------------|----------------|
 | config.service.auth.tokenAudience | `https://azure-api.net/configuration` (Default) | `https://azure-api.cn/configuration` | `https://azure-api.us/configuration` |
+| logs.applicationinsights.endpoint | `https://dc.services.visualstudio.com/v2/track` (Default) | `https://dc.applicationinsights.azure.cn/v2/track` | `https://dc.applicationinsights.us/v2/track` |
 
 ## How to configure settings
 

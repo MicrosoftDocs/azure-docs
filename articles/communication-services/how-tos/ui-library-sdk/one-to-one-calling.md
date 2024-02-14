@@ -1,7 +1,7 @@
 ---
-title: One-to-one calling of the UI Library
+title: Set up one-to-one calling in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to one-to-one calling.
+description: Use the Azure Communication Services UI Library to set up one-to-one calling and push notifications.
 author: iaulakh
 ms.author: iaulakh
 ms.service: azure-communication-services
@@ -13,11 +13,11 @@ zone_pivot_groups: acs-plat-ios-android
 #Customer intent: As a developer, I want to enable push notifications with the Azure Communication Services UI Library so that I can create a calling application that provides push notifications to its users.
 ---
 
-# One-to-one Calling and push notifications
+# Set up one-to-one calling and push notifications in the UI Library
 
-UI Library provides out of the box support for making one to one call by Azure Communication Services participant identifiers. To support one to one calling, UI Libraries provide register incoming call notifications or Azure Communication Service Event Grid can be used.
+The UI Library provides out-of-the-box support for making one-to-one calls by using Azure Communication Services participant identifiers. To support one-to-one calling, the UI Library provides incoming call notifications. You can also use Azure Communication Services as an Azure Event Grid event source for calls.
 
-Learn how to make one to one calls correctly using the UI Library in your application.
+In this article, you learn how to make one-to-one calls correctly by using the UI Library in your application.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -25,17 +25,19 @@ Learn how to make one to one calls correctly using the UI Library in your applic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
-- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+- A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
+- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+
+## Set up the features
 
 ::: zone pivot="platform-android"
-[!INCLUDE [One-to-one calling and push notifications over the Android UI library](./includes/push-and-one-to-one/android.md)]
+[!INCLUDE [One-to-one calling and push notifications over the Android UI Library](./includes/push-and-one-to-one/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [One-to-one calling and push notifications over the iOS UI library](./includes/push-and-one-to-one/ios.md)]
+[!INCLUDE [One-to-one calling and push notifications over the iOS UI Library](./includes/push-and-one-to-one/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)

@@ -4,7 +4,7 @@ description: Understand your options for moving CentOS workloads
 author: chasecrum
 ms.service: virtual-machines
 ms.subservice:
-ms.custom: devx-track-linux, devx-track-azurecli, linux-related-content
+ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 12/1/2023
@@ -115,4 +115,3 @@ If you're moving to another distribution, you need to redeploy your Virtual Mach
 The end-of-life moment for CentOS may also be an opportunity for you to consider modernizing your workload, move to a PaaS, SaaS or containerized solution.
 
 [What is Application Modernization? | Microsoft Azure](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-application-modernization/)
-

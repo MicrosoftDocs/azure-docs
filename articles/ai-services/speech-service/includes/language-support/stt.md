@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Custom Speech support |
+| Locale (BCP-47) | Language | Custom speech support |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | Plain text |
 | `am-ET` | Amharic (Ethiopia) | Plain text |
@@ -152,4 +152,3 @@ ms.author: eur
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zu-ZA` | Zulu (South Africa) | Plain text |
 
-<sup>1</sup> It is a bilingual model with support for the English language as well.

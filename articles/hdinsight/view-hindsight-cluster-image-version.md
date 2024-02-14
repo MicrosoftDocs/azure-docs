@@ -3,7 +3,7 @@ title: View the image version of Azure HDInsight cluster
 description: Learn how to view the image version of Azure HDInsight cluster
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 01/04/2024
 ---
 
 # View the image version of Azure HDInsight cluster

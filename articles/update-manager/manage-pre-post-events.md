@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 12/09/2023
+ms.date: 02/03/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -27,7 +27,7 @@ To self-register your subscription for public preview in Azure portal:
 
 ## Timeline of schedules for pre and post events
 
-We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
+**We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.**
 
 For example, if a maintenance schedule is set to start at **3:00 PM**, with the maintenance window of 3 hours and 55 minutes for **Guest** maintenance scope, following are the details: 
 
@@ -40,6 +40,8 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 |6:55 PM | The post event gets triggered after the defined maintenance window completes. If you have defined a shorter maintenance window of 2 hrs, the post maintenance event will trigger after 2 hours and if the maintenance schedule is completed before the stipulated time of 2 hours that is, in 1 hr 50 mins, the post event will start. </br></br> In this example, if the maintenance window is set to the maximum, then by 6:55 PM the patch installation process is complete and if you have a shorter maintenance window, the patch installation process is completed by 5:00 PM. |
 |7:15 PM| After the patch installation, the post event runs for 20 mins. </br>In this example, the post event is initiated at 6:55 PM and completed by 7:15 PM and if you have a shorter maintenance window, the post event is triggered at 5:00 PM and completed by 5:20 PM. |
 
+>[!IMPORTANT]
+> Make sure to have atleast 40 minutes before the scheduled maintenance run time (3:00 PM in above example) otherwise it might lead to auto-cancellation of that particular scheduled run.
 
 ## Configure pre and post events on existing schedule
 
@@ -109,6 +111,9 @@ There are two types of cancelations:
 
 > [!NOTE]
 > If the cancelation is done by the system, the upcoming scheduled patching job will be canceled due to the failure of running the pre events by the sytem.
+
+>[!IMPORTANT]
+> If the scheduled maintenance job is cancelled by the user using cancelation API or by the system due to any internal failure, post event if subscribed, will be sent to the endpoint configured by the user.
  
 ### View the cancelation status
 
@@ -120,6 +125,15 @@ To view the cancelation status, follow these steps:
     :::image type="content" source="./media/manage-pre-post-events/view-cancelation-status-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/view-cancelation-status-expanded.png":::
 
 You can view the cancelation status from the error message in the JSON. The JSON can be obtained from the Azure Resource Graph (ARG). The corresponding maintenance configuration would be canceled using the Cancelation API.
+
+The following query allows you to view the list of VMs for a given schedule or a maintenance configuration:
+
+```kusto
+maintenanceresources  
+| where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
+| where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
+| order by name desc
+```
 
    :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot for cancelation done by the user." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png" :::
 

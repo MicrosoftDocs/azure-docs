@@ -7,6 +7,7 @@ ms.date: 06/20/2023
 ms.custom: devx-track-azurepowershell
 ms.reviewer: harelbr
 ---
+
 # Manage alert rules created in previous versions
 
 This article describes the process of managing alert rules created in the previous UI or by using API version `2018-04-16` or earlier. Alert rules created in the latest UI are viewed and managed in the new UI, as described in [Create, view, and manage log alerts by using Azure Monitor](alerts-log.md).

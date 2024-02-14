@@ -191,3 +191,7 @@ Similar to the creation process, deleting an NFC usually takes between 45 and 60
 **What steps should be taken if the NFC fails to initialize on the first attempt?**
 
 If the NFC does not provision successfully on the first try, the recommended course of action is to clean up and recreate the NFC. This is due to the lack of support for updating the NFC during intermediate failures.
+
+## Next steps
+
+- [Network Fabric Services](concepts-network-fabric-services.md)

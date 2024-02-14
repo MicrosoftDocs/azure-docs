@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # External call transformation in mapping data flows

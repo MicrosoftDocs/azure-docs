@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -16,6 +16,87 @@ This page provides you with information about:
 - New features
 - Bug fixes
 - Deprecated functionality
+
+## July 2023
+
+Updates in July include:
+
+|Date |Update  |
+|----------|----------|
+| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
+| July 30 | [Agentless container posture in Defender CSPM is now Generally Available](#agentless-container-posture-in-defender-cspm-is-now-generally-available) |
+| July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux) |
+| July 18 | [Agentless secrets scanning for virtual machines in Defender for servers P2 & Defender CSPM](#agentless-secrets-scanning-for-virtual-machines-in-defender-for-servers-p2--defender-cspm) |
+| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions) |
+| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings) |
+| July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
+
+### Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
+
+July 31, 2023
+
+We're announcing the release of Vulnerability Assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries. The new container VA offering will be provided alongside our existing Container VA offering powered by Qualys in both Defender for Containers and Defender for Container Registries, and include daily rescans of container images, exploitability information, support for OS and programming languages (SCA) and more.
+
+This new offering will start rolling out today, and is expected to be available to all customers by August 7.
+
+For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-vulnerability-assessment-azure.md) and [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
+
+### Agentless container posture in Defender CSPM is now Generally Available
+
+July 30, 2023
+
+Agentless container posture capabilities are now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+Learn more about [agentless container posture in Defender CSPM](concept-agentless-containers.md).
+
+### Management of automatic updates to Defender for Endpoint for Linux
+
+July 20, 2023
+
+By default, Defender for Cloud attempts to update your Defender for Endpoint for Linux agents onboarded with the `MDE.Linux` extension. With this release, you can manage this setting and opt-out from the default configuration to manage your update cycles manually.
+
+Learn how to [manage automatic updates configuration for Linux](enable-defender-for-endpoint.md#manage-automatic-updates-configuration-for-linux).  
+
+### Agentless secrets scanning for virtual machines in Defender for servers P2 & Defender CSPM
+
+July 18, 2023
+
+Secrets scanning is now available as part of the agentless scanning in Defender for Servers P2 and Defender CSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines in Azure or AWS resources that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+
+For more information about how to protect your secrets with secrets scanning, see [Manage secrets with agentless secrets scanning](secret-scanning.md).
+
+### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
+
+July 12, 2023
+
+This alert focuses on identifying suspicious activities leveraging Azure virtual machine **GPU driver extensions** and provides insights into attackers' attempts to compromise your virtual machines. The alert targets suspicious deployments of GPU driver extensions; such extensions are often abused by threat actors to utilize the full power of the GPU card and perform cryptojacking.
+
+| Alert Display Name <br> (Alert Type)  | Description | Severity | MITRE Tactic  |
+|---------|---------|---------|---------|
+| Suspicious installation of GPU extension in your virtual machine (Preview) <br> (VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Low | Impact |
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+### Support for disabling specific vulnerability findings
+
+July 9, 2023
+
+Release of support for disabling vulnerability findings for your container registry images or running images as part of agentless container posture. If you have an organizational need to ignore a vulnerability finding on your container registry image, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise.
+
+Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md).
+
+### Data Aware Security Posture is now Generally Available
+
+July 1, 2023
+
+Data-aware security posture in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
+
+- Automatically discover sensitive data resources across Azure and AWS.
+- Evaluate data sensitivity, data exposure, and how data flows across the organization.
+- Proactively and continuously uncover risks that might lead to data breaches.
+- Detect suspicious activities that might indicate ongoing threats to sensitive data resources
+
+For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
 
 ## June 2023
 
@@ -432,7 +513,7 @@ If you don't have the Defender for Endpoint integration enabled in Defender for 
 
 All Defender for Servers customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+You can learn more about [Microsoft Defender for Endpoint onboarding options](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 You can also view the [full list of alerts](alerts-reference.md#deprecated-defender-for-servers-alerts) that are set to be deprecated.
 
@@ -1228,7 +1309,7 @@ Until now, the integration with Microsoft Defender for Endpoint (MDE) included a
 
 Now, the new unified solution is available for all machines in both plans, for both Azure subscriptions and multicloud connectors. For Azure subscriptions with Servers Plan 2 that enabled MDE integration *after* June 20, 2022, the unified solution is enabled by default for all machines Azure subscriptions with the Defender for Servers Plan 2 enabled with MDE integration *before* June 20, 2022 can now enable unified solution installation for Windows servers 2012R2 and 2016 through the dedicated button in the Integrations page:
 
-Learn more about [MDE integration with Defender for Servers](integration-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-deployed).
+Learn more about [MDE integration with Defender for Servers](enable-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-deployed).
 
 ### Deprecating the "API App should only be accessible over HTTPS" policy
 
@@ -2177,8 +2258,8 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
-- [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
-- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md?tabs=linux#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](enable-defender-for-endpoint.md#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
+- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](enable-defender-for-endpoint.md?tabs=linux#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
@@ -2718,7 +2799,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)
 
@@ -3008,7 +3089,7 @@ When you enable Azure Defender for Servers running Windows Server, a license for
 Support has now been expanded to include Windows Server 2019 and Windows 10 on [Windows Virtual Desktop](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+> If you're enabling Defender for Endpoint on a Windows Server 2019 server, ensure it meets the prerequisites described in [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### Direct link to policy from recommendation details page
 

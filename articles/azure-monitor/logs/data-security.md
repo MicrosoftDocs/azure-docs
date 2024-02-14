@@ -189,6 +189,3 @@ This section provides answers to common questions.
 ### Does my agent traffic use my Azure ExpressRoute connection?
 
 Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic.
-
-## Next steps
-* [See the different kinds of data that you can collect in Azure Monitor](../monitor-reference.md).

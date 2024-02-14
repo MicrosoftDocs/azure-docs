@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 01/17/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -33,7 +33,7 @@ param <second-parameter-name> = <second-value>
 You can use expressions with the default value. For example:
 
 ```bicep
-using 'storageaccount.bicep'
+using 'main.bicep'
 
 param storageName = toLower('MyStorageAccount')
 param intValue = 2 + 2
@@ -338,7 +338,6 @@ From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
-
 ```azurecli
 az deployment group create \
   --name ExampleDeployment \
@@ -389,7 +388,7 @@ For more information, see [Deploy resources with Bicep and Azure PowerShell](./d
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. This feature hasn't been implemented for Bicep parameters file.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. 
 
 It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 

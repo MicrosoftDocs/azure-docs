@@ -133,7 +133,7 @@ Azure AI services provides a layered security model, including [authentication](
 
 ## Certifications and compliance
 
-Azure AI services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "Download") certifications for your own audits and security reviews.
+Azure AI services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. 
 
 To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
 

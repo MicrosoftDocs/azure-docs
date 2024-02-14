@@ -2,13 +2,11 @@
 title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
-services: cdn 
+services: cdn
 author: duongau
 manager: kumudd
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/27/2023

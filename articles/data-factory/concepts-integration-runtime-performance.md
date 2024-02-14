@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 04/21/2023
+ms.date: 01/05/2024
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -37,9 +37,9 @@ The default cluster size is four driver nodes and four worker nodes (small). As 
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Small |
 | 8 | 8 | 16 | Medium |
-| 16 | 16 | 32 | |
+| 16 | 16 | 32 | Large|
 | 32 | 16 | 48 | |
-| 64 | 16 | 80 | Large |
+| 64 | 16 | 80 | |
 | 128 | 16 | 144 | |
 | 256 | 16 | 272 | |
 

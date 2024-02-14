@@ -10,9 +10,13 @@ ms.service: active-directory
 
 ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to enable authentication in my Node.js web API using Azure Active Directory B2C, so that I can protect my web API and authorize access using valid access tokens issued by Azure AD B2C.
+
 ---
 
 # Enable authentication in your own Node.js web API by using Azure Active Directory B2C

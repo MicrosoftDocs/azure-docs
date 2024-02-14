@@ -4,7 +4,6 @@ description: Learn how to use Kafka Connect to synchronize data from PostgreSQL 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/02/2022
 ms.author: sidandrews
@@ -30,7 +29,7 @@ This article will demonstrate how to use a combination of Kafka connectors to se
 
 Here is high-level overview of the end to end flow presented in this article.
 
-Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html), which is a Kafka Connect **source** connector. Inserts, updates, or deletion to records in the PostgreSQL table will be captured as `change data` events and sent to Kafka topic(s). The [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html) (Kafka Connect **sink** connector), forms the second part of the pipeline. It will synchronize the change data events from Kafka topic to Azure Cosmos DB for Apache Cassandra tables.
+Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html), which is a Kafka Connect **source** connector. Inserts, updates, or deletion to records in the PostgreSQL table will be captured as `change data` events and sent to Kafka topic(s). The [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html) (Kafka Connect **sink** connector), forms the second part of the pipeline. It will synchronize the change data events from Kafka topic to Azure Cosmos DB for Apache Cassandra tables.
 
 > [!NOTE]
 > Using specific features of the DataStax Apache Kafka connector allows us to push data to multiple tables. In this example, the connector will help us persist change data records to two Cassandra tables that can support different query requirements.
@@ -114,7 +113,7 @@ cp <path_to_debezium_connector>/*.jar <KAFKA_HOME>/libs
 cp <path_to_cassandra_connector>/*.jar <KAFKA_HOME>/libs
 ```
 
-> For details, please refer to the [Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) and [DataStax](https://docs.datastax.com/en/kafka/doc/) documentation.
+> For details, please refer to the [Debezium](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) and [DataStax](https://docs.datastax.com/en/kafka/doc/) documentation.
 
 ## Configure Kafka Connect and start data pipeline
 
@@ -182,9 +181,6 @@ select * from retail.orders_info;
 ```
 
 Check the change data capture events in the Kafka topic
-
-> [!NOTE]
-> Note that the topic name is `myserver.retail.orders_info` which as per the [connector convention](https://debezium.io/documentation/reference/1.3/connectors/postgresql.html#postgresql-topic-names)
 
 ```bash
 cd <KAFKA_HOME>/bin
