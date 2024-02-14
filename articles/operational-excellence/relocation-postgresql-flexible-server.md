@@ -4,7 +4,7 @@ description: Learn how to relocate an Azure Database for PostgreSQL to another r
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: maghan
-ms.date: 02/09/2024
+ms.date: 02/14/2024
 ms.service: postgresql
 ms.topic: how-to
 ms.custom:

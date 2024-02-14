@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
-title: Azure operational excellence documentation
-summary: Azure operational excellence documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+title: Azure operational excellence documentation (Preview)
+summary: Azure operational excellence documentation
 
 metadata:
-  title: Azure operational excellence documentation
-  description: Azure operational excellence documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+  title: Azure operational excellence documentation (Preview)
+  description: Azure operational excellence documentation.
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
   ms.prod: non-product-specific
-  ms.date: 02/01/2024
+  ms.date: 02/14/2024
 
 landingContent: 
   # Card
