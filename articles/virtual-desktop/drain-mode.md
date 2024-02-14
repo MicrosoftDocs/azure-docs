@@ -22,7 +22,6 @@ If you're using either the Azure portal or PowerShell method, you'll need the fo
 - An Azure account assigned the [Desktop Virtualization Session Host Operator](rbac.md#desktop-virtualization-session-host-operator) role.
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-If you're enabling drain mode with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
 
 ## Enable drain mode
 
@@ -32,13 +31,21 @@ Here's how to enable drain mode using the Azure portal and PowerShell.
 
 To turn on drain mode in the Azure portal:
 
-1. Open the Azure portal and go to the host pool you want to isolate.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the navigation menu, select **Session hosts**.
+1. Enter **Azure Virtual Desktop** into the search bar.
 
-3. Next, select the hosts you want to turn on drain mode for, then select **Turn drain mode on**.
+1. Under **Services**, select **Azure Virtual Desktop**.
 
-4. To turn off drain mode, select the host pools that have drain mode turned on, then select **Turn drain mode off**.
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**. 
+
+1. Select the host pool you want to isolate.
+
+1. In the navigation menu, select **Session hosts**.
+
+1. Next, select the hosts you want to turn on drain mode for, then select **Turn drain mode on**.
+
+1. To turn off drain mode, select the host pools that have drain mode turned on, then select **Turn drain mode off**.
 
 ### [PowerShell](#tab/powershell)
 
