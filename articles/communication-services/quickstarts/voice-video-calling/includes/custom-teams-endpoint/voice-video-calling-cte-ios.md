@@ -8,8 +8,6 @@ ms.author: sanathr
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add one on one video calling to your app. You learn how to start and answer a video call using the Azure Communication Services Calling SDK for iOS using Teams identity.
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 ## Sample Code
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling-callkit).
