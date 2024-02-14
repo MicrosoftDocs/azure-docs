@@ -1,4 +1,4 @@
-# Connecting Azure Managed Grafana to slef-hosted Prometheus on an AKS Cluster through private link
+# Tutorial: Connect to self-hosted Prometheus on an AKS Cluster through managed private endpoint
 
 This guide will walk you through the steps to install Prometheus, an open-source monitoring and alerting toolkit, on an Azure Kubernetes Service (AKS) cluster. Then use an Azure Managed Grafana (AMG) feature called managed private endpoint (MPE) to connect to this Prometheus server.
 
