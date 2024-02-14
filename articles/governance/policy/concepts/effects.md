@@ -157,6 +157,10 @@ evaluating a create or update request for a resource, Azure Policy adds a
 as non-compliant. During a standard compliance evaluation cycle, only the compliance status on the
 resource is updated.
 
+It's highly recommend not to use tag filtering in your policy rules when the policy relates to security setting, 
+when you use tags to filtering, resources without tag appear Compliance . Azure Policy exemptions 
+or Azure Policy exclusions are recommended.
+
 ### Audit properties
 
 For a Resource Manager mode, the audit effect doesn't have any other properties for use in the
