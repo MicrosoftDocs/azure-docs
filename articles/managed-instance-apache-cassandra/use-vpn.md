@@ -44,8 +44,8 @@ By using a VPN with your Azure Managed Instance for Apache Cassandra, you can se
     1. On the Virtual Network tab, select your virtual network's subnet and make sure to select the option for "Statically allocate IP address."
     1. Validate and create.
 
-> [!NOTE]
-> At the moment, the connection between our management service and your private endpoint requires the Azure Managed Instance for Apache Cassandra team cassandra-preview@microsoft.com to approve it.
+   > [!NOTE]
+   > At the moment, the connection between our management service and your private endpoint requires the Azure Managed Instance for Apache Cassandra team cassandra-preview@microsoft.com to approve it.
     
 1. Get the IP address of your private endpoint NIC.
 
