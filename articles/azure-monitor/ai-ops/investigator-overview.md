@@ -53,5 +53,5 @@ Some features and functionalities may be considerably enhanced, changed, or adde
 
 ## Next steps
 
-- Learn about [some of the things you can do with Microsoft Copilot for Azure](capabilities.md).
-- Review our [Responsible AI FAQ for Microsoft Copilot for Azure](responsible-ai-faq.md).
+- Learn how to [use Azure Monitor Investigator for AIOps](investigate-alert-instance.md).
+- Review our [Responsible AI FAQ for Microsoft Azure Investigator](responsible-ai-faq.md).
