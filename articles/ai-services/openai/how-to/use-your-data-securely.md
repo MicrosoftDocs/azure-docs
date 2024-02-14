@@ -108,6 +108,8 @@ To allow your Azure AI Search to call your Azure OpenAI `preprocessing-jobs` as 
 
 Set `networkAcls.bypass` as `AzureServices` from the management API. For more information, see [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai).
 
+This step can be skipped only if you have [shared private link](#create-shared-private-link) from Azure Search resource.
+
 ### Disable public network access
 
 You can disable public network access of your Azure OpenAI resource in the Azure portal. 
@@ -166,6 +168,7 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 If you are using Basic or Standard pricing tier, please skip this section.
 This section is only applicable for S2 pricing tier, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
+Due to the complexity, we recommend skip this section for the beginners, and only continue reading if your admin doesn't allow you to [enable trusted service on Azure OpenAI resource](#enable-trusted-service), or you have difficulty to enable trusted service using the command line.
 
 In this section, we will modify [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram from *bypass trusted service* to *private endpoint*.
 
