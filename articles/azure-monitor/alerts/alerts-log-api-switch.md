@@ -1,6 +1,6 @@
 ---
 title: Upgrade legacy rules management to the current Azure Monitor Scheduled Query Rules API
-description: Learn how to switch log search alert management to ScheduledQueryRules API
+description: Learn how to switch log search alert management to ScheduledQueryRules API.
 ms.author: abbyweisberg
 ms.reviewer: bwren
 ms.topic: conceptual
@@ -26,12 +26,12 @@ In the past, users used the [legacy Log Analytics Alert API](/azure/azure-monito
 - Alignment of severities with all other alert types and newer rules.
 - Ability to create a [cross workspace log alert](/azure/azure-monitor/logs/cross-workspace-query) that spans several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
 - Users can specify dimensions to split the alerts for switched rules.
-- Log search alerts have extended period of up to two days of data (previously limited to one day) for switched rules.
+- Log search alerts have an extended period of up to two days of data (previously limited to one day) for switched rules.
 
 ## Impact
 
 - All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](/azure/azure-monitor/alerts/alerts-log-create-templates) and [sample use via PowerShell](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell).
-- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged. 
+- As rules become Azure Resource Manager tracked resources in the current API and must be unique, the resource IDs for the rules change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names for the alert rules remain unchanged. 
 
 ## Process
 
@@ -59,7 +59,7 @@ $switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 
-You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
+You can also use the [Azure CLI](/cli/azure/reference-index#az-rest) tool:
 
 ```bash
 az rest --method put --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body "{\"scheduledQueryRulesEnabled\" : true}"
@@ -82,13 +82,13 @@ You can also use this API call to check the switch status:
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-You can also use [ARMClient](https://github.com/projectkudu/ARMClient) tool:
+You can also use the [ARMClient](https://github.com/projectkudu/ARMClient) tool:
 
 ```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
+You can also use the [Azure CLI](/cli/azure/reference-index#az-rest) tool:
 
 ```bash
 az rest --method get --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
