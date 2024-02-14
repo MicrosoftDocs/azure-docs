@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
-ms.topic: how-to
+ms.topic: reference
 ms.date: 11/15/2023
 ms.author: pafarley
 ---
