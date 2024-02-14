@@ -1,5 +1,5 @@
 ---
-title: Network Insights topology (preview)
+title: Network Insights topology
 description: An overview of topology, which provides a pictorial representation of the resources.
 author: halkazwini
 ms.author: halkazwini
@@ -10,7 +10,7 @@ ms.date: 08/10/2023
 ms.custom: subject-monitoring
 ---
 
-# Topology (preview)
+# Topology
 
 Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
 
