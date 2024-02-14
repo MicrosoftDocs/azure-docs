@@ -208,7 +208,7 @@ items:
       - name: Develop Dapr apps
         items:
         - name: Deploy Dapr
-          href: develop/howto-develop-deploy-dapr.md
+          href: develop/howto-deploy-dapr.md
         - name: Develop Dapr apps
           href: develop/howto-develop-dapr-apps.md
         - name: Build an event-driven app with Dapr
