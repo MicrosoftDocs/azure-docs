@@ -62,6 +62,12 @@ We now support these protocols:
 
 [See the updated protocol list](concept-supported-protocols.md).
 
+### L60 hardware profile is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB (the minimum hardware profile is now [L100](ot-virtual-appliances.md)).
+
+To migrate from the L60 profile to a supported profile follow the [Back up and restore OT network sensor](back-up-restore-sensor.md) procedure.
+
 ## January 2024
 
 |Service area  |Updates  |
