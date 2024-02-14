@@ -92,6 +92,32 @@ Make sure the pods all "Running" before you continue. If in the unlikely circums
 
 # Add a private link service to the Prometheus server
 Azure [Private Link service](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview) allows consuming your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) that you can easily annotate a Kubernets service object to create a corresponding private link service azure resource.
+
+pls-prometheus-svc.yaml content:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: prom-pls-svc
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true" # Use an internal LB with PLS
+    service.beta.kubernetes.io/azure-pls-create: "true"
+    service.beta.kubernetes.io/azure-pls-name: promManagedPls
+    service.beta.kubernetes.io/azure-pls-proxy-protocol: "false"
+    service.beta.kubernetes.io/azure-pls-visibility: "*"
+spec:
+  type: LoadBalancer
+  selector:
+    # app: myApp
+    app.kubernetes.io/name: prometheus
+    prometheus: prometheus-kube-prometheus-prometheus # note that this is related to the release name
+  ports:
+    - name: http-web
+      protocol: TCP
+      port: 9090
+      targetPort: 9090
+```
+
 ```
 kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
 ```
