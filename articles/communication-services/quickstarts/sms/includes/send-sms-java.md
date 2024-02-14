@@ -216,5 +216,5 @@ You can use the `setTag` method to apply a tag to the delivery report.
    - **PowerShell**
    
    ```PowerShell
-   mvn exec:java "-Dexec.mainClass="com.communication.quickstart.App"" "-Dexec.cleanupDaemonThreads=false"
+   mvn exec:java "-Dexec.mainClass=com.communication.quickstart.App" "-Dexec.cleanupDaemonThreads=false"
    ```
