@@ -94,13 +94,13 @@ Because most Azure Cache for Redis clients assume that a password and access key
 
 1. Update your Redis connection logic to use following `User` and `Password`:
 
-    `User` = Object ID of your managed identity or service principal
-    `Password` = Microsoft Entra token that you acquired using MSAL
+    - `User` = Object ID of your managed identity or service principal
+    - `Password` = Microsoft Entra token that you acquired using MSAL
 
 1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Microsoft Entra token expires using:
 
-    `User` = Object ID of your managed identity or service principal
-    `Password` = Microsoft Entra token refreshed periodically
+    - `User` = Object ID of your managed identity or service principal
+    - `Password` = Microsoft Entra token refreshed periodically
 
 ### Client library support
 
