@@ -7,7 +7,7 @@ metadata:
   description: Find tutorials and information about moving resources across Azure regions. 
   ms.service: resource-mover
   ms.topic: landing-page
-  ms.collection: collection
+
   author: ankitaduttaMSFT
   ms.author: ankitadutta
   ms.date: 08/23/2023

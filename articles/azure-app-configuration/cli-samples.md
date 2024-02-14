@@ -5,13 +5,13 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 08/09/2022 
+ms.date: 1/9/2024
 ms.custom: devx-track-azurecli, devdivchpfy22
 ---
 
 # Azure CLI samples
 
-The following table includes links to bash scripts for Azure App Configuration by using the [az appconfig](/cli/azure/appconfig) commands in the Azure CLI:
+The following table includes links to Azure CLI scripts for Azure App Configuration using the [az appconfig](/cli/azure/appconfig) commands in the Azure CLI:
 
 | Script | Description |
 |-|-|

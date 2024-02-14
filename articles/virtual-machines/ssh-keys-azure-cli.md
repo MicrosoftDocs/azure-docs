@@ -4,7 +4,6 @@ description: Learn how to generate and store SSH keys, before creating a VM, wit
 author: ju-shim
 ms.collection: linux
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 04/13/2023

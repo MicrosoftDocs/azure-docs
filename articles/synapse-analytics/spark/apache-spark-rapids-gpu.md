@@ -7,7 +7,6 @@ ms.topic: overview
 ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
-ms.custom: ignite-fall-2021
 ---
 
 # Apache Spark GPU-accelerated pools in Azure Synapse Analytics

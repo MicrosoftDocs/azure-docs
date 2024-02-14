@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/04/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption

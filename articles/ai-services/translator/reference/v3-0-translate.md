@@ -41,9 +41,6 @@ Request parameters passed on the query string are:
 
 | Query parameter | Description |
 | --- | --- |
-
-| Query parameter | Description |
-| --- | --- |
 | from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to this parameter to use your deployed customized system. Default value is: `general`. |
@@ -87,7 +84,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+  The `detectedLanguage` property is only present in the result object when language autodetection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -95,21 +92,21 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `text`: A string giving the translated text.
 
-* `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
+  * `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
 
-  * `script`: A string specifying the target script.
+    * `script`: A string specifying the target script.
 
-  * `text`: A string giving the translated text in the target script.
+    * `text`: A string giving the translated text in the target script.
 
     The `transliteration` object isn't included if transliteration doesn't take place.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+  * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
-* `sentLen`: An object returning sentence boundaries in the input and output texts.
+  * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-  * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-  * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 

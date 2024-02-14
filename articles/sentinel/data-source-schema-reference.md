@@ -4,7 +4,6 @@ description: This article lists Azure and third-party data source schemas suppor
 author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
-ms.custom: ignite-fall-2021
 ms.date: 11/09/2021
 ---
 

@@ -6,7 +6,6 @@ services: cdn
 author: duongau
 manager: KumudD
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 02/27/2023

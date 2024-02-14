@@ -15,7 +15,7 @@ Application Insights log-based metrics let you analyze the health of your monito
 * [Log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
 * [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
 
-Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-custom-overview.md#namespace) to switch between log-based and standard metrics in [metrics explorer](./analyze-metrics.md).
+Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-store-custom-rest-api.md#namespace) to switch between log-based and standard metrics in [metrics explorer](./analyze-metrics.md).
 
 ## Interpret and use queries from this article
 

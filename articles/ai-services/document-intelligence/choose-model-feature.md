@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 11/15/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 ---
 
@@ -74,6 +74,14 @@ The following decision charts highlight the features of each **Document Intellig
 |**Structured, consistent, documents with a static layout**. |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
 |**Structured, semi-structured, and unstructured documents**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
 |**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders</br>&#9679; Equipment purchase orders</br>&#9679; Furniture purchase orders</br> **All composed into a single model**.| [**Composed custom model**](concept-composed-models.md)|
+
+## Custom classification model
+
+| Training set | Example documents | Your best solution |
+| -----------------|--------------|-------------------|
+|**At least two different types of documents**. |Forms, letters, or documents | [**Custom classification model**](./concept-custom-classifier.md)|
+
+
 
 ## Next steps
 

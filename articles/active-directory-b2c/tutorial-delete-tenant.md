@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: tutorial
-ms.date: 03/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to delete the tenant and all associated resources, so that I can clean up after completing tutorials or testing.
+
 ---
 
 # Clean up resources and delete the tenant

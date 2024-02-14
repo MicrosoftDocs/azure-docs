@@ -7,7 +7,6 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/14/2023
 ms.author: danlep
-ms.custom: 
 ---
 # Use a virtual network to secure inbound and outbound traffic for Azure API Management
 

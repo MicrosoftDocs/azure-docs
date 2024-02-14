@@ -7,7 +7,6 @@ ms.date: 07/15/2020
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 tag: azure-Synapse
 ---
 

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/06/2023
 ms.author: helohr
-manager: femila
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 

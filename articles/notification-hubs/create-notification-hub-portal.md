@@ -9,7 +9,6 @@ ms.reviewer: rebpen
 ms.date: 07/17/2023
 ms.topic: quickstart
 ms.service: notification-hubs
-ms.workload: mobile
 ms.custom: mode-ui
 ---
 

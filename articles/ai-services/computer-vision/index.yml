@@ -6,7 +6,6 @@ summary: The cloud-based Azure AI Vision API provides developers with access to 
 metadata:
   title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
-  #services: cognitive-services
   ms.service: azure-ai-vision
   ms.topic: hub-page
   author: PatrickFarley
@@ -142,26 +141,20 @@ conceptualContent:
 
 tools:
   title: Software development kits (SDKs)
-  summary: Get started with the Vision SDK in your favorite programming language.
+  summary: Get started with the Image Analysis SDK in your favorite programming language.
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
-    url: /dotnet/api/azure.ai.vision.imageanalysis
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
-    url: /javascript/api/@azure/cognitiveservices-computervision/
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/js
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/azure-ai-vision
-  - title: C++
-    imageSrc: media/index/logo-cplusplus.svg
-    url: /cpp/cognitive-services/vision
-  - title: Go
-    imageSrc: media/index/logo_go.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/python
   - title: Java
     imageSrc: /media/logos/logo_java.svg
-    url: /java/api/com.azure.ai.vision.imageanalysis
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/java
 
 
 additionalContent:

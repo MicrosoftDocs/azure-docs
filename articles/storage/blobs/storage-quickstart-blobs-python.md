@@ -27,7 +27,7 @@ The steps in the video are also described in the following sections.
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.7+
+- [Python](https://www.python.org/downloads/) 3.8+
 
 ## Setting up
 
@@ -151,6 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
     ```python
     from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
     ```
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.

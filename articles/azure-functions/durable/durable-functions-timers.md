@@ -4,7 +4,8 @@ description: Learn how to implement durable timers in the Durable Functions exte
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ---
 
 # Timers in Durable Functions (Azure Functions)

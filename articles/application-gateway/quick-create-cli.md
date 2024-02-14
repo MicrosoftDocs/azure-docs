@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, mode-api, devx-track-linux
+ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
 
-In this quickstart, you use Azure CLI to create an application gateway. Then you test it to make sure it works correctly. 
+In this quickstart, you use Azure CLI to create an application gateway. Then you test it to make sure it works correctly.
 
 The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
@@ -30,15 +30,15 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 ## Create resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using `az group create`. 
+In Azure, you allocate related resources to a resource group. Create a resource group by using `az group create`.
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
 For Azure to communicate between the resources that you create, it needs a virtual network.  The application gateway subnet can contain only application gateways. No other resources are allowed.  You can either create a new subnet for Application Gateway or use an existing one. In this example, you create two subnets: one for the application gateway, and another for the backend servers. You can configure the Frontend IP of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP address.
 
@@ -171,7 +171,7 @@ It can take up to 30 minutes for Azure to create the application gateway. After 
 
 ## Test the application gateway
 
-Although Azure doesn't require an NGINX web server to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. To get the public IP address of the new application gateway, use `az network public-ip show`. 
+Although Azure doesn't require an NGINX web server to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. To get the public IP address of the new application gateway, use `az network public-ip show`.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -182,7 +182,7 @@ az network public-ip show \
 ```
 
 Copy and paste the public IP address into the address bar of your browser.
-​    
+​
 ![Test application gateway](./media/quick-create-cli/application-gateway-nginxtest.png)
 
 When you refresh the browser, you should see the name of the second VM. This indicates the application gateway was successfully created and can connect with the backend.
@@ -191,7 +191,7 @@ When you refresh the browser, you should see the name of the second VM. This ind
 
 When you no longer need the resources that you created with the application gateway, use the `az group delete` command to delete the resource group. When you delete the resource group, you also delete the application gateway and all its related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroupAG
 ```
 

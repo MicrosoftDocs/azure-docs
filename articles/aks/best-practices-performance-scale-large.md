@@ -3,7 +3,7 @@ title: Performance and scaling best practices for large workloads in Azure Kuber
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 01/18/2024
 ---
 
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
@@ -33,10 +33,10 @@ Kubernetes has a multi-dimensional scale envelope with each resource type repres
 
 The control plane manages all the resource scaling in the cluster, so the more you scale the cluster within a given dimension, the less you can scale within other dimensions. For example, running hundreds of thousands of pods in an AKS cluster impacts how much pod churn rate (pod mutations per second) the control plane can support.
 
-The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports two control plane tiers as part of the Base SKU: the Free tier and the Standard tier. For more information, see [Free and Standard pricing tiers for AKS cluster management][free-standard-tier].
+The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports three control plane tiers as part of the Base SKU: Free, Standard, and Premium tier. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management][pricing-tiers].
 
 > [!IMPORTANT]
-> We highly recommend using the Standard tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
+> We highly recommend using the Standard or Premium tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
 >
 > * Up to 5,000 nodes per AKS cluster
 > * 200,000 pods per AKS cluster (with Azure CNI Overlay)
@@ -76,7 +76,7 @@ Keeping the above considerations in mind, customers are typically able to deploy
 Always upgrade your Kubernetes clusters to the latest version. Newer versions contain many improvements that address performance and throttling issues. If you're using an upgraded version of Kubernetes and still see throttling due to the actual load or the number of clients in the subscription, you can try the following options:
 
 * **Analyze errors using AKS Diagnose and Solve Problems**: You can use [AKS Diagnose and Solve Problems](./aks-diagnostics.md) to analyze errors, identity the root cause, and get resolution recommendations.
-  * **Increase the Cluster Autoscaler scan interval**: If the diagnostic reports show that [Cluster Autoscaler throttling has been detected](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors#analyze-and-identify-errors-by-using-aks-diagnose-and-solve-problems), you can [increase the scan interval](./cluster-autoscaler.md#change-the-cluster-autoscaler-settings) to reduce the number of calls to Virtual Machine Scale Sets from the Cluster Autoscaler.
+  * **Increase the Cluster Autoscaler scan interval**: If the diagnostic reports show that [Cluster Autoscaler throttling has been detected](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors#analyze-and-identify-errors-by-using-aks-diagnose-and-solve-problems), you can [increase the scan interval](./cluster-autoscaler.md#update-the-cluster-autoscaler-settings) to reduce the number of calls to Virtual Machine Scale Sets from the Cluster Autoscaler.
   * **Reconfigure third-party applications to make fewer calls**: If you filter by *user agents* in the ***View request rate and throttle details*** diagnostic and see that [a third-party application, such as a monitoring application, makes a large number of GET requests](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors#analyze-and-identify-errors-by-using-aks-diagnose-and-solve-problems), you can change the settings of these applications to reduce the frequency of the GET calls. Make sure the application clients use exponential backoff when calling Azure APIs.
 * **Split your clusters into different subscriptions or regions**: If you have a large number of clusters and node pools that use Virtual Machine Scale Sets, you can split them into different subscriptions or regions within the same subscription. Most Azure API limits are shared at the subscription-region level, so you can move or scale your clusters to different subscriptions or regions to get unblocked on Azure API throttling. This option is especially helpful if you expect your clusters to have high activity. There are no generic guidelines for these limits. If you want specific guidance, you can create a support ticket.
 
@@ -115,7 +115,7 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 [managed-nat-gateway]: ./nat-gateway.md
 [azure-cni-dynamic-ip]: ./configure-azure-cni-dynamic-ip-allocation.md
 [azure-cni-overlay]: ./azure-cni-overlay.md
-[free-standard-tier]: ./free-standard-pricing-tiers.md
+[pricing-tiers]: ./free-standard-pricing-tiers.md
 [cluster-autoscaler]: cluster-autoscaler.md
 [azure-npm]: ../virtual-network/kubernetes-network-policies.md
 

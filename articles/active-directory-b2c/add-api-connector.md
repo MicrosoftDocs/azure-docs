@@ -5,12 +5,15 @@ description: Configure an API connector to be used in a sign-up user flow.
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 12/20/2022
+ms.date: 01/24/2024
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
 ms.custom: it-pro, b2c-support
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems.
+
 ---
 
 # Add an API connector to a sign-up user flow

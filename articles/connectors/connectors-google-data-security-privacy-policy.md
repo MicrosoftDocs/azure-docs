@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 01/04/2024
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps

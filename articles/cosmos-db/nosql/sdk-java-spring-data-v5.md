@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/24/2023
 ms.author: kuthapar
-ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Data Azure Cosmos DB v5 for API for NoSQL: Release notes and resources

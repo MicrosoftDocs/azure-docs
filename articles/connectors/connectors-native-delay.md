@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, azla
 ms.topic: how-to
-ms.date: 05/25/2019
+ms.date: 01/04/2024
 tags: connectors
 ---
 

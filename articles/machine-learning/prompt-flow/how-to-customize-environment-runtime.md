@@ -106,7 +106,7 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-runtime-page).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-a-compute-instance-runtime-on-a-runtime-page).
 
 You can also find the image in environment detail page and use it as base image in automatic runtime (preview) in `flow.dag.yaml` file in prompt flow folder. This image will also be used to build environment for flow deployment from UI.
 
@@ -123,7 +123,7 @@ In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
-If you want to use private feeds in Azure devops, see [Add packages in private feed in Azure devops](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops).
+If you want to use private feeds in Azure devops, see [Add packages in private feed in Azure devops](./how-to-create-manage-runtime.md#add-packages-in-a-private-feed-in-azure-devops).
 
 ## Create a custom application on compute instance that can be used as prompt flow compute instance runtime
 

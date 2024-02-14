@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 08/2/2023
+ms.date: 01/17/2024
 ---
 
 # Migrate .NET apps from the in-process model to the isolated worker model
@@ -33,9 +33,9 @@ $AppInfo = @{}
 
 foreach ($App in $FunctionApps)
 {
-     if ($App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"] -eq 'dotnet')
+     if ($App.Runtime -eq 'dotnet')
      {
-          $AppInfo.Add($App.Name, $App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"])
+          $AppInfo.Add($App.Name, $App.Runtime)
      }
 }
 
@@ -139,6 +139,8 @@ var host = new HostBuilder()
 
 host.Run();
 ```
+
+This examples supports [ASP.NET Core integration] to use normal .NET 8 types. To use the built-in Functions HTTP types instead, replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`.
 
 # [.NET Framework 4.8](#tab/netframework48)
 

@@ -1,19 +1,22 @@
 ---
-title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal
-description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure portal.
+title: Deploy a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal
+description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 12/27/2023
-#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
+ms.date: 01/11/2024
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
-# Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal
+# Deploy a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
+
 ## Before you begin
 
-This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
+This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
@@ -73,7 +76,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 ### [Azure CLI](#tab/azure-cli)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -88,15 +91,18 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
@@ -111,9 +117,12 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ---
@@ -171,8 +180,9 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-1. If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
-1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f sample.yaml
@@ -189,7 +199,13 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
+
+    ```console
+    kubectl get pods
+    ```
+
+1. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service sample --watch
@@ -212,12 +228,9 @@ When the application runs, a Kubernetes service exposes the application front en
 
     :::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
 
-    > [!NOTE]
-    > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
-
 ## Delete resources
 
-If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], you should delete your cluster to avoid incurring Azure charges.
 
 1. In the Azure portal, navigate to your resource group.
 1. Select **Delete resource group**.
@@ -250,4 +263,5 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [kubernetes-service]: ../concepts-network.md#services
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

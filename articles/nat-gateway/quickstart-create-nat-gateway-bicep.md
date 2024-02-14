@@ -8,7 +8,7 @@ ms.subservice: nat
 ms.topic: how-to
 ms.date: 07/21/2023
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-bicep, devx-track-linux
+ms.custom: subject-armqs, devx-track-bicep, linux-related-content
 # Customer intent: I want to create a NAT gateway using Bicep so that I can provide outbound connectivity for my virtual machines.
 ---
 

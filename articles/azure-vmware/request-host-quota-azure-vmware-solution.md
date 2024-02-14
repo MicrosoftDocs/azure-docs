@@ -2,17 +2,14 @@
 title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.custom: contperf-fy21q3
 ms.service: azure-vmware
 ms.date: 12/19/2023
-
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
-
 ---
 
 # Request host quota for Azure VMware Solution
 
-In this article, learn how to request host quota/capacity for [Azure VMware Solution](https://review.learn.microsoft.com/azure/azure-vmware/introduction?branch=main). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+In this article, learn how to request host quota/capacity for [Azure VMware Solution](introduction.md). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, follow the same process.
 
@@ -29,7 +26,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 ## Request host quota for EA and MCA customers
 
-1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
+1. In your Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
    - **Issue type:** Technical
    - **Subscription:** Select your subscription
    - **Service:** All services > Azure VMware Solution
@@ -54,7 +51,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 ## Request host quota for CSP customers 
 
-CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](https://learn.microsoft.com/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
@@ -73,9 +70,9 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Select **Azure plan** and then select **Add to cart**. 
    
-   1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](https://learn.microsoft.com/partner-center/azure-plan-manage).
+   1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
 
-1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](https://learn.microsoft.com/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
+1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
 
    1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of** (AOBO) procedure.
    
@@ -83,7 +80,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
-   1. In the Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
+   1. In the Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
       - **Issue type:** Technical
       - **Subscription:** Select your subscription
       - **Service:** All services > Azure VMware Solution

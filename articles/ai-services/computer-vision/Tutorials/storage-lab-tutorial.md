@@ -374,9 +374,9 @@ Now you have a way to view the images you uploaded. The next step is to do more 
 <a name="Exercise5"></a>
 ## Use Azure AI Vision to generate metadata
 
-### Create a Vision resource
+### Create a  Vision resource
 
-You'll need to create a Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
+You'll need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
 
 1. Follow the instructions in [Create an Azure AI services resource](../../multi-service-resource.md?pivots=azportal) to create a multi-service resource or a Vision resource.
 

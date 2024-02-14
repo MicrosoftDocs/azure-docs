@@ -192,11 +192,11 @@ Most users should assign share-level permissions to specific Microsoft Entra use
 
 There are five Azure built-in roles for Azure Files, some of which allow granting share-level permissions to users and groups:
 
-- **Storage File Data Share Reader** allows read access in Azure file shares over SMB.
-- **Storage File Data Privileged Reader** allows read access in Azure file shares over SMB by overriding existing Windows ACLs.
-- **Storage File Data Share Contributor** allows read, write, and delete access in Azure file shares over SMB.
-- **Storage File Data Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
 - **Storage File Data Privileged Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB by overriding existing Windows ACLs.
+- **Storage File Data Privileged Reader** allows read access in Azure file shares over SMB by overriding existing Windows ACLs.
+- **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
+- **Storage File Data SMB Share Reader** allows read access in Azure file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control isn't supported with Microsoft Entra credentials.

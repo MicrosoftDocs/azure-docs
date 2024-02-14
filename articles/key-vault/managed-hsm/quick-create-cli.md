@@ -58,7 +58,7 @@ You need to provide following inputs to create a Managed HSM resource:
 - Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. Read more about [Managed HSM soft-delete](soft-delete-overview.md)
+The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM will continue to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
@@ -98,6 +98,9 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert
 openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
+
+> [!NOTE]
+> Even if the certificate has "expired," it can still be used to restore the security domain.
 
 > [!IMPORTANT]
 > Create and store the RSA key pairs and security domain file generated in this step securely.

@@ -3,11 +3,8 @@ title: Azure encryption overview | Microsoft Docs
 description: Learn about encryption options in Azure. See information for encryption at rest, encryption in flight, and key management with Azure Key Vault.
 services: security
 author: msmbaldwin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: ignite-2022
 ms.topic: article
 ms.date: 11/14/2022
 ms.author: mbaldwin
@@ -79,7 +76,7 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 #### Transparent Data Encryption
 
-[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 

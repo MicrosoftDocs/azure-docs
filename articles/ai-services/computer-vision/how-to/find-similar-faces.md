@@ -11,7 +11,6 @@ ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Find similar faces

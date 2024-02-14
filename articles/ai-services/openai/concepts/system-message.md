@@ -11,7 +11,6 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-keywords:
 ---
 
 # System message framework and template recommendations for Large Language Models (LLMs)

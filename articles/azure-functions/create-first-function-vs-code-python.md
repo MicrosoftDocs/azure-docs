@@ -4,7 +4,8 @@ description: Learn how to create a Python function, then publish the local proje
 ms.topic: quickstart
 ms.date: 05/29/2023
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete
+ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo
+ai-usage: ai-assisted
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -26,6 +27,11 @@ This article covers both Python programming models supported by Azure Functions.
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-python.md) of this article.
+
+This video shows you how to create a Python function in Azure using VS Code.
+> [!VIDEO a1e10f96-2940-489c-bc53-da2b915c8fc2]
+
+The steps in the video are also described in the following sections.
 
 ## Configure your environment
 
@@ -167,11 +173,12 @@ The setting added to your new function app, which enables it to run the v2 model
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to create a function app with a simple HTTP-triggered function. In the next articles, you expand that function by connecting to Azure Cosmos DB and Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
 
 > [!div class="nextstepaction"]
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python)
+> [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
-> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python)
 
 [Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
 

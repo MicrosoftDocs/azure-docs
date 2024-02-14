@@ -5,9 +5,7 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.custom: contperf-fy21q2
 ms.date: 02/27/2023
-
 #Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
 

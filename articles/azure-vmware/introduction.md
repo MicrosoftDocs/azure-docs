@@ -97,6 +97,10 @@ This table provides the list of RAID configuration supported and host requiremen
 |RAID-1 (Mirroring) Default setting.| 	1 |	3 |
 |RAID-5 (Erasure Coding) |	1 |	4 |
 |RAID-1 (Mirroring) |	2 |	5 |
+
+## Storage 
+
+Azure VMware Solution supports the expansion of datastore capacity beyond what is included with vSAN using Azure storage services, enabling you to expand datastore capacity without scaling the clusters. For more information, see [Datastore capacity expansion options](concepts-storage.md#datastore-capacity-expansion-options).
  
 ## Networking
 
