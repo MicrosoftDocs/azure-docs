@@ -414,7 +414,7 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
    <td>
 <ul>
 
-<li>Use the provided OpenShift Cluster Manager controls to add or remove additional worker nodes as required.
+<li>Add or remove additional worker nodes as required.
 
 <li>Respond to Microsoft and Red Hat notifications regarding cluster resource requirements.
 </li>
