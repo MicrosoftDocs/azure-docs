@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ---
 
-# QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service (Preview)
+# QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service 
 
-In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Apache Airflow on Astro - An Azure Native ISV Service (Preview).
+In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Apache Airflow on Astro - An Azure Native ISV Service .
 
 ## Prerequisites
 

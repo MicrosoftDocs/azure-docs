@@ -8,11 +8,11 @@ ms.custom:
 ms.date: 11/13/2023
 ---
 
-# What is Apache Airflow on Astro – An Azure Native ISV Service (Preview)?
+# What is Apache Airflow on Astro – An Azure Native ISV Service ?
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This service is developed and managed together by Microsoft and Astronomer.
 
-You can find Apache Airflow on Astro – An Azure Native ISV Service (Preview) in the [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview).
+You can find Apache Airflow on Astro – An Azure Native ISV Service  in the [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview).
 
 This offering allows you to manage your Astro resource as an integrated native service. You can easily run and manage as many Airflow deployments as you need and get started seamlessly through Azure portal.
 
