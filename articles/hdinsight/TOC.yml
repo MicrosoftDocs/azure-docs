@@ -377,9 +377,7 @@ items:
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ
         href: ./spark/apache-spark-create-standalone-application.md   
-      - name: Use Apache Spark-SQL RBAC with Apache Ranger
-        href: ./spark/ranger-policies-for-spark.md
-  - name: Concepts
+ - name: Concepts
     items:
       - name: Spark best practices on HDInsight
         href: ./spark/spark-best-practices.md
@@ -965,6 +963,8 @@ items:
       href: ./domain-joined/apache-domain-joined-run-kafka.md
     - name: Use Apache Oozie in ESP clusters
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Use Apache Spark-SQL RBAC with Apache Ranger
+      href: ./spark/ranger-policies-for-spark.md
   - name: Concepts
     items:
     - name: Security baseline
