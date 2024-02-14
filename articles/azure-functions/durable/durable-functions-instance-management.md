@@ -767,7 +767,6 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
 ```powershell
 param($Request, $TriggerMetadata)
 
-# Get instance id from body
 $InstanceId = $Request.Body.InstanceId
 $SuspendReason = 'Need to pause workflow'
 
@@ -779,6 +778,9 @@ Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 $ResumeReason = 'Continue workflow'
 Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
+
+> [!NOTE]
+> This change applies to [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
 
 # [Java](#tab/java)
 
