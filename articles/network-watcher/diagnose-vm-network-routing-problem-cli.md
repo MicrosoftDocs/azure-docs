@@ -8,7 +8,6 @@ tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
 ms.date: 03/18/2022
 ms.author: halkazwini
 ms.custom: engagement-fy23, devx-track-azurecli

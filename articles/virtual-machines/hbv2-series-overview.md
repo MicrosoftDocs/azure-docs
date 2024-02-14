@@ -6,7 +6,6 @@ tags: azure-resource-manager
 ms.custom: linux-related-content
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/18/2024
 ms.reviewer: cynthn
