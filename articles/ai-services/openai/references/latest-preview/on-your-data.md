@@ -37,8 +37,8 @@ The request body shares the same schema of chat completions API, except the addi
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `messages` | ChatMessage[] | True | The array of messages to generate chat completions for, in the chat format. The chat message has the `context` property which is added for Azure OpenAI on your data. See [Chat Message](#chat-message) for more details.|
-| `data_sources` | AzureChatExtensionConfiguration[] | True | The configuration entries for Azure OpenAI on your data. This additional specification is only compatible with Azure OpenAI. If `data_sources` is not provided, the service will use chat completions model directly, and not use Azure OpenAI on your data.|
+| `messages` | [ChatMessage](#chat-message)[] | True | The array of messages to generate chat completions for, in the chat format. The chat message has the `context` property which is added for Azure OpenAI on your data. See [Chat Message](#chat-message) for more details.|
+| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI on your data. This additional specification is only compatible with Azure OpenAI. There must be exactly one element in the array. If `data_sources` is not provided, the service will use chat completions model directly, and not use Azure OpenAI on your data.|
 
 ## Response Body
 
@@ -46,15 +46,15 @@ The response body shares the same schema of chat completions API, except the cha
 
 ## Chat Message
 
-In both request and response, chat message schema is extended with property `context`. The schema of the message context is below:
+In both request and response, chat message schema is extended with the property `context` when message `role` is `assistant`. The [context](#context) schema is below:
 
 ### Context
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `citations` | Citation[] | True | The data source retrieval result, used to generate the assistant message in the response.|
+| `citations` | [Citation](#citation)[] | True | The data source retrieval result, used to generate the assistant message in the response.|
 | `intent` | string | True | The detected intent from the chat history, used to pass to the next turn to carry over the context.|
 
-The message context citation schema is below:
+The [citation] schema is below:
 
 ### Citation
 
@@ -65,3 +65,13 @@ The message context citation schema is below:
 | `url` | string | False | The URL of the citation.|
 | `filepath` | string | False | The file path of the citation.|
 | `chunk_id` | string | False | The chunk ID of the citation.|
+
+## Data Source
+
+The schema of the supported data sources configuration can be found below:
+
+* Azure AI Search
+* Azure Machine Learning index
+* Azure Cosmos DB for MongoDB vCore
+* Elasticsearch
+* Pinecone
