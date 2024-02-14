@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini 
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/14/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -78,7 +78,7 @@ To create an Azure function to process the alert and create a packet capture, fo
       - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation.
       - App Service Plan - For reusing compute from an existing app service plan.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-funciton-app-basics.png" alt-text="Screenshot of the Create function app page in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/create-funciton-app-basics.png":::
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png" alt-text="Screenshot of the Create function app page in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png":::
 
 1. Select **Review + create** to create the app.
 
