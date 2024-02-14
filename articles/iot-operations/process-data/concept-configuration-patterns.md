@@ -120,7 +120,7 @@ Currently, you can use templates to define file paths in a destination stage.
 
 ### Static and dynamic fields
 
-Some stages require the definition of values that can either be static strings or a dynamic value that's derived from a `Path` in a [Message](concept-message-structure.md). To define these values, you can use _static_ or _dynamic_ fields.
+Some stages require the definition of values that can either be static strings or a dynamic value derived from a `Path` in a [Message](concept-message-structure.md). To define these values, you can use _static_ or _dynamic_ fields.
 
 A static or dynamic field is always written as an object with a `type` field that has one of two values: `static` or `dynamic`. The schema varies based on `type`.
 
@@ -169,7 +169,7 @@ The following examples show some static field definitions:
 
 ### Dynamic fields
 
-The fixed value for `type` is `dynamic`, the value is a [jq path](concept-jq-path.md).
+The fixed value for `type` is `dynamic`. The value is a [jq path](concept-jq-path.md).
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
@@ -191,14 +191,14 @@ The following example shows a dynamic field definition:
 
 Stages that call out to external services can use retries to handle temporary failures and improve reliability. You can override the default retry policy when you configure a stage.
 
-There are four possible retry polices:
+There are four possible retry policies:
 
-- `default`: The default retry policy is to use an exponential backoff retry with three retries and 500ms initial retry interval.
+- `default`: The default retry policy is to use an exponential backoff retry with three retries and 500 ms initial retry interval.
 - `none`: No retries are performed.
 - `fixed`: A fixed retry policy retries a fixed number of times with a fixed interval between each retry.
 - `exponential`: An exponential retry policy retries a fixed number of times with an exponentially increasing interval between each retry.
 
-If you choose `default` or `none`, you don't need to provide any additional configuration. If you choose `fixed` or `exponential`, you must provide additional configuration:
+If you choose `default` or `none`, you don't need to provide any more configuration. If you choose `fixed` or `exponential`, you must provide more configuration:
 
 ### Fixed
 

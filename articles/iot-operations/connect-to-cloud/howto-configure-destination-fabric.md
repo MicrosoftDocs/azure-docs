@@ -28,7 +28,13 @@ To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 ## Set up Microsoft Fabric
 
-Before you can write to Microsoft Fabric from a data pipeline, enable [service principal authentication](/fabric/onelake/onelake-security#authentication) in your workspace and lakehouse. To create a service principal with a client secret:
+Before you can write to Microsoft Fabric from a data pipeline, you need to grant access to the lakehouse from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
+
+Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/onelake-security#authentication).
+
+# [Service principal](#tab/serviceprincipal)
+
+To create a service principal with a client secret:
 
 [!INCLUDE [data-processor-create-service-principal](../includes/data-processor-create-service-principal.md)]
 
@@ -52,7 +58,7 @@ To add the service principal to your Microsoft Fabric workspace:
 
 1. Grant your service principal admin access to the workspace.
 
-## Configure your secret
+### Configure your secret
 
 For the destination stage to connect to Microsoft Fabric, it needs access to a secret that contains the authentication details. To create a secret:
 
@@ -63,6 +69,30 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     ```
 
 1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+
+# [Managed identity](#tab/managedidentity)
+
+To find the application ID of the managed identity and your tenant ID, run the following commands. Replace the placeholders with your cluster name and resource group:
+
+```azurecli
+CLUSTER_NAME=<Your connected cluster name>
+RESOURCE_GROUP=<The resource group where your connected cluster is installed>
+EXTENSION_NAME=processor
+
+OBJECT_ID=$(az k8s-extension show --name $EXTENSION_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connected
+echo "App ID:    " `az ad sp show --query appId --id $OBJECT_ID -o tsv`
+echo "Tenant ID: " `az account show --query tenantId -o tsv`
+```
+
+Make a note of the `App ID` and `Tenant ID`, you need these values in the next step.
+
+To grant the service principal access to your Microsoft Fabric workspace:
+
+1. In your workspace, select **Manage access**.
+
+1. Select **Add people or groups**, then paste the **App ID** from the previous step and grant at least **Contributor** access to it.
+
+---
 
 ## Configure the destination stage
 
@@ -78,10 +108,10 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | Table | String |  The name of the table to write to.  | Yes | - |  |
 | File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
 | Batch<sup>2</sup> | [Batch](../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
-| Authentication<sup>3</sup> | The authentication details to connect to Microsoft Fabric.  | Service principal | Yes | - | |
+| Authentication<sup>4</sup> | String | The authentication details to connect to Azure Data Explorer. `Service principal` or `Managed identity` | Service principal | Yes | - |
 | Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
-| Columns&nbsp;>&nbsp;Type<sup>4</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
+| Columns&nbsp;>&nbsp;Type<sup>3</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data from where to read the value of the column. | No | `.{{name}}` | `.temperature` |
 
 <sup>1</sup>File path: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
@@ -102,17 +132,21 @@ The files names are incremental integer values as indicated by `fileNumber`. Be 
 
 If you don't configure a batching interval, the stage uses 60 seconds as the default.
 
-<sup>3</sup>Authentication: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Microsoft Fabric destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
+<sup>3</sup>Type: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
+
+To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
+
+<sup>1</sup>Authentication: Currently, the destination stage supports service principal based authentication or managed identity when it connects to Microsoft Fabric.
+
+### Service principal based authentication
+
+To configure service principal based authentication, provide the following values. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
 | TenantId  | The tenant ID.  | Yes |
 | ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
 | Secret | The secret reference you created in your cluster.   | Yes |
-
-<sup>4</sup>Type: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
-
-To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
 
 ## Sample configuration
 

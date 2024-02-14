@@ -16,7 +16,7 @@ ms.date: 10/03/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _HTTP call out_ stage to call an external HTTP endpoint  with an optional request body and receive an optional response. The call out stage lets you incorporate custom data processing logic, such as running machine learning models, into the pipeline processing.
+Use the _HTTP call out_ stage to call an external HTTP endpoint with an optional request body and receive an optional response. The call out stage lets you incorporate custom data processing logic, such as running machine learning models, into the pipeline processing.
 
 - Each partition in a pipeline independently executes the HTTP calls in parallel.
 - HTTP calls are synchronous, the stage waits for the call to return before continuing with further pipeline processing.

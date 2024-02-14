@@ -414,7 +414,7 @@ In the previous jq expression:
 
 - `.payload |= <expression>` uses `|=` to update the value of `.payload` with the result of running `<expression>`. Using `|=` instead of `=` sets the data context of `<expression>` to `.payload` rather than `.`.
 - `map(<expression>)` executes `<expression>` against each entry in the array and replaces the input value with whatever `<expression>` produces.
-- `.unit //= "celsius"` uses the special `//=` assignment. This assignment combines (`=`) with the alternative operator (`//`) to  assign the existing value of `.unit` to itself if it's not `false` or `null`. If `.unit` is false or null, then the expression assigns `"celsius"` as the value of `.unit`, creating `.unit` if necessary.
+- `.unit //= "celsius"` uses the special `//=` assignment. This assignment combines (`=`) with the alternative operator (`//`) to assign the existing value of `.unit` to itself if it's not `false` or `null`. If `.unit` is false or null, then the expression assigns `"celsius"` as the value of `.unit`, creating `.unit` if necessary.
 
 The following JSON shows the output from the previous jq expression:
 

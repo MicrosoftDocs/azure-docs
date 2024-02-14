@@ -72,11 +72,11 @@ Data Processor pipelines can use the following stages:
 | [Enrich](howto-configure-enrich-stage.md) | Enriches messages with data from the reference data store. For example, add an operator name and lot number from the operations dataset. |
 | [Aggregate](howto-configure-aggregate-stage.md) | Aggregates values passing through the stage. For example, when temperature values are sent every 100 milliseconds, emit an average temperature metric every 30 seconds. |
 | [Call out](howto-configure-grpc-callout-stage.md) | Makes a call to an external HTTP or gRPC service. For example, call an Azure Function to convert from a custom message format to JSON. |
-| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean and contextualized data to an MQTT topic. |
+| [Destination - MQ](howto-configure-destination-mq-broker.md) | Writes your processed, clean, and contextualized data to an MQTT topic. |
 | [Destination - Reference](howto-configure-destination-reference-store.md) | Writes your processed data to the built-in reference store. Other pipelines can use the reference store to enrich their messages. |
-| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean and contextualized data to a gRPC endpoint. |
-| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
-| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean and contextualized data to an Azure Data Explorer endpoint in the cloud. |
+| [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean, and contextualized data to a gRPC endpoint. |
+| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
+| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
 
 ## Next step
 
