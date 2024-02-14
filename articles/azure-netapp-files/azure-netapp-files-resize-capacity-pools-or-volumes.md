@@ -10,6 +10,7 @@ ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
+
 You can change the size of a capacity pool or a volume as necessary, for example, when a volume or capacity pool fills up. 
 
 For information about monitoring a volume’s capacity, see [Monitor the capacity of a volume](monitor-volume-capacity.md).
@@ -18,6 +19,9 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 
 * Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
 * Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 1 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
+
+>[!IMPORTANT]
+>If you are resizing your capacity pool below 2 TiB and changing your capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using API version 2023.xx.
 
 ## Resize the capacity pool using the Azure portal 
 
