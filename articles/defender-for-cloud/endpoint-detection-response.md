@@ -1,5 +1,5 @@
 ---
-title: Endpoint detection and response recommendations (agentless)
+title: Remediate endpoint detection and response recommendations (agentless)
 description: Learn how to use Defender for Cloud recommendations to identify if an endpoint detection and response solution are installed on your virtual machine. You can also identify if there are any gaps in your security configuration and remediate the gaps if they exist.
 author: dcurwin
 ms.author: dacurwin
@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 02/13/2024
 ---
 
-# Endpoint detection and response recommendations (agentless)
+# Remediate endpoint detection and response recommendations (agentless)
 
 Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
 The recommendations allow you to: 
 
-- Identify if an endpoint detection and response solution is installed on your multi-cloud machines.  
+- Identify if an endpoint detection and response solution is installed on your multicloud machines.  
 
 - Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
 
@@ -31,7 +31,23 @@ The recommendations allow you to:
     
 ## Review endpoint detection and response detection recommendations 
 
-Defender for Cloud has the ability to detect supported endpoint detection and response solutions on various supported platforms. The following table contains the supported solutions and platforms: 
+Defender for Cloud inspects your virtual machines (VM) to check if a supported endpoint detection and response solution is enabled on it.
+
+Defender for Cloud performs the following check VMs to see:
+
+- If a supported endpoint detection and response solution is enabled.
+- If Defender for Servers plan 2 is enabled on your subscription and the associated VMs.
+- If the supported solution is installed successfully.
+
+Based on the results of the check, Defender for Cloud will present recommendations that may include the following actions:
+
+- Enabling a supported solution on the VM.
+- Upgrading or enabling Defender for Servers plan 2 on the VM.
+- Troubleshooting installation issues on the VM.
+
+By following these recommendations, you can ensure that your VMs are protected by a supported endpoint detection and response solution and address any security gaps.
+
+The following table contains the supported solutions and platforms: 
 
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
@@ -45,7 +61,7 @@ Defender for Cloud has the ability to detect supported endpoint detection and re
 
 <br>
 
-**To detect an endpoint recommendations and response solutions on virtual machines**:
+**To review endpoint recommendations and response solutions on virtual machines**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
