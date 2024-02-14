@@ -61,26 +61,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/storage/files/storage-files-monitoring.md",
-            "redirect_url": "/azure/storage/files/monitor-files",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storage/files/analyze-files-metrics.md",
-            "redirect_url": "/azure/storage/files/monitor-files",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storage/files/files-monitoring-alerts.md",
-            "redirect_url": "/azure/storage/files/monitor-files",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storage/files/storage-files-monitoring-reference.md",
-            "redirect_url": "/azure/storage/files/monitor-files-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
             "redirect_document_id": false
