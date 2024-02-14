@@ -93,7 +93,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [REST API quickstart](includes/whisper-python.md)]
+[!INCLUDE [Python quickstart](includes/whisper-python.md)]
 
 ::: zone-end
 
