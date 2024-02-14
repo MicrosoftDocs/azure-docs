@@ -40,7 +40,7 @@ For examples that use the legacy method for network isolation, see the deploymen
 
 * If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
 
-#### Migration from legacy method to managed virtual network ###
+#### Migrate from legacy network isolation method to managed virtual network
 
 If you've used the [legacy method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) previously for network isolation of managed online endpoints, and you want to migrate to using a workspace managed virtual network to secure your endpoints, follow these steps:
 
