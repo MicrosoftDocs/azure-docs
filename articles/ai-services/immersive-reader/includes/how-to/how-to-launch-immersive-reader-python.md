@@ -3,26 +3,28 @@ author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 03/04/2021
+ms.date: 02/14/2024
 ms.author: rwaller
 ---
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
-* [Git](https://git-scm.com/).
-* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* An IDE such as [Visual Studio Code](https://code.visualstudio.com).
+
+You can install the following tools as part of the instructions in this guide:
+* [Git](https://git-scm.com)
+* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) and [pip](https://docs.python.org/3/installing/index.html). Starting with Python 3.4, pip is included by default with the Python binary installers.
-* [Flask](https://flask.palletsprojects.com/en/2.3.x/).
-* [Jinja](http://jinja.pocoo.org/docs/2.10/).
-* [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper-win for Windows](https://pypi.org/project/virtualenvwrapper-win/) or [virtualenvwrapper for OSX](https://virtualenvwrapper.readthedocs.io/en/latest/).
-* The [requests module](https://pypi.org/project/requests/2.7.0/).
-* An IDE such as [Visual Studio Code](https://code.visualstudio.com/).
+* [Flask](https://flask.palletsprojects.com/en/2.3.x/)
+* [Jinja](http://jinja.pocoo.org/docs/2.10/)
+* [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper-win for Windows](https://pypi.org/project/virtualenvwrapper-win/) or [virtualenvwrapper for OSX](https://virtualenvwrapper.readthedocs.io/en/latest/)
+* The [requests module](https://pypi.org/project/requests/2.7.0/)
 
 ## Configure authentication credentials
 
-Create a new file called **.env**, and paste the following names and values into it. Supply the values given when you created your Immersive Reader resource.
+Create a new file called *.env*, and paste the following names and values into it. Supply the values given when you created your Immersive Reader resource.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -33,13 +35,13 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Don't commit this file into source control because it contains secrets that shouldn't be made public.
 
-Secure the **getimmersivereadertoken** API endpoint behind some form of authentication, for example, [OAuth](https://oauth.net/2/). Authentication prevents unauthorized users from obtaining tokens to use against your Immersive Reader service and billing. That work is beyond the scope of this tutorial.
+Secure the **getimmersivereadertoken** API endpoint behind some form of authentication, such as [OAuth](https://oauth.net/2/). Authentication prevents unauthorized users from obtaining tokens to use against your Immersive Reader service and billing. That work is beyond the scope of this tutorial.
 
 ## Create a Python web app on Windows
 
-Create a Python web app by using `flask` on Windows.
+Create a Python web app by using Flask on Windows.
 
-Install [Git](https://git-scm.com/).
+Install [Git](https://git-scm.com).
 
 After Git is installed, open a command prompt and clone the Immersive Reader SDK Git repository to a folder on your computer.
 
@@ -49,22 +51,22 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Install [Python](https://www.python.org/downloads/).
 
-Select the **Add Python to PATH** check box.
+Select the **Add Python to PATH** check box, and select **Custom installation**.
 
-![Python Windows Install dialog step 1](../../media/pythoninstallone.jpg)
+:::image type="content" source="../../media/python-install-1.png" alt-text="Screenshot of Install Python step 1 with Add Python to Path checkbox.":::
 
 Add **Optional Features** by selecting check boxes, and then select **Next**.
 
-![Python Windows Install dialog step 2](../../media/pythoninstalltwo.jpg)
+:::image type="content" source="../../media/python-install-2.png" alt-text="Screenshot of Install Python step 2 with optional features.":::
 
-Select **Custom installation**, and set the installation path as your root folder, for example, `C:\Python37-32\`. Then select **Install**.
+Under **Advanced Options**, set the installation path as your root folder, for example, `C:\Python312`. Then select **Install**.
 
-![Python Windows Install dialog step 3](../../media/pythoninstallthree.jpg)
+:::image type="content" source="../../media/python-install-3.png" alt-text="Screenshot of Install Python step 3 with custom location.":::
 
 After the Python installation is finished, open a command prompt and use `cd` to go to the Python Scripts folder.
 
 ```cmd
-cd C:\Python37-32\Scripts
+cd C:\Python312\Scripts
 ```
 
 Install Flask.
@@ -97,7 +99,7 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 pip install requests
 ```
 
-Install the python-dotenv module. This module reads the key-value pair from the .env file and adds them to the environment variable.
+Install the python-dotenv module. This module reads the key-value pair from the *.env* file and adds them to the environment variable.
 
 ```cmd
 pip install python-dotenv
@@ -106,13 +108,13 @@ pip install python-dotenv
 Make a virtual environment.
 
 ```cmd
-mkvirtualenv advanced-python
+mkvirtualenv.bat quickstart-python
 ```
 
 Use `cd` to go to the sample project root folder.
 
 ```cmd
-cd C:\immersive-reader-sdk\js\samples\advanced-python
+cd C:\immersive-reader-sdk\js\samples\quickstart-python
 ```
 
 Connect the sample project with the environment. This action maps the newly created virtual environment to the sample project root folder.
@@ -127,7 +129,7 @@ Activate the virtual environment.
 activate
 ```
 
-The project should now be active, and you'll see something like `(advanced-python) C:\immersive-reader-sdk\js\samples\advanced-python>` in the command prompt.
+The project should now be active, and you'll see something like `(quickstart-python) C:\immersive-reader-sdk\js\samples\quickstart-python>` in the command prompt.
 
 Deactivate the environment.
 
@@ -135,12 +137,12 @@ Deactivate the environment.
 deactivate
 ```
 
-The `(advanced-python)` prefix should be gone because the environment is deactivated.
+The `(quickstart-python)` prefix should be gone because the environment is deactivated.
 
-To reactivate the environment, run `workon advanced-python` from the sample project root folder.
+To reactivate the environment, run `workon quickstart-python` from the sample project root folder.
 
 ```cmd
-workon advanced-python
+workon quickstart-python
 ```
 
 ### Start the Immersive Reader with sample content
@@ -151,13 +153,13 @@ When the environment is active, run the sample project by entering `flask run` f
 flask run
 ```
 
-Open your browser, and go to http://localhost:5000.
+Open your browser, and go to <http://localhost:5000>.
 
 ## Create a Python web app on OSX
 
-Create a Python web app by using `flask` on OSX.
+Create a Python web app by using Flask on OSX.
 
-Install [Git](https://git-scm.com/).
+Install [Git](https://git-scm.com).
 
 After Git is installed, open Terminal and clone the Immersive Reader SDK Git repository to a folder on your computer.
 
@@ -167,12 +169,12 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Install [Python](https://www.python.org/downloads/).
 
-The Python root folder, for example, `Python37-32`, should now be in the Applications folder.
+The Python root folder, for example, `Python312`, should now be in the Applications folder.
 
-After the Python installation is finished, open Terminal and use `cd` to go to the Python Scripts folder.
+After the Python installation is finished, open Terminal and use `cd` into the Python Scripts folder.
 
 ```bash
-cd immersive-reader-sdk/js/samples/advanced-python
+cd Python312/Scripts
 ```
 
 Install pip.
@@ -228,7 +230,7 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 pip install requests --user
 ```
 
-Install the python-dotenv module. This module reads the key-value pair from the .env file and adds them to the environment variable.
+Install the python-dotenv module. This module reads the key-value pair from the *.env* file and adds them to the environment variable.
 
 ```bash
 pip install python-dotenv --user
@@ -243,13 +245,13 @@ mkdir ~/.virtualenvs
 Use `cd` to go to the Immersive Reader SDK Python sample application folder.
 
 ```bash
-cd immersive-reader-sdk/js/samples/advanced-python
+cd immersive-reader-sdk/js/samples/quickstart-python
 ```
 
 Make a virtual environment.
 
 ```bash
-mkvirtualenv -p /usr/local/bin/python3 advanced-python
+mkvirtualenv -p /usr/local/bin/python3 quickstart-python
 ```
 
 Connect the sample project with the environment. This action maps the newly created virtual environment to the sample project root folder.
@@ -264,7 +266,7 @@ Activate the virtual environment.
 activate
 ```
 
-The project should now be active, and you'll see something like `(advanced-python) /immersive-reader-sdk/js/samples/advanced-python>` in the command prompt.
+The project should now be active, and you'll see something like `(quickstart-python) /immersive-reader-sdk/js/samples/quickstart-python>` in the command prompt.
 
 Deactivate the environment.
 
@@ -272,12 +274,12 @@ Deactivate the environment.
 deactivate
 ```
 
-The `(advanced-python)` prefix should be gone because the environment is deactivated.
+The `(quickstart-python)` prefix should be gone because the environment is deactivated.
 
-To reactivate the environment, run `workon advanced-python` from the sample project root folder.
+To reactivate the environment, run `workon quickstart-python` from the sample project root folder.
 
 ```bash
-workon advanced-python
+workon quickstart-python
 ```
 
 ## Start the Immersive Reader with sample content
@@ -288,9 +290,9 @@ When the environment is active, run the sample project by entering `flask run` f
 flask run
 ```
 
-Open your browser, and go to http://localhost:5000.
+Open your browser, and go to <http://localhost:5000>.
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](../../reference.md).
-* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/).
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](../../reference.md)
