@@ -541,7 +541,6 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 > the "dataSources" object content varies depending on what Azure resource and what authentication mechanism you are using. Please use the following reference:
 
 > #### Azure OpenAI resource
-#### [REST](#tab/rest)
 ```json
 {
 	 "dataSources": [
@@ -557,7 +556,6 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 }
 ```	
 > #### Azure AIServices + SAS authentication
-#### [REST](#tab/rest)
 ```json
 {
 	 "dataSources": [
@@ -571,7 +569,6 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 }
 ```	
 > #### Azure AIServices + Managed Identities
-#### [REST](#tab/rest)
 ```json
          "dataSources": [
         {
@@ -639,7 +636,6 @@ print(response)
 > the "dataSources" object content varies depending on what Azure resource and what authentication mechanism you are using. Please use the following reference:
 
 > #### Azure OpenAI resource
-#### [Python](#tab/python)
 ```python
          "dataSources": [
         {
@@ -653,7 +649,6 @@ print(response)
         }],
 ```
 > #### Azure AIServices + SAS authentication
-#### [Python](#tab/python)
 ```python
          "dataSources": [
         {
@@ -665,7 +660,6 @@ print(response)
         }],
 ```
 > #### Azure AIServices + Managed Identities
-#### [Python](#tab/python)
 ```python
          "dataSources": [
         {
