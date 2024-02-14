@@ -10900,10 +10900,6 @@
             "redirect_url": "/azure/operational-excellence/relocation-event-hub",
             "redirect_document_id": false
         }
-
-
-
-        ./event-hubs/move-across-regions.md'.
         
     ]
 }
