@@ -15,6 +15,10 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Quality of Experience - Affirmed MCC Data Products
+    href: concept-mcc-data-product.md
+  - name: Monitoring - Affirmed MCC Data Product
+    href: concept-monitoring-mcc-data-product.md
   - name: Business continuity disaster recovery
     href: business-continuity-disaster-recovery.md
   - name: Data quality and data monitoring
@@ -22,24 +26,34 @@
   - name: Data types
     href: concept-data-types.md
   - name: Data visualization
-    href: concept-data-visualization.md 
-  - name: Quality of Experience - Affirmed MCC Data Products
-    href: concept-mcc-data-product.md
-  - name: Monitoring - Affirmed MCC Data Product
-    href: concept-monitoring-mcc-data-product.md
+    href: concept-data-visualization.md
+  - name: Ingestion agents
+    href: ingestion-agent-overview.md
   - name: Managed identity
     href: managed-identity.md
 - name: How-to guides
   expanded: false
   items:
-  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
-    href: purview-setup.md
+  - name: Set up an ingestion agent for uploading data
+    href: set-up-ingestion-agent.md
   - name: Use Azure Operator Insights Data Product dashboards
     href: dashboards-use.md
   - name: Query data in the Azure Operator Insights Data Product
     href: data-query.md
+  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
+    href: purview-setup.md
   - name: Manage permissions to the consumption URL
     href: consumption-plane-configure-permissions.md
+  - name: Manage ingestion agents
+    items:
+    - name: Change configuration for ingestion agents
+      href: change-ingestion-agent-configuration.md
+    - name: Monitor and troubleshoot ingestion agents
+      href: monitor-troubleshoot-ingestion-agent.md
+    - name: Upgrade ingestion agents
+      href: upgrade-ingestion-agent.md
+    - name: Rotate secrets for ingestion agents
+      href: rotate-secrets-for-ingestion-agent.md
   - name: Deploy Ingestion Agents for MCC protobuf EDRs
     items:
     - name: Create and configure MCC EDR Ingestion Agents

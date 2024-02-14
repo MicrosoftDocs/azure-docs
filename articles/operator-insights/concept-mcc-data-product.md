@@ -43,7 +43,26 @@ The following data types are provided for all Quality of Experience - Affirmed M
 To use the Quality of Experience - Affirmed MCC Data Product:
 
 1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
-1. Configure your network to provide data by setting up an MCC EDR Ingestion Agent. The MCC EDR Ingestion Agent uploads EDRs from your network to Azure Operator Insights. See [Create and configure MCC EDR Ingestion Agents for Azure Operator Insights](how-to-install-mcc-edr-agent.md). Alternatively, you can provide your own ingestion agent.
+1. Configure your network to provide data by setting up an Azure Operator Insights ingestion agent on a virtual machine (VM).
+
+    1. Read [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
+    1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+
+    Alternatively, you can provide your own ingestion agent.
+
+## Requirements for the Azure Operator Insights ingestion agent
+
+Use the VM requirements to set up a suitable VM for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+
+### VM requirements
+
+> [!WARNING]
+> TODO: add data-product-specific information from [Create and configure MCC EDR Ingestion Agents for Azure Operator Insights](how-to-install-mcc-edr-agent.md)
+
+### Required agent configuration
+
+> [!WARNING]
+> TODO: add sample configuration, with information about how to replace parameters.
 
 ## Related content
 
@@ -52,5 +71,5 @@ To use the Quality of Experience - Affirmed MCC Data Product:
 - [Monitoring - Affirmed MCC Data Product](concept-monitoring-mcc-data-product.md)
 - [Affirmed Networks MCC documentation](https://manuals.metaswitch.com/MCC) 
 
-    > [!NOTE]
-    > Affirmed Networks login credentials are required to access the MCC product documentation.
+> [!NOTE]
+> Affirmed Networks login credentials are required to access the MCC product documentation.

@@ -29,6 +29,10 @@ landingContent:
             url: operator-insights-faq.yml
       - linkListType: concept
         links:
+          - text: Quality of Experience - Affirmed MCC Data Product
+            url: concept-mcc-data-product.md
+          - text: Monitoring - Affirmed MCC Data Product
+            url: concept-monitoring-mcc-data-product.md
           - text: Business continuity and disaster recovery
             url: business-continuity-disaster-recovery.md
           - text: Data quality and data monitoring 
@@ -37,10 +41,6 @@ landingContent:
             url: concept-data-types.md
           - text: Data visualization
             url: concept-data-visualization.md 
-          - text:  Quality of Experience - Affirmed MCC Data Product
-            url: concept-mcc-data-product.md
-          - text: Monitoring - Affirmed MCC Data Product
-            url: concept-monitoring-mcc-data-product.md
           - text: Managed identity
             url: managed-identity.md
 
@@ -51,53 +51,41 @@ landingContent:
         links:
           - text: Create an Azure Operator Insights Data Product
             url: data-product-create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an ingestion agent for uploading data
+            url: set-up-ingestion-agent.md
 
   # Card 
-  - title: How to use Azure Operator Insights
+  - title: Use Azure Operator Insights
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Microsoft Purview with an Azure Operator Insights Data Product
-            url: purview-setup.md
           - text: Use Data Product dashboards to visualize data
             url: dashboards-use.md
           - text: Query data in the Data Product
             url: data-query.md
+          - text: Use Microsoft Purview with an Azure Operator Insights Data Product
+            url: purview-setup.md
           - text: Monitor Azure Operator Insights
             url: monitor-operator-insights.md
 
   # Card 
-  - title: How to deploy Ingestion Agents for MCC protobuf EDRs
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create and configure MCC EDR Ingestion Agents
-            url: how-to-install-mcc-edr-agent.md
-          - text: Manage MCC EDR Agents
-            url: how-to-manage-mcc-edr-agent.md
-          - text: Monitor and troubleshoot MCC EDR Ingestion Agents
-            url: troubleshoot-mcc-edr-agent.md
-      - linkListType: reference
-        links:
-          - text: MCC EDR Ingestion Agent configuration reference
-            url: mcc-edr-agent-configuration.md
-
-  # Card 
-  - title: How to deploy SFTP Ingestion Agents
+  - title: Manage uploading data to Azure Operator Insights
     linkLists:
       - linkListType: concept
         links:
-          - text: Overview
-            url: sftp-agent-overview.md
+          - text: Overview of ingestion agents
+            url: ingestion-agent-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Create and configure SFTP Ingestion Agents
-            url: how-to-install-sftp-agent.md
-          - text: Manage SFTP Agents
-            url: how-to-manage-sftp-agent.md
-          - text: Monitor and troubleshoot SFTP Ingestion Agents
-            url: troubleshoot-sftp-agent.md
-      - linkListType: reference
-        links:
-          - text: SFTP Ingestion Agent configuration reference
-            url: sftp-agent-configuration.md
+        - text: Set up an ingestion agent for uploading data
+          url: set-up-ingestion-agent.md
+        - text: Change configuration for ingestion agents
+          url: change-ingestion-agent-configuration.md
+        - text: Monitor and troubleshoot ingestion agents
+          url: monitor-troubleshoot-ingestion-agent.md
+        - text: Upgrade ingestion agents
+          url: upgrade-ingestion-agent.md
+        - text: Rotate secrets for ingestion agents
+          url: rotate-secrets-for-ingestion-agent.md
