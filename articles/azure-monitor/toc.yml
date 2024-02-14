@@ -1320,6 +1320,8 @@ items:
       items:
         - name: Manage alert rules
           href: alerts/alerts-manage-alert-rules.md
+        - name: Monitor the health of log search alert rules
+          href: alerts/log-alert-rule-health.md
         - name: Manage alert instances
           href: alerts/alerts-manage-alert-instances.md
         - name: Update alerts for region moves

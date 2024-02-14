@@ -24,9 +24,6 @@ The following table lists the options for you to add certificates in App Service
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a public certificate | Public certificates aren't used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
 
-> [!NOTE]
-> After you upload a certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
-
 ## Prerequisites
 
 - [Create an App Service app](./index.yml). The app's [App Service plan](overview-hosting-plans.md) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
@@ -54,6 +51,9 @@ To secure a custom domain in a TLS binding, the certificate has more requirement
 
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
+
+> [!NOTE]
+> After you upload a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
 
 ## Create a free managed certificate
 
@@ -249,6 +249,11 @@ You're now ready upload the certificate to App Service.
 ## Upload a public certificate
 
 Public certificates are supported in the *.cer* format.
+
+> [!NOTE]
+> After you upload a public certificate to an app, it is only accessible by the app it is uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates.md)
+>
+> You can upload up to 1000 public certificates per App Service Plan.
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
