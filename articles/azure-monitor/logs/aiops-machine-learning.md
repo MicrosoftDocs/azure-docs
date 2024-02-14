@@ -34,7 +34,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 ## AIOps with Azure Monitor Investigator (preview)
 
-Azure Monitor Investigator (preview) is an AIOps solution designed to improve the way Site Reliability Engineers (SREs) and developers approach incidents. Investigator  simplifies the process of incident troubleshooting, enabling faster resolution of issues with your Azure resources and the workloads running on them.
+[Azure Monitor Investigator (preview)](../ai-ops/investigator-overview.md) is an AIOps solution designed to improve the way Site Reliability Engineers (SREs) and developers approach incidents. Investigator  simplifies the process of incident troubleshooting, enabling faster resolution of issues with your Azure resources and the workloads running on them.
 
 Azure Monitor Investigator uses resource metrics to scan for anomalies across all your Azure resources, so that you don't have to rely on manual investigation methods that involve sifting through static dashboards or executing pre-defined queries. Based on the metrics, such as specific clusters, regions, error codes, or operations dimensions and labels, Azure Monitor investigator provides SREs and developers with actionable insights and concrete leads for further investigation.
 

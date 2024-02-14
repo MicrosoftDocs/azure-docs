@@ -10,7 +10,7 @@ ms.reviewer: yalavi
 # Customer intent: As an  Site Reliability Engineers (SREs), developer, or IT operations engineer, I want to know how to use AI to explain why an alert was fired and tell me what my next steps should be to resolve the issue.
 ---
 
-# Investigate an alert using AIOps with Azure Monitor Investigator
+# Use AIOps to investigate incidents Azure Monitor Investigator
 
 This article describes how to use Azure Monitor Investigator to trigger an investigation to identify resource issues, or to explain why an alert was fired, and provide next steps to resolve the issue.
 
@@ -21,9 +21,11 @@ This article describes how to use Azure Monitor Investigator to trigger an inves
 1. In the alert details pane, select **Investigate** on the top right.
 
     :::image type="content" source="./media/investigate-alert-instance/investigate-button.png" alt-text="Screenshot of the investigate button from the alert details page.":::
+
 1. The investigation starts to run. 
 
     :::image type="content" source="./media/investigate-alert-instance/investigator-running.png" alt-text="Screenshot of the investigator in the middle of running.":::
+
 1. When the investigation is complete, a summary of the incident is displayed with recommendations for how to mitigate the issue.
 
     

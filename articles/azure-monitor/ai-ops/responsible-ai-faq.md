@@ -47,5 +47,8 @@ Fairness is a core part of Azure Monitor Investigator's development. Consistent 
 
 To integrate Azure Monitor Investigator effectively into your operations, it's important to understand its capabilities and limitations. Testing using real data from your environment helps to evaluate its performance. Ensure that SREs are trained in the system's intended uses, how to interact with it, and when to rely on human judgment over automated output. This balanced approach maximizes the benefits of Azure Monitor Investigator while maintaining oversight and control.
 
+## Next steps
 
+- Learn about Azure Monitor AI and Machine Learning capabilities in [Azure Monitor AI and Machine Learning](../logs/aiops-machine-learning.md).
+- [Use AIOps to investigate incidents Azure Monitor Investigator](investigate-alert-instance.md).
 
