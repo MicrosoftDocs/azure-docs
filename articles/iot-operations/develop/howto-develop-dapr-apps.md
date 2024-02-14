@@ -173,6 +173,6 @@ Run the following command to view the logs:
 kubectl logs dapr-workload daprd
 ```
 
-## Related content
+## Next steps
 
-- [Develop highly available applications](concept-about-distributed-apps.md)
+Now that you know how to develop a Dapr application, you can run through the tutorial to [Build an event-driven app with Dapr](tutorial-event-driven-with-dapr).

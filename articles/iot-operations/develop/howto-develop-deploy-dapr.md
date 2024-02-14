@@ -157,6 +157,6 @@ To configure authorization policies to Azure IoT MQ, first you create a [BrokerA
     kubectl apply -f aio-dapr-authz.yaml
     ```
 
-## Related content
+## Next steps
 
-- 
+Now that you have deployed the Dapr components, you can [Use Dapr to develop distributed applications](howto-develop-dapr-apps).
