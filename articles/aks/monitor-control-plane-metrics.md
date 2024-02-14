@@ -64,6 +64,12 @@ az provider register --namespace "Microsoft.ContainerService"
 
 You can enable control plane metrics with the Azure Monitor managed service for Prometheus add-on during cluster creation or for an existing cluster. To collect Prometheus metrics from your Kubernetes cluster, see [Enable Prometheus and Grafana for Kubernetes clusters][enable-monitoring-kubernetes-cluster] and follow the steps on the **CLI** tab for an AKS cluster. On the command-line, be sure to include the parameters `--generate-ssh-keys` and `--enable-managed-identity`.
 
+If your cluster already has the Prometheus addon deployed, then you can simply run an `az aks update` to ensure the cluster updates to start collecting control plane metrics.
+
+```azurecli
+az aks update -n <cluster-name> -g <resource-group>
+```
+
 >[!NOTE]
 > Unlike the metrics collected from cluster nodes, control plane metrics are collected by a component which isn't part of the **ama-metrics** add-on. Enabling the `AzureMonitorMetricsControlPlanePreview` feature flag and the managed prometheus add-on ensures control plane metrics are collected. After enabling metric collection, it can take several minutes for the data to appear in the workspace.
 
