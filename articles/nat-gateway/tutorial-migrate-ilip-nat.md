@@ -95,7 +95,7 @@ In this section, you create a NAT gateway with the IP address you previously rem
     | NAT gateway name | Enter **myNATgateway**. |
     | Region | Select the region of your virtual network. In this example, it's **West US 2**. |
     | Availability zone | Leave the default of **None**. |
-    | Idle timeout (minutes) | Enter **10**. |
+    | Idle timeout (minutes) | Leave the default setting. |
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP** at the bottom of the page.
 
