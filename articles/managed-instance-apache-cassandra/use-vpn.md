@@ -4,6 +4,7 @@ description: Discover how to secure your cluster with vpn when you use Azure Man
 author: IriaOsara
 ms.author: iriaosara
 ms.service: managed-instance-apache-cassandra
+ms.topic: how-to
 ms.date: 02/08/2024
 ms.devlang: azurecli
 
