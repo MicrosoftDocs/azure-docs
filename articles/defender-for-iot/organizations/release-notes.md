@@ -114,7 +114,6 @@ This version includes the following updates and enhancements:
 - [Alert suppression rules from the Azure portal](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts)
 - [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments)
 - [Alert ID (ID field) is now aligned on the Azure portal and sensor console](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal)
-- [New setting to focus local networks in the device inventory](configure-sensor-settings-portal.md#configure-subnets-in-the-azure-portal)
 - [Newly supported protocols](concept-supported-protocols.md)
 - [L60 hardware profile is no longer supported](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments)
 
