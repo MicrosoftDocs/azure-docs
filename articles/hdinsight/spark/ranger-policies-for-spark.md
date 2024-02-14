@@ -1,23 +1,23 @@
 ---
-title: Configure Apache Ranger policies for Spark SQL in HDInsight with ESP 
+title: Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise security package. 
 description: This article describes how to configure Ranger policies for Spark SQL with Enterprise security package.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 02/12/2024
 ---
 
-# Configure Apache Ranger policies for Spark SQL in HDInsight with ESP
+# Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise security package
 
 This article describes how to configure Ranger policies for Spark SQL with Enterprise security package in HDInsight.
 
-In this tutorial, you'll learn,
+In this tutorial, you'll learn how to,
 - Create Apache Ranger policies 
 - Verify the applied Ranger policies 
 - Guideline for setting Apache Ranger for Spark SQL 
 
 ## Prerequisites 
 
-An Apache Spark cluster in HDInsight version 5.1 with [Enterprise Security Package](../domain-joined/apache-domain-joined-configure-using-azure-adds.md).
+An Apache Spark cluster in HDInsight version 5.1 with [Enterprise security package](../domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## Connect to Apache Ranger Admin UI 
 
@@ -35,12 +35,12 @@ See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined
 
 ## Create Ranger policy 
 
-In this section, you create two Ranger policies  
+In this section, you create two Ranger policies;  
 
 - [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark.md#to-create-ranger-policies)
 - [Masking policy for obfuscating the columns in hivesampletable](./ranger-policies-for-spark.md#create-ranger-masking-policy)
 
-### To create Ranger policies
+### Create Ranger Access policies
 
 1. Open Ranger Admin UI. 
 
@@ -74,18 +74,18 @@ In this section, you create two Ranger policies
         select * from hivesampletable limit 10;
    ```
 
-     Result before policy was saved
+     Result before policy was saved:
    
     :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows result before access policy." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
 
-     Result after policy is applied
+     Result after policy is applied:
 
    :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows result after access policy." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
 
 #### Create Ranger masking policy 
  
 
-The following example explains how to create a policy to mask a column 
+The following example explains how to create a policy to mask a column. 
 
 1. Create another policy under **Masking** tab with the following properties using Ranger Admin UI 
 
@@ -126,18 +126,16 @@ The following example explains how to create a policy to mask a column
  
 ### Known issues 
  
-1. Apache Ranger Spark-sql integration not works if Ranger admin is down. 
-
-1. Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
- 
-1. In Ranger Audit logs, “Resource” column, on hover, doesn’t show the entire query which got executed. 
+- Apache Ranger Spark-sql integration not works if Ranger admin is down. 
+- Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
+- In Ranger Audit logs, “Resource” column, on hover, doesn’t show the entire query which got executed. 
  
  
  
   
 ## Guideline for setting up Apache Ranger for Spark-sql 
  
-**Scenario 1**: Using new Ranger database while creating HDInsight 5.1 Spark cluster 
+**Scenario 1**: Using new Ranger database while creating HDInsight 5.1 Spark cluster.
  
 When the cluster is created, the relevant Ranger repo containing the Hive and Spark Ranger policies are created under the name <hive_and_spark> in the Hadoop SQL service on the Ranger DB. 
  
@@ -150,10 +148,9 @@ You can edit the policies and these policies gets applied to both Hive and Spark
 Points to consider: 
 
 1. In case you have two metastore databases with the same name used for both hive (for example, DB1) and spark (for example, DB1) catalogs.  
-   If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
-   If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
-    
-   
+   - If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
+   - If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
+       
    There is no way of differentiating between DB1 of hive and spark catalog from the perspective of Ranger. 
    
     
@@ -164,15 +161,12 @@ Points to consider:
 
     Let’s say you create a table **table1**  through Hive with current ‘xyz’ user. It creates an HDFS file called **table1.db** whose owner is ‘xyz’ user.  
      
-     Now consider, the user ‘abc’ is used while launching the Spark Sql session. In this session of user ‘abc’, if you try to write anything to **table1**, it is bound to fail since the table owner is ‘xyz’.  
-     In such case, it is recommended to use the same user in Hive and Spark SQL for updating the table and that user should have sufficient privileges to perform update operations. 
+     - Now consider, the user ‘abc’ is used while launching the Spark Sql session. In this session of user ‘abc’, if you try to write anything to **table1**, it is bound to fail since the table owner is ‘xyz’.  
+     - In such case, it is recommended to use the same user in Hive and Spark SQL for updating the table and that user should have sufficient privileges to perform update operations. 
 
- 
- 
+**Scenario 2**: Using existing Ranger database (with existing policies) while creating HDInsight 5.1 Spark cluster. 
 
-**Scenario 2**: Using existing Ranger database (with existing policies) while creating HDInsight 5.1 Spark cluster 
-
-   In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
+   - In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
 
 
    :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows new repo old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
@@ -182,15 +176,15 @@ Points to consider:
 > [!NOTE]   
 > Config updates can be performed by the user with Ambari admin privileges. 
 
-1. Open Ambari UI from your new HDInsight 5.1 cluster 
+1. Open Ambari UI from your new HDInsight 5.1 cluster. 
 
-1. Go to Spark 3 service -> Configs 
+1. Go to Spark 3 service -> Configs. 
 
 1. Open “ranger-spark-security” security config. 
 
  
 
-     Or Open “ranger-spark-security” security config in /etc/spark3/conf using SSH 
+     Or Open “ranger-spark-security” security config in /etc/spark3/conf using SSH.
       
       :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows Ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
 
@@ -198,11 +192,11 @@ Points to consider:
 
 1. Edit two configurations “ranger.plugin.spark.service.name“ and “ranger.plugin.spark.policy.cache.dir “ to point to old policy repo “oldclustername_hive” and “Save” the configurations. 
 
-     Ambari 
+     Ambari: 
      
      :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows config update service name Ambari." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
       
-     XML file 
+     XML file: 
 
       :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot shows config update xml." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
     
