@@ -108,6 +108,10 @@ To learn more about configurations for the workspace managed virtual network, se
 
 ## Scenarios for network isolation configuration
 
+Your Azure Machine Learning workspace and managed online endpoint each have a `public_network_access` flag that you can use to configure their inbound communication. On the other hand, outbound communication from a deployment depends on the workspace's managed virtual network.
+
+#### Communication with the managed online endpoint
+
 Suppose a managed online endpoint has a deployment that uses an AI model, and you want to use an app to send scoring requests to the endpoint. You can decide what network isolation configuration to use for the managed online endpoint as follows:
 
 **For inbound communication**:
@@ -124,16 +128,19 @@ However, if you want your deployment to access the internet, you can use the wor
 
 Finally, if your deployment doesn't need to access private Azure resources and you don't need to control access to the internet, then you don't need to use a workspace managed virtual network.
 
-**For inbound communication of AzureML workspace**:
+#### Inbound communication to the Azure Machine Learning workspace
 
-Similar to managed online endpoints, your AzureML workspace has a `public_network_access` flag to enable or disable inbound workspace access. Depending on both inbound `public_network_access` flags, managed online endpoints can be accessed or not. The below table explains the relation between both flags:
+You can use the `public_network_access` flag of your Azure Machine Learning workspace to enable or disable inbound workspace access. 
+Typically, if you secure inbound communication to your workspace, you also want to secure inbound communication to your managed online endpoint. On the other hand, if your workspace is public, then you might want access to your managed online endpoint to be public.
 
-| Workspace Inbound | Managed Online Endpoint Inbound | Result |
+The following table shows what kinds of inbound communication are possible for both your workspace and managed online endpoint, based on their `public_network_access` flag settings.
+
+| Workspace inbound | Managed online endpoint inbound | Inbound communication |
 | -------- | -------------------------------- | --------- |
-| `public_network_access` is enabled | `public_network_access` is enabled | All public, no private endpoint needed |
-| `public_network_access` is enabled | `public_network_access` is disabled | Managed online endpoint cannot be accessed since workspace has no private endpoint connection |
-| `public_network_access` is disabled | `public_network_access` is enabled | Private workspace, can access managed online endpoint |
-| `public_network_access` is disabled | `public_network_access` is disabled | All private, requires private endpoint |
+| `public_network_access` is enabled | `public_network_access` is enabled | Public inbound communication to workspace and managed online endpoint. <br>No private endpoint needed for inbound communication. |
+| `public_network_access` is enabled | `public_network_access` is disabled | Public inbound communication to workspace. <br>No inbound communication possible to managed online endpoint, since workspace has no private endpoint connection. |
+| `public_network_access` is disabled | `public_network_access` is enabled | Private inbound communication to workspace. <br>Workspace and public can send inbound communication to managed online endpoint. |
+| `public_network_access` is disabled | `public_network_access` is disabled | Private inbound communication to workspace and managed online endpoint. Workspace's private endpoint is needed for inbound communication to both. |
 
 ## Appendix
 
