@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/12/2024
+ms.date: 02/14/2024
 ---
 
 # Azure Linux AKS Container Host Partner Solutions
@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Advantech.png" alt="advantech logo" width="20%" height="auto">
+![Advantech logo.](./media/azure-linux-aks-partner-solutions/Advantech.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -42,7 +42,7 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 
 ### Hashicorp
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Hashicorp.png" alt="hashicorp logo" width="35%" height="auto">
+![Hasicorp logo.](./media/azure-linux-aks-partner-solutions/Hashicorp.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -60,7 +60,7 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 
 ### Akuity
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Akuity.png" alt="akuity logo" width="35%" height="auto">
+![Akuity logo.](./media/azure-linux-aks-partner-solutions/Akuity.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -80,7 +80,7 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 
 ### Kong
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Kong.png" alt="kong logo" width="35%" height="auto">
+![Kong logo.](./media/azure-linux-aks-partner-solutions/Kong.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -111,7 +111,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### Buoyant
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Buoyant.png" alt="buoyant logo" width="35%" height="auto">
+![Buoyant logo.](./media/azure-linux-aks-partner-solutions/Buoyant.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -123,7 +123,7 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 ### Isovalent
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Isovalent.png" alt="isovalent logo" width="35%" height="auto">
+![Isovalent logo.](./media/azure-linux-aks-partner-solutions/Isovalent.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -149,7 +149,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Dynatrace
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Dynatrace.png" alt="dynatrace logo" width="35%" height="auto">
+![Dynatrace logo.](./media/azure-linux-aks-partner-solutions/Dynatrace.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -165,7 +165,7 @@ Ensure the integrity and confidentiality of applications and foster trust and co
 
 ### Tetrate
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Tetrate.png" alt="tetrate logo" width="35%" height="auto">
+![Tetrate logo.](./media/azure-linux-aks-partner-solutions/Tetrate.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -187,7 +187,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### Veeam
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Veeam.png" alt="veeam logo" width="35%" height="auto">
+![Veeam logo.](./media/azure-linux-aks-partner-solutions/Veeam.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -203,7 +203,7 @@ Automate and standardize the system settings across your environments to enhance
 
 ### Corent
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Corent.png" alt="corent logo" width="35%" height="auto">
+![Corent logo.](./media/azure-linux-aks-partner-solutions/Corent.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -219,7 +219,7 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 ### Catalogic
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Catalogic.png" alt="catalogic logo" width="30%" height="auto">
+![Catalogic logo.](./media/azure-linux-aks-partner-solutions/Catalogic.png)
 
 | Solution | Categories |
 |----------|------------|
