@@ -95,7 +95,7 @@ When a user gets access to a project, two more roles are automatically assigned 
 
 In order to complete end-to-end AI development and deployment, users only need these two autoassigned roles and either the Contributor or Azure AI Developer role on a *project*.
 
-## Dependency service roles
+## Dependency service permissions
 
 Azure AI hub and project resources have dependencies on other Azure services. The following table lists the permissions required for these services when you create an Azure AI hub resource or project:
 
