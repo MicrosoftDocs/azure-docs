@@ -181,7 +181,7 @@ Points to consider:
 
  
 
-1. Edit two configurations “ranger.plugin.spark.service.name“ and “ranger.plugin.spark.policy.cache.dir “ to point to old policy repo “oldclustername_hive” and “Save” the configurations. 
+1. Edit two configurations “ranger.plugin.spark.service.name“ and “ranger.plugin.spark.policy.cache.dir" to point to old policy repo “oldclustername_hive” and “Save” the configurations. 
 
      Ambari: 
      
