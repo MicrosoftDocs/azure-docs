@@ -5,7 +5,7 @@ description: This article describes management functions for Astro on the Azure 
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/13/2023
+ms.date: 02/14/2024
 ---
 
 # Manage your Astro  integration through the portal

@@ -2,7 +2,7 @@
 title: Create an Apache Airflow on Astro deployment
 description: This article describes how to use the Azure portal to create an instance of Apache Airflow on Astro - An Azure Native ISV Service.
 ms.topic: quickstart
-ms.date: 11/13/2023
+ms.date: 02/14/2024
 ms.custom:
   - references_regions
   - ignite-2023

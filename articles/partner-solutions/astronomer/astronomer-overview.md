@@ -5,7 +5,7 @@ description: Learn about using the Apache Airflow on Astro - An Azure Native ISV
 ms.topic: overview
 ms.custom:
   - ignite-2023
-ms.date: 11/13/2023
+ms.date: 02/14/2024
 ---
 
 # What is Apache Airflow on Astro – An Azure Native ISV Service ?
