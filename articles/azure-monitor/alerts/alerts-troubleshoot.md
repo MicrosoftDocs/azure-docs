@@ -29,7 +29,7 @@ If you can see a fired alert in the Azure portal, but have an issue with some of
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps:
 
-1. **Was the email suppressed by an [alert processing rule](../alerts/alerts-action-rules.md)**?
+1. **Was the email suppressed by an [alert processing rule](./alerts-processing-rules.md)**?
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
     <!-- convertborder later -->
@@ -73,7 +73,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
  
 1. **Have you been rated limited due to many emails going to a single email address?**
 
-    Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address is temporarily rate limited: 
+    Email is [rate limited](./action-groups.md#service-limits-for-notifications) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address is temporarily rate limited: 
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-troubleshoot/email-paused.png" lightbox="media/alerts-troubleshoot/email-paused.png" alt-text="Screenshot of an email about being rate limited." border="false":::
 
@@ -90,7 +90,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
-1. **Was the action suppressed by an [alert suppression rule](../alerts/alerts-action-rules.md)?**
+1. **Was the action suppressed by an [alert suppression rule](./alerts-processing-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
     <!-- convertborder later -->
@@ -120,7 +120,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
  
 1. **SMS: Have you accidentally unsubscribed from the action group?**
 
-    Open your SMS history and check if you opted out of SMS delivery from this specific action group (using the DISABLE action_group_short_name reply) or from all action groups (using the  STOP reply). To subscribe again, either send the relevant SMS command (ENABLE action_group_short_name or START), or remove the SMS action from the action group, and then add it back again.  For more information, see [SMS alert behavior in action groups](alerts-sms-behavior.md).
+    Open your SMS history and check if you opted out of SMS delivery from this specific action group (using the DISABLE action_group_short_name reply) or from all action groups (using the  STOP reply). To subscribe again, either send the relevant SMS command (ENABLE action_group_short_name or START), or remove the SMS action from the action group, and then add it back again.  For more information, see [SMS alert behavior in action groups](./action-groups.md#sms-replies).
 
 1. **Have you accidentally blocked the notifications on your phone?**
 
@@ -149,7 +149,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
        Verify the webhook endpoint you configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload).
 
     1. **Are you calling Slack or Microsoft Teams?**  
-    Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
+    Each of these endpoints expects a specific JSON format. Follow [these instructions](./alerts-logic-apps.md) to configure a logic app action instead.
 
     1. **Did your webhook become unresponsive or return errors?** 
 
@@ -190,7 +190,7 @@ If your notification does not contain this note and you received the alert, but 
 
 1. **Did you pick the correct format for the action?** 
 
-    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](../alerts/alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
+    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](./alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
 
     For example, for webhook action: 
     <!-- convertborder later -->
@@ -203,7 +203,7 @@ If your notification does not contain this note and you received the alert, but 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
 
-    [Activity log alerts](./activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
+    [Activity log alerts](./alerts-types.md#activity-log-alerts) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
 
 ## Alert processing rule is not working as expected 
 
@@ -255,7 +255,7 @@ To locate it, follow these steps:
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
-If you received an error while trying to create, update or delete an [alert processing rule](../alerts/alerts-action-rules.md), follow these steps: 
+If you received an error while trying to create, update or delete an [alert processing rule](./alerts-processing-rules.md), follow these steps: 
 
 1. **Did you receive a permission error?**  
 
@@ -263,7 +263,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](https://learn.microsoft.com/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
 - If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).
