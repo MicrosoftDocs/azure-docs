@@ -696,6 +696,22 @@ api-key: {{admin-api-key}}
 
 ---
 
+## Update a vector store
+
+To update a vector store, modify the schema and if necessary, reload documents to populate new fields. APIs for schema updates include [Create or Update Index (REST)](/rest/api/searchservice/indexes/create-or-update), [CreateOrUpdateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createorupdateindexasync) in the Azure SDK for .NET, [create_or_update_index](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient?view=azure-python#azure-search-documents-indexes-searchindexclient-create-or-update-index&preserve-view=true) in the Azure SDK for Python, and similar methods in other Azure SDKs.
+
+The standard guidance for updating an index is covered in [Drop and rebuild an index](search-howto-reindex.md). 
+
+Key points include:
+
++ Drop and rebuild is often required for updates to and deletion of existing fields.
+
++ However, you can update an existing schema with the following modifications, with no rebuild required:
+
+  + Add new fields to a fields collection.
+  + Add new vector configurations, assigned to new fields but not existing fields that have already been vectorized.
+  + Change "retrievable" (values are true or false) on an existing field. Vector fields must be searchable and retrievable, but if you want to disable access to a vector field in situations where drop and rebuild isn't feasible, you can set retrievable to false.
+
 ## Next steps
 
 As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
