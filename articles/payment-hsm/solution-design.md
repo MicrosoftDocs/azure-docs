@@ -7,7 +7,7 @@ author: msmbaldwin
 tags: azure-resource-manager
 ms.service: payment-hsm
 ms.topic: article
-ms.date: 01/31/2024
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

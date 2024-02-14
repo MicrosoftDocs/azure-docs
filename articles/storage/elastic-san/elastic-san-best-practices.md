@@ -1,14 +1,14 @@
 ---
-title: Best practices for configuring an Elastic SAN Preview
+title: Best practices for configuring an Elastic SAN
 description: Elastic SAN best practices
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# Optimize the performance of your Elastic SAN Preview
+# Optimize the performance of your Elastic SAN
 
 This article provides some general guidance on getting optimal performance with an environment that uses an Azure Elastic SAN.
 
@@ -45,7 +45,7 @@ mpclaim -L -M 2
 Set-MPIOSetting -NewDiskTimeout 30
 ```
 
-For more information regarding MPIO cmdlets, see [https://learn.microsoft.com/en-us/powershell/module/mpio/?view=windowsserver2022-ps](/powershell/module/mpio/?view=windowsserver2022-ps)
+For more information regarding MPIO cmdlets, see [MPIO reference](/powershell/module/mpio/).
 
 #### Linux
 
@@ -128,4 +128,4 @@ Before deploying an Elastic SAN, determining the optimal size of the Elastic SAN
 
 With your existing storage solution, select a time interval (day/week/quarter) to track performance. The best time interval is one that is a good snapshot of your applications/workloads. Over that time period, record the combined maximum IOPS and throughput for all workloads. If you use an interval higher than a minute, or if any of your workloads have bottlenecks with your current configuration, consider adding more base capacity to your Elastic SAN deployment. You should leave some headroom when determining your base capacity, to account for growth. The rest of your Elastic SAN's storage should use additional-capacity, to save on cost.
 
-For more information on performance, see [Elastic SAN Preview and virtual machine performance](elastic-san-performance.md).
+For more information on performance, see [Elastic SAN and virtual machine performance](elastic-san-performance.md).
