@@ -112,9 +112,10 @@ To understand whether a feature is supported in your sensor version, check the r
 This version includes the following updates and enhancements:
 
 - [Alert suppression rules from the Azure portal](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts)
-- [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments) 
+- [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments)
 - [Alert ID (Id field) is now aligned on the Azure portal and sensor console](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal)
 - [New setting to focus local networks in the device inventory](configure-sensor-settings-portal.md#configure-subnets-in-the-azure-portal)
+- [Newly supported protocols](concept-supported-protocols.md)
 
 ## Versions 23.2.x
 

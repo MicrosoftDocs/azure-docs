@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory) |
+| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory)<br>- [Newly supported protocols](#newly-supported-protocols)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -54,6 +54,20 @@ To better focus the Azure device inventory on devices that are in your OT scope,
 
 :::image type="content" source="media/whats-new/ics-toggle.png" alt-text="Screenshot of the ICS Subnet toggle in the Azure portal Sensor settings." border="true":::
 
+### Newly supported protocols
+
+We now support these protocols:
+
+- HART-IP
+- FANUC FOCAS
+- Dicom
+- ABB NetConfig
+- Rockwell AADvance Discover
+- Rockwell AADvance SNCP/IXL
+- Schneider NetManage
+
+[See the updated protocol list](concept-supported-protocols.md).
+
 ## January 2024
 
 |Service area  |Updates  |
@@ -83,7 +97,7 @@ Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. De
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 
-Due to the operating system switch, the software update from your legacy version to version 23.2.0 may be longer and heavier than usual. 
+Due to the operating system switch, the software update from your legacy version to version 23.2.0 might be longer and heavier than usual. 
 
 For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -105,7 +119,6 @@ For example, use the privileged *admin* user in the following scenarios:
 > The legacy *support* user is available and supported only on versions earlier than 23.2.0.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
 
 ### New architecture for hybrid and air-gapped support
 
@@ -140,7 +153,7 @@ For more information, see:
 
 ### Live statuses for cloud-based sensor updates
 
-When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, isn't stuck or has failed. For example:
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
 
@@ -215,7 +228,6 @@ From your sensor, do one of the following to open the **Cloud connectivity troub
 
 - On the **Overview** page, select the **Troubleshoot** link at the top of the page
 - Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
-
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
