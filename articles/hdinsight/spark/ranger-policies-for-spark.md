@@ -27,7 +27,7 @@ An Apache Spark cluster in HDInsight version 5.1 with [Enterprise security packa
    
 1. Sign in using your Microsoft Entra admin credentials. The Microsoft Entra admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials. 
 
-:::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows the create alert notification dialog box." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
+  :::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows the create alert notification dialog box." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
 
 ## Create Domain users 
 
