@@ -37,7 +37,7 @@ See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined
 
 In this section, you create two Ranger policies;  
 
-- [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark.md#to-create-ranger-policies)
+- [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark.md#create-ranger-access-policies)
 - [Masking policy for obfuscating the columns in hivesampletable](./ranger-policies-for-spark.md#create-ranger-masking-policy)
 
 ### Create Ranger Access policies
