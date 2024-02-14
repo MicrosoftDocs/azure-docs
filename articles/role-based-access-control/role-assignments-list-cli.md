@@ -8,7 +8,6 @@ ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.workload: identity
 ms.date: 01/02/2024
 ms.author: rolyon
 ms.reviewer: bagovind

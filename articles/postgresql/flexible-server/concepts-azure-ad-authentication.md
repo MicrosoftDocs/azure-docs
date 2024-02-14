@@ -131,7 +131,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 * **What is the difference between group login and individual login?**
   
-   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Microsoft Entra ID where whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
+   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Microsoft Entra ID whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
 
 * **What is the token lifetime?**
 

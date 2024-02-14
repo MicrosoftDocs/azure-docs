@@ -460,6 +460,8 @@ There are several things to note with the virtual hub router upgrade:
 
 * If you have a network virtual appliance (NVA) in the virtual hub, you'll have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub.
 
+* If your virtual hub is configured with more than 15 routing infrastructure units, please scale in your virtual hub to 2 routing infrastructure units before attempting to upgrade. You can scale back out your hub to more than 15 routing infrastructure units after upgrading your hub. 
+
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
 
 Additional things to note:

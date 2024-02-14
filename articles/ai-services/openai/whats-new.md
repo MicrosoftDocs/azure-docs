@@ -34,6 +34,7 @@ Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assist
 - [Code Interpreter](./how-to/code-interpreter.md)
 - [Function calling](./how-to/assistant-functions.md)
 - [Assistants model & region availability](./concepts/models.md#assistants-preview)
+- [Assistants Python & REST reference](./assistants-reference.md)
 - [Assistants Samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
 ### OpenAI text to speech voices public preview
@@ -49,9 +50,10 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
-### Chunk size parameter for Azure OpenAI on your data
+### New regional support for Azure OpenAI on your data
 
-- You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
+You can now use Azure OpenAI on your data in the following Azure region:
+* South Africa North
 
 ## December 2023
 
