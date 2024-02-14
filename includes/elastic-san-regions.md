@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently, Elastic SAN Preview is only available in the following regions with the following redundancies:
+Currently, Elastic SAN is only available in the following regions with the following redundancies:
 
 - France Central - LRS & ZRS
 - Southeast Asia - LRS
