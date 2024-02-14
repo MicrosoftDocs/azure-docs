@@ -31,7 +31,7 @@ An Apache Spark cluster in HDInsight version 5.1 with [Enterprise security packa
 
 ## Create Domain users 
 
-See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create **sparkuser1**  domain users. In a production scenario, domain users come from your Active Directory tenant.
+See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create **sparkuser**  domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create Ranger policy 
 
@@ -58,7 +58,7 @@ In this section, you create two Ranger policies;
     | Hive Database | default | 
     | table | hivesampletable | 
     | Hive Column | * | 
-    | Select User | sparkuser1 |  
+    | Select User | sparkuser |  
     | Permissions | select | 
 
      :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot shows sample policy details." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
@@ -98,7 +98,7 @@ The following example explains how to create a policy to mask a column.
     |Hive Database|default| 
     |Hive table| hivesampletable| 
     |Hive column|devicemake| 
-    |Select User|sparkuser2| 
+    |Select User|sparkuser| 
     |Permissions|select| 
    |Masking options|hash| 
 
@@ -120,18 +120,9 @@ The following example explains how to create a policy to mask a column.
  
 
 > [!NOTE]   
->By default, the policies for hive and spark-sql will be common in Ranger. To have the separate policies for hive 
+> By default, the policies for hive and spark-sql will be common in Ranger. 
 
- 
- 
-### Known issues 
- 
-- Apache Ranger Spark-sql integration not works if Ranger admin is down. 
-- Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
-- In Ranger Audit logs, “Resource” column, on hover, doesn’t show the entire query which got executed. 
- 
- 
- 
+
   
 ## Guideline for setting up Apache Ranger for Spark-sql 
  
@@ -208,6 +199,13 @@ Points to consider:
  
       :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot shows change metastore config." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
 
+
+### Known issues 
+ 
+- Apache Ranger Spark-sql integration not works if Ranger admin is down. 
+- Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
+- In Ranger Audit logs, “Resource” column, on hover, doesn’t show the entire query which got executed. 
+ 
 
  
    
