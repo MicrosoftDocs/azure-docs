@@ -493,10 +493,10 @@ param location string = ''
 param actionGroupId string = ''
 
 resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
-  name: 'Sample log search alert'
+  name: 'Sample log query alert'
   location: location
   properties: {
-    description: 'Sample log search alert'
+    description: 'Sample log query alert'
     enabled: 'true'
     source: {
       query: 'Event | where EventLevelName == "Error" | summarize count() by Computer'
@@ -557,10 +557,10 @@ resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
     {
       "type": "Microsoft.Insights/scheduledQueryRules",
       "apiVersion": "2018-04-16",
-      "name": "Sample log search alert",
+      "name": "Sample log query alert",
       "location": "[parameters('location')]",
       "properties": {
-        "description": "Sample log search alert",
+        "description": "Sample log query alert",
         "enabled": "true",
         "source": {
           "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
@@ -631,7 +631,7 @@ param location string = ''
 param actionGroupId string = ''
 
 resource metricMeasurementLogQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
-  name: 'Sample metric measurement log search alert'
+  name: 'Sample metric measurement log query alert'
   location: location
   properties: {
     description: 'Sample metric measurement query alert rule'
@@ -701,7 +701,7 @@ resource metricMeasurementLogQueryAlert 'Microsoft.Insights/scheduledQueryRules@
     {
       "type": "Microsoft.Insights/scheduledQueryRules",
       "apiVersion": "2018-04-16",
-      "name": "Sample metric measurement log search alert",
+      "name": "Sample metric measurement log query alert",
       "location": "[parameters('location')]",
       "properties": {
         "description": "Sample metric measurement query alert rule",

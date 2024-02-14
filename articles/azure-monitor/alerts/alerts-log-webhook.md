@@ -40,7 +40,7 @@ The following sample payload is for a standard webhook when it's used for log se
             ],
             "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
             "firedDateTime": "2020-07-09T14:04:49.99645Z",
-            "description": "Log search alert rule V2",
+            "description": "log alert rule V2",
             "essentialsVersion": "1.0",
             "alertContextVersion": "1.0"
         },
@@ -107,7 +107,7 @@ The following sample payload is for a standard webhook action that's used for al
     "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
     "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "Description": "Log search alert rule",
+    "Description": "log alert rule",
     "Severity": "Warning",
     "AffectedConfigurationItems": [
         "INC-Gen2Alert"

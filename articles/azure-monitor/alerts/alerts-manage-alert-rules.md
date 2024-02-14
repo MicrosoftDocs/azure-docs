@@ -132,11 +132,11 @@ This section describes how to manage log search alerts using the cross-platform 
     
     |What you want to do|CLI command  |
     |---------|---------|
-    |View all the log search alert rules in a resource group|`az monitor scheduled-query list -g {ResourceGroup}`|
-    |See the details of a log search alert rule|`az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}`|
+    |View all the log alert rules in a resource group|`az monitor scheduled-query list -g {ResourceGroup}`|
+    |See the details of a log alert rule|`az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}`|
     |     |`az monitor scheduled-query show --ids {RuleResourceId}`|
-    |Disable a log search alert rule|`az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true`|
-    |Delete a log search alert rule|`az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}`|
+    |Disable a log alert rule|`az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true`|
+    |Delete a log alert rule|`az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}`|
     |Learn more about the command|`az monitor scheduled-query --help`|
 
 ### Manage log search alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
