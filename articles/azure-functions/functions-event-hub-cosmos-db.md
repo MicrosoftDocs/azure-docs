@@ -3,7 +3,7 @@ title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/14/2024
 ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
@@ -314,7 +314,7 @@ az functionapp config appsettings set \
     --settings \
         AzureWebJobsStorage=$AZURE_WEB_JOBS_STORAGE \
         EventHubConnectionString=$EVENT_HUB_CONNECTION_STRING \
-        CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
+        CosmosDBConnectionSetting=$COSMOS_DB_CONNECTION_STRING
 ```
 
 # [Cmd](#tab/cmd)
@@ -326,7 +326,7 @@ az functionapp config appsettings set ^
     --settings ^
         AzureWebJobsStorage=%AZURE_WEB_JOBS_STORAGE% ^
         EventHubConnectionString=%EVENT_HUB_CONNECTION_STRING% ^
-        CosmosDBConnectionString=%COSMOS_DB_CONNECTION_STRING%
+        CosmosDBConnectionSetting=%COSMOS_DB_CONNECTION_STRING%
 ```
 
 ---
@@ -480,8 +480,8 @@ public class Function {
         @CosmosDBOutput(
             name = "databaseOutput",
             databaseName = "TelemetryDb",
-            collectionName = "TelemetryInfo",
-            connectionStringSetting = "CosmosDBConnectionString")
+            containerName = "TelemetryInfo",
+            connection = "CosmosDBConnectionSetting")
             OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 

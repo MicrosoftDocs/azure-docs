@@ -237,9 +237,9 @@ The update should be done via ARM template by setting the zonalUpdateMode proper
             }
         }]
 ```
-2. Add a node to a cluster by using the [az sf cluster node add PowerShell command](/cli/azure/sf/cluster/node?view=azure-cli-latest#az-sf-cluster-node-add()).
+2. Add a node to a cluster by using the [az sf cluster node add PowerShell command](/cli/azure/sf/cluster/node#az-sf-cluster-node-add()).
 
-3. Remove a node from a cluster by using the [az sf cluster node remove PowerShell command](/cli/azure/sf/cluster/node?view=azure-cli-latest#az-sf-cluster-node-remove()).
+3. Remove a node from a cluster by using the [az sf cluster node remove PowerShell command](/cli/azure/sf/cluster/node#az-sf-cluster-node-remove()).
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
