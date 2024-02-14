@@ -38,7 +38,7 @@ There are two ways to refresh the integration between the Arc-enabled VMs and Az
 
 1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating and follow the process to 'Enable in Azure'. If the option is grayed out, you must first **Remove from Azure** and then proceed to **Enable in Azure**
 
-2. Run the [az connectedvmware vm create](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create) Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
+2. Run the [az connectedvmware vm create](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
 
 
 ```azurecli
