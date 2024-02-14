@@ -169,9 +169,9 @@ To verify that the migration was successful, check the [platform version](comput
 
 - **Can I test the new gateway before switching the live traffic?**
 
-       - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. 
-       - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
-       - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their hosts file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
+    - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. 
+    - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
+    - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their hosts file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
     
 
 - **What should we consider for self hosted gateways?**
