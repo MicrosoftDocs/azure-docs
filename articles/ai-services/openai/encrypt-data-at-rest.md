@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 2/14/2024
 ms.author: mbullwin
 ---
 
@@ -22,17 +22,22 @@ Azure OpenAI is part of Azure AI services. Azure AI services data is encrypted a
 
 By default, your subscription uses Microsoft-managed encryption keys. There's also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
-## Customer-managed keys with Azure Key Vault
+## Use customer-managed keys with Azure Key Vault
 
 Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-To enable customer-managed keys, you must also enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+To enable customer-managed keys, the key vault containing your keys must meet these requirements:
 
-Only RSA keys of size 2048 are supported with Azure AI services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
+- You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+- If you use the [Key Vault firewall](/azure/key-vault/general/access-behind-firewall), you must allow trusted Microsoft services to access the key vault.
+- The key vault must use [legacy access policies](/azure/key-vault/general/assign-access-policy).
+- You must grant the Azure OpenAI resource's system-assigned managed identity the following permissions to keys: get key, wrap key, unwrap key.
 
-## Enable customer-managed keys for your resource
+Only RSA and RSA-HSM keys of size 2048 are supported with Azure AI services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
+
+## Enable customer-managed keys on your Azure OpenAI resource
 
 To enable customer-managed keys in the Azure portal, follow these steps:
 
@@ -67,9 +72,9 @@ To specify a key as a URI, follow these steps:
 1. Under **Subscription**, select the subscription that contains the key vault.
 1. Save your changes.
 
-### Specify a key from a key vault
+### Select a key from a key vault
 
-To specify a key from a key vault, first make sure that you have a key vault that contains a key. Then follow these steps:
+To select a key from a key vault, first make sure that you have a key vault that contains a key. Then follow these steps:
 
 1. Go to your Azure AI services resource, and then select **Encryption**.
 1. Under **Encryption key**, select **Select from Key Vault**.
