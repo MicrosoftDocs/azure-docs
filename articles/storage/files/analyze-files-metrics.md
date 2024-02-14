@@ -36,7 +36,7 @@ For a list of all Azure Monitor supported metrics, which includes Azure Files, s
 
 ## View Azure Files metrics data
 
-You can analyze Azure Files metrics by using the Azure portal, PowerShell, Azure CLI, or .NET.
+You can view Azure Files metrics by using the Azure portal, PowerShell, Azure CLI, or .NET.
 
 ### [Azure portal](#tab/azure-portal)
 
