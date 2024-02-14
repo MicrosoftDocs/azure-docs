@@ -5,16 +5,16 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/13/2024
 ms.author: kendownie
 ms.custom: monitoring
 ---
 
 # Create monitoring alerts for Azure Files
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md). 
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). 
 
-To learn more about how to create an alert, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+To learn more about how to create an alert, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 For more information about alert types and alerts, see [Monitor Azure Files](storage-files-monitoring.md#alerts).
 
@@ -42,7 +42,7 @@ The following table lists some example scenarios to monitor and the proper metri
 
 To create an alert that will notify you if a file share is being throttled, follow these steps.
 
-1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 2. In the **Condition** tab, select the **Transactions** metric.
 
@@ -88,7 +88,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 
 ## How to create an alert if the Azure file share size is 80% of capacity
 
-1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **File Capacity** metric.
 
@@ -111,7 +111,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 
 ## How to create an alert if the Azure file share egress has exceeded 500 GiB in a day
 
-1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Egress** metric.
 
@@ -136,7 +136,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 
 To create an alert for high server latency (average), follow these steps.
 
-1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
 2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
 
@@ -148,7 +148,7 @@ To create an alert for high server latency (average), follow these steps.
 4. Define the **Alert Logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and Threshold Sensitivity.
 
    > [!TIP]
-   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding dynamic thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
+   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#understand-dynamic-thresholds-charts).
 
 5. Define the lookback period and frequency of evaluation.
 
@@ -163,5 +163,5 @@ To create an alert for high server latency (average), follow these steps.
 - [Monitor Azure Files](storage-files-monitoring.md)
 - [Analyze Azure Files metrics using Azure Monitor](analyze-files-metrics.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
-- [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)

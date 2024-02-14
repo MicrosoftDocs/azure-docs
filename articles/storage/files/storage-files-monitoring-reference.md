@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Files
 description: This article contains important reference material you need when you monitor Azure Files.
-ms.date: 02/02/2024
+ms.date: 02/13/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: khdownie

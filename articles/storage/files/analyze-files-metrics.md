@@ -5,14 +5,14 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/13/2024
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
 
 # Analyze Azure Files metrics using Azure Monitor
 
-Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](../../azure-monitor/overview.md) to analyze Azure Files metrics such as availability, latency, and utilization.
+Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
 
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
 
@@ -32,13 +32,15 @@ Metrics for Azure Files are in these namespaces:
 
 For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices).
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md). 
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics). 
 
-For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions). ### [PowerShell](#tab/azure-powershell)
+For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions).
+
+### [PowerShell](#tab/azure-powershell)
 
 #### List the metric definition
 
@@ -108,7 +110,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
  
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
 
 ### List the account-level metric definition
 
@@ -344,12 +346,12 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 
 ### Sample Kusto queries
 
-If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
+If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Files. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Files. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 > [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
+> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 Use these queries to help you monitor your Azure file shares:
 
@@ -390,13 +392,13 @@ StorageFileLogs
 
 To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
 
-For more information on how to write queries, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
+For more information on how to write queries, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ## Next steps
 
 - [Monitor Azure Files](storage-files-monitoring.md)
 - [Create monitoring alerts for Azure Files](files-monitoring-alerts.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
-- [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Understand Azure Files performance](understand-performance.md)
 - [Troubleshoot ClientOtherErrors](/troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json)
