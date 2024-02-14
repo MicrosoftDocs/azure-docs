@@ -164,9 +164,10 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 ### Create shared private link
 
-This section is only applicable for S2 pricing tier.
 If you are using Basic or Standard pricing tier, please skip this section.
-You don’t have to, but if use S2 pricing tier because the configuration doesn't require [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits). See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *bypass trusted service*, not *private endpoint*.
+This section is only applicable for S2 pricing tier, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
+
+In this section, we will modify [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram from *bypass trusted service* to *private endpoint*.
 
 ## Configure Storage Account
 
