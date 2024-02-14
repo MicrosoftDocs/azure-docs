@@ -143,8 +143,8 @@ To verify that the migration was successful, check the [platform version](comput
 
    For non-VNet-injected instances:
    
-      - If you opted to preserve the original IP address: API requests are unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) is locked for 45 minutes.
-      - If you opted to migrate to a new IP address: API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) is locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+   - If you opted to preserve the original IP address: API requests are unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) is locked for 45 minutes.
+   - If you opted to migrate to a new IP address: API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) is locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
 - **How long will the migration take?**
 
