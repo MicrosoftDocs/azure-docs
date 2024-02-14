@@ -63,7 +63,7 @@ To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vi
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=model_name)]
 -->
 
-## Call the analyze_from_url API with options
+## Call the analyze_from_url method with options
 
 The following code calls the [analyze_from_url](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyzefromurl) method on the client with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, call the method [analyze](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) instead, with `image_data=image_data` as the first argument.
 

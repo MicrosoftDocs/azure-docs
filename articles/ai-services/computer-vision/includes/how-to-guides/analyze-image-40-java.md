@@ -73,7 +73,7 @@ Use an [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.models
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
 
-## Call the analyzeFromUrl API
+## Call the analyzeFromUrl method
 
 This section shows you how to make an analysis call to the service.
 
