@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 03/06/2023
+ms.date: 02/14/2024
 ms.custom: devx-track-azurecli, references_regions
 ---
 
@@ -42,6 +42,12 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
 ## Currently supported
+
+### Issue handling
+
+Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
+
+Functional issues, like API or component regressions or bugs, are triaged and mitigated appropriately and fixed first in open source as either a hotfix release or in the upcoming Dapr minor version release.
 
 ### Dapr versions
 
