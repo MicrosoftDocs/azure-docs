@@ -16,7 +16,7 @@ ms.date: 02/14/2024
 
 You can set a [**vector filter modes on a vector query**](vector-search-how-to-query.md) to specify whether you want filtering before or after query execution. 
 
-Filters set the scope of a vector query. Filter are set on and iterate over nonvector string and numeric fields attributed as `filterable` in the index, but the effects of filtering determine *what* the vector query executes over: the searchable space, or the contents of the search results.
+Filters determine the scope of a vector query. Filters are set on and iterate over nonvector string and numeric fields attributed as `filterable` in the index, but the purpose of a filter determines *what* the vector query executes over: the entire searchable space, or the contents of a search result.
 
 This article describes each filter mode and provides guidance on when to use each one.
 
