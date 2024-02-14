@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Machine Learning extension
-description: Learn how to troubleshoot some common Azure Machine Learning extension deployment or update errors. 
+description: Learn how to troubleshoot some common Azure Machine Learning extension deployment or update errors.
 titleSuffix: Azure Machine Learning
 author: zhongj
 ms.author: jinzhong
@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/10/2022
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Troubleshoot Azure Machine Learning extension

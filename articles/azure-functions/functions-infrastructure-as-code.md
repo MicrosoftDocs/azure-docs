@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 01/31/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -1660,7 +1660,7 @@ Keep the following considerations in mind when working with slot deployments:
 
 +  Don't explicitly set the `WEBSITE_CONTENTSHARE` setting in the deployment slot definition. This setting is generated for you when the app is created in the deployment slot. 
 
-+ When you swap slots, some application settings are considered "sticky," in that they stay with the slot and not with the code being swapped. For more information, see [Manage settings](functions-deployment-slots.md#manage-settings).
++ When you swap slots, some application settings are considered "sticky," in that they stay with the slot and not with the code being swapped. You can define such a _slot setting_ by including `"slotSetting":true` in the specific application setting definition in your template. For more information, see [Manage settings](functions-deployment-slots.md#manage-settings).
 ::: zone-end  
 :::zone pivot="premium-plan,dedicated-plan" 
 ## Secured deployments

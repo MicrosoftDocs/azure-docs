@@ -131,7 +131,7 @@ We've introduced a new baseline control ([PA-8: Determine access process for clo
 
 ## Exclusions
 
-Customer Lockbox requests are not triggered in the following engineering support scenarios:
+Customer Lockbox requests are not triggered in the following scenarios:
 
 - Emergency scenarios that fall outside of standard operating procedures. For example, a major service outage requires immediate attention to recover or restore services in an unexpected or unpredictable scenario. These “break glass” events are rare and, in most instances, do not require any access to customer data to resolve.
 - A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. It is rare that such scenarios would result in access to meaningful quantities of customer data. Customers can further protect their data through use of in transit and at rest encryption.

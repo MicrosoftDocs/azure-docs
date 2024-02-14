@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 01/17/2024
+ms.date: 02/07/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -502,9 +502,9 @@ Although Azure doesn't allow these flows to the VM, the attempt is logged and ap
 
 We don't recommend that you log flows on an Azure ExpressRoute gateway subnet because traffic can bypass that type of gateway (for example, [FastPath](../expressroute/about-fastpath.md)). If an NSG is linked to an ExpressRoute gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines might not be captured. Such flows must be captured at the subnet or NIC of the VM.
 
-### Traffic across a private link
+### Traffic to a private endpoint
 
-To log traffic while accessing platform as a service (PaaS) resources via private link, enable NSG flow logs on the network security group of the subnet that contains the private link. Because of platform limitations, only traffic at the source VMs can be captured. Traffic at the destination PaaS resource can't be captured.
+Traffic to private endpoints can only be captured at source VM, the traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. Traffic can't be recorded at the private endpoint itself due to platform limitations. 
 
 ### Support for network security groups associated to Application Gateway v2 subnet
 

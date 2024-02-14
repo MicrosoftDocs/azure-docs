@@ -2,7 +2,6 @@
 title: SMB FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -112,7 +111,7 @@ The Azure NetApp Files service has a policy that automatically updates the passw
 
 To see  when the password was last updated on the Azure NetApp Files SMB computer account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
 
-![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png)
+![Screenshot that shows the Active Directory Users and Computers utility](./media/faq-smb/active-directory-users-computers-utility.png)
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](

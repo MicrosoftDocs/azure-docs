@@ -7,8 +7,7 @@ ms.subservice: table
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: ignite-2022
+ms.reviewer: mjbrown
 ---
 
 # Create a table for Azure Cosmos DB - API for Table

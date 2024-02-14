@@ -7,7 +7,6 @@ tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 04/26/2023
 ms.author: robiro
 ---
@@ -69,5 +68,3 @@ Carefully consider when consolidating multiple activities into one file share or
 For more information, see:
 - [Azure Storage types for SAP workload](planning-guide-storage.md)
 - [SAP HANA High Availability guide for Azure virtual machines](sap-hana-availability-overview.md)
-
-

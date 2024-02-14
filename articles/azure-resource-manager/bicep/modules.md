@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/13/2023
+ms.date: 02/02/2024
 ---
 
 # Bicep modules
@@ -19,7 +19,7 @@ To share modules with other people in your organization, create a [template spec
 > - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
 > - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
-Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
+Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template). For more information about how Bicep resolves configuration files and how Bicep merge user-defined configuration file with the default configuration file, see [Configuration file resolution process](./bicep-config.md#understand-the-file-resolution-process) and [Configuration file merge process](./bicep-config.md#understand-the-merge-process).
 
 ### Training resources
 

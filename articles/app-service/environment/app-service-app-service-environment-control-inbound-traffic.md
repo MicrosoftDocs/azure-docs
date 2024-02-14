@@ -7,8 +7,6 @@ ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # How To Control Inbound Traffic to an App Service Environment
 

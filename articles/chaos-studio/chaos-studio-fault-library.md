@@ -2,15 +2,18 @@
 title: Azure Chaos Studio fault and action library
 description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
-author: rsgel 
+author: rsgel
 ms.topic: article
 ms.date: 01/02/2024
-ms.author: carlsonr
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio fault and action library
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
@@ -633,7 +636,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. Maximum of three. |
+| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
@@ -1471,7 +1474,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | ---- | --- |
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
-| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
+| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. Certificate version is not reverted after the fault duration. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
