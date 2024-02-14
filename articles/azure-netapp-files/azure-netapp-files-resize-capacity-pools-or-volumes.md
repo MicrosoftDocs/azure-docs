@@ -21,7 +21,7 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 * Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 1 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
 
 >[!IMPORTANT]
->If you are resizing your capacity pool below 2 TiB and changing your capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using API version 2023.xx.
+>If you are using a capacity pool with a size of 2 TiB or smaller and have `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
 
 ## Resize the capacity pool using the Azure portal 
 
