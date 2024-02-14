@@ -19,7 +19,7 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 ## Add a user to a VM with cloud-init
 One of the first tasks on any new Linux VM is to add an additional user for yourself to avoid the use of *root*. SSH keys are best practice for security and usability. Keys are added to the *~/.ssh/authorized_keys* file with this cloud-init script.
 
-To add a user to a Linux VM, create a file in your current shell named *cloud_init_add_user.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  You need to provide your own public key (such as the contents of *~/.ssh/id_rsa.pub*) for the value of `ssh-authorized-keys:` - it has been shortened here to simplify the example.
+To add a user to a Linux VM, create a file in your current shell named *cloud_init_add_user.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  You need to provide your own public key (such as the contents of *~/.ssh/id_rsa.pub* or *~/.ssh/id_ed25519.pub*) for the value of `ssh-authorized-keys:` - it has been shortened here to simplify the example.
 
 ```yaml
 #cloud-config
