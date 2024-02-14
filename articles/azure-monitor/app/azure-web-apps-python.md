@@ -82,7 +82,7 @@ You can configure with [OpenTelemetry environment variables][ot_env_vars] such a
 | `OTEL_BLRP_SCHEDULE_DELAY` | Specifies the logging export interval in milliseconds. Defaults to 5000. |
 | `OTEL_BSP_SCHEDULE_DELAY` | Specifies the distributed tracing export interval in milliseconds. Defaults to 5000. |
 | `OTEL_TRACES_SAMPLER_ARG` | Specifies the ratio of distributed tracing telemetry to be [sampled][application_insights_sampling]. Accepted values range from 0 to 1. The default is 1.0, meaning no telemetry is sampled out. |
-| `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | Specifies which supported instrumentations to disable. When disabled, they aren't instrumented as part of `configure_azure_monitor`. However, you can still manually instrument them with `instrument()`. Accepts a comma-separated list of lowercase [library names](#application-monitoring-for-azure-app-service-and-python). For example, set it to `"psycopg2,fastapi"` to disable the Psycopg2 and FastAPI instrumentations. It defaults to an empty list, enabling all supported instrumentations. |
+| `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | Specifies which OpenTelemetry instrumentations to disable. When disabled, instrumentations aren't executed as part of Auto-Instrumentation. However, you can still manually instrument them with `instrument()`. Accepts a comma-separated list of lowercase [library names](#application-monitoring-for-azure-app-service-and-python). For example, set it to `"psycopg2,fastapi"` to disable the Psycopg2 and FastAPI instrumentations. It defaults to an empty list, enabling all supported instrumentations. |
 
 ### Add a community instrumentation library
 
@@ -124,27 +124,39 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 
 Here's our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using extensions/agents.
 
-1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
-2. Navigate to */var/log/applicationinsights/* and open *status.json*.
+### Step 1: Confirm that App Service Autoinstrumentation is enabled
 
-    Confirm that `AgentInitializedSuccessfully` is set to true and `IKey` to have a valid iKey.
+Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
+### Step 2: Check Autoinstrumentation diagnostics and status logs
+Navigate to */var/log/applicationinsights/* and open *status.json*.
 
-    Here's an example JSON file:
+Confirm that `AgentInitializedSuccessfully` is set to true and `IKey` to have a valid iKey.
 
-    ```json
-        "AgentInitializedSuccessfully":true,
-                
-        "AppType":"python",
-                
-        "MachineName":"c89d3a6d0357",
-                
-        "PID":"47",
-                
-        "IKey":"00000000-0000-0000-0000-000000000000",
-                
-        "SdkVersion":"1.0.0"
-    
-    ```
+Here's an example JSON file:
+
+```json
+    "AgentInitializedSuccessfully":true,
+            
+    "AppType":"python",
+            
+    "MachineName":"c89d3a6d0357",
+            
+    "PID":"47",
+            
+    "IKey":"00000000-0000-0000-0000-000000000000",
+            
+    "SdkVersion":"1.0.0"
+
+```
+
+### Step 3: Avoid duplicate telemetry
+
+You should only use Azure Monitor OpenTelemetry Autoinstrumentaion on App Service if you are not using the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md). Using Autoinsturmentation on top of the Azure Monitor OpenTelemetry Distro's Manual Instrumentation may cause duplicate telemetry. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
+
+### Step 4: Confirm Django settings are appropiately configured
+
+If you app uses Django and is either failing to start or using incorrect settings, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable appropiately. See [Django Instrumentation](#django-instrumentation) section for details.
+
 ---
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
