@@ -230,7 +230,7 @@ sections:
         answer: Azure Firewall consists of several backend nodes in an active-active configuration.  For any planned maintenance, we have connection draining logic to gracefully update nodes.  Updates are planned during non-business hours for each of the Azure regions to further limit risk of disruption.  For unplanned issues, we instantiate a new node to replace the failed node.  Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
 
       - question: How does connection draining work?
-        answer: For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. If needed, clients can automatically re-establish connectivity to another backend node.
+        answer: For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with `RST` to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.
 
       - question: Is there a character limit for a firewall name?
         answer: Yes. There's a 50 character limit for a firewall name.
