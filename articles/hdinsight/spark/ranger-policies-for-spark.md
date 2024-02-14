@@ -69,8 +69,8 @@ In this section, you create two Ranger policies;
 
 1. Open Zeppelin notebook and run the following command to verify the policy. 
  
-   ```%sql 
-
+   ```
+        %sql 
         select * from hivesampletable limit 10;
    ```
 
@@ -111,8 +111,8 @@ The following example explains how to create a policy to mask a column.
 
 1. Open Zeppelin notebook and run the following command to verify the policy. 
 
-    ```%sql 
-   
+    ``` 
+        %sql
         select clientId, deviceMake from hivesampletable; 
    ```
      :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows open zeppelin notebook." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
