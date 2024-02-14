@@ -14,7 +14,10 @@ Volume language (akin to system locales on client operating systems) on an Azure
 
 Characters outside of the BMP sometimes exceed the 3-byte size supported by Azure NetApp Files. They thus need to use [surrogate pair logic](/globalization/encoding/surrogate-pairs), where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are supported in Azure NetApp Files in scenarios where UTF-8 isn't enforced: such as Windows clients that use UTF-16 encoding or NFSv3 that doesn't enforce UTF-8. NFSv4.x does enforce UTF-8, meaning surrogate pair characters don't display properly when using NFSv4.x. 
 
-Nonstandard encoding, such as [Shift-JIS](https://wikipedia.org/wiki/Shift_JIS) and less common [CJK characters](https://en.wikipedia.org/wiki/List_of_CJK_fonts), also don't display properly when UTF-8 is enforced in Azure NetApp Files. In general, it's recommended to send and receive text using UTF-8 to avoid situations where characters can't be translated properly, which can cause file creation/rename or copy error scenarios. 
+Nonstandard encoding, such as [Shift-JIS](https://wikipedia.org/wiki/Shift_JIS) and less common [CJK characters](https://en.wikipedia.org/wiki/List_of_CJK_fonts), also don't display properly when UTF-8 is enforced in Azure NetApp Files. 
+
+>[!TIP]
+> You should send and receive text using UTF-8 to avoid situations where characters can't be translated properly, which can cause file creation/rename or copy error scenarios. 
 
 The volume language settings currently can't be modified in Azure NetApp Files. For more information, see [Protocol behaviors with special character sets](#protocol-behaviors-with-special-character-sets). 
 
@@ -34,7 +37,7 @@ As a result of the limitations of ASCII and ISO/IEC 8859 encodings, the [Unicode
 
 * Unicode supports over one million character sets by increasing both the number of bytes per character allowed (up to 4 bytes) and the total number of bytes allowed in a file path as opposed to older encodings, such as ASCII.  
 * Unicode supports backwards compatibility by reserving the first 128 characters for ASCII, while also ensuring the first 256 code points are identical to ISO/IEC 8859 standards. 
-* In the Unicode standard, character sets are broken down into planes. A plane is8 a continuous group of 65,536 code points. In total, there are 17 planes (0-16) in the Unicode standard. The limit is 17 due to the limitations of UTF-16. 
+* In the Unicode standard, character sets are broken down into planes. A plane is a continuous group of 65,536 code points. In total, there are 17 planes (0-16) in the Unicode standard. The limit is 17 due to the limitations of UTF-16. 
 * Plane 0 is the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane). This plane contains the most commonly used characters across multiple languages. 
 * Of the 17 planes, only five currently have assigned character sets as of [Unicode version 15.1](https://www.unicode.org/versions/Unicode15.1.0/). 
 * Planes 1-17 are known as [Supplementary Multilingual Planes (SMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Supplementary_Multilingual_Plane) and contain less-used character sets, for example ancient writing systems such as cuneiform and hieroglyphs, as well as special Chinese/Japanese/Korean (CJK) characters. 
@@ -200,7 +203,7 @@ LC\_ALL=
 
 NFSv3 doesn't enforce UTF encoding on files and folders. In most cases, special character sets should have no issues. However, the connection client being used can affect how characters are sent and received. For instance, using Unicode characters outside of the BMP for a folder name in the Azure connection client Bastion can result in some unexpected behavior due to how the client encoding works.
 
-In the following screenshot, Bastion is unable to copy and paste the values to the CLI prompt from outside of the browser when naming a directory over NFSv3. When attempting to copy and paste the value of `NFSv3Bastion_ _𓀀 __𫝁__ 😃__𐒸_`, the special characters display as quotation marks in the input.
+In the following screenshot, Bastion is unable to copy and paste the values to the CLI prompt from outside of the browser when naming a directory over NFSv3. When attempting to copy and paste the value of `NFSv3Bastion𓀀𫝁😃𐒸`, the special characters display as quotation marks in the input.
 
 :::image type="content" source="./media/understand-volume-languages/bastion-mkdir.png" alt-text="Screenshot mkdir command in Bastion.":::
 
@@ -220,7 +223,7 @@ From a PuTTY window, the characters display correctly:
 
 ### NFSv4.x behavior
 
-NFSv4.x enforces UTF-8 encoding in file and folder names  per the [RFC-8881 internationalization specs](https://www.rfc-editor.org/rfc/rfc8881.html#internationalization). UTF-8 is enforced by the protocol version.
+NFSv4.x enforces UTF-8 encoding in file and folder names  per the [RFC-8881 internationalization specs](https://www.rfc-editor.org/rfc/rfc8881.html#internationalization). 
 
 As a result, if a special character is sent with non-UTF-8 encoding, NFSv4.x might not allow the value.
 
@@ -298,9 +301,8 @@ The "invalid argument" error message doesn't help diagnose the root cause, but a
 78 1.704856 y.y.y.y x.x.x.x NFS 346 V4 Call (Reply In 79) LOOKUP DH: 0x44caa451/NFSv4 Putty ��������
 
 79 1.705058 x.x.x.x y.y.y.y NFS 166 V4 Reply (Call In 25) OPEN Status: NFS4ERR\_INVAL
-
-[NFS4ERR\_INVAL](https://www.rfc-editor.org/rfc/rfc8881.html#name-utf-8-related-errors) is covered in RFC-8881.
 ```
+[NFS4ERR_INVAL](https://www.rfc-editor.org/rfc/rfc8881.html#name-utf-8-related-errors) is covered in RFC-8881.
 
 Since the folder can be accessed from PuTTY (due to the encoding being sent and received), it can be copied if the name is specified. After copying that folder from the NFSv4.1 Azure NetApp Files volume to the NFSv3 Azure NetApp Files volume, the folder name displays:
 
@@ -416,7 +418,7 @@ $ ls -la
 drwxrwxrwx 2 root daemon 4096 Jan 9 21:53 'SMB'$'\355\240\214\355\260\200\355\241\255\355\275\201\355\240\275\355\270\203\355\240\201\355\262\270'
 ```
 
-Over NFSv4.1, the SMB-created folder shows up: 
+Over NFSv4.1, the SMB-created folder shows up as follows: 
 
 ```
 $ ls -la
@@ -426,7 +428,7 @@ drwxrwxrwx 2 root daemon 4096 Jan 4 17:09 'SMB'$'\355\240\214\355\260\200\355\24
 
 ##### Supported character behavior
 
-When the characters are in the BMP, there are no issues between the protocols.
+When the characters are in the BMP, there are no issues between the SMB and NFS protocols and their versions.
 
 For instance, a folder name created using SMB on an Azure NetApp Files volume with characters found in the BMP across multiple languages (English, German, Cyrillic, Runic) shows up fine across all protocols and versions.
 

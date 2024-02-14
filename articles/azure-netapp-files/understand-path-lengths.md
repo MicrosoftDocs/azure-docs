@@ -194,7 +194,7 @@ Azure NetApp Files volumes use a language type of [C.UTF-8](/cpp/build/reference
 
 If you use a character that Azure NetApp Files doesn't support, you might see a warning requesting a different file name. 
 
-:::image type="content" source="./media/understand-path-lengths/dialog-cannot-find.png" alt-text="Screenshot of an invalid file name warning.":::
+:::image type="content" source="./media/understand-path-lengths/dialog-invalid-file-name.png" alt-text="Screenshot of an invalid file name warning.":::
 
 Rather than the name being too long, the error actually results from the character byte size being too large for the Azure NetApp Files volume to use over SMB. There's no workaround in Azure NetApp Files for this limitation. For more information on special character handling in Azure NetApp Files, see [Protocol behavior with special character sets](understand-volume-languages.md#protocol-behaviors-with-special-character-sets).
 
