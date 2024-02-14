@@ -1488,7 +1488,7 @@ productDirectory:
         - storage
       url: storage/files/index.yml
     # Card
-    - title: Azure Elastic SAN (Preview)
+    - title: Azure Elastic SAN
       summary: Elastic SAN is a cloud-native Storage Area Network (SAN) service built on Azure. Gain access to an end-to-end experience like your on-premises SAN.
       imageSrc: ./media/index/elastic-san.svg
       azureCategories:
