@@ -112,15 +112,16 @@ az feature show --namespace "Microsoft.StorageCache"
 
 1. Create a storage account using the [`az storage account create`][az-storage-account-create] command. First define the environment variable `STORAGE_ACCOUNT_NAME`.
 
-  > [!IMPORTANT]
-  > You need to select a unique storage account name. Replace `uniquestorageaccount` with your specified name. Storage account names must be *between 3 and 24 characters in length* and *can contain only numbers and lowercase letters*.
+   > [!IMPORTANT]
+   > You need to select a unique storage account name. Replace `uniquestorageaccount` with your specified name. Storage account names must be *between 3 and 24 characters in length* and *can contain only numbers and lowercase letters*.
 
-    ```azurecli 
-    STORAGE_ACCOUNT_NAME=uniquestorageaccount
-    ```
-   The following example creates a storage account in the East US region with the Standard LRS SKU. Specify the value for **--location** and **--sku**.
+   ```azurecli
+   STORAGE_ACCOUNT_NAME=uniquestorageaccount
+   ```
+  
+  The following example creates a storage account in the East US region with the Standard LRS SKU. Specify the value for **--location** and **--sku**.
 
-     ```azurecli
+    ```azurecli-interactive
     az storage account create \
       --name $STORAGE_ACCOUNT_NAME \
       --resource-group $RESOURCE_GROUP \
@@ -145,7 +146,7 @@ az feature show --namespace "Microsoft.StorageCache"
     CONTAINER_NAME=mystoragecontainer
     ```
 
-    ```azurecli
+    ```azurecli-interactive
     az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --auth-mode login
     ```
 
@@ -156,14 +157,14 @@ az feature show --namespace "Microsoft.StorageCache"
     HPC_CACHE_ID=$(az ad sp list --display-name "${HPC_CACHE_USER}" --query "[].objectId" -o tsv)
     ```
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create --role "Storage Account Contributor" --assignee $HPC_CACHE_ID --scope $STORAGE_ACCOUNT_ID
     az role assignment create --role "Storage Blob Data Contributor" --assignee $HPC_CACHE_ID --scope $STORAGE_ACCOUNT_ID
     ```
 
 1. Add the blob container to your HPC Cache as a storage target using the [`az hpc-cache blob-storage-target add`][az-hpc-cache-blob-storage-target-add] command. The following example creates a blob container named *MyStorageTarget* to the HPC Cache *MyHpcCache*. Specify the value for **--name**, **--cache-name**, and **--virtual-namespace-path**.
 
-    ```azurecli
+    ```azurecli-interactive
     az hpc-cache blob-storage-target add \
       --resource-group $RESOURCE_GROUP \
       --cache-name MyHpcCache \
@@ -181,7 +182,7 @@ az feature show --namespace "Microsoft.StorageCache"
     PRIVATE_DNS_ZONE="myhpccache.local"
     ```
 
-    ```azurecli
+    ```azurecli-interactive
     az network private-dns zone create \
       --resource-group $RESOURCE_GROUP \
       --name $PRIVATE_DNS_ZONE
@@ -189,7 +190,7 @@ az feature show --namespace "Microsoft.StorageCache"
 
 2. Create a DNS link between the Azure Private DNS Zone and the VNet using the [`az network private-dns link vnet create`][az-network-private-dns-link-vnet-create] command. Replace the value for **--name**.
 
-    ```azurecli
+    ```azurecli-interactive
     az network private-dns link vnet create \
       --resource-group $RESOURCE_GROUP \
       --name MyDNSLink \
@@ -207,7 +208,7 @@ az feature show --namespace "Microsoft.StorageCache"
     HPC_MOUNTS2=$(az hpc-cache show --name "MyHpcCache" --resource-group $RESOURCE_GROUP --query "mountAddresses[2]" -o tsv | tr --delete '\r')
     ```
 
-    ```azurecli
+    ```azurecli-interactive
     az network private-dns record-set a add-record -g $RESOURCE_GROUP -z $PRIVATE_DNS_ZONE -n $DNS_NAME -a $HPC_MOUNTS0
     
     az network private-dns record-set a add-record -g $RESOURCE_GROUP -z $PRIVATE_DNS_ZONE -n $DNS_NAME -a $HPC_MOUNTS1
@@ -245,13 +246,13 @@ az feature show --namespace "Microsoft.StorageCache"
 
 1. Create the persistent volume using the [`kubectl apply`][kubectl-apply] command.
 
-    ```console
+    ```bash
     kubectl apply -f pv-nfs.yaml
     ```
 
 1. Verify the status of the persistent volume is **Available** using the [`kubectl describe`][kubectl-describe] command.
 
-    ```console
+    ```bash
     kubectl describe pv pv-nfs
     ```
 
@@ -325,7 +326,7 @@ az feature show --namespace "Microsoft.StorageCache"
 
 4. Verify your volume is mounted in the pod using the [`kubectl exec`][kubectl-exec] command to connect to the pod.
 
-    ```console
+    ```bash
     kubectl exec -it nginx-nfs -- sh
     ```
 
