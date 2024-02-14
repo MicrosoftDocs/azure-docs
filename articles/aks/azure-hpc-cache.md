@@ -15,7 +15,7 @@ ms.date: 02/13/2024
 
 ## Before you begin
 
-* Your AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
+* AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
 * You need Azure CLI version 2.7 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Register the `hpc-cache` extension in your Azure subscription. For more information on using HPC Cache with Azure CLI, see the [HPC Cache CLI prerequisites].[hpc-cache-cli-prerequisites].
 * Review the [HPC Cache prerequisites][hpc-cache-prereqs]. You need to satisfy the following prerequisites before you can run an HPC Cache:
@@ -24,7 +24,7 @@ ms.date: 02/13/2024
   * The subnet must not host other VMs or containers.
   * The subnet must be accessible from the AKS nodes.
 
-* If you need to run your application as a non-root user, you may need to disable root squashing by using the change owner (chown) command to change directory ownership to another user. The non-root user needs to own a directory to access the file system. For the user to own a directory, the root user must chown a directory to that user, but if the HPC Cache is squashing root, this operation is denied because the root user (UID 0) is being mapped to the anonymous user. For more information about root squashing and client access policies, see [HPC Cache access policies][hpc-cache-access-policies].
+* If you need to run your application as a user without root access, you may need to disable root squashing by using the change owner (chown) command to change directory ownership to another user. The user without root access needs to own a directory to access the file system. For the user to own a directory, the root user must chown a directory to that user, but if the HPC Cache is squashing root, this operation is denied because the root user (UID 0) is being mapped to the anonymous user. For more information about root squashing and client access policies, see [HPC Cache access policies][hpc-cache-access-policies].
 
 ### Install the `hpc-cache` Azure CLI extension
 
@@ -119,7 +119,7 @@ az feature show --namespace "Microsoft.StorageCache"
    STORAGE_ACCOUNT_NAME=uniquestorageaccount
    ```
   
-  The following example creates a storage account in the East US region with the Standard LRS SKU. Specify the value for **--location** and **--sku**.
+  The following example creates a storage account in the East US region with the Standard_LRS SKU. Specify a value for **--location** and **--sku**.
 
     ```azurecli-interactive
     az storage account create \
@@ -162,7 +162,7 @@ az feature show --namespace "Microsoft.StorageCache"
     az role assignment create --role "Storage Blob Data Contributor" --assignee $HPC_CACHE_ID --scope $STORAGE_ACCOUNT_ID
     ```
 
-1. Add the blob container to your HPC Cache as a storage target using the [`az hpc-cache blob-storage-target add`][az-hpc-cache-blob-storage-target-add] command. The following example creates a blob container named *MyStorageTarget* to the HPC Cache *MyHpcCache*. Specify the value for **--name**, **--cache-name**, and **--virtual-namespace-path**.
+1. Add the blob container to your HPC Cache as a storage target using the [`az hpc-cache blob-storage-target add`][az-hpc-cache-blob-storage-target-add] command. The following example creates a blob container named *MyStorageTarget* to the HPC Cache *MyHpcCache*. Specify a value for **--name**, **--cache-name**, and **--virtual-namespace-path**.
 
     ```azurecli-interactive
     az hpc-cache blob-storage-target add \
