@@ -120,6 +120,7 @@ For information on Azure Private 5G Core's support for standards-based 5G and 4G
 Azure Private 5G Core supports the following authentication methods:
 
 - Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI) for 5G user equipment (UEs).
+- SUPI concealment using encrypted Subscription Concealed Identifiers (SUCI).
 - Authentication using International Mobile Subscriber Identities (IMSI) and Globally Unique Temporary Identities (GUTI) for 4G UEs.
 - 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
 - Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.

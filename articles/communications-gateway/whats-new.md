@@ -5,12 +5,18 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 11/17/2023
+ms.date: 02/01/2024
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## February 2024
+
+### Connectivity metrics
+
+From February 2024, you can monitor the health of the connection between your network and Azure Communications Gateway with new metrics for responses to SIP INVITE and OPTIONS exchanges. You can view statistics for all INVITE and OPTIONS requests, or narrow your view down to individual regions, request types or response codes. For more information on the available metrics, see [Connectivity metrics](monitoring-azure-communications-gateway-data-reference.md#connectivity-metrics). For an overview of working with metrics, see [Analyzing, filtering and splitting metrics in Azure Monitor](monitor-azure-communications-gateway.md#analyzing-filtering-and-splitting-metrics-in-azure-monitor).
 
 ## November 2023
 

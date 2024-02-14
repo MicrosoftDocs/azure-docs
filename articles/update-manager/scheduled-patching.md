@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 02/03/2024
+ms.date: 02/05/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -33,7 +33,10 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 
 All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
+
 
 ## Configure reboot settings
 

@@ -6264,6 +6264,16 @@
       "source_path_from_root": "/articles/cosmos-db/vector-search.md",
       "redirect_url": "/azure/cosmos-db/vector-database",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/how-to-use-php.md",
+      "redirect_url": "/previous-versions/azure/cosmos-db/table/how-to-use-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/how-to-use-ruby.md",
+      "redirect_url": "/previous-versions/azure/cosmos-db/table/how-to-use-ruby",
+      "redirect_document_id": false
     }
   ]
 }

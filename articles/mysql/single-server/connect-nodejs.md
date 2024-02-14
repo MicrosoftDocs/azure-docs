@@ -7,11 +7,14 @@ ms.topic: quickstart
 ms.devlang: javascript
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
+ms.custom: mvc, devx-track-js, mode-api, linux-related-content
 ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 

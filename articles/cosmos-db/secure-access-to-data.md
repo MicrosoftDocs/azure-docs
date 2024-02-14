@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/26/2022
-ms.custom: devx-track-csharp, subject-rbac-steps, ignite-2022
+ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
