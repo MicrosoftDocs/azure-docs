@@ -3,7 +3,7 @@ title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
 ms.author: abbyweisberg
 ms.topic: reference
-ms.date: 9/20/2023
+ms.date: 02/13/2024
 ms.reviewer: nolavime
 ---
 
@@ -18,7 +18,8 @@ Refer to these articles for troubleshooting information about metric or log aler
 - [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
 - [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
-If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
+If the alert fires as intended according to the Azure portal but the proper notifications do not occur, [test your action group](./action-groups.md#test-an-action-group-in-the-azure-portal) first to ensure the action group is properly configured.
+Otherwise, use the information in the rest of this article to troubleshoot your issue.
 
 ## Action or notification on my alert did not work as expected
 
