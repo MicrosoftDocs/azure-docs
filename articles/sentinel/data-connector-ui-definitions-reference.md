@@ -29,6 +29,8 @@ https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{r
 
 ## URI parameters
 
+For more information about the latest API version, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connector-definitions/create-or-update#uri-parameters)
+
 |Name  | Description  |
 |---------|---------|
 | **dataConnectorDefinitionName** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|

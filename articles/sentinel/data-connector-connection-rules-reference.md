@@ -35,7 +35,7 @@ https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{r
 
 ## URI parameters
 
-For more information, see [Data Connectors - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+For more information about the latest API version, see [Data Connectors - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters).
 
 |Name  | Description  |
 |---------|---------|
@@ -116,7 +116,7 @@ Example Basic auth using parameters defined in `connectorUIconfig`:
 
 | Field | Required | Type | Description | Default value |
 | ---- | ---- | ---- | ---- | ---- |
-| **ApiKey** | Mandatory | string | user secret key | |
+| **ApiKey** | True | string | user secret key | |
 | **ApiKeyName** | | string | name of the Uri header containing the ApiKey value | `Authorization` |
 | **ApiKeyIdentifier** | | string | string value to prepend the token | `token` |
 | **IsApiKeyInPostPayload** | | boolean | send secret in POST body instead of header | `false` |
@@ -185,7 +185,7 @@ OAuth2 auth code grant
     "authorizationEndpointQueryParameters": {
         "prompt": "consent"
     },
-    "redirectionUri": "https://portal.azure.com/TokenAuthorize",
+    "redirectUri": "https://portal.azure.com/TokenAuthorize",
     "tokenEndpointHeaders": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
