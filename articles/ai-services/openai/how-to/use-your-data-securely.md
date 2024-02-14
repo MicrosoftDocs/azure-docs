@@ -117,7 +117,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to use S2 pricing tier because the configuration doesn't require [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits). See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *bypass trusted service*, not *private endpoint*.
+You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an additional advanced option described in [later section](#create-shared-private-link).
 
 ### Enable managed identity
 
@@ -161,6 +161,12 @@ The private endpoint resource is provisioned in a Microsoft managed tenant, whil
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
+
+### Create shared private link
+
+This section is only applicable for S2 pricing tier.
+If you are using Basic or Standard pricing tier, please skip this section.
+You don’t have to, but if use S2 pricing tier because the configuration doesn't require [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits). See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *bypass trusted service*, not *private endpoint*.
 
 ## Configure Storage Account
 
