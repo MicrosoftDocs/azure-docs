@@ -20,8 +20,17 @@ This article provides reference documentation for Python and REST for the new Az
 > In earlier API versions, Azure OpenAI on your data used api path `/extensions/chat/completions`. Since `2024-02-15-preview`, Azure OpenAI on your data uses api path `/extensions/chat/completions`.
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/chat/completions?api-version=2024-02-15-preview
+POST {endpoint}/openai/deployments/{deploymentId}/chat/completions?api-version=2024-02-15-preview
 ```
+
+## URI Parameters
+
+|Name             | In   | Type     | Required | Description                                                                           |
+|---              |---   |---       |---       |---                                                                                    |
+|deploymentId     |path  |string    |True      |Specifies the chat completions model deployment name to use for this request.          |
+|endpoint         |path  |string    |True      |Azure OpenAI endpoints. For example: https://YOUR_RESOURCE_NAME.openai.azure.com       |
+|api-version      |query |string    |True      |The API version to use for this operation.                                             |
+
 
 ## Create an assistant
 
