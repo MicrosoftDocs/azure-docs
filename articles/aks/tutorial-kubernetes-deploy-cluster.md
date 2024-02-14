@@ -77,6 +77,8 @@ To allow an AKS cluster to interact with other Azure resources, the Azure platfo
     > [!NOTE]
     > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `--generate-ssh-keys` parameter.
 
+To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
@@ -90,15 +92,18 @@ To allow an AKS cluster to interact with other Azure resources, the Azure platfo
     > [!NOTE]
     > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `-GenerateSshKey` parameter.
 
+To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
+
 ### [Azure Developer CLI](#tab/azure-azd)
 
-TBD
+Start by downloading the project from Azure Developer Templates.
+Run `azd init --template aks-store-demo` to download the app used in the tutorial.
+
+AZD automatically handles creating the Service Principals and roles based on it's infra files. You won't need to manually generate SSH keys or set up a resource group as it's done with the deployment step. For this tutorial, if you'd like to only create the resource group, run `azd provision` and cancel the command when the azd post-provision script runs.
 
 ---
 
-To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
-
-After a few minutes, the deployment completes and returns JSON-formatted information about the AKS deployment.
+After a few minutes, the cluster deployment completes and returns JSON-formatted information about the AKS deployment.
 
 ## Install the Kubernetes CLI
 
@@ -122,7 +127,7 @@ You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes 
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-TBD
+AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. This includes the Kubernetes CLI as well as any ACR images.
 
 ---
 
@@ -173,7 +178,25 @@ TBD
     ```
 ### [Azure Developer CLI](#tab/azure-azd)
 
-TBD
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
+
+    ```azurecli-interactive
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```
+
+2. Verify connection to your cluster using the [`kubectl get nodes`][kubectl-get] command, which returns a list of cluster nodes.
+
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
+
+    The following example output shows a list of the cluster nodes:
+
+    ```output
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
+    aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
+    ```
 
 ---
 
