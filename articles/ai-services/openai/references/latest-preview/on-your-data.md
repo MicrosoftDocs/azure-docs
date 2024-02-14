@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI on your data API (Preview) reference
+# Azure OpenAI on your data API (Preview) Reference
 
 This article provides reference documentation for Python and REST for the new Azure OpenAI on your data API (Preview). The latest preview api-version is `2024-02-15-preview`.
 

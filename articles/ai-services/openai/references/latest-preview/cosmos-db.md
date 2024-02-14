@@ -79,7 +79,7 @@ Optional settings to control how fields are processed when using a configured Az
 | `title_field` | string | False | The name of the index field to use as a title. |
 | `url_field` | string | False | The name of the index field to use as a URL.|
 
-# Examples
+## Examples
 
 Before run this example, make sure to:
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`ConnectionString`, `Database`, `Container`, `Index`, `EmbeddingDeploymentName`.

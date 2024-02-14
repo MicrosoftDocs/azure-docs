@@ -108,7 +108,7 @@ The type of Azure Search retrieval query that should be executed when using it a
 |`vector_simple_hybrid`	|Represents a combination of the simple query strategy with vector data.|
 |`vector_semantic_hybrid`	|Represents a combination of semantic search and vector data querying.|
 
-# Examples
+## Examples
 
 Before run this example, make sure to:
 * Setup the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
