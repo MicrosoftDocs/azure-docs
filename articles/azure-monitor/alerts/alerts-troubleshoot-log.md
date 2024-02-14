@@ -156,16 +156,36 @@ When a log alert rule is created, the query is validated for correct syntax. But
 
 ### The query couldn't be validated since you need permission for the logs error
 
+If you receive this error message when creating or editing your alert rule query, make sure you have enough permissions to read the target resource logs.
 
+- Permissions required to read logs in workspace-context access mode:
+  Microsoft.OperationalInsights/workspaces/query/read.  
+- Permissions required to read logs in resource-context access mode (including workspace-based Application Insights resource):
+  Microsoft.Insights/logs/tableName/read.
+
+See [Manage access to Log Analytics workspaces](../logs/manage-access.md) to learn more about permissions.
 
 ### One-minute frequency is not supported for this query error
 
+There are some limitations to using a one minute alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations.
+
+For a list of unsupported scenarios, see [this note](https://aka.ms/lsa_1m_limits). 
+
 ### Failed to resolve scalar expression named <> error 
 
-### No results returned for query in Logs pane.
+This error message when creating or editing your alert rule query can be returned if:
+
+- You are referencing a column that doesn't exist in the table schema.
+- You are referencing a column that wasn't used in a prior project clause of the query.
+
+To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](https://learn.microsoft.com/azure/data-explorer/kusto/query/column-ifexists-function) operator.
 
 ### ScheduledQueryRules API is not supported for read only OMS Alerts error
 
+This error message is returned when trying to update or delete rules created with the legacy API version by using the Azure Portal.
+
+1. Edit or delete the rule programmatically using the Log Analytics [REST API](./api-alerts.md).
+2. Recommended: [Upgrade your alert rules to use Scheduled Query Rules API](./alerts-log-api-switch.md) (legacy API is on a deprecation path).
 
 ## Alert rule quota was reached
 
