@@ -20,7 +20,7 @@ For more information, see [Create a codeless connector](create-codeless-connecto
 
 ## Data connector definitions - Create or update
 
-Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the `create` and the `update` operation is the update requires the `etag` value.
+Reference the Create Or Update operation in the REST API docs to find the latest stable or preview API version. Only the `update` operation requires the `etag` value.
 
 **PUT** method
 ```http
@@ -28,8 +28,6 @@ https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{r
 ```
 
 ## URI parameters
-
-For more information, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
 
 |Name  | Description  |
 |---------|---------|
@@ -67,7 +65,7 @@ The following screenshot shows a sample data connector page, highlighted with nu
 
 :::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page with sections labeled 1 through 9.":::
 
-Each of the following elements of the `connectorUiConfig` section needed to configure the user interface correspond to the [CustomizableConnectorUiConfig](/rest/api/securityinsights/data-connector-definitions/create-or-update#customizableconnectoruiconfig) portion of the API.
+Each of the following elements of the `connectorUiConfig` section needed to configure the user interface correspond to the CustomizableConnectorUiConfig portion of the API.
 
 |Field | Required | Type | Description | Screenshot notable area #|
 | ---- | ---- | ---- | ---- | ---- |
@@ -335,7 +333,7 @@ Some **InstallAgent** types appear as a button, others appear as a link. Here ar
 
 ## Example data connector definition
 
-The following example brings together some of the components defined in this article as a JSON body format to use with the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) data connector API.
+The following example brings together some of the components defined in this article as a JSON body format to use with the Create Or Update data connector definition API.
 
 For more examples of the `connectorUiConfig` review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling). Even connectors using the legacy CCP have valid examples of the UI creation.
 

@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: JasonWHowell
 ms.author: jasonh
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics

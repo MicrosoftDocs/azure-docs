@@ -83,7 +83,7 @@ If updates were applied that require a node reboot, a file is written to */var/r
 
 ## Monitor and review reboot process
 
-When one of the replicas in the DaemonSet has detected that a node reboot is required, a lock is placed on the node through the Kubernetes API. This lock prevents more pods from being scheduled on the node. The lock also indicates that only one node should be rebooted at a time. With the node cordoned off, running pods are drained from the node, and the node is rebooted.
+When one of the replicas in the DaemonSet detects that a node reboot is required, a lock is placed on the node through the Kubernetes API. This lock prevents more pods from being scheduled on the node. The lock also indicates that only one node should be rebooted at a time. With the node cordoned off, running pods are drained from the node, and the node is rebooted.
 
 You can monitor the status of the nodes using the [kubectl get nodes][kubectl-get-nodes] command. The following example output shows a node with a status of *SchedulingDisabled* as the node prepares for the reboot process:
 
@@ -106,6 +106,8 @@ This article detailed how to use `kured` to reboot Linux nodes automatically as 
 
 For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 <!-- LINKS - external -->
 [kured]: https://github.com/kubereboot/kured
 [kured-install]: https://github.com/kubereboot/charts/tree/main/charts/kured
@@ -118,3 +120,4 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

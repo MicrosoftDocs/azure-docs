@@ -111,7 +111,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 ```
 
 > [!div class="nextstepaction"]
-> [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md#translator)
+> [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md)
 
 ### [Azure operated by 21Vianet](#tab/china)
 

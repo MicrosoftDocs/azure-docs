@@ -9,10 +9,6 @@ ms.date: 11/14/2022
 
 # Use tasks to manage incidents in Microsoft Sentinel
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 One of the most important factors in running your security operations (SecOps) effectively and efficiently is the **standardization of processes**. SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts. This way, regardless of who is on-shift, an incident will always get the same treatment and SLAs. Analysts won't need to spend time thinking about what to do, or worry about missing a critical step. Those steps are defined by the SOC manager or senior analysts (tier 2/3) based on common security knowledge (such as NIST), their experience with past incidents, or recommendations provided by the security vendor that detected the incident. 
 
 ## Use cases

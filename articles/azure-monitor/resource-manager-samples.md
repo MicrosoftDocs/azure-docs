@@ -97,7 +97,6 @@ In the request body, provide a link to your template and parameter file.
 - [Log queries](logs/resource-manager-log-queries.md): Create saved log queries in a Log Analytics workspace.
 - [Log Analytics workspace](logs/resource-manager-workspace.md): Create a Log Analytics workspace and configure a collection of data sources from the Log Analytics agent.
 - [Workbooks](visualize/resource-manager-workbooks.md): Create workbooks.
-- [Container insights](containers/resource-manager-container-insights.md): Onboard clusters to Container insights.
 - [Azure Monitor for VMs](vm/resource-manager-vminsights.md): Onboard virtual machines to Azure Monitor for VMs.
 
 ## Next steps

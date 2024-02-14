@@ -290,6 +290,8 @@
             href: standard-premium/how-to-cache-purge-cli.md
         - name: Compression
           href: standard-premium/how-to-compression.md
+        - name: Blue/Green deployment with Front Door
+          href: blue-green-deployment.md
       - name: Enable Private Link to secure origins
         items:
         - name: Connect to an internal load balancer

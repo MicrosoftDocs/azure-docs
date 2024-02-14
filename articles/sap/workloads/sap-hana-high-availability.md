@@ -6,10 +6,9 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/16/2024
 ms.author: radeltch
-
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
@@ -275,7 +274,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    To install SAP HANA system replication, review chapter 4 in the [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/) guide.
 
-1. **[A]** Run the **hdblcm** program from the HANA DVD.
+1. **[A]** Run the **hdblcm** program from the HANA installation media.
 
    When you're prompted, enter the following values:
 

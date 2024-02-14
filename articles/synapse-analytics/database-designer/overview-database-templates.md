@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
 ms.date: 10/16/2023
-ms.custom: template-overview, ignite-fall-2021
+ms.custom: template-overview
 ---
 
 # What are Azure Synapse database templates?

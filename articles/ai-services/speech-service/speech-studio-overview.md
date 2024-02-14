@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 09/25/2022
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -32,7 +32,7 @@ For a demonstration of these scenarios in Speech Studio, view this [introductory
 
 In Speech Studio, the following Speech service features are available as project types:
 
-* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text](speech-to-text.md).
+* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. Speech Studio has a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text](speech-to-text.md).
 
 * [Batch speech to text](https://aka.ms/speechstudio/batchspeechtotext): Quickly test batch transcription capabilities to transcribe a large amount of audio in storage and receive results asynchronously, To learn more about Batch Speech-to-text, see [Batch speech to text overview](batch-transcription.md).
 
@@ -46,7 +46,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Custom voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text to speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](professional-voice-train-voice.md). 
 
-* [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text to speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
+* [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text to speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for various scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
 
 * [Custom Keyword](https://aka.ms/speechstudio/customkeyword): A custom keyword is a word or short phrase that you can use to voice-activate a product. You create a custom keyword in Speech Studio, and then generate a binary file to [use with the Speech SDK](custom-keyword-basics.md) in your applications.
 

@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/10/2021
-ms.custom: devx-track-js, mode-api, kr2b-contr-experiment, ignite-2022
+ms.custom: devx-track-js, mode-api, kr2b-contr-experiment
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]

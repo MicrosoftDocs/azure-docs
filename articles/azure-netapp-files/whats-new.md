@@ -4,7 +4,6 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 11/27/2023
@@ -17,6 +16,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2024
 
+* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
+
+    Azure NetApp Files now supports the capability to edit network features of existing volumes in US Gov Arizona, US Gov Texas, and US Gov Texas. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. This feature is in preview in commercial and US Gov regions. 
+    
 * [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
 
     You still must register the feature before using it for the first time.

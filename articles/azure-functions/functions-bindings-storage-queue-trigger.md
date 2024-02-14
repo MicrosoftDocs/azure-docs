@@ -489,21 +489,42 @@ Access the queue message via the parameter typed as [QueueMessage](/python/api/a
 
 ## <a name="message-metadata"></a>Metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. 
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code, for language workers that provide this access to message metadata. 
 
 ::: zone pivot="programming-language-csharp"
-The properties are members of the [CloudQueueMessage] class.
+The message metadata properties are members of the [CloudQueueMessage] class.
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The message metadata properties can be accessed from `context.triggerMetadata`.
+::: zone-end
+::: zone pivot="programming-language-powershell"
+The message metadata properties can be accessed from the passed `$TriggerMetadata` parameter.
 ::: zone-end
 
 |Property|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload is a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
-|`DequeueCount`|`int`|The number of times this message has been dequeued.|
+|`DequeueCount`|`long`|The number of times this message has been dequeued.|
 |`ExpirationTime`|`DateTimeOffset`|The time that the message expires.|
 |`Id`|`string`|Queue message ID.|
 |`InsertionTime`|`DateTimeOffset`|The time that the message was added to the queue.|
 |`NextVisibleTime`|`DateTimeOffset`|The time that the message will next be visible.|
 |`PopReceipt`|`string`|The message's pop receipt.|
+
+::: zone pivot="programming-language-python"
+The following message metadata properties can be accessed from the passed binding parameter (`msg` in previous [examples](#example)).
+
+|Property|Description|
+|--------|----------|
+|`body`| Queue payload as a string.|
+|`dequeue_count`| The number of times this message has been dequeued.|
+|`expiration_time`|The time that the message expires.|
+|`id`| Queue message ID.|
+|`insertion_time`|The time that the message was added to the queue.|
+|`time_next_visible`|The time that the message will next be visible.|
+|`pop_receipt`|The message's pop receipt.|
+
+::: zone-end
 
 [!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
@@ -515,6 +536,7 @@ To handle poison messages manually, check the [dequeueCount](#message-metadata) 
 
 
 ## Peek lock
+
 The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a 10-minute timeout managed by the Storage service. This timeout can't be changed.  
 
 When the function starts, it starts processing a message under the following conditions.

@@ -5,11 +5,9 @@ services: api-management
 author: dlepow
 manager: cfowler
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-
 ---
 # How to manage user accounts in Azure API Management
 

@@ -114,8 +114,8 @@ Your virtual networks in Azure have default route tables in place when you creat
 
     | Setting      | Action      |
     |--|--|
-    | **Address prefix** | Select the virtual network for your container app. |
-    | **Next hop type** | Select the subnet your for container app.  |
+    | **Virtual network** | Select the virtual network for your container app. |
+    | **Subnet** | Select the subnet your for container app.  |
 
 1. Select **OK**.
 

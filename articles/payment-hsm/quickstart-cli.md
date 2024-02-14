@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.date: 03/25/2023
+ms.date: 01/31/2024
 ---
 
 # Quickstart: Create an Azure Payment HSM with the Azure CLI
@@ -68,7 +68,7 @@ Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/
 az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
+To verify that the virtual network and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
 
 ```azurecli-interactive
 az network vnet show -n "myVNet" -g "myResourceGroup"
