@@ -110,7 +110,7 @@ When a metric value exhibits large fluctuations, dynamic thresholds may build a 
 If you want to alert on a specific metric but you can't see it when you create an alert rule, check to determine:
 
 - If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](../essentials/metrics-supported.md). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
+- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
 - If the metric isn't available for the resource, it might be available in the resource logs and can be monitored by using log alerts. For more information, see how to [collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
 
 ### Can't find the metric to alert on: Virtual machines guest metrics
@@ -136,6 +136,21 @@ If you want to alert on [specific dimension values of a metric](./alerts-metric-
 - If the dimension value isn't yet emitted or isn't shown, you can use the **Add custom value** option to add a custom dimension value.
 - If you want to alert on all possible values of a dimension and even include future values, choose the **Select all current and future values** option.
 - Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+
+### Dynamic Thresholds is currently not available for this metric warning
+
+Dynamic thresholds are supported for most metrics, but not all.
+Refer to [Metrics not supported by dynamic thresholds](alerts-dynamic-thresholds.md#metrics-not-supported-by-dynamic-thresholds) for the list of metrics.
+
+### The metric isn't available for the selected scope. This might happen if the metric only applies to a specific version or SKU error
+
+Review the metric description in [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
+
+For example, in SQL Database resources or Storage file services, there are specific metrics only supported on specific versions of the resource.
+
+### There are no available signals to display. Try changing the scope of this alert rule error
+
+This error indicates an issue with the alert rule scope. This can happen when editing an alert rule scoped to a resource type that supports multi-resource configuration (like Virtual machine or SQL database), and trying to add another resource of the same type, but from a different region. Alerting on multiple resources of the same type from different regions is not supported in Metric alerts.
 
 ### Define an alert rule on a custom metric that isn't emitted yet
 
