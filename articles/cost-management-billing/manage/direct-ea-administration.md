@@ -115,7 +115,7 @@ If your enterprise administrator can't assist you, create an [Azure support re
 
 >[!NOTE]
 >  - We recommend that you have at least one active Enterprise Administrator at all times. If no active Enterprise Administrator is available, contact your partner to change the contact information on the Volume License agreement. Your partner can make changes to the customer contact information by using the Contact Information Change Request (CICR) process available in the eAgreements (VLCM) tool.
->  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the EA portal and Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+>  - Any new EA administrator account created using the CICR process is assigned read-only permissions to the enrollment in the Azure portal. To elevate access, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Create an Azure enterprise department
 
