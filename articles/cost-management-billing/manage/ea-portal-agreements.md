@@ -180,8 +180,6 @@ Plan SKUs offer the ability to purchase a suite of integrated services together 
 
 One example would be the Operations Management Suite (OMS) subscription. OMS offers a simple way to access a full set of cloud-based management capabilities. It includes analytics, configuration, automation, security, backup, and disaster recovery. OMS subscriptions include rights to System Center components to provide a complete solution for hybrid cloud environments.
 
-Enterprise Administrators can assign Account Owners to prepare previously purchased Plan SKUs in the Enterprise portal by following these steps:
-
 ### View the price sheet and check included quantity
 
 You can view your price sheet in the Azure portal. For more information, see [Download pricing for an enterprise agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).

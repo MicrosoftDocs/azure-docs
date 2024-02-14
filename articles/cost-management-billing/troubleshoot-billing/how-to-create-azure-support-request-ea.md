@@ -60,7 +60,7 @@ We'll walk you through some steps to gather information about your problem and h
 ### Problem description
 
 1. Type a summary of your issue and then select **Issue type**.
-1. In the **Issue type** list, select **Enrollment administration** for EA portal related issues.  
+1. In the **Issue type** list, select **Enrollment administration** for enterprise agreement issues.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" alt-text="Screenshot showing Select Enrollment administration." lightbox="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" :::
 1. For **Enrollment number**, select the enrollment number.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="Screenshot showing Select Enrollment number." :::

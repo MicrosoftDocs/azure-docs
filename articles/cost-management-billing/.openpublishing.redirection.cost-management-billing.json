@@ -246,6 +246,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md",
+            "redirect_url": "azure/cost-management-billing/manage/direct-ea-administration",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management-billing/ea-portal-enrollment-invoices.md",
             "redirect_url": "/azure/cost-management-billing/manage/ea-direct-portal-get-started",
             "redirect_document_id": false

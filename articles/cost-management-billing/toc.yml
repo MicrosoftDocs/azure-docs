@@ -241,8 +241,6 @@
       href: troubleshoot-billing/troubleshoot-declined-card.md
     - name: Troubleshoot threshold billing
       href: troubleshoot-billing/troubleshoot-threshold-billing.md
-    - name: Enterprise cost view disabled
-      href: troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request

@@ -32,9 +32,9 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 | **Scope** | **Defined at** | **Required access to view data** | **Prerequisite EA setting** | **Consolidates data to** |
 | --- | --- | --- | --- | --- |
-| Billing account¹ | [https://ea.azure.com](https://ea.azure.com/) | • Enterprise Admin<br> • Enrollment reader (Enterprise admin read-only) | None | All subscriptions from the enterprise agreement |
-| Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
-| Enrollment account² | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
+| Billing account¹ | [https://portal.azure.com](https://portal.azure.com/) | • Enterprise Admin<br> • Enrollment reader (Enterprise admin read-only) | None | All subscriptions from the enterprise agreement |
+| Department | [https://portal.azure.com](https://portal.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
+| Enrollment account² | [https://portal.azure.com](https://portal.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
 | Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources/resource groups in the subscription |
 | Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources in the resource group |

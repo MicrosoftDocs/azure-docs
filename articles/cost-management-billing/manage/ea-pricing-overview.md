@@ -42,7 +42,7 @@ Microsoft might drop the current Enterprise Agreement price for individual Azure
 
 ### Current effective pricing
 
-Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/). Then view the price sheet page for that enrollment. Direct EA customers can now view and download **price sheet** in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). See [view price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+Customer and channel partners can view their current pricing for an enrollment by signing in to [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Then view the price sheet page for that enrollment. Direct EA customers can now view and download **price sheet** in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). See [view price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
 If you purchase Azure indirectly through one of our channel partners, you must get your pricing updates from your channel partner unless they enabled markup pricing to be displayed for your enrollment.
 

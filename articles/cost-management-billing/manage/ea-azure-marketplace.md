@@ -31,7 +31,7 @@ Some third-party reseller services available on Azure Marketplace now consume yo
 
 Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. If the enterprise administrator disables purchases, and there are Azure subscriptions that already have Azure Marketplace subscriptions, those Azure Marketplace subscriptions aren't canceled or affected.
 
-Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure Enterprise portal, this action doesn't automatically convert the child subscriptions.
+Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure portal, this action doesn't automatically convert the child subscriptions.
 
 To enable Azure Marketplace purchase in the Azure portal:
 

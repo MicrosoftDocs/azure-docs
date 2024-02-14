@@ -50,7 +50,7 @@ In the Manage API Access Keys window, you can perform the following tasks:
 > [!NOTE]
 > 1. If you are on Enrollment Admin, then you can generate the keys from only Usage & Charges blade at enrollment level but not at Accounts & department level.
 > 2. If you are an Department owner only, then you can generate the keys at Department level and at the Account level for which you are an account owner for.
-> 3. If you are Account owner only, then you can generate the keys at Acount level only. 
+> 3. If you are Account owner only, then you can generate the keys at Account level only. 
 
 ### Generate the primary or secondary API key
 
