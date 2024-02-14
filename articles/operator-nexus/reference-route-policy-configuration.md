@@ -48,7 +48,7 @@ If specified, a condition must have at least one of the following properties. If
 
 | Name | Description | Type |
 |--|--|--|
-| ipPrefixId |  Specifies the resource ID of an IP prefix resource that defines a range of IP addresses. It must follow the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}. The statement's action is applied to traffic that matches this prefix. | string |  array |
+| ipPrefixId |  Specifies the resource ID of an IP prefix resource that defines a range of IP addresses. It must follow the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}. The statement's action is applied to traffic that matches this prefix. | array |
 | ipExtendedCommunityIds | An array of strings that specify the resource IDs of IP extended community resources that define additional attributes for routes. Each element is a **string** that must not be empty. It must follow the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName}. The statement's action is applied to traffic that matches this prefix. If the list contains more than one element, the "OR" condition is applied. | array |
 
 ### Actions
