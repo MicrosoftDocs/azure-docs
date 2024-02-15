@@ -1,10 +1,10 @@
 ---
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Azure configurations'
 description: This article shows you how to configure Azure to connect your ITSM products or services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Configure Azure to connect ITSM tools by using Secure Webhook

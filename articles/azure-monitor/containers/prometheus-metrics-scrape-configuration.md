@@ -2,7 +2,6 @@
 title: Customize scraping of Prometheus metrics in Azure Monitor
 description: Customize metrics scraping for a Kubernetes cluster with the metrics add-on in Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
@@ -70,7 +69,7 @@ metadata:
 
 Scraping these pods with specific annotations is disabled by default. To enable, in the `ama-metrics-settings-configmap`, add the regex for the namespace(s) of the pods with annotations you wish to scrape as the value of the field `podannotationnamespaceregex`.
 
-For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `default`:
+For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `my-namespace`:
 
 ```yaml
 pod-annotation-based-scraping: |-

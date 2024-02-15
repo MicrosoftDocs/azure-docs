@@ -9,7 +9,6 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.custom:
-    - ignite-2022
     - ignite-2023
   ms.topic: landing-page
   author: stempesta # ananyagarg

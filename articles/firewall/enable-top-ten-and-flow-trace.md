@@ -10,7 +10,7 @@ ms.date: 05/12/2023
 ms.author: victorh 
 ---
 
-# Enable Top flows (preview) and Flow trace logs (preview) in Azure Firewall
+# Enable Top flows and Flow trace logs in Azure Firewall
 
 Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
 
@@ -119,9 +119,7 @@ The following additional properties can be added:
 
 ### Enable the log
 
-Enable the log using the following Azure PowerShell commands or navigate to the Preview features in the portal and search for **Enable TCP Connection Logging**:
-
-:::image type="content" source="media/enable-top-ten-and-flow-trace/preview-features.png" alt-text="Screenshot showing Azure portal preview features.":::
+Enable the log using the following Azure PowerShell commands or navigate in the portal and search for **Enable TCP Connection Logging**:
 
 ```azurepowershell
 Connect-AzAccount 

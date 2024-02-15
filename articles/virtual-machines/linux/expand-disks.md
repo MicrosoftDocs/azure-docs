@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.author: pagienge
-ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli, linux-related-content
+ms.custom: references_regions, devx-track-azurecli, linux-related-content
 ---
 
 # Expand virtual hard disks on a Linux VM

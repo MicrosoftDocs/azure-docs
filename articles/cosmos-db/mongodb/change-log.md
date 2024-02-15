@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 03/28/2023
-ms.custom: ignite-2022
 ---
 
 # Change log for Azure Cosmos DB for MongoDB

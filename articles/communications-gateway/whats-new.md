@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 01/31/2024
+ms.date: 02/01/2024
 ---
 
 # What's new in Azure Communications Gateway?
@@ -29,6 +29,10 @@ You can use either Azure Communications Gateway's [Provisioning API (preview)](p
 ### Custom headers for Teams Phone Mobile calls
 
 From February 2024, you can use the Provisioning API (preview) to set a custom header on Teams Phone Mobile calls. This enhancement extends the function introduced in [November 2023](#custom-header-on-messages-to-operator-networks) for configuring a custom header for Operator Connect, Microsoft Teams Direct Routing, and Zoom Phone Cloud Peering.
+
+### Connectivity metrics
+
+From February 2024, you can monitor the health of the connection between your network and Azure Communications Gateway with new metrics for responses to SIP INVITE and OPTIONS exchanges. You can view statistics for all INVITE and OPTIONS requests, or narrow your view down to individual regions, request types or response codes. For more information on the available metrics, see [Connectivity metrics](monitoring-azure-communications-gateway-data-reference.md#connectivity-metrics). For an overview of working with metrics, see [Analyzing, filtering and splitting metrics in Azure Monitor](monitor-azure-communications-gateway.md#analyzing-filtering-and-splitting-metrics-in-azure-monitor).
 
 ## November 2023
 

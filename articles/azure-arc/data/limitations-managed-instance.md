@@ -4,7 +4,6 @@ description: Limitations of SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
 author: AbdullahMSFT
 ms.author: amamun
 ms.reviewer: mikeray

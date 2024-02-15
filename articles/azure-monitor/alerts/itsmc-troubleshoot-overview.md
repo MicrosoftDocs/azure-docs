@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot problems in ITSMC 
 description: Learn how to resolve common problems in IT Service Management Connector.  
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
+
 # Troubleshoot problems in IT Service Management Connector
 
 This article discusses common problems in IT Service Management Connector (ITSMC) and how to troubleshoot them.

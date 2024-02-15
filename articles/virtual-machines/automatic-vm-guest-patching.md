@@ -4,7 +4,6 @@ description: Learn how to automatically patch virtual machines in Azure.
 author: maulikshah23
 ms.service: virtual-machines
 ms.subservice: maintenance
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: maulikshah
@@ -12,6 +11,9 @@ ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
 # Automatic VM guest patching for Azure VMs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 

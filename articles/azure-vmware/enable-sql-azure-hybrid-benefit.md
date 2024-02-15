@@ -24,7 +24,7 @@ For example, if each host in Azure VMware Solution has 36 cores and you intend t
 
 Users can configure the VM-Host placement policy to enable Azure Hybrid Benefit for SQL Server through the Azure Portal or Azure CLI. 
 
-To enable through the Azure CLI, reference [az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host?view=azure-cli-latest).
+To enable through the Azure CLI, reference [az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host).
 
 For the Azure Portal step-by-step see below: 
 
@@ -56,5 +56,5 @@ By checking the Azure Hybrid Benefit checkbox in the configuration setting, you 
 
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
-[az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host?view=azure-cli-latest)
+[az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host)
 

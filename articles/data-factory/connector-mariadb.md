@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/07/2024
 ms.author: jianleishen
 ---
 
@@ -288,11 +288,11 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MariaDB driver version: 
 
-1. Create a new MariaDB linked service and configure it by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
+1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
 1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
 
-1. More MariaDB versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
+1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
 ## Related content
 

@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Sentiment analysis with Azure AI services

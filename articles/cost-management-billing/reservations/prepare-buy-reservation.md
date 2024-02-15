@@ -6,7 +6,6 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom:
-  - ignite-2022
   - ignite-2023
 ms.topic: how-to
 ms.date: 10/31/2023

@@ -6,7 +6,6 @@ description: Extract text from in-the-wild and non-document images with a fast a
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/04/2023
 ms.author: pafarley

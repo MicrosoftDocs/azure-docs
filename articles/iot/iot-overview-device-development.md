@@ -112,8 +112,8 @@ As a device developer, when you implement an IoT Plug and Play device there are 
 
 To learn more, see:
 
-- [What is IoT Plug and Play?](../iot-develop/overview-iot-plug-and-play.md)
-- [IoT Plug and Play modeling guide](../iot-develop/concepts-modeling-guide.md)
+- [What is IoT Plug and Play?](../iot/overview-iot-plug-and-play.md)
+- [IoT Plug and Play modeling guide](../iot/concepts-modeling-guide.md)
 
 ## Containerized device code
 

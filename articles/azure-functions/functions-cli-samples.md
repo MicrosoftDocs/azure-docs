@@ -5,7 +5,7 @@ description: Find links to bash scripts for Azure Functions that use the Azure C
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 09/17/2021
-ms.custom: mvc, devx-track-azurecli, seo-azure-cli, ignite-2022
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
 keywords: functions, azure cli samples, azure cli examples, azure cli code samples
 ---
 
