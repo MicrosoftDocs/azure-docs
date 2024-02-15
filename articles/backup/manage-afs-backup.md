@@ -54,7 +54,7 @@ To create a new backup policy, follow these steps:
 
 1. Select the appropriate backup tier based on your data protection requirements.
 
-   - 1.**Snapshot**:  Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletion.
+   - **Snapshot**:  Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletion.
    - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
 1. In **Backup schedule**,  select an appropriate frequency for the backups - **Daily** or **Hourly**.

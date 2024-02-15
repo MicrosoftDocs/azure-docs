@@ -54,7 +54,7 @@ To configure backup for multiple file shares from the Backup center, follow thes
    >[!NOTE]
    >If a storage account is present in a different region than the vault, it won't be present in the list of discovered storage accounts.
 
-1. The next step is to select the file shares you want to back up. Select the **Add** button in the **FileShares to Backup** section.
+1. The next step is to select the file shares you want to back up. Select **Add** under the **FileShares to Backup** section.
 
    :::image type="content" source="./media/backup-afs/azure-select-file-share-inline.png" alt-text="Screenshot showing to select the file shares to back up." lightbox="./media/backup-afs/azure-select-file-share-expanded.png":::
 
@@ -64,7 +64,7 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
 1. Under **Policy Details**, choose an existing *backup policy* from the list for your file share protection or [create a new policy.
 
-   To create a new backup policy, You can configure the following attributes in the backup policy:
+   To create a new backup policy, you can configure the following attributes in the backup policy:
 
    1. On the **Configure Backup** page, select **Create** under **Policy Details**.
 
@@ -77,7 +77,7 @@ To configure backup for multiple file shares from the Backup center, follow thes
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
       - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *6 backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day are transferred to the vault.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *retention* duration that determines the expiry date of the recovery points.
 
@@ -137,7 +137,7 @@ The following steps explain how you can configure backup for individual file sha
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
       - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *6 backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day are transferred to the vault.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *retention* duration that determines the expiry date of the recovery points.
 
