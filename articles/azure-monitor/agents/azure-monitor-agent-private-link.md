@@ -36,9 +36,6 @@ By default, Azure Monitor Agent connects to a public endpoint to connect to your
     :::image type="content" source="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows configuring data collection endpoints for an agent." border="false":::
 
 
-
-
 ## Next steps
 
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
-- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).
+- Learn more about [Best practices for monitoring virtual machines in Azure Monitor](../best-practices-vm.md).
