@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Files vaulted backup (preview)
+            url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Cross Region Restore for Azure PostgreSQL Database
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
