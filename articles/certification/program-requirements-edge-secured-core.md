@@ -36,7 +36,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
 |Dependencies|Trusted Platform Module (TPM) v2.0 device|
 
 ---
@@ -67,7 +67,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|UEFI Secure Boot must be enabled.|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retains integrity.|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
 |Dependencies|UEFI|
 
 ---
@@ -77,7 +77,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
-|Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Microsoft Azure Attestation service|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
@@ -217,7 +217,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
 |Dependencies|Trusted Platform Module (TPM) v2.0 </br><sup>or *other supported method</sup>|
 
 ---
@@ -249,7 +249,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|Either:<ul><li>UEFI: Secure boot must be enabled</li><li>Uboot: Verified boot must be enabled</li></ul>|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority  and retains integrity.|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
 
 ---
 </br>
@@ -258,7 +258,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
-|Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Trusted Platform Module (TPM) 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
@@ -427,7 +427,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor.</li></ul>|
 
 ---
@@ -457,7 +457,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must be authenticated.|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retains integrity.|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed authenticated boot chain.</li></ul>|
 
 ---
@@ -467,7 +467,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to a Microsoft Azure Attestation (MAA) service.|
-|Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Device Authentication and Attestation (DAA) as part of the Azure Sphere Security Service (AS3).</li></ul>|
 
 ---
