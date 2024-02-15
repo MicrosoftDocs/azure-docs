@@ -13,7 +13,7 @@ ms.service: certification
 > _Note: As of February 2024, the Azure Certified Device program has been retired. This page has been updated as a new home for the Edge Secured-core program._
 
 ## What is the Edge Secured-core program? ##
-Edge Secured-Core is Microsoft's recommended standard for highly secured embedded devices. Such devices must include hardware security features (secure by design), must be shipped in a secured state (secure by default), and must be able to connect to services that enable that security to be monitored and maintained (e.g. through software updates) for the lifetime of the device. 
+Edge Secured-Core is Microsoft's recommended standard for highly secured embedded devices. Such devices must include hardware security features, must be shipped in a secured state, and must be able to connect to services that enable that security monitoring and maintenance for the lifetime of the device. 
 
 ## Program purpose ##
 Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports Windows IoT and Azure Sphere OS. Linux support is coming in the future. Devices meeting this criteria enable these promises:
@@ -29,12 +29,12 @@ Edge Secured-core is a security certification for devices running a full operati
 
 The Edge Secured-core program serves two different audiences.
 
-1. **Device builders**: Do you build Edge devices? Easily differentiate your Edge device capabilities by certifying your device to show that it meets specific security requirements.
-1.  **Solution builders**: Wondering what are security-capable Edge devices? Confidently purchase Edge devices from Device builders, knowing they meet specific security requirements. Check out the list of current Device builders that have certified [Edge Secured-core devices](edge-secured-core-devices.md).
+1. **Device builders**: Do you build Edge devices? Easily differentiate your Edge device capabilities by certifying your device, showing that it meets specific security requirements.
+1.  **Solution builders**: Wondering what are security-capable Edge devices? Confidently purchase Edge devices from Device builders, knowing they meet specific security requirements. Check out the list of current Device builders with certified [Edge Secured-core devices](edge-secured-core-devices.md).
 
 ## Next steps
 
-Ready to get started with your certification journey? View our resources below to start the device certification process!
+Ready to get started with your certification journey? View our resources to start the device certification process!
 
 - [Edge Secured-core program requirements](program-requirements-edge-secured-core.md)
 - [Starting the certification process](edge-secured-core-get-certified.md)
