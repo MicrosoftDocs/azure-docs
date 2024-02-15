@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI on your Azure Search data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI on your data Python & REST API.
+description: Learn how to use Azure OpenAI on your Azure Search data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -40,7 +40,7 @@ The configurable options of Azure AI Search when using Azure OpenAI on your data
 
 ## API key authentication options
 
-The authentication options for Azure OpenAI On Your Data when using an API key.
+The authentication options for Azure OpenAI on your data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -49,7 +49,7 @@ The authentication options for Azure OpenAI On Your Data when using an API key.
 
 ## System assigned managed identity authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
+The authentication options for Azure OpenAI on your data when using a system-assigned managed identity.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -57,7 +57,7 @@ The authentication options for Azure OpenAI On Your Data when using a system-ass
 
 ## User assigned managed identity authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
+The authentication options for Azure OpenAI on your data when using a user-assigned managed identity.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -66,7 +66,7 @@ The authentication options for Azure OpenAI On Your Data when using a user-assig
 
 ## Deployment name vectorization source
 
-The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
+The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -75,11 +75,11 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 
 ## Endpoint vectorization source
 
-The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
+The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings. The api-version query parameter isn't allowed.|
+| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of `https://{YOUR_RESOURCE_NAME}.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings`. The api-version query parameter isn't allowed.|
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
 
@@ -113,7 +113,7 @@ The type of Azure Search retrieval query that should be executed when using it a
 Prerequisites:
 * Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
-* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
+* Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
 
 # [Python 1.x](#tab/python)

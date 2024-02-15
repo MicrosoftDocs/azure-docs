@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI on your Azure Cosmos DB data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI on your data Python & REST API.
+description: Learn how to use Azure OpenAI on your Azure Cosmos DB data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -62,9 +62,18 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings. The api-version query parameter is not allowed.|
+| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of `https://{YOUR_RESOURCE_NAME}.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings`. The api-version query parameter isn't allowed.|
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
+
+## API key authentication options
+
+The authentication options for Azure OpenAI on your data when using an API key.
+
+|Name | Type | Required | Description |
+|--- | --- | --- | --- |
+| `key`|string|True|The API key to use for authentication.|
+| `type`|string|True| Must be `api_key`.|
 
 ## Fields mapping options
 
@@ -83,7 +92,7 @@ The settings to control how fields are processed.
 
 Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
-* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
+* Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`ConnectionString`, `Database`, `Container`, `Index`, `EmbeddingDeploymentName`.
 
 # [Python 1.x](#tab/python)

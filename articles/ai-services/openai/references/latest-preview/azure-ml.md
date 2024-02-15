@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI on your Azure Machine Learning index data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI on your data Python & REST API.
+description: Learn how to use Azure OpenAI on your Azure Machine Learning index data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -67,7 +67,7 @@ The authentication options for Azure OpenAI on your data when using a user-assig
 Prerequisites:
 * Configure the role assignments from Azure OpenAI system assigned managed identity to Azure Machine Learning workspace resource. Required role: `AzureML Data Scientist`.
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
-* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
+* Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
 * Run `export MSYS_NO_PATHCONV=1` if you are using MINGW.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI on your Pinecone data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI on your data Python & REST API.
+description: Learn how to use Azure OpenAI on your Pinecone data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -54,15 +54,6 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 | `deployment_name`|string|True|The embedding model deployment name within the same Azure OpenAI resource. |
 | `type`|string|True| Must be `deployment_name`.|
 
-## Endpoint vectorization source
-
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
-
-|Name | Type | Required | Description |
-|--- | --- | --- | --- |
-| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings. The api-version query parameter is not allowed.|
-| `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
-| `type`|string|True| Must be `endpoint`.|
 
 ## Fields mapping options
 
@@ -80,7 +71,7 @@ The settings to control how fields are processed.
 
 Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
-* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
+* Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`Environment`, `IndexName`, `Key`, `EmbeddingDeploymentName`.
 
 # [Python 1.x](#tab/python)
