@@ -38,9 +38,7 @@ landingContent:
             url: container-registry-get-started-geo-replication-template.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
-    - linkListType: concept
-      links:
-          - text: Service tiers
+          - text: Azure Container Registry service tiers
             url: container-registry-skus.md
     - linkListType: learn 
       links:
@@ -78,6 +76,41 @@ landingContent:
           - text: Best practices
             url: container-registry-best-practices.md
   # Card   
+  - title: What's new
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Artifact Streaming
+            url: container-registry-artifact-streaming.md
+          - text: Soft delete policy
+            url: container-registry-soft-delete-policy.md
+  # Card (optional) 
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Geo-replication
+            url: container-registry-tutorial-prepare-registry.md
+          - text: Artifact Cache
+            url: tutorial-artifact-cache.md
+  # Card
+  - title: ACR Tasks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About ACR Tasks
+            url: container-registry-tasks-overview.md
+          - text: Multi-step tasks
+            url: container-registry-tasks-multi-step.md
+      - linkListType: quickstart
+        links:
+          - text: Build image in the cloud - CLI
+            url: container-registry-quickstart-task-cli.md
+      - linkListType: tutorial
+        links:
+          - text: Automate image builds     
+            url: container-registry-tutorial-quick-task.md
+  # Card   
   - title: Troubleshoot guides
     linkLists:
       - linkListType: how-to-guide
@@ -90,10 +123,19 @@ landingContent:
             url: container-registry-troubleshoot-performance.md
           - text: Detect common issues
             url: container-registry-check-health.md
+  # Card
+  - title: reference
+    linkLists:
+      - linkListType: reference
+        links:
           - text: ACR Technical Support policies
             url: container-registry-check-health.md
           - text: FAQ
             url: container-registry-faq.yml
+          - text: Azure Policy built-in
+            url: policy-reference.md
+          - text: Deprecated APIs
+            url: container-registry-api-deprecation.md
   # Card (optional)
   - title: ACR Tasks
     linkLists:
@@ -111,15 +153,7 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Geo-replication
-            url: container-registry-tutorial-prepare-registry.md
-          - text: Artifact Cache
-            url: tutorial-artifact-cache.md
-
+  # Card (optional)    
   - title: Security
     linkLists:
       - linkListType: how-to-guide
@@ -128,10 +162,7 @@ landingContent:
             url: container-registry-oras-artifacts.md
           - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
             url: container-registry-tutorial-sign-build-push.md
-  # Card   
-  - title: What's new
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Artifact Streaming
-            url: container-registry-artifact-streaming.md
+          - text: Connect to ACR with Azure Private Link
+            url: container-registry-private-link.md
+          - text: Configure conditional access for ACR
+            url: container-registry-configure-conditional-access.md
