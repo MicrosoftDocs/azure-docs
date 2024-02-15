@@ -46,19 +46,21 @@ For a list of all Azure Monitor supported metrics, including Azure Cosmos DB, se
 ### Supported metrics for Microsoft.DocumentDB/DatabaseAccounts
 The following table lists the metrics available for the Microsoft.DocumentDB/DatabaseAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-databaseaccounts-metrics-include.md)]
+[!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-databaseaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/cassandraClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/cassandraClusters resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-cassandraclusters-metrics-include.md)]
+[!INCLUDE [Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-cassandraclusters-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/mongoClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/mongoClusters resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-mongoclusters-metrics-include.md)]
+[!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-mongoclusters-metrics-include.md)]
 
-### Request metrics
+### Metrics by category
+
+#### Request metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type) |Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -66,7 +68,7 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 | MetadataRequests (Metadata Requests) |Count (Count) | Count of Azure Resource Manager metadata requests. Metadata has request limits. See [Control Plane Limits](concepts-limits.md#control-plane) for more information. | DatabaseName, CollectionName, Region, StatusCode| All | | Used to monitor metadata requests in scenarios where requests are being throttled. See [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests) for more information. |
 | MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
 
-### Request Unit metrics
+#### Request Unit metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -76,7 +78,7 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 | AutoscaleMaxThroughput (Autoscale Max Throughput)| Count (Maximum) |Autoscale max throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor autoscale max throughput per container.|
 | PhysicalPartitionThroughputInfo (Physical Partition Throughput Info)| Count (Maximum) |Provisioned throughput at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M| | Used to monitor provisioned throughput per physical partition. If resource is autoscale, represents autoscale max RU/s per physical partition. To see provisioned throughput for all physical partitions, split by dimension Physical Partition Id.|
 
-### Storage metrics
+#### Storage metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -87,20 +89,20 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 | DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
 | PhysicalPartitionSizeInfo (Physical Partition Size Info) | Count (Maximum) | Storage at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M | |Used to monitor physical partition size (bytes) at physical partition granularity. To see storage for all physical partitions, split by dimension Physical Partition Id.|
 
-### Latency metrics
+#### Latency metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 | Server Side Latency| MilliSeconds (Average) | Time taken by the server to process the request. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region |	All	| Used to monitor the request latency on the Azure Cosmos DB server. |
 
-### Availability metrics
+#### Availability metrics
 
 |Metric (Metric Display Name) |Unit (Aggregation Type)|Description| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---|
 | ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
-### API for Cassandra metrics
+#### API for Cassandra metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
@@ -129,7 +131,7 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 ### Supported resource logs for Microsoft.DocumentDB/cassandraClusters
 [!INCLUDE [Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-cassandraclusters-logs-include.md)]
 
-### Supported resource logs for Microsoft.DocumentDB/DatabaseAccounts
+### Supported resource logs for Microsoft.DocumentDB/mongoClusters
 [!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-mongoclusters-logs-include.md)]
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
@@ -149,11 +151,12 @@ Microsoft.DocumentDb/databaseAccounts
 - [CDBControlPlaneRequests](/azure/azure-monitor/reference/tables/CDBControlPlaneRequests#columns)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
-  Logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.DOCUMENTDB`.
-  
-## Azure CosmosDB resource logs properties
 
-The following table lists the properties of resource logs in Azure Cosmos DB. The resource logs are collected into Azure Monitor Logs or Azure Storage.
+  Logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.DOCUMENTDB`.
+
+### Azure CosmosDB resource logs properties
+
+The following table lists properties of resource logs in Azure Cosmos DB. The resource logs are collected into Azure Monitor Logs or Azure Storage.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
 | --- | --- | --- |

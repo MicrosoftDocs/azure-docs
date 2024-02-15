@@ -44,7 +44,10 @@ At a minimum your service should have the following two articles:
 
 Azure Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview). Use Azure Cosmos DB insights for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience.
 
-For more information about Azure Cosmos DB insights, see [Azure Cosmos DB insights](insights-overview.md) and [Scenarios to monitor](use-metrics.md).
+For more information about Azure Cosmos DB insights, see the following articles:
+
+- [Explore Azure Cosmos DB insights](insights-overview.md)
+- [Monitor and debug with insights in Azure Cosmos DB](use-metrics.md).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -78,9 +81,8 @@ Custom imported service-specific information. Add service-specific information a
 
 <!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information.-->
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
-For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](monitoring-solutions.md).
-
-To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md).
+- For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](monitoring-solutions.md).
+- To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md).
 
 <!-- METRICS SECTION END ------------------------------------->
 
@@ -165,14 +167,13 @@ For the types of resource logs collected for Azure Cosmos DB, see [Azure Cosmos 
 See the following articles for more information about working with Azure Monitor Logs for Azure Cosmos DB:
 
 - [Monitor data by using Azure Diagnostic settings](monitor-resource-logs.md)
-[Audit control plane logs](audit-control-plane-logs.md)
-[Add a transformation for workspace data](tutorial-log-transformation.md)
-[Use Micrometer client metrics for Java](client-metrics-java.md)
+- [Audit control plane logs](audit-control-plane-logs.md)
+- [Add a transformation for workspace data](tutorial-log-transformation.md)
 
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in a [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you selected when you enabled diagnostics logs.
+Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in a [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you select.
 
 Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos DB resources. 
 
@@ -297,7 +298,8 @@ The following table lists some common and recommended alert rules for Azure Cosm
 |Region failed over |Operator: *Greater than*, Aggregation type: *Count*, Threshold value: 1 | When a single region is failed over. This alert is helpful if you didn't enable service-managed failover. |
 |Rotate keys (activity log alert)| Event level: *Informational*, *Status*: started| Alerts when the account keys are rotated. You can update your application with the new keys. |
 
-For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md). To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
+- For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md).
+- To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
