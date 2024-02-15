@@ -46,7 +46,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|All Direct Memory Access(DMA) enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
-|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
 |Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
@@ -56,7 +56,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must support Dynamic Root of Trust for Measurement (DRTM) alongside UEFI Management Mode mitigations.|
-|Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies|DRTM + UEFI|
 |Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
 
@@ -150,8 +150,8 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
 |Status|Required|
-|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
-|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
 
 
 
@@ -161,7 +161,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that software and hardware protections can not be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -188,7 +188,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
-|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
 |Resources|https://msrc.microsoft.com/report/vulnerability/new|
 
 ---
@@ -227,7 +227,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
-|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
 |Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
@@ -238,7 +238,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must support either: <ul><li>Approved firmware with SRTM support + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
-|Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies||
 |Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
@@ -323,7 +323,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g. Ansible) by operators are not prohibited, but the device must include the azure-osconfig agent for Azure management.|
+|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g. Ansible) by operators aren't prohibited, but the device must include the azure-osconfig agent for Azure management.|
 |Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
 |Dependency|azure-osconfig|
 
@@ -342,8 +342,8 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Name|SecuredCore.UpdateResiliency|
 |:---|:---|
 |Status|Required|
-|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
-|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
 
 ---
 </br>
@@ -361,7 +361,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|Updates to the operating system, drivers, application software, libraries, packages and firmware must be signed.|
+|Description|Updates to the operating system, drivers, application software, libraries, packages, and firmware must be signed.|
 |Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
 
 
@@ -371,7 +371,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that softwareand hardware protections can not be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -398,7 +398,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |:---|:---|
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
-|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
 
 ---
 </br>
@@ -437,7 +437,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |:---|:---|
 |Status|Required|
 |Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
-|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A securely configurable peripheral firewall.</li></ul>|
 
 ---
@@ -447,7 +447,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must protect against firmware security threats.|
-|Purpose|Protects against firmware weaknesses, persistent untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Purpose|Protects against firmware weaknesses, persistent untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed, hardened, and approved authenticated boot chain.</li></ul>|
 
 ---
@@ -528,7 +528,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |:---|:---|
 |Status|Required|
 |Description|Applications can't connect to endpoints that haven't been authorized.|
-|Purpose|Limits the exploitability of compromised or malicious applications, in particular with regards to upstream network traffic and remote access/control.|
+|Purpose|Limits the exploitability of compromised or malicious applications for upstream network traffic and remote access/control.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A securely configurable network firewall with wildcard restrictions and Device Authentication and Attestation (DAA) certificates.</li></ul>|
 
 ## Azure Sphere Software/Service Requirements
@@ -538,7 +538,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor, remote crash-dump support via Azure Watson, and customer-samples for in-appplication logging via Azure services.</li></ul>|
+|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor, remote crash-dump support via Azure Watson, and customer-samples for in-application logging via Azure services.</li></ul>|
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
@@ -549,7 +549,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device must support auditing and setting of system configuration (and certain management actions) through Azure.|
 |Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A secure customer application configuration manifest, underpinned by a Microsoft-managed and hardened OS.</li></ul>|
+|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A secure customer application configuration manifest, underpinned by a Microsoft-managed, and hardened OS.</li></ul>|
 
 ---
 </br>
@@ -577,8 +577,8 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
 |Status|Required|
-|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
-|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A golden-image mechanism.</li></ul>|
 
 ---
@@ -587,7 +587,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|Updates to the operating system, drivers, application software, libraries, packages and firmware must be signed.|
+|Description|Updates to the operating system, drivers, application software, libraries, packages, and firmware must be signed.|
 |Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: All images are signed.</li></ul>|
 
@@ -598,7 +598,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
 |Purpose|Ensures that the software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Debug locked-down for production state devices and further restricted through the authenticated 'capabilities' mechanism.</li></ul>|
+|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Debug locked-down for production state devices and further restricted through the authenticated capabilities mechanism.</li></ul>|
 
 ---
 </br>
@@ -608,7 +608,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|It must be possible to reset the device (remove user data, remove user configs).|
 |Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Remote update of the application and automatic erasure of MutableStorage when the 'compontent id' is modified (indicating a new application).</li></ul>|
+|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Remote update of the application and automatic erasure of MutableStorage when the 'component id' is modified (indicating a new application).</li></ul>|
 
 ---
 </br>
@@ -627,7 +627,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |:---|:---|
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
-|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
 |Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Vulnerabilities are collected by Microsoft through Microsoft Security Response Center (MSRC) and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.</li></ul>|
 |Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
 
