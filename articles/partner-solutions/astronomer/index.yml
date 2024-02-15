@@ -36,5 +36,24 @@ landingContent:
         links:
           - text: Troubleshooting Apache Airflow on Astro 
             url: astronomer-troubleshoot.md
+  #Card
+  - title: SDKs and command-lines
+    linkLists:
+      - linkListType: reference 
+        links:
+#          - text: Python
+#            url: /python/api/overview/azure/qumulo
+#          - text: JavaScript
+#            url: /javascript/api/overview/azure/qumulo
+#          - text: .NET
+#            url: /dotnet/api/overview/azure/qumulo
+#          - text: Java
+#            url: /java/api/overview/azure/qumulo
+#          - text: CLI
+#            url: /cli/azure/service-page/qumulo
+#          - text: Azure PowerShell
+#            url: /powershell/module/az.qumulo
+           - text: Apache Airflow on Astro developer tools 
+             url: astronomer-tools.md
 
   

@@ -12,7 +12,7 @@ In this article, you learn about the key capabilities of Apache Airflow on Astro
 
 ## Developer tools
 
-QumApache Airflow on Astro offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management.
+Apache Airflow on Astro offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management.
 
 Key links to get started:
 
