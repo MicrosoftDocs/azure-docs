@@ -82,7 +82,7 @@ When you enable VM Insights for a machine, the following agents are installed.
 
 
 - **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
-- **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM Insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
+- **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM Insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor Agent or Log Analytics agent to deliver its data to Azure Monitor. If you use Azure Monitor Agent, the Dependency agent is required for the Map feature. If you don't need the map feature, you don't need to install the Dependency agent.
 
 ### Network requirements
 
