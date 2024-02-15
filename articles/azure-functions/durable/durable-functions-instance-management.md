@@ -716,7 +716,7 @@ public static async Task Run(
     await client.SuspendAsync(instanceId, suspendReason);
     
     // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches to the suspended state.
+    // Resume the instance after it reaches the Suspended state.
     
     string resumeReason = "Continue workflow";
     await client.ResumeAsync(instanceId, resumeReason);
@@ -735,7 +735,7 @@ module.exports = async function(context, instanceId) {
     await client.suspend(instanceId, suspendReason);
 
     // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches to the suspended state.
+    // Resume the instance after it reaches the Suspended state.
 
     const resumeReason = "Continue workflow";
     await client.resume(instanceId, resumeReason);
@@ -756,7 +756,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
     await client.suspend(instance_id, suspend_reason)
 
     # Instance status will not be updated to Suspended immediately.
-    # Resume the instance after it reaches to the suspended state.
+    # Resume the instance after it reaches the Suspended state.
 
     resume_reason = "Continue workflow"
     await client.resume(instance_id, resume_reason)
@@ -773,14 +773,14 @@ $SuspendReason = 'Need to pause workflow'
 Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 
 # Instance status will not be updated to Suspended immediately.
-# Resume the instance after it reaches to the suspended state.
+# Resume the instance after it reaches the Suspended state.
 
 $ResumeReason = 'Continue workflow'
 Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
 
 > [!NOTE]
-> This change applies to [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
+> This change applies only to the standlone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK), which is currently [in preview](durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
@@ -795,7 +795,7 @@ public void suspendResumeInstance(
     client.suspendInstance(instanceID, suspendReason);
 
     // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches to the suspended state.
+    // Resume the instance after it reaches the Suspended state.
 
     String resumeReason = "Continue workflow";
     client.getClient().resumeInstance(instanceID, resumeReason);
