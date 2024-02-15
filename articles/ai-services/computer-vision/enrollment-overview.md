@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: best-practice
-ms.date: 09/27/2021
+ms.date: 02/14/2024
 ms.author: pafarley
 ---
 
 # Best practices for adding users to a Face service
 
-In order to use the Azure AI Face API for face verification or identification, you need to enroll faces into a **LargePersonGroup** or similar data structure. This deep-dive demonstrates best practices for gathering meaningful consent from users and example logic to create high-quality enrollments that will optimize recognition accuracy. 
+In order to use the Azure AI Face API for face verification or identification, you need to enroll faces into a **LargePersonGroup** or similar [data structure](/azure/ai-services/computer-vision/concept-face-recognition-data-structures). This deep-dive demonstrates best practices for gathering meaningful consent from users and example logic to create high-quality enrollments that will optimize recognition accuracy. 
 
 ## Meaningful consent 
 
@@ -29,7 +29,7 @@ Based on Microsoft user research, Microsoft's Responsible AI principles, and [ex
 
 This section offers guidance for developing an enrollment application for facial recognition. This guidance has been developed based on Microsoft user research in the context of enrolling individuals in facial recognition for building entry. Therefore, these recommendations might not apply to all facial recognition solutions. Responsible use for Face API depends strongly on the specific context in which it's integrated, so the prioritization and application of these recommendations should be adapted to your scenario. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > It is your responsibility to align your enrollment application with applicable legal requirements in your jurisdiction and accurately reflect all of your data collection and processing practices.
 
 ## Application development 
