@@ -17,11 +17,11 @@ This quickstart assumes that you already have a pre-existing instance of Azure S
 
     ![Install Striim][install]
 
-1. Configure the Striim VM with specified properties, noting down the Striim cluster name, password, and admin password.
+1. Configure the Striim Azure Virtual Machine (VM) with specified properties, noting down the Striim cluster name, password, and admin password.
 
     ![Configure Striim][configure]
 
-1. Once deployed, select  `<VM Name>-masternode` in the Azure portal, select **Connect**, and copy the Login using VM local account. 
+1. Once deployed, select  `<VM Name>-masternode` in the Azure portal, select **Connect**, and copy the sign in using VM local account. 
 
     ![Connect Striim to Azure Synapse Analytics][connect]
 
@@ -51,7 +51,7 @@ This quickstart assumes that you already have a pre-existing instance of Azure S
 
     ![Navigate to the login screen][navigate]
 
-1. Log in with the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI.
+1. Sign in with the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI.
 
     ![Log in with server credentials][login]
 
