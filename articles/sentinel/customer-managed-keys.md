@@ -62,7 +62,7 @@ To provision CMK, follow these steps:
 1.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create).
 1.  Contact the Microsoft Sentinel Product group to confirm onboarding.
 
-### Step 1: CMK log analytics workspace
+### Step 1: Configure CMK on a Log Analytics workspace on a dedicated cluster
 
 As mentioned in the [prerequisites](#prerequisites), to onboard a Log Analytics workspace with CMK to Microsoft Sentinel, this workspace must first be linked to a dedicated Log Analytics cluster on which CMK is enabled.
 Sentinel will use the same key which is used by the dedicated cluster.
