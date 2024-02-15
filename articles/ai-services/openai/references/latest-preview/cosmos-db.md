@@ -94,8 +94,19 @@ Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`,`ConnectionString`, `Database`, `Container`, `Index`, `EmbeddingDeploymentName`.
+```bash
+export AzureOpenAIEndpoint=https://example.openai.azure.com/
+export ChatCompletionsDeploymentName=turbo
+export ConnectionString='mongodb+srv://username:***@example.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'
+export Database=testdb
+export Container=testcontainer
+export Index=testindex
+export EmbeddingDeploymentName=ada
+```
 
 # [Python 1.x](#tab/python)
+
+Install the latest pip packages `openai`, `azure-identity`.
 
 ```python
 

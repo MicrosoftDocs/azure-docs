@@ -70,8 +70,17 @@ Prerequisites:
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
 * Run `export MSYS_NO_PATHCONV=1` if you're using MINGW.
+```bash
+export AzureOpenAIEndpoint=https://example.openai.azure.com/
+export ChatCompletionsDeploymentName=turbo
+export ProjectResourceId='/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-id}'
+export IndexName=testamlindex
+export IndexVersion=2
+```
 
 # [Python 1.x](#tab/python)
+
+Install the latest pip packages `openai`, `azure-identity`.
 
 ```python
 import os

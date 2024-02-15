@@ -120,8 +120,17 @@ Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`, `SearchEndpoint`, `IndexName`, `Key`, `KeyId`.
-
+```bash
+export AzureOpenAIEndpoint=https://example.openai.azure.com/
+export ChatCompletionsDeploymentName=turbo
+export SearchEndpoint='https://example.eastus.azurecontainer.io:443'
+export IndexName=testindex
+export Key='***'
+export KeyId='***'
+```
 # [Python 1.x](#tab/python)
+
+Install the latest pip packages `openai`, `azure-identity`.
 
 ```python
 import os
