@@ -36,9 +36,6 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
 | Use the Number Management Portal (preview) for Operator Connect or Teams Phone Mobile. | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
 
-> [!TIP]
-> To allow staff to  manage Requests for information in the Number Management Portal without managing numbers, assign the **NumberManagement.Read**, **TrunkManagement.Read**, and **PartnerSettings.Write** roles.
-
 ## Configure user roles
 
 You need to use the Azure portal to configure user roles.
