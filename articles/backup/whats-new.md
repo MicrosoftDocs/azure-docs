@@ -90,7 +90,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
 
-By using the vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for *99 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and access your data. Additionally, you can use the Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich alerting and reporting capabilities of Azure Backup.
+By using vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for up to *99 years*. If any data loss happens on the source account, you can trigger a restore operation to an alternate account and access your data. Additionally, you can use Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich alerting and reporting capabilities of Azure Backup.
 
 If you're currently using snapshot-based backups, we recommend that you switch to vaulted backups for complete protection from different data loss scenarios. 
 

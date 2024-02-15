@@ -63,7 +63,7 @@ This section shows the backup flow for Azure file share.
 
 6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
-   If you have vaulted backup enabled and snapshot corresponding to the selected recovery point is not found, restore will be triggered by using the backup data in the vault. You can restore the complete file share contents to an alternate location.
+   If you have vaulted backup enabled and the snapshot corresponding to the selected recovery point is not found, restore will be triggered by using the backup data in the vault. You can restore the complete file share contents to an alternate location.
 
 7. If you're using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure file share.
 
