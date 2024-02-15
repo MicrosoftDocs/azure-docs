@@ -69,3 +69,25 @@ Go through the following steps to help plan a Nexus deployment.
 In most cases, capacity planning is an iterative process. Work with your Microsoft account team, which has tooling in order to help make this process more straightforward.
 
 As the demand on the infrastructure increases over time, either due to subscriber growth or workloads being migrated to the platform, the Nexus deployment can be scaled by adding further racks to existing sites, or adding new sites, depending on criteria such as the limitations of any single site (power, space, bandwidth etc.).
+
+### Considering Workload Redundancy Requirements
+
+We advise you to size each workload to accommodate failure of a single server within a rack, failure of an entire rack, and failure of an entire site.
+
+For example, consider a 3 site deployment, with 4 racks in each site, and 12 servers in each rack. Consider a workload that requires 400 nodes across the entire deployment in order to meet the network demand at peak load. If this workload is part of your critical infrastructure, you might not wish to relay on "scaling up" to handle failures at times of peak load. If you want spare capacity ready at all times, you'll have to set aside unused, idle capacity.
+
+If you want to have redundancy against site, rack, and individual server failure, your calculations will look like this:
+
+-   The workload requires a total of 400 nodes across the entire deployment in order to meet the network demand at peak load.
+
+-   400 nodes spread across three sites requires 134 nodes per site (ignoring any fixed-costs). Allowing for failure of one site increases that to 200 nodes per site (so failure of any single site leaves 400 nodes running).
+
+-   200 nodes within a site, spread across four racks, requires 50 nodes per rack without rack-level redundancy. Allowing for failure of one rack increases the requirement to 67 nodes per rack.
+
+-   67 nodes per rack, spread across 12 servers means six nodes per server, with two servers needing seven, to allow for failure of one server within the rack.
+
+Although the initial requirement was for 400 nodes across the deployment, the design actually ends up with 888 nodes. The diagram shows the contribution to the node count per server from each level.
+
+:::image type="content" source="media/nexus-availability-2.png" alt-text="A graph of the number of nodes needed for the workload, and the additional requirements for redundancy.":::
+
+For another workload, you might choose not to "layer" the multiple levels of redundancy, taking the view that designing for concurrent failure of one site, a rack in another site and a server in another rack in that same site is overkill. Ultimately, the optimum design depends on the specific service offered by the workload, and details of the workload itself, in particular its load-balancing functionality. Modeling the service using Markov chains to identify the various error modes, with associated probabilities, would also help determine which errors might realistically occur simultaneously. For example, a workload that is able to apply back-pressure when a given site is suffering from reduced capacity due to a server failure might then be able to redirect traffic to one of the remaining sites which still have full redundancy.
