@@ -30,6 +30,8 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 [![Open in Remote - Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies)
 
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/clone-the-repository.png" alt-text="Screenshot that shows cloning the repository.":::
+
 1. When prompted for a container configuration template, select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu) and accept the default version.
 1. Add the following feature(s):
     1. [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli)
