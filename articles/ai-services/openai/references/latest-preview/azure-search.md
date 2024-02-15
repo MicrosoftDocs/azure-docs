@@ -28,17 +28,17 @@ A specific representation of configurable options for Azure Search when using Az
 | `endpoint` | string | True | The absolute endpoint path for the Azure Search resource to use.|
 | `index_name` | string | True | The name of the index to use in the referenced Azure Search resource.|
 | `authentication`| One of [ApiKeyAuthenticationOptions](#api-key-authentication-options), [SystemAssignedManagedIdentityAuthenticationOptions](#system-assigned-managed-identity-authentication-options), [UserAssignedManagedIdentityAuthenticationOptions](#user-assigned-managed-identity-authentication-options) | True | The authentication method to use when accessing the defined data source. |
-| `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | False | The embedding dependency for vector search. Required if and only if `query_type` is `vector`, `vector_simple_hybrid` or `vector_semantic_hybrid`.|
-| `fields_mapping` | [FieldMappingOptions](#field-mapping-options) | False | Customized field mapping behavior to use when interacting with the search index.|
+| `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | False | The embedding dependency for vector search. Required when `query_type` is `vector`, `vector_simple_hybrid`, or `vector_semantic_hybrid`.|
+| `fields_mapping` | [FieldsMappingOptions](#fields-mapping-options) | False | Customized field mapping behavior to use when interacting with the search index.|
 | `filter`| string | False | Search filter. |
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
 | `query_type` | [QueryType](#query-type) | False | The query type to use with Azure Search. Default is `simple` |
-| `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
-| `semantic_configuration` | string | False | The additional semantic configuration for the query. Required if and only if `query_type` is `semantic` or `vector_semantic_hybrid`.| 
+| `role_information`| string | False | Give the model instructions about how it should behave, and any context it should reference when generating a response. You can describe the assistant's personality, and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
+| `semantic_configuration` | string | False | The semantic configuration for the query. Required if and only if `query_type` is `semantic` or `vector_semantic_hybrid`.| 
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
-## Api Key Authentication Options
+## API key authentication options
 
 The authentication options for Azure OpenAI On Your Data when using an API key.
 
@@ -47,7 +47,7 @@ The authentication options for Azure OpenAI On Your Data when using an API key.
 | `key`|string|True|The API key to use for authentication.|
 | `type`|string|True| Must be `api_key`.|
 
-## System Assigned Managed Identity Authentication Options
+## System assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
 
@@ -55,7 +55,7 @@ The authentication options for Azure OpenAI On Your Data when using a system-ass
 |--- | --- | --- | --- |
 | `type`|string|True| Must be `system_assigned_managed_identity`.|
 
-## User Assigned Managed Identity Authentication Options
+## User assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
 
@@ -64,26 +64,26 @@ The authentication options for Azure OpenAI On Your Data when using a user-assig
 | `managed_identity_resource_id`|string|True|The resource ID of the user-assigned managed identity to use for authentication.|
 | `type`|string|True| Must be `user_assigned_managed_identity`.|
 
-## Deployment Name Vectorization Source
+## Deployment name vectorization source
 
-The details of a a vectorization source, used by Azure OpenAI On Your Data when applying vector search, that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `deployment_name`|string|True|The embedding model deployment name within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.|
+| `deployment_name`|string|True|The embedding model deployment name within the same Azure OpenAI resource. |
 | `type`|string|True| Must be `deployment_name`.|
 
-## Endpoint Vectorization Source
+## Endpoint vectorization source
 
-The details of a a vectorization source, used by Azure OpenAI On Your Data when applying vector search, that is based on a public Azure OpenAI endpoint call for embeddings.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on a public Azure OpenAI endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings. The api-version query parameter is not allowed.|
+| `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings. The api-version query parameter isn't allowed.|
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
 
-## Field Mapping Options
+## Fields mapping options
 
 Optional settings to control how fields are processed when using a configured Azure Search resource.
 
@@ -96,7 +96,7 @@ Optional settings to control how fields are processed when using a configured Az
 | `title_field` | string | False | The name of the index field to use as a title. |
 | `url_field` | string | False | The name of the index field to use as a URL.|
 
-## Query Type
+## Query type
 
 The type of Azure Search retrieval query that should be executed when using it as an Azure OpenAI on your data. Use one of the value below:
 
@@ -110,8 +110,10 @@ The type of Azure Search retrieval query that should be executed when using it a
 
 ## Examples
 
-Before run this example, make sure to:
-* Setup the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+Prerequisites:
+* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+* Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
+* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
 
 # [Python](#tab/python)

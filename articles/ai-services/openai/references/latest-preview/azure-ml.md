@@ -33,7 +33,7 @@ A specific representation of configurable options for Azure Machine Learning ind
 | `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
-| `filter`| string | False | Search filter. Only supported if the Azure Machine Learning index is of type azure search.|
+| `filter`| string | False | Search filter. Only supported if the Azure Machine Learning index is of type Azure Search.|
 
 
 ## Access Token Authentication Options
@@ -63,12 +63,62 @@ The authentication options for Azure OpenAI On Your Data when using a user-assig
 | `type`|string|True| Must be `user_assigned_managed_identity`.|
 
 ## Examples
-Before run this example, make sure to:
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, 
+
+Prerequisites:
+* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure Machine Learning workspace resource. Required role: `AzureML Data Scientist`.
+* Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
+* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
+* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
+* Run `export MSYS_NO_PATHCONV=1` if you are using MINGW.
 
 # [Python](#tab/python)
 
 ```python
+import os
+from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+endpoint = os.environ.get("AOAIEndpoint")
+deployment = os.environ.get("ChatCompletionsDeploymentName")
+project_resource_id = os.environ.get("ProjectResourceId")
+index_name = os.environ.get("IndexName")
+index_version = os.environ.get("IndexVersion")
+
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+
+client = AzureOpenAI(
+    azure_endpoint=endpoint,
+    azure_ad_token_provider=token_provider,
+    api_version="2024-02-15-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "Who is DRI?",
+        },
+    ],
+    extra_body={
+        "data_sources": [
+            {
+                "type": "azure_ml_index",
+                "parameters": {
+                    "project_resource_id": project_resource_id,
+                    "name": index_name,
+                    "version": index_version,
+                    "authentication": {
+                        "type": "system_assigned_managed_identity"
+                    },
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
 
 ```
 
@@ -87,8 +137,8 @@ az rest --method POST \
         "type": "azure_ml_index",
         "parameters": {
           "project_resource_id": "'$ProjectResourceId'",
-          "name": "'$Name'",
-          "version": "'$Version'",
+          "name": "'$IndexName'",
+          "version": "'$IndexVersion'",
           "authentication": {
             "type": "system_assigned_managed_identity"
           },

@@ -81,7 +81,9 @@ Optional settings to control how fields are processed when using a configured Az
 
 ## Examples
 
-Before run this example, make sure to:
+Prerequisites:
+* Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
+* Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`ConnectionString`, `Database`, `Container`, `Index`, `EmbeddingDeploymentName`.
 
 # [Python](#tab/python)
