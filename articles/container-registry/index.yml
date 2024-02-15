@@ -136,23 +136,6 @@ landingContent:
             url: policy-reference.md
           - text: Deprecated APIs
             url: container-registry-api-deprecation.md
-  # Card (optional)
-  - title: ACR Tasks
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About ACR Tasks
-            url: container-registry-tasks-overview.md
-          - text: Multi-step tasks
-            url: container-registry-tasks-multi-step.md
-      - linkListType: quickstart
-        links:
-          - text: Build image in the cloud - CLI
-            url: container-registry-quickstart-task-cli.md
-      - linkListType: tutorial
-        links:
-          - text: Automate image builds     
-            url: container-registry-tutorial-quick-task.md
   # Card (optional)    
   - title: Security
     linkLists:
