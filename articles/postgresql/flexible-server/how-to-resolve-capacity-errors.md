@@ -48,8 +48,21 @@ If you see the following errors, file a support ticket to enable a specific regi
 - `Subscription 'Subscription name' is not allowed to provision in 'region name`
 -  `Subscriptions are restricted from provisioning in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits.`
 
+# Availability Zone 
+
+If you receive following errors please choose a different availability zone. 
+
+- `Availability zone '{ID}' is not available for subscription '{Sub ID}' in this region temporarily due to capacity constraints.`
+- `Multi-Zone HA is not supported in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits'.` 
+`See https://review.learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-request-quota-increase for more details.`
 
 ## SKU Not Available 
+
+If you encounter the following error please choose a different SKU type. Availability of SKUs may differ across regions, either because the specific SKU hasn't been released by Azure compute or due to temporary unavailability caused by capacity constraints.
+
+`Specified SKU is not supported in this region. Please choose a different SKU.`
+
+
 
 
 ## Register with PostgreSQL RP
@@ -93,7 +106,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 ## Additional provisioning issues
 
-If you're still experiencing provisioning issues, please open a **Region** access request under the support topic of SQL Database and specify the DTU or vCores you want to consume on Azure SQL Database or Azure SQL Managed Instance. 
+If you're still experiencing provisioning issues, please open a **Region** access request under the support topic of Azure PostgreSQL Flexible Server and specify the vCores you want to utilize. 
 
 ## Azure Program regions 
 
@@ -101,7 +114,6 @@ Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark,
 
 If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, please consider using an alternate region instead: 
 
-_Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central , UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India._ 
 
 After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
 
