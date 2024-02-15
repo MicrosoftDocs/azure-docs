@@ -6,7 +6,7 @@ ms.date: 02/15/2024
 ---
 
 # Overview of Event Hubs Premium
-The Event Hubs Premium (premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The performance is achieved by providing reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant PaaS environment. 
+The Event Hubs Premium (premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The premium tier provides reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant PaaS environment. 
 
 It replicates events to three replicas, distributed across Azure availability zones where available. All replicas are synchronously flushed to the underlying fast storage before the send operation is reported as completed. Events that aren't read immediately or that need to be re-read later can be retained up to 90 days, transparently held in an availability-zone redundant storage tier. 
 
@@ -39,7 +39,7 @@ The premium tier offers an isolated compute and memory capacity to achieve more 
 It implements a *cluster in cluster* model in its multitenant clusters to provide predictability and performance while retaining all the benefits of a managed multitenant PaaS environment. 
 
 ### Cost savings and scalability
-As the premium tier is a multitenant offering, it can dynamically scale more flexibly and very quickly. Capacity is allocated in processing units (PUs) that allocate isolated pods of CPU/memory inside the cluster. The number of those pods can be scaled up/down per namespace. Therefore, the premium tier is a low-cost option for messaging scenarios with the overall throughput range that is less than 120 MB/s but higher than what you can achieve with the standard tier.  
+As the premium tier is a multitenant offering, it can dynamically scale more flexibly and very quickly. Capacity is allocated in processing units (PUs) that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. Therefore, the premium tier is a low-cost option for messaging scenarios with the overall throughput range that is less than 120 MB/s but higher than what you can achieve with the standard tier.  
 
 ## Encryption of events
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace. For more information, see [Configure customer-managed keys for encrypting Azure Event Hubs data at rest](configure-customer-managed-key.md).
