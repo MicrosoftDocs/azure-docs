@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 02/13/2024
+ms.date: 02/14/2024
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -18,13 +18,24 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |---------|----------------|----------|
 | Public  | 1.2.5112        | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5126       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5248       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5126 (Insider)
+## Updates for version 1.2.5248 (Insider)
+
+*Date published: February 13, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
+- Fixed an issue where resizing the Teams video call window caused the client to temporarily stop responding.
+- Fixed an issue that made Teams calls echo after expanding a two-person call to meeting call.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5126
 
 *Published: January 24, 2024*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 In this release, we've made the following changes:
 

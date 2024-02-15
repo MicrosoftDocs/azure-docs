@@ -115,10 +115,10 @@ conceptualContent:
       footerLink:
         text: More
         url: overview-identity.md
-    - title: Spatial Analysis
+    - title: Video Analysis
       links:
         - itemType: overview
-          text: About Spatial Analysis
+          text: About Video Analysis
           url: intro-to-spatial-analysis-public-preview.md
         - itemType: quickstart
           text: Get started with Spatial Analysis
@@ -126,6 +126,9 @@ conceptualContent:
         - itemType: how-to-guide
           text: Configure Spatial Analysis operations
           url: spatial-analysis-operations.md
+        - itemType: how-to-guide
+          text: Call the Video Retrieval APIs
+          url: how-to/video-retrieval.md
         - itemType: concept
           text: Zone and line placement
           url: spatial-analysis-zone-line-placement.md
@@ -137,7 +140,7 @@ conceptualContent:
           url: spatial-analysis-logging.md
       footerLink:
         text: More
-        url: index-spatial-analysis.yml
+        url: intro-to-spatial-analysis-public-preview.md
 
 tools:
   title: Software development kits (SDKs)

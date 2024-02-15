@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 01/03/2024
+ms.date: 02/14/2024
 ms.custom: devx-track-arm-template
 ---
 # What is Azure Resource Manager?
@@ -10,6 +10,10 @@ ms.custom: devx-track-arm-template
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 To learn about Azure Resource Manager templates (ARM templates), see the [ARM template overview](../templates/overview.md). To learn about Bicep, see [Bicep overview](../bicep/overview.md).
+
+The following video covers basic concepts of Azure Resource Manager.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d257e6ec-abab-47f4-a209-22049e7a40b4]
 
 ## Consistent management layer
 
@@ -33,7 +37,7 @@ If you're new to Azure Resource Manager, there are some terms you might not be f
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is `Microsoft.Compute`, which supplies the virtual machine resource. `Microsoft.Storage` is another common resource provider. See [Resource providers and types](resource-providers-and-types.md).
 * **declarative syntax** - Syntax that lets you state "Here's what I intend to create" without having to write the sequence of programming commands to create it. ARM templates and Bicep files are examples of declarative syntax. In those files, you define the properties for the infrastructure to deploy to Azure.
 * **ARM template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
-* **Bicep file** - A file for declaratively deploying Azure resources. Bicep is a language that's been designed to provide the best authoring experience for infrastructure as code solutions in Azure. See [Bicep overview](../bicep/overview.md).
+* **Bicep file** - A file for declaratively deploying Azure resources. Bicep is a language that was designed to provide the best authoring experience for infrastructure as code solutions in Azure. See [Bicep overview](../bicep/overview.md).
 * **extension resource** - A resource that adds to another resource's capabilities. For example, a role assignment is an extension resource. You apply a role assignment to any other resource to specify access. See [Extension resources](./extension-resource-types.md).
 
 For more definitions of Azure terminology, see [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
@@ -92,7 +96,7 @@ There are some important factors to consider when defining your resource group:
 
   To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
   
-  If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
+  If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
