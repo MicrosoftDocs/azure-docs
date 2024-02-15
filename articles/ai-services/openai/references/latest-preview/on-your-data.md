@@ -18,13 +18,13 @@ This article provides reference documentation for Python and REST for the new Az
 
 > [!NOTE]
 > Since `2024-02-15-preview` we introduced the following breaking changes comparing to earlier API versions:
-> * API path is changed from `/extensions/chat/completions` to `/chat/completions`.
-> * Naming convention of property keys and enum values is changed from camel casing to snake casing. Example: `deploymentName` is changed to `deployment_name`.
+> * The API path is changed from `/extensions/chat/completions` to `/chat/completions`.
+> * The naming convention of property keys and enum values is changed from camel casing to snake casing. Example: `deploymentName` is changed to `deployment_name`.
 > * The data source type `AzureCognitiveSearch` is changed to `azure_search`.
 > * The citations and intent is moved from assistant message's context tool messages to assistant message's context root level with explicit [schema defined](#context).
 
 ```http
-POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=2024-02-15-preview
+POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version={api-version}
 ```
 
 ## URI parameters
@@ -37,7 +37,7 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 
 ## Request body
 
-The request body inherits the same schema of chat completions API. This table shows the parameters for Azure OpenAI on your data.
+The request body inherits the same schema of chat completions API request. This table shows the parameters unique for Azure OpenAI on your data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -46,7 +46,7 @@ The request body inherits the same schema of chat completions API. This table sh
 
 ## Response body
 
-The response body inherits the same schema of chat completions API. The [response chat message](#chat-message) has a `context` property, which is added for Azure OpenAI on your data.
+The response body inherits the same schema of chat completions API response. The [response chat message](#chat-message) has a `context` property, which is added for Azure OpenAI on your data.
 
 ## Chat message
 
@@ -83,3 +83,114 @@ This list shows the supported data sources.
 * [Azure Machine Learning index](./azure-ml.md)
 * [Elasticsearch](./elasticsearch.md)
 * [Pinecone](./pinecone.md)
+
+## Examples
+
+This example shows how to pass context with conversation history for better results.
+
+Prerequisites:
+* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader`, `Search Service Contributor`.
+* Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
+* Install [Az CLI](/cli/azure/install-azure-cli), and run `az login`.
+* Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint`, `SearchIndex`.
+```bash
+export AzureOpenAIEndpoint=https://example.openai.azure.com/
+export ChatCompletionsDeploymentName=turbo
+export SearchEndpoint=https://example.search.windows.net
+export SearchIndex=example-index
+```
+
+
+# [Python 1.x](#tab/python)
+
+Install the latest pip packages `openai`, `azure-identity`.
+
+```python
+import os
+from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+endpoint = os.environ.get("AzureOpenAIEndpoint")
+deployment = os.environ.get("ChatCompletionsDeploymentName")
+search_endpoint = os.environ.get("SearchEndpoint")
+search_index = os.environ.get("SearchIndex")
+
+token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+
+client = AzureOpenAI(
+    azure_endpoint=endpoint,
+    azure_ad_token_provider=token_provider,
+    api_version="2024-02-15-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "Who is DRI?",
+        },
+    ],
+    extra_body={
+        "data_sources": [
+            {
+                "type": "azure_search",
+                "parameters": {
+                    "endpoint": search_endpoint,
+                    "index_name": search_index,
+                    "authentication": {
+                        "type": "system_assigned_managed_identity"
+                    }
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+
+```
+
+# [REST](#tab/rest)
+
+```bash
+az rest --method POST \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --resource https://cognitiveservices.azure.com/ \
+ --body \
+'
+{
+    "data_sources": [
+        {
+            "type": "azure_search",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "index_name": "'$SearchIndex'",
+                "authentication": {
+                    "type": "system_assigned_managed_identity"
+                }
+            }
+        }
+    ],
+    "messages": [
+        {
+            "role": "user",
+            "content": "Who is DRI?",
+        },
+        {
+          "role": "assistant",
+          "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
+          "context": {
+            "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
+          }
+        },
+        {
+          "role": "user",
+          "content": "Opinion mining service"
+        }
+    ]
+}
+'
+```
+
+---
