@@ -26,28 +26,31 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 If you encounter any of the following errors when attempting to deploy your Azure SQL resource, please [request to increase your quota](how-to-request-quota-increase.md).
 
-- `Operation could not be completed as it results in exceeding approved {0} Cores quota. 
- 
- Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
+- `Operation could not be completed as it results in exceeding approved {0} Cores quota.` 
+`Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
 
 
 ## Subscription access
 
 Your subscription may not have access to create a server in the selected region if your subscription has not been registered with the PostgreSQL resource provider (RP).  
 
-If you see the following errors, please [register your subscription with the SQL RP](#register-with-PostgreSQL-rp):
+If you see the following errors, please [register your subscription with the PostgreSQL RP](#register-with-postgreSQL-rp):
 - `Your subscription does not have access to create a server in the selected region.`
 - `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
-- `Location 'region name' is not accepting creation of new Windows Azure SQL Database servers for the subscription 'subscription id' at this time`
+- `Location 'region name' is not accepting creation of new Azure Database for PostgreSQL Flexible servers for the subscription 'subscription id' at this time`
 
 
 ## Enable region 
 
-Your subscription may not have access to create a server in the selected region if that region has not been enabled. To resolve this, file a  [request to access a region](how-to-request-quota-increase.md). for your subscription. 
+Your subscription may not have access to create a server in the selected region if that region has not been enabled for your subscription. To resolve this, file a  [request to access a region](how-to-request-quota-increase.md). for your subscription. 
 
 If you see the following errors, file a support ticket to enable a specific region: 
 - `Subscription 'Subscription name' is not allowed to provision in 'region name`
 -  `Subscriptions are restricted from provisioning in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits.`
+
+
+## SKU Not Available 
+
 
 ## Register with PostgreSQL RP
 
@@ -100,12 +103,9 @@ If your subscription is part of an Azure Program offering, and you would like to
 
 _Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central , UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India._ 
 
-## Next steps
-
 After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
 
 
 ## Next steps
