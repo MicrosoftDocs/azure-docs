@@ -11,14 +11,14 @@ ms.date: 02/12/2024
 Azure Monitor managed service for Prometheus is intended to be a replacement for self-managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters.
 In case you are using self-managed Prometheus, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into the Azure managed service.
 
-For sending data from self-managed Prometheus running on your environments to Azure Monitor workspace, follow
+For sending data from self-managed Prometheus running on your environments to Azure Monitor workspace, follow the steps in this document.
 
 ## Choose the right solution for remote-write
 
 Based on where your self-managed Prometheus is running, choose from the options below:
 
 - **Self-managed Prometheus running on Azure Kubernetes Services (AKS) or Azure VM/VMSS**: Follow the steps in this documentation for configuring remote-write in Prometheus using User-assigned managed identity authentication.
-- **Self-managed Prometheus running on non-Azure environments**: Azure Monitor managed service for Prometheus has a managed offering for supported [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). However, if you wish to send data from self-managed Prometheus running on non-Azure or on-Prem environments, consider the following options:
+- **Self-managed Prometheus running on non-Azure environments**: Azure Monitor managed service for Prometheus has a managed offering for supported [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). However, if you wish to send data from self-managed Prometheus running on non-Azure or on-premises environments, consider the following options:
     - Onboard supported Kubernetes or VM/VMSS to [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) / [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) which will allow you to manage and configure them in Azure. Then follow the steps in this documentation for configuring remote-write in Prometheus using User-assigned managed identity authentication.
     - For all other scenarios, follow the steps in this documentation for configuring remote-write in Prometheus using Azure Entra application.
 
@@ -53,7 +53,7 @@ To send data to your Azure Monitor Workspace, you will need the following inform
     1. The managed identity must be assigned the **Monitoring Metrics Publisher** role on the data collection rule that is associated with your Azure Monitor Workspace.
     1. On the resource menu for your Azure Monitor workspace, select Overview. Select the link for Data collection rule:
 
-    :::image type="content" source="media/azure-monitor-workspace-overview/remote-write-dcr.png" lightbox="media/azure-monitor-workspace-overview/remote-write-dcr.png" alt-text="Screenshot of how to navigate to the data collection rule":::
+    :::image type="content" source="media/azure-monitor-workspace-overview/remote-write-dcr.png" lightbox="media/azure-monitor-workspace-overview/remote-write-dcr.png" alt-text="Screenshot of how to navigate to the data collection rule.":::
 
     1. On the resource menu for the data collection rule, select **Access control (IAM)**. Select Add, and then select Add role assignment.
     1. Select the **Monitoring Metrics Publisher role**, and then select **Next**.
