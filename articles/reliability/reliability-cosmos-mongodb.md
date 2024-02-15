@@ -7,14 +7,14 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
-ms.date: 0215/2024
+ms.date: 02/15/2024
 ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Azure Cosmos DB for MongoDB vCore
 ---
 
 # Reliability in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](/cosmos-db/includes/appliesto-mongodb-vcore)]
+[!INCLUDE[MongoDB vCore](../cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 This article contains detailed information on regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity) for Azure Cosmos DB for MongoDB vCore.
 
@@ -31,7 +31,7 @@ HA avoids database downtime by maintaining standby replicas of every shard in a 
 
 When HA is enabled in a region that supports availability zones, HA replica shards are provisioned in a different availability zone from their primary shards. HA replicas don't receive requests from clients unless their primary shard fails.
 
-If HA is disabled, each shard has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, the Azure Storage service detects the failure, and transparently re-creates the relevant data. For LRS storage durability, see [Summary of redundancy options](/storage/common/storage-redundancy#summary-of-redundancy-options). However, in the case of a region failure,  you run the risk of extensive downtime and possible data loss.
+If HA is disabled, each shard has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, the Azure Storage service detects the failure, and transparently re-creates the relevant data. For LRS storage durability, see [Summary of redundancy options](/azure/storage/common/storage-redundancy#summary-of-redundancy-options). However, in the case of a region failure,  you run the risk of extensive downtime and possible data loss.
 
 
 ### Prerequisites
