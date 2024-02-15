@@ -122,8 +122,7 @@ The following is an example of how to set up role-based access control for your 
 | --- | --- | ---|
 | IT admin | Owner of the Azure AI hub resource | The IT admin can ensure the Azure AI hub resource is set up to their enterprise standards and assign managers the Contributor role on the resource if they want to enable managers to make new Azure AI hub resources or they can assign managers the Azure AI Developer role on the resource to not allow for new Azure AI hub resource creation. |
 | Managers | Contributor or Azure AI Developer on the Azure AI hub resource | Managers can manage the AI hub, audit compute resources, audit connections, and create shared connections. |
-| Team lead/Lead developer | Azure AI Developer on the Azure AI hub resource | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the Azure AI hub resource level. |
-| Team lead/Lead developer | Owner of the Azure AI Project | When a lead developer creates a project, they become the project owner. This allows them to add their team/developers to the project. Their team/developers can be added as Contributors or Azure AI Developers to allow them to develop in the project. |
+| Team lead/Lead developer | Azure AI Developer on the Azure AI hub resource | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the Azure AI hub resource level. After project creation, project owners can invite other members. |
 | Team members/developers | Contributor or Azure AI Developer on the Azure AI Project | Developers can build and deploy AI models within a project and create assets that enable development such as computes and connections. |
 
 ## Access to resources created outside of the Azure AI hub resource
