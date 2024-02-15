@@ -12,7 +12,7 @@ ms.reviewer: Xema Pathak
 # Monitor virtual machines with Azure Monitor: Collect data
 This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to configure collection of data after you deploy Azure Monitor Agent to your Azure and hybrid virtual machines in Azure Monitor.
 
-This article provides guidance on collecting the most common types of telemetry from virtual machines. The exact configuration that you choose depends on the workloads that you run on your machines. Included in each section are sample log query alerts that you can use with that data.
+This article provides guidance on collecting the most common types of telemetry from virtual machines. The exact configuration that you choose depends on the workloads that you run on your machines. Included in each section are sample log search alerts that you can use with that data.
 
 - For more information about analyzing telemetry collected from your virtual machines, see [Monitor virtual machines with Azure Monitor: Analyze monitoring data](monitor-virtual-machine-analyze.md).
 - For more information about using telemetry collected from your virtual machines to create alerts in Azure Monitor, see [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md).
@@ -138,7 +138,7 @@ For guidance on creating a DCR to collect performance counters, see [Collect eve
  Destination | Description |
 |:---|:---|
 | Metrics    | Host metrics are automatically sent to Azure Monitor Metrics. You can use a DCR to collect client metrics so that they can be analyzed together with [metrics explorer](../essentials/metrics-getting-started.md) or used with [metrics alerts](../alerts/alerts-create-new-alert-rule.md?tabs=metric). This data is stored for 93 days. |
-| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log query alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>- VM insights: [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>- Other performance data: [Perf](/azure/azure-monitor/reference/tables/perf) |
+| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log search alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>- VM insights: [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>- Other performance data: [Perf](/azure/azure-monitor/reference/tables/perf) |
 
 ### Sample log queries
 The following samples use the `Perf` table with custom performance data. For information on performance data collected by VM insights, see [How to query logs from VM insights](../vm/vminsights-log-query.md#performance-records).
@@ -192,7 +192,7 @@ Azure Monitor has no ability on its own to monitor the status of a service or da
 
 For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You have to [create an Azure Automation account](../../automation/quickstarts/create-azure-automation-account-portal.md) to support the solution.
 
-When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for logs queries and log query alert rules.
+When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for logs queries and log search alert rules.
 
 | Table | Description |
 |:---|:---|
@@ -238,7 +238,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 Port monitoring verifies that a machine is listening on a particular port. Two potential strategies for port monitoring are described here.
 
 ### Dependency agent tables
-If you're using VM insights with **Processes and dependencies collection** enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The `VMBoundPort` table is updated every minute with each process running on the computer and the port it's listening on. You can create a log query alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
+If you're using VM insights with **Processes and dependencies collection** enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The `VMBoundPort` table is updated every minute with each process running on the computer and the port it's listening on. You can create a log search alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
 
 - **Review the count of ports open on your VMs to assess which VMs have configuration and security vulnerabilities.**
 
@@ -307,7 +307,7 @@ There's an extra cost for Connection Manager. For more information, see [Network
 ## Run a process on a local machine
 Monitoring of some workloads requires a local process. An example is a PowerShell script that runs on the local machine to connect to an application and collect or process data. You can use [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), which is part of [Azure Automation](../../automation/automation-intro.md), to run a local PowerShell script. There's no direct charge for Hybrid Runbook Worker, but there's a cost for each runbook that it uses.
 
-The runbook can access any resources on the local machine to gather required data. It can't send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log. Then configure that log to be collected by Azure Monitor. Create a log query alert rule that fires on that log entry.
+The runbook can access any resources on the local machine to gather required data. It can't send data directly to Azure Monitor or create an alert. To create an alert, have the runbook write an entry to a custom log. Then configure that log to be collected by Azure Monitor. Create a log search alert rule that fires on that log entry.
 
 ## Next steps
 

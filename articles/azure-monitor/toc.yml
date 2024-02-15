@@ -1330,7 +1330,7 @@ items:
       items:
       - name: Create a metric alert
         href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
+      - name: Create a log search alert
         href: alerts/tutorial-log-alert.md
     - name: Troubleshooting
       items:

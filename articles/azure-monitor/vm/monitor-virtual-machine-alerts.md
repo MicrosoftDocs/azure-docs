@@ -35,7 +35,7 @@ Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-al
 
 ## Alert types
 
-The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). The type of alert rule that you create for a particular scenario depends on where the data that you're alerting on is located.
+The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log search alerts](../alerts/alerts-log-query.md). The type of alert rule that you create for a particular scenario depends on where the data that you're alerting on is located.
 
 You might have cases where data for a particular alerting scenario is available in both Metrics and Logs. If so, you need to determine which rule type to use. You might also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
@@ -109,7 +109,7 @@ A metric called **Heartbeat** is included in each Log Analytics workspace. Each 
 
 #### Log search alert rules
 
-Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine.
+Log search alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine.
 
 Use a rule with the following query:
 
@@ -191,7 +191,7 @@ This section describes disk alerts.
 | Windows guest | \Logical Disk\(_Total)\% Free Space<br>\Logical Disk\(_Total)\Free Megabytes |
 | Linux guest | disk/free<br>disk/free_percent |
 
-#### Log query alert rules
+#### Log search alert rules
 
 **Logical disk used - all disks on each computer**
 
@@ -246,7 +246,7 @@ InsightsMetrics
 | Windows guest | \Network Interface\Bytes Sent/sec<br>\Logical Disk\(_Total)\Free Megabytes |
 | Linux guest | disk/free<br>disk/free_percent |
 
-#### Log query alert rules
+#### Log search alert rules
 
 **Network interfaces bytes received - all interfaces**
 
