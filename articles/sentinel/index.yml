@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Sentinel documentation # < 60 chars
-summary: This article presents use cases to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise. # < 160 chars
+summary: Microsoft Sentinel provides attack detection, threat visibility, proactive hunting, and threat response to help you stop threats before they cause harm.  # < 160 chars
 
 metadata:
   title: Microsoft Sentinel documentation
@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Threat intelligence integration
+          - text: Understand threat intelligence
             url: understand-threat-intelligence.md
           - text: MITRE ATT&CK® framework
             url: mitre-coverage.md
