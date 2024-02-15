@@ -12,11 +12,11 @@ ms.date: 01/31/2024
 
 This article covers new features and improvements for Azure Communications Gateway.
 
-## January 2024
+## February 2024
 
 ### Flow-through provisioning for Operator Connect and Teams Phone Mobile
 
-From January 2024, Azure Communications Gateway supports flow-through provisioning for Operator Connect and Teams Phone Mobile customers and numbers. Flow-through provisioning on Azure Communications Gateway allows you to provision the Operator Connect environments and Azure Communications Gateway (for custom header configuration) using the same method.
+From February 2024, Azure Communications Gateway supports flow-through provisioning for Operator Connect and Teams Phone Mobile customers and numbers. Flow-through provisioning on Azure Communications Gateway allows you to provision the Operator Connect environments and Azure Communications Gateway (for custom header configuration) using the same method.
 
 You can use either Azure Communications Gateway's [Provisioning API](provisioning-platform.md) or its [Number Management Portal](manage-enterprise-operator-connect.md).
 
