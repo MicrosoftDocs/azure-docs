@@ -62,7 +62,7 @@ This section shows the backup flow for Azure File share.
    | Backup tier | Description |
    | --- | --- |
    | **Snapshot tier** | The file share snapshot is created using the File share API. The snapshot URL is stored in the metadata store only. |
-   | **Vault-Standard tier (oreview)** | The file share snapshot is created, and then the changed files and data blocks since the last backup are identified and transferred to the vault. The time taken for data transfer depends on the amount of data and number of files changed. |
+   | **Vault-Standard tier (preview)** | The file share snapshot is created, and then the changed files and data blocks since the last backup are identified and transferred to the vault. The time taken for data transfer depends on the amount of data and number of files changed. |
 
 6. You can restore the Azure File share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 

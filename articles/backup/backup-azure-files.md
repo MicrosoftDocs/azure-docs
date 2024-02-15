@@ -69,7 +69,7 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
    To create a new backup policy, you can configure the following attributes in the backup policy:
 
-   1. On the **Configure Backup** page, select **Creat new** under **Policy Details**.
+   1. On the **Configure Backup** page, select **Create new** under **Policy Details**.
 
    1. On the **Create policy** pane, provide the *policy name*.
 
