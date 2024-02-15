@@ -554,7 +554,7 @@ In this section, you will add a search box to the home page, enabling users to d
     }
     ```
 
-    Observe that the **Index** method now accepts a parameter _id_ that contains the value the user typed into the search box. An empty or missing _id_ parameter indicates that all the photos should be displayed.
+    Observe that the **Index** method now accepts a parameter `id` that contains the value the user typed into the search box. An empty or missing `id` parameter indicates that all the photos should be displayed.
 
 1. Add the following helper method to the **HomeController** class:
 
