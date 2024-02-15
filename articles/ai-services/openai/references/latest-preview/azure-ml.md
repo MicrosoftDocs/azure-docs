@@ -14,7 +14,7 @@ ms.custom:
 
 #  Azure Machine Learning Index Data Source
 
-The configurable options of Azure Machine Learning index when using Azure OpenAI on your data.
+The configurable options of Azure Machine Learning index when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -47,7 +47,7 @@ The authentication options for Azure OpenAI on your data when using access token
 
 ## System assigned managed identity authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
+The authentication options for Azure OpenAI on your data when using a system-assigned managed identity.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -55,7 +55,7 @@ The authentication options for Azure OpenAI On Your Data when using a system-ass
 
 ## User assigned managed identity authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
+The authentication options for Azure OpenAI on your data when using a user-assigned managed identity.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |

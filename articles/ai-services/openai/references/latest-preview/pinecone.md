@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI on your Azure Cosmos DB data Python & REST API reference
+title: Azure OpenAI on your Pinecone data Python & REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI on your data Python & REST API.
 manager: nitinme
@@ -12,44 +12,42 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure Cosmos DB for MongoDB vCore Data Source
+# Pinecone Data Source
 
-The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI on your data.
+The configurable options of Pinecone when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-|`parameters`| [Parameters](#parameters)| True| The parameters to use when configuring Azure Cosmos DB for MongoDB vCore.|
-| `type`| string| True | Must be `azure_cosmos_db`. |
+|`parameters`| [Parameters](#parameters)| True| The parameters to use when configuring Pinecone.|
+| `type`| string| True | Must be `pinecone`. |
 
 ## Parameters
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `database_name` | string | True | The MongoDB vCore database name to use with Azure Cosmos DB.|
-| `container_name` | string | True | The name of the Azure Cosmos DB resource container.|
-| `index_name` | string | True | The MongoDB vCore index name to use with Azure Cosmos DB.|
-| `endpoint` | string | True | The absolute endpoint path for the Azure Search resource to use.|
+| `environment` | string | True | The environment name of Pinecone.|
+| `index_name` | string | True | The name of the Pinecone database index.|
 | `fields_mapping` | [FieldsMappingOptions](#fields-mapping-options) | True | Customized field mapping behavior to use when interacting with the search index.|
-| `authentication`| [ConnectionStringAuthenticationOptions](#connection-string-authentication-options)| True | The authentication method to use when accessing the defined data source. |
-| `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | True | The embedding dependency for vector search.|
+| `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options) | True | The authentication method to use when accessing the defined data source. |
+| `embedding_dependency` | [DeploymentNameVectorizationSource](#deployment-name-vectorization-source) | True | The embedding dependency for vector search.|
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
 | `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
-## Connection string authentication options
+## API key authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a connection string.
+The authentication options for Azure OpenAI on your data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `connection_string`|string|True|The connection string to use for authentication.|
-| `type`|string|True| Must be `connection_string`.|
+| `key`|string|True|The API key to use for authentication.|
+| `type`|string|True| Must be `api_key`.|
 
 
 ## Deployment name vectorization source
 
-The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
+The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -58,7 +56,7 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 
 ## Endpoint vectorization source
 
-The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
+The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
