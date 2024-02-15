@@ -59,12 +59,16 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
-1. Log into Azure CLI by executing the following command:
+9. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen
     ```azurecli-interactive
     az login
     ```
 
-1. Make sure the correct subscription is selected by running the following command:
+1. It takes you to the login screen. Enter your credentials and upon success, you will see a success message.
+
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
+
+3. Make sure the correct subscription is selected by running the following command:
     ```azurecli-interactive
     az account show
     ```
