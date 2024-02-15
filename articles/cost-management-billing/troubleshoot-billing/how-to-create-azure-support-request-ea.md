@@ -66,7 +66,7 @@ We'll walk you through some steps to gather information about your problem and h
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="Screenshot showing Select Enrollment number." :::
 1. For **Problem type**, select the issue category that best describes the type of problem that you have.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-problem-type.png" alt-text="Screenshot showing Select a problem type." :::
-1. For **Problem subtype**, select a problem subcategory. \
+1. For **Problem subtype**, select a problem subcategory. 
 
 After you've provided all of these details, select **Next: Solutions**.
 

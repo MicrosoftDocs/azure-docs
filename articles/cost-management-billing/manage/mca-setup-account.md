@@ -21,7 +21,7 @@ The renewal includes the following steps:
 
 To set up the billing account, you must transition the billing of Azure subscriptions from your Enterprise Agreement enrollment to the new account. The setup doesn't affect Azure services that are running in your subscriptions. However, it changes the way you manage the billing for your subscriptions.
 
-- You manage your Azure services and billing, in the [Azure portal](https://portal.azure.com).
+- You manage your Azure services and billing in the [Azure portal](https://portal.azure.com).
 - You get a monthly, digital invoice for your charges. You can view and analyze the invoice in the Cost Management + Billing page.
 - You use the billing structure and scopes from the new account to manage and organize your billing instead of departments and account in your Enterprise Agreement enrollment.
 
