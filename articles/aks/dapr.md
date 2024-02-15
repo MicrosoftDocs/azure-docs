@@ -43,15 +43,13 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 
 ## Support policy
 
-The extension is the only supported option for Dapr in AKS. 
+The Dapr extension is the only Microsoft-supported option for Dapr in AKS. 
 
 ### Issue handling
 
 Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
 
-Functional issues, like API or component regressions or bugs, are triaged and mitigated appropriately and fixed first in open source as a hotfix and then released in the extension. 
-
-Larg bug fixes or areas that require a complete redesign are prioritized in upcoming Dapr open source releases and then released in the extension.
+For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the OSS community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once released in Dapr OSS, fixes are then made available in the Dapr extension.
 
 ### Dapr versions
 
