@@ -3,12 +3,11 @@ title: About Azure Key Vault certificate renewal
 description: This article discusses how to renew Azure Key Vault certificates.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

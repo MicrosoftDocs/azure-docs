@@ -4,7 +4,6 @@ description: Learn how to install high availability for SAP NetWeaver on Azure V
 services: virtual-machines-windows,virtual-network,storage
 author: stmuelle
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
