@@ -7,6 +7,7 @@ author: dcurwin
 ms.author: dacurwin
 
 ---
+
 # Connect your non-Azure machines to Microsoft Defender for Cloud with Defender for Endpoint
 
 Defender for Cloud allows you to directly onboard your non-Azure servers by deploying the Defender for Endpoint agent. This provides protection for both your cloud and non-cloud assets under a single, unified offering.
@@ -58,23 +59,18 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 ## Current limitations
 
 - **Plan support**: Direct onboarding provides access to all Defender for Servers Plan 1 features. However, certain features in Plan 2 still require the deployment of the Azure Monitor Agent, which is only available with Azure Arc on non-Azure machines. If you enable Plan 2 on your designated subscription, machines onboarded directly with Defender for Endpoint have access to all Defender for Servers Plan 1 features and the Defender Vulnerability Management Addon features included in Plan 2.
-
 - **Multi-cloud support**: You can directly onboard VMs in AWS and GCP using the Defender for Endpoint agent. However, if you plan to simultaneously connect your AWS or GCP account to Defender for Servers using multicloud connectors, it's currently still recommended to deploy Azure Arc.
+- **Simultaneous onboarding limited support**: For servers simultaneously onboarded using multiple methods (for example, direct onboarding combined with Log Analytics workspace-based onboarding), Defender for Cloud makes every effort to correlate them into a single device representation. However, devices using older versions of Defender for Endpoint may face certain limitations. In some instances, this could result in overcharges. We generally advise using the latest agent version. Specifically, for this limitation, ensure your Defender for Endpoint agent versions meet or exceed these minimum versions:
+  |Operating System|Minimum agent version|
+  | -------- | -------- |
+  |Windows 2019| 10.8555|
+  |Windows 2012 R2, 2016 (modern, unified agent)|10.8560|
+  |Linux|30.101.23052.009|
 
-- **Simultaneous onboarding limited support**: Defender for Cloud makes a best effort to correlate servers onboarded using multiple billing methods. However, in certain server deployment use cases, there might be limitations where Defender for Cloud is unable to correlate your machines. This might result in overcharges on certain devices if direct onboarding is also enabled on your tenant.
-
-  The following are deployment use cases currently with this limitation when used with direct onboarding of your tenant:
-
-  | Location                             | Deployment use case                                          |
-  | ------------------------------------ | ------------------------------------------------------------ |
-  | All                                  | <u>Windows 2012, 2016:</u> <br />Azure VMs or Azure Arc  machines already onboarded and billed by Defender for Servers via an Azure subscription or Log Analytics workspace, running the Defender for Endpoint modern unified agent without the MDE.Windows Azure extension. For such machines, you can enable Defender for Cloud integration with Defender for Endpoint to deploy the extension. |
-  | On-premises (not running  Azure Arc) | <u>Windows Server 2012,  2016</u>:  <br />Servers running the Defender for Endpoint modern unified agent, and already billed by Defender for Servers  P2 via the Log Analytics workspace |
-  | AWS, GCP (not running Azure  Arc)    | <u>Windows Server 2012,  2016</u>: <br />AWS or GCP VMs using the  modern unified Defender for Endpoint solution, already onboarded and billed by Defender for Servers via multicloud connectors, Log Analytics workspace, or both. |
-
-  Note: For Windows 2019 and above and Linux, agent version updates have been already released to support simultaneous onboarding without limitations. For Windows - use agent version 10.8555.X and above, For Linux - use agent version 30.101.23052.009 and above.
 
 ## Next steps
 
 This page showed you how to add your non-Azure machines to Microsoft Defender for Cloud. To monitor their status, use the inventory tools as explained in the following page:
 
 - [Explore and manage your resources with asset inventory](asset-inventory.md)
+
