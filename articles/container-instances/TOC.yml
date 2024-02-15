@@ -180,7 +180,7 @@
     - name: Troubleshoot common issues
       href: container-instances-troubleshooting.md
     - name: Troubleshoot common issues
-      href: ../../../../SupportArticles-docs-pr
+      href: support/azure/azure-container-instances/welcome-container-instances.yml
 - name: Reference
   items:
   - name: Azure CLI
