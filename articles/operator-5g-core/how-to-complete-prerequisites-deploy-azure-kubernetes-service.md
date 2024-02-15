@@ -152,5 +152,5 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 ## Next steps
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md).
-- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md).
+- [Deploy Azure Operator 5G Core observability](quickstart-deploy-observability.md).
+- [Deploy a network function](quickstart-deploy-network-functions.md).
