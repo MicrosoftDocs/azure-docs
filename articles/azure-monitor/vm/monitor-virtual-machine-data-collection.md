@@ -210,7 +210,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | sort by Computer, SvcName
     ```
 
-- **Alert when a specific service stops.** Use this query in a log alert rule.
+- **Alert when a specific service stops.** Use this query in a log search alert rule.
     
     ```kusto
     ConfigurationData
@@ -221,7 +221,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | summarize AggregatedValue = count() by Computer, SvcName, SvcDisplayName, SvcState, bin(TimeGenerated, 15m)
     ```
 
-- **Alert when one of a set of services stops.** Use this query in a log alert rule.
+- **Alert when one of a set of services stops.** Use this query in a log search alert rule.
 
     ```kusto
     let services = dynamic(["omskd","cshost","schedule","wuauserv","heathservice","efs","wsusservice","SrmSvc","CertSvc","wmsvc","vpxd","winmgmt","netman","smsexec","w3svc","sms_site_vss_writer","ccmexe","spooler","eventsystem","netlogon","kdc","ntds","lsmserv","gpsvc","dns","dfsr","dfs","dhcp","DNSCache","dmserver","messenger","w32time","plugplay","rpcss","lanmanserver","lmhosts","eventlog","lanmanworkstation","wnirm","mpssvc","dhcpserver","VSS","ClusSvc","MSExchangeTransport","MSExchangeIS"]);

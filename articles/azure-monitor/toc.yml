@@ -562,7 +562,7 @@ items:
       items:
       - name: Prometheus alert rules
         href: containers/container-insights-metric-alerts.md
-      - name: Log alert rules
+      - name: Log search alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
@@ -1247,7 +1247,7 @@ items:
           items:
           - name: Metric alert rules
             href: alerts/alerts-create-metric-alert-rule.md
-          - name: Log alert rules
+          - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules
             href: alerts/alerts-create-activity-log-alert-rule.md
@@ -1261,7 +1261,7 @@ items:
             href: alerts/alerts-metric-multiple-time-series-single-rule.md
           - name: Create alert rules using CLI, PowerShell, or ARM templates
             href: alerts/alerts-create-rule-cli-powershell-arm.md
-          - name: Optimize log alert queries
+          - name: Optimize log search alert queries
             href: alerts/alerts-log-query.md
         - name: Set up action groups
           href: alerts/action-groups.md
@@ -1338,7 +1338,7 @@ items:
         href: alerts/alerts-troubleshoot.md
       - name: Troubleshoot metric alerts
         href: alerts/alerts-troubleshoot-metric.md
-      - name: Troubleshoot log alerts
+      - name: Troubleshoot log search alerts
         href: alerts/alerts-troubleshoot-log.md
       - name: Test notification troubleshooting guide
         href: alerts/test-action-group-errors.md
@@ -1362,7 +1362,7 @@ items:
         href: alerts/api-alerts.md
       - name: Upgrade from the legacy Log Analytics alerts API
         href: alerts/alerts-log-api-switch.md
-      - name: Edit log alerts created in previous versions
+      - name: Edit log search alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
   - name: AutoScale
     items:
@@ -1406,7 +1406,7 @@ items:
       href: agents/resource-manager-agent.md
     - name: Alerts
       items:
-      - name: Log alert rules
+      - name: Log search alert rules
         href: alerts/resource-manager-alerts-log.md
       - name: Metric alert rules
         href: alerts/resource-manager-alerts-metric.md
@@ -1444,9 +1444,9 @@ items:
     items:
       - name: Alerts payloads
         href: alerts/alerts-payload-samples.md
-      - name: Log alert rule queries with ADX and ARG
+      - name: Log search alert rule queries with ADX and ARG
         href: alerts/alerts-log-alert-query-samples.md
-      - name: Log alert payloads with webhooks
+      - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
   - name: Data collection rules
     href: essentials/data-collection-rule-samples.md

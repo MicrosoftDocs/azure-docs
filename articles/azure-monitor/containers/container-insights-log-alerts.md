@@ -1,13 +1,13 @@
 ---
-title: Log alerts from Container insights | Microsoft Docs
-description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
+title: Log search alerts from Container insights | Microsoft Docs
+description: This article describes how to create custom log search alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.reviewer: viviandiec
 
 ---
 
-# Create log alerts from Container insights
+# Create log search alerts from Container insights
 
 Container insights monitors the performance of container workloads that are deployed to managed or self-managed Kubernetes clusters. To alert on what matters, this article describes how to create log-based alerts for the following situations with Azure Kubernetes Service (AKS) clusters:
 
@@ -17,15 +17,15 @@ Container insights monitors the performance of container workloads that are depl
 - `Failed`, `Pending`, `Unknown`, `Running`, or `Succeeded` pod-phase counts
 - When free disk space on cluster nodes exceeds a threshold
 
-To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts, but log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the `now` operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time [UTC] format.)
+To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log search alerts, but log search alerts provide advanced querying and greater sophistication. Log search alert queries compare a datetime to the present by using the `now` operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time [UTC] format.)
 
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create alert rules, see the "Alert rules" section in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
+If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log search alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements
-[Log alerts](../alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor virtual machines in different scenarios:
+[Log search alerts](../alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor virtual machines in different scenarios:
 
 - [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
@@ -38,14 +38,14 @@ To create resource-centric alerts at scale for a subscription or resource group,
 
 You might also decide not to split when you want a condition on multiple resources in the scope. For example, you might want to create an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot that shows a new log alert rule with split by dimensions." lightbox="../vm/media/monitor-virtual-machines/log-alert-rule.png":::
+:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot that shows a new log search alert rule with split by dimensions." lightbox="../vm/media/monitor-virtual-machines/log-alert-rule.png":::
 
 You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [resource graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 
 ## Create a log query alert rule
 To create a log query alert rule by using the portal, see [this example of a log query alert](../alerts/tutorial-log-alert.md), which provides a complete walkthrough. You can use these same processes to create alert rules for AKS clusters by using queries similar to the ones in this article.
 
-To create a query alert rule by using an Azure Resource Manager (ARM) template, see [Resource Manager template samples for log alert rules in Azure Monitor](../alerts/resource-manager-alerts-log.md). You can use these same processes to create ARM templates for the log queries in this article.
+To create a query alert rule by using an Azure Resource Manager (ARM) template, see [Resource Manager template samples for log search alert rules in Azure Monitor](../alerts/resource-manager-alerts-log.md). You can use these same processes to create ARM templates for the log queries in this article.
 
 ## Resource utilization
 
