@@ -33,9 +33,13 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/clone-the-repository.png" alt-text="Screenshot that shows cloning the repository.":::
 
-4. When prompted for a container configuration template, select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu) and accept the default version.
-1. Add the following feature(s):
-    1. [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli)
+4. When prompted for a container configuration template,
+   1. select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu)
+   2. Accept the default version.
+   3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature when prompted.
+
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/option-selection.png" alt-text="Screenshot that shows option selection.":::
+
 1. Once the devcontainer is running, execute the following command in the bash terminal to install NVM, Node.js, NPM and Angular CLI:
     
     ```bash
