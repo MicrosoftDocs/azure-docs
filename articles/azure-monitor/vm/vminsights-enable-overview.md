@@ -112,9 +112,9 @@ The data collection rule specifies the data to collect and the workspace to use:
 
 If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
 
-## Enable network isolation for Azure Monitor Agent
+## Enable network isolation for Azure Monitor Agent using Private Link
 
-To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
+To enable network isolation for Azure Monitor Agent, associate a data collection endpoint to your VM insights data collection rule, as described in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 ## Diagnostic and usage data
 
