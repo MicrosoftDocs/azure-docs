@@ -63,7 +63,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the Azure AI project—to deploy endpoints (the Azure Machine Learning data scientist role contains these permissions already):
+    - On the Azure AI project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 
