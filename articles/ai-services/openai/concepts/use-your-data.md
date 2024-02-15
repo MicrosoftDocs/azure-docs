@@ -74,7 +74,7 @@ Once data is ingested, an [Azure AI Search](/azure/search/search-what-is-azure-s
 
 1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
 
-2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1024 tokens each. If vector search is enabled, the service will calculate the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
+2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
 3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index. 
 
@@ -106,7 +106,7 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 *Could not execute skill because the Web API request failed*
 
-*Could not execute skill because Web API skill response is invalid* 
+*Could not execute skill because Web API skill response is invalid.* 
 
 Resolution: 
 
@@ -114,7 +114,7 @@ Break down the input documents into smaller documents and try again.
 
 **Permissions Issues** 
 
-*This request is not authorized to perform this operation*
+*This request is not authorized to perform this operation.*
 
 Resolution: 
 
@@ -142,7 +142,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
 | *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
-| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
+| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic, and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 The optimal search option can vary depending on your dataset and use-case. You might need to experiment with multiple options to determine which works best for your use-case.
 
@@ -232,24 +232,15 @@ When you want to reuse the same URL/web address, you can select [Azure AI Search
 ---
 
 
-## Ingestion parameters
-
-You can use the following parameter to change how your data is ingested in Azure OpenAI Studio, Azure AI Studio, and the ingestion API. Changing the parameter requires re-ingesting your data into Azure Search.
-
-|Parameter name  | Description  |
-|---------|---------|
-| **Chunk size** | Azure OpenAI on your data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1024 tokens. However, given the uniqueness of your data, you may find a different chunk size (such as 256, 512, or 1536 tokens for example) more effective. Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. This is the `chunkSize` parameter in the API.|
-
-
 ## Runtime parameters
 
-You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You do not need to re-ingest your your data when you update these parameters. 
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You do not need to re-ingest your data when you update these parameters. 
 
 
 |Parameter name  | Description  |
 |---------|---------|
 | **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API. |
-|**Top K Documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information may be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. Conversely, if you think the model is providing irrelevant information alongside useful data, consider decreasing it. When experimenting with the [chunk size](#ingestion-parameters), we recommend adjusting the top-K parameter to achieve the best performance. Usually, it is beneficial to change the top-K value in the opposite direction of your chunk size adjustment. For example, if you decrease the chunk size from the default of 1024, you might want to increase the top-K value to 10 or 20. This ensures a similar amount of information is provided to the model, as reducing the chunk size decreases the amount of information in the 5 documents given to the model. This is the `topNDocuments` parameter in the API. |
+|**Top K Documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information may be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. Conversely, if you think the model is providing irrelevant information alongside useful data, consider decreasing it. This is the `topNDocuments` parameter in the API. |
 | **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API. |
 
 
@@ -311,7 +302,8 @@ When using the API, pass the `filter` parameter in each API request. For example
 ## Schedule automatic index refreshes
 
 > [!NOTE] 
-> Automatic index refreshing is supported for Azure Blob storage only.
+> * Automatic index refreshing is supported for Azure Blob storage only.
+> * If a document is deleted from input blob container, the corresponding chunk index records won't be removed by the scheduled refresh.
 
 To keep your Azure AI Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
@@ -320,7 +312,7 @@ To keep your Azure AI Search index up-to-date with your latest data, you can sch
 
     :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
 
-After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added or modified from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
    - `{Index Name}-index`
    - `{Index Name}-indexer`
    - `{Index Name}-indexer-chunk`
@@ -593,6 +585,7 @@ You can use Azure OpenAI on your data with an Azure OpenAI resource in the follo
 * Japan East
 * North Central US
 * Norway East
+* South Africa North
 * South Central US
 * South India
 * Sweden Central

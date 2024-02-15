@@ -131,7 +131,7 @@ Along with data migration, the tool automatically provides the following built-i
 - Migration of permissions of database objects on your source server such as GRANTS/REVOKES to the target server.
 
 > [!NOTE]  
-> This functionality is enabled by default for flexible servers in all Azure public regions. It will be enabled for flexible servers in gov clouds and China regions soon. Also, please note that this feature is currently disabled for PostgreSQL version 16 servers, and support for it will be introduced in the near future.
+> This functionality is enabled by default for flexible servers in all Azure public regions and gov clouds. It will be enabled for flexible servers in China regions soon. Also, please note that this feature is currently disabled for PostgreSQL version 16 servers, and support for it will be introduced in the near future.
 
 ## Limitations
 
