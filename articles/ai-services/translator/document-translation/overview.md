@@ -112,19 +112,18 @@ Document Translation supports the following glossary file types:
 
 ### Synchronous supported document formats
 
-|File type| Content type|File extension|Description|
+|File type|File extension| Content type|Description|
 |---|---|--|---|
-|**PlainText**|`text/plain`|`.txt`| An unformatted text document.|
-|**TabSeparatedValues**|`text/tab-separated-values`|`.txv`, `.tab`|A text file format that uses tabs to separate values and newlines to separate records.|
-|**CommaSeparatedValues**|`text/csv`|`.csv`|A text file format that uses commas as a delimiter between values.|
-|**HyperText Markup Language**|`text/html`|`.html`, `.htm`|HTML is a standard markup language used to structure web pages and content.|
-|**M&#8203;HTML**|`message/rfc822`, @`application/x-mimearchive`, @`multipart/related` |`.mthml`, `.mht`| A web page archive file format.|
-|**OfficeOpenXml**|`application/vnd.openxmlformats-officedocument`|`.xml`, `.ooxml`|An XML-based file format used for Microsoft Word, Microsoft Excel, and Microsoft PowerPoint documents.|
-|**OpenXmlPresentation**|`application/vnd.openxmlformats-officedocument.presentationml.presentation` |`.pptx`|An XML-based file format used for Microsoft PowerPoint slideshow presentations.|
-|**OpenXmlSpreadsheet**|`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`| `.xlsx`| An XML-based file format used for Microsoft Excel spreadsheets.|
-|**OpenXmlWord**|`application/vnd.openxmlformats-officedocument.wordprocessingml.document`|`.docx`| An XML-based file format used for Microsoft Word documents.|
-|**OutlookMailMessage**|`application/vnd.ms-outlook`|`.msg`|A file format used for stored Outlook mail message objects.|
-|**XmlLocalizationInterchange**|`application/xliff+xml` |`.xlf`, `xliff`|A standardized XML-based file format widely used in translation and localization software processing.|
+|**Plain Text**|`.txt`|`text/plain`| An unformatted text document.|
+|**Tab Separated Values**|`.txv`<br> `.tab`|`text/tab-separated-values`|A text file format that uses tabs to separate values and newlines to separate records.|
+|**Comma Separated Values**|`.csv`|`text/csv`|A text file format that uses commas as a delimiter between values.|
+|**HyperText Markup Language**|`.html`<br> `.htm`|`text/html`|HTML is a standard markup language used to structure web pages and content.|
+|**M&#8203;HTML**|`.mthml`<br> `.mht`| `message/rfc822`<br> @`application/x-mimearchive`<br> @`multipart/related` |A web page archive file format.|
+|**Microsoft PowerPoint**|`.pptx`|`application/vnd.openxmlformats-officedocument.presentationml.presentation` |An XML-based file format used for PowerPoint slideshow presentations.|
+|**Microsoft Excel**|`.xlsx`| `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`| An XML-based file format used for Excel spreadsheets.|
+|**Microsoft Word**|`.docx`| `application/vnd.openxmlformats-officedocument.wordprocessingml.document`|An XML-based file format used for Word documents.|
+|**Microsoft Outlook**|`.msg`|`application/vnd.ms-outlook`|A file format used for stored Outlook mail message objects.|
+|**Xml Localization Interchange**|`.xlf`<br> `xliff`|`application/xliff+xml` |A standardized XML-based file format widely used in translation and localization software processing.|
 
 ### Synchronous supported glossary formats
 
