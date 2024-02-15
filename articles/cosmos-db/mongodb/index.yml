@@ -6,14 +6,13 @@ summary: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as
 metadata:
   title: Azure Cosmos DB for MongoDB documentation
   description: The Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
-  services: cosmos-db
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
   ms.service: cosmos-db
   ms.subservice: mongodb
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 02/28/2023
   ms.custom: ignite-2022
 landingContent:

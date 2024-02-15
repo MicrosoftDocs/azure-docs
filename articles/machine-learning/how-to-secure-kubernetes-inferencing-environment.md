@@ -10,7 +10,7 @@ ms.subservice: core
 ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
-#customer intent: I would like to have machine learning with all private IP only 
+# Customer intent: I would like to have machine learning with all private IP only 
 ---
 
 # Secure Azure Kubernetes Service inferencing environment

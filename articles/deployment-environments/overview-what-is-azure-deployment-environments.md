@@ -38,13 +38,12 @@ Azure Deployment Environments enables usage [scenarios](./concept-environments-s
 
 Developers have the following self-service experience when working with [environments](./concept-environments-key-concepts.md#environments).
 
->[!NOTE]
-> Developers have a CLI-based experience to create and manage environments for Azure Deployment Environments.
-
 - Deploy a preconfigured environment for any stage of the development cycle.
 - Spin up a sandbox environment to explore Azure.
 - Create platform as a service (PaaS) and infrastructure as a service (IaaS) environments quickly and easily by following a few simple steps.
 - Deploy environments right from where they work.
+
+Developers create and manage environments for Azure Deployment Environments through the [developer portal](./quickstart-create-access-environments.md), with the [Azure CLI](./how-to-create-access-environments.md) or with the [Azure Developer CLI](./how-to-create-environment-with-azure-developer.md).
 
 ### Platform engineering scenarios
 
@@ -70,10 +69,10 @@ Azure Deployment Environments provides the following benefits to creating, confi
 Capture and share IaC templates in source control within your team or organization, to easily create on-demand environments. Promote collaboration through inner-sourcing of templates from source control repositories.
 
 - **Compliance and governance**:
-Platform engineering teams can curate environment templates to enforce enterprise security policies and map projects to Azure subscriptions, identities, and permissions by environment types.
+Platform engineering teams can curate environment definitions to enforce enterprise security policies and map projects to Azure subscriptions, identities, and permissions by environment types.
 
 - **Project-based configurations**:
-Create and organize environment templates by the types of applications that development teams are working on, rather than using an unorganized list of templates or a traditional IaC setup.
+Create and organize environment definitions by the types of applications that development teams are working on, rather than using an unorganized list of templates or a traditional IaC setup.
 
 - **Worry-free self-service**:
 Enable your development teams to quickly and easily create app infrastructure (PaaS, serverless, and more) resources by using a set of preconfigured templates. You can also track costs on these resources to stay within your budget.

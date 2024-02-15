@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 1/31/2024
 ms.reviewer: deeikele
 ms.author: sgilley
 author: sdgilley
@@ -57,19 +57,17 @@ Once a project is created, you can access the **Tools**, **Components**, and **S
 
 In the project details page (select **Build** > **Settings**), you can find information about the project, such as the project name, description, and the Azure AI resource that hosts the project. You can also find the project ID, which is used to identify the project in the Azure AI Studio API.
 
-- Project name: The name of the project corresponds to the selected project in the left panel. The project name is also referenced in the *Welcome to the YOUR-PROJECT-NAME project* message on the main page. You can change the name of the project by selecting the edit icon next to the project name.
-- Project description: The project description (if set) is shown directly below the *Welcome to the YOUR-PROJECT-NAME project* message on the main page. You can change the description of the project by selecting the edit icon next to the project description.
+- Project name: The name of the project corresponds to the selected project in the left panel. 
 - Azure AI resource: The Azure AI resource that hosts the project. 
-- Location: The location of the Azure AI resource that hosts the project. Azure AI resources are supported in the same regions as Azure OpenAI. 
+- Location: The location of the Azure AI resource that hosts the project. For supported locations, see [Azure AI Studio regions](../reference/region-support.md).
 - Subscription: The subscription that hosts the Azure AI resource that hosts the project.
 - Resource group: The resource group that hosts the Azure AI resource that hosts the project.
-- Container registry: The container for project files. Container registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
-- Storage account: The storage account for the project.
+- Permissions: The users that have access to the project. For more information, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
-Select the Azure AI resource, subscription, resource group, container registry, or storage account to navigate to the corresponding resource in the Azure portal.
+Select the Azure AI resource, subscription, or resource group to navigate to the corresponding resource in the Azure portal.
 
 ## Next steps
 
-- [Quickstart: Generate product name ideas in the Azure AI Studio playground](../quickstarts/playground-completions.md)
+- [QuickStart: Moderate text and images with content safety in Azure AI Studio](../quickstarts/content-safety.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
 - [Learn more about Azure AI resources](../concepts/ai-resources.md)

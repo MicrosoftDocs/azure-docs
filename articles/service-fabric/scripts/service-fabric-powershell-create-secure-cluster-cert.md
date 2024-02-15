@@ -2,10 +2,8 @@
 title: Create a Service Fabric cluster in PowerShell
 description: Azure PowerShell Script Sample - Create a Service Fabric cluster secured with an X.509 certificate.
 services: service-fabric
-documentationcenter: 
 author: athinanthny
 manager: chackdan
-editor: 
 tags: azure-service-management
 
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a

@@ -103,3 +103,6 @@ sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.package
 > If you set these flags system wide, they might lose their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
 
 For more information, see the [Xmodulo article about installing RPM packages behind a proxy](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html).
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

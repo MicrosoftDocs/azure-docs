@@ -8,7 +8,7 @@ ms.author: pafarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 01/18/2024
 ---
 
 # Moderate text from the API console

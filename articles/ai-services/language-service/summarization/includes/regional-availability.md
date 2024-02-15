@@ -13,7 +13,7 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
-> Our preview region, Sweden Central, showcases our latest and continually evolving LLM fine tuning techniques based on GPT models. You are welcome to try them out with a Langauge resource in the Sweden Central region.
+> Our preview region, Sweden Central, showcases our latest and continually evolving LLM fine tuning techniques based on GPT models. You are welcome to try them out with a Language resource in the Sweden Central region.
 >
 > Conversation summarization is only available using:
 >  - REST API

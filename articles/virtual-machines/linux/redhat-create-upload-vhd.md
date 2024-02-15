@@ -1,5 +1,5 @@
 ---
-title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure 
+title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 author: srijang
 ms.service: virtual-machines
@@ -7,7 +7,7 @@ ms.subservice: redhat
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/25/2023
 ms.author: maries
@@ -15,7 +15,7 @@ ms.reviewer: mattmcinnes
 ---
 # Prepare a Red Hat-based virtual machine for Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 In this article, you'll learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.X, 7.X, and 8.X. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
 > [!NOTE]
@@ -46,7 +46,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 > **_Cloud-init >= 21.2 removes the udf requirement_**. However, without the udf module enabled, the cdrom won't mount during provisioning, preventing custom data from being applied.  A workaround for this is to apply custom data using user data. However, unlike custom data, user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
-### RHEL 6 using Hyper-V Manager 
+### RHEL 6 using Hyper-V Manager
 
 > [!IMPORTANT]
 > Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, we strongly recommend upgrading to Red Hat Enterprise Linux 7, 8, or 9. If customers must stay on Red Hat Enterprise Linux 6, we recommend adding the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
@@ -96,7 +96,7 @@ sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparentlybonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
-SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
 EOF
 ```
 7. Ensure that the network service will start at boot time by running the following command:
@@ -120,17 +120,17 @@ EOF
 10. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/boot/grub/menu.lst` in a text editor, and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 
+    console=ttyS0 earlyprintk=ttyS0
     ```
 
     This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-    
+
     In addition, we recommended that you remove the following parameters:
 
     ```config-grub
     rhgb quiet crashkernel=auto
     ```
-    
+
     Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port.  You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more. This configuration might be problematic on smaller virtual machine sizes.
 
 
@@ -169,7 +169,7 @@ EOF
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-  > [!NOTE] 
+  > [!NOTE]
   > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
@@ -221,19 +221,19 @@ EOF
 
 7. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
 
-    
+
     ```config-grub
     GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
-   
+
     This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
 
     ```config
     rhgb quiet crashkernel=auto
     ```
-   
+
     Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 8. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
@@ -275,7 +275,7 @@ EOF
     ```
     > [!NOTE]
     > If you are migrating a specific virtual machine and don't wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
-    
+
     1. Configure mounts:
 
     ```bash
@@ -285,7 +285,7 @@ EOF
     sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
     ```
-    
+
     1. Configure Azure datasource:
 
     ```bash
@@ -320,7 +320,7 @@ EOF
 
     ```
 
-13. Swap configuration. 
+13. Swap configuration.
     Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
@@ -374,7 +374,7 @@ EOF
     sudo rm -f ~/.bash_history
     sudo export HISTSIZE=0
     ```
-    
+
 
 16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
@@ -403,7 +403,7 @@ EOF
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure and enable the serial console. 
+6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure and enable the serial console.
 
     1. Remove current GRUB parameters:
     ```bash
@@ -417,15 +417,15 @@ EOF
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
-   
+
    This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new naming conventions for NICs.
-   
+
    1. Additionally, we recommend that you remove the following parameters:
 
     ```config
     rhgb quiet crashkernel=auto
     ```
-   
+
     Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 7. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
@@ -464,7 +464,7 @@ EOF
     ```
     > [!NOTE]
     > If you're migrating a specific virtual machine and don't wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
-    
+
     1. Configure mounts:
 
     ```bash
@@ -474,7 +474,7 @@ EOF
     sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
     ```
-    
+
     1. Configure Azure datasource:
 
     ```bash
@@ -497,7 +497,7 @@ EOF
     fi
     ```
     1. Configure cloud-init logging:
-    
+
     ```bash
     sudo echo "Add console log file"
     sudo cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
@@ -509,7 +509,7 @@ EOF
     EOF
     ```
 
-11. Swap configuration 
+11. Swap configuration
     Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
@@ -568,7 +568,7 @@ EOF
 
 ## KVM
 
-This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) or [RHEL 7](#rhel-7-using-kvm) distro to upload to Azure. 
+This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) or [RHEL 7](#rhel-7-using-kvm) distro to upload to Azure.
 
 ### RHEL 6 using KVM
 
@@ -631,11 +631,11 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
  To apply it:<br>
 
 ```
-sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
+sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparently bonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
-SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
 EOF
 ```
 7. Ensure that the network service will start at boot time by running the following command:
@@ -653,11 +653,11 @@ EOF
 9. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/boot/grub/menu.lst` in a text editor, and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 
+    console=ttyS0 earlyprintk=ttyS0
     ```
 
     This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-    
+
     In addition, we recommend that you remove the following parameters:
 
     ```config-grub
@@ -667,7 +667,7 @@ EOF
     Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 
-10. Add Hyper-V modules to initramfs:  
+10. Add Hyper-V modules to initramfs:
 
     Edit `/etc/dracut.conf`, and add the following content:
 
@@ -912,7 +912,7 @@ EOF
 15. Install cloud-init
 Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', step 12, 'Install cloud-init to handle the provisioning.'
 
-16. Swap configuration 
+16. Swap configuration
 
     Don't create swap space on the operating system disk.
     Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', step 13, 'Swap configuration'
@@ -1018,11 +1018,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
 To apply it:<br>
 
 ```
-sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
+sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparently bonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
-SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1" 
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
 EOF
 ```
 
@@ -1055,7 +1055,7 @@ EOF
     ```config-grub
     rhgb quiet crashkernel=auto
     ```
-   
+
     Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 9. Add Hyper-V modules to initramfs:

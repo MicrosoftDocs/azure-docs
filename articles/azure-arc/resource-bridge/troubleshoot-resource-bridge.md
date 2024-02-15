@@ -28,13 +28,17 @@ If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote Pow
 
 Using `az arcappliance` commands from remote PowerShell isn't currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
 
-### Resource bridge cannot be updated
+### Resource bridge configurations cannot be updated
 
 In this release, all the parameters are specified at time of creation. To update the Azure Arc resource bridge, you must delete it and redeploy it again.
 
 For example, if you specified the wrong location, or subscription during deployment, later the resource creation fails. If you only try to recreate the resource without redeploying the resource bridge VM, you'll see the status stuck at `WaitForHeartBeat`.
 
 To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
+
+### Appliance Network Unavailable 
+
+If Arc resource bridge is experiencing a network communication problem, you may see an "Appliance Network Unavailable" error when trying to perform an action that interacts with the resource bridge or an extension operating on top of the bridge. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host" and this is typically a network communication problem. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. 
 
 ### Connection closed before server preface received
 

@@ -17,7 +17,7 @@ zone_pivot_groups: openai-whisper
 
 In this quickstart, you use the Azure OpenAI Whisper model for speech to text. 
 
-The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#using-whisper-models) API.
+The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.
 
 ## Prerequisites
 
@@ -86,6 +86,12 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ::: zone pivot="programming-language-powershell"
 
 [!INCLUDE [PowerShell quickstart](includes/whisper-powershell.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [REST API quickstart](includes/whisper-python.md)]
 
 ::: zone-end
 

@@ -17,7 +17,7 @@ Using [Windows PowerShell Desired State Configuration](/powershell/dsc/getting-s
 
 - Windows PowerShell version 4.0 or higher
 
-- The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC module
+- The AzureConnectedMachineDsc module
 
 - A service principal to connect the machines to Azure Arc-enabled servers non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Azure Arc-enabled servers already.
 

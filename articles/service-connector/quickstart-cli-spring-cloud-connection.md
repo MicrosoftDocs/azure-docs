@@ -21,7 +21,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- At least one application hosted by Azure Spring Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md).
+- At least one application hosted by Azure Spring Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [deploy your first application to Azure Spring Apps](../spring-apps/enterprise/quickstart.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

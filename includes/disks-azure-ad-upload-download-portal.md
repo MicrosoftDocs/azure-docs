@@ -4,7 +4,7 @@
  author: roygara
  ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 10/17/2023
+ ms.date: 01/30/2024
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -31,7 +31,7 @@ For detailed steps on assigning a role, see the following articles for [portal](
 
 # [Portal](#tab/azure-portal)
 
-Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page for existing disks.
+Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page under **Settings** for existing disks.
 
 :::image type="content" source="./media/disks-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk, and save your changes." lightbox="./media/disks-upload-download-portal/disks-data-access-auth-mode.png":::
 

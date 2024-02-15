@@ -7,13 +7,13 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 1/10/2022
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 
 # Responsible use of AI with Azure AI services
 
-Azure AI services provides information and guidelines on how to responsibly use artificial intelligence in applications. Below are the links to  articles that provide this guidance for the different services within the Azure AI services suite.
+Azure AI services provides information and guidelines on how to responsibly use artificial intelligence in applications. Below are the links to articles that provide this guidance for the different services within the Azure AI services suite.
 
 ## Anomaly Detector
 

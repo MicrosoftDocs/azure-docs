@@ -2,7 +2,6 @@
 title: Send cross-platform notifications to users with Azure Notification Hubs (ASP.NET)
 description: Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms.
 services: notification-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: thsomasu

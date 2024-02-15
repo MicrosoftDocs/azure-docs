@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 04/24/2023
 ms.author: allensu
 ---
@@ -118,7 +118,7 @@ The most common changes are to [add](#create-a-route) routes, [remove](#delete-a
 
 ## Associate a route table to a subnet
 
-You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Route tables aren't associated to virtual networks. You must associate a route table to each subnet you want the route table associated to. 
+You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Route tables aren't associated to virtual networks. You must associate a route table to each subnet you want the route table associated to.
 
 Azure routes all traffic leaving the subnet based on routes you've created:
 
@@ -126,7 +126,7 @@ Azure routes all traffic leaving the subnet based on routes you've created:
 
 * [Default routes](virtual-networks-udr-overview.md#default)
 
-* Routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute or VPN). 
+* Routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute or VPN).
 
 You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
 
@@ -295,7 +295,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 1. Select the **...** and then select **Delete**. Select **Yes** in the confirmation dialog box.
 
-   :::image type="content" source="./media/manage-route-table/delete-route.png" alt-text="Screenshot of the delete button for a route from a route table.":::     
+   :::image type="content" source="./media/manage-route-table/delete-route.png" alt-text="Screenshot of the delete button for a route from a route table.":::
 
 ### Delete a route - commands
 

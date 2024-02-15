@@ -51,7 +51,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
   Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure OpenAI resource with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
+- An Azure OpenAI resource in a [supported region](./concepts/use-your-data.md#azure-openai-on-your-data-regional-availability) with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
 
   - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
 

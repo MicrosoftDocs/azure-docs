@@ -19,7 +19,7 @@ This article summarizes the steps and documentation that you need.
 > [!IMPORTANT]
 > You must fully understand the onboarding process for your chosen communications service and any dependencies introduced by the onboarding process. For advice, ask your onboarding team.
 >
-> Some steps in the deployment and integration process can require days or weeks to complete. For example, you might need to arrange Microsoft Azure Peering Service for Voice (MAPS Voice) connectivity before you can deploy, wait for onboarding, or wait for a specific date to launch your service. We recommend that you read through any documentation from your onboarding team and the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services) before you start deploying.
+> Some steps in the deployment and integration process can require days or weeks to complete. For example, you might need to arrange Microsoft Azure Peering Service Voice (MAPS Voice) connectivity before you can deploy, wait for onboarding, or wait for a specific date to launch your service. We recommend that you read through any documentation from your onboarding team and the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services) before you start deploying.
 
 ## Learn about and plan for Azure Communications Gateway
 

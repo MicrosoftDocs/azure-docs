@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 01/19/2024
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---

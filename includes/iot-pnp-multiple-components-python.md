@@ -23,7 +23,7 @@ In this tutorial, you:
 
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python installed on your development machine. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version

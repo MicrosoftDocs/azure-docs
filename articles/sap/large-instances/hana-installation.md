@@ -2,10 +2,8 @@
 title: Install SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to install and configure SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
 author: hermanndms
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

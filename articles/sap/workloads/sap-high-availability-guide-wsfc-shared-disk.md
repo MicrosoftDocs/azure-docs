@@ -2,12 +2,9 @@
 title: Cluster SAP ASCS/SCS instance on WSFC using shared disk in Azure | Microsoft Docs
 description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a shared disk.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

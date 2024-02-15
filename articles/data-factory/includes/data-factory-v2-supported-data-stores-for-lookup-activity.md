@@ -1,7 +1,6 @@
 ---
 title: include file
 description: supported connectors for Lookup Activity
-services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include

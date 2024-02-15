@@ -31,7 +31,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 #### Known Issues
 
 - **Secure Tenants User Interface Support**
-  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible.
+  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible. For applying this fix, please reach out to Azure support to enable this on your subscription/tenant.
  
   **How to apply the Hotfix**
   -  Recreate Your Cluster

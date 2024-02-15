@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -143,7 +143,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}
-      convert => {"destPort" => "integer"}        
+      convert => {"destPort" => "integer"}
      }
 
      date{
@@ -156,7 +156,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
        hosts => "localhost"
        index => "nsg-flow-logs"
      }
-   }  
+   }
    ```
 
 For further instructions on installing Logstash, see the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).

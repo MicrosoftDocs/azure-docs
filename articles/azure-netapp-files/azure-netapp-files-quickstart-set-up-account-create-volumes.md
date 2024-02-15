@@ -74,7 +74,7 @@ Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resou
 
 1. In the Azure portal's search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
-      ![Select Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
+      ![Select Azure NetApp Files](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-select-azure-netapp-files.png)
 
 2. Select **+ Create** to create a new NetApp account.
 
@@ -84,9 +84,9 @@ Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resou
    3. Select **Create new** to create new resource group. Enter **myRG1** for the resource group name. Select **OK**.
    4. Select your account location.
 
-      ![New NetApp Account window](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)
+      ![New NetApp Account window](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-new-account-window.png)
 
-      ![Resource group window](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Resource group window](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-resource-group-window.png)
 
 4. Select **Create** to create your new NetApp account.
 
@@ -167,15 +167,15 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 1. From the Azure NetApp Files management blade, select your NetApp account (**myaccount1**).
 
-    ![Screenshot of selecting NetApp account menu.](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
+    ![Screenshot of selecting NetApp account menu.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-select-netapp-account.png)
 
 2. From the Azure NetApp Files management blade of your NetApp account, select **Capacity pools**.
 
-    ![Screenshot of Capacity pool selection interface.](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)
+    ![Screenshot of Capacity pool selection interface.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-click-capacity-pools.png)
 
 3. Select **+ Add pools**.
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot of new capacity pool options.":::
+    :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot of new capacity pool options.":::
 
 4. Provide information for the capacity pool:
     * Enter **mypool1** as the pool name.
@@ -241,11 +241,11 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 1. From the Azure NetApp Files management blade of your NetApp account, select **Volumes**.
 
-    ![Screenshot of select volumes interface.](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)
+    ![Screenshot of select volumes interface.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-click-volumes.png)
 
 2. Select **+ Add volume**.
 
-    ![Screenshot of add volumes interface.](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)
+    ![Screenshot of add volumes interface.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-click-add-volumes.png)
 
 3. In the Create a Volume window, provide information for the volume:
    1. Enter **myvol1** as the volume name.
@@ -260,9 +260,9 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
        * Select **OK** to create the VNet.
    5. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.
 
-      ![Screenshot of create a volume window.](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)
+      ![Screenshot of create a volume window.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-create-volume-window.png)
 
-      ![Screenshot of create a virtual network window.](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)
+      ![Screenshot of create a virtual network window.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-create-virtual-network-window.png)
 
 4. Select **Protocol**, and then complete the following actions:
     * Select **NFS** as the protocol type for the volume.
@@ -270,14 +270,14 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.
       See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions.
 
-    ![Screenshot of NFS protocol for selection.](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Screenshot of NFS protocol for selection.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Select **Review + create** to display information for the volume you are creating.  
 
 6. Select **Create** to create the volume. 
     The created volume appears in the Volumes blade.
 
-    ![Screenshot of volume creation confirmation.](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)
+    ![Screenshot of volume creation confirmation.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-create-volume-created.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -403,18 +403,18 @@ When you are done and if you want to, you can delete the resource group. The act
 
 2. In the list of subscriptions, select the resource group (myRG1) you want to delete.
 
-    ![Screenshot of the resource groups menu.](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+    ![Screenshot of the resource groups menu.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
 3. In the resource group page, select **Delete resource group**.
 
-    ![Screenshot that highlights the Delete resource group button.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png)
+    ![Screenshot that highlights the Delete resource group button.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-azure-delete-resource-group.png)
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then select **Delete**.
 
-    ![Screenshot showing confirmation of deleting resource group.](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png)
+    ![Screenshot showing confirmation of deleting resource group.](./media/azure-netapp-files-quickstart-set-up-account-create-volumes/azure-netapp-files-azure-confirm-resource-group-deletion.png)
 
 # [PowerShell](#tab/azure-powershell)
 

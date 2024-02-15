@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 08/16/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Customize the feed for Azure Virtual Desktop users
 

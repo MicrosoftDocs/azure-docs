@@ -7,7 +7,7 @@ ms.custom: seodec18
 ms.author: aahi
 author: aahill
 ms.service: azure-ai-language
-ms.date: 04/14/2021
+ms.date: 01/19/2024
 ms.subservice: azure-ai-luis
 ms.topic: include
 

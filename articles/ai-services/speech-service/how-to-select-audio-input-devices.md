@@ -2,14 +2,13 @@
 title: Select an audio input device with the Speech SDK
 titleSuffix: Azure AI services
 description: 'Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, and JavaScript) by obtaining the IDs of the audio devices connected to a system.'
-author: chlandsi
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 07/05/2019
-ms.author: chlandsi
-ms.devlang: cpp
-# ms.devlang: cpp, csharp, java, javascript, objective-c, python
+ms.date: 1/21/2024
+ms.reviewer: chlandsi
 ms.custom: devx-track-js, ignite-fall-2021, devx-track-python
 ---
 
@@ -41,7 +40,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!Note]
+> [!NOTE]
 > Microphone use isn't available for JavaScript running in Node.js.
 
 ## Audio device IDs on Windows for desktop applications

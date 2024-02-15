@@ -51,9 +51,6 @@ Select **On** for either **Application Logging (Filesystem)** or **Application L
 The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
-> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
-
-> [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
 >
 > Also, if you [regenerate your storage account's access keys](../storage/common/storage-account-create.md), you must reset the respective logging configuration to use the updated access keys. To do this:
@@ -94,9 +91,6 @@ When finished, select **Save**.
 To enable web server logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
-
-> [!NOTE]
-> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
 
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
@@ -225,16 +219,10 @@ The following table shows the supported log types and descriptions:
 
 ## Networking considerations
 
-- App Service logs aren't supported using Regional VNet integration, our recommendation is to use the Diagnostic settings feature.
-
-If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
-
-- The Azure Storage account is in a different Azure region from the App Service app.
-- All outbound addresses of the App Service app are [added to the Storage account's firewall rules](../storage/common/storage-network-security.md#managing-ip-network-rules). To find the outbound addresses for your app, see [Find outbound IPs](overview-inbound-outbound-ips.md#find-outbound-ips).
+For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](../azure-monitor/essentials/diagnostic-settings.md#destination-limitations).
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

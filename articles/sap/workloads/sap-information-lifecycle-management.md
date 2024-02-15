@@ -2,12 +2,9 @@
 title:  SAP Information Lifecycle Management with Microsoft Azure Blob Storage | Microsoft Docs
 description: SAP Information Lifecycle Management with Microsoft Azure Blob Storage
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

@@ -67,7 +67,7 @@ If you disabled the "Azure Policy for Kubernetes" settings under the containers 
 
 When you enable Microsoft Defender for Containers on a GCP connector, the "Azure Policy Extension for Azure Arc" setting is enabled by default for the Google Kubernetes Engine in the relevant project. If you disable the setting on initial configuration, you can enable it afterwards manually.
 
-If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to [enable it on your GCP connector](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke&preserve-view=true#protect-google-kubernetes-engine-gke-clusters).
+If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to [enable it on your GCP connector](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke&preserve-view=true#enable-the-plan).
 
 ### Deploy Azure Policy for Kubernetes on existing clusters  
 

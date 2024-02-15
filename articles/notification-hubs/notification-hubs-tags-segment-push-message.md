@@ -2,7 +2,6 @@
 title: Routing and tag expressions in Azure Notification Hubs
 description: Learn how to route and tag expressions for Azure Notification Hubs.
 services: notification-hubs
-documentationcenter: .net
 author: sethmanheim
 manager: femila
 editor: jwargo

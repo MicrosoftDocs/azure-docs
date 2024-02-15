@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 01/29/2024
 ms.author: eur
 ---
 
@@ -24,14 +24,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a console application and install the Speech SDK.
 
 1. Create a C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechSynthesis`.
-1. Install the Speech SDK in your new project with the NuGet package manager.
-
-   ```powershell
-   Install-Package Microsoft.CognitiveServices.Speech
-   ```
 
 1. Replace the contents of *SpeechSynthesis.cpp* with the following code:
 
@@ -111,6 +106,12 @@ Follow these steps to create a new console application and install the Speech SD
     }  
     ```
 
+1. Select **Tools** > **Nuget Package Manager** > **Package Manager Console**. In the **Package Manager Console**, run this command:
+
+    ```console
+    Install-Package Microsoft.CognitiveServices.Speech
+    ```
+
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
    All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
@@ -118,7 +119,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. [Build and run your new console application](/cpp/build/vscpp-step-2-build) to start speech synthesis to the default speaker.
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Enter some text that you want to speak. For example, type *I'm excited to try text to speech*. Select the **Enter** key to hear the synthesized speech.
 

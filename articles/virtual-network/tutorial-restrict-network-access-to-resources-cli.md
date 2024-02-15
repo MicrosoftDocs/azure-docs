@@ -2,7 +2,6 @@
 title: Restrict network access to PaaS resources - Azure CLI
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
 tags: azure-resource-manager

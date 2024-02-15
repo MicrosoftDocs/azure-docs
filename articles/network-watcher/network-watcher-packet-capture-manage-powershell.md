@@ -1,274 +1,179 @@
 ---
-title: Manage packet captures in VMs with Azure Network Watcher - Azure PowerShell
-description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using PowerShell.
-services: network-watcher
+title: Manage packet captures for VMs - Azure PowerShell
+titleSuffix: Azure Network Watcher
+description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher using Azure PowerShell.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 02/01/2021
-ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.date: 01/31/2024
+ms.custom: devx-track-azurepowershell
+#CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage packet captures with Azure Network Watcher using PowerShell
+# Manage packet captures for virtual machines with Azure Network Watcher using PowerShell
 
-> [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine (VM). Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
-Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
+In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using Azure PowerShell. To learn how to manage packet captures using the Azure portal or Azure CLI, see [Manage packet captures for virtual machines using the Azure portal](network-watcher-packet-capture-manage-portal.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
 
-This article takes you through the different management tasks that are currently available for packet capture.
+## Prerequisites
 
-- [**Start a packet capture**](#start-a-packet-capture)
-- [**Stop a packet capture**](#stop-a-packet-capture)
-- [**Delete a packet capture**](#delete-a-packet-capture)
-- [**Download a packet capture**](#download-a-packet-capture)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- Azure Cloud Shell or Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-## Before you begin
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the Azure PowerShell `Az` module. To find the installed version, run `Get-Module -ListAvailable Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-This article assumes you have the following resources:
-
-* An instance of Network Watcher in the region you want to create a packet capture
-
-* A virtual machine with the packet capture extension enabled.
-
-> [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
-
-## Install VM extension
-
-### Step 1
-
-```powershell
-$VM = Get-AzVM -ResourceGroupName testrg -Name VM1
-```
-
-### Step 2
-
-The following example retrieves the extension information needed to run the `Set-AzVMExtension` cmdlet. This cmdlet installs the packet capture agent on the guest virtual machine.
+- A virtual machine with the following outbound TCP connectivity:
+    - to the storage account over port 443
+    - to 169.254.169.254 over port 80
+    - to 168.63.129.16 over port 8037
 
 > [!NOTE]
-> The `Set-AzVMExtension` cmdlet may take several minutes to complete.
+> - Azure creates a Network Watcher instance in the the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. For more information, see [Install Network Watcher agent](#install-network-watcher-agent).
+> - The last two IP addresses and ports listed in the **Prerequisites** are common across all Network Watcher tools that use the Network Watcher agent and might occasionally change.
 
-For Windows virtual machines:
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
 
-```powershell
-$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
-$ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+## Install Network Watcher agent
+
+To use packet capture, the Network Watcher agent virtual machine extension must be installed on the virtual machine.
+
+Use [Get-AzVMExtension](/powershell/module/az.compute/get-azvmextension) cmdlet to check if the extension is installed on the virtual machine:
+
+```azurepowershell-interactive
+# List the installed extensions on the virtual machine.
+Get-AzVMExtension -VMName 'myVM' -ResourceGroupName 'myResourceGroup' | format-table Name, Publisher, ExtensionType, EnableAutomaticUpgrade 
 ```
 
-For Linux virtual machines:
+If the extension is installed on the virtual machine, then you can see it listed in the output of the preceding command:
 
-```powershell
-$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
-$ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+```output
+Name                         Publisher                      ExtensionType            EnableAutomaticUpgrade
+----                         ---------                      -------------            ----------------------
+AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentLinux                   True
 ```
 
-The following example is a successful response after running the `Set-AzVMExtension` cmdlet.
+If the extension isn't installed, then use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to install it:
 
+```azurepowershell-interactive
+# Install Network Watcher agent on a Linux virtual machine.
+Set-AzVMExtension -Publisher 'Microsoft.Azure.NetworkWatcher' -ExtensionType 'NetworkWatcherAgentLinux' -Name 'AzureNetworkWatcherExtension' -VMName 'myVM' -ResourceGroupName 'myResourceGroup' -TypeHandlerVersion '1.4' -EnableAutomaticUpgrade 1 
 ```
+
+```azurepowershell-interactive
+# Install Network Watcher agent on a Windows virtual machine.
+Set-AzVMExtension -Publisher 'Microsoft.Azure.NetworkWatcher' -ExtensionType 'NetworkWatcherAgentWindows' -Name 'AzureNetworkWatcherExtension' -VMName 'myVM' -ResourceGroupName 'myResourceGroup' -TypeHandlerVersion '1.4' -EnableAutomaticUpgrade 1 
+```
+
+After a successful installation of the extension, you see the following output: 
+
+```output
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
-                         True         OK OK   
-```
-
-### Step 3
-
-To ensure that the agent is installed, run the `Get-AzVMExtension` cmdlet and pass it the virtual machine name and the extension name.
-
-```powershell
-Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
-```
-
-The following sample is an example of the response from running `Get-AzVMExtension`
-
-```
-ResourceGroupName       : testrg
-VMName                  : testvm1
-Name                    : AzureNetworkWatcherExtension
-Location                : westcentralus
-Etag                    : null
-Publisher               : Microsoft.Azure.NetworkWatcher
-ExtensionType           : NetworkWatcherAgentWindows
-TypeHandlerVersion      : 1.4
-Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm1/
-                          extensions/AzureNetworkWatcherExtension
-PublicSettings          : 
-ProtectedSettings       : 
-ProvisioningState       : Succeeded
-Statuses                : 
-SubStatuses             : 
-AutoUpgradeMinorVersion : True
-ForceUpdateTag          : 
+                         True         OK 
 ```
 
 ## Start a packet capture
 
-Once the preceding steps are complete, the packet capture agent is installed on the virtual machine.
+To start a capture session, use [New-AzNetworkWatcherPacketCapture](/powershell/module/az.network/new-aznetworkwatcherpacketcapture) cmdlet:
 
-### Step 1
+```azurepowershell-interactive
+# Place the virtual machine configuration into a variable.
+$vm = Get-AzVM -ResourceGroupName 'myResourceGroup' -Name 'myVM'
 
-The next step is to retrieve the Network Watcher instance. This variable is passed to the `New-AzNetworkWatcherPacketCapture` cmdlet in step 4.
+# Place the storage account configuration into a variable.
+$storageAccount = Get-AzStorageAccount -ResourceGroupName 'myResourceGroup' -Name 'mystorageaccount'
 
-```powershell
-$networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
+# Start the Network Watcher capture session.
+New-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1' -TargetVirtualMachineId $vm.Id  -StorageAccountId $storageAccount.Id 
 ```
 
-### Step 2
+Once the capture session is started, you see the following output:
 
-Retrieve a storage account. This storage account is used to store the packet capture file.
-
-```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
+```output
+ProvisioningState Name   BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
+----------------- ----   ----------------------- -------------------- ------------------
+Succeeded         myVM_1 0                       1073741824           18000
 ```
 
-### Step 3
+The following table describes the optional parameters that you can use with the `New-AzNetworkWatcherPacketCapture` cmdlet:
 
-Filters can be used to limit the data that is stored by the packet capture. The following example sets up two filters.  One filter collects outgoing TCP traffic only from local IP 10.0.0.3 to destination ports 20, 80 and 443.  The second filter collects only UDP traffic.
-
-```powershell
-$filter1 = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
-$filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
-```
-
-> [!NOTE]
-> Multiple filters can be defined for a packet capture.
-
-### Step 4
-
-Run the `New-AzNetworkWatcherPacketCapture` cmdlet to start the packet capture process, passing the required values retrieved in the preceding steps.
-```powershell
-
-New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
-```
-
-The following example is the expected output from running the `New-AzNetworkWatcherPacketCapture` cmdlet.
-
-```
-Name                    : PacketCaptureTest
-Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
-                          s/NetworkWatcher_westcentralus/packetCaptures/PacketCaptureTest
-Etag                    : W/"3bf27278-8251-4651-9546-c7f369855e4e"
-ProvisioningState       : Succeeded
-Target                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm1
-BytesToCapturePerPacket : 0
-TotalBytesPerSession    : 1073741824
-TimeLimitInSeconds      : 60
-StorageLocation         : {
-                            "StorageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Storage/storageA
-                          ccounts/examplestorage",
-                            "StoragePath": "https://examplestorage.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-00000
-                          0000000/resourcegroups/testrg/providers/microsoft.compute/virtualmachines/testvm1/2017/02/01/packetcapture_22_42_48_238.cap"
-                          }
-Filters                 : [
-                            {
-                              "Protocol": "TCP",
-                              "RemoteIPAddress": "1.1.1.1-255.255.255",
-                              "LocalIPAddress": "10.0.0.3",
-                              "LocalPort": "1-65535",
-                              "RemotePort": "20;80;443"
-                            },
-                            {
-                              "Protocol": "UDP",
-                              "RemoteIPAddress": "",
-                              "LocalIPAddress": "",
-                              "LocalPort": "",
-                              "RemotePort": ""
-                            }
-                          ]
-
-
-```
-
-## Get a packet capture
-
-Running the `Get-AzNetworkWatcherPacketCapture` cmdlet, retrieves the status of a currently running, or completed packet capture.
-
-```powershell
-Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
-```
-
-The following example is the output from the `Get-AzNetworkWatcherPacketCapture` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
-```
-Name                    : PacketCaptureTest
-Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
-                          s/NetworkWatcher_westcentralus/packetCaptures/PacketCaptureTest
-Etag                    : W/"4b9a81ed-dc63-472e-869e-96d7166ccb9b"
-ProvisioningState       : Succeeded
-Target                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm1
-BytesToCapturePerPacket : 0
-TotalBytesPerSession    : 1073741824
-TimeLimitInSeconds      : 60
-StorageLocation         : {
-                            "StorageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Storage/storageA
-                          ccounts/examplestorage",
-                            "StoragePath": "https://examplestorage.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-00000
-                          0000000/resourcegroups/testrg/providers/microsoft.compute/virtualmachines/testvm1/2017/02/01/packetcapture_22_42_48_238.cap"
-                          }
-Filters                 : [
-                            {
-                              "Protocol": "TCP",
-                              "RemoteIPAddress": "1.1.1.1-255.255.255",
-                              "LocalIPAddress": "10.0.0.3",
-                              "LocalPort": "1-65535",
-                              "RemotePort": "20;80;443"
-                            },
-                            {
-                              "Protocol": "UDP",
-                              "RemoteIPAddress": "",
-                              "LocalIPAddress": "",
-                              "LocalPort": "",
-                              "RemotePort": ""
-                            }
-                          ]
-CaptureStartTime        : 2/1/2017 10:43:01 PM
-PacketCaptureStatus     : Stopped
-StopReason              : TimeExceeded
-PacketCaptureError      : []
-```
+| Parameter | description |
+| --- | --- |
+| `-Filter` | Add filter(s) to capture only the traffic you want. For example, you can capture only TCP traffic from a specific IP address to a specific port. |
+| `-TimeLimitInSeconds` | Set the maximum duration of the capture session. The default value is 18000 seconds (5 hours). |
+| `-BytesToCapturePerPacket` | Set the maximum number of bytes to be captured per each packet. All bytes are captured if not used or 0 entered. |
+| `-TotalBytesPerSession` | Set the total number of bytes that are captured. Once the value is reached the packet capture stops. Up to 1 GB (1,073,741,824 bytes) is captured if not used. |
+| `-LocalFilePath` | Enter a valid local file path if you want the capture to be saved in the target virtual machine (For example, C:\Capture\myVM_1.cap). If you're using a Linux machine, the path must start with /var/captures. |
 
 ## Stop a packet capture
 
-By running the `Stop-AzNetworkWatcherPacketCapture` cmdlet, if a capture session is in progress it is stopped.
+Use [Stop-AzNetworkWatcherPacketCapture](/powershell/module/az.network/stop-aznetworkwatcherpacketcapture) cmdlet to manually stop a running packet capture session.
 
-```powershell
-Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+```azurepowershell-interactive
+# Manually stop a packet capture session.
+Stop-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
 ```
 
 > [!NOTE]
-> The cmdlet returns no response when ran on a currently running capture session or an existing session that has already stopped.
+> The cmdlet doesn't return a response whether ran on a currently running capture session or a session that has already stopped.
 
-## Delete a packet capture
+## Get a packet capture
 
-```powershell
-Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Use [Get-AzNetworkWatcherPacketCapture](/powershell/module/az.network/get-aznetworkwatcherpacketcapture) cmdlet to retrieve the status of a packet capture (running or completed).
+
+```azurepowershell-interactive
+# Get information, properties, and status of a packet capture.
+Get-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
+```
+
+The following output is an example of the output from the `Get-AzNetworkWatcherPacketCapture` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
+
+```output
+ProvisioningState Name   Target                                                                                                                              BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
 
 > [!NOTE]
-> Deleting a packet capture does not delete the file in the storage account.
+> To get more details in the output, add `| Format-List` to the end of the command.
 
 ## Download a packet capture
 
-Once your packet capture session has completed, the capture file can be uploaded to blob storage or to a local file on the VM. The storage location of the packet capture is defined at creation of the session. A convenient tool to access these capture files saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
+After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture).
 
-If a storage account is specified, packet capture files are saved to a storage account at the following location:
+If a storage account is specified, capture files are saved to the storage account at the following path:
 
+```url
+https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
 ```
-https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
+
+To download a packet capture file saved to Azure storage, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet:
+
+```azurepowershell-interactive
+# Download the packet capture file from Azure storage container.
+Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob 'subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
 ```
 
-## Next steps
+> [!NOTE]
+> You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+## Delete a packet capture
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
+```azurepowershell-interactive
+# Remove a packet capture resource.
+Remove-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
+```
 
-<!-- Image references -->
+> [!IMPORTANT]
+> Deleting a packet capture in Network Watcher doesn't delete the capture file from the storage account or the virtual machine. If you don't need the capture file anymore, you must manually delete it from the storage account to avoid incurring storage costs.
+
+## Related content
+
+- To learn how to automate packet captures with virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
+- To determine whether specific traffic is allowed in or out of a virtual machine, see [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).

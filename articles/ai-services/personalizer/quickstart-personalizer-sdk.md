@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: quickstart
-ms.date: 02/02/2023
+ms.date: 01/19/2024
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-js, devx-track-python

@@ -4,15 +4,11 @@ description: Use a mainframe emulator and other services from Microsoft partners
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
 author: swread
 ms.author: sread
-editor: swread
 manager: mamccrea 
 ms.topic: conceptual
 ms.date: 02/22/2019
-tags:
-keywords:
 ---
 # IBM workloads on Azure
 

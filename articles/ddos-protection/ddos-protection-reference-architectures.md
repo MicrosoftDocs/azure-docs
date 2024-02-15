@@ -38,6 +38,7 @@ Unsupported resources include:
 * Azure API Management in deployment modes other than the supported modes.
 * PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
 * Protected resources that include public IPs created from public IP address prefix.
+* NAT Gateway.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 

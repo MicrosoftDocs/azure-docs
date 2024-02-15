@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 10/16/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Do video retrieval using vectorization (version 4.0 preview)

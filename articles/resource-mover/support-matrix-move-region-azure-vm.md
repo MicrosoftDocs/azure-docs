@@ -2,7 +2,6 @@
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
 description: Review support for moving Azure VMs between regions with Azure Resource Mover. 
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
 ms.topic: how-to
 ms.date: 03/21/2023

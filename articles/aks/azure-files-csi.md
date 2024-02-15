@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 01/11/2024
 ---
 
@@ -253,7 +253,7 @@ allowVolumeExpansion: true
 parameters:
   resourceGroup: <resourceGroup>
   storageAccount: <storageAccountName>
-  server: <storageAccountName>.file.core.windows.net 
+  server: <storageAccountName>.file.core.windows.net
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
@@ -278,9 +278,9 @@ The output of the command resembles the following example:
 ```output
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
-  
+
 Create a file named `private-pvc.yaml`, and then paste the following example manifest in the file:
-  
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -294,9 +294,9 @@ spec:
     requests:
       storage: 100Gi
 ```
-  
+
 Create the PVC by using the [kubectl apply][kubectl-apply] command:
-  
+
 ```bash
 kubectl apply -f private-pvc.yaml
 ```

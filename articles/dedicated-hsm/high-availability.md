@@ -7,7 +7,6 @@ manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp

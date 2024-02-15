@@ -2,15 +2,9 @@
 title: Metrics for Azure NetApp Files | Microsoft Docs
 description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/19/2023
 ms.author: anfdocs
@@ -25,11 +19,11 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 - From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
    
-    :::image type="content" source="../media/azure-netapp-files/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="../media/azure-netapp-files/metrics-select-pool-volume.png":::
+    :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
   	
 - From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
    
-    :::image type="content" source="../media/azure-netapp-files/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="../media/azure-netapp-files/metrics-navigate-volume.png":::
+    :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
     
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
@@ -76,7 +70,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
-    :::image type="content" source="../media/azure-netapp-files/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="../media/azure-netapp-files/throughput-limit-reached.png":::
+    :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
 
 
 ## Performance metrics for volumes

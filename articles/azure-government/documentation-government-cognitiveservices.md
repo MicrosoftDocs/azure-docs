@@ -3,11 +3,9 @@ title: Azure AI services on Azure Government
 description: Guidance for developing Azure AI services applications for Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/30/2021
 ms.custom: references_regions, devx-track-azurepowershell

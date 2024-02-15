@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 01/17/2024
 ms.author: lajanuar
 ---
 
@@ -675,10 +675,6 @@ docker-compose down
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
 Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. You're billed for each container instance used to process your documents and images.
-
-> [!NOTE]
-> Currently, Document Intelligence v3 containers only support pay as you go pricing. Support for commitment tiers and disconnected mode will be added in March 2023.
-Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
 ### Connect to Azure
 

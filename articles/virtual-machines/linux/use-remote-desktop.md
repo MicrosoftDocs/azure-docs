@@ -6,7 +6,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: mattmcinnes
@@ -29,7 +29,7 @@ This article requires an existing Ubuntu 18.04 LTS or Ubuntu 20.04 LTS VM in Azu
 
 - The [Azure CLI](quick-create-cli.md)
 - The [Azure portal](quick-create-portal.md)
-   
+
 ## Install a desktop environment on your Linux VM
 
 Most Linux VMs in Azure don't have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment, however there are several desktop environments that you can choose to install. Depending on your choice of desktop environment, it consumes up to 2 GB of disk space and take up to ten minutes to both install and configure all the required packages.

@@ -127,7 +127,7 @@ Choose a management region from the following list:
 - West Europe
 - UK South
 - India Central
-- Southeast Asia
+- Canada Central
 - Australia East
 
 Management regions can be colocated with service regions. We recommend choosing the management region nearest to your service regions.

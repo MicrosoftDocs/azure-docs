@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 01/14/2024
+ms.date: 01/28/2024
 ms.custom: references_regions
 ---
 
@@ -22,6 +22,7 @@ Sensitive data discovery is available in the Defender CSPM, Defender for Storage
 - Existing plan status shows as “Partial” rather than “Full” if one or more extensions aren't turned on.
 - The feature is turned on at the subscription level.
 - If sensitive data discovery is turned on, but Defender CSPM isn't enabled, only storage resources will be scanned.
+- If a subscription is enabled with Defender CSPM and in parallel you scanned the same resources with Purview, Purview's scan result is ignored and defaults to displaying the Microsoft Defender for Cloud's scanning results for the supported resource type.
 
 ## What's supported
 
@@ -91,8 +92,9 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Delete/update DB/cluster snapshot with prefix *defenderfordatabases*
   - List all KMS keys
   - Use all KMS keys only for RDS on source account
-  - Full control on all KMS keys with tag prefix *DefenderForDatabases*
+  - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal additional cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 

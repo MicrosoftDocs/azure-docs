@@ -62,6 +62,7 @@ By default, the Azure CLI will create a scale set with a scaling profile. Omit t
 az vmss create \
 	--name myVmss \
 	--resource-group myResourceGroup \
+        --orchestration-mode flexible \
 	--platform-fault-domain-count 3 
 ```
 

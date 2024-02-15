@@ -2,15 +2,9 @@
 title: Manage disaster recovery using Azure NetApp Files cross-region replication | Microsoft Docs
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: anfdocs
@@ -43,7 +37,7 @@ When you need to activate the destination volume (for example, when you want to 
 
 4.	Type **Yes** when prompted and click the **Break** button. 
 
-    ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+    ![Break replication peering](./media/shared/cross-region-replication-break-replication-peering.png)
 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
@@ -64,7 +58,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 
 2. Type **Yes** when prompted and click **OK**. 
  
-    ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
+    ![Resync replication](./media/cross-region-replication-manage-disaster-recovery/cross-region-replication-resync-replication.png)
 
 3. Monitor the source volume health status by following steps in [Display health status of replication relationship](cross-region-replication-display-health-status.md).   
     When the source volume health status shows the following values, the reverse resync operation is complete, and changes made at the destination volume are now captured on the source volume:   

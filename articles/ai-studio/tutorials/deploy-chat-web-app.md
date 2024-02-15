@@ -36,7 +36,7 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [Azure AI resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
@@ -44,7 +44,8 @@ The steps in this tutorial are:
 
 Follow these steps to deploy a chat model and test it without your data. 
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
 1. Select **Build** from the top menu and then select **Deployments** > **Create**.
     
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::

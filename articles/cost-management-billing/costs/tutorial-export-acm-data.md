@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2023
+ms.date: 01/24/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -45,7 +45,7 @@ For Azure Storage accounts:
   - Owner role on the storage account.  
   Or
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to generate exports to a storage account located behind a firewall, use the API version 2023-08-01 or later version. All newer API versions continue to support exports behind the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 

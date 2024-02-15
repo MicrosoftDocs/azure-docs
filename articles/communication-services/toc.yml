@@ -20,6 +20,8 @@ items:
       href: quickstarts/identity/access-tokens.md
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
     - name: Designing your architecture
@@ -304,6 +306,8 @@ items:
         href: how-tos/calling-sdk/lobby.md
       - name: Manage Audio Filters
         href: how-tos/calling-sdk/manage-audio-filters.md
+      - name: PowerPoint Live
+        href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -340,6 +344,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
         href: quickstarts/voice-video-calling/get-started-video-effects.md
+      - name: Add Augmented Reality filters to your video calls
+        href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
       - name: Diagnose your network
@@ -375,6 +381,11 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Migrating to Azure Communication Services
+      items:
+        - name: How to migrate from Twilio video to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-calling.md
+          displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -1205,6 +1216,8 @@ items:
       href: concepts/numbers/phone-number-management-for-slovakia.md
     - name: Phone number management for Slovenia
       href: concepts/numbers/phone-number-management-for-slovenia.md
+    - name: Phone number management for South Africa
+      href: concepts/numbers/phone-number-management-for-south-africa.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

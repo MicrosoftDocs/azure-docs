@@ -2,15 +2,9 @@
 title: What is the Azure Application Consistent Snapshot tool for Azure NetApp Files
 description: Get basic information about the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2023
 ms.author: phjensen

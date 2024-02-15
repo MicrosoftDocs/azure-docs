@@ -8,14 +8,14 @@ ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/29/2023
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
+ms.custom: seodec18, devx-track-azurepowershell, linux-related-content
 ---
 
 # Azure Disk Encryption sample scripts for Linux VMs
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.  
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
 > [!NOTE]
 > All scripts refer to the latest, non-AAD version of ADE, except where noted.

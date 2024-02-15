@@ -75,7 +75,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### Create an Azure Spring Apps instance
 
-Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [a region that has Service Connector support](concept-region-support.md).
+Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/enterprise/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [a region that has Service Connector support](concept-region-support.md).
 
 ## Build and deploy the app
 

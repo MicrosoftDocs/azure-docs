@@ -6,7 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 12/06/2023
+ms.date: 01/31/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -19,16 +19,22 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.46.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
 * An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+  Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
-* The Azure IoT Operations extension for Azure CLI.
-
-  ```bash
-  az extension add --name azure-iot-ops
+  ```azurecli
+  az iot ops verify-host
   ```
 
 * An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
@@ -41,11 +47,11 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
-1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
 
 1. Select **Create**.
 
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+1. On the **Basic** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
@@ -71,7 +77,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key vault** | Choose an existing key vault from the drop-down list or create a new one by selecting **Create new**. |
 
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy either the **Required** or **Optional** CLI command.
+1. Once you select a key vault, the **Automation** tab uses all the information you've selected so far to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
 
    :::image type="content" source="../get-started/media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
 
@@ -82,7 +88,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    ```
 
    > [!NOTE]
-   > If you're using Github Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
    >
    > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
@@ -90,12 +96,6 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 1. Run the copied [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command on your development machine.
 
    Wait for the command to complete.
-
-   If you copied the **Optional** CLI command, then you're done with the cluster configuration and deployment.
-
-1. If you copied the **Required** CLI command, return to the Azure portal and select **Review + Create**.
-
-1. Wait for the validation to pass and then select **Create**.
 
 #### [Azure CLI](#tab/cli)
 

@@ -56,7 +56,7 @@ Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python]
 
 ### Should I use OpenTelemetry or the Application Insights SDK?
 
-We recommend using the OpenTelemetry Distro unless you require a feature that is only available with formal support in the Application Insights SDK.
+We recommend using the OpenTelemetry Distro unless you require a [feature that is only available with formal support in the Application Insights SDK](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
 Adopting OpenTelemetry now prevents having to migrate at a later date.
 

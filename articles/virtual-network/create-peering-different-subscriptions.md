@@ -7,14 +7,14 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/23/2023
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Microsoft Entra tenants
 
 In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Microsoft Entra tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
-Depending on whether, the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Depending on whether, the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
 
@@ -88,7 +88,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-In the following steps, learn how to peer virtual networks in different subscriptions and Microsoft Entra tenants. 
+In the following steps, learn how to peer virtual networks in different subscriptions and Microsoft Entra tenants.
 
 You can use the same account that has permissions in both subscriptions or you can use separate accounts for each subscription to set up the peering. An account with permissions in both subscriptions can complete all of the steps without signing out and signing in to portal and assigning permissions.
 
@@ -250,7 +250,7 @@ A user account in the other subscription that you want to peer with must be adde
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **vnet-1**. Assign **user-2** from **subscription-2** to **vnet-1** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). 
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **vnet-1**. Assign **user-2** from **subscription-2** to **vnet-1** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **user-2**.
 
@@ -350,7 +350,7 @@ $id = @{
 $vnetA = Get-AzVirtualNetwork @id
 
 $vnetA.id
-``` 
+```
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
@@ -364,7 +364,7 @@ vnetidA=$(az network vnet show \
     --output tsv)
 
 echo $vnetidA
-``` 
+```
 
 ---
 
@@ -525,7 +525,7 @@ A user account in the other subscription that you want to peer with must be adde
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **vnet-1**. Assign **user-1** from **subscription-1** to **vnet-2** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). 
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **vnet-1**. Assign **user-1** from **subscription-1** to **vnet-2** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **user-1**.
 
@@ -550,7 +550,7 @@ New-AzRoleAssignment @role
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **vnet-2**. Assign **user-1** from **subscription-1** to **vnet-2** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). 
+Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **vnet-2**. Assign **user-1** from **subscription-1** to **vnet-2** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 Use [az ad user list](/cli/azure/ad/user#az-ad-user-list) to obtain the object ID for **user-1**.
 
@@ -638,7 +638,7 @@ vnetidB=$(az network vnet show \
     --output tsv)
 
 echo $vnetidB
-``` 
+```
 
 ---
 

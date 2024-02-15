@@ -1,7 +1,6 @@
 ---
 title: How to Log an Azure security issue - Azure | Microsoft Docs
 description: As a seller on the Azure Marketplace, having identified a potential security event, I need to know how to log an appropriate ticket.
-documentationcenter: na
 author: DavidBosland
 manager: rkarlin
 
@@ -9,8 +8,6 @@ ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2023
 ms.author: terrylan
 

@@ -10,6 +10,8 @@ ms.workload: security
 ms.topic: article
 ms.date: 07/28/2022
 ms.author: mbaldwin
+ms.custom: references_regions metadata
+
 ---
 
 # Azure Payment HSM service support guide
@@ -21,43 +23,64 @@ This article outlines the Azure Payment HSM prerequisites, support channels, and
 
 ## Prerequisites
 
-Microsoft will work with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
+Microsoft works with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
 
 - Customers must have access to the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm) (Customer ID).
-- Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
+- Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us):
+    - **Item**:  971-000135-001-000 
+    - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+    - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
+    
+    Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
 - If a customer need to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
-- Customers must download and review the "Hosted HSM End User Guide", which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide will provide more details on the changes to payShield to this service.
+- Customers must download and review the "Hosted HSM End User Guide", which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide provides more details on the changes to payShield to this service.
 - Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who do not have the guide may request it from [Microsoft Support](#microsoft-support).)
 - If a customer is new to payShield or the remote management option, they should take the formal training courses available from Thales and its approved partners.
 - If a customer is using payShield on premises today with custom firmware, they must conduct a porting exercise to update the firmware to a version compatible with the Azure deployment. Contact a Thales account manager to request a quote.
 
 ## Firmware and license support
 
-The HSM base firmware installed is Thales payShield10K base software version 1.4a 1.8.3 with the Premium Package license. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed is Thales payShield10K base software version 1.4a 1.8.3. Versions below 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
 
-The Premium Package license included in Azure payment HSM features: 
+The licenses included in Azure payment HSM:
+
 - Premium Key Management
-- Magnetic Stripe Issuing 
+- Magnetic Stripe Issuing
 - Magnetic Stripe Transaction Processing
-- EMV Chip, Contactless & Mobile Issuing 
-- EMV Transaction Processing 
-- Premium Data Protection 
+- EMV Chip, Contactless & Mobile Issuing
+- EMV Transaction Processing
+- User Authentication
+- Data Protection
+- Legacy Commands
 - Remote payShield Manager
 - Hosted HSM
 
-Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs, as needed. If customers have questions or require assistance, they should work with Thales support.
+Customer set up the performance level (60CPS, 250 CPS, 2500 CPS) and LMK (1 LMK, 2LMK) when HSM is created.
 
-Microsoft is responsible for applying payShield security patches to unallocated HSMs.  
+Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs as needed. If customers have questions or require assistance, they should work with Thales support.
+
+Microsoft is responsible for applying payShield security patches to unallocated HSMs.
+
+## Availability
+
+Azure Payment HSM is currently available in the following regions:
+
+- East US
+- West US
+- South Central US
+- Central US
+- North Europe
+- West Europe
 
 ## Microsoft support
 
-Microsoft will provide support for hardware issues, networking issues, and provisioning issues. Enterprise customers should contact their CSAM to find out details of their support contract .
+Microsoft provides support for hardware issues, networking issues, and provisioning issues. Enterprise customers should contact their CSAM to find out details of their support contract.
 
 Microsoft support can be contacted by creating a support ticket through the Azure portal:
 
 - From the Azure portal homepage, select the "Support + troubleshooting" icon (a question mark in a circle) in the upper-right.
 - Select the "Help + Support" button.
-- Select "Create a support request".
+- Select "Create a support request."
 - On the "New support request" screen, select "Technical" as your issue type, and then "Payment HSM" as the service type. 
 
 ## Thales support

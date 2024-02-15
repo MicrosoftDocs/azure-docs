@@ -25,7 +25,7 @@ Install the following prerequisites on your development machine except where not
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python3 --version`.
+- [Python](https://www.python.org/downloads/). Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. To check your Python version, run `python3 --version`.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Get started with Azure Cloud Shell](../articles/cloud-shell/get-started.md) to **Start Cloud Shell** and **Select the Bash environment**.

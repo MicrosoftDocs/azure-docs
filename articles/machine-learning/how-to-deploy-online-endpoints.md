@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 ms.date: 11/15/2023
 reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2, update-code
 ---
 
 # Deploy and score a machine learning model by using an online endpoint

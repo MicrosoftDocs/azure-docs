@@ -3,20 +3,19 @@ title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure AI services
 description: The Speech SDK supports numerous programming languages for speech to text and text to speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
 author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 12/10/2019
-ms.author: rhurey
-ms.devlang: cpp
-# ms.devlang: cpp, csharp, java, objective-c, python
+ms.date: 1/21/2024
+ms.reviewer: rhurey
 ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-two
 ---
 
 # How to track Speech SDK memory usage
 
-The Speech SDK is based on a native code base that's projected into multiple programming languages through a series of interoperability layers. Each language-specific projection has idiomatically correct features to manage the object lifecycle. Additionally, the Speech SDK includes memory management tooling to track resource usage with object logging and object limits. 
+The Speech SDK is based on a native code base projected into multiple programming languages through a series of interoperability layers. Each language-specific projection has idiomatically correct features to manage the object lifecycle. Additionally, the Speech SDK includes memory management tooling to track resource usage with object logging and object limits. 
 
 ## How to read object logs
 
@@ -34,9 +33,9 @@ Here's a sample log:
 
 ## Set a warning threshold
 
-You have the option to create a warning threshold, and if that threshold is exceeded (assuming logging is enabled), a warning message is logged. The warning message contains a dump of all objects in existence along with their count. This information can be used to better understand issues. 
+You can create a warning threshold, and if that threshold is exceeded (assuming logging is enabled), a warning message is logged. The warning message contains a dump of all objects in existence along with their count. This information can be used to better understand issues. 
 
-To enable a warning threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
+To enable a warning threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you created an instance of `SpeechConfig` called `config`:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -83,7 +82,7 @@ speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 
 ## Set an error threshold 
 
-Using the Speech SDK, you can set the maximum number of objects allowed at a given time. If this setting is enabled, when the maximum number is hit, attempts to create new recognizer objects will fail. Existing objects will continue to work.
+Using the Speech SDK, you can set the maximum number of objects allowed at a given time. If this setting is enabled, when the maximum number is hit, attempts to create new recognizer objects fail. Existing objects continue to work.
 
 Here's a sample error:
 
@@ -97,7 +96,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-To enable an error threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you've created an instance of `SpeechConfig` called `config`:
+To enable an error threshold, it must be specified on a `SpeechConfig` object. This object is checked when a new recognizer is created. In the following examples, let's assume that you created an instance of `SpeechConfig` called `config`:
 
 ::: zone pivot="programming-language-csharp"
 

@@ -866,7 +866,7 @@ channels:
 Choose which Python version you want to use, and remove all other versions 
 
 ```python
-myenv.python.conda_dependencies.remove_conda_package("python=3.6")
+myenv.python.conda_dependencies.remove_conda_package("python=3.8")
 ```
 
 :::moniker-end
@@ -1705,7 +1705,7 @@ Ensure that you have a working MPI installation (preference for MPI-3 support an
 * If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
 
 Ensure that you're using a compatible python version
-* Azure Machine Learning requires Python 2.5 or 3.5+, but Python 3.7+ is recommended
+* Python 3.8+ is recommended due to older versions reaching end-of-life
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 **Resources**

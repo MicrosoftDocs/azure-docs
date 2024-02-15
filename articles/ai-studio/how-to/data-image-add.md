@@ -34,6 +34,8 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 
 This guide is scoped to the Azure AI Studio playground, but you can also add image data via your project's **Data** page. See [Add data to your project](../how-to/data-add.md) for more information.
 
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](create-projects.md) in Azure AI Studio.
 1. If you aren't already in the playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. In the playground, make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown.
 

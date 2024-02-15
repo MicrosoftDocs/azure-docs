@@ -1,46 +1,46 @@
 ---
-title: Manage packet captures in VMs with Azure Network Watcher - Azure CLI
-description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using the Azure CLI.
-services: network-watcher
+title: Manage packet captures for VMs - Azure CLI
+titleSuffix: Azure Network Watcher
+description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher using the Azure CLI.
 author: halkazwini
-ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 12/09/2021
-ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.date: 01/31/2024
+ms.custom: devx-track-azurecli
+#CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage packet captures with Azure Network Watcher using the Azure CLI
+# Manage packet captures for virtual machines with Azure Network Watcher using the Azure CLI
 
-> [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine (VM). Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
-Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
+In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using Azure PowerShell. To learn how to manage packet captures using the Azure portal or Azure CLI, see [Manage packet captures for virtual machines using the Azure portal](network-watcher-packet-capture-manage-portal.md) or [Manage packet captures for virtual machines using PowerShell](network-watcher-packet-capture-manage-powershell.md).
 
-To perform the steps in this article, you need to [install the Azure CLI](/cli/azure/install-azure-cli) for Windows, Linux, or macOS.
 
-This article takes you through the different management tasks that are currently available for packet capture.
+## Prerequisites
 
-- [**Start a packet capture**](#start-a-packet-capture)
-- [**Stop a packet capture**](#stop-a-packet-capture)
-- [**Delete a packet capture**](#delete-a-packet-capture)
-- [**Download a packet capture**](#download-a-packet-capture)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Before you begin
+- Azure Cloud Shell or Azure CLI.
 
-This article assumes you have the following resources:
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-- An instance of Network Watcher in the region you want to create a packet capture
-- A virtual machine with the packet capture extension enabled.
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-> [!IMPORTANT]
-> Packet capture requires an agent to be running on the virtual machine. The Agent is installed as an extension. For instructions on VM extensions, visit [Virtual Machine extensions and features](../virtual-machines/extensions/features-windows.md).
+- A virtual machine with the following outbound TCP connectivity:
+    - to the storage account over port 443
+    - to 169.254.169.254 over port 80
+    - to 168.63.129.16 over port 8037
 
-## Install VM extension
+> [!NOTE]
+> - Azure creates a Network Watcher instance in the the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. For more information, see [Install Network Watcher agent](#install-network-watcher-agent).
+> - The last two IP addresses and ports listed in the **Prerequisites** are common across all Network Watcher tools that use the Network Watcher agent and might occasionally change.
+
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
+
+## Install Network Watcher agent
 
 ### Step 1
 
@@ -223,10 +223,7 @@ If a storage account is specified, packet capture files are saved to a storage a
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## Next steps
+## Related content
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
-
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
-
-<!-- Image references -->
+- To learn how to automate packet captures with virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
+- To determine whether specific traffic is allowed in or out of a virtual machine, see [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).

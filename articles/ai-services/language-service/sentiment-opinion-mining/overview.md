@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 12/19/2023
+ms.date: 01/25/2024
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -36,7 +36,7 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
-#### [Custom model](#tab/custom)
+#### [Custom model (preview)](#tab/custom)
 
 Custom sentiment analysis enables users to build custom AI models to classify text into sentiments pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 

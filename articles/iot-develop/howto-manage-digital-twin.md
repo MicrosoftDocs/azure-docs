@@ -3,10 +3,9 @@ title: How to manage IoT Plug and Play digital twins
 description: How to manage an IoT Plug and Play device by using the digital twin APIs
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: how-to
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # Manage IoT Plug and Play digital twins

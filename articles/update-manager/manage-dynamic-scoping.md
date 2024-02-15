@@ -4,7 +4,7 @@ description: This article describes how to manage Dynamic Scoping operations
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/02/2024
+ms.date: 02/03/2024
 ms.topic: how-to
 ---
 
@@ -48,14 +48,11 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 1. Select **Machines** >  **Maintenance configurations**.
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to view the Dynamic scope.
 1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated with the maintenance configuration.
+1. The schedules associated to dynamic scopes are displayed in the following two areas by design:
+    - **Update manager** > **Machines** > **Associated schedules** column
+    - In your virtual machine home page > **Updates** > **Scheduling** tab.
 
-> [!NOTE]
-> The schedules associated to dynamic scopes aren’t displayed in the following two areas by design:
->
->  - **Update manager** > **Machines** > **Associated schedules** column
->  - In your virtual machine home page > **Updates** > **Scheduling** tab.
->
-> To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
+To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
 
 ## Edit a Dynamic scope
 
@@ -128,8 +125,7 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 
 ## Next steps
 
-* [View updates for single machine](view-updates.md)
-* [Deploy updates now (on-demand) for single machine](deploy-updates.md)
-* [Schedule recurring updates](scheduled-patching.md)
-* [Manage update settings via Portal](manage-update-settings.md)
-* [Manage multiple machines using update Manager](manage-multiple-machines.md)
+* Learn more about how to [Configure schedule patching on Azure VMs for business continuity](prerequsite-for-schedule-patching.md).
+* Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
+* Learn on how to [automatically installs the updates according to the created schedule both for a single VM and at scale](scheduled-patching.md).
+* Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

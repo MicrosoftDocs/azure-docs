@@ -1,14 +1,12 @@
 ---
 title: Understand the Azure Digital Twins model parser | Microsoft Docs
 description: As a developer, learn how to use the DTDL parser to validate models.
-author: rido-min
-ms.author: rmpablos
-ms.date: 04/25/2023
+author: timlt
+ms.author: timlt
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
-services: iot-develop
-
 ---
 
 # Understand the digital twins model parser

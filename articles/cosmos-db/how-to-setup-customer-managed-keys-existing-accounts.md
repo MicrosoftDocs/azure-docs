@@ -84,7 +84,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
 - Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing Azure Cosmos DB for Apache Cassandra accounts.
-- We don't support enabling CMK on existing accounts that are enabled for Materialized Views and Full Fidelity Change Feed (FFCF) as well.
+- We don't support enabling CMK on existing accounts that are enabled for Materialized Views and [all versions and deletes change feed mode](nosql/change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview).
 - Ensure account must not have documents with large IDs greater than 990 bytes before enabling CMK. If not, you'll get an error due to max supported limit of 1024 bytes after encryption.
 - During encryption of existing data, [control plane](./audit-control-plane-logs.md) actions such as "add region" is blocked. These actions are unblocked and can be used right after the encryption is complete.
 

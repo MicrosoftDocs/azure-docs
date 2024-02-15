@@ -212,6 +212,65 @@ The main project folder, *<project_root>*, can contain the following files:
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
 
+## Connect to a database
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL and relational database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Its various APIs can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
+
+To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md). You may also use the Python library for Cosmos DB, like so:
+
+```python
+pip install azure-cosmos
+
+from azure.cosmos import CosmosClient, exceptions
+from azure.cosmos.partition_key import PartitionKey
+
+# Replace these values with your Cosmos DB connection information
+endpoint = "https://azure-cosmos-nosql.documents.azure.com:443/"
+key = "master_key"
+database_id = "cosmicwerx"
+container_id = "cosmicontainer"
+partition_key = "/partition_key"
+
+# Set the total throughput (RU/s) for the database and container
+database_throughput = 1000
+
+# Initialize the Cosmos client
+client = CosmosClient(endpoint, key)
+
+# Create or get a reference to a database
+try:
+    database = client.create_database_if_not_exists(id=database_id)
+    print(f'Database "{database_id}" created or retrieved successfully.')
+
+except exceptions.CosmosResourceExistsError:
+    database = client.get_database_client(database_id)
+    print('Database with id \'{0}\' was found'.format(database_id))
+
+# Create or get a reference to a container
+try:
+    container = database.create_container(id=container_id, partition_key=PartitionKey(path='/partitionKey'))
+    print('Container with id \'{0}\' created'.format(container_id))
+
+except exceptions.CosmosResourceExistsError:
+    container = database.get_container_client(container_id)
+    print('Container with id \'{0}\' was found'.format(container_id))
+
+# Sample document data
+sample_document = {
+    "id": "1",
+    "name": "Doe Smith",
+    "city": "New York",
+    "partition_key": "NY"
+}
+
+# Insert a document
+container.create_item(body=sample_document)
+
+# Query for documents
+query = "SELECT * FROM c where c.id = 1"
+items = list(container.query_items(query, enable_cross_partition_query=True))
+```
+
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
 

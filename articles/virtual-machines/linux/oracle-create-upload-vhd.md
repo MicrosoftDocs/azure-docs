@@ -1,12 +1,12 @@
 ---
-title: Create and upload an Oracle Linux VHD 
+title: Create and upload an Oracle Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system.
 author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: oracle
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
@@ -15,7 +15,7 @@ ms.reviewer: mattmcinnes
 
 # Prepare an Oracle Linux virtual machine for Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article assumes that you've already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
@@ -31,7 +31,7 @@ This article assumes that you've already installed an Oracle Linux operating sys
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 * Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
-## Oracle Linux 6.X 
+## Oracle Linux 6.X
 
 > [!IMPORTANT]
 > Keep in consideration Oracle Linux 6.x is already EOL. Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf), which [will end on 07/2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
@@ -51,7 +51,7 @@ You must complete specific configuration steps in the operating system for the v
 
 4. Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
-    ```config   
+    ```config
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
@@ -90,11 +90,11 @@ You must complete specific configuration steps in the operating system for the v
 9. Modify the kernel boot line in your grub configuration to include more kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 
+    console=ttyS0 earlyprintk=ttyS0
     ```
 
    This setting ensures all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-   
+
    In addition to the above, we recommend to *remove* the following parameters:
 
     ```config-grub
@@ -102,7 +102,7 @@ You must complete specific configuration steps in the operating system for the v
     ```
 
    Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
-   
+
    The `crashkernel` option may be left configured if desired, but note that this parameter reduces the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
 10. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
@@ -115,7 +115,7 @@ You must complete specific configuration steps in the operating system for the v
     Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they weren't already removed as described in step 2.
 
 12. Don't create swap space on the OS disk.
-    
+
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
     ```config-conf
@@ -190,7 +190,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
 
 8. Run the following command to clear the current yum metadata and install any updates:
 
-    ```bash 
+    ```bash
     sudo yum clean all
     sudo yum -y update
     ```
@@ -206,9 +206,9 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     ```config-grub
        rhgb quiet crashkernel=auto
     ```
- 
+
    Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
-   
+
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
 10. Once you're done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
@@ -244,7 +244,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
-    ```  
+    ```
 
     ```bash
     echo "Allow only Azure datasource, disable fetching network setting via IMDS"

@@ -2,7 +2,7 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 06/07/2023
 ---
 
@@ -283,7 +283,7 @@ Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with y
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
 [cloud-hypervisor]: https://www.cloudhypervisor.org
-[kata-container]: https://katacontainers.io 
+[kata-container]: https://katacontainers.io
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure

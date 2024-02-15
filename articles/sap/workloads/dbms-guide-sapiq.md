@@ -2,7 +2,6 @@
 title: Implement SAP BW NLS with SAP IQ on Azure | Microsoft Docs
 description: Plan, deploy, and configure the SAP BW NLS solution with SAP IQ on Azure.
 services: virtual-machines,virtual-machines-windows,virtual-machines-linux,virtual-network,storage,azure-netapp-files,azure-shared-disk,managed-disk
-documentationcenter: saponazure
 author: dennispadia
 manager: juergent
 ms.service: sap-on-azure

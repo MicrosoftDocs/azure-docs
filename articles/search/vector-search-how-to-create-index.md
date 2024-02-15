@@ -1,5 +1,5 @@
 ---
-title: Add vector search
+title: Create a vector store
 titleSuffix: Azure AI Search
 description: Create or update a search index to include vector fields.
 
@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 01/29/2024
 ---
 
-# Add vector fields to a search index
+# Create a vector store
 
-In Azure AI Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md). 
+In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
 
 Follow these steps to index vector data:
 
 > [!div class="checklist"]
-> + Add one or more vector configurations to an index schema. 
-> + Add one or more vector fields.
-> + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing.
+> + Define a schema with one or more vector configurations that specifies algorithms for indexing and search 
+> + Add one or more vector fields
+> + Load prevectorized data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing.
 
 This article applies to the generally available, non-preview version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and encoding. 
 
@@ -30,9 +30,9 @@ This article applies to the generally available, non-preview version of [vector 
 
 ## Prerequisites
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that can't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of vector search. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md).
++ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of the Azure SDKs and REST APIs. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md).
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
@@ -234,19 +234,19 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 + Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-config)
 
 + Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-config)
 
 + Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -571,19 +571,19 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 + Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-field)
 
 + Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-field)
 
 + Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -700,6 +700,6 @@ api-key: {{admin-api-key}}
 
 As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
 
-Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+Code samples in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
-There's demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+There's demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).

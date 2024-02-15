@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
@@ -90,14 +90,14 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
             interval => 5
         }
     }
-    
+
     filter {
         split { field => "[records]" }
         split { field => "[records][properties][flows]"}
         split { field => "[records][properties][flows][flows]"}
         split { field => "[records][properties][flows][flows][flowTuples]"
     }
-    
+
      mutate {
         split => { "[records][resourceId]" => "/"}
         add_field =>{
@@ -197,7 +197,7 @@ Now that you have established a connection to the flow logs using Logstash and s
 
 ### Search through Graylog messages
 
-After allowing some time for your Graylog server to collect messages, you are able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page click the "**Show received messages**" button of the GELF UDP input you created. You are directed to a screen that looks similar to the following picture: 
+After allowing some time for your Graylog server to collect messages, you are able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page click the "**Show received messages**" button of the GELF UDP input you created. You are directed to a screen that looks similar to the following picture:
 
 ![Screenshot shows the Graylog server that displays Search result, Histogram, and Messages.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 

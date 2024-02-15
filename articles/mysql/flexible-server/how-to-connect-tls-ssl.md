@@ -60,7 +60,7 @@ The following example shows how to connect to your server using the mysql comman
 ```
 
 > [!IMPORTANT]
-> Setting the require_secure_transport to OFF doesn't mean encrypted connections aren't supported on the server side. If you set require_secure_transport to OFF on the Azure Database for MySQL flexible server instance, but if the client connects with the encrypted connection, it still is accepted. The following connection using mysql client to a Azure Database for MySQL flexible server instance configured with require_secure_transport=OFF also works as shown below.
+> Setting the require_secure_transport to OFF doesn't mean encrypted connections aren't supported on the server side. If you set require_secure_transport to OFF on the Azure Database for MySQL flexible server instance, but if the client connects with the encrypted connection, it still is accepted. The following connection using mysql client to an Azure Database for MySQL flexible server instance configured with require_secure_transport=OFF also works as shown below.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED

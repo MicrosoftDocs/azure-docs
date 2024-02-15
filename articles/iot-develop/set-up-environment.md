@@ -3,10 +3,9 @@ title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Micr
 description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: tutorial
 ms.service: iot-develop
-services: iot-develop
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
