@@ -257,8 +257,6 @@ items:
     - name: DPS shared access policy data source
       displayName: Terraform
       href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps_shared_access_policy
-  - name: Azure Certified for IoT device catalog
-    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
