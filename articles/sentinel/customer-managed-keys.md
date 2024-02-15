@@ -70,7 +70,7 @@ Follow the instructions in [Azure Monitor customer-managed key configuration](..
 
 ### Step 2: Register the Azure Cosmos DB Resource Provider
 
-Microsoft Sentinel works with Azure Cosmos DB as an additional storage resource. Make sure to register to the Azure Cosmos DB Resource Provider before onboarding a CMK workspace to sentinel.
+Microsoft Sentinel works with Azure Cosmos DB as an additional storage resource. Make sure to register to the Azure Cosmos DB Resource Provider before onboarding a CMK workspace to Microsoft Sentinel.
 
 Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) for your Azure subscription.
 
