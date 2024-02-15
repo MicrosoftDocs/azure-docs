@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
-Edge Secured-core requires a version of Windows IoT that has at least 5 years of support from Microsoft remaining in its support lifecycle, at time of certification such as:
+Edge Secured-core requires a version of Windows IoT that has at least five years of support from Microsoft remaining in its support lifecycle, at time of certification such as:
 * [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
 * [Windows 10 IoT Enterprise LTSC 2021 Lifecycle](/lifecycle/products/windows-10-iot-enterprise-ltsc-2021)
 * [Windows 11 IoT Enterprise Lifecycle](/lifecycle/products/windows-11-iot-enterprise)
