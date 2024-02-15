@@ -12,7 +12,7 @@ ms.reviewer: jeffwo
 
 By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. This article explains how to enable network isolation for your agents by using [Azure Private Link](../../private-link/private-link-overview.md).
 
-# Prerequisites
+## Prerequisites
 
 - A [data collection rule](../essentials/data-collection-rule-create-edit.md), which defines the data Azure Monitor Agent collects and the destination to which the agent sends data. 
 
