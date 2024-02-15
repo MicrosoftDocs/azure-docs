@@ -108,26 +108,26 @@ The type of Elasticsearch retrieval query that should be executed when using it 
 ## Examples
 
 Prerequisites:
-* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
+* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `SearchEndpoint`, `IndexName`, `Key`, `KeyId`.
 
 # [Python 1.x](#tab/python)
 
 ```python
-
-
 import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 endpoint = os.environ.get("AOAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
+index_name = os.environ.get("IndexName")
 search_endpoint = os.environ.get("SearchEndpoint")
-search_index = os.environ.get("SearchIndex")
+key = os.environ.get("Key")
+key_id = os.environ.get("KeyId")
 
-token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
 client = AzureOpenAI(
     azure_endpoint=endpoint,
@@ -146,12 +146,14 @@ completion = client.chat.completions.create(
     extra_body={
         "data_sources": [
             {
-                "type": "azure_search",
+                "type": "elasticsearch",
                 "parameters": {
                     "endpoint": search_endpoint,
-                    "index_name": search_index,
+                    "index_name": index_name,
                     "authentication": {
-                        "type": "system_assigned_managed_identity"
+                        "type": "key_and_key_id",
+                        "key": key,
+                        "key_id": key_id
                     }
                 }
             }
@@ -166,6 +168,7 @@ print(completion.model_dump_json(indent=2))
 # [REST](#tab/rest)
 
 ```bash
+
 az rest --method POST \
  --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
@@ -173,22 +176,24 @@ az rest --method POST \
 '
 {
     "data_sources": [
-        {
-            "type": "azure_search",
-            "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "index_name": "'$SearchIndex'",
-                "authentication": {
-                    "type": "system_assigned_managed_identity"
-                }
-            }
+      {
+        "type": "elasticsearch",
+        "parameters": {
+          "endpoint": "'$SearchEndpoint'",
+          "index_name": "'$IndexName'",
+          "authentication": {
+            "type": "key_and_key_id",
+            "key": "'$Key'",
+            "key_id": "'$KeyId'"
+          }
         }
+      }
     ],
     "messages": [
-        {
-            "role": "user",
-            "content": "Who is DRI?",
-        }
+      {
+        "role": "user",
+        "content": "Who is DRI?"
+      }
     ]
 }
 '
