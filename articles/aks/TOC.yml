@@ -700,7 +700,11 @@
                 href: node-upgrade-github-actions.md
 
     - name: Azure Linux container host for AKS
-      href: use-azure-linux.md
+      items:
+        - name: Use Azure Linux for AKS
+          href: use-azure-linux.md
+        - name: Azure Linux AKS partner solutions
+          href: azure-linux-aks-partner-solutions.md
     - name: Windows Server containers
       items:
         - name: Windows Server containers FAQ

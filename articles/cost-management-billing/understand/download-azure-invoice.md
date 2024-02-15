@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. Invoices are sent to the person set to receive invoices for the enrollment.
 
-If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Direct EA administrators can [Download or view their Azure billing invoice](../manage/direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice). Indirect EA administrators can use the information at [Azure Enterprise enrollment invoices](../manage/ea-portal-enrollment-invoices.md) to download their invoice.
+If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Direct EA administrators can [Download or view their Azure billing invoice](../manage/direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice). Indirect EA administrators can use the information at [Azure Enterprise enrollment invoices](../manage/direct-ea-billing-invoice-documents.md) to download their invoice.
 
 ## Where invoices are generated
 
