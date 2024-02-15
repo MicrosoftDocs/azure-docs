@@ -16,7 +16,7 @@ Azure Communications Gateway's Number Management Portal (preview) enables you to
 The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you launch your service in the Teams Admin Center. The Number Management Portal is a simple browser-based alternative.
 
 > [!TIP]
-> You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md).
+> You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md).
 
 ## Prerequisites
 

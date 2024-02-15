@@ -102,7 +102,7 @@ Both methods integrate with the Operator Management and Telephone Number Managem
 
 For more information, see:
 
-- [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md) and [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
+- [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md) and [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
 - [Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview) for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 > [!TIP]

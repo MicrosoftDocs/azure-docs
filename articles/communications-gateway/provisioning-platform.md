@@ -10,7 +10,7 @@ ms.date: 02/16/2024
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---
 
-# Provisioning API (preview) for Azure Communications Gateway (preview)
+# Provisioning API (preview) for Azure Communications Gateway
 
 Azure Communications Gateway's Provisioning API (preview) allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you assign to them.
 

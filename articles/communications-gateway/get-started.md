@@ -29,7 +29,7 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to Operator Connect or Teams Phone Mobile and the support we can provide.
 - [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
-- [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
+- [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
 - [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway.
 
