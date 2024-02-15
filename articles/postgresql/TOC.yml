@@ -106,10 +106,8 @@
         href: flexible-server/generative-ai-semantic-search.md
       - name: Recommendation System
         href: flexible-server/generative-ai-recommendation-system.md
-      - name: Integration
-        items:
-        - name: Integrate Azure AI capabilities
-          href: flexible-server/how-to-integrate-azure-ai.md
+      - name: Integrate Azure AI capabilities
+        href: flexible-server/how-to-integrate-azure-ai.md
     - name: Azure Storage Extension
       href: flexible-server/concepts-storage-extension.md
     - name: Microsoft Entra authentication
