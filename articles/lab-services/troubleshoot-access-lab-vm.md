@@ -69,7 +69,7 @@ If you have questions or need help, review the [Advanced troubleshooting](#advan
     > [!IMPORTANT]
     > Reimaging a lab VM deletes the user data in the VM. Make sure to [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
 
-### Unable to log in with the credentials you used for creating the lab
+### Unable to login with the credentials you used for creating the lab
 
 When you create a new lab from an exported lab VM image, perform the following steps:
 
