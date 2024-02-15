@@ -35,7 +35,7 @@ The following table shows the installation methods available for enabling VM Ins
 | [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Currently only supported for Log Analytics agent. |
 | [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments.|
 
-## Supported Azure Arc machines
+### Supported Azure Arc machines
 
 VM Insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Azure Arc agent.
 
