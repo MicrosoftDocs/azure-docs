@@ -5,7 +5,7 @@ author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 02/12/2024
+ms.date: 02/15/2024
 topic: how-to
 recommendations: true
 keywords: azure, openshift, aro, NSG
