@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: Azure Arc site manager # < 60 chars
+summary: Manage logical groups of Arc-enabled resources # < 160 chars
+ 
+metadata:
+  title: Azure Arc site manager
+  description: Manage logical groups of Arc-enabled resources
+  ms.service: azure-arc
+#  ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
+  ms.topic: landing-page
+  author: kgremban
+  ms.author: kgremban
+  ms.date: 02/14/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Arc sites?
+            url: overview.md
