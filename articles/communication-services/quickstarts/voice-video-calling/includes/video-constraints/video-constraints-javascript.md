@@ -13,10 +13,13 @@ ms.subservice: calling
 
 You can set video constraints in your calls to control the video quality based on resolution or frameRate or bitrate in your video calls. In this quickstart guide, we'll illustrate how to set video constraints at the start of a call and how to use our `setConstraints` method on the call object to set video constraints dynamically during the call.
 
-> [!NOTE]
-> Currently, we only support setting video send constraints. You cannot set video constraints on incoming videos at this point of time.
 
-## Setting video constraints at the start of a call
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
+## Send video constraints
+Azure Communication Services Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
+
+### Setting video constraints at the start of a call - outgoing (send) video
 The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within `CallOptions` when you make a call, accept a call, or join a call. You will also have to specify `localVideoStreams` in `videoOptions`. <br/>
 Do note that constraints don't work if you join a call with audio only option and turn on the camera later. In this case, you can set video constraints dynamically using the `setConstraints` method on the `Call` interface (guide below).
 
@@ -94,7 +97,7 @@ The `frameHeight` in `VideoSendConstraints` has a different meaning when a mobil
 
 If you use MediaStats API to track the sent video resolution, you may find out that the sent resolution can change during the call. It can go up and down, but should be equal or smaller than the constraint value you provide. This resolution change is an expected behavior. The browser also has some degradation rule to adjust sent resolution based on cpu or network conditions.
 
-## Setting video constraints during the call
+### Setting video constraints during the call - outgoing (send) video
 You can set video constraints during the call by using the `setConstraints` method on the `Call` object.
 ```javascript
 // For eg, when you've started a call,
@@ -141,7 +144,12 @@ await currentCall.setConstraints({
 
 <br/>
 
-### Media stats
+## Receive video constraints
+To control resolution on the receiver side usingAzure Communication Services Web Calling SDK you can adjust size of the renderer of that video. The calling SDK will automatically adjust received resolution based on the dimensions of the renderer. The SDK will not request more stream (width annd height) than it can fit into the renderer video window.
+
+
+
+## Using Media statics to understand video constraints impact
 To evaluate and compare the video quality after applying the video constraints, you can access [MediaStats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) to get video resolution and bitrate information of the sending stream. The media stats also include other granular stats related to the streams, such as jitter, packet loss, round trip time, etc.
 
 ```javascript
