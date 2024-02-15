@@ -18,8 +18,7 @@ Refer to these articles for troubleshooting information about metric or log aler
 - [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
 - [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
-If the alert fires as intended according to the Azure portal but the proper notifications do not occur, [test your action group](./action-groups.md#test-an-action-group-in-the-azure-portal) first to ensure the action group is properly configured.
-Otherwise, use the information in the rest of this article to troubleshoot your issue.
+If the alert fires as intended according to the Azure portal but the proper notifications do not occur, [test your action group](./action-groups.md#test-an-action-group-in-the-azure-portal) first to ensure it is properly configured. Otherwise, use the information in the rest of this article to troubleshoot your issue.
 
 ## Action or notification on my alert did not work as expected
 
@@ -106,7 +105,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
     SMS and voice calls are rate limited to no more than one notification every five minutes per phone number. If you pass this threshold, the notifications are dropped.
 
-      - Voice call – check your call history and see if you had a different call from Azure in the preceding five minutes.
+      - Voice call - check your call history and see if you had a different call from Azure in the preceding five minutes.
       - SMS - check your SMS history for a message indicating that your phone number is rate limited.
 
     If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following actions:
@@ -190,7 +189,7 @@ If your notification does not contain this note and you received the alert, but 
 
 1. **Did you pick the correct format for the action?** 
 
-    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](./alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
+    Each action type (email, webhook, etc.) has two formats - the default, legacy format, and the [newer common schema format](./alerts-common-schema.md). When you create an action group, you specify the format you want per action - different actions in the action groups may have different formats. 
 
     For example, for webhook action: 
     <!-- convertborder later -->
@@ -200,10 +199,27 @@ If your notification does not contain this note and you received the alert, but 
 
     Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
+1. **Search results not included in log search alert notifications**
+
+   Starting with log search alerts API version 2021-08-01, search results were removed from alert notification payload. 
+   They are now only available for alert rules created with older API versions (2018-04-16). Creation of new alert rules through the Azure Portal will, by default, create the rule with the newer version.
+   Follow [Changes to the log alert rule creation experience](./alerts-manage-alerts-previous-version.md#changes-to-the-log-alert-rule-creation-experience) to learn about the changes and recommended adjustments for using the updated version.
+
+1. **MetricValue field shows as "null" for a resolved log search alert notification**
+
+   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-the-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there is no value that caused the alert to resolve, but rather elapsed time.
+
+1. **Log search alert fired as expected when no results were returned for the query, but dimensions list is empty or alert title does not contain a dimension name.**
+
+   This is by design. When a query returns 0 rows, the resource ID field (which is the basis for populating dimension and title fields) is empty.
  
 1. **Activity log alerts: Is the information available in the activity log?** 
 
     [Activity log alerts](./alerts-types.md#activity-log-alerts) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
+
+1. **Custom properties missing from email , SMS or push notification.**
+
+   Custom properties are currently passed to the payload for actions only (e.g. webhook, Azure function or logic app) and not for notifications (email / SMS / push).
 
 ## Alert processing rule is not working as expected 
 
@@ -241,7 +257,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 ## How to find the alert ID of a fired alert
 
-When opening a case about a specific fired alert (such as – if you did not receive its email notification), you need to provide the alert ID. 
+When opening a case about a specific fired alert (such as - if you did not receive its email notification), you need to provide the alert ID. 
 
 To locate it, follow these steps:
 
@@ -259,7 +275,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Did you receive a permission error?**  
 
-    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to alert processing rules and alerts.
+    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to alert processing rules and alerts.
 
 1. **Did you verify the alert processing rule parameters?**  
 
