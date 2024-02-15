@@ -180,7 +180,7 @@ Azure AI Search implements data encryption, private connections for no-internet 
 
 Azure provides a [monitoring platform](monitor-azure-cognitive-search.md) that includes diagnostic logging and alerting. We recommend the following best practices:
 
-+ [Enable diagnostic logging](azure/azure-monitor/essentials/create-diagnostic-settings)
++ [Enable diagnostic logging](/azure/azure-monitor/essentials/create-diagnostic-settings)
 + [Set up alerts](/azure/azure-monitor/alerts/tutorial-metric-alert)
 + [Analyze query and index performance](search-performance-analysis.md)
 
