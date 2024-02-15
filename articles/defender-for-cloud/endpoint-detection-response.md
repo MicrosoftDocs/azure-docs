@@ -93,7 +93,7 @@ If these checks present issues, the recommendation offers different remediation 
 
 1. The recommendation offers multiple recommended actions to resolve on each attached machine, select the relevant action to see the remediation steps:
 
-    - [Enable Microsoft Defender for Endpoint integration](#enable-mde-integration). Alternatively, you can remediate this recommendation by installing any of the [supported endpoint detection and response solution](#supported-solutions-and-platforms) on your virtual machine
+    - [Enable Microsoft Defender for Endpoint integration](#enable-microsoft-defender-for-endpoint-integration). Alternatively, you can remediate this recommendation by installing any of the [supported endpoint detection and response solution](#supported-solutions-and-platforms) on your virtual machine
     - [Upgrade Defender plan](#upgrade-defender-plan)
     - [Troubleshoot issues](#troubleshoot-unsuccessful-installation)
 
