@@ -8,7 +8,7 @@ title: Azure Cloud Shell features
 ---
 # Features & tools for Azure Cloud Shell
 
-Azure Cloud Shell is a browser-based terminal that provides a authenticated, preconfigured shell
+Azure Cloud Shell is a browser-based terminal that provides an authenticated, preconfigured shell
 experience for managing Azure resources without the overhead of installing and maintaining a machine
 yourself.
 
@@ -37,10 +37,10 @@ To persist files across sessions, you can choose to mount a storage account. Clo
 automatically attaches your storage (mounted as `$HOME\clouddrive`) for all future sessions.
 Additionally, your `$HOME` directory is persisted as an `.img` file in your Azure File share. The
 machine state and files outside of `$HOME` aren't persisted across sessions. Learn more about
-[Persisting files in Cloud Shell][33].
+[Persisting files in Cloud Shell][32].
 
 Use best practices when storing secrets such as SSH keys. You can use Azure Key Vault to securely
-store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][02].
+store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][05].
 
 ### Azure drive (Azure:)
 
@@ -60,14 +60,14 @@ these resources regardless of the drive you are in.
 Cloud Shell includes preconfigured authentication for open source tools such as Terraform, Ansible,
 and Chef InSpec. For more information, see the following articles:
 
-- [Run Ansible playbook][05]
-- [Manage your Azure dynamic inventories][04]
-- [Install and configure Terraform][06]
+- [Run Ansible playbook][03]
+- [Manage your Azure dynamic inventories][02]
+- [Install and configure Terraform][04]
 
 ## Preinstalled tools
 
-The most commonly used tools are preinstalled in Cloud Shell. If you are using PowerShell, use the
-`Get-PackageVersion` command to see a more complete list of tools and versions. If you are using
+The most commonly used tools are preinstalled in Cloud Shell. If you're using PowerShell, use the
+`Get-PackageVersion` command to see a more complete list of tools and versions. If you're using
 Bash, use the `tdnf list` command.
 
 ### Azure tools
@@ -79,14 +79,14 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 - [Az.Tools.Predictor][10]
 - [AzCopy][07]
 - [Azure Functions CLI][01]
-- [Service Fabric CLI][03]
+- [Service Fabric CLI][06]
 - [Batch Shipyard][17]
 - [blobxfer][18]
 
 ### Other Microsoft services
 
 - [Office 365 CLI][28]
-- [Exchange Online PowerShell][11].
+- [Exchange Online PowerShell][11]
 - A basic set of [Microsoft Graph PowerShell][12] modules
   - Microsoft.Graph.Applications
   - Microsoft.Graph.Authentication
@@ -103,11 +103,11 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 Linux tools
 
-- bash
-- zsh
-- sh
-- tmux
-- dig
+- `bash`
+- `zsh`
+- `sh`
+- `tmux`
+- `dig`
 
 Text editors
 
@@ -133,10 +133,10 @@ Text editors
 
 Build tools
 
-- make
-- maven
-- npm
-- pip
+- `make`
+- `maven`
+- `npm`
+- `pip`
 
 Source control
 
@@ -168,11 +168,11 @@ Programming languages
 
 <!-- link references -->
 [01]: /azure/azure-functions/functions-run-local
-[02]: /azure/key-vault/general/manage-with-cli2#prerequisites
-[03]: /azure/service-fabric/service-fabric-cli
-[04]: /azure/developer/ansible/dynamic-inventory-configure
-[05]: /azure/developer/ansible/getting-started-cloud-shell
-[06]: /azure/developer/terraform/quickstart-configure
+[02]: /azure/developer/ansible/dynamic-inventory-configure
+[03]: /azure/developer/ansible/getting-started-cloud-shell
+[04]: /azure/developer/terraform/quickstart-configure
+[05]: /azure/key-vault/general/manage-with-cli2#prerequisites
+[06]: /azure/service-fabric/service-fabric-cli
 [07]: /azure/storage/common/storage-use-azcopy-v10
 [08]: /cli/azure/
 [09]: /powershell/azure
@@ -198,4 +198,4 @@ Programming languages
 [29]: https://puppet.com/docs/bolt/latest/bolt.html
 [30]: https://www.ansible.com/microsoft-azure
 [31]: https://www.terraform.io/docs/providers/azurerm/
-[33]: persisting-shell-storage.md
+[32]: persisting-shell-storage.md
