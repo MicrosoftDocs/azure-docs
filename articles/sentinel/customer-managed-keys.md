@@ -64,7 +64,7 @@ To provision CMK, follow these steps:
 
 ### Step 1: CMK log analytics workspace
 
-As mentioned in the prerequisites, to onboard a log analytics workspace with CMK in Microsoft Sentinel, this workspace needs to be linked to a dedicated log analytics cluster, on which CMK is enabled.
+As mentioned in the [prerequisites](#prerequisites), to onboard a Log Analytics workspace with CMK to Microsoft Sentinel, this workspace must first be linked to a dedicated Log Analytics cluster on which CMK is enabled.
 Sentinel will use the same key which is used by the dedicated cluster.
 Follow the instructions in [Azure Monitor customer-managed key configuration](../azure-monitor/logs/customer-managed-keys.md) in order to create a CMK workspace that is used as the Microsoft Sentinel workspace in the following steps.
 
