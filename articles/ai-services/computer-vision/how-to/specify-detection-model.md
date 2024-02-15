@@ -38,10 +38,10 @@ You should be familiar with the concept of AI face detection. If you aren't, see
 The different face detection models are optimized for different tasks. See the following table for an overview of the differences.
 
 
-| Model | Description | Performance notes   | Available attributes  |
-|---------|------------|-------------------|-------------|
+| Model | Description | Performance notes   | Attributes  | Landmarks |
+|---------|------------|-------------------|-------------|--|
 |**detection_01** | Default choice for all face detection operations. | Not optimized for small, side-view, or blurry faces.                                                     | Returns main face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
-|**detection_02** | Released in May 2019 and available optionally in all face detection operations.                         | Improved accuracy on small, side-view, and blurry faces.                                                  | Does not return face attributes.                                 | Does not return face landmarks.                                 |
+|**detection_02** | Released in May 2019 and available optionally in all face detection operations.   | Improved accuracy on small, side-view, and blurry faces.  | Does not return face attributes. | Does not return face landmarks.     |
 |**detection_03** | Released in February 2021 and available optionally in all face detection operations.                   | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.       | Returns mask and head pose attributes if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
 
 
