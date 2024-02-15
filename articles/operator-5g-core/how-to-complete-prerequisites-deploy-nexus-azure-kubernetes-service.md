@@ -72,7 +72,7 @@ To view the new isolation domain in the Azure portal:
 1. Select **network fabric** from the list.
 1. Select **Isolation Domain**. 
 1. Select the relevant isolation domain (ISD). For example:
-    :::image type="content" source="media/how-to-compleete-prerequisites-deploy-nexus-azure-kubernetes-services/isolation-domain-example.png" alt-text="Screen shows an example of an isolation domain selected for a network fabric resource.":::
+    :::image type="content" source="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/isolation-domain-example.png" alt-text="Screenshot shows an example of an isolation domain selected for a network fabric resource." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/isolation-domain-example.png":::
 
 ## Create the internal network
 
@@ -381,7 +381,7 @@ az networkcloud cloudservicesnetwork create --cloud-services-network-name $csnNa
       
 After you create the CSN, verify the `egress-endpoints` from the Azure portal. In the search bar, enter **Cloud Services Networks (Operator Nexus)** resource. Select **Overview**, then navigate to **Enabled egress endpoints** to see the list of endpoints you created.
 
-:::image type="content" source="media/how-to-compleete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png" alt-text="screen showing the list of enabled egressed endpoints created for the Cloud Services Network.":::
+:::image type="content" source="media/how-to-compleete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png" alt-text="Screenshot showing the list of enabled egressed endpoints created for the Cloud Services Network." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png":::
 
 ## Create a Nexus Azure Kubernetes Services Cluster 
 
@@ -454,19 +454,20 @@ You must enable the Network Function Operator Kubernetes Arc extension so that A
 
 1. Enter the following Azure CLI commands to enable the NF Operator extension:
 
-```azurecli
-az k8s-extension create -g <NAKS-MANAGED-RESOURCE-GRUP> \ 
--c <NAKS-ARC-CLUSTER-NAME> \ 
---cluster-type connectedClusters \ 
---cluster-resource-provider “Microsoft.Kubernetes/connectedClusters” \ 
---name networkfunction-operator \ 
---extension-type Microsoft.Azure.HybridNetwork \ 
---auto-upgrade-minor-version true \ 
---scope cluster \ 
---release-namespace azurehybridnetwork \ 
---release-train preview \ 
---config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
-```
+    ```azurecli
+    az k8s-extension create -g <NAKS-MANAGED-RESOURCE-GRUP> \ 
+    -c <NAKS-ARC-CLUSTER-NAME> \ 
+    --cluster-type connectedClusters \ 
+    --cluster-resource-provider “Microsoft.Kubernetes/connectedClusters” \ 
+    --name networkfunction-operator \ 
+    --extension-type Microsoft.Azure.HybridNetwork \ 
+    --auto-upgrade-minor-version true \ 
+    --scope cluster \ 
+    --release-namespace azurehybridnetwork \ 
+    --release-train preview \ 
+    --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
+    ```
+
 1. Enter the following command and note  the connected cluster ID: 
    `az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv`
 1. Enter the following command and note the cluster extension ID for which to enable the custom location: 
