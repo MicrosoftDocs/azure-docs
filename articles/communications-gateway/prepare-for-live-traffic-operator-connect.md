@@ -49,7 +49,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 ## Methods
 
-In some parts of this article, the steps you must take depend on whether you are using the Number Management Portal (preview). This article provides instructions for both types of deployment. Choose the appropriate instructions.
+In some parts of this article, the steps you must take depend on whether you're using the Number Management Portal (preview), the Provisioning API (preview), or the Operator Connect portal. This article provides instructions for each option. Choose the appropriate instructions.
 
 ## Ask your onboarding team to register your test enterprise tenant
 
@@ -82,25 +82,15 @@ Integration testing requires setting up your test tenant for Operator Connect or
 
     # [Number Management Portal (preview)](#tab/number-management-portal)
 
-    1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-    1. In the search bar at the top of the page, search for your Communications Gateway resource.
-    1. Select your Communications Gateway resource.
-    1. On the overview page, select **Consents** in the sidebar.
-    1. Select your test tenant.
-    1. From the menu, select **Update Relationship Status**. Set the status to **Agreement signed**.
-    1. From the menu, select **Manage Numbers**.
-    1. Select **Upload numbers**.
-    1. Fill in the fields as required, and then select **Review + upload** and **Upload**.
-    
-    # [Provisioning API (preview)](#tab/provisioning-api)
-
     1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Accounts**.
     1. Select the checkbox next to the enterprise **Account name**.
     1. Select **Update Relationship Status**. Set the status to **Agreement signed** and select **Update**.
     1. Select **View numbers** and select **Upload numbers**.
     1. Fill in the fields as required, and then select **Review and upload** and **Upload**.
 
-    The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the the [API Reference](/rest/api/voiceservices).
+    # [Provisioning API (preview)](#tab/provisioning-api)
+
+    The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the [API Reference](/rest/api/voiceservices).
 
     1. Find the _RFI_ (Request for information) resource for your test tenant and update the `status` property of its child _Customer Relationship_ resource to indicate the agreement has been signed.
     1. Create an _Account_ resource to represent the customer.
