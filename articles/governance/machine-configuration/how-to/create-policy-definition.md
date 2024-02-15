@@ -108,7 +108,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for machine configuration policy and content
   package.
-- **Mode**: (`ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the policy should audit
+- **Mode**: (case sensitive: `ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the policy should audit
   or deploy the configuration. The default is `Audit`.
 - **Tag** adds one or more tag filters to the policy definition
 - **Category** sets the category metadata field in the policy definition
