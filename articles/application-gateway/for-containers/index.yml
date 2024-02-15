@@ -39,6 +39,8 @@ landingContent:
             url: alb-controller-backend-health-metrics.md
           - text: Metrics
             url: application-gateway-for-containers-metrics.md
+          - text: Reliability in Application Gateway for Containers
+            url: ../../reliability/reliability-app-gateway-containers.md?toc=/azure/application-gateway/for-containers/toc.json
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new
