@@ -16,6 +16,8 @@ Azure Virtual Network is a service that provides the fundamental building block 
 
 A virtual network is similar to a traditional network that you'd operate in your own datacenter. But it brings extra benefits of the Azure infrastructure, such as scale, availability, and isolation.
 
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d]
+
 ## Why use an Azure virtual network?
 
 Key scenarios that you can accomplish with a virtual network include:
