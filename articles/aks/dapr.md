@@ -41,13 +41,17 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 > [!WARNING]
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Currently supported
+## Support policy
+
+The extension is the only supported option for Dapr in AKS. 
 
 ### Issue handling
 
 Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
 
-Functional issues, like API or component regressions or bugs, are triaged and mitigated appropriately and fixed first in open source as either a hotfix release or in the upcoming Dapr minor version release.
+Functional issues, like API or component regressions or bugs, are triaged and mitigated appropriately and fixed first in open source as a hotfix and then released in the extension. 
+
+Larg bug fixes or areas that require a complete redesign are prioritized in upcoming Dapr open source releases and then released in the extension.
 
 ### Dapr versions
 
@@ -65,7 +69,7 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components
 
-Azure + open source components are supported. Alpha and beta components are supported via best effort.
+Stable Azure + open source components are supported. Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are supported via best effort.
 
 ### Clouds/regions
 
@@ -112,7 +116,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 
 ## Prerequisites 
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
 - Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
