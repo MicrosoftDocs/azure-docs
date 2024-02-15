@@ -12,7 +12,7 @@ ms.date: 02/16/2024
 
 This article explains when you need to integrate with Azure Communications Gateway's Provisioning API (preview) and provides a high-level overview of getting started. It's aimed at software developers working for telecommunications operators.
 
-The Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them. If you use the Provisioning API for *backend service sync*, you can also provision the Operator Connect and Teams Phone Mobile environments with the details of your enterprise customers and the numbers that you allocate to them. This flow-through provisioning interoperates allows you to meet the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
+The Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them. If you use the Provisioning API for *backend service sync*, you can also provision the Operator Connect and Teams Phone Mobile environments with the details of your enterprise customers and the numbers that you allocate to them. This flow-through provisioning allows you to meet the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
 
  The Provisioning API is a REST API.
 

@@ -36,7 +36,7 @@ You must also allocate at least one test number for each service for integration
 If you want to set up Teams Phone Mobile and you didn't select it when you deployed Azure Communications Gateway, choose:
 
 - The number used in Teams Phone Mobile to access the Voicemail Interactive Voice Response (IVR) from native dialers.
-- How you plan to route Teams Phone Mobile calls to Microsoft Phone System. Choose from:
+- The method for routing Teams Phone Mobile calls to Microsoft Phone System. Choose from:
 
   - Integrated MCP (MCP in Azure Communications Gateway).
   - On-premises MCP.
@@ -75,7 +75,7 @@ To add the Project Synergy application:
        ```azurepowershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module:
+    1. If `AzureAD` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
@@ -139,7 +139,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
        ```azurepowershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module:
+    1. If `AzureAD` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.

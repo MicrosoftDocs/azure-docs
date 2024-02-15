@@ -42,7 +42,7 @@ If you're uploading new numbers for an enterprise customer:
 |Information for each number |Notes  |
 |---------|---------|
 |Calling profile |One of the `CommsGw` Calling Profiles we created for you.|
-|Intended usage | Individuals (calling users), applications or conference calls.|
+|Intended usage | Individuals (calling users), applications, or conference calls.|
 |Capabilities     |Which types of call to allow (for example, inbound calls or outbound calls).|
 |Civic address | A physical location for emergency calls. The enterprise must have configured this address in the Teams Admin Center. Only required for individuals (calling users) and only if you don't allow the enterprise to update the address.|
 |Location | A description of the location for emergency calls. The enterprise must have configured this location in the Teams Admin Center. Only required for individuals (calling users) and only if you don't allow the enterprise to update the address.|
@@ -69,7 +69,7 @@ The Number Management Portal displays a consent as a *Request for Information* a
 
 ## Create an Account for the enterprise
 
-You must create an Account for each enterprise that you manage using the Number Management Portal.
+You must create an *Account* for each enterprise that you manage with the Number Management Portal.
 
 1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
 1. Select **Accounts**.

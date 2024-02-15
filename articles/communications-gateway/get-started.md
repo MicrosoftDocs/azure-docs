@@ -1,6 +1,6 @@
 ---
 title: Getting started with Azure Communications Gateway
-description: Learn how to plan for and deploy Azure Communications Gateway
+description: Learn how to plan for and deploy Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -31,11 +31,11 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
 - [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
-- [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway
+- [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway.
 
 For Operator Connect and Teams Phone Mobile, also read:
 
-- [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
+- [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md).
 - [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 - [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calls-operator-connect.md).
 
@@ -85,5 +85,5 @@ Use the following procedures to integrate with Zoom Phone Cloud Peering.
 
 ## Next steps
 
-- Learn about [your network and Azure Communications Gateway](role-in-network.md)
+- Learn about [your network and Azure Communications Gateway](role-in-network.md).
 - Find out about [the newest enhancements to Azure Communications Gateway](whats-new.md).

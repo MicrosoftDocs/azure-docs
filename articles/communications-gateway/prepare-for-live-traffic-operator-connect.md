@@ -30,6 +30,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 
   - Integration testing allows you to confirm that Azure Communications Gateway and Microsoft Phone System are interoperating correctly with your network.
   - Service verification is set up by the Operator Connect and Teams Phone Mobile programs. It ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
+
 - You must have a tenant you can use for integration testing (representing an enterprise customer), and some users in that tenant to whom you can assign the numbers for integration testing.
 
   - If you don't already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
@@ -41,6 +42,7 @@ In this article, you learn about the steps that you and your onboarding team mus
     |---------|---------|
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenant))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
+
 - If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload your integration test numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
 
 - If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the Project Synergy enterprise application.
@@ -96,7 +98,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
     The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the [API Reference](/rest/api/voiceservices).
 
     1. Find the _RFI_ (Request for information) resource for your test tenant and update the `status` property of its child _Customer Relationship_ resource to indicate the agreement has been signed.
-    1. Create an _Account_ resource to represent the customer.
+    1. Create an _Account_ resource that represents the customer.
     1. Create a _Number_ resource as a child of the Account resource for each test number.
 
     # [Operator Portal](#tab/no-flow-through)
@@ -130,7 +132,7 @@ Network integration includes identifying SIP interoperability requirements and c
 
 You must test typical call flows for your network. We recommend that you follow the example test plan from your onboarding team. Your test plan should include call flow, failover, and connectivity testing.
 
-- If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft will make the changes for you.
+- If you decide that you need changes to Azure Communications Gateway, ask your onboarding team to make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 ## Run a connectivity test and upload proof
@@ -216,5 +218,5 @@ Your service can be launched on specific dates each month. Your onboarding team 
 
 - Wait for your launch date.
 - Learn about [getting support and requesting changes for Azure Communications Gateway](request-changes.md).
-- Learn about [using the Number Management Portal to manage enterprises](manage-enterprise-operator-connect.md)
+- Learn about [using the Number Management Portal to manage enterprises](manage-enterprise-operator-connect.md).
 - Learn about [monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
