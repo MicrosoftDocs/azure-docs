@@ -2,7 +2,7 @@
 title: Reliability in Azure Traffic Manager
 description: Learn about reliability in Azure Traffic Manager.
 author: anaharris-ms
-ms.author: anaharris
+ms.author: CSUDRIsforResiliency
 ms.topic: overview
 ms.custom: subject-reliability, references-regions
 ms.service: traffic-manager
