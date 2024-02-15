@@ -23,19 +23,19 @@ Edge Secured-core is a security certification for devices running a full operati
 3. Stays up to date and is remotely manageable
 4. Provides data at-rest protection
 5. Provides data in-transit protection
-6. Built in security agent and hardening
+6. Built-in security agent and hardening
 
 ## User roles
 
 The Edge Secured-core program serves two different audiences.
 
 1. **Device builders**: Do you build Edge devices? Easily differentiate your Edge device capabilities by certifying your device, showing that it meets specific security requirements.
-1.  **Solution builders**: Wondering what are security-capable Edge devices? Confidently purchase Edge devices from Device builders, knowing they meet specific security requirements. Check out the list of current Device builders with certified [Edge Secured-core devices](edge-secured-core-devices.md).
+1.  **Solution builders**: Wondering what Edge devices are capable of security? Confidently purchase Edge devices from Device builders, knowing they meet specific security requirements. Check out the list of current Device builders with certified [Edge Secured-core devices](edge-secured-core-devices.md).
 
 ## Next steps
 
 Ready to get started with your certification journey? View our resources to start the device certification process!
 
 - [Edge Secured-core program requirements](program-requirements-edge-secured-core.md)
-- [Starting the certification process](edge-secured-core-get-certified.md)
-- If you have other questions or feedback, [contact](https://forms.office.com/r/HSAtk0Ghru) the Edge Secured-core team.
+- [Start the certification process](edge-secured-core-get-certified.md)
+
