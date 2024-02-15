@@ -123,7 +123,7 @@ Document Translation supports the following glossary file types:
 |**Microsoft Excel**|`.xlsx`| `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`| An XML-based file format used for Excel spreadsheets.|
 |**Microsoft Word**|`.docx`| `application/vnd.openxmlformats-officedocument.wordprocessingml.document`|An XML-based file format used for Word documents.|
 |**Microsoft Outlook**|`.msg`|`application/vnd.ms-outlook`|A file format used for stored Outlook mail message objects.|
-|**Xml Localization Interchange**|`.xlf`<br> `xliff`|`application/xliff+xml` |A standardized XML-based file format widely used in translation and localization software processing.|
+|**Xml Localization Interchange**|`.xlf`<br> `.xliff`|`application/xliff+xml` |A standardized XML-based file format widely used in translation and localization software processing.|
 
 ### Synchronous supported glossary formats
 
