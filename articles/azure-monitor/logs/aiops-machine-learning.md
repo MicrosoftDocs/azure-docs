@@ -23,7 +23,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 |Monitoring scenario|Capability|Description| 
 |-|-|-|
-|AIOps|[Azure Monitor Investigator (preview)](../ai-ops/investigator-overview.md)|Automates analysis to simplify the identification of anomalies across Azure resources and provide next steps to mitigate issues.|
+|Root cause analysis of incidents|[Azure Monitor Investigator (preview)](../ai-ops/investigator-overview.md)|Automates analysis to simplify the identification of anomalies across Azure resources and provide next steps to mitigate issues.|
 |Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | Provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
 ||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. |
 ||[Microsoft Copilot for Azure](/azure/copilot/get-monitoring-information)| Helps you use Log Analytics to analyze data and troubleshoot issues. Generates example KQL queries based on prompts, such as "Are there any errors in container logs?". |
@@ -31,14 +31,6 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 ||[Smart detection](../alerts/proactive-diagnostics.md)|Analyzes the telemetry your application sends to Application Insights, alerts on performance problems and failure anomalies, and identifies potential root causes of application performance issues.|
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically sets alert thresholds based on historical data, and identifies anomalies that might indicate service issues.|
 |Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
-
-## AIOps with Azure Monitor Investigator (preview)
-
-[Azure Monitor Investigator (preview)](../ai-ops/investigator-overview.md) is an AIOps solution designed to improve the way Site Reliability Engineers (SREs) and developers approach incidents. Investigator  simplifies the process of incident troubleshooting, enabling faster resolution of issues with your Azure resources and the workloads running on them.
-
-Azure Monitor Investigator uses resource metrics to scan for anomalies across all your Azure resources, so that you don't have to rely on manual investigation methods that involve sifting through static dashboards or executing pre-defined queries. Based on the metrics, such as specific clusters, regions, error codes, or operations dimensions and labels, Azure Monitor investigator provides SREs and developers with actionable insights and concrete leads for further investigation.
-
-The system presents a summary of the issue and outlines what happened, why it happened, and how to fix it. so that you can focus on understanding the impact, localizing the source of the issue, and routing the incident to the appropriate owners for quick resolution.
 
 ## Machine learning in Azure Monitor Logs
 
