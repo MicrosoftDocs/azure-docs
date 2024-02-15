@@ -124,7 +124,7 @@ istiod-asm-1-17-74f7f7c46c-xfdtl   1/1     Running   0          2m
 To automatically install sidecar to any new pods, annotate your namespaces:
 
 ```bash
-kubectl label namespace default istio.io/rev=asm-1-17
+kubectl label namespace default istio.io/rev=asm-1-18
 ```
 
 > [!IMPORTANT]
