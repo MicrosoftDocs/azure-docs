@@ -25,7 +25,7 @@ A route policy is modeled as a separate top-level ARM resource under the Microso
 | provisioningState | The state of the route policy resource provisioning, either `Succeeded` or `Failed`. | string | No | Yes |
 | addressFamilyType | The address family type of the route policy, either `IPv4` or `IPv6`. It determines the address family of the routes that the route policy applies to. | string | Yes | No |
 | administrativeState | The state of the route policy, either `Enabled` or `Disabled`. | string | Yes | No |
-| configurationState | The status of the route policy configuration, either Succeeded or Failed. It indicates whether the route policy was successfully applied to the network device or not. | string | No | Yes |
+| configurationState | The status of the route policy configuration, either Succeeded or Failed. It indicates whether the route policy was successfully applied to the network device. | string | No | Yes |
 | defaultAction | The default action or actions of the route policy. It determines the action to take when no statement matches the traffic. The default value is `permit`. | enum | Yes | No |
 | resourceGroup | The name of the resource group to which the route policy resource belongs. | string | Yes | No |
 | statements | The array of statements that make up the policy, as described in the next section. | array | Yes | No |
@@ -48,8 +48,8 @@ If specified, a condition must have at least one of the following properties. If
 
 | Name | Description | Type |
 |--|--|--|
-| ipPrefixId |  Specifies the resource ID of an IP prefix resource that defines a range of IP addresses. It must follow the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}. The statement's action is applied to traffic that matches this prefix. | array |
-| ipExtendedCommunityIds | An array of strings that specify the resource IDs of IP extended community resources that define additional attributes for routes. Each element is a **string** that must not be empty. It must follow the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName}. The statement's action is applied to traffic that matches this prefix. If the list contains more than one element, the "OR" condition is applied. | array |
+| ipPrefixId |  Specifies the resource ID of an IP prefix resource that defines a range of IP addresses. It must follow the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName}`. The statement's action is applied to traffic that matches this prefix. | array |
+| ipExtendedCommunityIds | An array of strings that specify the resource IDs of IP extended community resources that define additional attributes for routes. Each element is a **string** that must not be empty. It must follow the format `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName}`. The statement's action is applied to traffic that matches this prefix. If the list contains more than one element, the "OR" condition is applied. | array |
 
 ### Actions
 

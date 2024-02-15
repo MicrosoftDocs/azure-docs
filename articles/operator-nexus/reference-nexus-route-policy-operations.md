@@ -22,13 +22,13 @@ To create a Route Policy and apply it to a network fabric endpoint, follow these
 
     -   Create an IP Community resource to specify the match conditions and actions for route policies based on the community values tagged to the routes. You can provide well-known communities or custom community members.
 
-    -   Create an IP Extended Community resource to specify the match conditions and actions for route policies based on the route targets. You can provide a list of extended community values and specific properties.
+    -   Create an IP Extended Community resource to specify the match conditions and actions for route policies based on the extended community values tagged to the routes. You can provide a list of extended community values and specific properties.
 
-2.  **Create a Route Policy resource** to specify the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. Each route policy consists of multiple statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP Prefixes, IP Communities, and IP Extended Communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can be permit, deny, add, remove, or overwrite community values and extended community values.
+2.  **Create a Route Policy resource** to specify the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. Each route policy consists of multiple statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP Prefixes, IP Communities, and IP Extended Communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can permit or deny the route, or add, remove, or overwrite community values and extended community values.
 
 3.  **Apply the Route Policy resource** to apply the route policy to the desired endpoint of the Layer 3 isolation domain or Network-to-Network Interconnect (NNI). You can set the ipv4exportRoutePolicyId or ipv4ImportRoutePolicyId property of the External network or Internal network resource, or the connectedSubnetRoutePolicy property of the Layer 3 isolation domain resource, to the route policy resource ID created in the previous step based on the addressFamilyType of the route.
 
-The following validations are applied while creating Route policy resources:
+The following conditions must be satisfied when creating Route policy resources:
 
 -  **NetworkFabricId**: Mandatory and shouldn't be null or empty.
 
@@ -44,7 +44,7 @@ The following validations are applied while creating Route policy resources:
 
 -  **IpCommunityProperties**: If provided, at least one of `add`, `set`, or `delete` should be specified. Each operation should have at least one IpCommunityId.
 
--  **IpExtendedCommunityProperties**: If provided, at least one of the operations adds, set, or delete should be provided. Each operation should have at least one IpExtendedCommunityId.
+-  **IpExtendedCommunityProperties**: If provided, at least one of the operations `add`, `set`, or `delete` should be provided. Each operation should have at least one IpExtendedCommunityId.
 
 -  **Unique Sequence Numbers**: All the statements provided should have unique sequence numbers.
 
@@ -73,15 +73,13 @@ To update a Route Policy and modify its attributes, follow these steps:
 
 2.  **Modify the Route Policy resource** to update the conditions and actions based on the IP Prefixes, IP Communities, and IP Extended Communities. You can modify the existing statements or add new statements, each with a sequence number, conditions, and actions. The conditions can be combinations of IP Prefixes, IP Communities, and IP Extended Communities, and are applied in ascending order of sequence numbers. The action corresponding to the first matched condition is executed. The actions can be permit, deny, add, remove, or overwrite community values and extended community values.
 
-3.  After a route policy resource or IP prefix resources or IP community resources or IP extended community resources are updated, the commit-configuration needs to be invoked on the fabric.
+3.  After a route policy, IP prefix, IP community, or IP extended community resource is updated, the commit-configuration needs to be invoked on the fabric.
 
-The following validations are applied while updating Route policy resources:
+The following conditions must be met when updating Route policy resources:
 
 -  **NetworkFabricId**: Mandatory and shouldn't be null or empty. 
 
-
 -  **Statements**: Mandatory and shouldn't be null or empty. At least one statement must be provided. 
-
 
 -  For each **Statement**: 
 
@@ -114,7 +112,7 @@ To delete a Route Policy and remove it from network fabric endpoints, follow the
 
     -   Delete the IP Extended Community resource to delete the match conditions and actions for route policies based on the route targets. You can delete the IP extended community resource by its ID or name.
 
-The following validations are applied while deleting Route policy resources:
+The following conditions must be satisfied while deleting Route policy resources:
 
 -  **IpCommunityProperties Delete Operation**: If the delete operation is provided, it shouldn't be empty and must have at least one IpCommunityId. Each IpCommunityId shouldn't be null or empty. If both delete and add operations are provided, they shouldn't have the same IPCommunityIDs.
 

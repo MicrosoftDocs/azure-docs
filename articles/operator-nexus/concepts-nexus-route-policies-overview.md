@@ -17,7 +17,7 @@ Route policies are a set of rules that are applied to routes based on their spec
 
 Route policies can be enforced at different endpoints in the network fabric. They can be applied at network-to-network interconnections (NNI) or at different levels in a layer 3 isolation domain, such as external networks, internal networks, and connected subnets. Route policies are applied in the direction of egress or ingress, depending on whether they're export or import policies. Route policies for IPv4 and IPv6 are enforced separately.
 
-Route policies can be specified with combinations of conditions and actions. Conditions are based on IP prefixes, IP communities, and IP extended communities. Actions are based on discarding, permitting, adding, removing, or overwriting community values and extended community values.
+Route policies can be specified with combinations of conditions and actions. Conditions are based on IP prefixes, IP communities, and IP extended communities. Actions are based on discarding or permitting routes, and adding, removing, or overwriting community values and extended community values.
 
 Route policies are modeled as Azure Resource Manager (ARM) resources under Microsoft.managednetworkfabric. They can be created, read, and deleted by operators. The operator creates a route policy resource and then applies it at the required enforcement point. A route policy can only be applied at one enforcement point at a time.
 
@@ -67,7 +67,7 @@ The action property of a Route Policy statement defines the action to be taken w
 
 -   **Deny**: Deny the matching route and stop the evaluation of the route policy.
 
--   **Continue**: Continue evaluating the route policy with the next statement, and apply the ipCommunityProperties to the route.
+-   **Continue**: Apply the ipCommunityProperties to the route, and continue evaluating the route policy with the next statement.
 
 ### ipCommunityProperties Property
 
