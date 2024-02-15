@@ -8,7 +8,6 @@ ms.author: preetikr
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-tags: connectors
 ---
 
 # Improve threat protection by integrating security operations with Microsoft Graph Security & Azure Logic Apps
