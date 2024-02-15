@@ -27,7 +27,7 @@ You can't create support plans programmatically. You can buy a new support plan 
 
 A user must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
 
-* The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
+* The Enterprise Administrator of your enrollment can [make you an Account Owner](direct-ea-administration.md#add-an-account-and-account-owner) (sign in required) which makes you an Owner of the Enrollment Account.
 * An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
 
 To use a service principal to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
