@@ -688,8 +688,6 @@ For more information, review the following documentation:
         \
         Get custom metadata for artifacts, such as trading partners, agreements, schemas, and so on, in your integration account.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Liquid Operations icon][liquid-icon]][liquid-transform-doc]
         \
@@ -698,6 +696,26 @@ For more information, review the following documentation:
         \
         \
         Convert the following formats by using Liquid templates: <br><br>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![RosettaNet icon][rosettanet-icon]][rosettanet-doc]
+        \
+        \
+        [**RosettaNet**][rosettanet-doc]
+        \
+        \
+        Encode and decode messages that use the RosettaNet protocol.
+    :::column-end:::
+    :::column:::
+        [![SWIFT icon][swift-icon]][swift-doc]
+        \
+        \
+        [**SWIFT**][swift-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Encode and decode Society for Worldwide Interbank Financial Telecommuncation (SIWFT) transactions in flat-file XML message format.
     :::column-end:::
     :::column:::
         [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
@@ -715,13 +733,13 @@ For more information, review the following documentation:
         [**X12**][x12-doc]
         \
         \
-        Validate XML documents against the specified schema.
+        Encode and decode messages that use the X12 protocol.
     :::column-end:::
     :::column:::
         [![XML validation icon][xml-validate-icon]][xml-validate-doc]
         \
         \
-        [**XML validation**][xml-validate-doc]
+        [**XML Validation**][xml-validate-doc]
         \
         \
         Validate XML documents against the specified schema.
@@ -777,6 +795,7 @@ For more information, review the following documentation:
 [sftp-ssh-icon]: ./media/apis-list/sftp.png
 [smtp-icon]: ./media/apis-list/smtp.png
 [sql-server-icon]: ./media/apis-list/sql.png
+[swift-icon]: ./media/apis-list/swift.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
 [until-icon]: ./media/apis-list/until.png
@@ -788,6 +807,7 @@ For more information, review the following documentation:
 [flat-file-icon]: ./media/apis-list/flat-file-decoding.png
 [integration-account-icon]: ./media/apis-list/integration-account.png
 [liquid-icon]: ./media/apis-list/liquid-transform.png
+[rosettanet-icon]: ./media/apis-list/rosettanet.png
 [x12-icon]: ./media/apis-list/x12.png
 [xml-transform-icon]: ./media/apis-list/xml-transform.png
 [xml-validate-icon]: ./media/apis-list/xml-validation.png
@@ -841,6 +861,7 @@ For more information, review the following documentation:
 [smtp-doc]: /azure/logic-apps/connectors/built-in/reference/smtp/ "Connect to your SMTP server so you can send email"
 [sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
+[swift-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
