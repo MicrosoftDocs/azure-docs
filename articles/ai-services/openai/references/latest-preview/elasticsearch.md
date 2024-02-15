@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI on your Azure Search data Python & REST API reference
+title: Azure OpenAI on your Elasticsearch data Python & REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI on your data Python & REST API.
 manager: nitinme
@@ -12,57 +12,48 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure AI Search Data Source
+# Elasticsearch Data Source
 
-The configurable options for Azure AI Search when using Azure OpenAI on your data.
+The configurable options for Elasticsearch when using Azure OpenAI on your data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-|`parameters`| [Parameters](#parameters)| True| The parameters to use when configuring Azure Search.|
-| `type`| string| True | Must be `azure_search`. |
+|`parameters`| [Parameters](#parameters)| True| The parameters to use when configuring Elasticsearch.|
+| `type`| string| True | Must be `elasticsearch`. |
 
 ## Parameters
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `endpoint` | string | True | The absolute endpoint path for the Azure Search resource to use.|
-| `index_name` | string | True | The name of the index to use in the referenced Azure Search resource.|
-| `authentication`| One of [ApiKeyAuthenticationOptions](#api-key-authentication-options), [SystemAssignedManagedIdentityAuthenticationOptions](#system-assigned-managed-identity-authentication-options), [UserAssignedManagedIdentityAuthenticationOptions](#user-assigned-managed-identity-authentication-options) | True | The authentication method to use when accessing the defined data source. |
-| `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | False | The embedding dependency for vector search. Required when `query_type` is `vector`, `vector_simple_hybrid`, or `vector_semantic_hybrid`.|
+| `endpoint` | string | True | The absolute endpoint path for the Elasticsearch resource to use.|
+| `index_name` | string | True | The name of the index to use in the referenced Elasticsearch.|
+| `authentication`| One of [KeyAndKeyIdAuthenticationOptions](#key-and-key-id-authentication-options), [EncodedApiKeyAuthenticationOptions](#encoded-api-key-authentication-options)| True | The authentication method to use when accessing the defined data source. |
+| `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source), [ModelIdVectorizationSource](#model-id-vectorization-source) | False | The embedding dependency for vector search. Required when `query_type` is `vector`.|
 | `fields_mapping` | [FieldsMappingOptions](#fields-mapping-options) | False | Customized field mapping behavior to use when interacting with the search index.|
-| `filter`| string | False | Search filter. |
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
-| `query_type` | [QueryType](#query-type) | False | The query type to use with Azure Search. Default is `simple` |
+| `query_type` | [QueryType](#query-type) | False | The query type to use with Elasticsearch. Default is `simple` |
 | `role_information`| string | False | Give the model instructions about how it should behave, and any context it should reference when generating a response. You can describe the assistant's personality, and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
-| `semantic_configuration` | string | False | The semantic configuration for the query. Required if and only if `query_type` is `semantic` or `vector_semantic_hybrid`.| 
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
-## API key authentication options
+## Key and key id authentication options
 
 The authentication options for Azure OpenAI On Your Data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `key`|string|True|The API key to use for authentication.|
-| `type`|string|True| Must be `api_key`.|
+| `key`|string|True|The Elasticsearch key to use for authentication.|
+| `key_id`|string|True|The Elasticsearch key ID to use for authentication.|
+| `type`|string|True| Must be `key_and_key_id`.|
 
-## System assigned managed identity authentication options
+## Encoded API key authentication options
 
-The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
-
-|Name | Type | Required | Description |
-|--- | --- | --- | --- |
-| `type`|string|True| Must be `system_assigned_managed_identity`.|
-
-## User assigned managed identity authentication options
-
-The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
+The authentication options for Azure OpenAI On Your Data when using an Elasticsearch encoded API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `managed_identity_resource_id`|string|True|The resource ID of the user-assigned managed identity to use for authentication.|
-| `type`|string|True| Must be `user_assigned_managed_identity`.|
+| `encoded_api_key`|string|True|The Elasticsearch encoded API key to use for authentication.|
+| `type`|string|True| Must be `encoded_api_key`.|
 
 ## Deployment name vectorization source
 
@@ -83,9 +74,18 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
 
+## Model id vectorization source
+
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on Elasticsearch model id.
+
+|Name | Type | Required | Description |
+|--- | --- | --- | --- |
+| `model_id`|string|True| Specifies the model ID to use for vectorization. This model ID must be defined in Elasticsearch.|
+| `type`|string|True| Must be `model_id`.|
+
 ## Fields mapping options
 
-Optional settings to control how fields are processed when using a configured Azure Search resource.
+Optional settings to control how fields are processed when using a configured Elasticsearch resource.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -98,15 +98,12 @@ Optional settings to control how fields are processed when using a configured Az
 
 ## Query type
 
-The type of Azure Search retrieval query that should be executed when using it as an Azure OpenAI on your data.
+The type of Elasticsearch retrieval query that should be executed when using it with Azure OpenAI on your data.
 
 |Enum Value | Description |
 |---|---|
 |`simple`	|Represents the default, simple query parser.|
-|`semantic`| Represents the semantic query parser for advanced semantic modeling.|
 |`vector`	|Represents vector search over computed data.|
-|`vector_simple_hybrid`	|Represents a combination of the simple query strategy with vector data.|
-|`vector_semantic_hybrid`	|Represents a combination of semantic search and vector data querying.|
 
 ## Examples
 
