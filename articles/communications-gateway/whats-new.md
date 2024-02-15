@@ -12,9 +12,23 @@ ms.date: 01/31/2024
 
 This article covers new features and improvements for Azure Communications Gateway.
 
-## January 2024
+## February 2024
 
-From January 2024, you can use the Provisioning API to set a custom header on Teams Phone Mobile calls. This enhancement extends the function introduced in [November 2023](#custom-header-on-messages-to-operator-networks) for configuring a custom header for Operator Connect, Microsoft Teams Direct Routing, and Zoom Phone Cloud Peering. The Number Management Portal is enabled by default.
+### Number Management Portal for Operator Connect and Teams Phone Mobile
+
+Azure Communications Gateway's Number Management Portal allows you to carry out a range of provisioning tasks for Operator Connect and Teams Phone Mobile. This includes:
+
+- Managing the status of your enterprise customers in the Operator Connect and Teams Phone Mobile environment.
+- Provisioning numbers in the Operator Connect and Teams Phone Mobile environment.
+- Manage custom headers for Operator Connect and Teams Phone Mobile.
+
+The Number Management Portal is an alternative to the Provisioning API.
+
+For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+
+### Custom headers with the Provisioning API for Teams Phone Mobile calls
+
+From February 2024, you can use the Provisioning API to set a custom header on Teams Phone Mobile calls. This enhancement extends the function introduced in [November 2023](#custom-header-on-messages-to-operator-networks) for configuring a custom header for Operator Connect, Microsoft Teams Direct Routing, and Zoom Phone Cloud Peering.
 
 ## November 2023
 
