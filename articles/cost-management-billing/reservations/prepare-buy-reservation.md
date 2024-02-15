@@ -8,7 +8,7 @@ ms.subservice: reservations
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ Cloud solution providers can use the Azure portal or [Partner Center](/partner
 
 You can't buy a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in Owner or built-in Reservation Purchaser role.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. Direct EA customers can now disable Reserved Instance setting in [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
 
 EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
