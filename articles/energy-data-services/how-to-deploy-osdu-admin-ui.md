@@ -42,9 +42,13 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 5. After a few minutes, the devcontainer is running.
    
-   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/running-devcontainer.png" alt-text="Screenshot that shows running devcontainer.":::
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/running-devcontainer.png" alt-text="Screenshot that shows running devcontainer.":::
    
-6. Execute the following command in the bash terminal to install NVM, Node.js, NPM and Angular CLI:
+6. Open the terminal
+
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
+
+8. Execute the command in the bash terminal to install NVM, Node.js, NPM and Angular CLI.
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
@@ -53,6 +57,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     nvm install 14.17.3 && \
     npm install -g @angular/cli@13.3.9
     ```
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
 1. Log into Azure CLI by executing the following command:
     ```azurecli-interactive
