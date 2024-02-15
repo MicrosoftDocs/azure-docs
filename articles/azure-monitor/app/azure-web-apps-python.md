@@ -8,7 +8,7 @@ ms.custom: "devx-track-python"
 ms.reviewer: abinetabate
 ---
 
-# Application Monitoring for Azure App Service and Python
+# Application Monitoring for Azure App Service and Python (preview)
 
 Monitor your Python web applications on Azure App Services without modifying the code. This guide shows you how to enable Azure Monitor Application Insights and offers tips for automating large-scale deployments.
 
