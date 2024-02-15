@@ -129,11 +129,11 @@ Run the following commands on each host:
         ```
         "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /AddBypassUrls URLs 
         ```
-        ---
+---
 
-1. After you install the provider on hosts, go to the Azure portal and in **Discover machines**, select **Finalize registration**.
+After you install the provider on hosts, go to the Azure portal and in **Discover machines**, select **Finalize registration**.
 
-   ![Screenshot that shows the Finalize registration screen.](./media/tutorial-migrate-hyper-v/finalize-registration.png)
+![Screenshot that shows the Finalize registration screen.](./media/tutorial-migrate-hyper-v/finalize-registration.png)
 
 It can take up to 15 minutes after finalizing registration until discovered VMs appear in the **Migration and modernization** tile. As VMs are discovered, the **Discovered servers** count rises.
 
