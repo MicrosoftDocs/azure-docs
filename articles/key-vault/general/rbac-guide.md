@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
