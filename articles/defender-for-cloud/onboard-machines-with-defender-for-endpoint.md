@@ -61,7 +61,7 @@ Deploying the Defender for Endpoint agent on your on-premises Windows and Linux 
 - **Plan support**: Direct onboarding provides access to all Defender for Servers Plan 1 features. However, certain features in Plan 2 still require the deployment of the Azure Monitor Agent, which is only available with Azure Arc on non-Azure machines. If you enable Plan 2 on your designated subscription, machines onboarded directly with Defender for Endpoint have access to all Defender for Servers Plan 1 features and the Defender Vulnerability Management Addon features included in Plan 2.
 - **Multi-cloud support**: You can directly onboard VMs in AWS and GCP using the Defender for Endpoint agent. However, if you plan to simultaneously connect your AWS or GCP account to Defender for Servers using multicloud connectors, it's currently still recommended to deploy Azure Arc.
 - **Simultaneous onboarding limited support**: For servers simultaneously onboarded using multiple methods (for example - Direct onboarding combined with Log Analytics workspace-based onboarding), Defender for Cloud makes every effort to correlate them into a single device representation. However, devices using older versions of Defender for Endpoint may face certain limitations. In some instances, this could result in overcharges. We generally advise using the latest agent version. Specifically, for this limitation, ensure your Defender for Endpoint agent versions meet or exceed these minimum versions:
-- |Operating System|Minimum agent version|
+  |Operating System|Minimum agent version|
 | -------- | -------- |
 |Windows 2019| 10.8555|
 |Windows 2012 R2, 2016 (modern, unified agent)|10.8560|
