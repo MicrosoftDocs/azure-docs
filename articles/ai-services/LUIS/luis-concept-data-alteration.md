@@ -82,7 +82,7 @@ When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev
 
 ### V3 prediction API to alter timezone
 
-In V3, the `datetimeReference` determines the timezone offset. Learn more about [V3 predictions](luis-migration-api-v3.md#v3-post-body).
+In V3, the `datetimeReference` determines the timezone offset.
 
 ### V2 prediction API to alter timezone
 The timezone is corrected by adding the user's timezone to the endpoint using the `timezoneOffset` parameter based on the API version. The value of the parameter should be the positive or negative number, in minutes, to alter the time.

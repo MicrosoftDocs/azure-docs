@@ -3,7 +3,6 @@ title: Azure TLS Certificate Changes
 description: Azure TLS Certificate Changes
 services: security
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: security
 ms.subservice: security-fundamentals
