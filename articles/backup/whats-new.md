@@ -97,7 +97,7 @@ If you're currently using snapshot-based backups, we recommend that you switch t
 >[!Note]
 >Switching to vaulted backups doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
 
-For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md).
+For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
 
 
 ## Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available

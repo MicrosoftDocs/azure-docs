@@ -186,6 +186,8 @@
       href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Azure Blob backup
     href: blob-backup-overview.md 
+  - name: Azure File share backup
+    href: azure-file-share-backup-overview.md  
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -464,8 +466,6 @@
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
   - name: Azure File share backup
     items:
-    - name: Overview
-      href: azure-file-share-backup-overview.md
     - name: From the Azure portal
       items:
       - name: Backup
