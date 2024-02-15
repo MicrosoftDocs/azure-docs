@@ -17,8 +17,8 @@ ms.date: 02/13/2024
 
 * AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
 * You need Azure CLI version 2.7 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Register the `hpc-cache` extension in your Azure subscription. For more information on using HPC Cache with Azure CLI, see the [HPC Cache CLI prerequisites].[hpc-cache-cli-prerequisites].
-* Review the [HPC Cache prerequisites][hpc-cache-prereqs]. You need to satisfy the following prerequisites before you can run an HPC Cache:
+* Register the `hpc-cache` extension in your Azure subscription. For more information on using HPC Cache with Azure CLI, see the [HPC Cache CLI prerequisites][hpc-cache-cli-prerequisites].
+* Review the [HPC Cache prerequisites][hpc-cache-prereqs]. You need to satisfy the following before you can run an HPC Cache:
 
   * The cache requires a *dedicated* subnet with at least 64 IP addresses available.
   * The subnet must not host other VMs or containers.
@@ -364,6 +364,7 @@ az feature show --namespace "Microsoft.StorageCache"
 [hpc-cache-prereqs]: ../hpc-cache/hpc-cache-prerequisites.md
 [az-hpc-cache-create]: /cli/azure/hpc-cache#az_hpc_cache_create
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [persistent-volume-claim]: concepts-storage.md#persistent-volume-claims
