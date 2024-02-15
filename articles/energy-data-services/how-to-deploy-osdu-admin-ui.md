@@ -48,7 +48,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
 
-8. Execute the command in the bash terminal to install NVM, Node.js, NPM and Angular CLI.
+7. Execute the command in the bash terminal to install NVM, Node.js, NPM and Angular CLI.
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
@@ -59,27 +59,27 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
-9. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen
+8. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen
     ```azurecli-interactive
     az login
     ```
 
-1. It takes you to the login screen. Enter your credentials and upon success, you will see a success message.
+9. It takes you to the login screen. Enter your credentials and upon success, you will see a success message.
 
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
 
-3. Make sure the correct subscription is selected by running the following command:
+10. Make sure the correct subscription is selected by running the following command:
     ```azurecli-interactive
     az account show
     ```
 
-1. If you need to change subscription:
+11. If you need to change subscription:
     ```azurecli-interactive
     az account set --subscription <subscription-id>
     ```
     
 ### Configure environment variables
-Required environment variables:
+Enter the required environment variables on the terminal.
 ```bash
 export ADMINUI_CLIENT_ID="" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
 export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated
