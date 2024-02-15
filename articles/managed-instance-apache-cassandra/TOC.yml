@@ -65,6 +65,8 @@
       href: write-through-cache.md
     - name: Run Jaeger with Azure Managed Instance for Apache Cassandra
       href: jaeger.md
+    - name: Use VPN with Azure Managed Instance for Apache Cassandra
+      href: use-vpn.md
     - name: Nodetool commands
       href: dba-commands.md               
 - name: Reference

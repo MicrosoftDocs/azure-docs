@@ -3,7 +3,6 @@ title: SAP MaxDB, liveCache, and Content Server deployment on Azure VMs | Micros
 description: SAP MaxDB, liveCache, and Content Server deployment on Azure
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
