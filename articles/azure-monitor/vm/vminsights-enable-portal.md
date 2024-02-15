@@ -50,7 +50,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
  
 1. On the **Insights Onboarding** page, select **Enable**. 
  
-1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule) from the **Data collection rule** dropdown. 
+1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#vm-insights-data-collection-rule) from the **Data collection rule** dropdown. 
 ![Screenshot of VM Insights Monitoring Configuration Page.](media/vminsights-enable-portal/vm-insights-monitoring-configuration.png)
 
 1.  The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
@@ -97,7 +97,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
        > [!WARNING]
        > Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in:
        > - Additional cost of ingestion duplicate data to the Log Analytics workspace.
-       > - The map feature of VM insights may be inaccurate since it does not check for duplicate data.
+       > - The map feature of VM insights may be inaccurate since it does not check for duplicate data. For more information about 
            
 1. Once you've verified that the Azure Monitor agent has been enabled, remove the Log Analytics agent from the machine to prevent duplicate data collection. 
 
