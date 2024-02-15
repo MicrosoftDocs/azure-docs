@@ -86,7 +86,7 @@ This article shows how to use the "bring your own" Network Security Group (NSG) 
     --enable-preconfigured-nsg
     ```
     
-1. Update the preconfigured NSGs with rules as per your requirements while also considering the points mentioned in [Capabilities and limitations](#capabilities-and-limitations).
+1. Update the preconfigured NSGs with rules as per your requirements while also considering the points mentioned in [Capabilities and limitations](#general-capabilities-and-limitations).
 
     The following example has the Cluster Public Load-balancer as shown in the screenshot/CLI output:
     
