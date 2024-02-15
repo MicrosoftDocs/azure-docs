@@ -74,10 +74,12 @@ items:
     items:
     - name: Set up private access
       href: how-to-set-up-private-access.md
-    - name: Connect to a data source privately
-      href: how-to-connect-to-data-source-privately.md
     - name: Use deterministic outbound IPs
       href: how-to-deterministic-ip.md
+    - name: Connect to a data source privately
+      href: how-to-connect-to-data-source-privately.md
+    - name: "Tutorial: Connect to self-hosted Prometheus on an AKS Cluster through managed private endpoint"
+      href: tutorial-mpe-oss-prometheus.md
   - name: Availability
     expanded: false
     items:
