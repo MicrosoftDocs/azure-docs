@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/02/2023
+ms.date: 02/15/2024
 ---
 
 ### Outbound connectivity
@@ -8,9 +8,6 @@ ms.date: 06/02/2023
 The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 
 ### Firewall/Proxy URL allowlist
-
->[!Note]
->To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](/azure/azure-arc/resource-bridge/network-requirements#additional-network-requirements).
 
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
