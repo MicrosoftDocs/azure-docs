@@ -251,26 +251,26 @@ To view metrics and artifacts in the studio:
 
 To __access or query__ metrics, parameters, and artifacts programatically via the MLflow SDK, use [mlflow.get_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.get_run).
 
-    ```python
-    import mlflow
-    
-    run = mlflow.get_run("<RUN_ID>")
-    
-    metrics = run.data.metrics
-    params = run.data.params
-    tags = run.data.tags
-    
-    print(metrics, params, tags)
-    ```
+```python
+import mlflow
 
-    > [!TIP]
-    > For metrics, the previous example code will only return the last value of a given metric. If you want to retrieve all the values of a given metric, use the `mlflow.get_metric_history` method. For more information on retrieving values of a metric, see [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#getting-params-and-metrics-from-a-run).
+run = mlflow.get_run("<RUN_ID>")
+
+metrics = run.data.metrics
+params = run.data.params
+tags = run.data.tags
+
+print(metrics, params, tags)
+```
+
+> [!TIP]
+> For metrics, the previous example code will only return the last value of a given metric. If you want to retrieve all the values of a given metric, use the `mlflow.get_metric_history` method. For more information on retrieving values of a metric, see [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#getting-params-and-metrics-from-a-run).
 
 To __download__ artifacts you've logged, such as files and models, use [mlflow.artifacts.download_artifacts()](https://www.mlflow.org/docs/latest/python_api/mlflow.artifacts.html#mlflow.artifacts.download_artifacts).
 
-    ```python
-    mlflow.artifacts.download_artifacts(run_id="<RUN_ID>", artifact_path="helloworld.txt")
-    ```
+```python
+mlflow.artifacts.download_artifacts(run_id="<RUN_ID>", artifact_path="helloworld.txt")
+```
 
 For more information about how to __retrieve or compare__ information from experiments and runs in Azure Machine Learning, using MLflow, see [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
