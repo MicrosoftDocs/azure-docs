@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 02/01/2024
+ms.date: 02/16/2024
 ---
 
 # What's new in Azure Communications Gateway?

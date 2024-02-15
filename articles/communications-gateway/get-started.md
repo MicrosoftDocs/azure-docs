@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/16/2024
 
 #CustomerIntent: As someone setting up Azure Communications Gateway, I want to understand the steps I need to carry out to have live traffic through my deployment.
 ---
