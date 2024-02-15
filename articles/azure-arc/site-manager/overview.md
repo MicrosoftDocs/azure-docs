@@ -61,9 +61,9 @@ requirements, dependencies, limitations, and overhead.
 
 ## Related content
 
+<!-- - [Related article title](link.md)
 - [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
+- [Related article title](link.md) -->
 
 <!-- Optional: Related content - H2
 
