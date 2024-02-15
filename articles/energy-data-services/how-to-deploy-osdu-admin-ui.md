@@ -25,8 +25,8 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 > - [User.Read](/graph/permissions-reference#applicationreadall)
 > - [User.Read.All](/graph/permissions-reference#userreadall)
 
-## Set up your environment
-We recommend using a devcontainer to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
+## Environment setup
+Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
 
 [![Open in Remote - Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies)
 
