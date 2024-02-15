@@ -287,6 +287,8 @@
     href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
   - name: Deploy a self-hosted gateway to Docker
     href: how-to-deploy-self-hosted-gateway-docker.md
+  - name: Deploy a self-hosted gateway to Container Apps
+    href: how-to-deploy-self-hosted-gateway-container-apps.md  
   - name: Configure custom domain for self-hosted gateway
     href: api-management-howto-configure-custom-domain-gateway.md
   - name: Configure cloud metrics and logs for self-hosted gateway
