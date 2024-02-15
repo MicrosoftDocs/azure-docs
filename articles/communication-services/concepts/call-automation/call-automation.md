@@ -58,7 +58,7 @@ The following list presents the set of features that are currently available in 
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
-|                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them.| ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
