@@ -206,6 +206,7 @@ az vm create \
   --admin-username aibuser \
   --admin-password <password> \
   --image $imageName \
+  --security-type TrustedLaunch \
   --location $location
 ```
 
