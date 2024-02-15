@@ -28,6 +28,8 @@ In the Azure AI Studio, there are two levels of access: the Azure AI hub resourc
 
 :::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
 
+One of the key benefits of the AI hub and AI project relationship is that developers can create their own projects that inherit the AI hub security settings. You might also have developers who are contributors to a project, and can't create new projects.
+
 ## Default roles for the Azure AI hub resource 
 
 The Azure AI Studio has built-in roles that are available by default. In addition to the Reader, Contributor, and Owner roles, the Azure AI Studio has a new role called Azure AI Developer. This role can be assigned to enable users to create connections, compute, and projects, but not let them create new Azure AI hub resources or change permissions of the existing Azure AI hub resource.
@@ -44,7 +46,7 @@ Here's a table of the built-in roles and their permissions for the Azure AI hub 
 
 The key difference between Contributor and Azure AI Developer is the ability to make new Azure AI hub resources. If you don't want users to make new Azure AI hub resources (due to quota, cost, or just managing how many Azure AI hub resources you have), assign the AI Developer role.
 
-Only the Owner and Contributor roles allow you to make an Azure AI hub resource. At this time, custom roles won't grant you permission to make Azure AI hub resources.
+Only the Owner and Contributor roles allow you to make an Azure AI hub resource. At this time, custom roles can't grant you permission to make Azure AI hub resources.
 
 The full set of permissions for the new "Azure AI Developer" role are as follows:
 
@@ -102,15 +104,15 @@ The minimum permissions needed to create an AI project resource is a role that h
 
 ## Dependency service RBAC permissions
 
-The Azure AI hub resource has dependencies on other Azure services. The following table lists the *minimum* permissions required for these services when you create an Azure AI hub resource. They aren't needed by the user that creates an AI project from the AI hub:
+The Azure AI hub resource has dependencies on other Azure services. The following table lists the permissions required for these services when you create an Azure AI hub resource. These permissions are needed by the person that creates the AI hub. They aren't needed by the person who creates an AI project from the AI hub.
 
-| Permission | Description |
+| Permission | Purpose |
 |------------|-------------|
-| `Microsoft.Storage/storageAccounts/write` | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
-| `Microsoft.KeyVault/vaults/write` | Creates a new key vault or updates the properties of an existing key vault. Certain properties might require more permissions. |
-| `Microsoft.CognitiveServices/accounts/write` | Writes API Accounts. |
-| `Microsoft.Insights/Components/Write` | Writing to an application insights component configuration. |
-| `Microsoft.OperationalInsights/workspaces/write` | Creates a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
+| `Microsoft.Storage/storageAccounts/write` | Create a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+| `Microsoft.KeyVault/vaults/write` | Create a new key vault or updates the properties of an existing key vault. Certain properties might require more permissions. |
+| `Microsoft.CognitiveServices/accounts/write` | Write API Accounts. |
+| `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
+| `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
 
 
 ## Sample enterprise RBAC setup
@@ -119,8 +121,9 @@ The following is an example of how to set up role-based access control for your 
 | Persona | Role | Purpose |
 | --- | --- | ---|
 | IT admin | Owner of the Azure AI hub resource | The IT admin can ensure the Azure AI hub resource is set up to their enterprise standards and assign managers the Contributor role on the resource if they want to enable managers to make new Azure AI hub resources or they can assign managers the Azure AI Developer role on the resource to not allow for new Azure AI hub resource creation. |
-| Managers | Contributor or Azure AI Developer on the Azure AI hub resource | Managers can create projects for their team and create shared resources (ex: compute and connections) for their group at the Azure AI hub resource level. |
-| Managers | Owner of the Azure AI Project | When managers create a project, they become the project owner. This allows them to add their team/developers to the project. Their team/developers can be added as Contributors or Azure AI Developers to allow them to develop in the project. |
+| Managers | Contributor or Azure AI Developer on the Azure AI hub resource | Managers can manage the AI hub, audit compute resources, audit connections, and create shared connections. |
+| Team lead/Lead developer | Azure AI Developer on the Azure AI hub resource | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the Azure AI hub resource level. |
+| Team lead/Lead developer | Owner of the Azure AI Project | When a lead developer creates a project, they become the project owner. This allows them to add their team/developers to the project. Their team/developers can be added as Contributors or Azure AI Developers to allow them to develop in the project. |
 | Team members/developers | Contributor or Azure AI Developer on the Azure AI Project | Developers can build and deploy AI models within a project and create assets that enable development such as computes and connections. |
 
 ## Access to resources created outside of the Azure AI hub resource
