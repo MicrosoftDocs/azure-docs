@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: [Understand threat intelligence](https://review.learn.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence)
+          - text: Understand threat intelligence
             url: understand-threat-intelligence.md
           - text: MITRE ATT&CK® framework
             url: mitre-coverage.md
