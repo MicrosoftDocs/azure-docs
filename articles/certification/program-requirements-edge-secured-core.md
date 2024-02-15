@@ -133,7 +133,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
 |Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
@@ -208,7 +208,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 
 ## Linux OS Support
 >[!Note]
-> Linux is not yet supported. The below represent expected requirements. Please fill out this [form](https://forms.office.com/r/HSAtk0Ghru) if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
+> Linux is not yet supported. The below represent expected requirements. Please fill out this [form](https://forms.office.com/r/HSAtk0Ghru) if you are interested in certifying a Linux device.
 
 ## Linux Hardware/Firmware Requirements
 
@@ -313,7 +313,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
 |Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
@@ -536,7 +536,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution.|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor, remote crash-dump support via Azure Watson, and customer-samples for in-appplication logging via Azure services.</li></ul>|
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
