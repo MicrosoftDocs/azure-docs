@@ -27,7 +27,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 > * Trusted Platform Module (TPM) 2.0
 > * <b>For Intel systems:</b> Intel Virtualization Technology for Directed I/O (VT-d), Intel Trusted Execution Technology (TXT), and SINIT ACM driver package must be included in the Windows system image (for DRTM)
 > * <b>For AMD systems:</b> AMD IOMMU and AMD-V virtualization, and SKINIT package must be integrated in the Windows system image (for DRTM)
-> * Kernel DMA Protection (also known as Memory Access Protection)
+> * Kernel Direct Memory Access Protection (also known as Memory Access Protection)
 
 ---
 </br>
@@ -37,7 +37,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
 |Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
-|Dependencies|TPM v2.0 device|
+|Dependencies|Trusted Platform Module (TPM) v2.0 device|
 
 ---
 </br>
@@ -45,9 +45,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Description|All Direct Memory Access(DMA) enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
-|Dependencies|Enabled and appropriately configured IOMMU or SMMU|
+|Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
 </br>
@@ -55,7 +55,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The device boot sequence must support DRTM alongside UEFI Management Mode mitigations.|
+|Description|The device boot sequence must support Dynamic Root of Trust for Measurement (DRTM) alongside UEFI Management Mode mitigations.|
 |Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies|DRTM + UEFI|
 |Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
@@ -99,7 +99,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 |Dependencies|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services.|
 |Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
@@ -197,7 +197,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|Vulnerabilities that are high/critical (using CVSS 3.0) must be addressed within 180 days of the fix being available.|
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
 |Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 
 ---
@@ -218,7 +218,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
 |Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
-|Dependencies|TPM v2.0 </br><sup>or *other supported method</sup>|
+|Dependencies|Trusted Platform Module (TPM) v2.0 </br><sup>or *other supported method</sup>|
 
 ---
 </br>
@@ -226,9 +226,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
-|Dependencies|Enabled and appropriately configured IOMMU or SMMU|
+|Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
 </br>
@@ -259,7 +259,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
-|Dependencies|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
+|Dependencies|Trusted Platform Module (TPM) 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
 ---
@@ -287,7 +287,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 
 ---
@@ -406,7 +406,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|Vulnerabilities that are high/critical (using CVSS 3.0) must be addressed within 180 days of the fix being available.|
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
 |Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 
 </br>
@@ -436,7 +436,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A securely configurable peripheral firewall.</li></ul>|
 
@@ -488,7 +488,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Status|Required|
 |Description|Sensitive and private data must be encrypted at rest using dm-crypt or similar, supporting XTS-AES as the default algorithm with a key length of 128 bits or higher, with encryption keys backed by hardware protection.|
 |Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
-|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor, in-package NVM storage, and customer-exposed wolfCrypt APIs.</li></ul>|
+|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor, in-package non-volatile memory storage, and customer-exposed wolfCrypt APIs.</li></ul>|
 
 ---
 </br>
@@ -496,7 +496,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The OS must support a minimum TLS version of 1.2 and have secure TLS cipher suites available.|
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have secure TLS cipher suites available.|
 |Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.</li></ul>|
 |Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
@@ -509,7 +509,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Status|Required|
 |Description|The OS must feature code integrity support, with code operating under least privilege.|
 |Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
-|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and hardened OS with read-only filesystem stored on in-package NVM storage and executed in on-die RAM, with restricted/contained and least-privilaged workloads.</li></ul>|
+|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and hardened OS with read-only filesystem stored on in-package non-volatile memory storage and executed in on-die RAM, with restricted/contained and least-privilaged workloads.</li></ul>|
 
 ---
 </br>
@@ -628,7 +628,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
 |Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
-|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.</li></ul>|
+|Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Vulnerabilities are collected by Microsoft through Microsoft Security Response Center (MSRC) and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.</li></ul>|
 |Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
 
 ---
@@ -637,7 +637,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|Vulnerabilities that are high/critical (using CVSS 3.0) must be addressed within 180 days of the fix being available.|
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
 |Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Compliant with requirement.</li></ul>|
 
