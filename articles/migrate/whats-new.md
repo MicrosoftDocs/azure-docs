@@ -16,6 +16,8 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (February 2024)
 
+- Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
+
 - Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions to Azure using Azure VM assessments and business case.
 
 ## Update (January 2024)
