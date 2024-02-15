@@ -115,7 +115,7 @@ Fields from the chat index that support generative search experience:
 ]
 ```
 
-Here's a screenshot showing [Search explorer](search-explorer.md) search results for the conversations index. The search score is 1.00 because the search was unqualified. Notice the fields that exist to support orchestration and prompt flows. A conversation ID identifies a specific chat. `"type"` indicates whether the content is from the user or the assistant. Dates are used to age out chats from the history.
+Here's a screenshot showing search results in [Search Explorer](search-explorer.md) for the conversations index. The search score is 1.00 because the search was unqualified. Notice the fields that exist to support orchestration and prompt flows. A conversation ID identifies a specific chat. `"type"` indicates whether the content is from the user or the assistant. Dates are used to age out chats from the history.
 
 :::image type="content" source="media/vector-search-overview/vector-schema-search-results.png" alt-text="Screenshot of Search Explorer with results from an index designed for RAG apps.":::
 
@@ -154,18 +154,35 @@ Notice that query continuity exists for document operations (refreshing or delet
 
 To avoid an [index rebuild](search-howto-reindex.md), some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
 
+### Endpoint connection
+
+All vector indexing and query requests target an index. Endpoints are usually one of the following:
+
+| Endpoint | Connection and access control |
+|----------|-------------------------------|
+| `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin [API keys](search-security-api-keys.md) or a [Search Contributor role](search-security-rbac.md#built-in-roles-used-in-search). |
+| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index or data refresh. For queries, read rights are sufficient, and available through query API keys or a data reader role. For data refresh, admin rights are required. |
+
+#### How to connect to Azure AI Search
+
+1. [Start with the Azure portal](https://portal.azure.com). Azure subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. This permission level is sufficient for fully managing a search service in the Azure portal.
+
+1. Try other clients for programmatic access. We recommend the quickstarts and samples for first steps:
+
+   + [Quickstart: REST](search-get-started-vector.md)
+   + [Vector samples](https://github.com/Azure/azure-search-vector-samples/blob/main/README.md)
+
 ### Secure access to vector data
 
-<!-- Azure AI Search supports comprehensive security. Authentication and authorization -->
+Azure AI Search implements data encryption, private connections for no-internet connections, and role assignments for secure access through Microsoft Entra ID. The full range of enterprise security features are outlined in [Security in Azure AI Search](search-security-overview.md).
 
 ### Manage vector stores
 
-Azure provides a monitoring platform that includes diagnostic logging and alerting.
+Azure provides a [monitoring platform](monitor-azure-cognitive-search.md) that includes diagnostic logging and alerting. We recommend the following best practices:
 
-+ Enable logging
-+ Set up alerts
-+ Back up and restore isn't natively supported but there are samples.
-+ Scale
++ [Enable diagnostic logging](azure/azure-monitor/essentials/create-diagnostic-settings)
++ [Set up alerts](/azure/azure-monitor/alerts/tutorial-metric-alert)
++ [Analyze query and index performance](search-performance-analysis.md)
 
 ## See also
 
