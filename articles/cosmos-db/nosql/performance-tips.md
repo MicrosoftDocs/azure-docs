@@ -2,14 +2,13 @@
 title: Azure Cosmos DB performance tips for .NET SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet
 ---
 
 # Performance tips for Azure Cosmos DB and .NET SDK v2
@@ -182,7 +181,7 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. The
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
 
 Retry policy support is included in these SDKs:
-- Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](sdk-java-v2.md)
+* Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](/java/api/overview/azure/cosmos-readme)
 - Version 1.9.0 and later of the [Node.js SDK for SQL](sdk-nodejs.md) and the [Python SDK for SQL](sdk-python.md)
 - All supported versions of the [.NET Core](sdk-dotnet-core-v2.md) SDKs 
 

@@ -8,7 +8,6 @@ ms.author: kritifaujdar
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 01/10/2024
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.

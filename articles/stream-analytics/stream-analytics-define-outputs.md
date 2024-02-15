@@ -5,7 +5,6 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: contperf-fy21q1
 ms.date: 01/25/2024
 ---
 

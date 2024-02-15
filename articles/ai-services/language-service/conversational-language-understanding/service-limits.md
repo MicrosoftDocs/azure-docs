@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021, references_regions
+ms.custom: language-service-clu, references_regions
 ---
 
 # Conversational language understanding limits

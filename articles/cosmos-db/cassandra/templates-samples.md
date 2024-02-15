@@ -1,10 +1,10 @@
 ---
 title: Resource Manager templates for Azure Cosmos DB for Apache Cassandra
-description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for Apache Cassandra. 
+description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for Apache Cassandra.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: sidandrews

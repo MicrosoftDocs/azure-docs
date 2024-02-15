@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell
 ms.date: 08/02/2023
 ---
 

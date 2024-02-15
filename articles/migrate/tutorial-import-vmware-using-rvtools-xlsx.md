@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, ensure that you have the following prerequisites in place:
 
-- 20,000 servers in a single XLSX file and 35,000 in an Azure Migrate project.
+- Less than 20,000 servers in a single RVTools XLSX file.
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](migrate-support-matrix.md) specified in the RVTools XLSX (preview) file contains and matches the supported names.

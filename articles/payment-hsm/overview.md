@@ -1,17 +1,13 @@
-﻿---
+---
 title: What is Azure Payment HSM?
 description: Learn how Azure Payment HSM is an Azure service that provides cryptographic key operations for real-time, critical payment transactions
 services: payment-hsm
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: payment-hsm
-ms.workload: security
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
-
-
 ---
 # What is Azure Payment HSM?
 
@@ -106,17 +102,6 @@ Benefits for new payment participants:
 - Avoids introduction of on-premises HSM infrastructure
 - Lowers upfront investment via the Azure subscription model
 - Offers access to latest certified hardware and software on-demand
-
-## Supported SKUs
-
-Azure Payment HSM supports the following SKUs:
-
-- payShield10K_LMK1_CPS60
-- payShield10K_LMK1_CPS250
-- payShield10K_LMK1_CPS2500
-- payShield10K_LMK2_CPS60
-- payShield10K_LMK2_CPS250
-- payShield10K_LMK2_CPS2500
 
 ## Glossary
 

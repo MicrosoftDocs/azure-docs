@@ -8,7 +8,7 @@ recommendations: false
 ms.topic: overview
 ms.date: 12/19/2023
 keywords: "qna maker, low code chat bots, multi-turn conversations"
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # What is question answering?
@@ -93,4 +93,3 @@ We offer quickstarts in most popular programming languages, each designed to tea
 
 ## Next steps
 Question answering provides everything you need to build, manage, and deploy your custom project.
-
