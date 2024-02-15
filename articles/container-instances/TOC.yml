@@ -179,6 +179,8 @@
     items:
     - name: Troubleshoot common issues
       href: container-instances-troubleshooting.md
+    - name: Troubleshoot common issues
+      href: ../../../../SupportArticles-docs-pr
 - name: Reference
   items:
   - name: Azure CLI
