@@ -34,7 +34,7 @@ If you encounter any of the following errors when attempting to deploy your Azur
 
 Your subscription may not have access to create a server in the selected region if your subscription is not registered with the PostgreSQL resource provider (RP).  
 
-If you see the following errors, please [register your subscription with the PostgreSQL RP](#register-with-postgresql-rp)]
+If you see any of the following errors, [Register your subscription with the PostgreSQL RP](#register-with-postgresql-rp)] to resolve it
 - `Your subscription does not have access to create a server in the selected region.`
 - `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
 - `Location 'region name' is not accepting creation of new Azure Database for PostgreSQL Flexible servers for the subscription 'subscription id' at this time`
@@ -42,7 +42,7 @@ If you see the following errors, please [register your subscription with the Pos
 
 ## Enable region 
 
-Your subscription may not have access to create a server in the selected region if that region has not been enabled for your subscription. To resolve this, file a  [request to access a region](how-to-request-quota-increase.md). for your subscription. 
+Your subscription may not have access to create a server in the selected region. To resolve this issue, file a  [request to access a region](how-to-request-quota-increase.md). for your subscription. 
 
 If you see the following errors, file a support ticket to enable a specific region: 
 - `Subscription 'Subscription name' is not allowed to provision in 'region name`
@@ -50,7 +50,7 @@ If you see the following errors, file a support ticket to enable a specific regi
 
 ## Availability Zone 
 
-If you receive following errors please choose a different availability zone. 
+If you receive following errors, please choose a different availability zone. 
 
 - `Availability zone '{ID}' is not available for subscription '{Sub ID}' in this region temporarily due to capacity constraints.`
 - `Multi-Zone HA is not supported in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits'.` 
@@ -58,7 +58,7 @@ If you receive following errors please choose a different availability zone.
 
 ## SKU Not Available 
 
-If you encounter the following error please choose a different SKU type. Availability of SKUs may differ across regions, either because the specific SKU hasn't been released by Azure compute or due to temporary unavailability caused by capacity constraints.
+If you encounter the following error, please choose a different SKU type. Availability of SKU may differ across regions, either the specific SKU is not supported by Azure compute or unavailable due to temporary capacity constraints.
 
 `Specified SKU is not supported in this region. Please choose a different SKU.`
 
