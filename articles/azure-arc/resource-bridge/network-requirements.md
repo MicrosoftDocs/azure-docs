@@ -17,8 +17,6 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
-## Additional network requirements
-
 In addition, Arc resource bridge requires connectivity to the Arc-enabled Kubernetes endpoints shown here.
 
 [!INCLUDE [network-requirements](../kubernetes/includes/network-requirements.md)]
