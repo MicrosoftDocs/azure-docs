@@ -114,7 +114,7 @@ If you associate a data collection rule with the Map feature enabled to a machin
 
 ## Enable network isolation using Private Link
 
-To enable network isolation for VM Insights, you need to associate your VM Insights data collection rule to a data collection endpoint linked to an Azure Monitor Private Link Scope, as described in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
+To enable network isolation for VM Insights, associate your VM Insights data collection rule to a data collection endpoint linked to an Azure Monitor Private Link Scope, as described in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 ## Diagnostic and usage data
 
