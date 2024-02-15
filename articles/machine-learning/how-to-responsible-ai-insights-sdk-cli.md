@@ -45,7 +45,7 @@ In the following sections are specifications of the Responsible AI components an
 
 ### Limitations
 
-The current set of components have a number of limitations on their use:
+The current set of components have many limitations on their use:
 
 - All models must be registered in Azure Machine Learning in MLflow format with a sklearn (scikit-learn) flavor.
 - The models must be loadable in the component environment.
@@ -76,13 +76,13 @@ The constructor component also accepts the following parameters:
 | Parameter name | Description | Type |
 |---|---|---|
 | `title` | Brief description of the dashboard. | String |
-| `task_type` | Specifies whether the model is for classification, regression, or forecasting. | String, `classification`, `regression` or `forecasting` |
+| `task_type` | Specifies whether the model is for classification, regression, or forecasting. | String, `classification`, `regression`, or `forecasting` |
 | `target_column_name` | The name of the column in the input datasets, which the model is trying to predict. | String |
 | `maximum_rows_for_test_dataset` | The maximum number of rows allowed in the test dataset, for performance reasons. | Integer, defaults to 5,000 |
 | `categorical_column_names` | The columns in the datasets, which represent categorical data. | Optional list of strings<sup>1</sup> |
 | `classes` | The full list of class labels in the training dataset. | Optional list of strings<sup>1</sup> |
-| `feature_metadata`| Specifies additional information the dashboard may need depending on task type. For forecasting, this includes specifying which column is the `datetime` column and which column is the `time_series_id` column. For vision, this may include mean pixel value or location data of an image.| |
-| `use_model_dependency`| Specifies if the model requires a separate docker container to be served in due to conflicting dependencies with the RAI dashboard. For forecasting, this must be enabled. | Boolean |
+| `feature_metadata`| Specifies additional information the dashboard might need depending on task type. For forecasting, this includes specifying which column is the `datetime` column and which column is the `time_series_id` column. For vision, this might include mean pixel value or location data of an image.| |
+| `use_model_dependency`| Specifies if the model requires a separate docker container to be served in due to conflicting dependencies with the RAI dashboard. For forecasting, this must be enabled. Typically for other scenarios this isn't enabled.  | Boolean |
 
 <sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names` and `classes` inputs.
 
