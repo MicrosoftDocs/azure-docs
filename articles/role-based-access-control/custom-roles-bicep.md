@@ -39,43 +39,7 @@ The scope where this custom role can be assigned is set to the current subscript
 
 A custom role requires a unique ID. The ID can be generated with the [guid()](../azure-resource-manager/bicep/bicep-functions-string.md#guid) function. Since a custom role also requires a [unique display name](custom-roles.md#custom-role-properties) for the tenant, you can use the role name as a parameter for the `guid()` function to create a [deterministic GUID](../azure-resource-manager/bicep/scenarios-rbac.md#name). A deterministic GUID is useful if you later need to update the custom role using the same Bicep file.
 
-```bicep
-targetScope = 'subscription'
-
-@description('Array of actions for the roleDefinition')
-param actions array = [
-  'Microsoft.Resources/subscriptions/resourceGroups/read'
-]
-
-@description('Array of notActions for the roleDefinition')
-param notActions array = []
-
-@description('Friendly name of the role definition')
-param roleName string = 'Custom Role - RG Reader'
-
-@description('Detailed description of the role definition')
-param roleDescription string = 'Subscription Level Deployment of a Role Definition'
-
-var roleDefId = guid(roleName)
-
-resource roleDef 'Microsoft.Authorization/roleDefinitions@2022-04-01' = {
-  name: roleDefId
-  properties: {
-    roleName: roleName
-    description: roleDescription
-    type: 'customRole'
-    permissions: [
-      {
-        actions: actions
-        notActions: notActions
-      }
-    ]
-    assignableScopes: [
-      subscription().id
-    ]
-  }
-}
-```
+:::code language="bicep" source="~/quickstart-templates/subscription-deployments/create-role-def/main.bicep":::
 
 The resource defined in the Bicep file is:
 
@@ -157,7 +121,7 @@ Similar to creating a custom role, you can update an existing custom role using 
 
     ---
 
-1. Use Azure CLI or Azure PowerShell to update roleDefinition.
+1. Use Azure CLI or Azure PowerShell to update the custom role.
 
     # [CLI](#tab/CLI)
 
@@ -174,7 +138,7 @@ Similar to creating a custom role, you can update an existing custom role using 
     ---
 
     > [!NOTE]
-    > It may take several minutes for the updated role definition to be propagated.
+    > It may take several minutes for the updated custom role to be propagated.
 
 ## Clean up resources
 
