@@ -5,7 +5,7 @@ description: Get started learning how to troubleshoot issues with Azure NAT Gate
 author: asudbring
 ms.service: nat-gateway
 ms.topic: troubleshooting
-ms.date: 02/14/2024
+ms.date: 02/15/2024
 ms.author: allensu
 ---
 
