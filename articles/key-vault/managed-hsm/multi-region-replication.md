@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 02/07/2024
 ms.author: nkondamudi
 ms.custom: references_regions
 ---
@@ -75,7 +75,7 @@ The following regions are supported as primary regions (Regions where you can re
 - Europe North
 - France Central
 - Japan West
-- US South
+- US South Central
 - Poland Central
 - Switzerland West
 

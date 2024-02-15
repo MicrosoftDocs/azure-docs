@@ -9,7 +9,6 @@ metadata:
   ms.topic: faq
   ms.service: cosmos-db
   ms.date: 04/19/2023
-  ms.custom: ignite-2022
 title: Frequently asked questions about the Azure Cosmos DB continuous backup
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]

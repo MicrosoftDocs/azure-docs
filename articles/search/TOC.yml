@@ -127,17 +127,17 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Storage (indexes)
+  - name: Storage
     items:
     - name: Search index
       href: search-what-is-an-index.md
     - name: Vector store
-      href: vector-search-overview.md
+      href: vector-store.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
       href: search-what-is-data-import.md
-  - name: Enrichment (skills)
+  - name: Enrichment
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
@@ -147,7 +147,7 @@
       href: cognitive-search-working-with-skillsets.md
     - name: Integrated vectorization (preview)
       href: vector-search-integrated-vectorization.md
-  - name: Retrieval (queries)
+  - name: Retrieval
     items:
     - name: Full-text search
       href: search-lucene-query-architecture.md
@@ -163,11 +163,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Scoring in keyword queries (BM25)
+    - name: Keyword queries (BM25 ranking)
       href: index-similarity-and-scoring.md
-    - name: Scoring in vector queries
+    - name: Vector queries
       href: vector-search-ranking.md
-    - name: Scoring in hybrid queries (RRF)
+    - name: Hybrid queries (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
@@ -190,7 +190,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Vector storage limits
+    - name: Vector index size limits
       href: vector-search-index-size.md
     - name: Plan capacity
       href: search-capacity-planning.md
@@ -396,6 +396,8 @@
       href: vector-search-how-to-query.md
     - name: Hybrid query
       href: hybrid-search-how-to-query.md
+    - name: Semantic query
+      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Use simple syntax (examples)
@@ -435,7 +437,7 @@
     - name: Enable or disable semantic ranking
       href: semantic-how-to-enable-disable.md      
     - name: Configure semantic ranking
-      href: semantic-how-to-query-request.md
+      href: semantic-how-to-configure.md
     - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile

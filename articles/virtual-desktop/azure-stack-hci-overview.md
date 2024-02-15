@@ -1,18 +1,18 @@
 ---
-title: Azure Virtual Desktop for Azure Stack HCI (preview)
-description: Learn about using Azure Virtual Desktop for Azure Stack HCI (preview) to deploy session hosts where you need them.
+title: Azure Virtual Desktop for Azure Stack HCI 
+description: Learn about using Azure Virtual Desktop for Azure Stack HCI to deploy session hosts where you need them.
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/06/2023
+ms.date: 01/24/2024
 ---
 
-# Azure Virtual Desktop for Azure Stack HCI (preview)
+# Azure Virtual Desktop for Azure Stack HCI
 
 > [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-With Azure Virtual Desktop for Azure Stack HCI (preview), you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop on Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
+With Azure Virtual Desktop for Azure Stack HCI, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop on Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
 Azure Virtual Desktop for Azure Stack HCI isn't an Azure Arc-enabled service. As such, it's not supported as a standalone service outside of Azure, in a multicloud environment, or on Azure Arc-enabled servers besides Azure Stack HCI virtual machines as described in this article.
 

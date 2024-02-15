@@ -3,7 +3,6 @@
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: aahi
@@ -81,4 +80,3 @@ You can view the confusion matrix in *normalized* or *raw count* view.
 * Only matches: Shows the confusion matrix for entities with correct predictions only.
 
 ---
-

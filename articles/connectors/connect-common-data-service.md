@@ -7,7 +7,6 @@ ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
 ms.date: 12/14/2023
 ms.custom: engagement-fy23
-tags: connectors
 ---
 
 # Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps

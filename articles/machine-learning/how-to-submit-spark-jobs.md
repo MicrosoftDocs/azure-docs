@@ -721,37 +721,7 @@ To troubleshoot a Spark job, you can access the logs generated for that job in A
 1. Access the Spark job logs inside the **driver** and **library manager** folders
 
 > [!NOTE]
-> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. A Spark jobs from an interactive notebook session is created under the experiment name **notebook-runs**.
-
-## Improving serverless Spark session start-up time while using session-level Conda packages
-A serverless Spark session [*cold start* with session-level Conda packages](./apache-spark-azure-ml-concepts.md#inactivity-periods-and-tear-down-mechanism) may take 10 to 15 minutes. You can improve the Spark session *cold start* time by setting configuration variable `spark.hadoop.aml.enable_cache` to true. Declaring this configuration variable is optional. To ensure that the configuration variable was set successfully, check status of the latest job in the experiment `cachejobmamangement`. A successful job indicates that the cache was created successfully. A session *cold start* with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session *cold starts* typically take three to five minutes.
-
-# [CLI](#tab/cli)
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
-
-Use the `conf` property in the standalone Spark job, or the Spark component YAML specification file, to define the configuration variable `spark.hadoop.aml.enable_cache`.
-
-```yaml
-conf:
-  spark.hadoop.aml.enable_cache: True
-```
-
-# [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-Use the `conf` parameter of the `azure.ai.ml.spark` function to define the configuration variable `spark.hadoop.aml.enable_cache`.
-
-```python
-conf={"spark.hadoop.aml.enable_cache": "true"},
-```
-
-# [Studio UI](#tab/ui)
-
-Define configuration variable `spark.hadoop.aml.enable_cache` in the **Configure session** user interface, under **Configuration settings**. Set the value of this variable to `true`.  
-
-:::image type="content" source="./media/how-to-submit-spark-jobs/spark-session-enable-cache.png" lightbox="./media/how-to-submit-spark-jobs/spark-session-enable-cache.png" alt-text="Expandable diagram that shows Spark session configuration tag to enable cache.":::
-
----
+> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. A Spark jobs from an interactive notebook session is created under the experiment name **notebook-runs**. 
 
 ## Next steps
 

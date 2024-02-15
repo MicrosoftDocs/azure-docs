@@ -9,7 +9,7 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/21/2024
 ms.reviewer: rhurey
-ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-python
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-two
 ---
 
