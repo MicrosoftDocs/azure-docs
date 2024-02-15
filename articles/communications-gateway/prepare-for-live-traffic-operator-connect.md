@@ -82,9 +82,12 @@ Integration testing requires setting up your test tenant for Operator Connect or
 
     # [Number Management Portal (preview)](#tab/number-management-portal)
 
-    1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Accounts**.
-    1. Select the checkbox next to the enterprise **Account name**.
-    1. Select **Update Relationship Status**. Set the status to **Agreement signed** and select **Update**.
+    1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
+    1. Select **Requests for Information**.
+    1. Select your test tenant.
+    1. Select **Update relationship status**. Use the drop-down to set the status to **Agreement signed**.
+    1. Select **Create account**. Fill in the fields as required and select **Create**.
+    1. Select **View account**.
     1. Select **View numbers** and select **Upload numbers**.
     1. Fill in the fields as required, and then select **Review and upload** and **Upload**.
 
