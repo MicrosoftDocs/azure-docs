@@ -119,7 +119,7 @@ az feature show --namespace "Microsoft.StorageCache"
    STORAGE_ACCOUNT_NAME=uniquestorageaccount
    ```
   
-  The following example creates a storage account in the East US region with the Standard_LRS SKU. Specify a value for **--location** and **--sku**.
+   The following example creates a storage account in the East US region with the Standard_LRS SKU. Specify a value for **--location** and **--sku**.
 
     ```azurecli-interactive
     az storage account create \
