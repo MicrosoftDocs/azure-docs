@@ -1,5 +1,5 @@
 ---
-title: Review endpoint detection and response settings and remediate recommendations (agentless)
+title: Review and remediate endpoint detection and response  recommendations (agentless)
 description: Learn how to use Defender for Cloud recommendations to identify if an endpoint detection and response solution are installed on your virtual machine. You can also identify if there are any gaps in your security configuration and remediate the gaps if they exist.
 author: dcurwin
 ms.author: dacurwin
@@ -7,19 +7,21 @@ ms.topic: how-to
 ms.date: 02/13/2024
 ---
 
-# Review endpoint detection and response settings and remediate recommendations (agentless)
+# Review and remediate endpoint detection and response  recommendations (agentless)
 
 Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
-The recommendations allow you to: 
+The endpoint detection and response recommendations allow you to: 
 
-- Identify if an endpoint detection and response solution is installed on your multicloud machines.  
+- Identify if an endpoint detection and response solution is installed on your multicloud machines
 
-- Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
+- Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions
 
-- Remediate detected gaps in your security configurations.
+- Remediate detected gaps in your security configurations
 
 ## Prerequisites
+
+The recommendations mentioned in this article are only available if you have the following prerequisites in place:
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
@@ -59,19 +61,19 @@ Defender for Cloud has the ability to tell you if you have a [supported endpoint
 
 1. Select the **Healthy resources** tab.
 
-1. The Discovered EDRs column displays the solution that is detected.
+1. The discovered endpoint detection and response column displays the solution that is detected.
 
     :::image type="content" source="media/endpoint-detection-response/discovered-solutions.png" alt-text="Screenshot of the Healthy resources tab, which shows where you can see which endpoint detection and response solution is enabled on your machine." lightbox="media/endpoint-detection-response/discovered-solutions.png":::
 
 ## Remediate detection recommendations 
 
-When Defender for Cloud discovers a supported endpoint detection and response solution on your VM, the agentless machine scanner will perform the following checks to see:
+When Defender for Cloud discovers a supported endpoint detection and response solution on your VM, the agentless machine scanner performs the following checks to see:
 
-- If a supported endpoint detection and response solution is enabled.
-- If Defender for Servers plan 2 is enabled on your subscription and the associated VMs.
-- If the supported solution is installed successfully.
+- If a supported endpoint detection and response solution is enabled
+- If Defender for Servers plan 2 is enabled on your subscription and the associated VMs
+- If the supported solution is installed successfully
 
-If these checks present issues, the recommendation will offer different remediation steps to ensure that your VMs are protected by a supported endpoint detection and response solution and address any security gaps.
+If these checks present issues, the recommendation offers different remediation steps to ensure that your VMs are protected by a supported endpoint detection and response solution and address any security gaps++++++++++++.
 
 **To review detection recommendations**:
 
@@ -89,13 +91,13 @@ If these checks present issues, the recommendation will offer different remediat
 
 1. Select the relevant recommendation.
 
-1. The recommendation offers multiple recommended actions to resolve on each attached machine, select the relevant option to see the remediation steps:
+1. The recommendation offers multiple recommended actions to resolve on each attached machine, select the relevant action to see the remediation steps:
 
-    - [Enable Microsoft Defender for Endpoint integration](#enable-mde-integration). Alternatively, you can remediated by installing any of the [supported endpoint detection and response solution](#supported-solutions-and-platforms) on your virtual machine.
-    - [Upgrade defender plan](#upgrade-defender-plan).
-    - [Troubleshoot issues](#troubleshoot-issues).
+    - [Enable Microsoft Defender for Endpoint integration](#enable-mde-integration). Alternatively, you can remediate this recommendation by installing any of the [supported endpoint detection and response solution](#supported-solutions-and-platforms) on your virtual machine
+    - [Upgrade Defender plan](#upgrade-defender-plan)
+    - [Troubleshoot issues](#troubleshoot-unsuccessful-installation)
 
-### Enable MDE integration
+### Enable the Microsoft Defender for Endpoint integration
 
 This recommended action is available when:
 
@@ -107,7 +109,7 @@ This recommended action is available when:
 
 1. Select the affected machine.
 
-1. (Optional) Select multiple affected machines that have the `Enable MDE integration` recommended action.
+1. (Optional) Select multiple affected machines that have the `Enable Microsoft Defender for Endpoint integration` recommended action.
 
 1. Select **Fix**.
 
@@ -124,7 +126,7 @@ This recommended action is available when:
 
 Defender for endpoint is applied to all Windows and Linux servers within your subscription. After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
-### Upgrade defender plan
+### Upgrade Defender plan
 
 This recommended action is available when:
 
@@ -136,7 +138,7 @@ This recommended action is available when:
 
 1. Select the affected machine. 
 
-1. (Optional) Select multiple affected machines that have the `Upgrade defender plan` recommended action.
+1. (Optional) Select multiple affected machines that have the `Upgrade Defender plan` recommended action.
 
 1. Select **Fix**.
 
@@ -153,7 +155,7 @@ This recommended action is available when:
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
-### Troubleshoot issues
+### Troubleshoot unsuccessful installation
 
 This recommended action is available when:
 
@@ -219,28 +221,6 @@ When Defender for Cloud finds misconfigurations in your endpoint detection and r
 1. Follow the remediation steps.
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab. 
-
-## Identify which endpoint detection and response solution is enabled on a VM
-
-To determine the enabled endpoint detection and response solution on your machine, check the healthy resources tab for the detected solution.
-
-**To identify which solution is enabled on a VM**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
-
-1. Search for and select one of the following recommendations:
-
-    - `EDR solution should be installed on Virtual Machines`
-    - `EDR solution should be installed on EC2s`
-    - `EDR solution should be installed on Virtual Machines (GCP)`
-
-1. Select **Healthy resources**.
-
-1. The Discovered EDRs column displays the solution that is detected.
-
-    :::image type="content" source="media/endpoint-detection-response/discovered-solutions.png" alt-text="Screenshot of the Healthy resources tab, which shows where you can see which endpoint detection and response solution is enabled on your machine." lightbox="media/endpoint-detection-response/discovered-solutions.png":::
 
 ## Next steps
 
