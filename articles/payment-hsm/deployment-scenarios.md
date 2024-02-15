@@ -4,7 +4,6 @@ description: Azure HSM deployment scenarios for high availability deployment and
 services: payment-hsm
 author: msmbaldwin
 
-tags: azure-resource-manager
 ms.service: payment-hsm
 ms.topic: article
 ms.date: 03/25/2023
