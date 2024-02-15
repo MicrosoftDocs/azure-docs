@@ -62,7 +62,7 @@ When an enterprise customer uses the Teams Admin Center to request service, the 
 
 The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status. Finding the Request for Information for an enterprise is also the easiest way to manage numbers for an enterprise.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
+1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
 1. Select **Requests for Information**.
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
@@ -71,7 +71,7 @@ The Number Management Portal displays a consent as a *Request for Information* a
 
 You must create an *Account* for each enterprise that you manage with the Number Management Portal.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
+1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
 1. Select **Accounts**.
 1. Select **Create account**.
 1. Fill in the enterprise **Account name**.
@@ -83,7 +83,7 @@ You must create an *Account* for each enterprise that you manage with the Number
 
 Uploading numbers for an enterprise allows IT administrators at the enterprise to allocate those numbers to their users.
 
-1. In the sidebar, locate the **Unified Number Management** section and select **Accounts**. Select the enterprise **Account name**.
+1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the enterprise **Account name**.
 1. Select **View numbers** to go to the number management page for the enterprise.
 1. To upload new numbers for an enterprise:
     1. Select **Upload numbers**.
@@ -100,7 +100,7 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
 
 You can view civic addresses for an enterprise. The enterprise configures the details of each civic address, so you can't configure these details.
 
-1. In the sidebar, locate the **Unified Number Management** section and select **Accounts**. Select the enterprise **Account name**.
+1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the enterprise **Account name**.
 1. Select **Civic addresses** to view the **Unified civic addresses** page for the enterprise.
 1. You can see the address, the company name, the description, and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise, for example the Emergency Location Identification Number (ELIN).
@@ -109,7 +109,7 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 
 You can specify a custom SIP header value for an enterprise telephone number, which applies to all SIP messages sent and received by that number.
 
-1. In the sidebar, locate the **Unified Number Management** section and select **Numbers**.
+1. In the sidebar, locate the **Number Management (Preview)** section and select **Numbers**.
 1. Select the **Phone number** checkbox then select **Manage number**.
 1. Specify a **Custom SIP header value**.
 1. Select **Review and upload** then **Upload**.
