@@ -4,70 +4,27 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/17/2022
-ms.reviewer: shseth
+ms.date: 15/20224
 
 ---
 
 # Sources of monitoring data for Azure Monitor
 
-Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes 
-- [Metrics](essentials/data-platform-metrics.md)
-- [Logs](logs/data-platform-logs.md)
-- [Traces](app/asp-net-trace-logs.md) 
-- [Changes](change/change-analysis.md) 
-
-This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
-
-This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
-
-Some of these data sources use the [new data ingestion pipeline](essentials/data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
-
-> [!NOTE]
-> Access to data in the Log Analytics Workspaces is governed as outline [here](logs/manage-access.md).
->
-
-## Application tiers
-
-Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections.
+This article describes common sources of monitoring data collected by Azure Monitor. Links are provided to detailed information on configuration required to collect this data to different locations.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
-### Azure
 
-The following table briefly describes the application tiers that are specific to Azure. Following the link for further details on each in the sections below.
-
-| Tier | Description | Collection method |
-|:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Microsoft Entra ID. | View Microsoft Entra data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
-| [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
-| [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
-
-### Azure, other cloud, or on-premises 
-The following table briefly describes the application tiers that may be in Azure, another cloud, or on-premises. Following the link for further details on each in the sections below.
-
-| Tier | Description | Collection method |
-|:---|:---|:---|
-| [Operating system (guest)](#operating-system-guest) | Data about the operating system on compute resources. | Install Azure Monitor agent on virtual machines, scale sets and Arc-enabled servers to collect logs and metrics into Azure Monitor. |
-| [Application Code](#application-code) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
-| [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
-
-## Azure tenant
-Telemetry related to your Azure tenant is collected from tenant-wide services such as Microsoft Entra ID.
-
-:::image type="content" source="media/data-sources/tenant.png" lightbox="media/data-sources/tenant.png" alt-text="Diagram that shows Azure tenant collection." border="false":::
+| Data source | Data type | Description | Data Platform Destinations | Collection method |
+|:---|:---|:---|:---|:---|
+| Microsoft Entra audit logs | Audit logs | History of sign-in activity and audit trail of changes made within a particular tenant. | [Log Analytics workspace](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)<br>[Azure Storage](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)<br>[Event Hubs](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Azure resources | [Activity logs](essentials/activity-log.md) | Service health records and configuration changes made to resources in your Azure subscription. | [Azure Monitor Logs](essentials/activity-log.md)<br>[Azure Storage](essentials/resource-logs.md#send-to-azure-storage)<br>[Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs) | Automatic<br>Diagnostic settings to send to elsewhere |
+| | Platform metrics | | Metrics<br>Log Analytics workspace<br>Azure Storage<br>Event Hubs | Automatic<br>Diagnostic settings to send to elsewhere |
+| | [Resource logs](essentials/resource-logs.md) |  | [Log Analytics workspace](essentials/resource-logs.md#send-to-log-analytics-workspace)<br>[Azure Storage](essentials/resource-logs.md#send-to-azure-storage)<br>[Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs) | [Diagnostic settings](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Operating system (guest) | Events | Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of an agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves. | [Azure Monitor Logs](agents/azure-monitor-agent-overview.md#data-sources-and-destinations)<br>[Azure Monitor Metrics](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) | [Azure Monitor agent](agents/azure-monitor-agent-manage.md)<br>SCOM MI |
 
 
-<a name='azure-active-directory-audit-logs'></a>
 
-### Microsoft Entra audit logs
-[Microsoft Entra ID reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
-
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Azure Monitor Logs | Configure Microsoft Entra logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Microsoft Entra logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Export Microsoft Entra logs to Azure Storage for archiving. | [Tutorial: Archive Microsoft Entra logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hubs | Stream Microsoft Entra logs to other locations using Event Hubs. | [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
