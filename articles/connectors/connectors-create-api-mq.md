@@ -7,7 +7,6 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.custom: engagement-fy23
-tags: connectors
 ---
 
 # Connect to an IBM MQ server from a workflow in Azure Logic Apps

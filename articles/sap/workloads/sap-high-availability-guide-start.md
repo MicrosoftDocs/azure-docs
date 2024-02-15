@@ -4,7 +4,6 @@ description: In this article, learn about Azure Virtual Machines high availabili
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 1cfcc14a-6795-4cfd-a740-aa09d6d2b817
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
