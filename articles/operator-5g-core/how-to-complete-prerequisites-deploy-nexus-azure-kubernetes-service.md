@@ -381,7 +381,7 @@ az networkcloud cloudservicesnetwork create --cloud-services-network-name $csnNa
       
 After you create the CSN, verify the `egress-endpoints` from the Azure portal. In the search bar, enter **Cloud Services Networks (Operator Nexus)** resource. Select **Overview**, then navigate to **Enabled egress endpoints** to see the list of endpoints you created.
 
-:::image type="content" source="media/how-to-compleete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png" alt-text="Screenshot showing the list of enabled egressed endpoints created for the Cloud Services Network." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png":::
+:::image type="content" source="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png" alt-text="Screenshot showing the list of enabled egressed endpoints created for the Cloud Services Network." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png":::
 
 ## Create a Nexus Azure Kubernetes Services Cluster 
 
