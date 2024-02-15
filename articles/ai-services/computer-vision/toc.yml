@@ -242,8 +242,10 @@ items:
     items:
     - name: Version 4.0
       items:
-      - name: Image Analysis REST API v4.0
+      - name: Image Analysis REST API v4.0 (Analyze only, GA)
         href: https://aka.ms/vision-4-0-ref
+      - name: Image Analysis REST API v4.0 (all, preview)
+        href: https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/63ed8e8a5ddd171058e2e1f0
       - name: .NET
         href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
