@@ -124,7 +124,7 @@ landingContent:
           - text: Detect common issues
             url: container-registry-check-health.md
   # Card
-  - title: reference
+  - title: Reference
     linkLists:
       - linkListType: reference
         links:
