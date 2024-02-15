@@ -51,7 +51,7 @@ For Dependency Agent Linux support, see [Dependency Agent Linux support](../vm/v
 
 ### Linux considerations
 
-See the following list of considerations on Linux support of the Dependency agent that supports VM Insights:
+Consider the following before you install Dependency agent for VM Insights on a Linux machine:
 
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as physical address extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
@@ -65,7 +65,7 @@ The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. F
 $ grep . /sys/devices/system/cpu/vulnerabilities/*
 ```
 
-Output for this command will look similar to the following and specify whether a machine is vulnerable to either issue. If these files are missing, the machine is unpatched.
+Output for this command looks similar to the following and specify whether a machine is vulnerable to either issue. If these files are missing, the machine is unpatched.
 
 ```
 /sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
