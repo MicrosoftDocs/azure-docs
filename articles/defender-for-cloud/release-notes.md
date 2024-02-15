@@ -24,8 +24,25 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| Feb 15 | [Compliance features in Microsoft Defender for Cloud will be retired](#compliance-features-in-microsoft-defender-for-cloud-will-be-retired) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Compliance features in Microsoft Defender for Cloud will be retired
+
+Microsoft Actions and compliance offerings, regulatory compliance features in Microsoft Defender for Cloud, which are in Public Preview, will be retired on September 30, 2025.
+
+There are no pricing implications since those components are currently offered free of charge.
+
+**Recommended actions**:
+
+To view Microsoft Actions, visit Microsoft’s [Service Trust Portal for FedRAMP](https://servicetrust.microsoft.com/viewpage/FedRAMP) and access the Azure System Security Plan document.
+
+To view compliance offerings and products certified, go to the [Service Trust Portal FAQ and Whitepapers](https://servicetrust.microsoft.com/viewpage/FAQwhitepapers).
+
+**Help and support**:
+
+If you have questions about the retirement, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and the team will help you.
 
 ### AWS container vulnerability assessment powered by Trivy retired
 
