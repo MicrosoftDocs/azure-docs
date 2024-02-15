@@ -76,7 +76,7 @@ Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../c
 
 ### Step 3: Add an access policy to your Azure Key Vault instance
 
-Add an access policy that allows Azure Cosmos DB to access the Azure Key Vault instance that is linked to your dedicated log analytics cluster (the same key will be used by Sentinel). 
+Add an access policy that allows Azure Cosmos DB to access the Azure Key Vault instance that is linked to your dedicated Log Analytics cluster (the same key will be used by Microsoft Sentinel). 
 
 Follow the instructions here to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal. 
 
