@@ -200,7 +200,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
 1. In the local UI, go to the **Kubernetes** page.
 1. Specify a workload from the options provided.
-   - If you are working with an Azure Private MEC solution, select the option for **an Azure Private MEC solution in your environment**.
+   - If you're working with an Azure Private MEC solution, select the option for **an Azure Private MEC solution in your environment**.
    - If you are working with an SAP Digital Manufacturing solution or another Microsoft partner solution, select the option for **a SAP Digital Manufacturing for Edge Computing or another Microsoft partner solution in your environment**.
    - For other workloads, select the option for **other workloads in your environment**.
    
