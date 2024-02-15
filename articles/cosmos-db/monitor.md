@@ -44,7 +44,7 @@ At a minimum your service should have the following two articles:
 
 Azure Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview). Use Azure Cosmos DB insights for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience.
 
-For more information about Azure Cosmos DB insights, see [Azure Cosmos DB insights](insights-overview.md) and [Scenarios to monitor](../use-metrics.md).
+For more information about Azure Cosmos DB insights, see [Azure Cosmos DB insights](insights-overview.md) and [Scenarios to monitor](use-metrics.md).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -62,8 +62,6 @@ For more information about the resource types for Azure Cosmos DB, see [Azure Co
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#metrics).
 
-
-
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
@@ -80,7 +78,9 @@ Custom imported service-specific information. Add service-specific information a
 
 <!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information.-->
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
-For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](../monitoring-solutions.md).
+For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](monitoring-solutions.md).
+
+To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md).
 
 <!-- METRICS SECTION END ------------------------------------->
 
@@ -115,6 +115,8 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
+<a name="analyzing-metrics"></a>
+<a name="view-operation-level-metrics-for-azure-cosmos-db"></a>
 ### Analyze Azure Cosmos DB metrics
 
 You can use Azure Monitor Metrics Explorer to analyze metrics for Azure Cosmos DB with metrics from other Azure services by opening **Metrics** from the **Azure Monitor** menu. For more information about how to use metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
@@ -131,8 +133,6 @@ For more information and detailed instructions, see the following articles:
 - [Monitor key updates](monitor-account-key-updates.md)
 
 For a list of all resource metrics supported in Azure Monitor, see [Supported Azure Monitor metrics](/azure/azure-monitor/essentials/metrics-supported). For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-reference.md#metrics).
-
-To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md)
 
 ### Monitor Azure Cosmos DB programmatically
 
@@ -154,7 +154,7 @@ To retrieve individual metrics, use the following format:
 https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
 
-To learn more, see [Azure monitoring REST API](../azure-monitor/essentials/rest-api-walkthrough.md).
+To learn more, see [Azure monitoring REST API](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 ### Analyze Azure Cosmos DB logs
 
@@ -164,11 +164,10 @@ For the types of resource logs collected for Azure Cosmos DB, see [Azure Cosmos 
 
 See the following articles for more information about working with Azure Monitor Logs for Azure Cosmos DB:
 
-- [Monitor data by using Azure Diagnostic settings](../monitor-resource-logs.md)
-[Audit control plane logs](../audit-control-plane-logs.md)	Use diagnostic logs to audit control plane operations in Azure Cosmos DB accounts or containers.
-[Add a transformation for workspace data](../tutorial-log-transformation.md)	Use a workspace data collection rule (DCR) to apply transformations to log data flowing into Azure Cosmos DB.
-[Use Micrometer client metrics for Java](client-metrics-java.md)	Implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics.
-
+- [Monitor data by using Azure Diagnostic settings](monitor-resource-logs.md)
+[Audit control plane logs](audit-control-plane-logs.md)
+[Add a transformation for workspace data](tutorial-log-transformation.md)
+[Use Micrometer client metrics for Java](client-metrics-java.md)
 
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
@@ -266,7 +265,7 @@ AzureDiagnostics
 
 For Kusto queries you can use to troubleshoot issues with Azure Cosmos DB, see the following articles:
 
-- [Troubleshoot issues by using basic queries](../monitor-logs-basic-queries.md)
+- [Troubleshoot issues by using basic queries](monitor-logs-basic-queries.md)
 - [Troubleshoot issues by using advanced diagnostics queries](diagnostic-queries.md)
 
 These examples are just a small sampling of the rich queries you can run in Azure Monitor by using the Kusto Query Language (KQL). For more examples, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
@@ -298,7 +297,7 @@ The following table lists some common and recommended alert rules for Azure Cosm
 |Region failed over |Operator: *Greater than*, Aggregation type: *Count*, Threshold value: 1 | When a single region is failed over. This alert is helpful if you didn't enable service-managed failover. |
 |Rotate keys (activity log alert)| Event level: *Informational*, *Status*: started| Alerts when the account keys are rotated. You can update your application with the new keys. |
 
-For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](../create-alerts.md). To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](../how-to-alert-on-logical-partition-key-storage-size.md).
+For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md). To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
