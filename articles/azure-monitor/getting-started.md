@@ -31,9 +31,8 @@ These articles provide detailed information about each of the main steps you'll 
 | [Plan your implementation](best-practices-plan.md)|Things that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather.|
 | [Configure data collection](best-practices-data-collection.md)|Tasks required to collect monitoring data from your Azure and hybrid applications and resources.To enable Azure Monitor to monitor all of your Azure resources, you need to:</br> - Configure Azure resources to generate monitoring data for Azure Monitor to collect.</br> - Configure Azure Monitor components |
 | [Understand the analysis and visualizations tools](best-practices-analysis.md)|Get to know the standard features and additional visualizations that you can create to analyze collected monitoring data. |
-| [Configure alerts and automated responses](best-practices-alerts.md) |Configure notifications and processes that are automatically triggered when an alert is fired. |
+| [Configure alerts and automated responses](alerts-plan.md) |Configure notifications and processes that are automatically triggered when an alert is fired. |
 | [Optimize costs](best-practices-cost.md) |Some data collection and Azure Monitor features are included out of the box at no cost. Some features have costs based on their particular configuration, the amount of data collected, or the frequency at which they're run. Reduce your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. See:</br>- [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)</br> - [Azure Monitor cost and usage](cost-usage.md)|
-
 
 ## Next steps
 
