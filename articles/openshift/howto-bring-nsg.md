@@ -24,39 +24,43 @@ This article shows how to use the "bring your own" Network Security Group (NSG) 
 
 :::image type="content" source="media/howto-bring-nsg/network-security-group-new.png" alt-text="Diagram showing an overview of how to bring your own network security group works in Azure Red Hat OpenShift.":::
 
-## Capabilities and limitations
+## General capabilities and limitations
 
-1. You need to attach your preconfigured NSGs to both master and worker subnets before you create the cluster. Failure to be attached your preconfigured NSGs to both subnets results in an error. 
+- You need to attach your preconfigured NSGs to both master and worker subnets before you create the cluster. Failure to be attached your preconfigured NSGs to both subnets results in an error. 
 
-1. You can choose to use the same or different preconfigured NSGs for master and worker subnets.
+- You can choose to use the same or different preconfigured NSGs for master and worker subnets.
 
-1. When using your own NSG, the ARO RP still creates an NSG in the Managed Resource Group (default NSG), but that NSG isn't attached to the worker or master subnets.
+- When using your own NSG, the ARO RP still creates an NSG in the Managed Resource Group (default NSG), but that NSG isn't attached to the worker or master subnets.
 
-1. Preconfigured NSGs aren't automatically updated with rules when you create Kubernetes LoadBalancer type services or OpenShift routes within the ARO cluster. Update these rules. This behavior is different from the original ARO behavior wherein the default NSG is programmatically updated in such situations.
+- You can't enable the preconfigured NSG feature on an existing ARO cluster. Currently, this feature can only be enabled at the time of cluster creation.
 
-1. The default ARO cluster NSG (not attached to any subnet while using this feature) will still be updated with rules when you create Kubernetes LoadBalancer type services or OpenShift routes within the ARO cluster.
+- The preconfigured NSG option isn't configurable from the Azure portal.
 
-1. You can detach preconfigured NSGs from the subnets of the cluster created using this feature. It results in a cluster with subnets that have no NSGs. You can then attach a different set of preconfigured NSGs to the cluster. Alternatively, you can attach the ARO default NSG to the cluster subnets (at which point your cluster becomes like any other cluster that's not using this feature).
+- If you used this feature during its preview, your existing preconfigured clusters are now fully supported. 
 
-1. Your preconfigured NSGs shouldn't have INBOUND/OUTBOUND DENY rules of the following types, as these can interfere with the operation of the cluster and/or hinder the ARO support/SRE teams from providing support/management. (Here, subnet indicates any or all IP addresses in the subnet and all ports corresponding to that subnet):
+### Using rules
 
-    1. Master Subnet ←→ Master Subnet
-    1. Worker Subnet ←→ Worker Subnet
-    1. Master Subnet ←→ Worker Subnet
+> [!WARNING]
+> Preconfigured NSGs aren't automatically updated with rules when you create Kubernetes LoadBalancer type services or OpenShift routes within the ARO cluster. Update these rules. This behavior is different from the original ARO behavior wherein the default NSG is programmatically updated in such situations.
+> 
+
+- The default ARO cluster NSG (not attached to any subnet while using this feature) will still be updated with rules when you create Kubernetes LoadBalancer type services or OpenShift routes within the ARO cluster.
+
+- You can detach preconfigured NSGs from the subnets of the cluster created using this feature. It results in a cluster with subnets that have no NSGs. You can then attach a different set of preconfigured NSGs to the cluster. Alternatively, you can attach the ARO default NSG to the cluster subnets (at which point your cluster becomes like any other cluster that's not using this feature).
+
+- Your preconfigured NSGs shouldn't have INBOUND/OUTBOUND DENY rules of the following types, as these can interfere with the operation of the cluster and/or hinder the ARO support/SRE teams from providing support/management. (Here, subnet indicates any or all IP addresses in the subnet and all ports corresponding to that subnet):
+
+    - Master Subnet ←→ Master Subnet
+    - Worker Subnet ←→ Worker Subnet
+    - Master Subnet ←→ Worker Subnet
     
-    Misconfigured rules result in a [signal used by Azure Monitor](/azure/openshift/howto-monitor-alerts) to help troubleshoot preconfigured NSGs.
+    - Misconfigured rules result in a [signal used by Azure Monitor](/azure/openshift/howto-monitor-alerts) to help troubleshoot preconfigured NSGs.
        
-1. To allow incoming traffic to your ARO public cluster, set the following INBOUND ALLOW rules (or equivalent) in your NSG. Refer to the default NSG of the cluster for specific details and to the example NSG shown in [Deployment](#deployment). You can create a cluster even without such rules in the NSG.
+- To allow incoming traffic to your ARO public cluster, set the following INBOUND ALLOW rules (or equivalent) in your NSG. Refer to the default NSG of the cluster for specific details and to the example NSG shown in [Deployment](#deployment). You can create a cluster even without such rules in the NSG.
 
-    1. For API server access → From Internet (or your preferred source IPs) to port 6443 on the master subnet.
-    1. For access to OpenShift router (and hence to OpenShift console and OpenShift routes) → From Internet (or your preferred source IPs) to ports 80 and 443 on the default-v4 public IP on the public Load-balancer of the cluster.
-    1. For access to any Load-balancer type Kubernetes service → From Internet (or your preferred source IPs) to service ports on public IP corresponding to the service on the public Load-balancer of the cluster.
-
-1. You can't enable the preconfigured NSG feature on an existing ARO cluster. Currently, this feature can only be enabled at the time of cluster creation.
-
-1. The preconfigured NSG option isn't configurable from the Azure portal.
-
-1. If you used this feature during its preview, your existing preconfigured clusters are now fully supported. 
+    - For API server access → From Internet (or your preferred source IPs) to port 6443 on the master subnet.
+    - For access to OpenShift router (and hence to OpenShift console and OpenShift routes) → From Internet (or your preferred source IPs) to ports 80 and 443 on the default-v4 public IP on the public Load-balancer of the cluster.
+    - For access to any Load-balancer type Kubernetes service → From Internet (or your preferred source IPs) to service ports on public IP corresponding to the service on the public Load-balancer of the cluster.
 
 ## Deployment
 
