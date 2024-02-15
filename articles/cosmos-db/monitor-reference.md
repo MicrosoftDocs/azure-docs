@@ -60,6 +60,8 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 
 ### Metrics by category
 
+The following tables list Azure Cosmos DB metrics categorized by metric type.
+
 #### Request metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type) |Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
@@ -115,11 +117,47 @@ The following table lists the metrics available for the Microsoft.DocumentDB/mon
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
-**Microsoft.DocumentDB/DatabaseAccounts:** CollectionName, DatabaseName, OperationType, Region, Status, StatusCode, ApiKind, ApiKindResourceType, APIType, ApplicationType, BuildType, CacheEntryType, CacheExercised, CacheHit, CapacityType, ChildResourceName, ClosureReason, CommandName, ConnectionMode, DiagnosticSettingsName, Error, ErrorCode, IsExternal, IsSharedThroughputOffer, IsThroughputRequest, KeyType, MetricType, NotStarted, OfferOwnerRid, PartitionKeyRangeId, PhysicalPartitionId, PriorityLevel, PublicAPIType, ReplicationInProgress, ResourceGroupName, ResourceName, Role, SourceRegion, TargetContainerName, TargetRegion
-
-**Microsoft.DocumentDB/cassandraClusters:** cassandra_datacenter, cassandra_node, cache_name
-
-**Microsoft.DocumentDB/mongoClusters:** ServerName
+|Namespace|Dimension|
+|---------|---------|
+|Microsoft.DocumentDB/DatabaseAccounts|ApiKind|
+|Microsoft.DocumentDB/DatabaseAccounts|ApiKindResourceType|
+|Microsoft.DocumentDB/DatabaseAccounts|APIType|
+|Microsoft.DocumentDB/DatabaseAccounts|ApplicationType|
+|Microsoft.DocumentDB/DatabaseAccounts|BuildType|
+|Microsoft.DocumentDB/DatabaseAccounts|CacheEntryType|
+|Microsoft.DocumentDB/DatabaseAccounts|CacheExercised|
+|Microsoft.DocumentDB/DatabaseAccounts|CacheHit|
+|Microsoft.DocumentDB/DatabaseAccounts|CapacityType|
+|Microsoft.DocumentDB/DatabaseAccounts|ChildResourceName|
+|Microsoft.DocumentDB/DatabaseAccounts|ClosureReason|
+|Microsoft.DocumentDB/DatabaseAccounts|CommandName|
+|Microsoft.DocumentDB/DatabaseAccounts|ConnectionMode|
+|Microsoft.DocumentDB/DatabaseAccounts|DiagnosticSettingsName|
+|Microsoft.DocumentDB/DatabaseAccounts|Error|
+|Microsoft.DocumentDB/DatabaseAccounts|ErrorCode|
+|Microsoft.DocumentDB/DatabaseAccounts|IsExternal|
+|Microsoft.DocumentDB/DatabaseAccounts|IsSharedThroughputOffer|
+|Microsoft.DocumentDB/DatabaseAccounts|IsThroughputRequest|
+|Microsoft.DocumentDB/DatabaseAccounts|KeyType|
+|Microsoft.DocumentDB/DatabaseAccounts|MetricType|
+|Microsoft.DocumentDB/DatabaseAccounts|NotStarted|
+|Microsoft.DocumentDB/DatabaseAccounts|OfferOwnerRid|
+|Microsoft.DocumentDB/DatabaseAccounts|PartitionKeyRangeId|
+|Microsoft.DocumentDB/DatabaseAccounts|PhysicalPartitionId|
+|Microsoft.DocumentDB/DatabaseAccounts|PhysicalPartitionId|
+|Microsoft.DocumentDB/DatabaseAccounts|PriorityLevel|
+|Microsoft.DocumentDB/DatabaseAccounts|PublicAPIType|
+|Microsoft.DocumentDB/DatabaseAccounts|ReplicationInProgress|
+|Microsoft.DocumentDB/DatabaseAccounts|ResourceGroupName|
+|Microsoft.DocumentDB/DatabaseAccounts|ResourceName|
+|Microsoft.DocumentDB/DatabaseAccounts|Role|
+|Microsoft.DocumentDB/DatabaseAccounts|SourceRegion|
+|Microsoft.DocumentDB/DatabaseAccounts|TargetContainerName|
+|Microsoft.DocumentDB/DatabaseAccounts|TargetRegion|
+|Microsoft.DocumentDB/cassandraClusters|cassandra_datacenter|
+|Microsoft.DocumentDB/cassandraClusters|cassandra_node|
+|Microsoft.DocumentDB/cassandraClusters|cache_name|
+|Microsoft.DocumentDB/mongoClusters|ServerName|
 
 <!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
@@ -150,9 +188,19 @@ Microsoft.DocumentDb/databaseAccounts
 - [CDBGremlinRequests](/azure/azure-monitor/reference/tables/CDBGremlinRequests#columns)
 - [CDBControlPlaneRequests](/azure/azure-monitor/reference/tables/CDBControlPlaneRequests#columns)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
-- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns). Logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.DOCUMENTDB`.
 
-  Logs are collected in the **AzureDiagnostics** table under the resource provider name of `MICROSOFT.DOCUMENTDB`.
+### Azure Managed Instance for Apache Cassandra
+Microsoft.DocumentDB/cassandraClusters
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+- [CassandraAudit](/azure/azure-monitor/reference/tables/CassandraAudit#columns)
+- [CassandraLogs](/azure/azure-monitor/reference/tables/CassandraLogs#columns)
+
+### Azure Cosmos DB for MongoDB (vCore)
+Microsoft.DocumentDB/mongoClusters
+
+- [VCoreMongoRequests](/azure/azure-monitor/reference/tables/VCoreMongoRequests#columns)
 
 ### Azure CosmosDB resource logs properties
 

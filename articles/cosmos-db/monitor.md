@@ -125,7 +125,7 @@ You can use Azure Monitor Metrics Explorer to analyze metrics for Azure Cosmos D
 
 You can monitor server-side latency, request unit usage, and normalized request unit usage for your Azure Cosmos DB resources. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others.
 
-On the client side, you can collect the details for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string to debug issues that might occur. 
+On the client side, you can debug issues by collecting metrics for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string.
 
 For more information and detailed instructions, see the following articles:
 
@@ -267,7 +267,7 @@ AzureDiagnostics
 For Kusto queries you can use to troubleshoot issues with Azure Cosmos DB, see the following articles:
 
 - [Troubleshoot issues by using basic queries](monitor-logs-basic-queries.md)
-- [Troubleshoot issues by using advanced diagnostics queries](diagnostic-queries.md)
+- [Troubleshoot issues by using advanced diagnostic queries](nosql/diagnostic-queries.md)
 
 These examples are just a small sampling of the rich queries you can run in Azure Monitor by using the Kusto Query Language (KQL). For more examples, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
 
@@ -298,8 +298,7 @@ The following table lists some common and recommended alert rules for Azure Cosm
 |Region failed over |Operator: *Greater than*, Aggregation type: *Count*, Threshold value: 1 | When a single region is failed over. This alert is helpful if you didn't enable service-managed failover. |
 |Rotate keys (activity log alert)| Event level: *Informational*, *Status*: started| Alerts when the account keys are rotated. You can update your application with the new keys. |
 
-- For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md).
-- To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
+For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md). To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
