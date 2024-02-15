@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 2/6/2024
+ms.date: 02/15/2024
 recommendations: false
 ---
 
@@ -57,7 +57,7 @@ You can now use Azure OpenAI On Your Data in the following Azure region:
 
 ### Azure OpenAI On Your Data general availability
 
-- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now generally available. It additionally provides public preview support for Pinecone and Elasticsearch databases.
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now generally available.
 
 ## December 2023
 

@@ -14,14 +14,14 @@ recommendations: false
 
 # Use the Azure OpenAI web app
 
-Along with Azure OpenAI Studio and the APIs, you can also use the available standalone web app to interact with chat models using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
+Along with Azure OpenAI Studio, APIs and SDKs, you can also use the available standalone web app to interact with Azure OpenAI models using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
 ## Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
+- By default, the app will be deployed with the Microsoft identity provider already configured, restricting access to the app to members of your Azure tenant. To add or modify authentication:
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
     
@@ -33,7 +33,7 @@ Along with Azure OpenAI Studio and the APIs, you can also use the available stan
 
 ## Web app customization
 
-You can customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Contoso.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
+You can customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Contoso.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
 When customizing the app, we recommend:
 
@@ -41,10 +41,14 @@ When customizing the app, we recommend:
 
 - Clearly communicating how each setting you implement will affect the user experience.
 
-- When you rotate API keys for your Azure OpenAI or Azure Cognitive Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
+- When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
-- Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
+### Updating the web app
 
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
+
+> [!NOTE]
+> After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
 
 ## Chat history
 
