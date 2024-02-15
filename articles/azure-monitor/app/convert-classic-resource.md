@@ -332,14 +332,18 @@ If you're using Terraform to manage your Azure resources, it's important to use 
 
 To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
 
+### What will happen if I don't migrate my Application Insights classic resource to a workspace-based resource?
+
+Your Application Insights classic resource may continue to work for some time, but Microsoft will only provide support services related to migrating these resources to workspace-based resources.
+
 ### Can I still use the old API to create Application Insights resources programmatically?
-Yes, calls to the old API for creating Application Insights resources continue to work as before. The old API version doesn't include a reference to the Log Analytics resource. However, when you trigger a legacy API call, it automatically creates a resource and the required association between Application Insights and Log Analytics.
+
+We strongly encourage updating to the [new API](https://learn.microsoft.com/azure/azure-monitor/app/resource-manager-app-resource) version to ensure only supported workspace-based resources are created.
+
+Calls to the old API for creating Application Insights resources will continue to work, but Microsoft will only provide support services related to the new API version and migrating to workspace-based resources.
 
 ### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
 Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.
-
-### What is the migration process for Application Insights resources?
-The migration of Application Insights resources to the new format isn't instantaneous on the day of deprecation. Instead, it occurs over time. We'll gradually migrate all Application Insights resources, ensuring a smooth transition with minimal disruption to your services.
 
 ## Troubleshooting
 
