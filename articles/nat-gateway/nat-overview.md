@@ -131,7 +131,7 @@ Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-le
 
 * NAT gateway can be isolated in a specific zone when you create [zone isolation scenarios](./nat-availability-zones.md). This deployment is called a zonal deployment. After NAT gateway is deployed, the zone selection can't be changed.
 
-* NAT gateway is placed in 'no zone' by default. A [non-zonal NAT gateway](./nat-availability-zones.md#non-zonal) is placed in a zone for you by Azure.
+* NAT gateway is placed in 'no zone' by default. A [non-zonal NAT gateway](./nat-availability-zones.md#nonzonal) is placed in a zone for you by Azure.
 
 ### NAT gateway and basic SKU resources
 
