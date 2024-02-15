@@ -68,6 +68,7 @@ public class MyActivity : TaskActivity<string, string>
 
     public async override Task<string> RunAsync(TaskActivityContext context, string input)
     {
+        //implementation
         return "result";
     }
 }
@@ -78,8 +79,7 @@ public class MyOrchestration : TaskOrchestrator<string, string>
     public async override Task<string> RunAsync(TaskOrchestrationContext context, string input)
     {
         ILogger logger = context.CreateReplaySafeLogger<MyOrchestration>(); // orchestrations do NOT have access to DI.
-
-        // An extension method was generated for directly invoking "MyActivity".
+      
         return await context.CallActivityAsync<string>(nameof(MyActivity), input);
     }
 }
