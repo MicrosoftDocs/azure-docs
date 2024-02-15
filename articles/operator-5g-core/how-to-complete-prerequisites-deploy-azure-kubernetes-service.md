@@ -28,7 +28,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 
 ## Create networks for network functions
 
-For SMF/AMF specifically, you must have the following frontend VIP IPs:
+For SMF/AMF specifically, you must have the following frontend loopback IPs:
 
 - N2 secondary and primary
 - S1, S6, S11, S10
@@ -39,7 +39,7 @@ Topology and quantity of Vnets and Subnets can differ based on your custom requi
 A reference deployment of Azure Operator 5G Core, per cluster, has one virtual network and three constituent subnets, all part of the same virtual network.
 
 - One for Azure Kubernetes Services itself – a /24
-- One for the VIPs that the Azure Kubernetes Services creates – a /25
+- One for the loopback IPs that the Azure Kubernetes Services creates – a /25
 - A utility subnet that points to the data plane ports - /26
 
 User defined routes (UDRs) are added to other virtual networks that point to this virtual network. Traffic is then pointed to the cluster for data plane and signaling traffic.
@@ -152,5 +152,5 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 ## Next steps
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md).
-- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md).
+- [Deploy Azure Operator 5G Core observability](quickstart-deploy-observability.md).
+- [Deploy a network function](quickstart-deploy-network-functions.md).
