@@ -104,7 +104,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### Step 5: Contact the Microsoft Sentinel Product group to confirm onboarding 
 
-Lastly, confirm the onboarding status of your CMK enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
+Lastly, confirm the onboarding status of your CMK-enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
 
 ## Key Encryption Key revocation or deletion
 
