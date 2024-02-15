@@ -323,7 +323,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
+|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g. Ansible) by operators are not prohibited, but the device must include the azure-osconfig agent for Azure management.|
 |Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
 |Dependency|azure-osconfig|
 
@@ -417,7 +417,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 ::: zone pivot="platform-sphere"
 
 ## Azure Sphere platform Support
-The Mediatek MT3620AN must be included in your design. Additional guidance for building secured Azure Sphere applications can be within the [Azure Sphere application notes](/azure-sphere/app-notes/app-notes-overview).
+The Mediatek MT3620AN must be included in your design. More guidance for building secured Azure Sphere applications can be found within the [Azure Sphere application notes](/azure-sphere/app-notes/app-notes-overview).
 
 
 ## Azure Sphere Hardware/Firmware Requirements
