@@ -24,8 +24,16 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| February 15| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-(OCI)-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Open Container Initiative (OCI) image format specification support 
+
+February 15, 2024
+
+The [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification is now supported by vulnerability assessment powered by Microsoft Defender Vulnerability Management for AWS, Azure & GCP clouds.
+
 
 ### AWS container vulnerability assessment powered by Trivy retired
 
