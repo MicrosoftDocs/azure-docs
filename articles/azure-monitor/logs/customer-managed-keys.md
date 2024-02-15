@@ -286,7 +286,7 @@ When linking your Storage Account for saved queries, the service stores saved qu
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
 * You can link a single Storage Account to a workspace for both saved queries and log search alert queries.
 * Log search alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
-* Fired log search alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
+* Fired log search alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to get context in the fired alerts.
 
 **Configure BYOS for saved queries**
 

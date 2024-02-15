@@ -22,13 +22,13 @@ To alert for high CPU or memory utilization, or low free disk space on cluster n
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create alert rules, see the "Alert rules" section in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log search alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
+If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log search alerts in Azure Monitor](../alerts/alerts-types.md#log-alerts). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements
-[Log search alerts](../alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor virtual machines in different scenarios:
+[Log search alerts](../alerts/alerts-types.md#log-alerts) can measure two different things, which can be used to monitor virtual machines in different scenarios:
 
-- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
+- [Result count](../alerts/alerts-types.md#log-alerts): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
+- [Calculation of a value](../alerts/alerts-types.md#log-alerts): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
 
 ### Target resources and dimensions
 
