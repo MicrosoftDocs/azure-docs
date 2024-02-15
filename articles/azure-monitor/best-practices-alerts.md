@@ -11,7 +11,7 @@ ms.reviewer: abbyweisberg
 # Best practices for Azure Monitor alerts
 This article provides architectural best practices for Azure Monitor alerts, alert processing rules, and action groups. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
 
-For more information about alerts and notifications, see [Azure Monitor alerts overview](alerts-overview.md).
+For more information about alerts and notifications, see [Azure Monitor alerts overview](./alerts/alerts-overview.md).
 
 ## Reliability
 In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Azure Monitor alert rule components.
