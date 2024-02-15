@@ -121,21 +121,25 @@ Here's a screenshot showing search results in [Search Explorer](search-explorer.
 
 ## Physical structure and size
 
-In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, load and query its content, monitor its size, and manage capacity, but the clusters themselves (indexes, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
+In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, load and query its content, monitor its size, and manage capacity, but the clusters themselves (inverted and vector indexes, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
 
 The size and substance of an index is determined by:
 
 + Quantity and composition of your documents
-+ Attributes on individual fields
++ Attributes on individual fields. For example, more storage is required for filterable fields.
 + Index configuration, including vector configuration that specifies how the internal navigation structures are created based on whether you choose HNSW or exhaustive KNN for similarity search.
 
-Vector store index limits and estimations are covered in [another article](vector-search-index-size.md), but it's highlighted here to emphasize that maximum storage varies by service tier, and also by when the search service was created. Newer same-tier services have significantly more capacity for vector indexes.
+Azure AI Search imposes limits on vector storage, which helps maintain a balanced and stable system for all workloads. To help you stay under the limits, vector usage is tracked and reported separately in the Azure portal, and programmatically through service and index statistics.  
+
+The following screenshot shows an S1 service configured with one partition and one replica. This particular service has 24 small indexes, with one vector field on average, each field consisting of 1536 embeddings. The second tile shows the quota and usage for vector indexes. A vector index is an internal data structure created for each vector field. As such, storage for vector indexes is always a fraction of the storage used by the index overall. Other nonvector fields and data structures consume the rest.
+
+:::image type="content" source="media/vector-search-overview/usage-tiles-storage-vector-index.png" alt-text="Screenshot of usage tiles showing storage, vector index, and index count.":::
+
+Vector index limits and estimations are covered in [another article](vector-search-index-size.md), but two points to emphasize up front is that maximum storage varies by service tier, and also by when the search service was created. Newer same-tier services have significantly more capacity for vector indexes. For these reasons, take the following actions:
 
 + [Check the deployment date of your search service](vector-search-index-size.md#how-to-determine-service-creation-date). If it was created before July 1, 2023, consider creating a new search service for greater capacity.
 
 + [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition. Consider Standard 1 (S1) and above for more flexibility and faster performance.
-
-In terms of usage metrics, a vector index is an internal data structure created for each vector field. As such, a vector storage is always a fraction of the overall index size. Other nonvector fields and data structures consume the remainder of the quota for index size and consumed storage at the service level.
 
 ## Basic operations and interaction
 
@@ -174,7 +178,7 @@ All vector indexing and query requests target an index. Endpoints are usually on
 
 ### Secure access to vector data
 
-Azure AI Search implements data encryption, private connections for no-internet connections, and role assignments for secure access through Microsoft Entra ID. The full range of enterprise security features are outlined in [Security in Azure AI Search](search-security-overview.md).
+Azure AI Search implements data encryption, private connections for no-internet scenarios, and role assignments for secure access through Microsoft Entra ID. The full range of enterprise security features are outlined in [Security in Azure AI Search](search-security-overview.md).
 
 ### Manage vector stores
 
