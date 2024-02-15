@@ -58,6 +58,7 @@ Consider the following before you install Dependency agent for VM Insights on a 
 - Custom kernels, including recompilations of standard kernels, aren't supported.
 - For Debian distros other than version 9.4, the Map feature isn't supported. The Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
+- Installing Dependency agent taints the Linux kernel and you might lose support from your Linux distribution until the machine resets.
 
 The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult with your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
 
