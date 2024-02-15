@@ -28,7 +28,7 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
 - You're unable to connect to the lab VM from your computer by using RDP or SSH 
 
-- You're unable to login to the lab VM
+- You're unable to log in to the lab VM
 
 - After connecting to the lab VM, the VM isn't working correctly
 
@@ -69,7 +69,7 @@ If you have questions or need help, review the [Advanced troubleshooting](#advan
     > [!IMPORTANT]
     > Reimaging a lab VM deletes the user data in the VM. Make sure to [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
 
-### Unable to login with the credentials you used for creating the lab
+### Unable to log in with the credentials you used for creating the lab
 
 When you create a new lab from an exported lab VM image, perform the following steps:
 
@@ -92,11 +92,11 @@ The lab VM might be malfunctioning as a result of installing a software componen
 
 Azure Lab Services lets you redeploy or reimage a lab VM. Both operations are similar, and result in the creation of a new virtual machine instance. However, there are fundamental differences that affect the user data on the lab VM.
 
-When you redeploy a lab VM, Azure Lab Services will shutdown the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation and after a VM shutdown.
+When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation and after a VM shutdown.
 
 Learn more about how to [redeploy a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#redeploy-a-lab-vm).
 
-When you reimage a lab VM, Azure Lab Services will shutdown the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reimage as a refresh of the entire VM. After you reimage a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. To avoid losing data on the VM, [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
+When you reimage a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reimage as a refresh of the entire VM. After you reimage a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. To avoid losing data on the VM, [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
 
 Learn more about how to [reimage a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#reimage-a-lab-vm).
 
