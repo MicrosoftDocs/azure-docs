@@ -1,5 +1,5 @@
 ---
-title: Use Azure Communications Gateway's Number Management Portal to manage an enterprise
+title: Use Azure Communications Gateway's Number Management Portal (preview) to manage an enterprise
 description: Learn how to add and remove enterprises and numbers for Operator Connect and Teams Phone Mobile with Azure Communication Gateway's Number Management Portal.
 author: rcdun
 ms.author: rdunstan
@@ -9,9 +9,9 @@ ms.date: 01/31/2024
 ms.custom: template-how-to-pattern
 ---
 
-# Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile
+# Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview) for Operator Connect and Teams Phone Mobile
 
-Azure Communications Gateway's Number Management Portal enables you to manage enterprise customers and their numbers through the Azure portal.
+Azure Communications Gateway's Number Management Portal (preview) enables you to manage enterprise customers and their numbers through the Azure portal.
 
 The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you launch your service in the Teams Admin Center. The Number Management Portal is a simple alternative that you can use until you finish integrating with the Operator Connect APIs.
 

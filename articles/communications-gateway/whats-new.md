@@ -14,9 +14,9 @@ This article covers new features and improvements for Azure Communications Gatew
 
 ## February 2024
 
-### Number Management Portal for Operator Connect and Teams Phone Mobile
+### Number Management Portal (preview) for Operator Connect and Teams Phone Mobile
 
-Azure Communications Gateway's Number Management Portal allows you to carry out a range of provisioning tasks for Operator Connect and Teams Phone Mobile. This includes:
+Azure Communications Gateway's Number Management Portal (preview) allows you to carry out a range of provisioning tasks for Operator Connect and Teams Phone Mobile. This includes:
 
 - Managing the status of your enterprise customers in the Operator Connect and Teams Phone Mobile environment.
 - Provisioning numbers in the Operator Connect and Teams Phone Mobile environment.
@@ -24,7 +24,7 @@ Azure Communications Gateway's Number Management Portal allows you to carry out 
 
 The Number Management Portal is an alternative to the Provisioning API.
 
-For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview) for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 ### Custom headers with the Provisioning API for Teams Phone Mobile calls
 

@@ -42,13 +42,13 @@ In this article, you learn about the steps that you and your onboarding team mus
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenant))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
 
-- If you plan to use Azure Communications Gateway's Number Management Portal to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the Project Synergy enterprise application.
+- If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the Project Synergy enterprise application.
 
 [!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
 ## Methods
 
-In some parts of this article, the steps you must take depend on whether you are using the Number Management Portal. This article provides instructions for both types of deployment. Choose the appropriate instructions.
+In some parts of this article, the steps you must take depend on whether you are using the Number Management Portal (preview). This article provides instructions for both types of deployment. Choose the appropriate instructions.
 
 ## Ask your onboarding team to register your test enterprise tenant
 
@@ -77,9 +77,9 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
 1. In your test tenant, create some test users (if you don't already have suitable users). License the users for Teams Phone System and place them in Teams Only mode.
 1. Configure emergency locations in your test tenant.
-1. Upload numbers in the Number Management Portal (if you chose to deploy it as part of Azure Communications Gateway) or the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
+1. Upload numbers in the Number Management Portal (preview) or the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
 
-    # [Number Management Portal](#tab/number-management-portal)
+    # [Number Management Portal (preview)](#tab/number-management-portal)
 
     1. Sign in to the [Azure portal](https://azure.microsoft.com/).
     1. In the search bar at the top of the page, search for your Communications Gateway resource.
@@ -172,7 +172,7 @@ Your staff can use a selection of key metrics to monitor Azure Communications Ga
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect API for provisioning.
 
-# [Number Management Portal](#tab/number-management-portal)
+# [Number Management Portal (preview)](#tab/number-management-portal)
 
 If you have the Number Management Portal, your onboarding team can obtain proof automatically. You don't need to do anything.
 

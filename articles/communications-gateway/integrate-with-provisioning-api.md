@@ -13,7 +13,7 @@ ms.date: 01/31/2024
 This article provides a high-level overview on how to integrate with Azure Communications Gateway's Provisioning API. It's aimed at software developers working for telecommunications operators.
 
 > [!TIP]
-> We recommend using the Number Management Portal to configure numbers and custom headers for Operator Connect and Teams Phone Mobile.
+> We recommend using the Number Management Portal (preview) to configure numbers and custom headers for Operator Connect and Teams Phone Mobile.
 
 The Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them. It's a REST API.
 

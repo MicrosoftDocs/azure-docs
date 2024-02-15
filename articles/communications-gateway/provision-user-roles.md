@@ -15,7 +15,7 @@ This article guides you through how to configure the permissions required for st
 - Deploy Azure Communications Gateway through the portal.
 - Raise customer support requests (support tickets).
 - Monitor Azure Communications Gateway.
-- Use the Number Management Portal (for provisioning the Operator Connect or Teams Phone Mobile environments).
+- Use the Number Management Portal (preview) for provisioning the Operator Connect or Teams Phone Mobile environments.
 
 For permissions for the Provisioning API, see [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
 
@@ -34,7 +34,7 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploy Azure Communications Gateway or change its configuration. |**Contributor** access to the resource group.|
 | Raise support requests. |**Owner**, **Contributor**, or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level. |
 | Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
-| Use the Number Management Portal for Operator Connect or Teams Phone Mobile. | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
+| Use the Number Management Portal (preview) for Operator Connect or Teams Phone Mobile. | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
 
 > [!TIP]
 > To allow staff to  manage Requests for information in the Number Management Portal without managing numbers, assign the **NumberManagement.Read**, **TrunkManagement.Read**, and **PartnerSettings.Write** roles.
