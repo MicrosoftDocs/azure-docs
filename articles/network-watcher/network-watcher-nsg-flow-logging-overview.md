@@ -13,7 +13,7 @@ ms.date: 02/15/2024
 
 # Flow logging for network security groups
 
-Network security groups flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 :::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
 
@@ -446,7 +446,7 @@ To learn how to visualize NSG flow logs, see one of the following guides:
 
 ### Cost
 
-NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow-log volume which increases the associated costs. 
+NSG flow logging is billed on the volume of produced logs. High traffic volume can result in large flow-log volume, which increases the associated costs. 
 
 NSG flow log pricing doesn't include the underlying costs of storage. Retaining NSG flow logs data forever or using the retention policy feature means incurring storage costs for extended periods of time.
 
@@ -476,7 +476,7 @@ We don't recommend that you log flows on an Azure ExpressRoute gateway subnet be
 
 ### Traffic to a private endpoint
 
-Traffic to private endpoints can only be captured at source VM, the traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. Traffic can't be recorded at the private endpoint itself due to platform limitations. 
+Traffic to private endpoints can only be captured at source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. Traffic can't be recorded at the private endpoint itself due to platform limitations. 
 
 ### Support for network security groups associated to Application Gateway v2 subnet
 
@@ -518,7 +518,7 @@ Currently, these Azure services don't support NSG flow logs:
 
 ### I can't enable NSG flow logs
 
-If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you might not have enabled the **Microsoft.Insights** resource provider on your subscription. For more information, see [Register Insights provider](./nsg-flow-logging.md#register-insights-provider).
+You might get an *AuthorizationFailed* or *GatewayAuthenticationFailed* error, if you didn't enable the **Microsoft.Insights** resource provider on your subscription before trying to enable NSG flow logs. For more information, see [Register Insights provider](nsg-flow-logging.md#register-insights-provider).
 
 ### I enabled NSG flow logs but don't see data in my storage account
 
