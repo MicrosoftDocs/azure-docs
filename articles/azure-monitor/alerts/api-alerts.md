@@ -7,12 +7,12 @@ ms.date: 06/20/2023
 ms.reviewer: nolavime
 ---
 
-# Legacy Log Analytics alerts REST API
+# Legacy Log Analytics Alert REST API
 
 This article describes how to manage alert rules using the legacy API.
 
 > [!IMPORTANT]
-> As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), the Log Analytics alert API will be retired on October 1, 2025. You must transition to using the Scheduled Query Rules API for log alerts by that date.
+> As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), the Log Analytics Alert API will be retired on October 1, 2025. You must transition to using the Scheduled Query Rules API for log search alerts by that date.
 > Log Analytics workspaces created after June 1, 2019 use the [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) to manage alert rules. [Switch to the current API](./alerts-log-api-switch.md) in older workspaces to take advantage of Azure Monitor scheduledQueryRules [benefits](./alerts-log-api-switch.md#benefits). 
 
 The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics. This article provides details about the API and several examples for performing different operations.
@@ -241,7 +241,7 @@ Log Analytics-based query alerts fire every time the threshold is met or exceede
 
 For example, if `Suppress` is set for 30 minutes, the alert will fire the first time and send notifications configured. It will then wait for 30 minutes before notification for the alert rule is again used. In the interim period, the alert rule will continue to run. Only notification is suppressed by Log Analytics for a specified time regardless of how many times the alert rule fired in this period.
 
-The `Suppress` property of a Log Analytics alert rule is specified by using the `Throttling` value. The suppression period is specified by using the `DurationInMinutes` value.
+The `Suppress` property of a log search alert rule is specified by using the `Throttling` value. The suppression period is specified by using the `DurationInMinutes` value.
 
 The following sample response is for an action with only `Threshold`, `Severity`, and `Suppress` properties.
 
@@ -363,7 +363,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ##### Customize WebhookPayload for an action group
 
-By default, the webhook sent via an action group for Log Analytics has a fixed structure. But you can customize the JSON payload by using specific variables supported to meet requirements of the webhook endpoint. For more information, see [Webhook action for log alert rules](./alerts-log-webhook.md).
+By default, the webhook sent via an action group for Log Analytics has a fixed structure. But you can customize the JSON payload by using specific variables supported to meet requirements of the webhook endpoint. For more information, see [Webhook action for log search alert rules](./alerts-log-webhook.md).
 
 The customized webhook details must be sent along with `ActionGroup` details. They'll be applied to all webhook URIs specified inside the action group. The following sample illustrates the use:
 
@@ -406,5 +406,5 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ## Next steps
 
 * Use the [REST API to perform log searches](../logs/log-query-overview.md) in Log Analytics.
-* Learn about [log alerts in Azure Monitor](./alerts-unified-log.md).
-* Learn how to [create, edit, or manage log alert rules in Azure Monitor](./alerts-log.md).
+* Learn about [log search alerts in Azure Monitor](./alerts-unified-log.md).
+* Learn how to [create, edit, or manage log search alert rules in Azure Monitor](./alerts-log.md).
