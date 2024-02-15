@@ -1,6 +1,6 @@
 ---
 title: Set up customer-managed keys in Microsoft Sentinel| Microsoft Docs
-description: Learn how to set up customer-managed keys (CMK) in Microsoft Sentinel.
+description: Learn how to set up customer-managed key (CMK) in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
 ms.date: 06/08/2023
@@ -55,19 +55,26 @@ For more information, see:
 
 ## Enable CMK 
 
-To provision CMK, follow these steps: 
+To provision CMK, follow these steps:
+1.  Make sure you have a log analytics workspace, that is linked to a dedicated cluster, on which CMK is enabled
 1.  Register to the Azure Cosmos DB Resource Provider.
 1.  Add an access policy to your Azure Key Vault instance.
 1.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create).
 1.  Contact the Microsoft Sentinel Product group to confirm onboarding.
 
-### Step 1: Register the Azure Cosmos DB Resource Provider
+### Step 1: CMK log analytics workspace
+
+As mentioned in the prerequisites, to onboard a log analytics workspace with CMK in Microsoft Sentinel, this workspace needs to be linked to a dedicated log analytics cluster, on which CMK is enabled.
+Sentinel will use the same key which is used by the dedicated cluster.
+Follow the instructions in [Azure Monitor customer-managed key configuration](../azure-monitor/logs/customer-managed-keys.md) in order to create a CMK workspace that is used as the Microsoft Sentinel workspace in the following steps.
+
+### Step 2: Register the Azure Cosmos DB Resource Provider
 
 Microsoft Sentinel works with Azure Cosmos DB as an additional storage resource. Make sure to register to the Azure Cosmos DB Resource Provider before onboarding a CMK workspace to sentinel.
 
 Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) for your Azure subscription.
 
-### Step 2: Add an access policy to your Azure Key Vault instance
+### Step 3: Add an access policy to your Azure Key Vault instance
 
 Add an access policy that allows Azure Cosmos DB to access the Azure Key Vault instance that is linked to your dedicated log analytics cluster (the same key will be used by Sentinel). 
 
@@ -75,7 +82,7 @@ Follow the instructions here to [add an access policy to your Azure Key Vault in
 
 :::image type="content" source="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
 
-### Step 3: Onboard the workspace to Microsoft Sentinel via the onboarding API
+### Step 4: Onboard the workspace to Microsoft Sentinel via the onboarding API
 
 Onboard the CMK enabled workspace to Microsoft Sentinel via the [onboarding API](/rest/api/securityinsights/preview/sentinel-onboarding-states/create) using the `customerManagedKey` property as `true`. For more context on the onboarding API, see [this document](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx) in the Microsoft Sentinel GitHub repo.
 
@@ -95,7 +102,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 } 
 ```
 
-### Step 4: Contact the Microsoft Sentinel Product group to confirm onboarding 
+### Step 5: Contact the Microsoft Sentinel Product group to confirm onboarding 
 
 Lastly, confirm the onboarding status of your CMK enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
 
