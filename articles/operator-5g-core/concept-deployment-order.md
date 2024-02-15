@@ -12,7 +12,7 @@ ms.date: 02/13/2024
 
 # Deployment order for clusters, network functions, and observability 
 
-Mobile Packet Core resources have minimal ordering constraints. The only restriction is you MUST deploy the ClusterServices resource before any network function or observability resources are deployed. Azure Operator 5G Core's Resource Provider doesn't allow network functions or observability to be deployed until ClusterServices successfully completes. Once ClusterServices is deployed, the network functions and observability resources can be deployed in any order and in parallel. 
+Mobile Packet Core resources have minimal ordering constraints. To bring up network functions, the cluster services must be already running successfully. The same set of cluster services can be reused for multiple network functions and the cluster services must be deployed on every cluster that hosts the network functions.
 
 ## Azure CLI commands used to deploy resources
 

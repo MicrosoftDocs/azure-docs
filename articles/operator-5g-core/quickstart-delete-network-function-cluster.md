@@ -10,37 +10,25 @@ ms.date: 02/13/2024
 ---
 # Quickstart: Delete a network function deployment or ClusterServices in Azure Operator 5G Core
 
-This quickstart shows you the ArmClient commands you can use to delete a network function deployment or ClusterServices.
+This quickstart shows you the Azure CLI commands you can use to delete a network function deployment or ClusterServices.
 
-## ArmClient commands
+## Azure CLI commands
 
-Use the following ArmClient commands to delete the Azure Operator 5G Core resources:
+Use the following Azure CLI commands to delete the Azure Operator 5G Core resources:
 
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/amfDeployments/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/smfDeployments/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/nrfDeployments/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/upfDeployments/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/nssfDeployments/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
-```
-ARMClient.exe DELETE 
-/subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/clusterServices/${ResourceName}?api-version=2023-10-15-preview -verbose
-```
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/amfDeployments/${ResourceName}`
 
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/smfDeployments/${ResourceName}`
+
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/nrfDeployments/${ResourceName}`
+
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/upfDeployments/${ResourceName}`
+
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/nssfDeployments/${ResourceName}`
+
+`$ az resource delete --ids /subscriptions/${SUB}/resourceGroups/${RGName}/providers/Microsoft.MobilePacketCore/clusterServices/${ResourceName}`
+
+ 
 ## Related content
 
-- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Deploy a network function](quickstart-deploy-network-functions.md)
