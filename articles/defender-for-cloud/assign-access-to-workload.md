@@ -1,0 +1,64 @@
+---
+title: Assign access to workload owners
+description: Learn how to use Defender for Cloud to assign access to a workload owner of an AWS or GCP connector so that they can view the suggested recommendations provided by Defender for Cloud.
+ms.author: dacurwin
+ms.topic: how-to
+ms.date: 02/15/2024
+---
+
+# Assign access to workload owners
+
+
+## Identify the relevant security connector 
+
+When you onboard your AWS or GCP environments, Defender for Cloud automatically creates a security connector as an Azure resource inside the connected subscription and resource group. Defender for cloud also creates the identity provider as an IAM role it requires during the onboarding process.
+
+
+Assign permission to users, on specific security connectors, below the parent connector? Yes, you can. You need to determine to which AWS accounts or GCP projects you want users to have access to. Meaning, you need to identify the security connectors that correspond to the AWS account or GCP project to which you want to assign users access to.
+
+
+**To identify the security connector**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**
+
+1. Locate the relevant AWS or GCP connector.
+
+## Configure permissions on the security connector
+
+Permissions for a security connector can be configured through:
+
+- All resources in the Azure portal
+- Azure Resource Graph
+
+### All resources in the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Search for and select **All resources**.
+1. 
+1. Select **Manage view** > **Show hidden types**.
+
+    :::image type="content" source="media/assign-access-to-workload/show-hidden-types.png" alt-text="Screenshot that shows you where on the screen to find the show hidden types option." lightbox="media/assign-access-to-workload/show-hidden-types.png":::
+
+1. Select the **Types equals all** filter.
+
+1. Enter `securityconnector` in the value field and add a check to the `microsoft.security/securityconnectors`.
+
+    :::image type="content" source="media/assign-access-to-workload/security-connector.png" alt-text="Screenshot that shows where the types equals all field and where to enter the value on  the screen." lightbox="media/assign-access-to-workload/security-connector.png":::
+
+1. Select **Apply**.
+
+1. Select the relevant resource connector.
+
+1. [Configure the desired RBAC permissions](#configure-the-desired-rbac-permissions).
+
+### Azure Resource Graph
+
+
+
+
+## Configure the desired RBAC permissions
+
+## Validate the configuration 
