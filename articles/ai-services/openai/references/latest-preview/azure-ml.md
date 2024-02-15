@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-#  Azure Machine Learning Index Data Source
+# Data source - Azure Machine Learning index
 
 The configurable options of Azure Machine Learning index when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 

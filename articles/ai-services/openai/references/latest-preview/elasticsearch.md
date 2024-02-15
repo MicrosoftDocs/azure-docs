@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Elasticsearch Data Source
+# Data source - Elasticsearch
 
 The configurable options for Elasticsearch when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 

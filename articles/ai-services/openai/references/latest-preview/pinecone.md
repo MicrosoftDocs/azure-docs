@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Pinecone Data Source
+# Data source - Pinecone
 
 The configurable options of Pinecone when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 
@@ -71,7 +71,6 @@ The settings to control how fields are processed.
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
 | `content_fields` | string[] | True | The names of index fields that should be treated as content. |
-| `vector_fields` | string[] | True | The names of fields that represent vector data.|
 | `content_fields_separator` | string | False | The separator pattern that content fields should use. Default is `\n`.|
 | `filepath_field` | string | False | The name of the index field to use as a filepath. |
 | `title_field` | string | False | The name of the index field to use as a title. |
@@ -82,22 +81,20 @@ The settings to control how fields are processed.
 Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`ConnectionString`, `Database`, `Container`, `Index`, `EmbeddingDeploymentName`.
+* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`Environment`, `IndexName`, `Key`, `EmbeddingDeploymentName`.
 
 # [Python 1.x](#tab/python)
 
 ```python
-
 import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 endpoint = os.environ.get("AOAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
-connection_string = os.environ.get("ConnectionString")
-database = os.environ.get("Database")
-container = os.environ.get("Container")
-index = os.environ.get("Index")
+environment = os.environ.get("Environment")
+key = os.environ.get("Key")
+index_name = os.environ.get("IndexName")
 embedding_deployment_name = os.environ.get("EmbeddingDeploymentName")
 
 token_provider = get_bearer_token_provider(
@@ -120,35 +117,29 @@ completion = client.chat.completions.create(
     extra_body={
         "data_sources": [
             {
-                "type": "azure_cosmos_db",
+                "type": "pinecone",
                 "parameters": {
+                    "environment": environment,
                     "authentication": {
-                        "type": "connection_string",
-                        "connection_string": connection_string
+                        "type": "api_key",
+                        "key": key
                     },
-                    "database_name": database,
-                    "container_name": container,
-                    "index_name": index,
+                    "index_name": index_name,
                     "fields_mapping": {
                         "content_fields": [
                             "content"
-                        ],
-                        "vector_fields": [
-                            "contentvector"
                         ]
                     },
                     "embedding_dependency": {
                         "type": "deployment_name",
                         "deployment_name": embedding_deployment_name
                     }
-                }
-            }
+                }}
         ],
     }
 )
 
 print(completion.model_dump_json(indent=2))
-
 
 ```
 
@@ -164,21 +155,17 @@ az rest --method POST \
 {
     "data_sources": [
       {
-        "type": "azure_cosmos_db",
+        "type": "pinecone",
         "parameters": {
+          "environment": "'$Environment'",
           "authentication": {
-            "type": "connection_string",
-            "connection_string": "'$ConnectionString'"
+            "type": "api_key",
+            "key": "'$Key'"
           },
-          "database_name": "'$Database'",
-          "container_name": "'$Container'",
-          "index_name": "'$Index'",
+          "index_name": "'$IndexName'",
           "fields_mapping": {
             "content_fields": [
               "content"
-            ],
-            "vector_fields": [
-              "contentvector"
             ]
           },
           "embedding_dependency": {

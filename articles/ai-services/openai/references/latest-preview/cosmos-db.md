@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure Cosmos DB for MongoDB vCore Data Source
+# Data source - Azure Cosmos DB for MongoDB vCore
 
 The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
 

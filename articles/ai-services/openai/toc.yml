@@ -207,15 +207,15 @@ items:
          items:
           - name: Azure OpenAI on your data
             href: ./references/latest-preview/on-your-data.md
-          - name: Data Source - Azure AI Search
+          - name: Data source - Azure AI Search
             href: ./references/latest-preview/azure-search.md
-          - name: Data Source - Azure Cosmos DB for MongoDB vCore
+          - name: Data source - Azure Cosmos DB for MongoDB vCore
             href: ./references/latest-preview/cosmos-db.md
-          - name: Data Source - Azure Machine Learning index
+          - name: Data source - Azure Machine Learning index
             href: ./references/latest-preview/azure-ml.md
-          - name: Data Source - Elasticsearch
+          - name: Data source - Elasticsearch
             href: ./references/latest-preview/elasticsearch.md
-          - name: Data Source - Pinecone
+          - name: Data source - Pinecone
             href: ./references/latest-preview/pinecone.md
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
