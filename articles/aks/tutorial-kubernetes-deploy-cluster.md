@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
 
-# Tutorial - Deploy an Azure Kubernetes Service (AKS) cluster
+# Tutorial - Create an Azure Kubernetes Service (AKS) cluster
 
 Kubernetes provides a distributed platform for containerized applications. With Azure Kubernetes Service (AKS), you can quickly create a production ready Kubernetes cluster.
 
@@ -96,10 +96,25 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Start by downloading the project from Azure Developer Templates.
-Run `azd init --template aks-store-demo` to download the app used in the tutorial.
+Inside your Azure Developer Template from tutorial 1 run these azd hooks. Each hook contains a script to provision the resources in the template and create your cluster.
 
-AZD automatically handles creating the Service Principals and roles based on it's infra files. You won't need to manually generate SSH keys or set up a resource group as it's done with the deployment step. For this tutorial, if you'd like to only create the resource group, run `azd provision` and cancel the command when the azd post-provision script runs.
+1. Register your services with `azd preprovision`.
+
+    ```azurecli
+    azd preprovision
+    ```
+
+2. AZD automatically creates the Service Principals and roles based on it's infra files. You won't need to manually generate SSH keys or set up a resource group. Create an AKS cluster using `azd provision`.
+
+    ```azurecli
+    azd provision
+    ```
+
+3. AZD may automically postprovision your resources after provision ends. This builds and imports the container images. If this doesn't happen, manually run it with `azd postprovision`. 
+
+    ```azurecli
+    azd provision
+    ```
 
 ---
 
@@ -128,6 +143,12 @@ You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes 
 ### [Azure Developer CLI](#tab/azure-azd)
 
 AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. This includes the Kubernetes CLI as well as any ACR images.
+
+If it's not already installed, install `kubectl` locally using the [`az aks install-cli`][az aks install-cli] command.
+
+    ```azurecli-interactive
+    az aks install-cli
+    ```
 
 ---
 
@@ -178,13 +199,14 @@ AZD Environments in a codespace automatically download all dependencies found in
     ```
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
+1. Login to your Azure Account through AZD to select your subscription. AZD configures kubectl using the credentials passed.
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    azd auth login 
     ```
+2. Follow the directions for your auth method.
 
-2. Verify connection to your cluster using the [`kubectl get nodes`][kubectl-get] command, which returns a list of cluster nodes.
+3. Verify the connection to your cluster using the [`kubectl get nodes`][kubectl-get] command, which returns a list of cluster nodes.
 
     ```azurecli-interactive
     kubectl get nodes
