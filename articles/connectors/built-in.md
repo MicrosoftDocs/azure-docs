@@ -133,7 +133,7 @@ You can use the following built-in connectors to perform general tasks, for exam
         [![Batch icon][batch-icon]][batch-doc]
         \
         \
-        [**Batch**][batch-doc]<br>
+        [**Batch**][batch-doc]
         \
         \
         [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
@@ -665,7 +665,7 @@ For more information, review the following documentation:
         [![EDIFACT icon][edifact-icon]][edifact-doc]
         \
         \
-        [**EDIFACT**][edifact-doc]<br>
+        [**EDIFACT**][edifact-doc]
         \
         \
         Encode and decode messages that use the EDIFACT protocol.
