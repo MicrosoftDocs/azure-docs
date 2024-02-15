@@ -106,7 +106,7 @@ az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assigne
 > [!NOTE]
 > In Azure portal, after creating role assignments scoped to a desired namespace, you won't be able to see "role assignments" for namespace [at a scope][list-role-assignments-at-a-scope-at-portal]. You can find it by using the [`az role assignment list`][az-role-assignment-list] command, or [list role assignments for a user or group][list-role-assignments-for-a-user-or-group-at-portal], which you assigned the role to.
 >
- ```azurecli-interactive
+> ```azurecli-interactive
 > az role assignment list --scope $AKS_ID/namespaces/<namespace-name>
 > ```
 
