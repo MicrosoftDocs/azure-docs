@@ -95,15 +95,15 @@ For full details of the media interworking features available in Azure Communica
 
 Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment is certified and launched, you must not use the Operator Connect portal for provisioning. Azure Communications Gateway offers two alternative methods for provisioning subscribers:
 
-- A Number Management Portal, integrated into the Azure portal, for browser-based provisioning.
-- A Provisioning API that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments.
+- A Number Management Portal (preview), integrated into the Azure portal, for browser-based provisioning.
+- A Provisioning API (previwe) that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments.
 
 Both methods integrate with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. They meet the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.. They therefore allow you to pass the certification process and sell Operator Connect or Teams Phone Mobile services.
 
 For more information, see:
 
-- [Provisioning API for Azure Communications Gateway](provisioning-platform.md) and [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
-- [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+- [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md) and [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
+- [Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview) for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 > [!TIP]
 > These methods do not allow your enterprise customers to manage Teams Calling. For example, they do not provide self-service portals.

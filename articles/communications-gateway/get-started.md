@@ -29,7 +29,7 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to Operator Connect or Teams Phone Mobile and the support we can provide.
 - [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
-- [Provisioning API for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
+- [Provisioning API (preview) for Azure Communications Gateway (preview)](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
 - [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway
 
@@ -59,7 +59,7 @@ Use the following procedures to deploy Azure Communications Gateway and connect 
 
 1. [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) describes the steps you need to take before you can start creating your Azure Communications Gateway resource. You might need to refer to some of the articles listed in [Learn about and plan for Azure Communications Gateway](#learn-about-and-plan-for-azure-communications-gateway).
 1. [Deploy Azure Communications Gateway](deploy.md) describes how to create your Azure Communications Gateway resource in the Azure portal and connect it to your networks.
-1. [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
+1. [Integrate with Azure Communications Gateway's Provisioning API (preview)](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
     - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
     - Recommended for Operator Connect and Teams Phone Mobile because it enables flow-through API-based provisioning of your customers both on Azure Communications Gateway and in the Operator Connect environment. After you launch your service, the Operator Connect and Teams Phone Mobile programs require you to use APIs for provisioning customers in the Operator Connect environment. For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
 

@@ -38,7 +38,7 @@ In this article, you learn about the steps that you and your onboarding team mus
     |---------|---------|
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenancy))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
-- If you plan to use Azure Communications Gateway's Provisioning API to upload your integration test numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
+- If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload your integration test numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
 
 ## Methods
 
@@ -71,7 +71,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
 1. Configure emergency locations in your test tenant.
 1. Upload numbers in the Number Management Portal, over the Provisioning API, or using the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
 
-    # [Number Management Portal](#tab/number-management-portal)
+    # [Number Management Portal (preview)](#tab/number-management-portal)
 
     1. Sign in to the [Azure portal](https://azure.microsoft.com/).
     1. In the search bar at the top of the page, search for your Communications Gateway resource.
@@ -83,7 +83,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **Upload numbers**.
     1. Fill in the fields as required, and then select **Review + upload** and **Upload**.
     
-    # [Provisioning API](#tab/provisioning-api)
+    # [Provisioning API (preview)](#tab/provisioning-api)
 
     The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the the [API Reference](/rest/api/voiceservices).
 
@@ -173,11 +173,11 @@ Your staff can use a selection of key metrics to monitor Azure Communications Ga
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect APIs for provisioning. Choose the appropriate instructions for your deployment.
 
-# [Number Management Portal](#tab/number-management-portal)
+# [Number Management Portal (preview)](#tab/number-management-portal)
 
 Your onboarding team can obtain proof automatically. You don't need to do anything.
 
-# [Provisioning API](#tab/provisioning-api)
+# [Provisioning API (preview)](#tab/provisioning-api)
 
 Your onboarding team can obtain proof automatically. You don't need to do anything.
 
