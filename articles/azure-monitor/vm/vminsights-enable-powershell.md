@@ -27,6 +27,7 @@ You need to:
 
 - See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor Agent.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
+- To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 
 ## PowerShell script
@@ -247,4 +248,3 @@ DA-Extension              Succeeded            Microsoft.Azure.Monitoring.Depend
 
 * See [Use VM insights Map](vminsights-maps.md) to view discovered application dependencies.
 * See [View Azure VM performance](vminsights-performance.md) to identify bottlenecks, overall utilization, and your VM's performance.
-* To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
