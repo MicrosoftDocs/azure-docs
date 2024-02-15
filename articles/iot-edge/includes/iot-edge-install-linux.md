@@ -137,13 +137,19 @@ The following steps show you how to configure your container to use [`local` log
     ```
 1. Restart the container engine for the changes to take effect.
 
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+
     ```bash
     sudo systemctl restart docker
-
-    # If you're using a snap, restart the docker service using the following command:
-    # sudo systemctl restart snap.docker.dockerd.service
-
     ```
+
+    # [Ubuntu Core snaps](#tab/snaps)
+
+    ```bash
+    sudo systemctl restart snap.docker.dockerd.service
+    ```
+
+    ---
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:

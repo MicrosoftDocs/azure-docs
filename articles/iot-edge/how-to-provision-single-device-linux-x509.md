@@ -60,7 +60,7 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
-# [Ubuntu / Debian](#tab/ubuntu+debian)
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
 1. Create the configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
 
@@ -107,55 +107,6 @@ After entering the provisioning information in the configuration file, apply you
    ```bash
    sudo iotedge config apply
    ```
-
-# [Red Hat Enterprise Linux](#tab/rhel)
-<!-- Duplicate of Ubuntu+Debian to match tab id set -->
-
-1. Create the configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
-
-    ```bash
-    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-    ```
-
-1. On the IoT Edge device, open the configuration file.
-
-    ```bash
-    sudo nano /etc/aziot/config.toml
-    ```
-
-1. Find the **Provisioning** section of the file and uncomment the lines for manual provisioning with X.509 identity certificate. Make sure that any other provisioning sections are commented out.
-
-    ```toml
-    # Manual provisioning with x.509 certificates
-    [provisioning]
-    source = "manual"
-    iothub_hostname = "REQUIRED_IOTHUB_HOSTNAME"
-    device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
-
-    [provisioning.authentication]
-    method = "x509"
-
-    identity_cert = "REQUIRED_URI_OR_POINTER_TO_DEVICE_IDENTITY_CERTIFICATE"
-
-    identity_pk = "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
-    ```
-
-    Update the following fields:
-    
-    * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
-    * **device_id**: The ID that you provided when you registered the device.
-    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
-    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
-
-1. Save and close the file.
-
-    `CTRL + X`, `Y`, `Enter`
-
-1. After entering the provisioning information in the configuration file, apply your changes:
-
-    ```bash
-    sudo iotedge config apply
-    ```
 
 # [Ubuntu Core snaps](#tab/snaps)
 
