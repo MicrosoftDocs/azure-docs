@@ -43,6 +43,7 @@ To create a Resource Manager template with the default Application Insights sett
 
 1. Select **Review + create**. Then select **Download a template for automation**.
 
+    <!-- TODO: Update for Linux -->
     :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png":::
 
     This option generates the latest Resource Manager template with all required settings configured.
@@ -54,6 +55,7 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
 > [!NOTE]
 > If using Windows, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~2`. If using Linux, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~3`.
 
+<!-- TODO: Change ~2 to ~3 as default when image is changed to Linux -->
 ```json
 {
     "resources": [
@@ -73,7 +75,7 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
                         },
                         {
                             "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
-                            "value": "~3"
+                            "value": "~2"
                         }
                     ]
                 },
@@ -158,12 +160,13 @@ To enable the application monitoring through PowerShell, only the underlying app
 > [!NOTE]
 > If using Windows, set ApplicationInsightsAgent_EXTENSION_VERSION to `~2`. If using Linux, set ApplicationInsightsAgent_EXTENSION_VERSION to `~3`.
 
+<!-- TODO: Change ~2 to ~3 as default when image is changed to Linux -->
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
 $app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} # preserve non Application Insights application settings.
 $newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights instrumentation key
 $newAppSettings["APPLICATIONINSIGHTS_CONNECTION_STRING"] = "InstrumentationKey=012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights connection string
-$newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~3"; # enable the ApplicationInsightsAgent
+$newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
