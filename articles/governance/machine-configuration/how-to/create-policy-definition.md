@@ -139,8 +139,8 @@ specified path:
 $PolicyConfig2      = @{
   PolicyId      = '_My GUID_'
   ContentUri    = $contentUri
-  DisplayName   = 'My audit policy'
-  Description   = 'My audit policy'
+  DisplayName   = 'My deployment policy'
+  Description   = 'My deployment policy'
   Path          = './policies/deployIfNotExists.json'
   Platform      = 'Windows'
   PolicyVersion = 1.0.0
