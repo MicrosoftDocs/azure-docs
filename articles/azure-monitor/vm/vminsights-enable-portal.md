@@ -67,7 +67,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
  
 1. If you use a manual upgrade model for your Virtual Machine Scale Set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
 
-## Enable Azure Monitor Agent on monitored machines
+## Enable VM Insights for Azure Monitor Agent on machines monitored with Log Analytics agent
 
 To add Azure Monitor Agent to machines that are already enabled with the Log Analytics agent: 
 
