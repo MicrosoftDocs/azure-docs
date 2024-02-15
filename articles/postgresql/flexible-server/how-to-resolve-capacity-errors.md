@@ -48,7 +48,7 @@ If you see the following errors, file a support ticket to enable a specific regi
 - `Subscription 'Subscription name' is not allowed to provision in 'region name`
 -  `Subscriptions are restricted from provisioning in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits.`
 
-# Availability Zone 
+## Availability Zone 
 
 If you receive following errors please choose a different availability zone. 
 
@@ -114,13 +114,13 @@ Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark,
 
 If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, please consider using an alternate region instead: 
 
+Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central , UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.
+
+
+## Next steps
 
 After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-## Next steps
-
--   Learn about [business continuity](./concepts-business-continuity.md)
--   Learn about [zone redundant high availability](./concepts-high-availability.md)
