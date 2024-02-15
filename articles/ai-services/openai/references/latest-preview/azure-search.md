@@ -34,7 +34,7 @@ The configurable options of Azure AI Search when using Azure OpenAI on your data
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
 | `query_type` | [QueryType](#query-type) | False | The query type to use with Azure Search. Default is `simple` |
 | `role_information`| string | False | Give the model instructions about how it should behave, and any context it should reference when generating a response. You can describe the assistant's personality, and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
-| `semantic_configuration` | string | False | The semantic configuration for the query. Required if and only if `query_type` is `semantic` or `vector_semantic_hybrid`.| 
+| `semantic_configuration` | string | False | The semantic configuration for the query. Required when `query_type` is `semantic` or `vector_semantic_hybrid`.| 
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
@@ -111,10 +111,10 @@ The type of Azure Search retrieval query that should be executed when using it a
 ## Examples
 
 Prerequisites:
-* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader` and `Search Service Contributor`.
+* Configure the role assignments from Azure OpenAI system assigned managed identity to Azure search service. Required roles: `Search Index Data Reader`, `Search Service Contributor`.
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
-* Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
+* Install [Az CLI](/cli/azure/install-azure-cli), and run `az login`.
+* Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint`, `SearchIndex`.
 
 # [Python 1.x](#tab/python)
 
@@ -125,7 +125,7 @@ import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-endpoint = os.environ.get("AOAIEndpoint")
+endpoint = os.environ.get("AzureOpenAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
 search_endpoint = os.environ.get("SearchEndpoint")
 search_index = os.environ.get("SearchIndex")
@@ -170,7 +170,7 @@ print(completion.model_dump_json(indent=2))
 
 ```bash
 az rest --method POST \
- --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '

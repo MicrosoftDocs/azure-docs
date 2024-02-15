@@ -72,7 +72,7 @@ The settings to control how fields are processed.
 Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`Environment`, `IndexName`, `Key`, `EmbeddingDeploymentName`.
+* Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`,`Environment`, `IndexName`, `Key`, `EmbeddingDeploymentName`.
 
 # [Python 1.x](#tab/python)
 
@@ -81,7 +81,7 @@ import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-endpoint = os.environ.get("AOAIEndpoint")
+endpoint = os.environ.get("AzureOpenAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
 environment = os.environ.get("Environment")
 key = os.environ.get("Key")
@@ -139,7 +139,7 @@ print(completion.model_dump_json(indent=2))
 ```bash
 
 az rest --method POST \
- --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '

@@ -68,8 +68,8 @@ Prerequisites:
 * Configure the role assignments from Azure OpenAI system assigned managed identity to Azure Machine Learning workspace resource. Required role: `AzureML Data Scientist`.
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
-* Run `export MSYS_NO_PATHCONV=1` if you are using MINGW.
+* Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
+* Run `export MSYS_NO_PATHCONV=1` if you're using MINGW.
 
 # [Python 1.x](#tab/python)
 
@@ -78,7 +78,7 @@ import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-endpoint = os.environ.get("AOAIEndpoint")
+endpoint = os.environ.get("AzureOpenAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
 project_resource_id = os.environ.get("ProjectResourceId")
 index_name = os.environ.get("IndexName")
@@ -127,7 +127,7 @@ print(completion.model_dump_json(indent=2))
 ```bash
 
 az rest --method POST \
- --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '

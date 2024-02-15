@@ -36,7 +36,7 @@ The configurable options for Elasticsearch when using Azure OpenAI on your data.
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
-## Key and key id authentication options
+## Key and key ID authentication options
 
 The authentication options for Azure OpenAI on your data when using an API key.
 
@@ -74,9 +74,9 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
 
-## Model id vectorization source
+## Model ID vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on Elasticsearch model id.
+The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on Elasticsearch model ID.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -119,7 +119,7 @@ The type of Elasticsearch retrieval query that should be executed when using it 
 Prerequisites:
 * Configure the role assignments from the user to the Azure OpenAI resource. Required role: `Cognitive Services OpenAI User`.
 * Install [Az CLI](/cli/azure/install-azure-cli) and run `az login`.
-* Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `SearchEndpoint`, `IndexName`, `Key`, `KeyId`.
+* Define the following environment variables: `AzureOpenAIEndpoint`, `ChatCompletionsDeploymentName`, `SearchEndpoint`, `IndexName`, `Key`, `KeyId`.
 
 # [Python 1.x](#tab/python)
 
@@ -128,7 +128,7 @@ import os
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-endpoint = os.environ.get("AOAIEndpoint")
+endpoint = os.environ.get("AzureOpenAIEndpoint")
 deployment = os.environ.get("ChatCompletionsDeploymentName")
 index_name = os.environ.get("IndexName")
 search_endpoint = os.environ.get("SearchEndpoint")
@@ -179,7 +179,7 @@ print(completion.model_dump_json(indent=2))
 ```bash
 
 az rest --method POST \
- --uri $AOAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '
