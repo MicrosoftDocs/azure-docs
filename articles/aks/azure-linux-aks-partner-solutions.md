@@ -1,14 +1,14 @@
 ---
-title: Azure Linux AKS Container Host Partner Solutions
-titleSuffix: Azure Linux AKS Container Host Partner Solutions
+title: Azure Linux AKS Container Host partner solutions
+titleSuffix: Azure Linux AKS Container Host partner solutions
 description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/14/2024
+ms.date: 02/15/2024
 ---
 
-# Azure Linux AKS Container Host Partner Solutions
+# Azure Linux AKS Container Host partner solutions
 
 Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-![Advantech logo.](./media/azure-linux-aks-partner-solutions/Advantech.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/advantech.png" alt-text="Advantech logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -42,7 +42,7 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 
 ### Hashicorp
 
-![Hasicorp logo.](./media/azure-linux-aks-partner-solutions/Hashicorp.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/hashicorp.png" alt-text="Hashicorp logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -60,7 +60,7 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 
 ### Akuity
 
-![Akuity logo.](./media/azure-linux-aks-partner-solutions/Akuity.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/akuity.png" alt-text="Akuity logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -80,7 +80,7 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 
 ### Kong
 
-![Kong logo.](./media/azure-linux-aks-partner-solutions/Kong.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/kong.png" alt-text="Kong logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -111,7 +111,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### Buoyant
 
-![Buoyant logo.](./media/azure-linux-aks-partner-solutions/Buoyant.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/buoyant.png" alt-text="Buoyant logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -123,7 +123,7 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 ### Isovalent
 
-![Isovalent logo.](./media/azure-linux-aks-partner-solutions/Isovalent.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/isovalent.png" alt-text="Isovalent logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -149,7 +149,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Dynatrace
 
-![Dynatrace logo.](./media/azure-linux-aks-partner-solutions/Dynatrace.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/dynatrace.png" alt-text="Dynatrace logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -165,7 +165,7 @@ Ensure the integrity and confidentiality of applications and foster trust and co
 
 ### Tetrate
 
-![Tetrate logo.](./media/azure-linux-aks-partner-solutions/Tetrate.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/tetrate.png" alt-text="Tetrate logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -187,7 +187,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### Veeam
 
-![Veeam logo.](./media/azure-linux-aks-partner-solutions/Veeam.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/veeam.png" alt-text="Veeam logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -197,13 +197,13 @@ Kasten K10 by Veeam is the #1 Kubernetes data management product, providing an e
 
 For more information, see [Veeam Solutions](https://www.kasten.io/partner-microsoft) and [Veeam on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.kasten_k10_by_veeam_byol?tab=overview).
 
-## Config Management
+## Config management
 
 Automate and standardize the system settings across your environments to enhance efficiency, reduce errors, and ensuring system stability and compliance.
 
 ### Corent
 
-![Corent logo.](./media/azure-linux-aks-partner-solutions/Corent.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/corent.png" alt-text="Corent logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
@@ -219,7 +219,7 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 ### Catalogic
 
-![Catalogic logo.](./media/azure-linux-aks-partner-solutions/Catalogic.png)
+:::image type="content" source="./media/azure-linux-aks-partner-solutions/catalogic.png" alt-text="Catalogic logo" border="true":::
 
 | Solution | Categories |
 |----------|------------|
