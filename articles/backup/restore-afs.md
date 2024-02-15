@@ -1,5 +1,5 @@
 ---
-title: Restore Azure file shares
+title: Restore Azure File shares
 description: Learn how to use the Azure portal to restore an entire file share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
 ms.date: 12/28/2022
@@ -9,23 +9,26 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure file shares
+# Restore Azure File shares
 
 This article describes how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
+
+>[!Note]
+>Vaulted backup for Azure File share is currently in preview.
 
 ## Select the file share to restore
 
 To select the file share, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and click **Restore**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and select **Restore**.
 
    :::image type="content" source="./media/restore-afs/backup-center-restore-inline.png" alt-text="Screenshot shows how to start the process to restore the Azure File share restore." lightbox="./media/restore-afs/backup-center-restore-expanded.png":::
 
-1. Select **Azure Files (Azure Storage)** as the datasource type, select the file share that you wish to restore, and then click **Continue**.
+1. Select **Azure Files (Azure Storage)** as the datasource type, select the file share that you wish to restore, and then select **Continue**.
 
    :::image type="content" source="./media/restore-afs/azure-file-share-select-instance.png" alt-text="Screenshot showing to select Backup items.":::
 
-## Restore the Azure file shares
+## Restore the Azure File shares
 
 This section describes how to restore:
 
@@ -51,7 +54,7 @@ You can use this restore option to restore the complete file share in the origin
    :::image type="content" source="./media/restore-afs/azure-file-share-select-restore-point-inline.png" alt-text="Screenshot shows how to select restore point." lightbox="./media/restore-afs/azure-file-share-select-restore-point-expanded.png":::
 
     >[!NOTE]
-    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and select the **Refresh** button.
+    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and select **Refresh**.
 
 1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
@@ -111,7 +114,7 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Screenshot shows the original location for item-level recovery.](./media/restore-afs/original-location-item-level.png)
 
-1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right, displaying the contents of the file share recovery point you selected for restore.
+1. To select the files or folders you want to restore, select **Add File**. This will open a context pane on the right, displaying the contents of the file share recovery point you selected for restore.
 
     ![Screenshot shows how to choose Add File.](./media/restore-afs/add-file.png)
 
@@ -131,7 +134,7 @@ You can use this restore option to restore individual files or folders in the or
 1. The **Select File Share** drop-down list displays the file shares present in the storage account you selected in step 2. Select the file share where you want to restore the backed-up contents.
 1. In the **Folder Name** box, specify a folder name you want to create in the destination file share with the restored contents.
 1. Select whether to skip or overwrite if there are conflicts.
-1. To select the files or folders you want to restore, select the **Add File** button. This will open a context pane on the right displaying the contents of the file share recovery point you selected for restore.
+1. To select the files or folders you want to restore, select **Add File**. This will open a context pane on the right displaying the contents of the file share recovery point you selected for restore.
 
     ![Screenshot shows how to select items to restore to alternate location.](./media/restore-afs/restore-to-alternate-location.png)
 
@@ -154,7 +157,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 You can also monitor restore progress from the Recovery Services vault:
 
-1. Go to **Backup center** and click **Backup Jobs** from the menu.
+1. Go to **Backup center** and select **Backup Jobs** from the menu.
 1. Filter for jobs for the required datasource type and job status.
 
    :::image type="content" source="./media/restore-afs/backup-center-jobs-inline.png" alt-text="Screenshot shows how to select Backup Jobs." lightbox="./media/restore-afs/backup-center-jobs-expanded.png":::
@@ -169,4 +172,4 @@ You can also monitor restore progress from the Recovery Services vault:
 
 ## Next steps
 
-* Learn how to [Manage Azure file share backups](manage-afs-backup.md).
+* [Manage Azure file share backups](manage-afs-backup.md).
