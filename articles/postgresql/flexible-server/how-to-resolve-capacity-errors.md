@@ -24,7 +24,7 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 ## Exceeded quota 
 
-If you encounter any of the following errors when attempting to deploy your Azure SQL resource, please [request to increase your quota](how-to-request-quota-increase.md).
+If you encounter any of the following errors when attempting to deploy your Azure PostgreSQL Flexible Server resource, [request to increase your quota](how-to-request-quota-increase.md).
 
 - `Operation could not be completed as it results in exceeding approved {0} Cores quota.` 
 `Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
@@ -32,9 +32,9 @@ If you encounter any of the following errors when attempting to deploy your Azur
 
 ## Subscription access
 
-Your subscription may not have access to create a server in the selected region if your subscription has not been registered with the PostgreSQL resource provider (RP).  
+Your subscription may not have access to create a server in the selected region if your subscription is not registered with the PostgreSQL resource provider (RP).  
 
-If you see the following errors, please [register your subscription with the PostgreSQL RP](#register-with-postgreSQL-rp):
+If you see the following errors, please [register your subscription with the PostgreSQL RP](#register-with-postgresql-rp)]
 - `Your subscription does not have access to create a server in the selected region.`
 - `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
 - `Location 'region name' is not accepting creation of new Azure Database for PostgreSQL Flexible servers for the subscription 'subscription id' at this time`
