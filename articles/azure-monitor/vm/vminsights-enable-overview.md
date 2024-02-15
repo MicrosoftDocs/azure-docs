@@ -97,7 +97,7 @@ When you enable VM Insights for a machine, the following agents are installed.
 - The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 ## VM Insights data collection rule 
 
-When you enable VM Insights on a machine with the Azure Monitor agent, you must specify a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to use. VM Insights creates a default data collection rule if one doesn't already exist.
+To enable VM Insights on a machine with Azure Monitor Agent, associate a VM insights [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) with the agent. VM Insights creates a default data collection rule if one doesn't already exist.
 
 The data collection rule specifies the data to collect and the workspace to use:  
 
@@ -108,7 +108,7 @@ The data collection rule specifies the data to collect and the workspace to use:
 | Log Analytics workspace | Workspace to store the data. Only workspaces with VM Insights are listed. |
 
 > [!IMPORTANT]
-> VM Insights automatically creates a DCR that includes a special data stream required for its operation. Do not modify the VM Insights DCR or create your own DCR to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate DCRs and associate them with your machines. In the Azure portal, you can 
+> VM Insights automatically creates a data collection rule that includes a special data stream required for its operation. Do not modify the VM Insights data collection rule or create your own data collection rule to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate data collection rules and associate them with your machines.
 
 If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
 
