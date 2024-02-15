@@ -185,10 +185,12 @@ sections:
         answer: |
           No. NSG flow logs and VNet flow logs don't support ICMP protocol.
 
+      - question: |
           Can I delete a network security group that has flow logging enabled?
         answer: |
           Yes. The associated flow log resource will be deleted too. Flow log data is retained in the storage account for the retention period configured in the flow log.
 
+      - question: |
           Can I move a network security group that has flow logging enabled to a different resource group or subscription?
         answer: |
           Yes, but you you must delete the associated flow log resource. After you migrate the network security group, you can re-create the flow logs to enable flow logging on it.
