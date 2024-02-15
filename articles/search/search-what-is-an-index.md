@@ -172,7 +172,7 @@ All indexing and query requests target an index. Endpoints are usually one of th
 
 #### How to connect to Azure AI Search
 
-1. [Start with the Azure portal](https://portal.azure.com). Azure subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. This permission level is sufficent for fully managing a search service in the Azure portal.
+1. [Start with the Azure portal](https://portal.azure.com). Azure subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. This permission level is sufficient for fully managing a search service in the Azure portal.
 
 1. Try other clients for programmatic access. We recommend the quickstarts for first steps:
 
