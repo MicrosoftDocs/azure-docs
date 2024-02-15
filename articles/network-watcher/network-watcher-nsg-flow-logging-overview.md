@@ -419,7 +419,7 @@ To learn how to read and export NSG flow logs, see one of the following guides:
 - [Read flow logs by using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
-NSG flow log files are stored only in a storage account at the following path:
+NSG flow log files are stored in a storage account at the following path:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
