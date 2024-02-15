@@ -32,7 +32,7 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 |Name               | In   | Type     | Required | Description                                                                           |
 |---                |---   |---       |---       |---                                                                                    |
 |```deployment-id```|path  |string    |True      |Specifies the chat completions model deployment name to use for this request.          |
-|```endpoint```     |path  |string    |True      |Azure OpenAI endpoints. For example: https://YOUR_RESOURCE_NAME.openai.azure.com       |
+|```endpoint```     |path  |string    |True      |Azure OpenAI endpoints. For example: `https://{YOUR_RESOURCE_NAME}.openai.azure.com`   |
 |```api-version```  |query |string    |True      |The API version to use for this operation.                                             |
 
 ## Request body
@@ -82,4 +82,4 @@ This list shows the supported data sources.
 * [Azure Cosmos DB for MongoDB vCore](./cosmos-db.md)
 * [Azure Machine Learning index](./azure-ml.md)
 * [Elasticsearch](./elasticsearch.md)
-* [Pinecone](/pinecone.md)
+* [Pinecone](./pinecone.md)

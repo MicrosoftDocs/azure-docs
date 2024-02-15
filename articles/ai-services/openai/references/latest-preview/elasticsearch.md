@@ -83,6 +83,15 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 | `model_id`|string|True| Specifies the model ID to use for vectorization. This model ID must be defined in Elasticsearch.|
 | `type`|string|True| Must be `model_id`.|
 
+## API key authentication options
+
+The authentication options for Azure OpenAI on your data when using an API key.
+
+|Name | Type | Required | Description |
+|--- | --- | --- | --- |
+| `key`|string|True|The API key to use for authentication.|
+| `type`|string|True| Must be `api_key`.|
+
 ## Fields mapping options
 
 Optional settings to control how fields are processed when using a configured Elasticsearch resource.
