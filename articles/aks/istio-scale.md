@@ -14,11 +14,11 @@ The Istio-based service mesh add-on is logically split into control plane (`isti
 ## Control Plane Performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. To determine Istiod’s performance in revision asm-1-18, a single `istiod` instance with the default settings: `2 vCPU` and `2 GB` memory is used with horizontal pod autoscaling disabled. The scenarios tested were:
 
-- Pod churn: Examines the impact of pod churning on `istiod`. To reduce variables, only one service is used for all sidecars. 
-- Maximum sidecars: Examines the maximum sidecars Istiod can manage (sidecar capacity) with 1,000 services and each service has `N` sidecars, totaling the overall maximum.
+- Pod churn: examines the impact of pod churning on `istiod`. To reduce variables, only one service is used for all sidecars. 
+- Maximum sidecars: examines the maximum sidecars Istiod can manage (sidecar capacity) with 1,000 services and each service has `N` sidecars, totaling the overall maximum.
 
 ### Pod churn
-The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars Istiod can manage when there's sidecar churning. The churn percent is defined as the percent of sidecars churned down/up during the test. For example, 50% churn for 10,000 sidecars would mean that 5,000 sidecars were churned down then 5,000 sidecars were churned up. The churn percents tested were determined from the typical churn percentage during deployment rollouts (`maxUnavailable`). The churn rate was calculated by determining the total number of sidecars churned (up and down) over the actual time taken to complete the churning process.
+The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars Istiod can manage when there's sidecar churning. The churn percent is defined as the percent of sidecars churned down/up during the test. For example, 50% churn for 10,000 sidecars would mean that 5,000 sidecars were churned down, then 5,000 sidecars were churned up. The churn percents tested were determined from the typical churn percentage during deployment rollouts (`maxUnavailable`). The churn rate was calculated by determining the total number of sidecars churned (up and down) over the actual time taken to complete the churning process.
 
 #### Sidecar Capacity and Istiod CPU and Memory
 
@@ -30,6 +30,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          25 | 41.7                        |              15000 |                 20.4 |           13 |
 |          50 | 62.5                        |              15000 |                 24.2 |           12 |
 
+
 **Azure CNI Dynamic IP**
 
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
@@ -37,6 +38,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |           0 | --                          |              35000 |                 41.1 |           13 |
 |          25 | 50.0                        |              30000 |                 42.6 |           12 |
 |          50 | 69.4                        |              25000 |                 44.5 |           12 |
+
 
 **Azure CNI Dynamic IP with Cilium**
 
@@ -46,6 +48,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          25 | 31.2                        |              15000 |                 20.5 |           11 |
 |          50 | 41.7                        |              10000 |                 14.8 |            8 |
 
+
 **Kubenet**
 
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
@@ -53,6 +56,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |           0 | --                          |              35000 |                 40.7 |           14 |
 |          25 | 50.0                        |              30000 |                 41.7 |           14 |
 |          50 | 59.5                        |              25000 |                 43.3 |           11 |
+
 
 **Azure CNI Overlay**
 
@@ -62,6 +66,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          25 | 50.0                        |              30000 |                 42.9 |           12 |
 |          50 | 62.5                        |              30000 |                 50.3 |           13 |
 
+
 **Azure CNI Overlay with Cilium**
 
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
@@ -69,6 +74,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |           0 | --                          |              15000 |                 17.1 |           10 |
 |          25 | 41.7                        |              10000 |                 12.9 |            8 |
 |          50 | 41.7                        |              10000 |                 15.5 |            8 |
+
 
 ### Maximum sidecars
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there's any significant stress from the add-on.
@@ -111,7 +117,7 @@ The following analysis evaluates the impact of adding sidecar proxies to the dat
 ## Service Entry
 Istio features a custom resource definition known as a ServiceEntry that enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
 
-- Switch to resolution: NONE to avoid proxy DNS lookups entirely. Suitable for most use cases.
+- Switch to `resolution: NONE` to avoid proxy DNS lookups entirely. Suitable for most use cases.
 - Increase TTL (Time To Live) if you control the domains being resolved.
 - Limit the ServiceEntry scope with `exportTo`.
 
