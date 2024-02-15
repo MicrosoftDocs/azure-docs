@@ -14,7 +14,7 @@ ms.custom:
 
 #  Azure Machine Learning Index Data Source
 
-A specific representation of configurable options for Azure Machine Learning index when using Azure OpenAI on your data.
+The configurable options of Azure Machine Learning index when using Azure OpenAI on your data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -36,7 +36,7 @@ A specific representation of configurable options for Azure Machine Learning ind
 | `filter`| string | False | Search filter. Only supported if the Azure Machine Learning index is of type Azure Search.|
 
 
-## Access Token Authentication Options
+## Access token authentication options
 
 The authentication options for Azure OpenAI on your data when using access token.
 
@@ -45,7 +45,7 @@ The authentication options for Azure OpenAI on your data when using access token
 | `access_token`|string|True|The access token to use for authentication.|
 | `type`|string|True| Must be `access_token`.|
 
-## System Assigned Managed Identity Authentication Options
+## System assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
 
@@ -53,7 +53,7 @@ The authentication options for Azure OpenAI On Your Data when using a system-ass
 |--- | --- | --- | --- |
 | `type`|string|True| Must be `system_assigned_managed_identity`.|
 
-## User Assigned Managed Identity Authentication Options
+## User assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
 
@@ -71,7 +71,7 @@ Prerequisites:
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`, `ProjectResourceId`, `IndexName`, `IndexVersion`.
 * Run `export MSYS_NO_PATHCONV=1` if you are using MINGW.
 
-# [Python](#tab/python)
+# [Python 1.x](#tab/python)
 
 ```python
 import os

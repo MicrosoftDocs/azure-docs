@@ -12,9 +12,9 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure Search Data Source
+# Azure AI Search Data Source
 
-A specific representation of configurable options for Azure Search when using Azure OpenAI on your data.
+The configurable options for Azure AI Search when using Azure OpenAI on your data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -75,7 +75,7 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 
 ## Endpoint vectorization source
 
-The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on a public Azure OpenAI endpoint.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -116,7 +116,7 @@ Prerequisites:
 * Install [Az CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and run `az login`.
 * Define the following environment variables: `AOAIEndpoint`, `ChatCompletionsDeploymentName`,`SearchEndpoint` and `SearchIndex`.
 
-# [Python](#tab/python)
+# [Python 1.x](#tab/python)
 
 ```python
 
