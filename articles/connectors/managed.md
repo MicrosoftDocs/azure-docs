@@ -546,7 +546,7 @@ For more information, see these topics:
 [azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-ml-icon]: ./media/apis-list/azure-ml.png
 [azure-monitor-logs-icon]: ./media/apis-list/azure-monitor-logs.png
-[azure-queues-icon]: ./media/apis-list/azure-queues.png
+[azure-queues-icon]: ./media/apis-list/azure-queue-storage.png
 [azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [azure-sql-data-warehouse-icon]: ./media/apis-list/azure-sql-data-warehouse.png
