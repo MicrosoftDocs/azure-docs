@@ -1,5 +1,5 @@
 ---
-title: Security filters to trim results using MIcrosoft Entra ID
+title: Security filters to trim results using Microsoft Entra ID
 titleSuffix: Azure AI Search
 description: Access control at the document level for search results, using security filters and Microsoft Entra identities.
 
