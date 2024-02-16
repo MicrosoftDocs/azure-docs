@@ -8,37 +8,39 @@ ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
-# Understand Azure Disks billing
-Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-state drives (SSD) V2, Premium SSD, Standard SSD, and Standard hard-disk drives (HDDs). Ultra Disks and Premium SSD v2 are priced based on the provisioned performance and capacity that you select. Premium SSD, Standard SSD, and Standard HDDs are priced based on the tier they're deployed as. All disk types are billed at an hourly rate.
+# Understand Azure Disk Storage billing
+
+Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-state drives (SSD) V2, Premium SSD, Standard SSD, and Standard hard-disk drives (HDDs). Most disk types have different factors that change their billing. Ultra Disks and Premium SSD v2 are priced based on the provisioned performance and capacity that you select. Premium SSD, Standard SSD, and Standard HDDs are priced based on the tier they're deployed as. All disk types are billed at an hourly rate. Other factors may impact billing as well, such as transactions or bursting.
 
 This article helps you understand the factors and differences between each disk type's pricing model, and how this looks on your Azure Disks bill. We’ll also provide pricing examples for some common scenarios and show how Azure disk types compare. 
 
-For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+For detailed Azure Disk Storage pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-## Factors that Affect Azure Disk Billing 
+## Factors that affect Azure Disk Storage billing 
 To understand Azure Disk Storage pricing, be aware of how the following criteria affects costs:
 
 - Disk type: Each disk type has separate pricing models: Ultra Disk Storage, Premium SSD V2, Premium SSD, Standard SSD, Standard HDD.
-- Disk size: Disks are charged on the total provisioned size, not actual usage. Each disk maps to a supported provisioned disk-size offering and is billed accordingly.
+- Disk size: Standard HDD, Standard SSD, and Premium SSD are charged on the total provisioned size, not actual usage. Each disk maps to a supported provisioned disk-size offering and is billed accordingly. Ultra Disks and Premium SSD v2 are charged on the actual size.
 - Data transactions: You're billed for the number of transactions performed on a standard managed disk. (For certain disk sizes and configurations, a fee is charged per 10,000 transactions.)
 - Data redundancy: Prices can change depending on the redundancy option selected: LRS, ZRS.
 - Snapshots: Snapshots are a separate resource from your disks, and they're billed based on the size used and the type of storage used. So if you create a snapshot of a managed disk, you will be billed for the used size not the provisioned size of the disk.
+- (Ultra Disks and Premium SSD v2 only) customizable IOPS and throughput: You're billed for the IOPS and throughput you assign to your disk.
 
 This table displays our current disk types and the available billable features:
 
-| Disk Category | Data Transactions | Snapshots | Bursting | Additional IOPS/Throughput |
-|-|-|-|-|-|
-|Premium SSD | ⛔ | ✔️ | ✔️ |⛔|
-|Standard SSD|✔️| ✔️ | ✔️ |⛔|
-|Standard HHD|✔️| ✔️ |⛔|⛔|
-|Premium SSD v2|⛔| ✔️ |⛔| ✔️ |
-|Ultra Disk|⛔| ✔️ |⛔| ✔️|
+| Disk Category | Data Transactions | Snapshots | Bursting | Customizable IOPS and Throughput | zone-redundant storage option |
+|-|-|-|-|-|-|
+|Premium SSD | ⛔ | ✔️ | ✔️ |⛔| ✔️ |
+|Standard SSD|✔️| ✔️ | ✔️ |⛔| ✔️ |
+|Standard HHD|✔️| ✔️ |⛔|⛔|⛔|
+|Premium SSD v2|⛔| ✔️ |⛔| ✔️ |⛔|
+|Ultra Disk|⛔| ✔️ |⛔| ✔️|⛔|
 
 
-## Understanding your Azure Disks Bill  
+## Understand your Azure Disk Storage Bill  
 
 ### Provisioning examples 
-The disk pricing can include various combinations of features as well as provisioned and used size. Let's take a look at some examples for different disk types and feature definitions and availability for each disk type:
+Disk pricing can include different combinations of features as well as provisioned and used size. Let's take a look at some examples for different disk types, feature definitions, and redundancy for each disk type:
 For detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Standard Disks:
@@ -53,6 +55,9 @@ For standard SSDs, each I/O operation less than or equal to 256 kB of throughput
 
 #### Standard SSD Bursting
 Standard SSDs offer disk bursting, which provides better tolerance for the unpredictable IO pattern changes. OS boot disks and applications prone to traffic spikes will both benefit from disk bursting. To learn more about how bursting for Azure disks works, see Disk-level bursting.
+
+#### Zone-redundant storage
+Standard SSDs can optionally be deployed using zone-redundant storage (ZSR), which synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks), for details.
 
 #### Snapshots
 Full snapshots and images are charged at a monthly rate for both LRS and ZRS snapshot options based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.
@@ -89,6 +94,13 @@ Premium SSD managed disks using the on-demand bursting model are charged an hour
 
 #### Premium SSD transactions
 For Premium SSD managed disks, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB.
+
+#### Zone-redundant storage
+
+> [!NOTE]
+> Premium SSD v2 doesn't support zone-redundant storage.
+
+Premium SSD can optionally be deployed using zone-redundant storage (ZSR), which synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks), for details.
 
 #### Premium SSD v2 IOPS
 All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
