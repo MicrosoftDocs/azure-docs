@@ -486,6 +486,9 @@ items:
       items:
       - name: Overview
         displayName: Prometheus,remote-write
+        href: essentials/remote-write-prometheus.md
+      - name: Remote-write using Azure Monitor sidecar
+        displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write.md
       - name: Microsoft Entra authorization proxy
         displayName: Prometheus
@@ -889,6 +892,8 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
         href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
+      - name: Get started
+        href: essentials/prometheus-get-started.md
       - name: Azure Monitor workspace
         items:
         - name: Overview
@@ -901,6 +906,9 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
+      - name: Remote-write from self-managed Prometheus
+        displayName: Prometheus
+        href: essentials/remote-write-prometheus.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
