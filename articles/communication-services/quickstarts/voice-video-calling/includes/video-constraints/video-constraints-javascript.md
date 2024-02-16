@@ -145,7 +145,7 @@ await currentCall.setConstraints({
 <br/>
 
 ## Receive video constraints
-To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjusts received resolution based on the dimensions of the renderer. The SDK won't request an incoming video stream (width and height) than it can fit into the renderer video window.
+To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjusts received resolution based on the dimensions of the renderer. The SDK won't request an incoming video stream (width and height) that can fit into the renderer video window.
 
 
 
