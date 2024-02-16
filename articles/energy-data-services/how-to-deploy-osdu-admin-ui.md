@@ -91,7 +91,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 2. Enter the required environment variables on the terminal.
 ```bash
 export ADMINUI_CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
-export WEBSITE_NAME="<website-name>" ## Unique name of the static web app or storage account that will be generated
+export WEBSITE_NAME="<storage-name>" ## Unique name of the storage account or  static web app that will be generated
 export RESOURCE_GROUP="<resource-group>" ## Name of resource group
 export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 ```
