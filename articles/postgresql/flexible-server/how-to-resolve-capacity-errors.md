@@ -32,7 +32,7 @@ If you encounter any of the following errors when attempting to deploy your Azur
 
 ## Subscription access
 
-Your subscription may not have access to create a server in the selected region if your subscription is not registered with the PostgreSQL resource provider (RP).  
+Your subscription may not have access to create a server in the selected region if your subscription isn't registered with the PostgreSQL resource provider (RP).  
 
 If you see any of the following errors, [Register your subscription with the PostgreSQL RP](#register-with-postgresql-rp)] to resolve it
 - `Your subscription does not have access to create a server in the selected region.`
@@ -42,7 +42,7 @@ If you see any of the following errors, [Register your subscription with the Pos
 
 ## Enable region 
 
-Your subscription may not have access to create a server in the selected region. To resolve this issue, file a  [request to access a region](how-to-request-quota-increase.md). for your subscription. 
+Your subscription may not have access to create a server in the selected region. To resolve this issue, file a  [request to access a region](how-to-request-quota-increase.md).
 
 If you see the following errors, file a support ticket to enable a specific region: 
 - `Subscription 'Subscription name' is not allowed to provision in 'region name`
@@ -50,7 +50,7 @@ If you see the following errors, file a support ticket to enable a specific regi
 
 ## Availability Zone 
 
-If you receive following errors, please choose a different availability zone. 
+If you receive following errors, select a different availability zone. 
 
 - `Availability zone '{ID}' is not available for subscription '{Sub ID}' in this region temporarily due to capacity constraints.`
 - `Multi-Zone HA is not supported in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits'.` 
@@ -58,7 +58,7 @@ If you receive following errors, please choose a different availability zone.
 
 ## SKU Not Available 
 
-If you encounter the following error, please choose a different SKU type. Availability of SKU may differ across regions, either the specific SKU is not supported by Azure compute or unavailable due to temporary capacity constraints.
+If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU is not available in the region or temporary unavailable due to  capacity constraints.
 
 `Specified SKU is not supported in this region. Please choose a different SKU.`
 
@@ -106,20 +106,20 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 ## Additional provisioning issues
 
-If you're still experiencing provisioning issues, please open a **Region** access request under the support topic of Azure PostgreSQL Flexible Server and specify the vCores you want to utilize. 
+If you're still experiencing provisioning issues, open a **Region** access request under the support topic of Azure PostgreSQL Flexible Server and specify the vCores you want to utilize. 
 
 ## Azure Program regions 
 
 Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark, BizSpark Plus, Microsoft for Startups / Sponsorship Offers, Visual Studio Subscriptions / MSDN) have access to a limited set of regions. 
 
-If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, please consider using an alternate region instead: 
+If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, consider using an alternate region instead: 
 
-Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central , UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.
+Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, JIO India Central, JIO India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central, UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.
 
 
 ## Next steps
 
-After you submit your request, it will be reviewed. You will be contacted with an answer based on the information you provided in the form.
+After you submit your request, it will be reviewed. You'll be contacted with an answer based on the information you provided in the form.
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
