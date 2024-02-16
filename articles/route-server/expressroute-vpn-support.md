@@ -24,7 +24,7 @@ When you deploy an Azure Route Server along with a virtual network gateway and a
 > [!IMPORTANT] 
 > ExpressRoute branch-to-branch connectivity is not supported. If you have two (or more) ExpressRoute circuits connected to the same ExpressRoute virtual network gateway, routes from one circuit are not advertised to the other. If you want to enable on-premises to on-premises connectivity over ExpressRoute, consider configuring ExpressRoute Global Reach. For more information, see [About Azure ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md).
 
-The following diagram shows an example of using branch-to-branch connectivity with Azure Route Server:
+The following diagram shows an example of using Route Server to exchange routes between an ExpressRoute and SDWAN appliance:
 
 - The SDWAN appliance receives from Azure Route Server the route of *On-premises 2*, which is connected to ExpressRoute circuit, along with the route of the virtual network.
 
