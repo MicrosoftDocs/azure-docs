@@ -3,7 +3,7 @@ title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/15/2024
+ms.date: 02/16/2024
 ---
 
 # Add module settings in the Bicep config file
@@ -157,7 +157,7 @@ The available profiles are:
 - AzureChinaCloud
 - AzureUSGovernment
 
-By default, Bicep use the `AzureCloud` profile and the credentials of the user authenticated in Azure CLI or Azure PowerShell. You have the option to customize these profiles or include new ones for your on-premises environments. If you want to publish or restore a module to a national cloud environment such as `AzureUSGovernment`, you must set `"currentProfile": "AzureUSGovernment"` even if you've  selected that cloud profile in the Azure CLI. Bicep is unable to automatically determine the current cloud profile based on Azure CLI settings.
+By default, Bicep uses the `AzureCloud` profile and the credentials of the user authenticated in Azure CLI or Azure PowerShell. You can customize these profiles or include new ones for your on-premises environments. If you want to publish or restore a module to a national cloud environment such as `AzureUSGovernment`, you must set `"currentProfile": "AzureUSGovernment"` even if you've selected that cloud profile in the Azure CLI. Bicep is unable to automatically determine the current cloud profile based on Azure CLI settings.
 
 Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentication. The available credential types are:
 
