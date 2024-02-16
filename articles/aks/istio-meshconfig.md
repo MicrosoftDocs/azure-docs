@@ -80,7 +80,65 @@ Fields in `MeshConfig` are classified into three categories:
 - **Allowed and supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
 - **Allowed and unsupported**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
 
-Mesh configuration and the list of allowed/supported fields are revision specific to account for fields being added/removed across revisions. The full list of allowed fields and the supported/unsupported ones within the allowed list can be found [here][asm-allowlist]. When the availability of a new mesh revision is communicated over the [AKS release notes][aks-release-notes], this file is updated too to capture the allowed and supported/unsupported field classification for that revision. Description for each of these fields is available in [Istio open source docs for mesh configuration][istio-meshconfig].
+Mesh configuration and the list of allowed/supported fields are revision specific to account for fields being added/removed across revisions. The full list of allowed fields and the supported/unsupported ones within the allowed list is provided in the below table. When new mesh revision is made available, any changes to allowed or supported/unsupported classification of the fields is noted in this table.
+
+### MeshConfig:
+
+| **Field** | **Supported** |
+|-----------|---------------|
+| proxyListenPort | false |
+| proxyInboundListenPort | false |
+| proxyHttpPort | false |
+| connectTimeout | false |
+| tcpKeepAlive | false |
+| defaultConfig | true |
+| outboundTrafficPolicy | true |
+| extensionProviders | true |
+| defaultProvideres | true |
+| accessLogFile | true |
+| accessLogFormat | true |
+| accessLogEncoding | true |
+| enableTracing | true |
+| enableEnvoyAccessLogService | true |
+| disableEnvoyListenerLog | true |
+| trustDomain | false |
+| trustDomainAliases | false |
+| caCertificates | false |
+| defaultServiceExportTo | false |
+| defaultVirtualServiceExportTo | false |
+| defaultDestinationRuleExportTo | false |
+| localityLbSetting | false |
+| dnsRefreshRate | false |
+| h2UpgradePolicy | false |
+| enablePrometheusMerge | true |
+| discoverySelectors | true |
+| pathNormalization | false |
+| defaultHttpRetryPolicy | false |
+| serviceSettings | false |
+| meshMTLS | false |
+| tlsDefaults | false |
+
+### ProxyConfig (meshConfig.defaultConfig):
+
+| **Field** | **Supported** |
+|-----------|---------------|
+| tracingServiceName | true |
+| drainDuration | true |
+| statsUdpAddress | false |
+| proxyAdminPort | false |
+| tracing | true |
+| concurrency | true |
+| envoyAccessLogService | true |
+| envoyMetricsService | true |
+| proxyMetadata | false |
+| statusPort | false |
+| extraStatTags | false |
+| proxyStatsMatcher | false |
+| terminationDrainDuration | true |
+| meshId | false |
+| holdApplicationUntilProxyStarts | true |
+| caCertificatesPem | false |
+| privateKeyProvider | false |
 
 ### Support scope of configurations
 
@@ -100,6 +158,4 @@ Mesh configuration allows for extension providers such as self-managed instances
 
 
 [istio-meshconfig]: https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/
-[asm-allowlist]: https://github.com/Azure/AKS
-[aks-release-notes]: https://github.com/Azure/AKS/releases
 [istio-sidecar-race-condition]: https://istio.io/latest/docs/ops/common-problems/injection/#pod-or-containers-start-with-network-issues-if-istio-proxy-is-not-ready
