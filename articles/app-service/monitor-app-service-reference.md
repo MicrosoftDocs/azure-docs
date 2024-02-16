@@ -1,5 +1,5 @@
 ---
-title: Monitoring data reference for Azure App Service
+title: Azure App Service monitoring data reference
 description: This article contains important reference material you need when you monitor Azure App Service.
 ms.date: 02/15/2024
 ms.custom: horz-monitor
