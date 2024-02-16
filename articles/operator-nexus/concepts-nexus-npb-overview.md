@@ -5,7 +5,7 @@ author: joemarshallmsft
 ms.author: joemarshall
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 16/02/2024
+ms.date: 02/16/2024
 ms.custom: template-concept
 ---
 
