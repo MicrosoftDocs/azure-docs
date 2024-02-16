@@ -1,6 +1,6 @@
 ---
 title: Relocation guidance for Azure Monitor - Log Analytics Workspace
-description: Learn how to relocate an Azure Monitor - Log Analytics Workspace to a new region
+description: Learn how to relocate an Azure Monitor - Log Analytics workspace to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -12,18 +12,18 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure Monitor - Log Analytics Workspace to another region
+# Relocate Azure Monitor - Log Analytics workspace to another region
 
-This article covers relocation guidance for Azure Monitor - Log Analytics Workspace across regions.
+This article covers relocation guidance for Azure Monitor - Log Analytics workspace across regions.
 
-Since many resources depend on Azure Log Analytics Workspace for data logging, prioritization sequencing is extremely important. A relocation plan for Log Analytics Workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
+Since many resources depend on Azure Log Analytics workspace for data logging, prioritization sequencing is extremely important. A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
 
-Log Analytics Workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, you must create a new Log Analytics Workspace in the target region and reconfigure the devices and settings in the new workspace. 
+Log Analytics workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, you must create a new Log Analytics workspace in the target region and reconfigure the devices and settings in the new workspace. 
 
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
 
-:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
+:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
 
 ## Prerequisites
 
