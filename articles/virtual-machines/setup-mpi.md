@@ -12,6 +12,9 @@ author: ju-shim
 
 # Set up Message Passing Interface for HPC
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an open library and de-facto standard for distributed memory parallelization. It is commonly used across many HPC workloads. HPC workloads on the [RDMA capable](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs can use MPI to communicate over the low latency and high bandwidth InfiniBand network.

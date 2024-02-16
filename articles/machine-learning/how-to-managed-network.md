@@ -724,8 +724,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     ```
 
     > [!NOTE]
-    > - When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
-    > - If the workspace was created with `isolation_mode: allow_internet_outbound`, it can not be updated later to use `isolation_mode: allow_only_approved_outbound`.
+    > When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job. Setting an FQDN outbound rule will not bypass this issue as FQDN rule propagation is not supported by Spark. 
 
     # [Python SDK](#tab/python)
 
@@ -1032,6 +1031,18 @@ If you plan to use __HuggingFace models__ with Azure Machine Learning, add outbo
 * `production.cloudflare.docker.com`
 * `cdn.auth0.com`
 * `cdn-lfs.huggingface.co`
+
+### Scenario: Enable access from selected IP Addresses
+
+If you want to enable access from specific IP addresses, use the following actions:
+
+1. Add an outbound _private endpoint_ rule to allow traffic to the Azure Machine Learning workspace. This allows compute instances created in the managed virtual network to access the workspace.
+
+    > [!TIP]
+    > You can't add this rule during workspace creation, as the workspace doesn't exist yet.
+
+1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
+1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
 
 ## Private endpoints
 
