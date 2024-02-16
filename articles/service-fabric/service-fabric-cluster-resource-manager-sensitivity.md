@@ -11,9 +11,7 @@ ms.author: jinghuafeng
 # 1. Service sensitivity
 Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements are conducted for balancing, defragmentation, or other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Move cost does not function when CRM conducts swaps as all replicas share the same swap cost, which results in the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to failover.
 
-Starting from Service Fabric version 10.1, CRM introduced sensitivity feature, which offers an option for service fabric customers to finely tune the importance of a stateful service replica and thus to set levels of SLOs to the interruptions to the service. The service sensitivity is defined as a non-negative integer with default value of 0. Larger value implies the lower probability of victimizing (failovering) the corresponding replica. Sensitivity description class contains three different non-negative integers to represent the sensitivities of primary, secondary, and auxiliary replicas respectively. In addition, a separate boolean value `IsMaximumSensitivity` denotes if a replica is the most sensitive replica. 
-
-When `IsMaximumSensitivity` is set to true, the Max Sensitivity Replica (MSR) can only be moved or swapped in the following cases:
+CRM introduced sensitivity feature starting from Service Fabric version 10.1. Currently, this feature associates a service with a boolean variable `IsMaximumSensitivity`, denoting if the service replica is the most sensitive replica or not. CRM provides the maximum protection against failover for these types of replicas.  In other words, when `IsMaximumSensitivity` is set to true for a service, the Max Sensitivity Replica (MSR) of this service can only be moved or swapped in the following unavoidable cases:
 * FD/UD constraint violation only if FD/UD is set to hard constraint
 * replica swap during upgrade
 * Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR is not movable.)
@@ -31,7 +29,7 @@ While in the following case, two MSRs with load of 60 each collocates on Node 1,
 |Node 1 |120/100       |60                |60                |                  |
 |Node 2 |20/100         |                  |                 |20                |
 
-The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric. With this upper bound set, PLB can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
+The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, along with `IsMaximumSensitivity`, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric. With this upper bound set, CRM can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
 
 Let's say that two customer metrics are defined for cluster node: ACU (Application CPU Usage) and IDSU (Instance Disk Usage). The node capacities for ACU and IDSU are **100 vCores** and **4 TB** respectively.
 
@@ -46,6 +44,8 @@ The table below shows a few examples regarding the collocation of maximum sensit
 |1 |50 |2 | true |50 |2 |Yes |
 |2 |100 |2 | true |100 |4 |No |
 |3 |50 |2 | true |50 |4 |No |
+
+
 
 > [!NOTE]
 Current sensitivity feature only provides MSR functionality. For non-MSR but with different sensitivity values, CRM does not treat them differently from the perspective of sensitivity.
@@ -85,7 +85,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```xml
 <Service>
   <StatefulService>
-    <ServiceSensitivityDescription PrimaryDefaultSensitivity="10" SecondaryDefaultSensitivity="10" AuxiliaryDefaultSensitivity="10" IsMaximumSensitivity="False" />
+    <ServiceSensitivityDescription PrimaryDefaultSensitivity="0" SecondaryDefaultSensitivity="0" AuxiliaryDefaultSensitivity="0" IsMaximumSensitivity="True" />
   </StatefulService>
 </Service>
 ```
@@ -94,10 +94,10 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 To specify the sensitivity for a service when it is created:
 ```posh
 $sensitivity = New-Object -TypeName System.Fabric.Description.ServiceSensitivityDescription
-$sensitivity.PrimaryDefaultSensitivity = 10
-$sensitivity.SecondaryDefaultSensitivity = 10
-$sensitivity.AuxiliaryDefaultSensitivity = 10
-$sensitivity.IsMaximumSensitivity = $false
+$sensitivity.PrimaryDefaultSensitivity = 0
+$sensitivity.SecondaryDefaultSensitivity = 0
+$sensitivity.AuxiliaryDefaultSensitivity = 0
+$sensitivity.IsMaximumSensitivity = $true
 
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -ServiceSensitivityDescription $sensitivity
 ```
@@ -105,10 +105,10 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 To specify or update sensitivity dynamically for an existing service: 
 ```posh
 $sensitivity = New-Object -TypeName System.Fabric.Description.ServiceSensitivityDescription
-$sensitivity.PrimaryDefaultSensitivity = 10
-$sensitivity.SecondaryDefaultSensitivity = 10
-$sensitivity.AuxiliaryDefaultSensitivity = 10
-$sensitivity.IsMaximumSensitivity = $false
+$sensitivity.PrimaryDefaultSensitivity = 0
+$sensitivity.SecondaryDefaultSensitivity = 0
+$sensitivity.AuxiliaryDefaultSensitivity = 0
+$sensitivity.IsMaximumSensitivity = $true
 
 Update-ServiceFabricService -Stateful -ServiceName fabric:/AppName/ServiceName -ServiceSensitivityDescription $sensitivity
 ```
@@ -119,10 +119,10 @@ To specify the sensitivity for a service when it is created:
 FabricClient fabricClient = new FabricClient();
 
 ServiceSensitivityDescription serviceSensitivity = new ServiceSensitivityDescription();
-serviceSensitivity.PrimaryDefaultSensitivity = 10
-serviceSensitivity.SecondaryDefaultSensitivity = 10
-serviceSensitivity.AuxiliaryDefaultSensitivity = 10
-serviceSensitivity.IsMaximumSensitivity = $false
+serviceSensitivity.PrimaryDefaultSensitivity = 0
+serviceSensitivity.SecondaryDefaultSensitivity = 0
+serviceSensitivity.AuxiliaryDefaultSensitivity = 0
+serviceSensitivity.IsMaximumSensitivity = $true
 
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
 serviceDescription.ServiceSensitivityDescription = serviceSensitivity; 
@@ -135,10 +135,10 @@ To specify or update sensitivity dynamically for an existing service:
 FabricClient fabricClient = new FabricClient();
 
 ServiceSensitivityDescription serviceSensitivity = new ServiceSensitivityDescription();
-serviceSensitivity.PrimaryDefaultSensitivity = 10
-serviceSensitivity.SecondaryDefaultSensitivity = 10
-serviceSensitivity.AuxiliaryDefaultSensitivity = 10
-serviceSensitivity.IsMaximumSensitivity = $false
+serviceSensitivity.PrimaryDefaultSensitivity = 0
+serviceSensitivity.SecondaryDefaultSensitivity = 0
+serviceSensitivity.AuxiliaryDefaultSensitivity = 0
+serviceSensitivity.IsMaximumSensitivity = $true
 
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 serviceUpdate.ServiceSensitivityDescription = serviceSensitivity; 
@@ -147,6 +147,9 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 
 ## 1.3. Set Maximum Load
+> [!NOTE]
+> The default value of `MaximumLoad` is 0. When the user specifies a positive value for `MaximumLoad`, the user is required to set `IsMaximumSensitivity` of the corresponding service to true first.
+> Another requirement is `MaximumLoad` is equal to or greater than all the default loads in the same metric. 
 ### 1.3.1. Use Application Manifest
 ```xml
 <Service>
