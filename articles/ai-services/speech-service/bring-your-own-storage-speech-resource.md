@@ -24,7 +24,7 @@ BYOS can be used with several Azure AI services. For Speech, it can be used in t
 
 - [Batch transcription](batch-transcription.md)
 - Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
-- [Custom Speech](custom-speech-overview.md) (Custom models for Speech recognition)
+- [Custom speech](custom-speech-overview.md) (Custom models for Speech recognition)
 
 **Text to speech**
 

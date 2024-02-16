@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/16/2023
+ms.date: 01/18/2024
 ms.custom:
   - mode-ui
   - ignite-2023
@@ -43,7 +43,7 @@ Before you begin, have the following prerequisites in place:
 
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Screenshot of the Search explorer tab." border="true":::
 
-1. To specify syntax and choose an API version, select **JSON view**. The examples in this article assume JSON view throughout.
+1. To specify query parameters and an API version, switch to **JSON view**. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
 
    :::image type="content" source="media/search-explorer/search-explorer-json-view.png" alt-text="Screenshot of the JSON view selector." border="true":::
 

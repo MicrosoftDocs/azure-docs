@@ -2,16 +2,16 @@
 title: Speech SDK audio input stream concepts
 titleSuffix: Azure AI services
 description: An overview of the capabilities of the Speech SDK audio input stream.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
+
 # How to use the audio input stream
 
 The Speech SDK provides a way to stream audio into the recognizer as an alternative to microphone or file input.
@@ -22,7 +22,7 @@ See more examples of speech to text recognition with audio input stream on [GitH
 
 ## Identify the format of the audio stream
 
-Identify the format of the audio stream. The format must be supported by the Speech SDK and the Azure AI Speech service.
+Identify the format of the audio stream. 
 
 Supported audio samples are:
 

@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 07/05/2022
 ms.devlang: csharp
-ms.custom: [seodec18, devx-track-csharp, cogserv-non-critical-vision]
+ms.custom: devx-track-csharp, cogserv-non-critical-vision
 ---
 
 # Analyze videos in near real time

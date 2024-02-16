@@ -69,7 +69,7 @@ You can also access activity log events by using the following methods:
 - Correlate activity log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on activity log entries.
-- Use log alerts with Activity entries for more complex alerting logic.
+- Use log search alerts with Activity entries for more complex alerting logic.
 - Store activity log entries for longer than the activity log retention period.
 - Incur no data ingestion or retention charges for activity log data stored in a Log Analytics workspace.
 - The default retention period in Log Analytics is 90 days

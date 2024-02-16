@@ -2,15 +2,8 @@
 title: Use availability zones for high availability in Azure NetApp Files | Microsoft Docs
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/17/2022
 ms.author: anfdocs
@@ -26,7 +19,7 @@ Azure availability zones are highly available, fault tolerant, and more scalable
 
 The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
 
-:::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="../media/azure-netapp-files/availability-zone-diagram.png":::
+:::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="./media/use-availability-zones/availability-zone-diagram.png":::
 
 Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in availability zones of your choice, in alignment with Azure compute and other services in the same zone.  
 

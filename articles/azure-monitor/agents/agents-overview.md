@@ -8,7 +8,7 @@ ms.date: 7/19/2023
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
-#customer-intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems of my virtual machines. 
+# Customer intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems of my virtual machines. 
 ---
 
 # Azure Monitor Agent overview
@@ -179,9 +179,6 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows Server 2016 Core                                 | ✓ |   | ✓ |
 | Windows Server 2012 R2                                   | ✓ | ✓ | ✓ |
 | Windows Server 2012                                      | ✓ | ✓ | ✓ |
-| Windows Server 2008 R2 SP1                               | ✓ | ✓ | ✓ |
-| Windows Server 2008 R2                                   |   |   | ✓ |
-| Windows Server 2008 SP2                                  |   | ✓ |   |
 | Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
 | Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
 | Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
@@ -280,7 +277,7 @@ An agent is only required to collect data from the operating system and workload
 
 ### How can I be notified when data collection from the Log Analytics agent stops?
 
-Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+Use the steps described in [Create a new log search alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
           
 - **Define alert condition**: Specify your Log Analytics workspace as the resource target.
 - **Alert criteria**:
@@ -292,7 +289,7 @@ Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) 
    - **Name**: *Data collection stopped*.
    - **Severity**: *Warning*.
           
-Specify an existing or new [action group](../alerts/action-groups.md) so that when the log alert matches criteria, you're notified if you have a heartbeat missing for more than 15 minutes.
+Specify an existing or new [action group](../alerts/action-groups.md) so that when the log search alert matches criteria, you're notified if you have a heartbeat missing for more than 15 minutes.
        
 ### Will Azure Monitor Agent support data collection for the various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel?
 

@@ -7,15 +7,17 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 01/21/2024
 ms.author: pafarley
 ---
 
 # Select a domain for a Custom Vision project
 
-From the **settings** tab of your project on the Custom Vision web portal, you can select a model domain for your project. You'll want to choose the domain that's closest to your scenario. If you're accessing Custom Vision through a client library or REST API, you'll need to specify a domain ID when creating the project. You can get a list of domain IDs with [Get Domains](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab), or use the table below.
+This guide shows you how to select a domain for your project in the Custom Vision Service.
 
-## Image Classification
+From the **settings** tab of your project on the Custom Vision web portal, you can select a model domain for your project. You'll want to choose the domain that's closest to your use case scenario. If you're accessing Custom Vision through a client library or REST API, you'll need to specify a domain ID when creating the project. You can get a list of domain IDs with [Get Domains](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab). Or, use the table below.
+
+## Image Classification domains
 
 |Domain|Purpose|
 |---|---|
@@ -31,7 +33,7 @@ From the **settings** tab of your project on the Custom Vision web portal, you c
 > [!NOTE]
 > The General[A1] and General[A2] domains can be used for a broad set of scenarios and are optimized for accuracy. Use the General[A2] model for better inference speed and shorter training time. For larger datasets, you may want to use General[A1] to render better accuracy than General[A2], though it requires more training and inference time. The General model requires more inference time than both General[A1] and General[A2].
 
-## Object Detection
+## Object Detection domains
 
 |Domain|Purpose|
 |---|---|
@@ -57,9 +59,16 @@ Model performance varies by selected domain. In the table below, we report the m
 |Object Detection|General (compact) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 
 >[!NOTE]
->__General (compact)__ domain for Object Detection requires special postprocessing logic. For the detail, please see an example script in the exported zip package. If you need a model without the postprocessing logic, use __General (compact) [S1]__.
+>The __General (compact)__ domain for Object Detection requires special postprocessing logic. For the detail, please see an example script in the exported zip package. If you need a model without the postprocessing logic, use __General (compact) [S1]__.
 
 >[!IMPORTANT]
 >There is no guarantee that the exported models give the exactly same result as the prediction API on the cloud. Slight difference in the running platform or the preprocessing implementation can cause larger difference in the model outputs. For the detail of the preprocessing logic, please see [this document](quickstarts/image-classification.md).
 
 \[1\] Intel Xeon E5-2690 CPU and NVIDIA Tesla M60
+
+## Next steps
+
+Follow a quickstart to get started creating and training a Custom Vision project.
+
+* [Build a classifier](getting-started-build-a-classifier.md)
+* [Build an object detector](get-started-build-detector.md)

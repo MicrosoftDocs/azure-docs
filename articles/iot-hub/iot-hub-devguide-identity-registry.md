@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 06/29/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', ignite-2022]
+ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---
 
 # Understand the identity registry in your IoT hub

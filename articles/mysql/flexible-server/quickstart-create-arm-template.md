@@ -69,7 +69,7 @@ Create an **azuredeploy.json** file with the following content to create an Azur
       "defaultValue": "Burstable",
       "allowedValues": [
         "Burstable",
-        "Generalpurpose",
+        "GeneralPurpose",
         "MemoryOptimized"
       ],
       "metadata": {
@@ -299,7 +299,7 @@ Create an **azuredeploy.json** file with the following content to create an Azur
       "defaultValue": "Burstable",
       "allowedValues": [
         "Burstable",
-        "Generalpurpose",
+        "GeneralPurpose",
         "MemoryOptimized"
       ],
       "metadata": {

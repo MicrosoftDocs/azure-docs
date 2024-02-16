@@ -5,12 +5,9 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/27/2023
 ms.author: duau
-
 ---
 
 # Edgio-specific HTTP headers for Azure CDN rules engine

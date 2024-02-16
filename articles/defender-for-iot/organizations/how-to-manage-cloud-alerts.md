@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts on the Azure portal - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts triggered by cloud-connected Microsoft Defender for IoT network sensors on the Azure portal.
-ms.date: 12/12/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -27,7 +27,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - **To view alerts on the Azure portal**, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
-- **To manage alerts on the Azure portal**, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). Alert management activities include modifying their statuses or severities, *Learning* an alert, or accessing PCAP data.
+- **To manage alerts on the Azure portal**, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). Alert management activities include modifying their statuses or severities, *Learning* an alert, accessing PCAP data, or using alert suppression rules.
 
 For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
@@ -56,13 +56,16 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Destination device address** | The IP address of the destination device. |
         | **Destination device** | The destination IP or MAC address, or the destination device name.|
         | **First detection** | The first time the alert was detected in the network. |
-        | **ID** |The unique alert ID.|
+        | **Id** |The unique alert ID, aligned with the ID on the sensor console.<br><br>**Note:** If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts. |
         | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert deduplication |
         | **Protocol** | The protocol detected in the network traffic for the alert.|
         | **Sensor** |  The sensor that detected the alert.|
         | **Zone** | The zone assigned to the sensor that detected the alert.|
         | **Category**| The [category](alert-engine-messages.md#supported-alert-categories) associated with the alert, such as *operational issues*, *custom alerts*, or *illegal commands*. |
         | **Type**| The  internal name of the alert. |
+
+> [!TIP]
+> If you're seeing more alerts than expected, you might want to create suppression rules to prevent alerts from being triggered for legitimate network activity. For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
 
 ### Filter alerts displayed
 

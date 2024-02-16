@@ -2,15 +2,8 @@
 title: Understand guidelines for Active Directory Domain Services site design and planning
 description: Proper Active Directory Domain Services (AD DS) design and planning are key to solution architectures that use Azure NetApp Files volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: anfdocs
@@ -33,7 +26,6 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 * **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
 * **Microsoft Entra Kerberos for hybrid identities**: Using Microsoft Entra ID for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
-
 
 ### <a name="network-requirements"></a>Network requirements 
 
@@ -200,7 +192,7 @@ An AD DS site topology is a logical representation of the network where Azure Ne
 
 The following diagram shows a sample network topology:
 sample-network-topology.png
-:::image type="content" source="../media/azure-netapp-files/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="../media/azure-netapp-files/sample-network-topology.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png":::
 
 In the sample network topology, an on-premises AD DS domain (`anf.local`) is extended into an Azure virtual network. The on-premises network is connected to the Azure virtual network using an Azure ExpressRoute circuit. 
 
@@ -210,17 +202,17 @@ Azure NetApp Files can only use one AD DS site to determine which domain control
 
 In the Active Directory Sites and Services tool, verify that the AD DS domain controllers deployed into the AD DS subnet are assigned to the `ANF` site: 
 
-:::image type="content" source="../media/azure-netapp-files/active-directory-servers.png" alt-text="Screenshot of the Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="../media/azure-netapp-files/active-directory-servers.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/active-directory-servers.png" alt-text="Screenshot of the Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="./media/understand-guidelines-active-directory-domain-service-site/active-directory-servers.png":::
 
 To create the subnet object that maps to the AD DS subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
  
 In the **New Object - Subnet** dialog, the 10.0.0.0/24 IP address range for the AD DS Subnet is entered in the **Prefix** field. Select `ANF` as the site object for the subnet. Select **OK** to create the subnet object and assign it to the `ANF` site.
 
-:::image type="content" source="../media/azure-netapp-files/new-object-subnet-menu.png" alt-text="Screenshot of the New Object – Subnet menu." lightbox="../media/azure-netapp-files/new-object-subnet-menu.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/new-object-subnet-menu.png" alt-text="Screenshot of the New Object – Subnet menu." lightbox="./media/understand-guidelines-active-directory-domain-service-site/new-object-subnet-menu.png":::
 
 To verify that the new subnet object is assigned to the correct site, right-click the 10.0.0.0/24 subnet object and select **Properties**. The **Site** field should show the `ANF` site object:
 
-:::image type="content" source="../media/azure-netapp-files/properties-menu.png" alt-text="Screenshot of the properties menu with a red box surrounding the site field that reads 'ANF'." lightbox="../media/azure-netapp-files/properties-menu.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/properties-menu.png" alt-text="Screenshot of the properties menu with a red box surrounding the site field that reads 'ANF'." lightbox="./media/understand-guidelines-active-directory-domain-service-site/properties-menu.png":::
 
 To create the subnet object that maps to the Azure NetApp Files delegated subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
 

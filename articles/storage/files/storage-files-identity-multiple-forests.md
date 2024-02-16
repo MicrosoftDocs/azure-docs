@@ -39,7 +39,7 @@ A forest trust is a transitive trust between two AD forests that allows users in
 To configure a multi-forest setup, we'll perform the following steps:
 
 - Collect domain information and VNET connections between domains
-- Establish and configure a trust
+- Establish and configure a forest trust
 - Set up identity-based authentication and hybrid user accounts
 
 ### Collect domain information
@@ -60,6 +60,10 @@ In order to enable clients from **Forest 1** to access Azure Files domain resour
 1. Select **New Trusts** to launch the **New Trust Wizard**.
 1. Specify the domain name you want to build trust with (in this example, **onpremad1.com**), and then select **Next**.
 1. For **Trust Type**, select **Forest trust**, and then select **Next**.
+   
+   > [!NOTE]
+   > Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, are not supported.
+   
 1. For **Direction of Trust**, select **Two-way**, and then select **Next**.
 
     :::image type="content" source="media/storage-files-identity-multiple-forests/direction-of-trust.png" alt-text="Screenshot of Active Directory Domains and Trusts console showing how to select a two-way direction for the trust." border="true":::

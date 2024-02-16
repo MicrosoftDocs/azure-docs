@@ -4,8 +4,8 @@ description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 05/27/2022
 ms.topic: how-to

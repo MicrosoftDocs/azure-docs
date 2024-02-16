@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.custom: devx-track-bicep
 ms.topic: quickstart
 ms.author: jgao
-ms.date: 09/21/2022
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server instance
