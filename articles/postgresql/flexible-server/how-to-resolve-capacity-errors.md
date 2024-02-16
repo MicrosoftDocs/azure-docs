@@ -118,7 +118,7 @@ If your subscription is part of above offerings and you require access to any of
 
 ## Next steps
 
-Once you've submitted your request, it undergoes review. You'll then receive a response based on the information provided in the form.
+Once you submit your request, it undergoes review. You then receive a response based on the information provided in the form.
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
