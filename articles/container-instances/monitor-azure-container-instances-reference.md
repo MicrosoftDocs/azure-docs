@@ -26,12 +26,12 @@ At a minimum your service should have the following two articles:
 1. The primary monitoring article (based on the template monitor-service-template.md)
    - Title: "Monitor Container Instances"
    - TOC title: "Monitor"
-   - Filename: "monitor-container-instances.md"
+   - Filename: "monitor-azure-container-instances.md"
 
 2. A reference article that lists all the metrics and logs for your service (based on this template).
    - Title: "Container Instances monitoring data reference"
    - TOC title: "Monitoring data reference"
-   - Filename: "monitor-container-instances-reference.md".
+   - Filename: "monitor-azure-container-instances-reference.md".
 -->
 
 # Container Instances monitoring data reference
@@ -39,7 +39,7 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Container Instances](monitor-container-instances.md) for details on the data you can collect for Container Instances and how to use it.
+See [Monitor Container Instances](monitor-azure-container-instances.md) for details on the data you can collect for Container Instances and how to use it.
 
 <!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
@@ -182,5 +182,5 @@ The following table lists a subset of the operations that Azure Container Instan
 
 ## Related content
 
-- See [Monitor Container Instances](monitor-container-instances.md) for a description of monitoring Container Instances.
+- See [Monitor Container Instances](monitor-azure-container-instances.md) for a description of monitoring Container Instances.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
