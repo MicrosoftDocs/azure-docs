@@ -484,18 +484,7 @@ Resolution:
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
 
-## Programming language support 
-
-Along with deploying a model from Azure OpenAI Studio, you can also chat with it programmatically. You can find a number of available 
-* [REST API](../reference.md#azure-ai-search)
-* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
-* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
-* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
-* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
-* [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
-
-
-## Azure OpenAI On Your Data regional availability
+## Regional availability and model support
 
 You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the following regions:
 * Australia East
@@ -516,7 +505,7 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 * West Europe
 * West US
 
-## Supported models
+### Supported models
 
 * `gpt-4` (0314)
 * `gpt-4` (0613)
