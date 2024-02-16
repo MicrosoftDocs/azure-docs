@@ -4,10 +4,10 @@ description: Learn how to use WebJobs to run background tasks in Azure App Servi
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
-ms.date: 7/30/2023
+ms.date: 3/01/2024
 author: msangapu-msft
 ms.author: msangapu
-ms.reviewer: cephalin;suwatch;pbatum;naren.soni;glenga
+ms.reviewer: cephalin;suwatch;pbatum;naren.soni;
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -22,16 +22,28 @@ Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload a
 If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
-WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There's no extra cost to use WebJobs.
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. There's no extra cost to use WebJobs.
 
-You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. WebJobs aren't supported for App Service on Linux yet. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
+
+
 ## WebJob types
 
-The following table describes the differences between *continuous* and *triggered* WebJobs.
+### <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
+The following file types are supported:
+
+| App type | Windows code | Windows container | Linux code | Linux container |
+|----------|--------------|-------------------|------------|-----------------|
+| Supported file types |.cmd, .bat, .exe (using Windows cmd)<br>.ps1 (using PowerShell)<br>.sh (using Bash)<br>.php (using PHP)<br>.py (using Python)<br>.js (using Node.js)<br>.jar (using Java)<br>|Linux code types | Linux container types |
+|Description|win code | win cont | linux code | linux cont |
+
+### Continuous vs. triggered WebJobs
+
+The following table describes the differences between *continuous* and *triggered* WebJobs:
 
 |Continuous  |Triggered  |
 |---------|---------|
@@ -42,17 +54,7 @@ The following table describes the differences between *continuous* and *triggere
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
-The following file types are supported:
-
-* .cmd, .bat, .exe (using Windows cmd)
-* .ps1 (using PowerShell)
-* .sh (using Bash)
-* .php (using PHP)
-* .py (using Python)
-* .js (using Node.js)
-* .jar (using Java)
 
 ## <a name="CreateContinuous"></a> Create a continuous WebJob
 
