@@ -59,7 +59,7 @@ To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs p
 
 * To learn more about NSG flow logs, see [NSG flow log overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
+* For guides on how to enable NSG flow logs, see [Managing NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#managing-nsg-flow-logs).
 
 * For guides on how to read NSG flow logs, see [Working with NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
 
