@@ -2,7 +2,7 @@
 title: Prompt engineering techniques with Azure OpenAI
 titleSuffix: Azure OpenAI Service
 description: Learn about the options for how to use prompt engineering with GPT-3, GPT-35-Turbo, and GPT-4 models
-author: suhridpalsule
+author: mrbullwinkle
 ms.author: mbullwin 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
