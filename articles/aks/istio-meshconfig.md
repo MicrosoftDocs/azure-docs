@@ -9,7 +9,7 @@ ms.author: shasb
 
 # Configure Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
-Open-source Istio uses [MeshConfig][istio-meshconfig] to define mesh-wide settings for the Istio service mesh. Istio-based service mesh add-on for AKS builds on top of MeshConfig and classifies different properties as disallowed, or allowed and supported, or allowed and unsupported.
+Open-source Istio uses [MeshConfig][istio-meshconfig] to define mesh-wide settings for the Istio service mesh. Istio-based service mesh add-on for AKS builds on top of MeshConfig and classifies different properties as supported, allowed, and blocked
 
 This article walks through how to configure Istio-based service mesh add-on for Azure Kubernetes Service and the support policy applicable for such configuration.
 
@@ -76,7 +76,7 @@ After the upgrade is completed or rolled back, you can delete the ConfigMap of t
 
 Fields in `MeshConfig` are classified into three categories: 
 
-- **Disallowed**: Disallowed fields are blocked outright via admission control. API server immediately publishes the error message to the user saying that the field is disallowed.
+- **Disallowed**: Disallowed fields are blocked via addon managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
 - **Allowed and supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
 - **Allowed and unsupported**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
 
@@ -140,10 +140,8 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | caCertificatesPem | false |
 | privateKeyProvider | false |
 
-### Support scope of configurations
-
-Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
-
+> [!CAUTION]
+> **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the support scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
 
 ## Common Errors and Troubleshooting Tips
 
