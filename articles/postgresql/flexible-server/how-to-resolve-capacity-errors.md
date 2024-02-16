@@ -111,14 +111,14 @@ If you're still experiencing provisioning issues, open a **Region** access reque
 
 Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark, BizSpark Plus, Microsoft for Startups / Sponsorship Offers, Microsoft Developer Network(MSDN) / Visual Studio Subscriptions) have access to a limited set of regions.
 
-f your subscription is part of aforementioned offering and you require access to any of the listed regions, please submit an access request. Alternatively, you may opt for an alternate region: 
+If your subscription is part of above offerings and you require access to any of the listed regions, submit an access request. Alternatively, you may opt for an alternate region: 
 
 `Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, Jio India Central, Jio India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central, UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.`
 
 
 ## Next steps
 
-After you submit your request, it will be reviewed. You'll be contacted with an answer based on the information you provided in the form.
+Once you've submitted your request, it will undergo review. You will then receive a response based on the information provided in the form
 
 For more information about other Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
