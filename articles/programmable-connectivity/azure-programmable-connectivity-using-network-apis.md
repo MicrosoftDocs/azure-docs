@@ -21,6 +21,10 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 - Obtain the resource identifier of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, and copying the URL from `/subscriptions` onwards. A full identifier has the following format, with variables in <ANGLE_BRACKETS> templated: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.programmableconnectivity/gateways/<APC_GATEWAY_NAME>`. Note this as `APC_IDENTIFIER`.
 - Obtain the URL of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, and obtaining the `Gateway base URL` under Properties. Note this as `APC_URL`.
 
+## Definitions
+
+- Phone number: phone number, in this document, refers to a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
+
 ## Obtain an authentication token
 
 1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
@@ -84,7 +88,7 @@ The body of the request must take the following form. Replace the example values
 }
 ```
 
-Set `phoneNumber` to the phone number of the SIM you want to check. This must be in E.164 format (starting with country code) and optionally prefixed with '+'.
+Set `phoneNumber` to the phone number of the SIM you want to check.
 
 Set the `networkIdentifier` block according to instructions in [Network identifier](#network-identifier).
 
@@ -117,7 +121,7 @@ The body of the request must take the following form. Replace the example values
 }
 ```
 
-Set `phoneNumber` to the phone number of the SIM you want to check. This must be in E.164 format (starting with country code) and optionally prefixed with '+'.
+Set `phoneNumber` to the phone number of the SIM you want to check.
 
 Set `maxAgeHours` to the length of time in hours before the present that you want to check for a SIM swap.
 
@@ -181,7 +185,7 @@ Option 2: use the device's IPv6 address and port:
 }
 ```
 
-Option 3: use the device's phone number, which must be in E.164 format (starting with country code) and optionally prefixed with '+'.
+Option 3: use the device's phone number:
 
 ```json
 {
@@ -230,6 +234,82 @@ The response is of the form:
 ```
 
 `verificationResult` is a boolean, which is true if the device is within a certain distance (given by `accuracy`) of the given location, and false otherwise.
+
+### Verify the number of a device
+
+Number verification is different to other APIs, as it requires interaction with a frontend application (i.e. an application running on a device) to verify the number of that device, as part of a flow referred to as "frontend authentication". This means two separate calls to APC must be made: the first to trigger frontend authentication, and the second to request the desired information.
+
+To use number verification functionality, you must expose an endpoint on the backend of your application that is accessible from your application's frontend. This endpoint is used to pass the result of frontend authentication to the backend of your application. Note the full URL to this endpoint as `REDIRECT_URI`.
+
+#### Call 1
+
+Make a POST request to the endpoint `https://<APC_URL>/number-verification/number:verify`.
+
+It must contain all common headers specified in [Headers](#headers).
+
+The body of the request must take one of the following forms. Replace the example values with real values.
+
+Option 1: use the device's phone number:
+
+```json
+{
+    "phoneNumber": "+123456789",
+    "networkIdentifier": {
+      "identifierType": "NetworkCode",
+      "identifier": "Some_Network"
+    },
+    "redirectUri": "https://example.com/apcauthcallback"
+}
+```
+
+Option 2: use the SHA-256 hash, in hexadecimal representation, of the device's phone number:
+
+```json
+{
+    "hashedPhoneNumber": "b49f9168e8a886ffd61a090b51a26e117717f5f6fa804af49ea67043a2bfa4f0",
+    "networkIdentifier": {
+      "identifierType": "NetworkCode",
+      "identifier": "Some_Network"
+    },
+    "redirectUri": "https://example.com/apcauthcallback"
+}
+```
+
+The response to this call is a 302 redirect. It has a header `location`, which contains a URL. 
+
+Follow the URL from the frontend of your application. This triggers an authentication flow between the device running the frontend and the Network.
+
+At the end of the authentication flow, the Network returns a 302 redirect. This redirect:
+- Redirects to the `redirectUri` you sent in your request to APC
+- Contains the parameter `apcCode`
+
+The frontend of your application must follow this `redirectUri`. This delivers the `apcCode` to your application's backend.
+
+#### Call 2
+
+At the end of Call 1, your frontend made a request to the endpoint exposed at at `redirectUri` with a parameter `apcCode`. Your backend must obtain the value of `apcCode` and use it in the second call to APC.
+
+Make a POST request to the endpoint `https://<APC_URL>/number-verification/number:verify`.
+
+It must contain all common headers specified in [Headers](#headers).
+
+The body of the request must take the following form. Replace the value of `apcCode` with the value obtained as a result of the authentication flow. 
+
+```json
+{
+    "apcCode": "12345"
+}
+```
+
+The response is of the form:
+
+```json
+{
+    "verificationResult": true
+}
+```
+
+`verificationResult` is a boolean, which is true if the device has the number (or hashed number) specified in Call 1, and false otherwise.
 
 ### Obtain the Network of a device
 
