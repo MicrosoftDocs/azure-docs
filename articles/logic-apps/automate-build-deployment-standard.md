@@ -45,7 +45,7 @@ This guide shows how to complete the following tasks:
 
 1. Create a connection between your workspace and Git repository in Azure DevOps.
 
-1. Create piplines using Azure DevOps.
+1. Create pipelines in Azure DevOps.
 
 For more information, see the following documentation:
 
@@ -66,7 +66,7 @@ For more information, see the following documentation:
 
 - Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-- Azure Logic Apps (Standard) Build and Release tasks for Azure DevOps Tasks. You can find those task in the Azure DevOps Marketplace (link).
+- Azure Logic Apps (Standard) Build and Release tasks for Azure DevOps Tasks. You can find these tasks in the Azure DevOps Marketplace (link).
 
 - An existing resource group in Azure where you want to deploy your logic app.
 
@@ -163,13 +163,13 @@ After you create and locally test your workflow, create your deployment scripts.
 
    1. In the **Clone Repository** window, copy the HTTPS version of the URL.
 
-      For more information, see [Get the clone URL for your Git repository in Azure repos](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
+      For more information, see [Get the clone URL for your Git repository in Azure Repos](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
 
 1. Follow these steps to add a remote for your Git repository:
 
    1. Return to Visual Studio Code and the **Source Control** window.
 
-   1. Under **Source Control Repositories**, on your repostory's toolbar, open the ellipses (**...**) menu, and select **Remote** > **Add remote**.
+   1. Under **Source Control Repositories**, on your repository's toolbar, open the ellipses (**...**) menu, and select **Remote** > **Add remote**.
 
 1. At the prompt, paste your copied URL, and enter a name for the remote, which is usually **origin**.
 
