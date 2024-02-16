@@ -28,7 +28,7 @@ If you wish to try it out, you can download the code from [GitHub](https://githu
 Following this tutorial will:
 
 - Allow you to control your customers audio and video experience depending on your customer scenario
-- Teach you how to build a simple widget for starting calls on your webapp using the UI library.
+- Teach you how to build a widget for starting calls on your webapp using the UI library.
 
 ## Prerequisites
 
@@ -41,10 +41,10 @@ Following this tutorial will:
 
 ### Set up the project
 
-Only use this step if you are creating a new application.
+Only use this step if you're creating a new application.
 
 To set up the react App, we use the `create-react-app` command line tool. This tool
-creates an easy to run TypeScript application powered by React. This command creates a simple react application using TypeScript.
+creates an easy to run TypeScript application powered by React. This command creates a react application using TypeScript.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -56,7 +56,7 @@ cd ui-library-calling-widget-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we are going to build to work:
+Then you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
 
 ```json
 "@azure/communication-calling": "1.22.1",
@@ -201,16 +201,16 @@ export default App;
 
 ```
 
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating in the next section.
+In this snippet, we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we're creating in the next section.
 
 ### Create the widget
 
 Now we need to make a widget that can show in three different modes:
 - Waiting: This widget state is how the component will be in before and after a call is made
 - Setup: This state is when the widget asks for information from the user like their name.
-- In a call: The widget is replaced here with the UI library Call Composite. This is the mode when the user is calling the Voice app or talking with an agent.
+- In a call: The widget is replaced here with the UI library Call Composite. This widget mode is when the user is calling the Voice app or talking with an agent.
 
-Lets create a folder called `src/components`. In this folder make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
+Lets create a folder called `src/components`. In this folder, make a new file called `CallingWidgetComponent.tsx`. This file should look like the following snippet:
 
 `CallingWidgetComponent.tsx`
 
@@ -497,9 +497,9 @@ export const CallingWidgetComponent = (
 
 #### Style the widget
 
-We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet above.
+We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet we added to the file `CallingWidgetComponent.tsx`.
 
-lets make a new folder called `src/styles` in this folder create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following snippet:
+Lets make a new folder called `src/styles` in this folder, create a file called `CallingWidgetComponent.styles.ts`. The file should look like the following snippet:
 
 ```ts
 import {
@@ -642,13 +642,13 @@ Then when you action the widget button, you should see a little menu:
 
 ![Screenshot of calling widget sample app home page widget open.](../media/calling-widget/sample-app-splash-widget-open.png)
 
-after you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
+After you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
 
 ![Screenshot of click to call sample app home page with calling experience embedded in widget.](../media/calling-widget/calling-widget-embedded-start.png)
 
 ## Next steps
 
-If you haven't had the chance, check out our documentation on Teams auto attendants and Teams call queues.
+For more information about Teams voice applications, check out our documentation on Teams auto attendants and Teams call queues.
 
 > [!div class="nextstepaction"] 
 
