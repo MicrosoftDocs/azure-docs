@@ -213,9 +213,11 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ## Pricing
 
-Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of ***Network flow logs collected*** and will come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of ***Network flow logs collected*** and will come with a free tier of 5 GB/month per subscription.
 
-Pricing of VNet flow logs doesn't include the underlying costs of storage. Retaining flow logs data forever or using the retention policy feature means incurring storage costs for extended periods of time. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+If traffic analytics is enabled for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+Flow logs are stored in a storage account, and their retention policy can be set from one day to 365 days. If a retention policy is not set, the logs are maintained forever. Pricing of VNet flow logs doesn't include the costs of storage. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Availability
 
