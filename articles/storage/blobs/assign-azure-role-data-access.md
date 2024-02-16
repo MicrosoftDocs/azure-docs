@@ -145,7 +145,18 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>"
 ```
 
-For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. To learn more about the `--assignee-object-id` and `--assignee-principal-type` parameters, see [az role assignment](/cli/azure/role/assignment). In this example, the role assignment is scoped to the level of the storage account. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values: 
+
+<!-- replaycheck-task id="66526dae" -->
+```azurecli-interactive
+az role assignment create \
+    --role "Storage Blob Data Reader" \
+    --assignee-object-id "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" \
+    --assignee-principal-type "User" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+```
+
+For information about assigning roles with Azure CLI at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 # [Template](#tab/template)
 
