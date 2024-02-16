@@ -1,7 +1,7 @@
 ---
 title: API aggregation
 titleSuffix: Azure Programmable Connectivity
-description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
+description: Azure Programmable Connectivity simplifies the complexities associated with using Network APIs.
 author: anzaman
 ms.author: alzam
 ms.service: azure-operator-nexus
