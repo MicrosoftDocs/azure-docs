@@ -1,26 +1,24 @@
 ---
 title: Immersive Reader Kotlin (Android) client library quickstart 
 titleSuffix: Azure AI services
-description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
+description: In this quickstart, you build an Android app using Kotlin, and add the Immersive Reader API functionality.
 #services: cognitive-services
 author: rwallerms
 manager: guillasi
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 09/14/2020
+ms.date: 02/14/2024
 ms.author: rwaller
 ms.custom: devx-track-js
 ---
-
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
 
 In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
-* [Git](https://git-scm.com/).
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* [Git](https://git-scm.com).
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
 * [Android Studio](https://developer.android.com/studio).
 
@@ -608,7 +606,9 @@ Use Android Studio to run the app on a device emulator. When you select **Immers
 
 ![Immersive Reader - Kotlin](../../media/android/kotlin/android-studio-device-emulator.png)
 
-## Next steps
+## Next step
+
+CHANGE - THIS WAS A PREREQ
 
 > [!div class="nextstepaction"]
 > [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)

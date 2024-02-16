@@ -7,19 +7,17 @@ author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 09/14/2020
+ms.date: 02/14/2024
 ms.author: rwaller
 ---
-
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
 
 In this quickstart, you build an iOS app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* macOS and [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## Create an Xcode project
 
@@ -568,7 +566,9 @@ When you select the **Immersive Reader** button, you'll see the Immersive Reader
 
 ![Immersive Reader - Swift](../../media/ios/immersive-reader-ipad.png)
 
-## Next steps
+## Next step
+
+CHANGE - THIS WAS A PREREQ
 
 > [!div class="nextstepaction"]
 > [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
