@@ -12,11 +12,11 @@ ms.author: banders
 
 # Cost Management + Billing dataset schema index
 
-This article lists all dataset schemas available in Microsoft Cost Management + Billing. The schema files list and describe all of the data fields found in various CSV files. The CSV files might get generated from Cost Management exports, downloads in the Azure portal, or output from API queries.
+This article lists all dataset schemas available in Microsoft Cost Management + Billing. The schema files list and describe all of the data fields found in various data files.
 
 ## Dataset schema files
 
-Here's the list of all dataset schema files available in Cost Management + Billing. The dataset name is the name of the CSV file that contains the data. The contract is the type of Azure subscription that the data is associated with. The dataset version is the version of the dataset schema. The mapped API version is the version of the API that the dataset schema maps to.
+Here's the list of all dataset schema files available in Cost Management + Billing. The dataset name is the name of the file that contains the data. The contract is the type of Azure subscription that the data is associated with. The dataset version is the version of the dataset schema. The mapped API version is the version of the API that the dataset schema maps to.
 
 |Dataset|Contract|Dataset version|Mapped API versions|
 |------|------|------|------|
