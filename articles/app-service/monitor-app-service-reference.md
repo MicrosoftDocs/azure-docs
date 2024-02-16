@@ -1,7 +1,7 @@
 ---
-title: Monitoring data reference for App Service
-description: This article contains important reference material you need when you monitor App Service.
-ms.date: 02/06/2024
+title: Monitoring data reference for Azure App Service
+description: This article contains important reference material you need when you monitor Azure App Service.
+ms.date: 02/15/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: msangapu-msft
@@ -34,15 +34,15 @@ At a minimum your service should have the following two articles:
    - Filename: "monitor-app-service-reference.md".
 -->
 
-# App Service monitoring data reference
+# Azure App Service monitoring data reference
 
 <!-- Intro. Required. -->
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor App Service](monitor-app-service.md) for details on the data you can collect for App Service and how to use it.
+See [Monitor Azure App Service](monitor-app-service.md) for details on the data you can collect for Azure App Service and how to use it.
 
 <!-- ## Metrics. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 <!-- Repeat the following section for each resource type/namespace in your service. -->
 ### App Service metrics
@@ -71,21 +71,21 @@ The following table lists the metrics available for the Microsoft.Web/serverfarm
 <!-- Use either the LINK or INCLUDE option and remove the other option.
 - LINK to metrics page. Example: - [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
 - OR INCLUDE metrics table, starting with the metrics tableheader: 
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 <!-- Add the table. Select the link in the metrics index, and on the metric page, select Edit to see the #include link that pulls in the metrics table. Use that link to add the #include, with the following format:
 [!INCLUDE [<ResourceType>](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/<resource-type>-metrics-include.md)].
 Example #include: [!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
 
 <!-- ## Metric dimensions. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 <!-- If you DON'T have metrics with dimensions, use the following include: -->
-[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)]
 
 <!-- ## Resource logs. Required section. -->
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 <!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
 Repeat this section for each resource type/namespace in your service. -->
@@ -117,7 +117,7 @@ The following table lists more information about resource logs you can collect f
 <sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 <!-- Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. These files are auto generated from the REST API.
 NOTE: Also refer to https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#azure-diagnostics-mode to see whether your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics. 
 Link to the service-specific tables. If your service uses the AzureDiagnostics table, list the fields you use and what they're for. If your service uses both tables, list both types of information. Add any further information after each table link, such as descriptions and usage, or information not found in the tables. Example:
@@ -143,7 +143,7 @@ Microsoft.Web/sites
 - [AppServiceIPSecAuditLogs](/azure/azure-monitor/reference/tables/appserviceipsecauditlogs)
 
 <!-- ## Activity log. Required section. -->
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 <!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#<namespace>.
 Example: - [Microsoft.Storage resource provider operations](https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftstorage.
 If there are other operations not in the link, list them here in table form. -->
@@ -171,7 +171,7 @@ The following table lists common activity log operations related to App Service.
 |Restore Web App From Backup Blob| App restored from backup|
 
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. 
-[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
+[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 ## Related content
