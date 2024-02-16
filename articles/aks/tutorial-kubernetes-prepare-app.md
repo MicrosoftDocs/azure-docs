@@ -46,20 +46,6 @@ The [sample application][sample-application] used in this tutorial is a basic st
 * **Order service**: Places orders.
 * **Rabbit MQ**: Message queue for an order queue.
 
-### [Git](#tab/azure-cli)
-
-1. Use [git][] to clone the sample application to your development environment.
-
-    ```console
-    git clone https://github.com/Azure-Samples/aks-store-demo.git
-    ```
-
-2. Change into the cloned directory.
-
-    ```console
-    cd aks-store-demo
-    ```
-
 ### [Azure Developer CLI](#tab/azure-azd)
 
 1. Use [azd][] to clone the sample application to your development environment.
@@ -74,7 +60,19 @@ The [sample application][sample-application] used in this tutorial is a basic st
     cd aks-store-demo
     ```
 
----
+### [Git](#tab/azure-cli)
+
+1. Use [git][] to clone the sample application to your development environment.
+
+    ```console
+    git clone https://github.com/Azure-Samples/aks-store-demo.git
+    ```
+
+2. Change into the cloned directory.
+
+    ```console
+    cd aks-store-demo
+    ```
 
 ## Review Docker Compose file
 
@@ -162,9 +160,7 @@ networks:
     driver: bridge
 ```
 
----
-
-## Create container images and run application [Azure CLI](#tab/azure-cli)
+## Create container images and run application 
 
 You can use [Docker Compose][docker-compose] to automate building container images and the deployment of multi-container applications.
 
