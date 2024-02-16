@@ -14,7 +14,7 @@ recommendations: false
 
 Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-1. Select the **Bring your own data - ground your own data on advanced AI models to create conversational copilots** tile
+1. Select the **Bring your own data** tile
 
     :::image type="content" source="../media/use-your-data/bring-your-data-card.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-card.png":::
 
