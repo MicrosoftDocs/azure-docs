@@ -26,7 +26,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Virtual machines**.
 
 2. Select your VM from the list.
-   If you want to proceed with a generalized image, please follow steps to generalize the VM [Generalize OS disk for Linux/Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/generalize)
+   If you want to proceed with a generalized image, please follow steps to generalize the VM [Generalize OS disk for Linux/Windows](https://learn.microsoft.com/azure/virtual-machines/generalize)
    If you want a specialized image, no additional action required,Kindly proceed to Step 3.
 3. On the page for the VM, on the upper menu, select **Capture**.
 
