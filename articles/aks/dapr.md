@@ -67,7 +67,7 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components and APIs
 
-Stable Azure + open source components are supported. Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are supported via best effort.
+Stable Azure + open source components are supported. Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are available, but not supported.
 
 ### Clouds/regions
 
