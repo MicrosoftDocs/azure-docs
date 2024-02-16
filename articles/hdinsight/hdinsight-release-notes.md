@@ -21,6 +21,8 @@ To subscribe, click the “watch” button in the banner and watch out for [HDIn
 
 ## Release Information
 
+## Release Information
+
 ### Release date:  February  15, 2024
 
 This release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401250802**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
@@ -43,7 +45,7 @@ For workload specific versions, see
 
 ## New features
 
-- Apache Ranger support for Spark SQL with HDInsight version 5.1 and onward
+- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package
   
 ## Fixed issues
 
@@ -66,10 +68,6 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 
 We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
 
-
-
-> [!NOTE]
-> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
