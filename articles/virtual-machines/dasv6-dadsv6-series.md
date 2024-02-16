@@ -11,21 +11,10 @@ ms.date: 01/29/2024
 
 # Dasv6 and Dadsv6-series (Preview)
 
-**In this article** 
-
-[Dasv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Dadsv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Size table definitions](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Other sizes and information](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Next steps](/azure/virtual-machines/dasv5-dadsv5-series) 
-
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
-Important 
-Azure Virtual Machine Series Dasv6 and Dadsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+
+> [!Important]
+> Azure Virtual Machine Series Dasv6 and Dadsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 The Dasv6-series and Dadsv6-series utilize AMD's 4th Generation EPYCT<sup>M</sup> 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache, increasing customer options for running their general-purpose workloads. The Dasv6-series VMs work well for many general computing workloads, such as e-commerce systems, web front ends, desktop virtualization solutions, customer relationship management applications, entry-level and mid-range databases, application servers, and more. 
 
 ## Dasv6-series 
