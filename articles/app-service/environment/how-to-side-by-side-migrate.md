@@ -12,8 +12,8 @@ ms.author: jordanselig
 
 > [!NOTE]
 > The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently in preview. 
-
-If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
+>
+> If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
 You can automatically migrate App Service Environment v2 to [App Service Environment v3](overview.md) by using the side by side migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [overview of the side by side migration feature](side-by-side-migrate.md).
