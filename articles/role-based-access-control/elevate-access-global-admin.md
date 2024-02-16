@@ -342,6 +342,8 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
 
+# [Azure portal](#tab/azure-portal)
+
 ### View elevate access log entries using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
@@ -355,6 +357,8 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
     `Assigns the caller to User Access Administrator role`
 
     ![Screenshot showing directory activity logs in Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
+
+# [Azure CLI](#tab/azure-cli)
 
 ### View elevate access log entries using Azure CLI
 
@@ -412,6 +416,8 @@ A user in the group can now periodically run the [az rest](/cli/azure/reference-
 ```azurecli
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
 ```
+
+---
 
 ## Next steps
 
