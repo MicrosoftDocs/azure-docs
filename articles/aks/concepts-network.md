@@ -84,35 +84,31 @@ Learn more about Services in the [Kubernetes docs][k8s-service].
 
 ## Azure virtual networks
 
-In AKS, you can deploy a cluster that uses one of the following network models:
+In AKS, there are multiple network setups that fit a variety of use cases:
 
-* ***Kubenet* networking**
+* **Azure Container Networking Interface (CNI) Overlay**
 
-  The network resources are typically created and configured as the AKS cluster is deployed.
+  Azure CNI Overlay uses an overlay IP space for Pods, separate from the VNet space. This means that Pod IPs do not use up VNet address space and multiple clusters can have overlapping Pod CIDR ranges. Azure CNI Overlay also offers the highest scalability of any cluster configuration. It is the recommended network configuration for most clusters in any environment. Please see https://aka.ms/aks/azure-cni-overlay for more details.
 
-* ***Azure Container Networking Interface (CNI)* networking**
+* **Azure CNI**
 
-  The AKS cluster is connected to existing virtual network resources and configurations.
+  In standard Azure CNI mode, Pods are allocated IPs from the same subnet that the node pool is deployed to. This means that Pods will share the IP space with the nodes in the cluster. This is useful when direct Pod access is required from services outside the networking boundary of the cluster and cannot use an ingress such as an internal load balancer.
 
-### Kubenet (basic) networking
+* **Azure CNI with Dyanmic IP Allocation**
 
-The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*:
+  [Azure CNI with Dynamic IP Allocation](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation) is similar to standard Azure CNI in that Pods are assigned IPs from the same VNet but now they come from a separate subnet than the nodes.
 
-1. Nodes receive an IP address from the Azure virtual network subnet.
-1. Pods receive an IP address from a logically different address space than the nodes' Azure virtual network subnet.
-1. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network.
-1. The source IP address of the traffic is translated to the node's primary IP address.
+* **Kubenet (legacy)**
 
-Nodes use the kubenet Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet.
+  Kubenet is the precursor to Azure CNI Overlay. It is an overlay network and has a Pod IP space distinct from the VNet address space. However, it uses Azure Route Tables to route traffic to the correct nodes instead of letting the Azure netowrk fabric handle routing rules. It is limited to 400 nodes in a cluster. Azure CNI Overlay is recommended over Kubenet in all cases.
 
-Only the nodes receive a routable IP address. The pods use NAT to communicate with other resources outside the AKS cluster. This approach reduces the number of IP addresses you need to reserve in your network space for pods to use.
+### Azure CNI Overlay networking
 
-> [!NOTE]
-> While kubenet is the default networking option for an AKS cluster to create a virtual network and subnet, it isn't recommended for production deployments. For most production deployments, you should plan for and use Azure CNI networking due to its superior scalability and performance characteristics.
+[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Due to the scalability and performance benefits offered by Azure CNI Overlay, it is the recommended configuration for clusters in any environment.
 
-For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
+For more information, see [Configure Azure CNI Overlay][azure-cni-overlay].
 
-### Azure CNI (advanced) networking
+### Azure CNI networking
 
 With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly. To avoid these planning challenges, it is possible to enable the feature [Azure CNI networking for dynamic allocation of IPs and enhanced subnet support][configure-azure-cni-dynamic-ip-allocation].
 
@@ -126,10 +122,6 @@ Nodes use the [Azure CNI][cni-networking] Kubernetes plugin.
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
 
 For more information, see [Configure Azure CNI for an AKS cluster][aks-configure-advanced-networking].
-
-### Azure CNI Overlay networking
-
-[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for most clusters.
 
 ### Azure CNI Powered by Cilium
 
