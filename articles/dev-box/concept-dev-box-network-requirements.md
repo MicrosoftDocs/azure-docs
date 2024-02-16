@@ -1,6 +1,6 @@
 ---
-title: Microsoft Dev Box Network Requirements
-description: Learn about the network requirements for deploying dev boxes, connecting to cloud-based resources, on-premises resources, and internet resources.
+title: Microsoft Dev Box Networking Requirements
+description: Learn about the networking requirements for deploying dev boxes, connecting to cloud-based resources, on-premises resources, and internet resources.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,7 +11,7 @@ ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box networking requirments so that developers can access the resources they need.
 ---
 
-# Microsoft Dev Box network requirements
+# Microsoft Dev Box networking requirements
 
 Microsoft Dev Box is a service that lets users connect to a cloud-based workstation running in Azure through the internet, from any device anywhere. To support these internet connections, you must follow the networking requirements listed in this article. You should work with your organization’s networking team and security team to plan and implement network access for dev boxes.
 Microsoft Dev box is closely related to the Windows 365 and Azure Virtual Desktop services, and in many cases network requirements are the same. 
