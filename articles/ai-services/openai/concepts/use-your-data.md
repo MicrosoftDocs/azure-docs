@@ -26,7 +26,7 @@ Azure OpenAI On Your Data enables you to run advanced AI models such as GPT-35-T
 To get started, [connect your data source](../use-your-data-quickstart.md) using Azure OpenAI Studio and start asking questions and chatting on your data.
 
 > [!NOTE]
-> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) deployed in a [supported region](#azure-openai-on-your-data-regional-availability) with either the gpt-35-turbo or the gpt-4 models.
+> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) deployed in a [supported region](#regional-availability-and-model-support) with either the gpt-35-turbo or the gpt-4 models.
 
 ## Azure Role-based access controls (Azure RBAC) for adding data sources
 
