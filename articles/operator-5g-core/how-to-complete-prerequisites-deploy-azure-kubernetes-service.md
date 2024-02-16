@@ -49,6 +49,12 @@ User defined routes (UDRs) are added to other virtual networks that point to thi
 
 ## Create the initial cluster
 
+To deploy an AKS cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with [Azure Networking Certification](https://learn.microsoft.com/credentials/certifications/azure-network-engineer-associate/). 
+
+- If you don't have an [Azure subscription](../cost-management-billing/manage/create-enterprise-subscription.md), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- If you're unfamiliar with the Azure Cloud Shell, review [What is Azure Cloud Shell?](../cloud-shell/overview.md)
+- Make sure that the identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md).
+
 1. Navigate and sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. On the Azure portal home pages, select **Create a Resource**.
 1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
@@ -57,14 +63,14 @@ User defined routes (UDRs) are added to other virtual networks that point to thi
     -  Disable **Automatic upgrade**.
     - Select **Local accounts with Kubernetes RBAC** for the **Authentication and Authorization** method.
 2. Navigate to the **Add a node pool** tab, then:
-    - Delete the sample node pools. Use the VM size based on your sizing, availability, and NFVI capacity requirements to create a new system node pool.
-    - Enter and select **system** for the **Node pool name** an as the **Mode** type.
+    - Delete the sample node pools. Use the VM size based on your sizing, availability, and NFVI capacity requirements to create a new system node pool. Please note that cluster testing was performed using one GBPS dataplane performance. 
+    - Enter and select **system2** for the **Node pool name** and **System** as the **Mode** type.
     - Select **Azure Linux** as the **OS SKU**.
-    - Select **Availability zones**: **Zones 1,2,3** and leave the **Enable Azure Post instances** field unmarked.
-    - Choose **Standard D16ids vS** as the **Node size**.
+    - Select **Availability zones**: **Zones 1,2,3** and leave the **Enable Azure Spot instances** field unmarked.
     - Select **Manual** as the **Scale method**.
     - Select **1** for the **Node count**.
     - Select **250** as the **Max pods per node**, and don't mark to **Enable public IP per node**.
+      Use the default values for other settings.
 3. On the **Networking** tab, select Kubernetes from the **Networking Configuration** section. Then mark the box for **BYO vnet** and select the virtual network and subnet for your cluster's default network. Leave all other values as default.
 1. Unless you have a specific requirement to do otherwise, don't change any values on the  **Integrations** tab.
 1. Turn **Azure monitor** to **off**.
@@ -76,24 +82,98 @@ User defined routes (UDRs) are added to other virtual networks that point to thi
 ## Modify the cluster to add data plane ports
 
 1. Once you successfully created the cluster, navigate to the **settings** section of the AKS cluster and verify that the provisioning status of  **Node pools** is **Succeeded**.
+1. Complete the steps to [Add system and user node pools to the cluster](#add-system-and-user-node-pools-to-the-cluster).
+1. Delete the **system2** node pool that you created in [Create the initial cluster](#create-the-initial-cluster). 
 1. Navigate to the **Infrastructure Resource group** referenced in the cluster creation process.
 1. Select the **Virtual Machine Scale Set** resource named **aks-system-\<random-number>\-vmss**.
 1. Select **Scaling**. From the resulting screen, locate the **Manual Scale** section and change the **Instance Count** to **0**. Select **Save**.
 1. In the **Settings** section of the **VMSS** tab:
     - Select **Instances**. The instances disappear as they're deleted.
     - Select **Add network interface**. A **Create Network Interface** tab appears. 
-2. On the **Create Network Interface** tab:
+1. On the **Create Network Interface** tab:
     - Enter a **Name** for the network interface, mark the **NIC network security group** as **None**. 
     - Attach the network interface to your subnet based on your requirements, and select **Create**. Repeat this step for each data plane port required in the Virtual Machine Scale Set template.
-3. Open a separate window and navigate to the **Azure Resource Explorer**. On the left side of the screen, locate the **Subscription** for this cluster.
+1. Open a separate window and navigate to the **Azure Resource Explorer**. On the left side of the screen, locate the **Subscription** for this cluster.
 1. In the Azure Resource Explorer, find the **Infrastructure Resource group** for the cluster. Select **providers** \> **Microsoft.Compute** \> **virtualMachineScaleSets** \> **\<your VMSS name\>**. 
-1. Select the VMM, then select and change from **Read Only** to **Read/Write**.
+1. Select the VMSS, then select and change from **Read Only** to **Read/Write**.
 1. Choose **Edit** from the **Data** section of the screen.
 1. For each of your data planes, ensure that the **enableAcceleratedNetworking** and the **enableIPForwarding** fields are set to **true**. If they're set to **false**:
     1. Remove the **ImageGalleriesSection** from the json file.
     1. Change the fields to **true** and select the green **Patch** button at the top of the screen.
     1. Return to the Azure portal. Navigate to the cluster resource in the original resource group and scale it up to the desired number of workers.
     
+### Add system and user node pools to the cluster
+
+Add System and User type node pools to the cluster with custom Linux configuration using the procedure described in [Customize node configuration for Azure Kubernetes Service (AKS) node pools](../aks/custom-node-configuration.md). Use the following values:
+
+|Setting |Value|
+|--------|------|
+|node-count |1 |
+|os-sku     |AzureLinux  |
+|mode       |Create one node pool of type **System** named **system** and a second node pool of type **User** named **dataplane**  |
+|flavor     |Specify per AO5GC certified sizing requirements  |
+|vnet-subnet-id  |Specify the subnet from input requirements  |
+|max-pods   |250   |
+|kubernetes-version |Specify the version corresponding to the AO5GC release version  |
+|linuxkubeletconfig |"cpuManagerPolicy":"static". See Example ```linuxkubeletconfig.json``` contents |
+|linuxosconfig |"transparentHugePageEnabled: never". Configure **sysctls** settings as shown in Example ```linuxosconfig.json``` contents. |
+
+The following example command adds the **System** node pool to the cluster:
+```
+az aks nodepool add \
+   --name system \
+   --cluster-name ao5gce2e \
+   --resource-group AO5GC-E2E-SPE-2 \
+   --node-count 1 \
+   --node-vm-size Standard_D8s_v5 \
+   --os-type Linux \
+   --os-sku AzureLinux \
+   --mode System \
+   --max-pods 250 \
+   --kubernetes-version 1.27.3 \
+   --vnet-subnet-id /subscriptions/5a8f0890-0695-4567-ab87-85a76dd7868d/resourceGroups/AO5GC-E2E-SPE-2/providers/Microsoft.Network/virtualNetworks/ao5gce2enet/subnets/k8s-sn \
+   --kubelet-config ./linuxkubeletconfig.json \
+   --linux-os-config ./linuxosconfig.json
+```
+The following example command adds the **User** node pool to the cluster:
+```
+az aks nodepool add \
+   --name dataplane \
+   --cluster-name ao5gce2e \
+   --resource-group AO5GC-E2E-SPE-2 \
+   --node-count 1 \
+   --node-vm-size Standard_D16s_v5 \
+   --os-type Linux \
+   --os-sku AzureLinux \
+   --mode User \
+   --max-pods 250 \
+   --kubernetes-version 1.27.3 \
+   --vnet-subnet-id /subscriptions/5a8f0890-0695-4567-ab87-85a76dd7868d/resourceGroups/AO5GC-E2E-SPE-2/providers/Microsoft.Network/virtualNetworks/ao5gce2enet/subnets/k8s-sn \
+     --kubelet-config ./linuxkubeletconfig.json \
+   --linux-os-config ./linuxosconfig.json
+```
+Example ```linuxkubeletconfig.json``` contents:
+
+```json
+{
+"cpuManagerPolicy": "static",
+}
+```
+Example ```linuxosconfig.json``` contents:
+
+```json
+{
+"transparentHugePageEnabled": "never",
+"sysctls": {
+  "netCoreRmemDefault": 52428800,
+  "netCoreRmemMax": 52428800,
+  "netCoreSomaxconn": 3240000,
+  "netCoreWmemDefault": 52428800,
+  "netCoreWmemMax": 52428800,
+  "netCoreNetdevMaxBacklog": 3240000
+  }
+}
+```
 ## Modify SMF or AMF network function 
 
 For the VIP IPs for AMF from the previous section, depending on your network topology, create a single or multiple Azure LoadBalancer(s) of type **Microsoft.Network/loadBalancers** standard SKU, Regional.
