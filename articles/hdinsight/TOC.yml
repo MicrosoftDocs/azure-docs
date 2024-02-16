@@ -377,7 +377,7 @@ items:
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ
         href: ./spark/apache-spark-create-standalone-application.md   
- - name: Concepts
+  - name: Concepts
     items:
       - name: Spark best practices on HDInsight
         href: ./spark/spark-best-practices.md
