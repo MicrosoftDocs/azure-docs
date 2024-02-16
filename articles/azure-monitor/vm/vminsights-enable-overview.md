@@ -78,7 +78,7 @@ Output for this command will look similar to the following and specify whether a
 When you enable VM Insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
 
 > [!IMPORTANT]
-> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data. 
+> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data.
 
 
 - **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
@@ -93,7 +93,7 @@ When you enable VM Insights for a machine, the following agents are installed. F
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 
 - The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
-## Data collection rule 
+## Data collection rule
 
 When you enable VM Insights on a machine with the Azure Monitor agent, you must specify a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM Insights creates a default DCR if one doesn't already exist. For more information on how to create and edit the VM Insights DCR, see [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
 
@@ -108,12 +108,12 @@ The DCR is defined by the options in the following table.
 > [!IMPORTANT]
 > VM Insights automatically creates a DCR that includes a special data stream required for its operation. Do not modify the VM Insights DCR or create your own DCR to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate DCRs and associate them with your machines.
 
-If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
+If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
 
 ## Migrate from Log Analytics agent to Azure Monitor Agent
 
 - You can install both Azure Monitor Agent and Log Analytics agent on the same machine during migration. If a machine has both agents installed, you'll see a warning in the Azure portal that you might be collecting duplicate data.
-  
+
     :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot that shows both agents installed.":::
 
     > [!WARNING]
@@ -132,7 +132,7 @@ If you associate a data collection rule with the Map feature enabled to a machin
     > | summarize max(TimeGenerated) by Computer, Category
     > | sort by Computer
     > ```
-    
+
 ## Diagnostic and usage data
 
 Microsoft automatically collects usage and performance data through your use of Azure Monitor. Microsoft uses this data to improve the quality, security, and integrity of the service.
