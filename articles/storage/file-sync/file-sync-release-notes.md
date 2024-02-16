@@ -51,7 +51,7 @@ The following Azure File Sync agent versions have expired and are no longer supp
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Version 17.1.0.0 (Security Update)
-The following release notes are for Azure File Sync version 17.1.0.0 (released February 13, 2024). This release contains security update for the Azure File Sync agent.  These notes are in addition to the release notes listed for version 17.0.0.0. 
+The following release notes are for Azure File Sync version 17.1.0.0 (released February 13, 2024). This release contains a security update for the Azure File Sync agent.  These notes are in addition to the release notes listed for version 17.0.0.0. 
 
 ### Improvements and issues that are fixed
 - Fixes an issue that might allow unauthorized users to create new files in locations they are not allowed to. This is a security-only update. For more information about this vulnerability, see [CVE-2024-21397](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-21397).
