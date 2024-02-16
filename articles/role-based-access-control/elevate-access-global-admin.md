@@ -105,7 +105,7 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
 
 ### Step 1: Elevate access for a Global Administrator
 
-Use the [Azure portal](#azure-portal) or [REST API](#rest-api) to elevate access for a Global Administrator.
+Use the Azure portal or REST API to elevate access for a Global Administrator.
 
 ### Step 2: List role assignment at root scope (/)
 
@@ -237,9 +237,9 @@ Once you have elevated access, you can list all of the role assignments for a us
 
 ### Step 3: List deny assignments at root scope (/)
 
-You can list all of the deny assignments for a user at root scope (`/`).
+Once you have elevated access, you can list all of the deny assignments for a user at root scope (`/`).
 
-- Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
+- Call [Deny Assignments - List For Scope](/rest/api/authorization/deny-assignments/list-for-scope) where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
