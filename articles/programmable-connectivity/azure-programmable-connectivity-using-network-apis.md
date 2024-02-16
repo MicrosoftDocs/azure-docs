@@ -1,7 +1,7 @@
 ---
 title: Using network APIs with Azure Programmable Connectivity
 titleSuffix: Azure Programmable Connectivity
-description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
+description: Quick start guide to use the APIs exposed by APC.
 author: anzaman
 ms.author: alzam
 ms.service: azure-operator-nexus
@@ -23,20 +23,20 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 
 ## Obtain an authentication token
 
-- Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
-  - At the step "Assign a role to the application", you are required to choose a scope and a role:
-    - The correct scope is the APC Gateway you created. To use this as the scope, navigate to the APC Gateway in the Azure portal, and follow instructions from "Select Access control (IAM)" onwards.
-    - The correct role to assign is `Azure Programmable Connectivity Gateway User`
-  - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
-- Navigate to your App Registration in the Azure portal. Copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
-- Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
-- Obtain a token from your App Registration. When asked for `client_id`, `client_secret`, and `tenant`, use the values obtained in this process. Use `https://management.azure.com//.default` as the scope. 
-  - This can be done using an HTTP request, following the instructions in the [documention](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret).
-  - You can instead choose to use an SDK to obtain the token. For example:
-    - [Python](/entra/msal/python/)
-    - [.NET](/entra/msal/dotnet/)
-    - [Java](/entra/msal/java/)
-- Note the value of the token you have obtained as `APC_AUTH_TOKEN`.
+1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
+    - At the step "Assign a role to the application", you are required to choose a scope and a role:
+        - The correct scope is the APC Gateway you created. To use this as the scope, navigate to the APC Gateway in the Azure portal, and follow instructions from "Select Access control (IAM)" onwards.
+        - The correct role to assign is `Azure Programmable Connectivity Gateway User`
+    - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
+2. Navigate to your App Registration in the Azure portal. Copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
+3. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
+4. Obtain a token from your App Registration. When asked for `client_id`, `client_secret`, and `tenant`, use the values obtained in this process. Use `https://management.azure.com//.default` as the scope. 
+    - This can be done using an HTTP request, following the instructions in the [documentation](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret).
+    - You can instead choose to use an SDK to obtain the token. For example:
+        - [Python](/entra/msal/python/)
+        - [.NET](/entra/msal/dotnet/)
+        - [Java](/entra/msal/java/)
+5. Note the value of the token you have obtained as `APC_AUTH_TOKEN`.
 
 ## Use an API
 
@@ -60,7 +60,7 @@ APC can identify the correct Network in one of three ways:
 
 | Operator | NetworkCode |
 | -------- | ----------- |
-| Claro_Brazil | Claro_Brazil |
+| Claro Brazil | Claro_Brazil |
 | Telefonica Brazil | Telefonica_Brazil |
 | TIM Brazil | Tim_Brazil |
 | Orange Spain | Orange_Spain |
@@ -230,12 +230,6 @@ The response is of the form:
 ```
 
 `verificationResult` is a boolean, which is true if the device is within a certain distance (given by `accuracy`) of the given location, and false otherwise.
-
-### Verify the number of a device
-
-Number verification is different to other APIs, as it requires interaction with a frontend application (i.e. an application running on a device) to verify the number of that device. This means two separate calls to APC must be made.
-
-TODO
 
 ### Obtain the Network of a device
 
