@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/15/2024
 ---
 
 # Azure HDInsight release notes
@@ -18,8 +18,6 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 
 
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
-
-## Release Information
 
 ## Release Information
 
@@ -68,6 +66,8 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 
 We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
 
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
