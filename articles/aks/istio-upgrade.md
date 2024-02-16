@@ -1,6 +1,6 @@
 ---
-title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
-description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
 ms.topic: conceptual
 ms.date: 05/04/2023
 
@@ -26,7 +26,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 
     If you expect to see a newer revision not returned by this command, you may need to upgrade your AKS cluster first so that it's compatible with the newest revision.
 
-1. If you have set up [mesh configuration][meshconfig] for the existing mesh revision on your cluster, you need to create a separate ConfigMap corresponding to the new revision in the `aks-istio-system` namesapce **before initiating the canary upgrade** in the next step. This was the configuration is applicable the moment the new revision's control plane is deployed on cluster. More details can be found [here][meshconfig-canary-upgrade].
+1. If you've set up [mesh configuration][meshconfig] for the existing mesh revision on your cluster, you need to create a separate ConfigMap corresponding to the new revision in the `aks-istio-system` namespace **before initiating the canary upgrade** in the next step. This configuration is applicable the moment the new revision's control plane is deployed on cluster. More details can be found [here][meshconfig-canary-upgrade].
 
 1. Initiate a canary upgrade from revision `asm-1-18` to `asm-1-19` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
@@ -118,15 +118,15 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
           az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
           ```
 
-1. If you had set up [mesh configuration][meshconfig] for the revisions in previous steps, you can now delete the ConfigMap for the revision that was removed from the cluster on completing or rolling back the upgrade.
+1. If [mesh configuration][meshconfig] was set up for the revisions in previous steps, you can now delete the ConfigMap for the revision that was removed from the cluster on completing or rolling back the upgrade.
 
 > [!NOTE]
 > Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.
 
 ## Patch version upgrade
 
-* Istio add-on patch version availability information is published in [AKS weekly release notes][aks-release-notes].
-* Patches are rolled out automatically for istiod and ingress pods as part of these AKS weekly releases, which respect the `default` [planned maintenance window](./planned-maintenance.md) set up for the cluster.
+* Istio add-on patch version availability information is published in [AKS release notes][aks-release-notes].
+* Patches are rolled out automatically for istiod and ingress pods as part of these AKS releases, which respect the `default` [planned maintenance window](./planned-maintenance.md) set up for the cluster.
 * User needs to initiate patches to Istio proxy in their workloads by restarting the pods for reinjection:
   * Check the version of the Istio proxy intended for new or restarted pods. This version is the same as the version of the istiod and Istio ingress pods after they were patched:
 
