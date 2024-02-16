@@ -36,5 +36,5 @@ landingContent:
         links:
           - text: Create an APC Gateway
             url: azure-programmable-connectivity-create-gateway.md
-          - text: Modify APIs
-            url: azure-programmable-connectivity-modify-apis.md
+          - text: Using network APIs
+            url: azure-programmable-connectivity-using-network-apis.md

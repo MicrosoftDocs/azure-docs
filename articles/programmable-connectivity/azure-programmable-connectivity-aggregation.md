@@ -1,15 +1,17 @@
 ---
 title: API aggregation
 titleSuffix: Azure Programmable Connectivity
-description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
+description: Azure Programmable Connectivity simplifies the complexities associated with using Network APIs.
 author: anzaman
 ms.author: alzam
 ms.service: azure-operator-nexus
 ms.topic: overview 
-ms.date: 01/08/2024
+ms.date: 02/16/2024
 ms.custom: template-overview
 ---
 
 # API Aggregation
  
-Body goes here.
+Azure Programmable Connectivity (APC) offers a seamless Azure experience by integrating a standardized interface across diverse operator networks worldwide, effectively simplifying the complexities associated with Network APIs.  
+
+The APC Gateway autonomously manages API calls, credential handling, and ensures calls are accurately routed to the appropriate mobile operator.
