@@ -164,11 +164,11 @@ networks:
 
 ---
 
-## Create container images and run application
+## Create container images and run application [Azure CLI](#tab/azure-cli)
 
 You can use [Docker Compose][docker-compose] to automate building container images and the deployment of multi-container applications.
 
-### [Docker](#tab/azure-cli)
+### Docker
 
 1. Create the container image, download the Redis image, and start the application using the `docker compose` command.
 
@@ -227,7 +227,11 @@ Since you validated the application's functionality, you can stop and remove the
     docker compose down
     ```
 
+---
+
 ## Next steps
+
+### [Azure CLI](#tab/azure-cli) 
 
 In this tutorial, you created a sample application, created container images for the application, and then tested the application. You learned how to:
 
@@ -241,9 +245,7 @@ In the next tutorial, you learn how to store container images in an ACR.
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
 
----
-
-## [Next steps for AZD](#tab/azure-azd)
+### [AZD](#tab/azure-azd)
 
 In this tutorial, you cloned a sample application using AZD.  You learned how to:
 
@@ -255,6 +257,8 @@ In the next tutorial, you learn how to create a cluster using the azd template y
 
 > [!div class="nextstepaction"]
 > [Create an AKS Cluster][aks-tutorial-deploy-cluster]
+
+---
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
