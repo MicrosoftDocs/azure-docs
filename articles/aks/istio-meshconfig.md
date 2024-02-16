@@ -9,7 +9,7 @@ ms.author: shasb
 
 # Configure Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
-Open-source Istio uses [MeshConfig][istio-meshconfig] to define mesh-wide settings for the Istio service mesh. Istio-based service mesh add-on for AKS builds on top of MeshConfig and classifies different properties as supported, allowed, and blocked
+Open-source Istio uses [MeshConfig][istio-meshconfig] to define mesh-wide settings for the Istio service mesh. Istio-based service mesh add-on for AKS builds on top of MeshConfig and classifies different properties as supported, allowed, and blocked.
 
 This article walks through how to configure Istio-based service mesh add-on for Azure Kubernetes Service and the support policy applicable for such configuration.
 
@@ -68,7 +68,7 @@ This guide assumes you followed the [documentation][istio-deploy-addon] to enabl
 
 ### Mesh configuration and upgrades
 
-When you're performing [canary upgrade for Istio](./istio-upgrade.md), you need create a separate ConfigMap for the new revision in the `aks-istio-system` namesapce **before initiating the canary upgrade**. This way the configuration is available when the new revision's control plane is deployed on cluster. For example, if you're upgrading the mesh from asm-1-18 to asm-1-19, you need to copy changes over from `istio-shared-configmap-asm-1-18` to create a new ConfigMap called `istio-shared-configmap-asm-1-19` in the `aks-istio-system` namespace.
+When you're performing [canary upgrade for Istio](./istio-upgrade.md), you need create a separate ConfigMap for the new revision in the `aks-istio-system` namespace **before initiating the canary upgrade**. This way the configuration is available when the new revision's control plane is deployed on cluster. For example, if you're upgrading the mesh from asm-1-18 to asm-1-19, you need to copy changes over from `istio-shared-configmap-asm-1-18` to create a new ConfigMap called `istio-shared-configmap-asm-1-19` in the `aks-istio-system` namespace.
 
 After the upgrade is completed or rolled back, you can delete the ConfigMap of the revision that was removed from the cluster.
 
