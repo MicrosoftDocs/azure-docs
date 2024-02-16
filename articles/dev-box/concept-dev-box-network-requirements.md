@@ -209,7 +209,7 @@ Logon issues: The PKU2U protocol is enabled on both the local PC and the session
 
 - [Check access to required FQDNs and endpoints for Azure Virtual Desktop](/azure/virtual-desktop/check-access-validate-required-fqdn-endpoint).
 - To learn how to unblock these FQDNs and endpoints in Azure Firewall, see [Use Azure Firewall to protect Azure Virtual Desktop](/azure/firewall/protect-azure-virtual-desktop).
-- For more information about network connectivity, see [Understanding Azure Virtual Desktop network connectivity](https://learn.microsoft.com/en-us/azure/virtual-desktop/network-connectivity)
+- For more information about network connectivity, see [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity)
 
 
 /azure/virtual-desktop/rdp-shortpath?tabs=managed-networks
