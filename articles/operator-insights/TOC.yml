@@ -54,6 +54,8 @@
       href: upgrade-ingestion-agent.md
     - name: Rotate secrets for ingestion agents
       href: rotate-secrets-for-ingestion-agent.md
+    - name: Configuration reference
+      href: ingestion-agent-configuration-reference.md
   - name: Monitor Azure Operator Insights
     href: monitor-operator-insights.md
   - name: Manage legacy ingestion agents
