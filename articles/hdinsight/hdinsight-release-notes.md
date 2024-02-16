@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/15/2024
 ---
 
 # Azure HDInsight release notes
@@ -43,7 +43,7 @@ For workload specific versions, see
 
 ## New features
 
-- Apache Ranger support for Spark SQL with HDInsight version 5.1 and onward
+- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package
   
 ## Fixed issues
 
@@ -65,8 +65,6 @@ If you have any more questions, contact [Azure Support](https://ms.portal.azure.
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
 
 We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
-
-
 
 > [!NOTE]
 > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
