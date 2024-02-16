@@ -13,7 +13,10 @@ ms.author: namalu
 
 # Configure multiple service identity providers
 
-In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appId` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
+In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. 
+
+## Identity providers prerequisite
+Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appId` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
 
 ## Enable additional identity providers with Azure Resource Manager (ARM)
 
