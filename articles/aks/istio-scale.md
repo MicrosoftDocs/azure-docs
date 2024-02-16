@@ -23,7 +23,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Azure CNI**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   **Churn (%)** | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              15000 |                 17.3 |           11 |
 |          25 | 41.7                        |              15000 |                 20.4 |           13 |
 |          50 | 62.5                        |              15000 |                 24.2 |           12 |
@@ -31,7 +31,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Azure CNI Dynamic IP**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 41.1 |           13 |
 |          25 | 50.0                        |              30000 |                 42.6 |           12 |
 |          50 | 69.4                        |              25000 |                 44.5 |           12 |
@@ -39,7 +39,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Azure CNI Dynamic IP with Cilium**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              20000 |                 23.1 |           11 |
 |          25 | 31.2                        |              15000 |                 20.5 |           11 |
 |          50 | 41.7                        |              10000 |                 14.8 |            8 |
@@ -47,7 +47,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Kubenet**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 40.7 |           14 |
 |          25 | 50.0                        |              30000 |                 41.7 |           14 |
 |          50 | 59.5                        |              25000 |                 43.3 |           11 |
@@ -55,7 +55,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Azure CNI Overlay**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              35000 |                 40.9 |           14 |
 |          25 | 50.0                        |              30000 |                 42.9 |           12 |
 |          50 | 62.5                        |              30000 |                 50.3 |           13 |
@@ -63,7 +63,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Azure CNI Overlay with Cilium**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
-|   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
+|   **Churn (%)** | **Churn Rate (sidecars/sec)**   |   **Sidecar Capacity** |   **Istiod Memory (GB)** |   **Istiod CPU** |
 |           0 | --                          |              15000 |                 17.1 |           10 |
 |          25 | 41.7                        |              10000 |                 12.9 |            8 |
 |          50 | 41.7                        |              10000 |                 15.5 |            8 |
@@ -74,13 +74,13 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 |**Sidecar Capacity**||||||
 |-------------|------------------------|------------------------------------|-----------|---------------------|---------------------------------|
-|   Azure CNI |   Azure CNI Dynamic IP |   Azure CNI Dynamic IP with Cilium |   Kubenet |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
+|   **Azure CNI** |   **Azure CNI Dynamic IP** |   **Azure CNI Dynamic IP with Cilium** |   **Kubenet** |   **Azure CNI Overlay** |   **Azure CNI Overlay with Cilium** |
 |       15000 |                  20000 |                              20000 |     20000 |               20000 |                           15000 |
 
 
-|CPU and Memory|||||||
+|**CPU and Memory**|||||||
 |------------------------|-------------|------------------------|------------------------------------|-----------|---------------------|---------------------------------|
-| Resource               |   Azure CNI |   Azure CNI Dynamic IP |   Azure CNI Dynamic IP with Cilium |   Kubenet |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
+| **Resource**               |   **Azure CNI** |   **Azure CNI Dynamic IP** |   **Azure CNI Dynamic IP with Cilium** |   **Kubenet** |   **Azure CNI Overlay** |   **Azure CNI Overlay with Cilium** |
 | API Server Memory (GB) |         4.8 |                    9   |                                9   |       7.6 |                 7.4 |                             6.9 |
 | API Server CPU         |         3.6 |                    4.4 |                                4.5 |       3.6 |                 4.3 |                             4.3 |
 | Istiod Memory (GB)     |        33.7 |                   41.8 |                               43.9 |      40.9 |                42.8 |                            32.1 |
