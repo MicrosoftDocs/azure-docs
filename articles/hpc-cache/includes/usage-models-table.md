@@ -2,7 +2,7 @@
 ms.service: hpc-cache
 ms.topic: include
 ms.date: 02/16/2024
-author: rohogue
+author: ronhogue
 ms.author: rohogue
 ---
 
