@@ -15,7 +15,7 @@ ms.date: 02/13/2024
 
 ## Before you begin
 
-* AKS cluster must be [in a region that supports Azure HPC Cache][hpc-cache-regions].
+* AKS cluster must be in a region that [supports Azure HPC Cache][hpc-cache-regions].
 * You need Azure CLI version 2.7 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Register the `hpc-cache` extension in your Azure subscription. For more information on using HPC Cache with Azure CLI, see the [HPC Cache CLI prerequisites][hpc-cache-cli-prerequisites].
 * Review the [HPC Cache prerequisites][hpc-cache-prereqs]. You need to satisfy the following before you can run an HPC Cache:
@@ -93,7 +93,7 @@ az feature show --namespace "Microsoft.StorageCache"
     SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
     ```
 
-    Create the HPC Cache using the [`az hpc-cache create`][az-hpc-cache-create] command. The following example creates the HPC Cache in the East US region with a Standard 2G cache type named *MyHpcCache*. Specify a value for parameters **--location**, **--sku-name**, and **--name**.
+    Create the HPC Cache using the [`az hpc-cache create`][az-hpc-cache-create] command. The following example creates the HPC Cache in the East US region with a Standard 2G cache type named *MyHpcCache*. Specify a value for **--location**, **--sku-name**, and **--name**.
 
     ```azurecli-interactive
     az hpc-cache create \
