@@ -11,12 +11,12 @@ ms.reviewer: ju-shim
 
 
 # Create a Standby Pool
-This article steps through creating a Standby Pool for Virtual Machine Scale Sets.
+This article steps through creating a Standby Pool for Virtual Machine Scale Sets with Flexible Orchestration.
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> Standby Pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+> Standby Pools for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
 
 ### Feature Registration 
@@ -38,7 +38,7 @@ In order for Standby Pools to successfully create Virtual Machines, you need to 
 6) Click on **+ Select Members**.
 7) Search for **Standby Pool Resource Provider** 
 8) Select the Standby Pool Resource Provider and select **Review + Assign**.
-9) Repeat the above steps and but in step 5, assign the **Network Contributor** role.  
+9) Repeat the above steps and for the **Network Contributor** role and the **Managed Identity Operator** role.  
 
 If you're using a customized image in Compute Gallery, ensure to assign Standby Pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
 
@@ -79,13 +79,13 @@ Create-AzStandbyPool `
  "resources": [
      {
          "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-         "apiVersion": "2023-06-01-preview",
+         "apiVersion": "2023-12-01-preview",
          "name": "{StandbyPoolName}",
          "location": "{Location}",
          "properties": {
          "maxReadyCapacity": 20,
-         "virtualMachineState": "Running",
-         "attachedVirtualMachineScaleSetIds": []
+         "virtualMachineState": "Deallocated",
+         "attachedVirtualMachineScaleSetId": ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
          }
      }
  ]
@@ -96,18 +96,18 @@ Create-AzStandbyPool `
 ### [REST API](#tab/rest)
 Create a Standby Pool and associate it with an existing scale set using the Microsoft.StandbyPool REST command.
 ```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
 {
-    "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-    "name": "myStandbyPool",
-    "location": "North Europe",
-    "properties": {
-        "maxReadyCapacity": 50,
-        "virtualMachineState":"Deallocated",
-        "attachedVirtualMachineScaleSetIds": [          
-"/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
-        ]
-    }
+"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+"name": "{standbyPoolName}",
+"location": "{location}",
+"properties": {
+	 "elasticityProfile": {
+		 "maxReadyCapacity": 20
+	 },
+	  "virtualMachineState":"Deallocated",
+	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
+	  }
 }
 ```
 
@@ -136,15 +136,15 @@ provider "azurerm" {
      features {}
     }
 resource "azapi_resource" "standbyVirtualMachinePool" {
-     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-06-01-preview
+     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-12-01-preview
      parent_id = "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/"
      name = "{StandbyPoolName}"
      location = "{Location}"
      body = jsonencode({
      properties = {
      maxReadyCapacity = 20
-     virtualMachineState = "Running"
-     attachedVirtualMachineScaleSetIds = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
+     virtualMachineState = "Deallocated"
+     attachedVirtualMachineScaleSetId = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
          }
      })
  schema_validation_enabled = false
@@ -156,13 +156,13 @@ resource "azapi_resource" "standbyVirtualMachinePool" {
 ```bicep
 param location string = resourceGroup().location
 
-resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-01-preview' = {
+resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-01-preview' = {
     name: {StandbyPoolName}
     location: location
     properties: {
         maxReadyCapacity: 20
-        virtualMachineState: 'Running'
-        attachedVirtualMachineScaleSetIds: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
+        virtualMachineState: 'Deallocated'
+        attachedVirtualMachineScaleSetId: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
         }
     } 
 ```

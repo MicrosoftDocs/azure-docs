@@ -51,13 +51,13 @@ Update-AzStandbyPool `
  "resources": [
      {
          "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-         "apiVersion": "2023-06-01-preview",
+         "apiVersion": "2023-12-01-preview",
          "name": "{StandbyPoolName}",
          "location": "{Location}",
          "properties": {
          "maxReadyCapacity": 20,
-         "virtualMachineState": "Running",
-         "attachedVirtualMachineScaleSetIds": []
+         "virtualMachineState": "Deallocated",
+         "attachedVirtualMachineScaleSetId": ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
          }
      }
  ]
@@ -69,18 +69,18 @@ Update-AzStandbyPool `
 Update an existing Standby Pool using the Microsoft.Standby Pool REST API.
 
 ```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
 {
-    "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
-    "name": "myStandbyPool",
-    "location": "North Europe",
-    "properties": {
-        "maxReadyCapacity": 50,
-        "virtualMachineState":"Deallocated",
-        "attachedVirtualMachineScaleSetIds": [          
-"/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
-        ]
-    }
+"type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+"name": "{standbyPoolName}",
+"location": "{location}",
+"properties": {
+	 "elasticityProfile": {
+		 "maxReadyCapacity": 20
+	 },
+	  "virtualMachineState":"Deallocated",
+	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
+	  }
 }
 ```
 ### [Terraform](#tab/terraform)
@@ -105,15 +105,15 @@ provider "azurerm" {
      features {}
     }
 resource "azapi_resource" "standbyVirtualMachinePool" {
-     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-06-01-preview
+     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-12-01-preview
      parent_id = "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/"
      name = "{StandbyPoolName}"
      location = "{Location}"
      body = jsonencode({
      properties = {
      maxReadyCapacity = 20
-     virtualMachineState = "Running"
-     attachedVirtualMachineScaleSetIds = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
+     virtualMachineState = "Deallocated"
+     attachedVirtualMachineScaleSetId = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
          }
      })
  schema_validation_enabled = false
@@ -125,13 +125,13 @@ resource "azapi_resource" "standbyVirtualMachinePool" {
 ```bicep
 param location string = resourceGroup().location
 
-resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-01-preview' = {
+resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-01-preview' = {
     name: {StandbyPoolName}
     location: location
     properties: {
         maxReadyCapacity: 20
-        virtualMachineState: 'Running'
-        attachedVirtualMachineScaleSetIds: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
+        virtualMachineState: 'Deallocated'
+        attachedVirtualMachineScaleSetId: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
         }
     } 
 ```
@@ -159,7 +159,7 @@ Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool
 Delete an existing Standby Pool using Microsoft.Standby Pool REST API. 
 
 ```HTTP
-DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
 ```
 
 ---
