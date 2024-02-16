@@ -41,6 +41,8 @@ Alert severities on this page are listed by the severity as shown in the Azure p
 | **Malware alerts** | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
 | **Anomaly alerts** | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but isn't defined as a scanning device. |
 
+Defender for IoT's alert detection policy steers the different alert engines to trigger alerts based on business impact and network context, and reduce low-value IT related alerts. For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
+
 ## Supported alert categories
 
 Each alert has one of the following categories:
