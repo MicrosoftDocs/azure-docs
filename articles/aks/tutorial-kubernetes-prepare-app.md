@@ -48,6 +48,8 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
+Using AZD you can automate everything in this tutorial and skip many steps. However, if you'd like to learn in detail about the project, use the Azure CLI.
+
 1. Use [azd][] to clone the sample application to your development environment.
 
     ```azurecli
@@ -227,6 +229,20 @@ Since you validated the application's functionality, you can stop and remove the
 
 ## Next steps
 
+### [AZD](#tab/azure-azd)
+
+In this tutorial, you cloned a sample application using AZD.  You learned how to:
+
+> [!div class="checklist"]
+> * Clone a sample azd template from GitHub.
+> * View where container images are used from the sample application source.
+
+In the next tutorial, you learn how to create a cluster using the azd template you cloned.
+
+> [!div class="nextstepaction"]
+> [Create an AKS Cluster][aks-tutorial-deploy-cluster]
+
+
 ### [Azure CLI](#tab/azure-cli) 
 
 In this tutorial, you created a sample application, created container images for the application, and then tested the application. You learned how to:
@@ -240,19 +256,6 @@ In the next tutorial, you learn how to store container images in an ACR.
 
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
-
-### [AZD](#tab/azure-azd)
-
-In this tutorial, you cloned a sample application using AZD.  You learned how to:
-
-> [!div class="checklist"]
-> * Clone a sample azd template from GitHub.
-> * View where container images are used from the sample application source.
-
-In the next tutorial, you learn how to create a cluster using the azd template you cloned.
-
-> [!div class="nextstepaction"]
-> [Create an AKS Cluster][aks-tutorial-deploy-cluster]
 
 ---
 
