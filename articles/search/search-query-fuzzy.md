@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 02/16/2024
 ---
 # Fuzzy search to correct misspellings and typos
 
@@ -60,7 +60,7 @@ Fuzzy queries are constructed using the full Lucene query syntax, invoking the [
 Here's an example of a query request that invokes fuzzy search. It includes four terms, two of which are misspelled:
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "seatle~ waterfront~ view~ hotle~",
     "queryType": "full",
@@ -105,6 +105,7 @@ In the response, because you added hit highlighting, formatting is applied to "s
     "Description": [
         "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
     ]
+}
 ```
 
 Try the request again, misspelling "special" by taking out several letters ("pe"):
@@ -120,6 +121,7 @@ So far, no change to the response. Using the default of 2 degrees distance, remo
     "Description": [
         "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
     ]
+}
 ```
 
 Trying one more request, further modify the search term by taking out one last character for a total of three deletions (from "special" to "scal"):
@@ -131,11 +133,12 @@ search=scal~&highlight=Description
 Notice that the same response is returned, but now instead of matching on "special", the fuzzy match is on "SQL".
 
 ```output
-        "@search.score": 0.4232868,
-        "@search.highlights": {
-            "Description": [
-                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-            ]
+"@search.score": 0.4232868,
+"@search.highlights": {
+    "Description": [
+        "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+    ]
+}
 ```
 
 The point of this expanded example is to illustrate the clarity that hit highlighting can bring to ambiguous results. In all cases, the same document is returned. Had you relied on document IDs to verify a match, you might have missed the shift from "special" to "SQL".
