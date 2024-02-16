@@ -31,7 +31,7 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
     - At the step "Assign a role to the application", you are required to choose a scope and a role:
         - The correct scope is the APC Gateway you created. To use this as the scope, navigate to the APC Gateway in the Azure portal, and follow instructions from "Select Access control (IAM)" onwards.
-        - The correct role to assign is `Azure Programmable Connectivity Gateway User`
+        - The correct roles to assign are `Azure Programmable Connectivity Gateway User` and `Contributor`.
     - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
 2. Navigate to your App Registration in the Azure portal. Copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
 3. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
