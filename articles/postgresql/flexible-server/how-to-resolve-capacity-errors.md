@@ -26,7 +26,7 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 If you encounter any of the following errors when attempting to deploy your Azure PostgreSQL Flexible Server resource, [submit a request to increase your quota](how-to-request-quota-increase.md).
 
-- `Operation could not be completed as it results in exceeding approved {0} Cores quota. Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
+- `Operation could not be completed as it results in exceeding approved {0} Cores quota. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
 
 
 ## Subscription access
@@ -75,11 +75,11 @@ You can register your subscription using the Azure portal, [the Azure CLI](/cli/
 
 To register your subscription in the Azure portal, follow these steps: 
 
-- Open the Azure portal and go to **All Services**.
-- Go to **Subscriptions** and select your subscription.
-- On the **Subscriptions** page, in the left hand pane under **Settings** select **Resource providers** 
-- Enter **PostgreSQL** in the filter to bring up the PostgreSQL-related extensions.
-- Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.DBforPostgreSQL** provider, depending on your desired action.
+1. Open the Azure portal and go to **All Services**.
+1. Go to **Subscriptions** and select your subscription.
+1. On the **Subscriptions** page, in the left hand pane under **Settings** select **Resource providers** 
+1. Enter **PostgreSQL** in the filter to bring up the PostgreSQL-related extensions.
+1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.DBforPostgreSQL** provider, depending on your desired action.
 
    :::image type="content" source="./media/how-to-resolve-capacity-errors/register-postgresql-resource-provider.png" alt-text="Register PostgreSQL Resource Provider":::
 
@@ -112,7 +112,7 @@ If you're still experiencing provisioning issues, open a **Region** access reque
 
 Azure Program offerings (Azure Pass, Imagine, Azure for Students, MPN, BizSpark, BizSpark Plus, Microsoft for Startups / Sponsorship Offers, Microsoft Developer Network(MSDN) / Visual Studio Subscriptions) have access to a limited set of regions. 
 
-If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, submit a access request or consider using an alternate region instead: 
+If your subscription is part of an Azure Program offering, and you would like to request access to any of the following regions, submit an access request or consider using an alternate region instead: 
 
 `Australia Central, Australia Central 2, Australia SouthEast, Brazil SouthEast, Canada East, China East, China North, China North 2, France South, Germany North, Japan West, Jio India Central, Jio India West, Korea South, Norway West, South Africa West, South India, Switzerland West, UAE Central, UK West, US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, West Central US, West India.`
 
