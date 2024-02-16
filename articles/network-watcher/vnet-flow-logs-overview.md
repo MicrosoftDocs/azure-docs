@@ -207,7 +207,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 ## Storage account considerations for VNet flow logs 
 
 - **Location**: The storage account must be in the same region as the virtual network.
-- **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the the virtual network's subscription.
+- **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
 
@@ -217,7 +217,7 @@ Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be b
 
 If traffic analytics is enabled for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Flow logs are stored in a storage account, and their retention policy can be set from one day to 365 days. If a retention policy is not set, the logs are maintained forever. Pricing of VNet flow logs doesn't include the costs of storage. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Flow logs are stored in a storage account, and their retention policy can be set from one day to 365 days. If a retention policy isn't set, the logs are maintained forever. Pricing of VNet flow logs doesn't include the costs of storage. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Availability
 
