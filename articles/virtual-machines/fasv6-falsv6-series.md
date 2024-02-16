@@ -29,9 +29,10 @@ Important 
 Azure Virtual Machine Series Falsv6, Fasv6, and Famsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 The Falsv6, Fasv6, and Famsv6-series utilize AMD's 4th Generation EPYCTM 9004 processor that can achieve a boosted maximum frequency of 3.7GHz with up to 320 MB L3 cache.  The Falsv6, Fasv6, and Famsv6 VM series come without Simultaneous Multithreading (SMT), meaning a vCPU is now mapped to a full physical core, allowing software processes to run on dedicated and uncontested resources. These new full core VMs will suit workloads demanding the highest CPU performance. Falsv6, Fasv6, and Famsv6-series offer up to 64 full core vCPUs and 512 GiB of RAM in three memory to core ratios, and are optimized for scientific simulations, financial and risk analysis, gaming, rendering and other workloads able to take advantage of the exceptional performance. Customers running software licensed on per-vCPU basis can leverage these VMs to optimize compute costs within their infrastructure. 
-> [!NOTE] 
-> For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
-The Falsv6, Fasv6, and Famsv6-series virtual machines do not have any temporary storage. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!NOTE]
+> For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. The Falsv6, Fasv6, and Famsv6-series virtual machines do not have any temporary storage. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). The new Falsv6, Fasv6, and Famsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-interface) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-faqs). The new Falsv6, Fasv6, and Famsv6VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our [announcement](https://techcommunity.microsoft.com/t5/azure-compute-blog/public-preview-new-amd-based-vms-with-increased-performance/ba-p/3981351) and follow the link to the [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9RmLSiOpIpImo4Q01A_jJlUM1ZSRVlYU04wMUJQVjNQRFZHQzdEVFc1VyQlQCN0PWcu). This is an opportunity to experience our latest innovation. 
+
 
 Premium Storage: Supported   
 Premium Storage caching: Supported   
@@ -42,7 +43,7 @@ Accelerated Networking: Supported 
 Ephemeral OS Disks: Not Supported   
 Nested Virtualization: Supported 
 
-## Fasv6-series
+## Fasv6-series (2:1 memory to vCPU ratio)
 
 | Size              | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
 |-------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
@@ -54,7 +55,7 @@ Nested Virtualization: Supported 
 | Standard_F48as_v6 | 48   | 192         | Remote Storage Only                      | 32             | 86400/2160                                          | 86400/2550                                                 | 172800/2160                                                           | 172800/2550                                                                  | 8        | 28000                        |
 | Standard_F64as_v6 | 64   | 256         | Remote Storage Only                      | 32             | 115200/2880                                         | 115200/3400                                                | 230400/2880                                                           | 230400/3400                                                                  | 8        | 36000                        |
 
-## Falsv6-series 
+## Falsv6-series (4:1 memory to vCPU ratio)
 
 | Size               | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
 |--------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
@@ -66,7 +67,7 @@ Nested Virtualization: Supported 
 | Standard_F48als_v6 | 48   | 96          | Remote Storage Only                      | 32             | 86400/2160                                          | 86400/2550                                                 | 172800/2160                                                           | 172800/2550                                                                  | 8        | 28000                        |
 | Standard_F64als_v6 | 64   | 128         | Remote Storage Only                      | 32             | 115200/2880                                         | 115200/3400                                                | 230400/2880                                                           | 230400/3400                                                                  | 8        | C                            |
 
-## Famsv6-series 
+## Famsv6-series (8:1 memory to vCPU ratio)
 
 | Size               | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
 |--------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
