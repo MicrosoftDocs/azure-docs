@@ -25,10 +25,14 @@ ms.date:     01/29/2024
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 Important 
 Azure Virtual Machine Series Easv6 and Eadsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
-The Easv6-series and Eadsv6-series utilize AMD's 4th Generation EPYCTM 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache, increasing customer options for running most memory optimized workloads. The Easv6-series VMs are ideal for memory-intensive enterprise applications, data warehousing, business intelligence, in-memory analytics, and financial transactions. 
+The Easv6-series and Eadsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache, increasing customer options for running most memory optimized workloads. The Easv6-series VMs are ideal for memory-intensive enterprise applications, data warehousing, business intelligence, in-memory analytics, and financial transactions. 
+
+> [!NOTE]
+> The new Easv6 and Eadsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-interface) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-faqs). The new Easv6 and Eadsv6 VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our [announcement](https://techcommunity.microsoft.com/t5/azure-compute-blog/public-preview-new-amd-based-vms-with-increased-performance/ba-p/3981351) and follow the link to the [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9RmLSiOpIpImo4Q01A_jJlUM1ZSRVlYU04wMUJQVjNQRFZHQzdEVFc1VyQlQCN0PWcu). This is an opportunity to experience our latest innovation. 
+
 
 ## Easv6-series 
-Easv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Easv6-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
+Easv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Easv6-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
 **Note** 
 For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
 Easv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
@@ -57,7 +61,7 @@ Easv6-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 <sup>1</sup> Easv6-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 ## Eadsv6-series 
-Eadsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Eadsv6-series sizes offer a combination of vCPU, memory and fast local NVMe temporary storage that is ideal for memory-intensive enterprise applications. 
+Eadsv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Eadsv6-series sizes offer a combination of vCPU, memory and fast local NVMe temporary storage that is ideal for memory-intensive enterprise applications. 
 Eadsv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 [Premium Storage](/azure/virtual-machines/premium-storage-performance): Supported   
