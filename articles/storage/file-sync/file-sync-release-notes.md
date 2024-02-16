@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure File Sync
-description: Release notes for Azure File Sync which lets you centralize your organization's file shares in Azure Files.
+description: Release notes for Azure File Sync, which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
 ms.service: azure-file-storage
