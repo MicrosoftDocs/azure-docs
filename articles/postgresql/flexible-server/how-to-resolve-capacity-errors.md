@@ -74,11 +74,14 @@ You can register your subscription using the Azure portal, [the Azure CLI](/cli/
 
 To register your subscription in the Azure portal, follow these steps: 
 
-1. Open the Azure portal and go to **All Services**.
-1. Go to **Subscriptions** and select your subscription.
-1. On the **Subscriptions** page, in the left hand pane under **Settings** select **Resource providers** 
-1. Enter **PostgreSQL** in the filter to bring up the PostgreSQL-related extensions.
-1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.DBforPostgreSQL** provider, depending on your desired action.
+ 
+1. In Azure portal  select **more services**.
+2. Choose **Subscriptions** and select or filter your subscription.
+3. Under **Settings** from left hand pane select **Resource providers** 
+4. Filter by **PostgreSQL** to bring up the PostgreSQL-related extensions.
+5. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.DBforPostgreSQL** provider, depending on your desired action.
+
+
 
    :::image type="content" source="./media/how-to-resolve-capacity-errors/register-postgresql-resource-provider.png" alt-text="Register PostgreSQL Resource Provider":::
 
