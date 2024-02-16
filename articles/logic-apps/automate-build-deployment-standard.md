@@ -133,7 +133,7 @@ After you create and locally test your workflow, create your deployment scripts.
 
    | Folder name | File name and description |
    |-------------|---------------------------|
-   | **ADOPipelineScripts** | - **CD-pipeline.yml**: The continuous delivery pipeline that contains the instructions to deploy the logic app code to the logic app resource. <br><br>- **CD-pipeline-variables.yml**: A YAML file that contains the variables used by the **CD-pipeline.yml** file. <br><br>- **CI-pipeline.yml**: The continuous integration pipeline that contains the instructions to build and generate the artifacts required to deploy the logic app resource to Azure. <br><br>- **CI-pipeline-variables.yml**: A YAML file that contains the variables used by the **CI-pipeline.yml** file. <br><br>- **Infrastructure-pipeline.yml**: A YAML pipeline that contains the instructions to load all the ARM templates to Azure and to execute the steps in the **Infrastructure-pipeline-template.yml** file. <br><br>- **Infrastructure-pipeline-template.yml**: A YAML pipeline file that contains the steps to deploy a logic app resource with all required dependencies and to deploy each managed connection required by the source code. <br><br>- **Infrastructure-pipeline-variables.yml**: An YAML pipeline that contains all the variables required to execute the steps in the **Infrastructure-pipeline-template.yml** file. |
+   | **ADOPipelineScripts** | - **CD-pipeline.yml**: The continuous delivery pipeline that contains the instructions to deploy the logic app code to the logic app resource. <br><br>- **CD-pipeline-variables.yml**: A YAML file that contains the variables used by the **CD-pipeline.yml** file. <br><br>- **CI-pipeline.yml**: The continuous integration pipeline that contains the instructions to build and generate the artifacts required to deploy the logic app resource to Azure. <br><br>- **CI-pipeline-variables.yml**: A YAML file that contains the variables used by the **CI-pipeline.yml** file. <br><br>- **Infrastructure-pipeline.yml**: A YAML "Infrastructure-as-Code" pipeline that contains the instructions to load all the ARM templates to Azure and to execute the steps in the **Infrastructure-pipeline-template.yml** file. <br><br>- **Infrastructure-pipeline-template.yml**: A YAML pipeline file that contains the steps to deploy a logic app resource with all required dependencies and to deploy each managed connection required by the source code. <br><br>- **Infrastructure-pipeline-variables.yml**: A YAML pipeline that contains all the variables required to execute the steps in the **Infrastructure-pipeline-template.yml** file. |
    | **ArmTemplates** | - **<*connection-reference*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy an Azure-hosted connection named **<*connection-reference*>** to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*connection-reference*>.template.json**: A Resource Manager template file that represents an Azure-hosted connection named **<*connection-reference*>** and contains the information used to deploy the corresponding connection resource to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*logic-app-name*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy the Standard logic app resource named **<*logic-app-name*>** to Azure, including all the dependencies. <br><br>- **<*logic-app-name*>.template.json**: A Resource Manager template file that represents the Standard logic app resource named **<*logic-app-name*>** and contains the information used to deploy the logic app resource to Azure. |
    | **WorkflowParameters** | **parameters.json**: This JSON file is a copy of the local parameters file and contains a copy of all the user-defined parameters plus the cloud version of any parameters created by the extension to parameterize Azure-hosted connections. This file is used to build the package that deploys to Azure. |
 
@@ -181,5 +181,42 @@ After you create and locally test your workflow, create your deployment scripts.
 
 ## Create pipelines in Azure DevOps
 
+To create the infrastructure along with the CI and CD pipelines, repeat the following steps for each of the following pipeline files:
+
+- **Infrastructure-pipeline.yml** for the "Infrastructure-as-Code" pipeline.
+- **CI-pipeline.yml** for the Continuous Integration pipeline.
+- **CD-pipeline.yml** for the Continuous Delivery pipeline.
+
+> [!NOTE]
+>
+> Before you set up the CD pipeline, in the **CD-pipeline.yml** file, you must update 
+> the *CI* pipeline name to match the name that you entered in the previous step.
+
+## Set up a pipeline
+
+1. In Azure DevOps, return to **Repos** > **Files** pane in your team project.
+
+1. On the **Files** pane toolbar, select **Set up build**.
+
+1. On the **Inventory your pipeline** pane, confirm the repository information, and select **Configure pipeline**.
+
+1. On the **Configure your pipeline** pane, select **Existing Azure Pipelines YAML file**.
+
+1. On the **Select an existing YAML file** pane, select your **Infrastructure-pipeline.yml** file
+
+   1. For **Branch**, select any branch.
+
+   1. For **Path**, select the path to use for your pipeline. The following path is the default value:
+
+      **Deployment/<*logic-app-name*>/ADOPipelineScripts/<*infrastructure-pipeline-name*>.yml**
+
+   1. When you're ready, select **Continue**.
+
+1. On the **Review your governed pipeline** pane, provide the following information:
+
+   - **Pipeline Name**: Enter a name for the pipeline.
+   - **Pipeline folder**: ?
+
+1. When you're done, select **Save**.
 
 ## Next steps
