@@ -45,14 +45,14 @@ More information about how security is integrated into every aspect of Azure is 
 
 ## Keeping your operating systems up-to-date
 
-While an OS update is not required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest Security Updates for Windows contain mitigations for these vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities. Here are our recommended actions to update your operating system:
+While an OS update isn't required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest Security Updates for Windows contain mitigations for these vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities. Here are our recommended actions to update your operating system:
 
 | Offering | Recommended Action  |
 |----------|---------------------|
 | Azure Cloud Services  | Enable [auto update](../articles/cloud-services/cloud-services-how-to-configure-portal.md) or ensure you're running the newest Guest OS. |
 | Azure Linux Virtual Machines | Install updates from your operating system provider. For more information, see [Linux](#linux) later in this document. |
 | Azure Windows Virtual Machines  | Install the latest security rollup.
-| Other Azure PaaS Services | There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
+| Other Azure PaaS Services | There's no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
 
 ## Additional guidance if you're running untrusted code
 
@@ -60,14 +60,14 @@ Customers who allow untrusted users to execute arbitrary code may wish to implem
 
 Example scenarios where more security features are recommended:
 
-- You allow code that you do not trust to run inside your VM.
+- You allow code that you don't trust to run inside your VM.
     - *For example, you allow one of your customers to upload a binary or script that you then execute within your application*.
-- You allow users that you do not trust to log into your VM using low privileged accounts.
+- You allow users that you don't trust to log into your VM using low privileged accounts.
     - *For example, you allow a low-privileged user to log into one of your VMs using remote desktop or SSH*.
 - You allow untrusted users access to virtual machines implemented via nested virtualization.
     - *For example, you control the Hyper-V host, but allocate the VMs to untrusted users*.
 
-Customers who do not implement a scenario involving untrusted code do not need to enable these extra security features.
+Customers who don't implement a scenario involving untrusted code don't need to enable these extra security features.
 
 ## Enabling additional security
 
@@ -90,7 +90,7 @@ Your target operating system must be up-to-date to enable these extra security f
 
 To validate enabled protections against these vulnerabilities, see [Understanding Get-SpeculationControlSettings PowerShell script output](https://support.microsoft.com/topic/understanding-get-speculationcontrolsettings-powershell-script-output-fd70a80a-a63f-e539-cda5-5be4c9e67c04).
 
-If protections are not enabled, please [contact Azure Support](https://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
+If protections aren't enabled, please [contact Azure Support](https://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
 
 **Step 2:** To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
