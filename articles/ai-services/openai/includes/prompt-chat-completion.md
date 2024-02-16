@@ -2,11 +2,11 @@
 title: How to work with prompt engineering and the Chat Completion API
 titleSuffix: Azure OpenAI
 description: Learn how to work with the Chat Completion API for prompt engineering
-author: mrbullwinkle #dereklegenzoff
-ms.author: mbullwin #delegenz
+author: mrbullwinkle 
+ms.author: mbullwin 
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/03/2023
+ms.date: 02/16/2024
 manager: nitinme
 keywords: ChatGPT
 
