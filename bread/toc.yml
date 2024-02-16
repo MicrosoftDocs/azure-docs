@@ -290,7 +290,7 @@ items:
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
-      - name: Apache Kafka for Confluent Cloud
+      - name: Apache Kafka & Apache Flink on Confluent Cloud
         tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
         topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
       - name: Datadog

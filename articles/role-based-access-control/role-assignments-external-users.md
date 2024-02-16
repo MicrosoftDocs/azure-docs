@@ -5,11 +5,9 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 06/07/2023
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
-
 ---
 # Assign Azure roles to external guest users using the Azure portal
 

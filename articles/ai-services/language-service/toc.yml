@@ -284,6 +284,10 @@ items:
           href: named-entity-recognition/concepts/named-entity-categories.md
         - name: Entity resolution
           href: named-entity-recognition/concepts/entity-resolutions.md
+        - name: Entity Metadata
+          href: named-entity-recognition/concepts/entity-metadata.md
+        - name: Preview API overview
+          href: named-entity-recognition/concepts/ga-preview-mapping.md
       - name: Tutorials
         items:
         - name: Extract information in Excel using Power Automate
@@ -396,12 +400,6 @@ items:
           href: concepts/custom-features/multi-region-deployment.md
         - name: Project versioning
           href: concepts/custom-features/project-versioning.md
-        - name: Project versioning
-          href: concepts/custom-features/project-versioning.md
-        - name: Entity Metadata
-          href: named-entity-recognition/concepts/entity-metadata.md
-        - name: Preview API overview
-          href: named-entity-recognition/concepts/ga-preview-mapping.md
         - name: Choosing between conversational apps
           href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
