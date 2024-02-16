@@ -233,7 +233,7 @@ VNet flow logs are available in the following regions during the preview:
 - West US<sup>1</sup>
 - West US 2<sup>1</sup>
 
-<sup>1</sup> Requires signing up for access to the preview. Fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to access to the preview.
+<sup>1</sup> Requires signing up for access to the preview. Fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to access the preview.
 
 ## Related content
 
