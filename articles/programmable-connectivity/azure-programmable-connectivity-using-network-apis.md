@@ -54,6 +54,10 @@ All requests must contain the following headers:
 - `Authorization`: This must have the value of `<APC_AUTH_TOKEN>` obtained in [Prerequisites](#prerequisites).
 - `apc-gateway-id`: This must have the value of `<APC_IDENTIFIER>` obtained in [Prerequisites](#prerequisites).
 
+Requests may also contain the following optional header:
+
+- `x-ms-client-request-id`: This is a unique ID to identify the specific request. This is useful for diagnosing and fixing errors.
+
 #### Network identifier
 
 Each request body contains the field `networkIdentifier`. This object contains the fields `identifierType` and `identifier`. These values are used to identify which Network a request should be routed to.
