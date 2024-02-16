@@ -66,7 +66,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024
 ## Retrieve thread
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
 ```
 
 Retrieves a thread.
