@@ -144,7 +144,7 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 Enable system assigned managed identity in the Event Grid namespace.
 
 ```azurecli-interactive
-az eventgrid namespace update --resource-group $resource_group --name $namespace --identity {type:systemassigned}
+az eventgrid namespace update --resource-group $resource_group --name $namespace --identity "{type:systemassigned}"
 ```
 
 ## Add role assignment in Event Hubs for the Event Grid managed identity
@@ -152,13 +152,13 @@ az eventgrid namespace update --resource-group $resource_group --name $namespace
 1. Get Event Grid namespace system managed identity principal ID.
 
     ```azurecli-interactive
-    principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
+    $principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
     ```
 
 2. Get Event Hubs event hub resource ID.
 
     ```azurecli-interactive
-    eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
+    $eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
     ```
 
 3. Add role assignment in Event Hubs for the Event Grid system managed identity.
