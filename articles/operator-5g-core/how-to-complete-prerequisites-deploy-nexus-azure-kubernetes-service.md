@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/15/2024
+ms.date: 02/16/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -33,8 +33,8 @@ Commands used in this article refer to the following resource groups:
 ## Prerequisites
 
 Before provisioning a NAKS cluster:
-- Configure external networks between CEs and Pes (or Telco Edge) that allow connectivity with the provider edge. Configuring access to external services like firewalls and services hosted on Azure (tenant not platform) is outside of the scope of this article.
-- Configure elements on Pes/Telco Edge that aren't controlled by Nexus Network Fabric, such as  Express Route Circuits configuration for tenant workloads connectivity to Azure.
+- Configure external networks between CEs and PEs (or Telco Edge) that allow connectivity with the provider edge. Configuring access to external services like firewalls and services hosted on Azure (tenant not platform) is outside of the scope of this article.
+- Configure elements on PEs/Telco Edge that aren't controlled by Nexus Network Fabric, such as  Express Route Circuits configuration for tenant workloads connectivity to Azure.
 - Review the [Nexus Kubernetes release calendar](../operator-nexus/reference-nexus-kubernetes-cluster-supported-versions.md) to identify available releases and support plans.
 - Review the [Nexus Kubernetes Cluster Overview](../operator-nexus/concepts-nexus-kubernetes-cluster.md). 
 - Review the [Network Fabric Overview](../operator-nexus/concepts-network-fabric.md).
@@ -71,8 +71,7 @@ To view the new isolation domain in the Azure portal:
 1. Navigate to  for **Network Fabric (Operator Nexus)** resource.
 1. Select **network fabric** from the list.
 1. Select **Isolation Domain**. 
-1. Select the relevant isolation domain (ISD). For example:
-    :::image type="content" source="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/isolation-domain-example.png" alt-text="Screenshot shows an example of an isolation domain selected for a network fabric resource." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/isolation-domain-example.png":::
+1. Select the relevant isolation domain (ISD).
 
 ## Create the internal network
 
@@ -103,9 +102,9 @@ az networkfabric l3domain show –resource-name “$l3Isd” \
 
 With the ISD disabled, you can add, modify, or remove the internal network. When you're finished making changes, re-enable ISD. 
 
-## Create the default Azure Containing Networking Interface internal network 
+## Create the default Azure Container Network Interface internal network 
 
-Use the following commands to create the default Azure Container Networking Interface (CNI) internal network:
+Use the following commands to create the default Azure Container Network Interface (CNI) internal network:
 
 ```azurecli
 export subscriptionId=”<SUBSCRIPTION-ID>” 
@@ -151,35 +150,6 @@ az networkfabric internalnetwork create –resource-name “$intnwName” \
 --connected-ipv4-subnets “[{prefix:$ipv4ListenRangePrefix}]” \ 
 --connected-ipv6-subnets “[{prefix:’$ipv6ListenRangePrefix’}]” \ 
 --bgp-configuration “{peerASN:$peerAsn,allowAS:0,defaultRouteOriginate:True,ipv4ListenRangePrefixes:[$ipv4ListenRangePrefix],ipv6ListenRangePrefixes:[‘$ipv6ListenRangePrefix’]}”
-```
-
-To view the fabric ASN  from the Azure portal:
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for the **Network Fabric (Operator Nexus)** resource.
-1. Select **network fabric** from the list.
-1. Review the ASN in properties – **Fabric ASN** or in the **Internal Network** details. 
- 
-## Enable the isolation domain
-
-Use the following commands to enable the ISD:
-
-```azurecli
-export subscriptionId=”<SUBSCRIPTION-ID>” 
-export rgFabric=”<RG-FABRIC>” 
-export l3Isd=”<ISD-NAME>” 
-  
-# Enable ISD, wait for 5 minutes and check the status is Enabled 
- 
-az networkfabric l3domain update-admin-state –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId” \ 
---state Enable 
- 
-# Check the status of the ISD 
- 
-az networkfabric l3domain show –resource-name “$l3Isd” \ 
---resource-group “$rgFabric” \ 
---subscription “$subscriptionId”
 ```
 
 To view the fabric ASN  from the Azure portal:
@@ -252,7 +222,7 @@ export ipv6ConnectedPrefix=”<DEFAULT-CNI-IPV6-PREFIX>/<PREFIX-LEN>” // if IP
 ### Trunked networks 
 
 A `trunkednetwork` network cloud resource is required if a single port/interface connected to a virtual machine must carry multiple virtual local area networks (VLANs). Tagging is performed at the application layer instead of NIC. A trunk interface can carry VLANs that are a part of different ISDs. 
-You must create a trunked network for both SMF ULB (S11/S5) andUPF iPPE (N3, N6). 
+You must create a trunked network for both SMF ULB (S11/S5) and UPF iPPE (N3, N6). 
 
 Use the following commands to create a trunked network:
 
@@ -381,8 +351,6 @@ az networkcloud cloudservicesnetwork create --cloud-services-network-name $csnNa
       
 After you create the CSN, verify the `egress-endpoints` from the Azure portal. In the search bar, enter **Cloud Services Networks (Operator Nexus)** resource. Select **Overview**, then navigate to **Enabled egress endpoints** to see the list of endpoints you created.
 
-:::image type="content" source="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png" alt-text="Screenshot showing the list of enabled egressed endpoints created for the Cloud Services Network." lightbox="media/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-services/enabled-egress-endpoints.png":::
-
 ## Create a Nexus Azure Kubernetes Services Cluster 
 
 Nexus related resource providers must deploy self-managed resource groups that are used to deploy the necessary resources created by customers. When Nexus AKS clusters are provisioned, they must be Arc-enabled. The Network Cloud resource provider creates its own managed resource group and deploys it in an Azure Arc Kubernetes cluster resource. Following this deployment, this cluster resource is linked to the NAKS cluster resource.   
@@ -405,7 +373,7 @@ export naksName="<NAKS-NAME>"
 export k8sVer="<K8S-VER>" 
 export region="<REGION>" 
 export regionRgNcManaged="<REGION-RG-NETWORK-CLOUD-MANAGED>" 
-export sshPubKeys="<SSH-PUB-KEYS>" // e.g. "ssh-rsa AAAAB3NzaC1yc2EAAAADAQAt5SjWU= admin@vm" 
+export sshPubKeys="<SSH-PUB-KEYS>"  
 export adminUser="<ADMIN-USER>" // e.g. "azureuser" 
 export controlVmSku="<CONTROL-NODE-SKU>" 
 export controlVmCount="<CONTROL-NODE-COUNT>" 
