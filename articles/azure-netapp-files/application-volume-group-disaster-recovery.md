@@ -4,7 +4,6 @@ description: Describes using an application volume group to add volumes for an S
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 08/22/2022
 ms.author: anfdocs

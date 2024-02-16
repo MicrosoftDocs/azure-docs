@@ -5,7 +5,6 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: abell
 ms.date: 11/06/2023

@@ -6,7 +6,6 @@ manager: kavithag
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli

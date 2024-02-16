@@ -13,8 +13,11 @@
       displayName: changelog, news, release notes
       href: release-notes.md
     - name: Important upcoming changes
-      displayName: release notes, changelog, news
+      displayName: release notes, changelog, news  
       href: upcoming-changes.md
+      items:
+        - name: Prepare for retirement of the Log Analytics agent
+          href: prepare-deprecation-log-analytics-mma-agent.md
     - name: Common questions
       items:
         - name: Common questions about Defender for Cloud
@@ -149,12 +152,6 @@
       items:
         - name: The Defender for Cloud multicloud solution
           href: multicloud.yml
-        - name: Defender for Cloud's GCP connector
-          displayName: GCP, connector, project, organizations
-          href: concept-gcp-connector.md
-        - name: Defender for Cloud's AWS connector
-          displayName: AWS, connector
-          href: concept-aws-connector.md
         - name: Zero Trust infrastructure and integrations
           displayName: zero trust, zero, trust
           href: zero-trust.md
@@ -637,9 +634,6 @@
       - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
         displayName: ACR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-azure.md
-      - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
-        displayName: AWS, ECR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-elastic.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md

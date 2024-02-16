@@ -4,12 +4,10 @@ description: Azure PowerShell script sample -  Export/Copy the VHD of a managed 
 services: virtual-machines-windows
 author: ramankumarlive
 manager: kavithag
-tags: azure-service-management
 ms.custom: devx-track-azurepowershell
 ms.service: virtual-machines
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 03/01/2023
 ms.author: ramankum
 ---
