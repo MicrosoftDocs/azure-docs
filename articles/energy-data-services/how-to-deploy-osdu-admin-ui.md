@@ -96,7 +96,7 @@ export RESOURCE_GROUP="<resource-group>" ## Name of resource group
 export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 ```
 
-### Deploy storage account
+## Deploy storage account
 1. Create resource group. Skip this step if the resource group already exist.
     ```azurecli-interactive
     az group create \
@@ -134,7 +134,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     Example:
     ![Screenshot showing redirect URIs of an App Registration](./media/how-to-deploy-osdu-admin-ui/appregistration.png)
 
-### Build and deploy the web app
+## Build and deploy the web app
 
 1. Navigate to the `OSDUApp` folder.
     ```bash
