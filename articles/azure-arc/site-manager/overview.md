@@ -4,7 +4,7 @@ description: "Describes Azure Arc sites and site manager."
 author: kgremban
 ms.author: kgremban
 ms.service: azure-arc
-# ms.subservice: [approved ms.subservice metadata]
+# ms.subservice: site-manager
 ms.topic: overview #Don't change
 ms.date: 02/14/2024
 

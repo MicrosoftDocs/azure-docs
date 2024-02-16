@@ -1,11 +1,12 @@
 ---
 title: "[noun phrase] concept(s) for [product or service]"
 description: "[Article description]."
-author: [your GitHub alias]
-ms.author: [your Microsoft alias or a team alias]
-ms.service: [the approved service name]
+author: kgremban
+ms.author: kgremban
+ms.service: azure-arc
+# ms.subservice: site-manager
 ms.topic: concept-article #Don't change.
-ms.date: [mm/dd/yyyy]
+ms.date: 02/16/2024
 
 #customer intent: As a <role>, I want <what> so that <why>.
 
