@@ -3976,16 +3976,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-instances/monitor-azure-container-instances.md",
-            "redirect_url": "/azure/container-instances/monitor-container-instances",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/container-instances/monitor-azure-container-instances-reference.md",
-            "redirect_url": "/azure/container-instances/monitor-container-instances-reference",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
             "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
             "redirect_document_id": false
