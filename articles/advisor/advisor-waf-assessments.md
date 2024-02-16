@@ -18,7 +18,7 @@ The Azure Well-Architected Framework, WAF, is a design scheme that helps you und
 Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers. You can take assessments on, and receive recommendations directly within, the Advisor platform.
 
 > [!NOTE]
-> Only the Assessments initiated via Advisor are visible on Advisor for the selected subscription and/or workload. 
+> Only the Assessments initiated via Advisor and the corresponding recommendations are visible on Advisor for the selected subscription and/or workload.
 
 Microsoft WAF Assessments help you work through a scenario of questions and recommendations that result in a curated guidance report that is actionable and informative. Assessments take time but it's time well-spent. Azure Advisor WAF Assessments help you identify gaps in your workloads across five pillars: Reliability, Cost, Operational Excellence, Performance, and Security via a set of curated questions on your workload. Assessments need you to work through a scenario of questions on your workloads and then provide recommendations that are actionable and informative. For the preview launch, we enabled the following two assessments via Advisor:
 
@@ -33,12 +33,12 @@ To see all Microsoft assessment choices, go to the [Learn platform > Assessments
 You can manage access to Advisor reviews using built-in roles. The permissions vary by role. 
 
 > [!NOTE]
-> These roles must be configured for the subscription that was used to publish the assessment.
+> These roles must be configured for the relevant subscription to create the assessment and view the corresponding recommendations.
 
 | **Name** | **Description** |
 |---|:---:|
-|Advisor Reviews Reader|View assessments for a workload and recommendations linked to them|
-|Advisor Reviews Contributor|View assessments for a workload and triage recommendations linked to them|
+|Reader|View assessments for a workload and recommendations linked to them|
+|Contributor|Create assessments for a workload and triage recommendations linked to them|
 
 Additionally, this feature is in preview so you must have feature flag (*feature.isEngageAssessmentsEnabled=true*) in the Advisor URL.
 
@@ -49,9 +49,6 @@ Additionally, this feature is in preview so you must have feature flag (*feature
 1. Select **Assessments** in the left navigation menu. The **Assessments** page opens with a list of completed or in progress assessments. 
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-main-m.png" alt-text="Sreenshot of Azure Advisor WAF assessments main page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-main-m.png":::
-
-> [!NOTE]
-> If you don't see the **New assessment** option, make sure you have Contributor access on at least one subscription.
 
 ## Create Azure Advisor WAF Assessments
 
@@ -83,7 +80,7 @@ You can choose to:
 
   a. View the recommendations generated for a completed recommendation.
 
-  b. Resume an assessment you initiated earlier by selecting **Create**. If you do so, you're redirected to **Learn** platform, select **Continue** to resume creating the assessment. You cannot resume an *In-progress* assessment created by someone else.
+  b. Resume an assessment you initiated earlier by selecting **Create**. If you do so, you're redirected to **Learn** platform, select **Continue** to resume creating the assessment. You can't resume an *In-progress* assessment created by someone else.
 
   c. Review the recommendations of a completed assessment created by someone from your organization.
 
@@ -147,7 +144,7 @@ When ready, select **Next**.
 
 * Assessments for a subscription and workload can be taken repeatedly; however, while creating a new assessment, you're notified if there's an existing assessment already created for the same subscription and workload. 
 
-* Assessments that have been marked as *Completed* cannot be edited.
+* Assessments that have been marked as *Completed* can't be edited.
 
 ## View Azure Advisor WAF assessment recommendations
 
@@ -160,24 +157,19 @@ To learn more about permissions, see [Permissions in Azure Advisor](/azure/advis
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-m.png":::
 
 2. You can sort the recommendations based on **Priority**, **Recommendation**, and **Category**. You can also use **Actions** > **Group** to group the recommendations by category or priority.
- 
+
 :::image type="content" source="./media/advisor-waf-assessments/recommendation-list-filtered-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-waf-assessments/recommendation-list-filtered-m.png":::
-
-3. Managing Advisor assessment recommendations is slightly different than managing regular Advisor recommendations.
-
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png":::
-
-From the recommendations list page, you can:
-  * Select a recommendation and see details about it in a pane that opens.
-
-  * *Postpone* or *Dismiss* a recommendation, or mark as *In progress*. If you mark a recommendation as *In progress* and finish with it (take the recommended actions), it's important to then mark it as *Completed*. You mark the recommendation as *Completed* through the recommendation list in the **In progress** view, or through the detail pane of a recommendation that is in progress. 
 
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score.
 
 ## Manage Azure Advisor WAF assessment recommendations
 
-You can manage WAF assessment recommendations, setting recommendation status for what needs action and what can be postponed or dismissed. You can also track recommendations via the different recommendation statuses. 
+You can manage WAF assessment recommendations, setting recommendation status for what needs action and what can be postponed or dismissed. You can also track recommendations via the different recommendation statuses.
+
+Managing Advisor WAF assessment recommendations is slightly different than managing regular Advisor recommendations.
+
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png":::
 
 * On the **Not started** tab, with new recommendations, you can set initial status changes. For example, mark a recommendation as *In progress*:  If you accept a recommendation and start working on it, select **Mark as in progress**, which moves it to the **In progress** tab. 
 
@@ -212,6 +204,9 @@ Some common questions and answers.
 
 **Q**. Can I edit previously taken assessments?\
 **A**. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
+
+**Q**. Why am I not getting any recommendations?\
+**A**. If you didn't answer all of the assessment questions and skipped to **View guidance**, you might not get any recommendations generated. The other reason might be that Learn hasn't generated any recommendations for the assessment.
 
 **Q**. Can I view recommendations for the assessments not taken by me?\
 **A**. Subscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
