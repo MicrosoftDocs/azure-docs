@@ -87,7 +87,7 @@ export declare type MediaConstraintRange = {
 };
 ```
 
-When setting video constraints, the SDK chooses the nearest value that falls within the constraint set to prevent the values for resolution, frameRate and bitrate to not exceed the maximum constraint values set. Also, when the resolution constraint value is too small, the SDK chooses the smallest available resolution. In this case, the height of chosen resolution can be larger than the constraint value.
+When setting video constraints, the SDK chooses the nearest value that falls within the constraint set to prevent the values for resolution, frameRate, and bitrate to not exceed the maximum constraint values set. Also, when the resolution constraint value is too small, the SDK chooses the smallest available resolution. In this case, the height of chosen resolution can be larger than the constraint value.
 
 > [!NOTE]
 > For all `bitrate`, `frameHeight` and `frameRate`, the constraint value is a `max` constraint, which means the actual value in the call can be the specified value or smaller.
@@ -145,7 +145,7 @@ await currentCall.setConstraints({
 <br/>
 
 ## Receive video constraints
-To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjust received resolution based on the dimensions of the renderer. The SDK will not request an incoming video stream (width and height) than it can fit into the renderer video window.
+To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjusts received resolution based on the dimensions of the renderer. The SDK won't request an incoming video stream (width and height) than it can fit into the renderer video window.
 
 
 
