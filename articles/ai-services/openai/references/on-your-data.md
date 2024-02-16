@@ -42,7 +42,7 @@ The request body inherits the same schema of chat completions API request. This 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
 | `messages` | [ChatMessage](#chat-message)[] | True | The array of messages to generate chat completions for, in the chat format. The [request chat message](#chat-message) has a `context` property, which is added for Azure OpenAI on your data.|
-| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI on your data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and not use Azure OpenAI on your data.|
+| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI on your data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI on your data.|
 
 ## Response body
 
@@ -129,15 +129,15 @@ completion = client.chat.completions.create(
             "content": "Who is DRI?",
         },
         {
-          "role": "assistant",
-          "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
-          "context": {
-            "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
-          }
+            "role": "assistant",
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
+            "context": {
+                "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
+            }
         },
         {
-          "role": "user",
-          "content": "Opinion mining service"
+            "role": "user",
+            "content": "Opinion mining service"
         }
     ],
     extra_body={
@@ -187,15 +187,15 @@ az rest --method POST \
             "content": "Who is DRI?",
         },
         {
-          "role": "assistant",
-          "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
-          "context": {
-            "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
-          }
+            "role": "assistant",
+            "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
+            "context": {
+              "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
+            }
         },
         {
-          "role": "user",
-          "content": "Opinion mining service"
+            "role": "user",
+            "content": "Opinion mining service"
         }
     ]
 }
