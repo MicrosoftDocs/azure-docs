@@ -24,7 +24,7 @@ You can change the display name for a published RemoteApp or Remote Desktop by s
 
 #### [Portal](#tab/portal)
 
-You can change the display name for a published RemoteApp or Remote Desktop by setting a friendly name using the Azure portal.
+Here's how to customize the display name for a published RemoteApp or Remote Desktop using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
