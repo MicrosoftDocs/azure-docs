@@ -2,16 +2,16 @@
 ms.author: enricohuang
 title: Quickstart - Set video constraints in your web calling app
 titleSuffix: An Azure Communication Services document
-description: In this quickstart, you'll learn how to set video constraints in your existing web calling app using Azure Communication Services.
+description: In this quickstart, you learn how to set video constraints in your existing web calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 07/13/2023
+ms.date: 02/15/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-You can set video constraints in your calls to control the video quality based on resolution or frameRate or bitrate in your video calls. In this quickstart guide, we'll illustrate how to set video constraints at the start of a call and how to use our `setConstraints` method on the call object to set video constraints dynamically during the call.
+You can set video constraints in your calls to control the video quality based on resolution or frameRate or bitrate in your video calls. In this quickstart guide, we illustrate how to set video constraints at the start of a call and how to use our `setConstraints` method on the call object to set video constraints dynamically during the call.
 
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -20,8 +20,8 @@ You can set video constraints in your calls to control the video quality based o
 Azure Communication Services Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
 
 ### Setting video constraints at the start of a call - outgoing (send) video
-The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within `CallOptions` when you make a call, accept a call, or join a call. You will also have to specify `localVideoStreams` in `videoOptions`. <br/>
-Do note that constraints don't work if you join a call with audio only option and turn on the camera later. In this case, you can set video constraints dynamically using the `setConstraints` method on the `Call` interface (guide below).
+The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within `CallOptions` when you make a call, accept a call, or join a call. You must specify `localVideoStreams` in `videoOptions`. <br/>
+Do note that constraints don't work if you join a call with audio only option and turn on the camera later. In this case, you can set video constraints dynamically using the `setConstraints` method on the `Call` interface.
 
 ```javascript
 const callOptions = {
@@ -87,7 +87,7 @@ export declare type MediaConstraintRange = {
 };
 ```
 
-When setting video constraints, the SDK will choose the nearest value that falls within the constraint set (to prevent the values for resolution, frameRate and bitrate to not exceed the maximum constraint values set). Also, when the resolution constraint value is too small, the SDK will choose the smallest available resolution. In this case, the height of chosen resolution can be larger than the constraint value.
+When setting video constraints, the SDK chooses the nearest value that falls within the constraint set to prevent the values for resolution, frameRate and bitrate to not exceed the maximum constraint values set. Also, when the resolution constraint value is too small, the SDK chooses the smallest available resolution. In this case, the height of chosen resolution can be larger than the constraint value.
 
 > [!NOTE]
 > For all `bitrate`, `frameHeight` and `frameRate`, the constraint value is a `max` constraint, which means the actual value in the call can be the specified value or smaller.
@@ -145,7 +145,7 @@ await currentCall.setConstraints({
 <br/>
 
 ## Receive video constraints
-To control resolution on the receiver side usingAzure Communication Services Web Calling SDK you can adjust size of the renderer of that video. The calling SDK will automatically adjust received resolution based on the dimensions of the renderer. The SDK will not request more stream (width annd height) than it can fit into the renderer video window.
+To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjust received resolution based on the dimensions of the renderer. The SDK will not request an incoming video stream (width and height) than it can fit into the renderer video window.
 
 
 
