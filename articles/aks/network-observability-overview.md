@@ -37,18 +37,18 @@ When the Network Observability add-on is enabled, it allows for the collection a
 
 | Metric Name | Description | Labels | Linux | Windows |
 |-------------|-------------|--------|-------|---------|
-| **kappie_forward_count** | Total forwarded packet count | Direction, NodeName, Cluster | Yes | Yes |
-| **kappie_forward_bytes** | Total forwarded byte count | Direction, NodeName, Cluster | Yes | Yes |
-| **kappie_drop_count** | Total dropped packet count | Reason, Direction, NodeName, Cluster | Yes | Yes |
-| **kappie_drop_bytes** | Total dropped byte count | Reason, Direction, NodeName, Cluster | Yes | Yes |
-| **kappie_tcp_state** | TCP active socket count by TCP state. | State, NodeName, Cluster | Yes | Yes |
-| **kappie_tcp_connection_remote** | TCP active socket count by remote address. | Address, Port, NodeName, Cluster | Yes | No |
-| **kappie_tcp_connection_stats** | TCP connection statistics. (ex: Delayed ACKs, TCPKeepAlive, TCPSackFailures) | Statistic, NodeName, Cluster | Yes | Yes |
-| **kappie_tcp_flag_counters** | TCP packets count by flag. | Flag, NodeName, Cluster | Yes | Yes |
-| **kappie_ip_connection_stats** | IP connection statistics. | Statistic, NodeName, Cluster | Yes | No |
-| **kappie_udp_connection_stats** | UDP connection statistics. | Statistic, NodeName, Cluster | Yes | No |
-| **kappie_udp_active_sockets** | UDP active socket count | NodeName, Cluster | Yes | No |
-| **kappie_interface_stats** | Interface statistics. | InterfaceName, Statistic, NodeName, Cluster | Yes | Yes |
+| **networkobservability_forward_count** | Total forwarded packet count | Direction, NodeName, Cluster | Yes | Yes |
+| **networkobservability_forward_bytes** | Total forwarded byte count | Direction, NodeName, Cluster | Yes | Yes |
+| **networkobservability_drop_count** | Total dropped packet count | Reason, Direction, NodeName, Cluster | Yes | Yes |
+| **networkobservability_drop_bytes** | Total dropped byte count | Reason, Direction, NodeName, Cluster | Yes | Yes |
+| **networkobservability_tcp_state** | TCP active socket count by TCP state. | State, NodeName, Cluster | Yes | Yes |
+| **networkobservability_tcp_connection_remote** | TCP active socket count by remote address. | Address, Port, NodeName, Cluster | Yes | No |
+| **networkobservability_tcp_connection_stats** | TCP connection statistics. (ex: Delayed ACKs, TCPKeepAlive, TCPSackFailures) | Statistic, NodeName, Cluster | Yes | Yes |
+| **networkobservability_tcp_flag_counters** | TCP packets count by flag. | Flag, NodeName, Cluster | Yes | Yes |
+| **networkobservability_ip_connection_stats** | IP connection statistics. | Statistic, NodeName, Cluster | Yes | No |
+| **networkobservability_udp_connection_stats** | UDP connection statistics. | Statistic, NodeName, Cluster | Yes | No |
+| **networkobservability_udp_active_sockets** | UDP active socket count | NodeName, Cluster | Yes | No |
+| **networkobservability_interface_stats** | Interface statistics. | InterfaceName, Statistic, NodeName, Cluster | Yes | Yes |
 
 ## Limitations
 
@@ -65,5 +65,3 @@ Certain scale limitations apply when you use Azure managed Prometheus and Grafan
 - To create an AKS cluster with Network Observability and Azure managed Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](network-observability-managed-cli.md).
 
 - To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](network-observability-byo-cli.md).
-
-

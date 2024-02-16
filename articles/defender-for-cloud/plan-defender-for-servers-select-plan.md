@@ -94,4 +94,3 @@ A couple of vulnerability assessment options are available in Defender for Serve
 ## Next steps
 
 After you work through these planning steps, [review Azure Arc and agent and extension requirements](plan-defender-for-servers-agents.md).
-

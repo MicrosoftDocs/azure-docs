@@ -3,7 +3,7 @@ title: Runtime environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/24/2024
+ms.date: 02/16/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 ---
@@ -80,6 +80,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - Existing runbooks that are automatically moved from old experience to Runtime environment experience would be able to execute as both cloud and hybrid job. 
 - When the runbook is [updated](manage-runtime-environment.md) and linked to a different Runtime environment, it can be executed as cloud job only.
 - PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks only work with System-generated PowerShell-5.1 Runtime environment.
+- Runbooks created in Runtime environment experience with Runtime version PowerShell 7.2 would show as PowerShell 5.1 runbooks in old experience.
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  

@@ -1,6 +1,6 @@
 ---
-title: Samples of Azure Monitor log alert rule queries
-description: See examples of Azure monitor log alert rule queries.
+title: Samples of Azure Monitor log search alert rule queries
+description: See examples of Azure monitor log search alert rule queries.
 ms.topic: reference
 ms.date: 01/04/2024
 author: AbbyMSFT
@@ -8,11 +8,11 @@ ms.author: abbyweisberg
 ms.reviewer: nolavime
 ---
 
-# Sample log alert queries that include ADX and ARG
+# Sample log search alert queries that include ADX and ARG
 
-A log alert rule monitors a resource by using a Log Analytics query to evaluate logs at a set frequency. You can include data from Azure Data Explorer and Azure Resource Graph in your log alert rule queries.
+A log search alert rule monitors a resource by using a Log Analytics query to evaluate logs at a set frequency. You can include data from Azure Data Explorer and Azure Resource Graph in your log search alert rule queries.
 
-This article provides examples of log alert rule queries that use Azure Data Explorer and Azure Resource Graph. For more information about creating a log alert rule, see [Create a log alert rule](./alerts-create-log-alert-rule.md).
+This article provides examples of log search alert rule queries that use Azure Data Explorer and Azure Resource Graph. For more information about creating a log search alert rule, see [Create a log search alert rule](./alerts-create-log-alert-rule.md).
 
 ## Queries that check virtual machine health
 
@@ -88,5 +88,5 @@ This query finds virtual machines marked as critical that had a heartbeat more t
 ```
 
 ## Next steps
-- [Learn more about creating a log alert rule](./alerts-create-log-alert-rule.md)
-- [Learn how to optimize log alert queries](./alerts-log-query.md)
+- [Learn more about creating a log search alert rule](./alerts-create-log-alert-rule.md)
+- [Learn how to optimize log search alert queries](./alerts-log-query.md)

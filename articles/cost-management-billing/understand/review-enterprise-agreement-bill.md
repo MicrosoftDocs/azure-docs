@@ -378,7 +378,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 > [!TIP]
 >
-> - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+> - For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 > - For more information about connecting Power BI to your Azure consumption, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### To access the legacy Power BI EA content pack:
@@ -393,9 +393,9 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
     - Number of Months: from 1 to 36
     - Enrollment Number: your enrollment number
 1. Select **Next**.
-1. In **Authentication Key Box**, enter the API key.
+1. In **Authentication Key** box, enter the API key.
 
-    You can get the API key in the Azure Enterprise portal under the **Download Usage** tab. Select **API Access Key**, and then paste the key into the **Account Key** box.
+    You can get the API key in the Azure portal. For more information about API keys, see [API key generation](../manage/enterprise-rest-apis.md#api-key-generation).
 1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
 
 ## Next steps
