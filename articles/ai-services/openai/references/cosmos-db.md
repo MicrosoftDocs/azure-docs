@@ -32,7 +32,7 @@ The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure O
 | `authentication`| [ConnectionStringAuthenticationOptions](#connection-string-authentication-options)| True | The authentication method to use when accessing the defined data source. |
 | `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | True | The embedding dependency for vector search.|
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
-| `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 100 token limit for it, and it counts against the overall token limit.|
+| `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 400 token limit for it, and it counts against the overall token limit.|
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
 
