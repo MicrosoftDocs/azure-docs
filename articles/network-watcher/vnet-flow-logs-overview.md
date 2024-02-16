@@ -213,7 +213,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ## Pricing
 
-Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of ***Network flow logs collected*** and will come with a free tier of 5 GB/month per subscription.
+Currently, VNet flow logs aren't billed. However, the following costs apply:
 
 If traffic analytics is enabled for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
@@ -233,7 +233,7 @@ VNet flow logs are available in the following regions during the preview:
 - West US<sup>1</sup>
 - West US 2<sup>1</sup>
 
-<sup>1</sup> Requires sign up for access to the preview. Fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to access to the preview.
+<sup>1</sup> Requires signing up for access to the preview. Fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to access to the preview.
 
 ## Related content
 
