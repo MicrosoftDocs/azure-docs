@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using Java (latest)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 02/10/2023
+ms.date: 02/16/2024
 ms.devlang: java
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
@@ -38,12 +38,12 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.18.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-identity</artifactId>
-		    <version>1.8.0</version>
+		    <version>1.11.2</version>
 		    <scope>compile</scope>
 		</dependency>
 ```
@@ -54,7 +54,7 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.18.0</version>
 		</dependency>
 ```
 
