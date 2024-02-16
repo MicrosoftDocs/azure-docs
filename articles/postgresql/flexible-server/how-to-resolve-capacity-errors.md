@@ -26,7 +26,7 @@ The article describes how you can resolve capacity errors when deploying or scal
 
 If you encounter any of the following errors when attempting to deploy your Azure PostgreSQL Flexible Server resource, [submit a request to increase your quota](how-to-request-quota-increase.md).
 
-- `Operation could not be completed as it results in exceeding approved {0} Cores quota. Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
+- `Operation could not be completed as it results in exceeding approved {0} Cores quota. Additional details - Current Limit: {1}, Current Usage: {2}, Additional Required: {3}, (Minimum) New Limit Required: {4}.Submit a request for Quota increase by specifying parameters listed in the ‘Details’ section for deployment to succeed.`
 
 
 ## Subscription access
@@ -103,7 +103,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 ---
 
-## Additional provisioning issues
+## Other provisioning issues
 
 If you're still experiencing provisioning issues, open a **Region** access request under the support topic of Azure PostgreSQL Flexible Server and specify the vCores you want to utilize. 
 
