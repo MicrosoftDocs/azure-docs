@@ -94,7 +94,7 @@ Following are high level steps to restrict API access to users or apps that are 
     > [!NOTE]
     > The following examples show the general structure of the policies to validate a JWT, but you must customize them to your identity provider and the requirements of your application and API.
 
-    **validate-azure-ad-token** - If you use Microsoft Entra ID, configure the `validate-azure-ad-token` policy to validate the audience and claims in the JWT. For details, see the policy [reference](validate-azure-ad-token-policy.md).
+    * **validate-azure-ad-token** - If you use Microsoft Entra ID, configure the `validate-azure-ad-token` policy to validate the audience and claims in the JWT. For details, see the policy [reference](validate-azure-ad-token-policy.md).
 
         ```xml
         <validate-azure-ad-token tenant-id={{TENANT_ID}} header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
