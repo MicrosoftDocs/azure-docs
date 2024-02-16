@@ -14,7 +14,7 @@ ms.custom:
 
 # Data source - Pinecone
 
-The configurable options of Pinecone when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
+The configurable options of Pinecone when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -37,7 +37,7 @@ The configurable options of Pinecone when using Azure OpenAI on your data. This 
 
 ## API key authentication options
 
-The authentication options for Azure OpenAI on your data when using an API key.
+The authentication options for Azure OpenAI On Your Data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -47,7 +47,7 @@ The authentication options for Azure OpenAI on your data when using an API key.
 
 ## Deployment name vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |

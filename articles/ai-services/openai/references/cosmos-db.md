@@ -14,7 +14,7 @@ ms.custom:
 
 # Data source - Azure Cosmos DB for MongoDB vCore
 
-The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
+The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -38,7 +38,7 @@ The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure O
 
 ## Connection string authentication options
 
-The authentication options for Azure OpenAI on your data when using a connection string.
+The authentication options for Azure OpenAI On Your Data when using a connection string.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -48,7 +48,7 @@ The authentication options for Azure OpenAI on your data when using a connection
 
 ## Deployment name vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -57,7 +57,7 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 ## Endpoint vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -67,7 +67,7 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 ## API key authentication options
 
-The authentication options for Azure OpenAI on your data when using an API key.
+The authentication options for Azure OpenAI On Your Data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |

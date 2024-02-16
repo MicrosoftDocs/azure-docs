@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI on your data Python & REST API reference
+title: Azure OpenAI On Your Data Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI on your data Python & REST API.
+description: Learn how to use Azure OpenAI On Your Data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -12,9 +12,9 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI on your data API Reference
+# Azure OpenAI On Your Data API Reference
 
-This article provides reference documentation for Python and REST for the new Azure OpenAI on your data API. The latest preview api-version is `2024-02-15-preview`.
+This article provides reference documentation for Python and REST for the new Azure OpenAI On Your Data API. The latest preview api-version is `2024-02-15-preview`.
 
 > [!NOTE]
 > Since `2024-02-15-preview` we introduced the following breaking changes comparing to earlier API versions:
@@ -37,16 +37,16 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 
 ## Request body
 
-The request body inherits the same schema of chat completions API request. This table shows the parameters unique for Azure OpenAI on your data.
+The request body inherits the same schema of chat completions API request. This table shows the parameters unique for Azure OpenAI On Your Data.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `messages` | [ChatMessage](#chat-message)[] | True | The array of messages to generate chat completions for, in the chat format. The [request chat message](#chat-message) has a `context` property, which is added for Azure OpenAI on your data.|
-| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI on your data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI on your data.|
+| `messages` | [ChatMessage](#chat-message)[] | True | The array of messages to generate chat completions for, in the chat format. The [request chat message](#chat-message) has a `context` property, which is added for Azure OpenAI On Your Data.|
+| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data.|
 
 ## Response body
 
-The response body inherits the same schema of chat completions API response. The [response chat message](#chat-message) has a `context` property, which is added for Azure OpenAI on your data.
+The response body inherits the same schema of chat completions API response. The [response chat message](#chat-message) has a `context` property, which is added for Azure OpenAI On Your Data.
 
 ## Chat message
 
@@ -54,7 +54,7 @@ In both request and response, when the chat message `role` is `assistant`, the c
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `context` | [Context](#context) | False | Represents the incremental steps performed by the Azure OpenAI on your data while processing the request, including the detected search intent and the retrieved documents. |
+| `context` | [Context](#context) | False | Represents the incremental steps performed by the Azure OpenAI On Your Data while processing the request, including the detected search intent and the retrieved documents. |
 
 ## Context
 |Name | Type | Required | Description |

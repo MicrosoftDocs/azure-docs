@@ -14,7 +14,7 @@ ms.custom:
 
 # Data source - Elasticsearch
 
-The configurable options for Elasticsearch when using Azure OpenAI on your data. This data source is supported in API version `2024-02-15-preview`.
+The configurable options for Elasticsearch when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -38,7 +38,7 @@ The configurable options for Elasticsearch when using Azure OpenAI on your data.
 
 ## Key and key ID authentication options
 
-The authentication options for Azure OpenAI on your data when using an API key.
+The authentication options for Azure OpenAI On Your Data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -48,7 +48,7 @@ The authentication options for Azure OpenAI on your data when using an API key.
 
 ## Encoded API key authentication options
 
-The authentication options for Azure OpenAI on your data when using an Elasticsearch encoded API key.
+The authentication options for Azure OpenAI On Your Data when using an Elasticsearch encoded API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -57,7 +57,7 @@ The authentication options for Azure OpenAI on your data when using an Elasticse
 
 ## Deployment name vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -66,7 +66,7 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 ## Endpoint vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on the Azure OpenAI embedding API endpoint.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -76,7 +76,7 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 ## Model ID vectorization source
 
-The details of the vectorization source, used by Azure OpenAI on your data when applying vector search. This vectorization source is based on Elasticsearch model ID.
+The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on Elasticsearch model ID.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -85,7 +85,7 @@ The details of the vectorization source, used by Azure OpenAI on your data when 
 
 ## API key authentication options
 
-The authentication options for Azure OpenAI on your data when using an API key.
+The authentication options for Azure OpenAI On Your Data when using an API key.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -107,7 +107,7 @@ Optional settings to control how fields are processed when using a configured El
 
 ## Query type
 
-The type of Elasticsearch retrieval query that should be executed when using it with Azure OpenAI on your data.
+The type of Elasticsearch retrieval query that should be executed when using it with Azure OpenAI On Your Data.
 
 |Enum Value | Description |
 |---|---|
