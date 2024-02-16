@@ -31,7 +31,6 @@ Specifically with the v2 model, here are some known issues and their workarounds
 
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
-* [Issues with deployment](#issue-with-deployment)
 
 General troubleshooting guides for Python Functions include:
 
@@ -40,7 +39,7 @@ General troubleshooting guides for Python Functions include:
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Sync triggers failed](#sync-triggers-failed)
-* [Issues developing in Azure portal](#issues-developing-in-azure-portal)
+* [Development issues in the Azure portal](#development-issues-in-the-azure-portal)
 ::: zone-end
 
 
