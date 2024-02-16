@@ -33,7 +33,7 @@ The configurable options of Azure AI Search when using Azure OpenAI on your data
 | `filter`| string | False | Search filter. |
 | `in_scope` | boolean | False | Whether queries should be restricted to use of indexed data. Default is `True`.| 
 | `query_type` | [QueryType](#query-type) | False | The query type to use with Azure Search. Default is `simple` |
-| `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses. There's a 400 token limit for it, and it counts against the overall token limit.|
+| `role_information`| string | False | Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality and tell it how to format responses.|
 | `semantic_configuration` | string | False | The semantic configuration for the query. Required when `query_type` is `semantic` or `vector_semantic_hybrid`.| 
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
