@@ -78,13 +78,17 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     az account set --subscription <subscription-id>
     ```
     
-### Configure environment variables
-Enter the required environment variables on the terminal.
+## Configure environment variables
+1. Fetch `client-id`, `resource-group`, and `location`.
+
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/location-resource-group.png" alt-text="Screenshot that shows how to fetch location and resource group.":::
+
+2. Enter the required environment variables on the terminal.
 ```bash
-export ADMINUI_CLIENT_ID="" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
-export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated
-export RESOURCE_GROUP="" ## Name of resource group
-export LOCATION="" ## Azure region to deploy to, i.e. "westeurope"
+export ADMINUI_CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
+export WEBSITE_NAME="<website-name>" ## Unique name of the static web app or storage account that will be generated
+export RESOURCE_GROUP="<resource-group>" ## Name of resource group
+export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 ```
 
 ### Deploy storage account
