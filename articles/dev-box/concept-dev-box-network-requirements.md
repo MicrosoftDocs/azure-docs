@@ -1,14 +1,14 @@
 ---
-title: Microsoft Dev Box architecture
-description: Learn about the architecture, key concepts & terminology for Microsoft Dev Box. Get an understanding about dev center, dev box, dev box definitions, and dev box pools.
+title: Microsoft Dev Box Network Requirements
+description: Learn about the network requirements for deploying dev boxes, connecting to cloud-based resources, on-premises resources, and internet resources.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 02/16/2023
 ms.custom: template-concept
-#Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
+#Customer intent: As a platform engineer, I want to understand Dev Box networking requirments so that developers can access the resources they need.
 ---
 
 # Microsoft Dev Box network requirements
@@ -111,8 +111,7 @@ hm-iot-in-3-prod-prna01.azure-devices.net (443 & 5671 outbound)
 
 ## Use FQDN tags and service tags for endpoints through Azure Firewall
 
-Windows 365 fully qualified domain name (FQDN) tags make it easier to grant access to Windows 365 required service endpoints through an Azure firewall. For more information, see Use Azure Firewall to manage and secure Windows 365 environments.
-FQDN tags aren’t supported by non-Microsoft firewalls. There might be a different term for the same functionality; check your firewall documentation.
+Windows 365 fully qualified domain name (FQDN) tags make it easier to grant access to Windows 365 required service endpoints through an Azure firewall. For more information, see Use Azure Firewall to manage and secure Windows 365 environments Non-Microsoft firewalls don't usually support FQDN tags or service tags. There might be a different term for the same functionality; check your firewall documentation.
 A virtual network service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. Service tags can be used in both Network Security Group (NSG) and Azure Firewall rules to restrict outbound network access. Service tags can be also used in User Defined Route (UDR) to customize traffic routing behavior.
 We recommend you use FQDN tags or service tags to simplify configuration. The listed FQDNs and endpoints and tags only correspond to Azure Virtual Desktop sites and resources. They don't include FQDNs and endpoints for other services such as Microsoft Entra ID. For service tags for other services, see Available service tags.
 Azure Virtual Desktop doesn't have a list of IP address ranges that you can unblock instead of FQDNs to allow network traffic. If you're using a Next Generation Firewall (NGFW), you need to use a dynamic list made for Azure IP addresses to make sure you can connect.
