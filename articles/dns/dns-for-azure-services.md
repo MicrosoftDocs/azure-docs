@@ -10,7 +10,6 @@ ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.workload: infrastructure-services
 ms.date: 11/30/2023
 ms.author: greglin
 ---

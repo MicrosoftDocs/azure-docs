@@ -33,7 +33,7 @@ The following information describes the differences between the older Azure Ente
 
 | Use | Azure Enterprise Reporting APIs | Microsoft Cost Management APIs |
 | --- | --- | --- |
-| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
+| Authentication | API key provisioned in the [Azure portal](../manage/enterprise-rest-apis.md#api-key-generation) | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |

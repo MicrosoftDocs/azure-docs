@@ -1,7 +1,7 @@
 ---
-title: Create and configure a dev center for Azure Deployment Environments
+title: Set up a dev center for Azure Deployment Environments
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a dev center, attach an identity, and attach a catalog in Azure Deployment Environments.
+description: Learn how to set up the resources to get started with Azure Deployment Environments. Configure a dev center, attach an identity, and attach a catalog for using IaC templates.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
@@ -14,7 +14,9 @@ ms.date: 12/01/2023
 
 In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type.
 
-A platform engineering team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
+A dev center is the top-level resource for getting started with Azure Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments development teams can deploy to.
+
+A platform engineering team typically sets up the dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
 The following diagram shows the steps to configure a dev center for Azure Deployment Environments in the Azure portal. 
 

@@ -43,7 +43,7 @@ An IoT solution may include other systems such as asset management, work schedul
 
 ## Industrial IoT (IIoT)
 
-Azure IIoT lets you integrate data from assets and sensors, including those systems that are already operating on your factory floor, into your Azure IoT solution. To learn more, see [Industrial IoT](../industrial-iot/overview-what-is-industrial-iot.md).
+Azure IIoT lets you integrate data from assets and sensors, including those systems that are already operating on your factory floor, into your Azure IoT solution. To learn more, see [Microsoft OPC Publisher and Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/readme.md).
 
 ## Extensibility mechanisms
 

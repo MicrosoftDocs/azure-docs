@@ -28,7 +28,7 @@ You can learn more about Azure OpenAI model versions and how they work in the [A
 
 ### Auto update to default
 
-When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a change in the default version.
+When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a change in the default version.  For a preview version, it will update automatically when a new preview version is available starting two weeks after the new preview version is released.
 
 If you're still in the early testing phases for inference models, we recommend deploying models with **auto-update to default** set whenever it's available.
 

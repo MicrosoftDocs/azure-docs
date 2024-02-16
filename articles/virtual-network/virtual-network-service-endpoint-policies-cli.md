@@ -3,12 +3,10 @@ title: Restrict data exfiltration to Azure Storage - Azure CLI
 description: In this article, you learn how to limit and restrict virtual network data exfiltration to Azure Storage resources with virtual network service endpoint policies using the Azure CLI.
 services: virtual-network
 author: asudbring
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli, linux-related-content
