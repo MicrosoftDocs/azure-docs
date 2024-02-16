@@ -162,4 +162,3 @@ Remove-AzRoleDefinition -Name "Custom Role - RG Reader"
 
 - [Understand Azure role definitions](role-definitions.md)
 - [Bicep documentation](../azure-resource-manager/bicep/overview.md)
-- [Create a new role def via a subscription level deployment](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def)
