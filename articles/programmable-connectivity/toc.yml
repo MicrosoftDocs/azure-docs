@@ -28,8 +28,6 @@
   items:
   - name: Create an APC Gateway
     href: azure-programmable-connectivity-create-gateway.md
-  - name: Modify APIs
-    href: azure-programmable-connectivity-modify-apis.md
   - name: Using network APIs
     href: azure-programmable-connectivity-using-network-apis.md
 - name: Resources
