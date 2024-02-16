@@ -34,7 +34,7 @@ For more information about other roles and permissions supported for Microsoft S
 
 The content hub offers the best way to find new content or manage the solutions you already installed.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Content hub**.
 
     The **Content hub** page displays a searchable grid or list of solutions and standalone content.
 
