@@ -11,10 +11,10 @@ ms.service: cache
 
 # Monitor Azure Cache for Redis
 <!-- Intro -->
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 <!-- ## Insights. If your service doesn't have insights, remove the following include and comments . If your service has insights, add more information about the insights after the #include. -->
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights.md)]
+[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 <!-- Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
 
 Insights for Azure Cache for Redis deliver the following experience:
@@ -28,19 +28,19 @@ Insights for Azure Cache for Redis don't require you to enable or configure anyt
 To learn how to view, configure, and customize insights for Azure Cache for Redis, see [Azure Monitor insights for Azure Cache for Redis](cache-insights-overview.md).
 
 <!-- ## Resource types -->
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
 For more information about the resource types for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-cache-reference.md).
 
 <!-- ## Storage. Optionally, add service-specific information about storing your monitoring data after the include. -->
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 <!-- METRICS SECTION START ------------------------------------->
 
 <!-- Use one of the following two includes, depending on whether or not your service gathers platform metrics: -->
 
 <!-- ## Platform metrics. If your service has platform metrics, add the following include, statement, and service-specific information as appropriate. -->
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-cache-reference.md#metrics).
 
@@ -49,7 +49,7 @@ For a list of available metrics for Azure Cache for Redis, see [Azure Cache for 
 <!-- LOGS SECTION START -------------------------------------->
 
 <!-- ## Resource logs. If your service collects resource logs, add the following includes, statement, and service-specific information as appropriate. -->
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-cache-reference.md#resource-logs).
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
@@ -73,7 +73,7 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 The connection logs have slightly different implementations, contents, and setup procedures for the different Azure Cache for Redis tiers. For details, see [Azure Monitor diagnostic settings](cache-monitor-diagnostic-settings.md).
 
 <!-- ## Activity log. Optionally, add service-specific information about your activity log after the include. -->
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
 <!-- LOGS SECTION END ------------------------------------->
@@ -81,10 +81,10 @@ The connection logs have slightly different implementations, contents, and setup
 <!-- ANALYSIS SECTION START -------------------------------------->
 
 <!-- ## Analyze data -->
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 <!-- ### External tools -->
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 <a name="view-cache-metrics"></a>
 ### View metrics from an Azure Cache for Redis instance
@@ -144,7 +144,7 @@ The following screenshot shows the diagnostic setting for archiving Azure Cache 
 >In addition to archiving your cache metrics to storage, you can also [stream them to an event hub or send them to a Log Analytics workspace](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-values).
 
 <!-- ### Sample Kusto queries. If you have sample Kusto queries for your service, add them after the include. -->
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
 For sample Kusto queries for Azure Cache for Redis connection logs, see [Connection log queries](cache-monitor-diagnostic-settings.md#log-analytics-queries).
 <!-- ## Azure Cache for Redis service-specific analytics
@@ -155,7 +155,7 @@ Add short information or links to specific articles that outline how to analyze 
 <!-- ALERTS SECTION START -------------------------------------->
 
 <!-- ## Alerts -->
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 <!-- **MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log.
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
@@ -172,7 +172,7 @@ The following table lists common and recommended alert rules for Azure Cache for
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
 <!-- ### Advisor recommendations include -->
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
 
