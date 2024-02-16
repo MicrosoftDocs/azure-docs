@@ -49,7 +49,7 @@ User defined routes (UDRs) are added to other virtual networks that point to thi
 
 ## Create the initial cluster
 
-To deploy an AKS cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with [Azure Networking Certification](https://learn.microsoft.com/credentials/certifications/azure-network-engineer-associate/). 
+To deploy an AKS cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with Azure Networking Certification. 
 
 - If you don't have an [Azure subscription](../cost-management-billing/manage/create-enterprise-subscription.md), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're unfamiliar with the Azure Cloud Shell, review [What is Azure Cloud Shell?](../cloud-shell/overview.md)
