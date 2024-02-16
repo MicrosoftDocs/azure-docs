@@ -92,7 +92,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ```bash
 export ADMINUI_CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
 export TENANT_ID="<tenant-id>" ## Tenant ID
-exprt ADME_URL="<adme-url>"
+export ADME_URL="<adme-url>"
 export DATA_PARTITION="<partition>"
 export WEBSITE_NAME="<storage-name>" ## Unique name of the storage account or  static web app that will be generated
 export RESOURCE_GROUP="<resource-group>" ## Name of resource group
