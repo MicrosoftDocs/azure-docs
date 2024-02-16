@@ -12,6 +12,7 @@ ms.date:     01/29/2024
 # Dalsv6 and Daldsv6-series (Preview)
 
 **In this article** 
+
 [Dalsv6-series](/azure/virtual-machines/dasv6-dadsv6-series%22%20/l%20%22dasv6-series) 
 
 [Daldsv6-series](/azure/virtual-machines/dasv6-dadsv6-series) 
@@ -31,7 +32,8 @@ The Dalsv6-series and Daldsv6-series utilize AMD's 4th Generation EPYCTM 9004 
 
 Dalsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
 > [!NOTE]
-> For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
+> The new Dalsv6 and Daldsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date lists for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our FAQ. The new Dalsv6 and Daldsv6 VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our announcement and follow the link to the sign-up form. This is an opportunity to experience our latest innovation. 
+
 Dalsv6-series virtual machines do not have any temporary storage thus lowering the price of entry. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 [Premium Storage](/azure/virtual-machines/premium-storage-performance): Supported   
@@ -56,7 +58,7 @@ Dalsv6-series virtual machines do not have any temporary storage thus lowering t
 | Standard_D96als_v6 | 96   | 192         | Remote Storage Only                      | 32             | 175000/4320                                         | 175000/5090                                                | 175000/4320                                                           | 175000/5090                                                                  | 8        | 40000                        |1 Dalsv6-series VMs can [burst](/azure/virtual-machines/disk-bursting) their disk performance and get up to their bursting max for up to 30 minutes at a time. 
 
 ## Daldsv6-series
-Daldsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPUs, 192 GiB of RAM, and up to 5,280 GiB of fast local NVMe temporary storage . These VM sizes can reduce cost when running non-memory intensive applications. 
+Daldsv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup>  9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPUs, 192 GiB of RAM, and up to 5,280 GiB of fast local NVMe temporary storage . These VM sizes can reduce cost when running non-memory intensive applications. 
 Daldsv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 [Premium Storage](/azure/virtual-machines/premium-storage-performance): Supported   
