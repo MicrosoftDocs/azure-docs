@@ -130,6 +130,17 @@ completion = client.chat.completions.create(
             "role": "user",
             "content": "Who is DRI?",
         },
+        {
+          "role": "assistant",
+          "content": "DRI stands for Directly Responsible Individual of a service. Which service are you asking about?",
+          "context": {
+            "intent": "[\"Who is DRI?\", \"What is the meaning of DRI?\", \"Define DRI\"]"
+          }
+        },
+        {
+          "role": "user",
+          "content": "Opinion mining service"
+        }
     ],
     extra_body={
         "data_sources": [

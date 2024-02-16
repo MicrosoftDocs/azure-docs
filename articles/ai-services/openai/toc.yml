@@ -203,20 +203,18 @@ items:
          href: ./assistants-reference-runs.md     
     - name: Azure OpenAI on your data API Reference
       items:
-       - name: 2024-02-15-preview
-         items:
-          - name: Azure OpenAI on your data
-            href: ./references/latest-preview/on-your-data.md
-          - name: Data source - Azure AI Search
-            href: ./references/latest-preview/azure-search.md
-          - name: Data source - Azure Cosmos DB for MongoDB vCore
-            href: ./references/latest-preview/cosmos-db.md
-          - name: Data source - Azure Machine Learning index
-            href: ./references/latest-preview/azure-ml.md
-          - name: Data source - Elasticsearch
-            href: ./references/latest-preview/elasticsearch.md
-          - name: Data source - Pinecone
-            href: ./references/latest-preview/pinecone.md
+        - name: Azure OpenAI on your data
+          href: ./references/on-your-data.md
+        - name: Data source - Azure AI Search
+          href: ./references/azure-search.md
+        - name: Data source - Azure Cosmos DB for MongoDB vCore
+          href: ./references/cosmos-db.md
+        - name: Data source - Azure Machine Learning index
+          href: ./references/azure-ml.md
+        - name: Data source - Elasticsearch
+          href: ./references/elasticsearch.md
+        - name: Data source - Pinecone
+          href: ./references/pinecone.md
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
