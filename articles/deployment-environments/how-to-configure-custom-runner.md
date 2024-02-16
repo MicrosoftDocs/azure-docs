@@ -90,6 +90,4 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
 
 ## Related content
 
-- [Configure environment types for a dev center](how-to-configure-devcenter-environment-types.md)
-- [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
-- [Configure project environment types](how-to-configure-project-environment-types.md)
+- [ADE CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md)
