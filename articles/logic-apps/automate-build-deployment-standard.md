@@ -116,85 +116,23 @@ After you create and locally test your workflow, create your deployment scripts.
 
    > [!NOTE]
    >
-   > The values of variables, app settings, and parameters are prepopulated in the following files 
-   > based on the input that you provided in these steps. When targeting a different environment, you will need to update the parameters and variable files created. 
+   > The values of variables, app settings, and parameters in the following files are prepopulated 
+   > based on the input that you provided in these steps. When you target a different environment, 
+   > make sure that you update the values for the created parameters and variable files.
 
-   Under this folder, the following structure appears:
+   Under the **{logic-app-name}** folder, you have the following structure:
 
-
-Folder 
-
-File 
-
-Description 
-
-ADOPipelineScripts 
-
-CD-Pipeline-variables.yml 
-
-An yaml file containing the variables that are used by the CD-pipeline file. 
-
-CD-pipeline.yml 
-
-The continuous delivery pipeline, containing instructions to deploy the logic app code to the logic app resource.  
-
-CI-pipeline-variables.yml 
-
-An yaml file containing the variables that are used by the CI-pipeline file. 
-
-Ci-pipeline.yml 
-
-The continuous integration pipeline, containing instructions to build and generate the artefacts required to deploy the logic app to Azure. 
-
-Infrastructure-pipeline-template.yml 
-
-An yaml pipeline containing steps to deploy a logic app resource with all required dependencies, as well as deploying each managed connection required by the source code. 
-
-Infrastructure-pipeline-variables.yml 
-
-An yaml pipeline containing all variables required to execute the infrastructure-pipeline-template.yml 
-
-Infrastructure-pipeline.yml 
-
-An yaml pipeline containing the instructions to load all the ARM template to azure and execute the infrastructure-pipeline-template.yml 
-
-ArmTemplates 
-
-<connectionreference>. 
-parameters.json 
-
-An ARM parameters file with the parameters required to deploy the Azure Managed Connection <connectionreference> to Azure. 
-
-You will find one of those files for each Azure Managed connection. 
-
-<connectionreference>. 
-template.json 
-
-An ARM template file representing the Azure Managed Connection <connectionreference>,  use to deploy the connection resource to Azure. 
-
-You will find one of those files for each Azure Managed connection. 
-
-<logicappname>. 
-parameters.json 
-
-An ARM parameters file with the parameters required to deploy the Logic App resource <logicappname> to Azure, including all the dependencies. 
-
-<logicappname>. 
-template.json 
-
-An ARM template file representing the Logic Apps Standard application <logicappname>, used to deploy the resource to Azure. 
-
-WorkflowParameters 
-
-parameters.json 
-
-This is a copy of the local parameters file, containing a copy of all the user defined parameters, plus the cloud version of any parameters created by the tool to parameterize Azure Managed Connections. 
-
-This file is used to build the package being deployed to Azure. 
-
- 
-
+   | Folder name | File name and description |
+   |-------------|---------------------------|
+   | **ADOPipelineScripts** | - **CD-pipeline.yml**: The continuous delivery pipeline that contains the instructions to deploy the logic app code to the logic app resource. <br><br>- **CD-pipeline-variables.yml**: A YAML file that contains the variables used by the **CD-pipeline.yml** file. <br><br>- **CI-pipeline.yml**: The continuous integration pipeline that contains the instructions to build and generate the artifacts required to deploy the logic app resource to Azure. <br><br>- **CI-pipeline-variables.yml**: A YAML file that contains the variables used by the **CI-pipeline.yml** file. <br><br>- **Infrastructure-pipeline.yml**: A YAML pipeline that contains the instructions to load all the ARM templates to Azure and to execute the steps in the **Infrastructure-pipeline-template.yml** file. <br><br>- **Infrastructure-pipeline-template.yml**: A YAML pipeline file that contains the steps to deploy a logic app resource with all required dependencies and to deploy each managed connection required by the source code. <br><br>- **Infrastructure-pipeline-variables.yml**: An YAML pipeline that contains all the variables required to execute the steps in the **Infrastructure-pipeline-template.yml** file. |
+   | **ArmTemplates** | - **<*connection-reference*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy an Azure-hosted connection named **<*connection-reference*>** to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*connection-reference*>.template.json**: A Resource Manager template file that represents an Azure-hosted connection named **<*connection-reference*>** and contains the information used to deploy the corresponding connection resource to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*logic-app-name*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy the Standard logic app resource named **<*logic-app-name*>** to Azure, including all the dependencies. <br><br>- **<*logic-app-name*>.template.json**: A Resource Manager template file that represents the Standard logic app resource named **<*logic-app-name*>** and contains the information used to deploy the logic app resource to Azure. |
+   | **WorkflowParameters** | **parameters.json**: This JSON file is a copy of the local parameters file and contains a copy of all the user-defined parameters plus the cloud version of any parameters created by the extension to parameterize Azure-hosted connections. This file is used to build the package that deploys to Azure. |
 
 ## Connect your workspace to your repository
 
+1. 
+
 ## Create pipelines in Azure DevOps
+
+
+## Next steps
