@@ -22,11 +22,11 @@ In this tutorial, part three of seven, you deploy a Kubernetes cluster in AKS. Y
 
 ## Before you begin
 
-In previous tutorials, you created a container image and uploaded it to an ACR instance. If you haven't completed these steps and want to follow along, start with [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app].
+In previous tutorials, you created a container image and uploaded it to an ACR instance. Start with [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app] to follow along.
 
-* If you're using Azure CLI, this tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
-* If you're using Azure Developer CLI, this tutorial requires that you're running the Azure Developer CLI version 1.5.1 or later. Run `azd version` to find the version. If you need to install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
+* If you're using Azure CLI, this tutorial requires that you're running the Azure CLI version 2.0.53 or later. Check your version with `az --version`. To install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Check your version with `Get-InstalledModule -Name Az`. To install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* If you're using Azure Developer CLI, this tutorial requires that you're running the Azure Developer CLI version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
@@ -38,21 +38,21 @@ To learn more about AKS and Kubernetes RBAC, see [Control access to cluster reso
 
 ### [Azure CLI](#tab/azure-cli)
 
-This tutorial requires Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires Azure CLI version 2.0.53 or later. Check your version with `az --version`. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+This tutorial requires Azure PowerShell version 5.9.0 or later. Check your version with `Get-InstalledModule -Name Az`. To install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-This tutorial requires Azure Developer CLI version 1.5.1 or later. Run `azd version` to find the version. If you need to install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
+This tutorial requires Azure Developer CLI version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
 ## Create an AKS cluster
 
-AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8s-rbac], which allows you to define access to resources based on roles assigned to users. Permissions are combined when users are assigned multiple roles. Permissions can be scoped to either a single namespace or across the whole cluster. For more information, see [Control access to cluster resources using Kubernetes RBAC and Azure Active Directory identities in AKS][aks-k8s-rbac].
+AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8s-rbac], which allows you to define access to resources based on roles assigned to users. Permissions are combined when users are assigned multiple roles. Permissions can be scoped to either a single namespace or across the whole cluster. For more information, see [Control access to cluster resources using Kubernetes RBAC and Microsoft Entra ID in AKS][aks-k8s-rbac].
 
 For information about AKS resource limits and region availability, see [Quotas, virtual machine size restrictions, and region availability in AKS][quotas-skus-regions].
 
@@ -96,7 +96,7 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Inside your Azure Developer Template from tutorial 1 run these azd hooks. Each hook contains a script to provision the resources in the template and create your cluster.
+Inside your Azure Developer Template from tutorial 1, run these azd hooks. Each hook contains a script to ready the resources in the template and create your cluster.
 
 1. Register your services with `azd preprovision`.
 
@@ -104,13 +104,13 @@ Inside your Azure Developer Template from tutorial 1 run these azd hooks. Each h
     azd preprovision
     ```
 
-2. AZD automatically creates the Service Principals and roles based on it's infra files. You won't need to manually generate SSH keys or set up a resource group. Create an AKS cluster using `azd provision`.
+2. AZD automatically creates the Service Principals and roles based on the `/infra` folder so you don't need to manually generate SSH keys or set up a resource group. Create an AKS cluster using `azd provision`.
 
     ```azurecli
     azd provision
     ```
 
-3. AZD may automically postprovision your resources after provision ends. This builds and imports the container images. If this doesn't happen, manually run it with `azd postprovision`. 
+3. AZD can automatically run postprovision after the script ends to build and import new container images. If it doesn't happen, manually run it with `azd postprovision`. 
 
     ```azurecli
     azd provision
@@ -142,11 +142,11 @@ You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes 
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. This includes the Kubernetes CLI as well as any ACR images.
+AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. The Kubernetes CLI is in the file, along with any ACR images.
 
-If it's not already installed, install `kubectl` locally using the [`az aks install-cli`][az aks install-cli] command.
+* To install `kubectl` locally, use the [`az aks install-cli`][az aks install-cli] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks install-cli
     ```
 
@@ -168,7 +168,7 @@ If it's not already installed, install `kubectl` locally using the [`az aks inst
     kubectl get nodes
     ```
 
-    The following example output shows a list of the cluster nodes:
+    The following example output shows a list of the cluster nodes.
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
@@ -190,29 +190,33 @@ If it's not already installed, install `kubectl` locally using the [`az aks inst
     kubectl get nodes
     ```
 
-    The following example output shows a list of the cluster nodes:
+    The following example output shows a list of the cluster nodes.
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
     aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
     aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
     ```
+
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Login to your Azure Account through AZD to select your subscription. AZD configures kubectl using the credentials passed.
+Sign in to your Azure Account through AZD configures your credentials.
+
+1. Authenticate using AZD.
 
     ```azurecli-interactive
     azd auth login 
     ```
+
 2. Follow the directions for your auth method.
 
-3. Verify the connection to your cluster using the [`kubectl get nodes`][kubectl-get] command, which returns a list of cluster nodes.
+3. Verify the connection to your cluster using the [`kubectl get nodes`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get nodes
     ```
 
-    The following example output shows a list of the cluster nodes:
+    The following example output shows a list of the cluster nodes.
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
