@@ -18,6 +18,8 @@ Azure Route Server supports not only third-party network virtual appliances (NVA
 ## How does it work?
 
 When you deploy an Azure Route Server along with a virtual network gateway and an NVA in a virtual network, by default Azure Route Server doesn’t propagate the routes it receives from the NVA and virtual network gateway between each other. Once you enable **branch-to-branch** in Route Server, the virtual network gateway and the NVA exchange their routes.
+> [!IMPORTANT] 
+> ExpressRoute branch-to-branch connectivity is not supported. If you have two (or more) ExpressRoute circuits connected to the same ExpressRoute Virtual Network Gateway, routes from one circuit are not advertised to the other. If you want to enable on-premises to on-premises connectivity over ExpressRoute, consider configuring [Global Reach](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach).
 
 For example, in the following diagram:
 
