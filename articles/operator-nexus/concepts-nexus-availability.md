@@ -74,20 +74,72 @@ As the demand on the infrastructure increases over time, either due to subscribe
 
 We advise you to size each workload to accommodate failure of a single server within a rack, failure of an entire rack, and failure of an entire site.
 
-For example, consider a 3 site deployment, with 4 racks in each site, and 12 servers in each rack. Consider a workload that requires 400 nodes across the entire deployment in order to meet the network demand at peak load. If this workload is part of your critical infrastructure, you might not wish to relay on "scaling up" to handle failures at times of peak load. If you want spare capacity ready at all times, you'll have to set aside unused, idle capacity.
+For example, consider a 3 site deployment, with 4 racks in each site, and 12 servers in each rack. Consider a workload that requires 400 nodes across the entire deployment in order to meet the network demand at peak load. If this workload is part of your critical infrastructure, you might not wish to relay on "scaling up" to handle failures at times of peak load. If you want spare capacity ready at all times, you have to set aside unused, idle capacity.
 
 If you want to have redundancy against site, rack, and individual server failure, your calculations will look like this:
 
 -   The workload requires a total of 400 nodes across the entire deployment in order to meet the network demand at peak load.
 
--   400 nodes spread across three sites requires 134 nodes per site (ignoring any fixed-costs). Allowing for failure of one site increases that to 200 nodes per site (so failure of any single site leaves 400 nodes running).
+-   To have 400 nodes spread across three sites, you need 134 nodes per site (ignoring any fixed-costs). Allowing for failure of one site increases that to 200 nodes per site (so failure of any single site leaves 400 nodes running).
 
--   200 nodes within a site, spread across four racks, requires 50 nodes per rack without rack-level redundancy. Allowing for failure of one rack increases the requirement to 67 nodes per rack.
+-   To have 200 nodes within a site, spread across four racks, you need 50 nodes per rack without rack-level redundancy. Allowing for failure of one rack increases the requirement to 67 nodes per rack.
 
--   67 nodes per rack, spread across 12 servers means six nodes per server, with two servers needing seven, to allow for failure of one server within the rack.
+-   To have 67 nodes per rack, spread across 12 servers, you need six nodes per server, with two servers needing seven, to allow for failure of one server within the rack.
 
 Although the initial requirement was for 400 nodes across the deployment, the design actually ends up with 888 nodes. The diagram shows the contribution to the node count per server from each level.
 
 :::image type="content" source="media/nexus-availability-2.png" alt-text="A graph of the number of nodes needed for the workload, and the additional requirements for redundancy.":::
 
 For another workload, you might choose not to "layer" the multiple levels of redundancy, taking the view that designing for concurrent failure of one site, a rack in another site and a server in another rack in that same site is overkill. Ultimately, the optimum design depends on the specific service offered by the workload, and details of the workload itself, in particular its load-balancing functionality. Modeling the service using Markov chains to identify the various error modes, with associated probabilities, would also help determine which errors might realistically occur simultaneously. For example, a workload that is able to apply back-pressure when a given site is suffering from reduced capacity due to a server failure might then be able to redirect traffic to one of the remaining sites which still have full redundancy.
+
+### Other Networking Considerations for Availability
+
+The Nexus infrastructure and workloads make extensive use of Domain Name System (DNS). Since there's no authoritative DNS responder within the Nexus platform, there's nothing to respond to DNS requests if the Nexus site becomes disconnected from the Azure. Therefore, take care to ensure that all DNS entries have a Time to Live (TTL) that is consistent with the desired maximum disconnection duration, typically 72 hours currently.
+
+Ensure that the Nexus routing tables have redundant routes preconfigured, as opposed to relying on being able to modify the routing tables to adapt to network failures. While this configuration is general good practice, it's more significant for Nexus since the Nexus Network Fabric Controller will be unreachable if the Nexus site becomes disconnected from its Azure region. In that case, the network configuration is effectively frozen in place until the Azure connectivity is restored (barring use of break-glass functionality). It's also best practice to ensure that there's a low level of background traffic continuously traversing the back-up routes, to avoid "silent failures" of these routes, which go undetected until they're needed.
+
+### Identity and Authentication
+
+During a disconnection event, the on-premises infrastructure and workloads aren't able to reach Entra in order to perform user authentication. To prepare for a disconnection, you can ensure that all necessary identities and their associated permissions and user keys are preconfigured. Nexus provides [an API](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-baremetal-bmm-ssh) that the operator can use to automate this process. Preconfiguring this information ensures that authenticated management access to the infrastructure continues unimpeded by loss of connectivity to Entra.
+
+### Managing Platform Upgrade
+
+Nexus platform upgrade is a fairly lengthy process. The customer initiates the upgrade, but it's then managed by the platform itself. From an availability perspective, the following points are key:
+
+-   The customer decides when to initiate the upgrade. They can opt, for example, to initiate the upgrade in a maintenance window.
+
+-   Upgrade is done cluster by cluster (that is, site by site), so the customer can implement their own Safe Deployment Process. Implementing a Safe Deployment Process is strongly recommended. For example, a new version could be deployed in a lab site, then a small production site, and then some larger production sites. If the new version is satisfactory, the customer can deploy it on all remaining sites. This process ensures that any issues introduced by a change have a tightly limited scope of impact before they're identified and rolled-back.
+
+-   The process is only active on one rack in the selected site at a time. Although upgrade is done in-place, there's still some impact to the worker nodes in the rack during the upgrade.
+
+For more information about the upgrade process, see [this article](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-cluster-runtime-upgrade#upgrading-cluster-runtime-using-cli). For more information about ensuring control-plane resiliency, see [this one](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-rack-resiliency).
+
+## Designing and Operating High Availability Workloads for Nexus
+
+Workloads should ideally follow a cloud-native design, with N+k clusters that can be deployed across multiple nodes and racks within a site, using the Nexus zone concept.
+
+The Well Architected Framework guidance on [mission critical](https://learn.microsoft.com/en-us/azure/well-architected/mission-critical/) and [carrier grade](https://learn.microsoft.com/en-us/azure/well-architected/carrier-grade/) workloads on Azure also applies to workloads on Nexus.
+
+Designing and implementing highly available workloads on any platform requires a top-down approach. Start with an understanding of the availability required from the solution as a whole. Consider the key elements of the solution and their predicted availability. Then determine how these attributes need to be combined in order to achieve the solution level goals.
+
+
+### Workload Placement
+
+Nexus has extensive support for providing hints to the Kubernetes orchestrator to control how workloads are deployed across the available worker nodes. See [this article](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-virtual-machine-placement-hints) for full details.
+
+
+### Configuration Updates
+
+The Nexus platform makes use of the Azure Resource Manager to handle all configuration updates. This allows the platform resources to be managed in the same way as any other Azure resource, providing consistency for the user.
+
+Workloads running on Nexus can follow a similar model, creating their own Resource Providers (RPs) in order to benefit from everything Resource Manager has to offer. Resource Manager can only apply updates to the on-premises NFs while the Nexus site is connected to the Azure Cloud. During a Disconnect event, these configuration updates can't be applied. This is considered acceptable for the Nexus RPs as it isn't common to update their configuration while in production. Workloads should therefore only use Resource Manager if the same assumption holds.
+
+If updates in production are a common requirement, the workloads need to provide an alternative configuration framework to ensure that on-premises operators are able to apply updates even when the site is disconnected from the Azure Cloud.
+
+### Workload Upgrade
+
+Unlike a Public Cloud environment, as an Edge platform, Nexus is more restricted in terms of the available capacity. This restriction needs to be taken into consideration when designing the process for upgrade of the workload instances, which needs to be managed by the customer, or potentially the provider of the workload, depending on the details of the arrangement between the Telco customer and the workload provider. Microsoft is responsible for upgrade of the Nexus platform infrastructure.
+
+There are various options available for workload upgrade. The most efficient in terms of capacity, and least impactful, is to use standard Kubernetes processes supported by NAKS to apply a rolling upgrade of each workload cluster "in-place." This is the process adopted by the Nexus undercloud itself. It is recommended that the customer has lab and staging environments available, so that the uplevel workload software can be validated in the customer's precise network for lab traffic and then at limited scale before rolling out across the entire production estate.
+
+An alternative option is to deploy the uplevel software release as a "greenfield" cluster, and transition traffic across to this cluster over a period of time. This has the advantage that it avoids any period of a "mixed-level" cluster that might introduce edge cases. It also allows a cautious transfer of traffic from down to up-level software, and a simple and reliable rollback process if any issues are found. However, it requires enough capacity to be available to support two clusters running in parallel. This can be achieved by scaling down the down-level cluster, removing some or all of the redundancy and allowance for peak loads in the process.
