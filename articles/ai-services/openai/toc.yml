@@ -201,9 +201,9 @@ items:
          href: ./assistants-reference-messages.md
        - name: Runs
          href: ./assistants-reference-runs.md     
-    - name: Azure OpenAI on your data API Reference
+    - name: Azure OpenAI On Your Data API Reference
       items:
-        - name: Azure OpenAI on your data
+        - name: Azure OpenAI On Your Data
           href: ./references/on-your-data.md
         - name: Data source - Azure AI Search
           href: ./references/azure-search.md
