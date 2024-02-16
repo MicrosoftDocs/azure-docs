@@ -780,7 +780,7 @@ Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
 
 > [!NOTE]
-> This change applies only to the standlone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK), which is currently [in preview](durable-functions-powershell-v2-sdk-migration-guide.md).
+> This change applies only to the standalone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK), which is currently [in preview](durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
