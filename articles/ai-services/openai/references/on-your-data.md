@@ -54,15 +54,13 @@ In both request and response, when the chat message `role` is `assistant`, the c
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `content` | string | True | The content of the message.|
-| `role` | string | True | Must be `assistant`. |
-| `context` | [Context](#context) | True | Represents the incremental steps performed by the Azure OpenAI on your data while processing the request, including the detected search intent and the retrieved documents. |
+| `context` | [Context](#context) | False | Represents the incremental steps performed by the Azure OpenAI on your data while processing the request, including the detected search intent and the retrieved documents. |
 
 ## Context
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `citations` | [Citation](#citation)[] | True | The data source retrieval result, used to generate the assistant message in the response.|
-| `intent` | string | True | The detected intent from the chat history, used to pass to the next turn to carry over the context.|
+| `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response.|
+| `intent` | string | False | The detected intent from the chat history, used to pass to the next turn to carry over the context.|
 
 ## Citation
 
