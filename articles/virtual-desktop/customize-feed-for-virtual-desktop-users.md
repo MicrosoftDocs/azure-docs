@@ -18,10 +18,37 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 
 This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
 
+## Customize the display name for a RemoteApp or Remote Desktop
 
-## Customize the display name for a RemoteApp
+You can change the display name for a published RemoteApp or Remote Desktop by setting the friendly name. 
 
-You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
+#### [Portal](#tab/portal)
+
+### Customize a display name in the Azure portal
+
+You can change the display name for a published remote desktop by setting a friendly name using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Search for **Azure Virtual Desktop**.
+
+3. Under Services, select **Azure Virtual Desktop**.
+
+4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit. (For example, if you want to edit the display name of the desktop application group, select the application group named **Desktop**.)
+
+5. Select **Applications** in the menu on the left side of the screen.
+
+6. Select the application you want to update, then enter a new **Display name**.
+
+7. Select **Save**. The application you edited should now display the updated name.
+
+
+
+#### [PowerShell](#tab/powershell)
+
+### Customize the display name for a RemoteApp
+
+By default, the friendly name is the same as the name of the RemoteApp program.
 
 To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
@@ -34,6 +61,7 @@ To assign a friendly name to a RemoteApp, run the following cmdlet with the requ
 ```powershell
 Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
+
 
 For example, let's say you retrieved the current applications with the following example cmdlet:
 
@@ -58,11 +86,14 @@ Name                : 0301RAG/Microsoft Word
 ShowInPortal        : False
 Type                : Microsoft.DesktopVirtualization/applicationgroups/applications
 ```
+
 To update the friendly name, run this cmdlet:
 
 ```powershell
 Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe"
 ```
+
+To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
 To confirm you've successfully updated the friendly name, run this cmdlet:
 
@@ -76,7 +107,7 @@ The cmdlet should give you the following output:
 FriendlyName        : WordUpdate
 ```
 
-## Customize the display name for a Remote Desktop
+### Customize the display name for a Remote Desktop
 
 You can change the display name for a published remote desktop by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is "Session Desktop." If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name.
 
@@ -92,23 +123,7 @@ To assign a friendly name to the remote desktop resource, run the following Powe
 Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
 
-## Customize a display name in the Azure portal
-
-You can change the display name for a published remote desktop by setting a friendly name using the Azure portal.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Search for **Azure Virtual Desktop**.
-
-3. Under Services, select **Azure Virtual Desktop**.
-
-4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit. (For example, if you want to edit the display name of the desktop application group, select the application group named **Desktop**.)
-
-5. Select **Applications** in the menu on the left side of the screen.
-
-6. Select the application you want to update, then enter a new **Display name**.
-
-7. Select **Save**. The application you edited should now display the updated name.
+--- 
 
 
 ## Customize the display name for a session host
