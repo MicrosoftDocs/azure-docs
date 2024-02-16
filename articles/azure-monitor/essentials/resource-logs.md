@@ -18,7 +18,7 @@ Azure resource logs are [platform logs](../essentials/platform-logs-overview.md)
 - Correlate resource log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure resources, subscriptions, and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on log data.
-- Use log alerts with complex alerting logic.
+- Use log search alerts with complex alerting logic.
 
 [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../logs/data-platform-logs.md). The tables used by resource logs depend on what type of collection the resource is using:
 

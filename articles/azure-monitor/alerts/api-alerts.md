@@ -406,5 +406,5 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ## Next steps
 
 * Use the [REST API to perform log searches](../logs/log-query-overview.md) in Log Analytics.
-* Learn about [log search alerts in Azure Monitor](./alerts-unified-log.md).
+* Learn about [log search alerts in Azure Monitor](./alerts-types.md#log-alerts).
 * Learn how to [create, edit, or manage log search alert rules in Azure Monitor](./alerts-log.md).

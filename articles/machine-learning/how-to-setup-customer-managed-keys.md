@@ -40,7 +40,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 
 ## Limitations
 
-* The customer-managed key for resources the workspace depends on can't be updated after workspace creation.
+* After workspace creation, the customer-managed encryption key for resources that the workspace depends on can only be updated to another key in the original Azure Key Vault resource..
 * Resources managed by Microsoft in your subscription can't transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
