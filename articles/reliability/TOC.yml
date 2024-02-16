@@ -278,6 +278,8 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure Application Gateway for Containers
+      href: reliability-app-gateway-containers.md
     - name: Azure Chaos Studio
       href: reliability-chaos-studio.md
     - name: Azure Community Training

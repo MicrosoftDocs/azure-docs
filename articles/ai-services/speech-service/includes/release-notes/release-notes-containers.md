@@ -2,9 +2,15 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 10/2/2023
+ms.date: 2/16/2024
 ms.author: eur
 ---
+
+### 2024-February release
+
+Add support for the latest model versions:
+- Custom speech to text 4.6.0
+- Speech to text 4.6.0
 
 ### 2023-November release
 

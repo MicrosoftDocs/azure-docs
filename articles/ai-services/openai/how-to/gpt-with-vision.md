@@ -251,7 +251,7 @@ The **Optical character recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
@@ -445,7 +445,7 @@ GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored 
 Follow these steps to set up a video retrieval system and integrate it with your AI chat model.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need an Azure AI Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need an Azure AI Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
