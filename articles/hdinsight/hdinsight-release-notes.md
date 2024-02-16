@@ -43,7 +43,7 @@ For workload specific versions, see
 
 ## New features
 
-- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. For more detailed information, click [here](./spark/ranger-policies-for-spark.md).
+- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. For more detailed information, refer to the documentation [here](./spark/ranger-policies-for-spark.md).
   
 ## Fixed issues
 
