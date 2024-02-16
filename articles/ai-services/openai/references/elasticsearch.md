@@ -123,7 +123,7 @@ Prerequisites:
 ```bash
 export AzureOpenAIEndpoint=https://example.openai.azure.com/
 export ChatCompletionsDeploymentName=turbo
-export SearchEndpoint='https://example.eastus.azurecontainer.io:443'
+export SearchEndpoint='https://example.eastus.azurecontainer.io'
 export IndexName=testindex
 export Key='***'
 export KeyId='***'
