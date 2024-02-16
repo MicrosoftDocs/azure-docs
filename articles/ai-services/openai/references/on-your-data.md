@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure OpenAI On Your Data API Reference
 
-This article provides reference documentation for Python and REST for the new Azure OpenAI On Your Data API. The latest preview api-version is `2024-02-15-preview`.
+This article provides reference documentation for Python and REST for the new Azure OpenAI On Your Data API. The latest preview api-version is `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json).
 
 > [!NOTE]
 > Since `2024-02-15-preview` we introduced the following breaking changes comparing to earlier API versions:
