@@ -109,7 +109,7 @@ To attach the quick start catalog to the dev center:
 
 Now you have a catalog that defines the tasks your developers can use, you can reference those tasks from a configuration file and create a customized dev box. 
 
-1. Download an [example yaml configuration from the samples repository](https://azure.github.io/dev-box/reference/devbox.yaml). This example configuration installs Visual Studio Code, and clones the OrchardCore .NET web app repo to your dev box.
+1. Download an [example yaml configuration from the samples repository](https://aka.ms/devbox/customizations/samplefile). This example configuration installs Visual Studio Code, and clones the OrchardCore .NET web app repo to your dev box.
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
 1. In **Add a dev box**, enter the following values:
