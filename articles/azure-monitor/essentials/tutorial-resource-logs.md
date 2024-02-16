@@ -67,7 +67,7 @@ Browse through the available queries. Identify one to run and select **Run**. Th
 :::image type="content" source="media/tutorial-resource-logs/query-results.png" lightbox="media/tutorial-resource-logs/query-results.png"alt-text="Screenshot that shows the results of a sample log query.":::
 
 ## Next steps
-Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
+Now that you're collecting resource logs, create a log search alert to be proactively notified when interesting data is identified in your log data.
 
 > [!div class="nextstepaction"]
-> [Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md)
+> [Create a log search alert for an Azure resource](../alerts/tutorial-log-alert.md)

@@ -127,6 +127,8 @@
     href: cache-best-practices-scale.md
   - name: Server load management best practice
     href: cache-best-practices-server-load.md
+  - name: Performance testing
+    href: cache-best-practices-performance.md
 
 
 - name: Authentication and authorization
@@ -236,11 +238,11 @@
       href: cache-best-practices-kubernetes.md
   - name: Artificial Intelligence
     items:
-      - name: Vector Search
+      - name: Vector search concepts
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
-      - name: Semantic caching search
+      - name: Semantic caching
         href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
