@@ -15,9 +15,9 @@ ms.date: 02/29/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For Standard workflows that run in single-tenant Azure Logic Apps, you can use Visual Studio Code for local development and testing and then store your logic app project code using any source control system. However, to get the full benefits of easily and consistently deploying your workflows across different environments and platforms, you must also automate your build and deployment process.
+For Standard logic app workflows that run in single-tenant Azure Logic Apps, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension to locally develop, test, and store your logic app project using any source control system. However, to get the full benefits of easily and consistently deploying your workflows across different environments and platforms, you must also automate your build and deployment process.
 
-In Visual Studio Code, the Azure Logic Apps extension provides the tools for you to set up and maintain your automated build and deployment process using Azure DevOps. However, before you start, consider the following elements:
+The Azure Logic Apps (Standard) extension provides tools for you to set up and maintain automated build and deployment processes using Azure DevOps. However, before you start this automation, consider the following elements:
 
 - The Azure logic app resource where you create your workflows
 
@@ -37,11 +37,24 @@ The extension helps you complete the following required tasks to set up automati
 
 - Prepare environment-specific parameters that you can inject into the Azure Logic Apps package during the build process without breaking local development functionality. 
 
-- Generate Azure DevOps pipelines on demand to support infrastructure deployment along with the build and release processes.
+- Generate pipelines on demand using Azure DevOps to support infrastructure deployment along with the build and release processes.
+
+This guide shows how to complete the following tasks:
+
+1. Create a logic app workspace and project in Visual Studio Code that includes the files that create pipelines for infrastructure deployment, continuous integration (CI), and continuous deployment (CD).
+
+1. Create a connection between your workspace and Git repository in Azure DevOps.
+
+1. Create piplines using Azure DevOps.
+
+For more information, see the following documentation:
+
+- [What is Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Known issues and limitations
 
-- The extension supports only Standard logic app projects. Workspaces that contain Standard and custom code projects have deployment scripts generated, but custom code projects are currently ignored. The capability to create build pipelines for custom code are on the roadmap.
+- This capability supports only Standard logic app projects. A Visual Studio Code workspace contains both a Standard logic app project and a Functions custom code project have deployment scripts generated, but custom code projects are currently ignored. The capability to create build pipelines for custom code are on the roadmap.
 
 - The extension creates pipelines for infrastructure deployment, continuous integration (CI), and continuous deployment (CD). However, you're responsible for connecting the pipelines to Azure DevOps and create the relevant triggers.
 
@@ -49,21 +62,17 @@ The extension helps you complete the following required tasks to set up automati
 
 ## Prerequisites
 
-### For your logic app workspace and project
-
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 - Azure Logic Apps (Standard) Build and Release tasks for Azure DevOps Tasks. You can find those task in the Azure DevOps Marketplace (link).
 
-- An existing resource group in Azure where you want to deploy your logic app project.
+- An existing resource group in Azure where you want to deploy your logic app.
 
-### For the connection between your workspace and your repository
+- An existing [Git repository in Azure DevOps](/azure/devops/repos/git/create-new-repo#create-a-repo-using-the-web-portal) where you can store your logic app project.
 
-- An existing [Azure DevOps repository](/azure/devops/repos/git/create-new-repo#create-a-repo-using-the-web-portal)
-
-- An [Azure Resource Manager service connection with an existing service principal](/azure/devops/pipelines/library/connect-to-azure)
+- An [Azure Resource Manager service connection with an existing service principal](/azure/devops/pipelines/library/connect-to-azure).
 
 ## Create a logic app workspace, project, and workflow
 
@@ -85,7 +94,7 @@ The extension helps you complete the following required tasks to set up automati
 
    1. Open the workflow designer, either in the current Visual Studio Code window or a new window.
 
-You can now add operations to your workflow and test your workflow along the way. To create a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+You can now add operations to your workflow and test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 ## Generate deployment scripts
 
@@ -99,11 +108,11 @@ After you create and locally test your workflow, create your deployment scripts.
 
    1. Select an existing resource group destination for your logic app.
 
-   1. Provide a unique name to use for the logic app resource.
+   1. Enter a unique name to use for the logic app resource.
 
-   1. Provide a unique name to use for the storage account resource.
+   1. Enter a unique name to use for the storage account resource.
 
-   1. Provide a unique name to use for the App Service Plan.
+   1. Enter a unique name to use for the App Service Plan.
 
    1. Select the location where you want to generate the files.
 
@@ -128,9 +137,47 @@ After you create and locally test your workflow, create your deployment scripts.
    | **ArmTemplates** | - **<*connection-reference*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy an Azure-hosted connection named **<*connection-reference*>** to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*connection-reference*>.template.json**: A Resource Manager template file that represents an Azure-hosted connection named **<*connection-reference*>** and contains the information used to deploy the corresponding connection resource to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*logic-app-name*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy the Standard logic app resource named **<*logic-app-name*>** to Azure, including all the dependencies. <br><br>- **<*logic-app-name*>.template.json**: A Resource Manager template file that represents the Standard logic app resource named **<*logic-app-name*>** and contains the information used to deploy the logic app resource to Azure. |
    | **WorkflowParameters** | **parameters.json**: This JSON file is a copy of the local parameters file and contains a copy of all the user-defined parameters plus the cloud version of any parameters created by the extension to parameterize Azure-hosted connections. This file is used to build the package that deploys to Azure. |
 
-## Connect your workspace to your repository
+## Connect your workspace to your Git repository
 
-1. 
+1. Follow these steps to initialize your repository:
+
+   1. In Visual Studio Code, on the Activity bar, select the **Source Control** icon.
+
+   1. In the **Source Control** window, select **Initialize Repository**.
+
+   1. From the prompt menu, select **Choose Folder**. Select your workspace root folder, and then select **Initialize Repository**.
+
+   1. In the **Source Control** window, select **Open Repository**.
+
+   1. From the prompt menu, select the repository that you just initialized.
+
+   For more information, see [Visual Studio Code - Initialize a repository in a local folder](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_initialize-a-repository-in-a-local-folder).
+
+1. Follow these steps to get the URL for your Git repository so that you can add a remote:
+
+   1. In Azure DevOps, open the team project for your Azure DevOps organization.
+
+   1. On the left menu, expand **Repos**, and select **Files**.
+
+   1. On the **Files** pane toolbar, select **Clone**.
+
+   1. In the **Clone Repository** window, copy the HTTPS version of the URL.
+
+      For more information, see [Get the clone URL for your Git repository in Azure repos](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
+
+1. Follow these steps to add a remote for your Git repository:
+
+   1. Return to Visual Studio Code and the **Source Control** window.
+
+   1. Under **Source Control Repositories**, on your repostory's toolbar, open the ellipses (**...**) menu, and select **Remote** > **Add remote**.
+
+1. At the prompt, paste your copied URL, and enter a name for the remote, which is usually **origin**.
+
+   You've now created a connection between Visual Studio Code and your repository.
+
+1. Commit your changes and then publish them to the repository.
+
+   For more information, see [Stage and commit code changes](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes).
 
 ## Create pipelines in Azure DevOps
 
