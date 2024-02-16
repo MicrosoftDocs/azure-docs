@@ -12,7 +12,7 @@ ms.reviewer: yalavi
 
 This article describes how to resolve common issues with log search alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log search alerts.
 
-You can use log search alerts to evaluate resources logs every set frequency by using a [Log Analytics](../logs/log-analytics-tutorial.md) query, and fire an alert that's based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). To learn more about functionality and terminology of log search alerts, see [Log search alerts in Azure Monitor](alerts-unified-log.md).
+You can use log search alerts to evaluate resources logs every set frequency by using a [Log Analytics](../logs/log-analytics-tutorial.md) query, and fire an alert that's based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). To learn more about functionality and terminology of log search alerts, see [Log search alerts in Azure Monitor](alerts-types.md#log-alerts).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows that an alert rule was triggered but a notification isn't received. For such cases, see [Action or notification on my alert did not work as expected](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -45,9 +45,9 @@ When you create a log search alert rule with system-assigned managed identity, t
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
-[Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log search alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
+[Metric measurement](alerts-types.md#log-alerts) is a type of log search alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
-You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API](./alerts-log-api-switch.md).
+You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-types.md#log-alerts) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API](./alerts-log-api-switch.md).
 
 ### Override query time range
 
@@ -106,7 +106,7 @@ For details about the number of log search alert rules per subscription and maxi
 If you've reached the quota limit, the following steps might help resolve the issue.
 
 1. Delete or disable log search alert rules that aren’t used anymore.
-1. Use [splitting of alerts by dimensions](alerts-unified-log.md#split-by-alert-dimensions) to reduce rules count. These rules can monitor many resources and detection cases.
+1. Use [splitting of alerts by dimensions](alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to reduce rules count. These rules can monitor many resources and detection cases.
 1. If you need the quota limit to be increased, continue to open a support request, and provide the following information:
 
     - The Subscription IDs and Resource IDs for which the quota limit needs to be increased
@@ -212,6 +212,6 @@ Try the following steps to resolve the problem:
 
 ## Next steps
 
-- Learn about [log search alerts in Azure](./alerts-unified-log.md).
+- Learn about [log search alerts in Azure](./alerts-types.md#log-alerts).
 - Learn more about [configuring log search alerts](../logs/log-query-overview.md).
 - Learn more about [log queries](../logs/log-query-overview.md).

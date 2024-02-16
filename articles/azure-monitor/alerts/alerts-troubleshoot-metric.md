@@ -86,7 +86,7 @@ For more information about collecting data from the guest operating system of a 
 > [!NOTE]
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and start showing data *only* after you create an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
-Currently, monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts. But you can use a [log search alert rule](./alerts-unified-log.md). To do so, make sure the guest metrics are collected to a Log Analytics workspace and create a log search alert rule on the workspace.
+Currently, monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts. But you can use a [log search alert rule](./alerts-types.md#log-alerts). To do so, make sure the guest metrics are collected to a Log Analytics workspace and create a log search alert rule on the workspace.
 
 ## Can't find the metric dimension to alert on
 
