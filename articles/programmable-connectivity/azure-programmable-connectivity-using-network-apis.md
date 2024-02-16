@@ -23,7 +23,8 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 
 ## Definitions
 
-- Phone number: phone number, in this document, refers to a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
+- Phone number: a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
+- Hashed phone number: the SHA-256 hash, in hexadecimal representation, of a phone number
 
 ## Obtain an authentication token
 
@@ -237,9 +238,9 @@ The response is of the form:
 
 ### Verify the number of a device
 
-Number verification is different to other APIs, as it requires interaction with a frontend application (i.e. an application running on a device) to verify the number of that device, as part of a flow referred to as "frontend authentication". This means two separate calls to APC must be made: the first to trigger frontend authentication, and the second to request the desired information.
+Number verification is different to other APIs, as it requires interaction with a frontend application (i.e. an application running on a device) to verify the number of that device, as part of a flow referred to as "frontend authorization". This means two separate calls to APC must be made: the first to trigger frontend authorization, and the second to request the desired information.
 
-To use number verification functionality, you must expose an endpoint on the backend of your application that is accessible from your application's frontend. This endpoint is used to pass the result of frontend authentication to the backend of your application. Note the full URL to this endpoint as `REDIRECT_URI`.
+To use number verification functionality, you must expose an endpoint on the backend of your application that is accessible from your application's frontend. This endpoint is used to pass the result of frontend authorization to the backend of your application. Note the full URL to this endpoint as `REDIRECT_URI`.
 
 #### Call 1
 
@@ -262,7 +263,7 @@ Option 1: use the device's phone number:
 }
 ```
 
-Option 2: use the SHA-256 hash, in hexadecimal representation, of the device's phone number:
+Option 2: use the device's hashed phone number:
 
 ```json
 {
@@ -277,9 +278,9 @@ Option 2: use the SHA-256 hash, in hexadecimal representation, of the device's p
 
 The response to this call is a 302 redirect. It has a header `location`, which contains a URL. 
 
-Follow the URL from the frontend of your application. This triggers an authentication flow between the device running the frontend and the Network.
+Follow the URL from the frontend of your application. This triggers an authorization flow between the device running the frontend and the Network specifed using the `networkIdentifier` block.
 
-At the end of the authentication flow, the Network returns a 302 redirect. This redirect:
+At the end of the authorization flow, the Network returns a 302 redirect. This redirect:
 - Redirects to the `redirectUri` you sent in your request to APC
 - Contains the parameter `apcCode`
 
@@ -293,7 +294,7 @@ Make a POST request to the endpoint `https://<APC_URL>/number-verification/numbe
 
 It must contain all common headers specified in [Headers](#headers).
 
-The body of the request must take the following form. Replace the value of `apcCode` with the value obtained as a result of the authentication flow. 
+The body of the request must take the following form. Replace the value of `apcCode` with the value obtained as a result of the authorization flow. 
 
 ```json
 {
