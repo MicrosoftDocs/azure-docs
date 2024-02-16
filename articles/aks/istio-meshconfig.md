@@ -72,15 +72,15 @@ When you're performing [canary upgrade for Istio](./istio-upgrade.md), you need 
 
 After the upgrade is completed or rolled back, you can delete the ConfigMap of the revision that was removed from the cluster.
 
-## Allowed, supported, and disallowed values
+## Allowed, supported, and blocked values
 
 Fields in `MeshConfig` are classified into three categories: 
 
-- **Disallowed**: Disallowed fields are blocked via addon managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
-- **Allowed and supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
-- **Allowed and unsupported**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
+- **Blocked**: Disallowed fields are blocked via addon managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
+- **Supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
+- **Allowed**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
 
-Mesh configuration and the list of allowed/supported fields are revision specific to account for fields being added/removed across revisions. The full list of allowed fields and the supported/unsupported ones within the allowed list is provided in the below table. When new mesh revision is made available, any changes to allowed or supported/unsupported classification of the fields is noted in this table.
+Mesh configuration and the list of allowed/supported fields are revision specific to account for fields being added/removed across revisions. The full list of allowed fields and the supported/unsupported ones within the allowed list is provided in the below table. When new mesh revision is made available, any changes to allowed and supported classification of the fields is noted in this table.
 
 ### MeshConfig:
 
@@ -139,6 +139,8 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | holdApplicationUntilProxyStarts | true |
 | caCertificatesPem | false |
 | privateKeyProvider | false |
+
+Fields present in [open source MeshConfig reference documentation][istio-meshconfig] but not in the above table are blocked. For example, `configSources` is blocked.
 
 > [!CAUTION]
 > **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the support scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
