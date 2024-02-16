@@ -43,7 +43,7 @@ Here's how to customize the display name for a published RemoteApp or Remote Des
 
 #### [PowerShell](#tab/powershell)
 
-Here's how to customize the friendly name for a RemoteApp or Remote Desktop using PowerShell.
+Here's how to customize the display name for a RemoteApp or Remote Desktop using PowerShell.
 
 #### Customize the display name for a RemoteApp
 
