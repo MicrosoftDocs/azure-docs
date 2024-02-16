@@ -41,9 +41,7 @@ known as [policy definitions](#policy-definition). To simplify management, sever
 can be grouped together to form a [policy initiative](#initiative-definition) (sometimes called a
 _policySet_). Once your business rules have been formed, the policy definition or initiative is
 [assigned](#assignments) to any scope of resources that Azure supports, such as
-[management groups](../management-groups/overview.md), subscriptions,
-[resource groups](../../azure-resource-manager/management/overview.md#resource-groups), or
-individual resources. The assignment applies to all resources within the
+[management groups](../management-groups/overview.md), subscriptions or [resource groups](../../azure-resource-manager/management/overview.md#resource-groups). The assignment applies to all resources within the
 [Resource Manager scope](../../azure-resource-manager/management/overview.md#understand-scope) of
 that assignment. Subscopes can be excluded, if necessary. For more information, see
 [Scope in Azure Policy](./concepts/scope.md).
