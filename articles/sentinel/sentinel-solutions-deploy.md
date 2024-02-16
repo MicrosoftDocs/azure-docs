@@ -32,7 +32,7 @@ For more information about other roles and permissions supported for Microsoft S
 
 ## Discover content
 
-The content hub offers the best way to find new content or manage the solutions you already installed.
+The content hub offers the best way to find new content or manage the solutions you already installed. 
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Content hub**.
 
@@ -44,17 +44,18 @@ The content hub offers the best way to find new content or manage the solutions 
 
 1. Select the **Card view** to view more information about a solution.
 
-If a solution that you deployed has updates since you last deployed it, the list view shows **Update** in the status column. The solution is also included in the **Updates** count at the top of the page.
+   Each content item shows categories that apply to it, and solutions show the types of content included. For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
 
-Each content item shows categories that apply to it, and solutions show the types of content included. 
-For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
-
-:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
+   :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
 
 ## Install or update content
 
-Standalone content and solutions can be installed individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. Here's an example showing the install of an individual solution.
+Install standalone content and solutions individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. 
+
+If a solution that you deployed has updates since you last deployed it, the list view shows **Update** in the status column. The solution is also included in the **Updates** count at the top of the page.
+
+Here's an example showing the install of an individual solution.
 
 1. In the **Content hub**, search for and select the solution.
 
@@ -67,17 +68,18 @@ Standalone content and solutions can be installed individually or all together i
 
 1. Select **Next** to go through the remaining tabs to learn about, and in some cases configure, each of the content components.
 
-    The tabs displayed correspond with the content offered by the solution. Different solutions might have different types of content, so you might not see all the same tabs in every solution.
+    The tabs correspond with the content offered by the solution. Different solutions might have different types of content, so you might not see the same tabs in every solution.
 
     You might also be prompted to enter credentials to a third party service so that Microsoft Sentinel can authenticate to your systems. For example, with playbooks, you might want to take response actions as prescribed in your system.
 
-1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
+1. In the **Review + create** tab, wait for the `Validation Passed` message.
+1. Select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-1. Each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
+Each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
 ## Bulk install and update content
 
-Content hub supports a list view in addition to the default card view. Select list view to install multiple solutions and standalone content all at once. Standalone content is kept up-to-date automatically. Any active or custom content created based on solutions or standalone content installed from content hub remains untouched.
+Content hub supports a list view in addition to the default card view. Select the list view to install multiple solutions and standalone content all at once. Standalone content is kept up-to-date automatically. Any active or custom content created based on solutions or standalone content installed from content hub remains untouched.
 
 1. To install or update items in bulk, change to the list view.
 1. Search for or filter to find the content that you want to install or update in bulk.
@@ -139,6 +141,7 @@ Run the provided hunting query or customize it.
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-hunting-query.png" alt-text="Screenshot of cloned hunting query content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-hunting-query.png":::
 
 1. To customize your hunting query, select the link in the **Content name** column.
+
    From the hunting gallery, you can create a clone of the read-only hunting query template by going to the ellipses menu. Hunting queries created in this way display as items in the content hub **Created content** column.
 
 #### Workbook
