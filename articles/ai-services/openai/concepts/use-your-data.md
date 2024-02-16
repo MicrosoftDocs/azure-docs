@@ -94,7 +94,7 @@ Azure OpenAI On Your Data provides the following search types you can use when y
 
     To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. If you're using Azure AI Search as a data source, make sure you have a vector column in the index.
 
-If you're using your own index, you can customize the [field mapping](#index-field-mapping) when you add your data source to define the fields that will mapped when answering questions. To customize field mapping, select **Use custom field mapping** on the **Data Source** page when adding your data source.
+If you're using your own index, you can customize the [field mapping](#index-field-mapping) when you add your data source to define the fields that will get mapped when answering questions. To customize field mapping, select **Use custom field mapping** on the **Data Source** page when adding your data source.
 
 
 
