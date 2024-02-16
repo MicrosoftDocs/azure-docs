@@ -28,7 +28,6 @@ The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure O
 | `database_name` | string | True | The MongoDB vCore database name to use with Azure Cosmos DB.|
 | `container_name` | string | True | The name of the Azure Cosmos DB resource container.|
 | `index_name` | string | True | The MongoDB vCore index name to use with Azure Cosmos DB.|
-| `endpoint` | string | True | The absolute endpoint path for the Azure Search resource to use.|
 | `fields_mapping` | [FieldsMappingOptions](#fields-mapping-options) | True | Customized field mapping behavior to use when interacting with the search index.|
 | `authentication`| [ConnectionStringAuthenticationOptions](#connection-string-authentication-options)| True | The authentication method to use when accessing the defined data source. |
 | `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | True | The embedding dependency for vector search.|
