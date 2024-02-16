@@ -63,7 +63,7 @@ ms.author: lajanuar
 |Filipino|fil|✔|✔|✔| | |
 |Finnish|fi|✔|✔|✔|✔|✔|
 |French|fr|✔|✔|✔|✔|✔|
-|French (Canada)|fr-ca|✔|✔| | | |
+|French (Canada)|fr-ca|✔|✔|✔ | | |
 |Galician|gl|✔|✔| |✔| |
 |Georgian|ka|✔|✔| |✔| |
 |German|de|✔|✔|✔|✔|✔|
@@ -121,7 +121,7 @@ ms.author: lajanuar
 |Persian|fa|✔|✔|✔|✔|✔|
 |Polish|pl|✔|✔|✔|✔|✔|
 |Portuguese (Brazil)|pt|✔|✔|✔|✔|✔|
-|Portuguese (Portugal)|pt-pt|✔|✔| | | |
+|Portuguese (Portugal)|pt-pt|✔|✔|✔ | | |
 |Punjabi|pa|✔|✔|✔|✔| |
 |Queretaro Otomi|otq|✔|✔| |✔| |
 |Romanian|ro|✔|✔|✔|✔|✔|
