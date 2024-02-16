@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Container Instances
 description: This article contains important reference material you need when you monitor Container Instances.
-ms.date: 02/07/2024
+ms.date: 02/15/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: tomvcassidy
@@ -37,12 +37,12 @@ At a minimum your service should have the following two articles:
 # Container Instances monitoring data reference
 
 <!-- Intro. Required. -->
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Container Instances](monitor-container-instances.md) for details on the data you can collect for Container Instances and how to use it.
 
 <!-- ## Metrics. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 <!-- Repeat the following section for each resource type/namespace in your service. -->
 ### Supported metrics for Microsoft.ContainerInstance/containerGroups
@@ -55,26 +55,26 @@ The following table lists the metrics available for the Microsoft.ContainerInsta
 <!-- Use either the LINK or INCLUDE option and remove the other option.
 - LINK to metrics page. Example: - [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
 - OR INCLUDE metrics table, starting with the metrics tableheader: -->
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [microsoft-containerinstance-containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)]
 
 ### Supported metrics for Microsoft.ContainerInstance/containerScaleSets
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerScaleSets resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [microsoft-containerinstance-containerscalesets-metrics](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)]
 
 <!-- ## Metric dimensions. Required section. -->
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **containerName** | The name of the container. The name must be between 1 and 63 characters long. It can contain only lowercase letters numbers, and dashes. Dashes can't begin or end the name, and dashes can't be consecutive. The name must be unique in its resource group. |
 
 <!-- ## Resource logs. Required section. -->
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 <!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
 Repeat this section for each resource type/namespace in your service. -->
@@ -82,7 +82,7 @@ Repeat this section for each resource type/namespace in your service. -->
 [!INCLUDE [microsoft-containerinstance-containergroups-logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)]
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Container Instances
 Microsoft.ContainerInstance/containerGroups
 - [ContainerInstanceLog](/azure/azure-monitor/reference/tables/containerinstancelog)
@@ -95,7 +95,7 @@ Microsoft.Storage/storageAccounts
 - [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs) -->
 
 <!-- ## Activity log. Required section. -->
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 <!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>). -->
 The following table lists a subset of the operations that Azure Container Instances may record in the Activity log. For the complete listing, see [Microsoft.ContainerInstance resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).
 
@@ -132,7 +132,7 @@ The following table lists a subset of the operations that Azure Container Instan
 <!-- If there are other operations not in the link, list them here in table form. -->
 
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
-[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
+[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 > [!NOTE]
