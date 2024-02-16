@@ -57,7 +57,7 @@ Choose your preferred programming language at the top of the article.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 >[!NOTE]
->function code in the Azure portal is currently only supported when running in a [Consumption plan](./consumption-plan.md). For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).
+>Developing Python functions in the Azure portal is currently only supported when running in a [Consumption plan](./consumption-plan.md). For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).
 >
 > You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-python.md)
