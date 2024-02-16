@@ -472,7 +472,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
 
 ## Number of results template (up to version 2018-04-16)
 
-The following sample creates a [number of results alert rule](../alerts/alerts-unified-log.md#result-count).
+The following sample creates a [number of results alert rule](../alerts/alerts-types.md#log-alerts).
 
 ### Notes
 
@@ -614,7 +614,7 @@ resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
 
 ## Metric measurement template (up to version 2018-04-16)
 
-The following sample creates a [metric measurement alert rule](../alerts/alerts-unified-log.md#calculation-of-a-value).
+The following sample creates a [metric measurement alert rule](../alerts/alerts-types.md#log-alerts).
 
 ### Template file
 

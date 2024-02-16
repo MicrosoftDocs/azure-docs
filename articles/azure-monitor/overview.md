@@ -201,7 +201,7 @@ An effective monitoring solution proactively responds to critical events, withou
 **[Azure Monitor Alerts](alerts/alerts-overview.md)** notify you of critical conditions and can take corrective action. Alert rules can be based on metric or log data.
  
 - Metric alert rules provide near-real-time alerts based on collected metrics. 
-- Log alerts rules based on logs allow for complex logic across data from multiple sources.
+- Log search alert rules based on logs allow for complex logic across data from multiple sources.
 
 Alert rules use [action groups](alerts/action-groups.md), which can perform actions such as sending email or SMS notifications. Action groups can send notifications using webhooks to trigger external processes or to integrate with your IT service management tools. Action groups, actions, and sets of recipients can be shared across multiple rules.
 
