@@ -141,7 +141,7 @@ To create an alert when the daily cap is reached, create an [Activity log alert 
 
 
 ## View the effect of the daily cap
-The following query can be used to track the data volumes that are subject to the daily cap for a Log Analytics workspace between daily cap resets.  In this example, the workspace's reset hour is 14:00. Change this value for your workspace.
+The following query can be used to track the data volumes that are subject to the daily cap for a Log Analytics workspace between daily cap resets.  In this example, the workspace's reset hour is 14:00. Change `DailyCapResetHour` to match the reset hour of your workspace which you can see on the Daily Cap configuration page.
 
 ```kusto
 let DailyCapResetHour=14;
