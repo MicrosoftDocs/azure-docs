@@ -1,14 +1,14 @@
 ---
-title: Use the side by side migration feature to migrate your App Service Environment to App Service Environment v3
-description: Learn how to migrate your App Service Environment to App Service Environment v3 by using the side by side migration feature.
+title: Use the side by side migration feature to migrate your App Service Environment v2 to App Service Environment v3
+description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side by side migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 2/13/2024
+ms.date: 2/15/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
-# Use the side by side migration feature to migrate App Service Environment v1 and v2 to App Service Environment v3
+# Use the side by side migration feature to migrate App Service Environment v2 to App Service Environment v3
 
 > [!NOTE]
 > The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
