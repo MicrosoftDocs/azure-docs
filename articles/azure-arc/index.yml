@@ -98,6 +98,16 @@ conceptualContent:
         url: ./data/index.yml
         text: See more
     # Card
+    - title: Azure Arc site manager
+      links:
+        - url: ./site-manager/overview.md
+          itemType: get-started
+          text: Get started
+      # footerLink (optional)
+      footerLink:
+        url: ./site-manager/index.yml
+        text: See more
+    # Card
     - title: SQL Server enabled by Azure Arc
       links:
         - url: /sql/sql-server/azure-arc/connect
