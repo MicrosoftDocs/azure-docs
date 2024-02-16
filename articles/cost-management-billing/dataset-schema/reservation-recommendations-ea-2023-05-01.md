@@ -1,22 +1,22 @@
 ---
-title: Enterprise Agreement reservation recommendations file schema
+title: Enterprise Agreement reservation recommendations file schema - version 2023-05-01
 description: Learn about the data fields available in the Enterprise Agreement reservation recommendations file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
 # Enterprise Agreement reservation recommendations file schema
 
-This article lists all of the data fields available in the Enterprise Agreement reservation recommendations file. The reservation recommendations file is a CSV file that contains all of the reservation recommendation details for savings. The savings are calculated in addition to your negotiated, or discounted, if applicable, prices.
-
-Azure reserved instance (RI) purchase recommendations are provided through the [Azure Consumption Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
+This article lists all of the data fields available in the Enterprise Agreement reservation recommendations file. The reservation recommendations file is a data file that contains all of the reservation recommendation details for savings. The savings are calculated in addition to your negotiated, or discounted, if applicable, prices.
 
 ## Enterprise Agreement reservation recommendations data fields
+
+Version: 2023-05-01
 
 |Fields|Description|
 |------|------|

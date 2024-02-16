@@ -1,23 +1,25 @@
 ---
-title: Web direct cost details file schema
-description: Learn about the data fields available in the web direct cost details file.
+title: Pay-as-you-go cost details file schema - version 2019-11-01
+description: Learn about the data fields available in the pay-as-you-go cost details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
-# Web direct cost details file schema
+# Pay-as-you-go cost details file schema
 
 > [!NOTE]
-> This article applies to the web direct cost details file schema. Web direct is also called pay-as-you-go (PAYG), Microsoft Online Services Program (MOSP), and Microsoft Online Subscription Agreement (MOSA). For other versions, see the [dataset schema index](schema-index.md).
+> This article applies to the pay-as-you-go cost details file schema. Pay-as-you-go is also called Microsoft Online Services Program (MOSP) and Microsoft Online Subscription Agreement (MOSA). For other versions, see the [dataset schema index](schema-index.md).
 
-This article lists the cost details (formerly known as usage details) fields found in cost details files by using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API](/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+This article lists the cost details (formerly known as usage details) fields found in cost details files. The cost details file is a data file that contains all of the cost details for the Azure services that were used.
 
 ## Cost details data file fields
+
+Version: 2019-11-01
 
 |Fields|Description|
 |------|------|
@@ -34,7 +36,7 @@ This article lists the cost details (formerly known as usage details) fields fou
 |ResourceRate|MISSING.|
 |PreTaxCost|MISSING.|
 |ConsumedService|Name of the service the charge is associated with.|
-|ResourceType|Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null or empty, `Others` , or `Not applicable`..|
+|ResourceType|Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null or empty, `Others` , or `Not applicable`.|
 |InstanceId|Unique identifier of the Azure Resource Manager resource.|
 |Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md). |
 |OfferId|Name of the offer purchased.|

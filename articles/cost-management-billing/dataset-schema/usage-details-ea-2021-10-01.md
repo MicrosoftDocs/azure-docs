@@ -15,9 +15,11 @@ ms.author: banders
 > [!NOTE]
 > This article applies to the Enterprise Agreement cost details file schema - version 2021-10-01. For other versions, see the [dataset schema index](schema-index.md).
 
-This article lists the cost details (formerly known as usage details) fields found in cost details files by using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API](/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+This article lists the cost details (formerly known as usage details) fields found in cost details files. The cost details file is a data file that contains all of the cost details for the Azure services that were used.
 
 ## Cost details data file fields
+
+Version: 2021-10-01
 
 |Fields|Description|
 |------|------|

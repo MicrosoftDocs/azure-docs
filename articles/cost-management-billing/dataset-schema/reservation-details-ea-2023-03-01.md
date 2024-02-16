@@ -1,20 +1,22 @@
 ---
-title: Enterprise Agreement reservation details file schema
+title: Enterprise Agreement reservation details file schema - version 2023-03-01
 description: Learn about the data fields available in the Enterprise Agreement reservation details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
 # Enterprise Agreement reservation details file schema
 
-This article lists all of the data fields available in the Enterprise Agreement reservation details file. The reservation details file is a CSV file that contains all of the reservation details for the Azure services that were used and were unused. The reservation details file is available for download in the Azure portal. You can also download the reservation details file by using the [X API](LINK).
+This article lists all of the data fields available in the Enterprise Agreement reservation details file. The reservation details file is a data file that contains all of the reservation details for the Azure services that were used and were unused.
 
 ## Reservation details data fields
+
+Version: 2023-03-01
 
 |Fields|Description|
 |------|------|

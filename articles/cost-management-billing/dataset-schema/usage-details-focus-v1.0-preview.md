@@ -6,16 +6,18 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
 # FOCUS cost details file schema - version 1.0-preview
 
 
-This article lists the cost details (formerly known as usage details) fields found in the FOCUS cost details file. The FOCUS-specific version of the cost details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). You can get the FOCUS cost details file by using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API](/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+This article lists the cost details (formerly known as usage details) fields found in the FOCUS cost details file. The FOCUS-specific version of the cost details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). The cost details file is a data file that contains all of the cost details for the Azure services that were used.
 
 ## Cost details data file fields
+
+Version: 1.0-preview
 
 | Fields | Description |
 |---|---|

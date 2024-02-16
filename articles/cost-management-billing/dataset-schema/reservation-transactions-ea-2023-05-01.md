@@ -1,20 +1,22 @@
 ---
-title: Enterprise Agreement reservation transactions file schema
+title: Enterprise Agreement reservation transactions file schema - version 2023-05-01
 description: Learn about the data fields available in the Enterprise Agreement reservation transactions file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
 # Enterprise Agreement reservation transactions file schema
 
-This article lists all of the data fields available in the Enterprise Agreement reservation transactions file. The reservation transaction file is a CSV file that contains all of the reservation transactions for the Azure reservations that you bought. The reservation transactions file is available for download in the Azure portal. You can also download the reservation transactions file by using the [X API](LINK).
+This article lists all of the data fields available in the Enterprise Agreement reservation transactions file. The reservation transaction file is a data file that contains all of the reservation transactions for the Azure reservations that you bought.
 
 ## Reservation transactions data fields
+
+Version: 2023-05-01
 
 |Fields|Description|
 |------|------|

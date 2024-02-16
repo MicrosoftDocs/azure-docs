@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
@@ -29,7 +29,6 @@ Here's the list of all dataset schema files available in Cost Management + Billi
 |ReservationRecommendations|MCA|[2023-05-01](reservation-recommendations-mca-2023-05-01.md)||
 |ReservationTransactions|EA|[2023-05-01](reservation-transactions-ea-2023-05-01.md)||
 |ReservationTransactions|MCA|[2023-05-01](reservation-transactions-mca-2023-05-01.md)||
-|Usage|MSInternal|[2019-11-01](usage-details-airs-2019-11-01.md)|• 2018-05-31<br/><br/>• 2018-06-30<br/><br/>• 2018-08-31<br/><br/>• 2018-10-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2018-10-01<br/><br/>• 2018-07-31<br/><br/>• 2018-08-31<br/><br/>• 2018-08-01-preview<br/><br/>• 2018-11-01-preview<br/><br/>• 2018-12-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2019-01-01<br/><br/>• 2019-03-01-preview<br/><br/>• 2019-04-01-preview<br/><br/>• 2019-05-01-preview<br/><br/>• 2019-05-01<br/><br/>• 2018-08-01-preview<br/><br/>• 2019-11-01<br/><br/>• 2021-01-01<br/><br/>• 2021-04-01-preview<br/><br/>• 2021-05-01<br/><br/>• 2021-10-01<br/><br/>• 2022-02-01-preview<br/><br/>• 2022-04-01-preview<br/><br/>• 2022-05-01<br/><br/>• 2022-06-01<br/><br/>• 2022-09-01<br/><br/>• 2023-04-01-preview<br/><br/>• 2023-04-15-privatepreview<br/><br/>• 2023-08-01-preview|
 |Usage|EA|[2019-07-02-preview](usage-details-ea-2019-07-02-preview.md)|2019-07-02-preview|
 |Usage|EA|[2019-10-01](usage-details-ea-2019-10-01.md)|• 2018-05-31<br/><br/>• 2018-06-30<br/><br/>• 2018-08-31<br/><br/>• 2018-10-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2018-10-01<br/><br/>• 2018-07-31<br/><br/>• 2018-08-31<br/><br/>• 2018-08-01-preview<br/><br/>• 2018-11-01-preview<br/><br/>• 2018-12-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2019-01-01<br/><br/>• 2019-03-01-preview<br/><br/>• 2019-04-01-preview<br/><br/>• 2019-05-01-preview<br/><br/>• 2019-05-01<br/><br/>• 2018-08-01-preview<br/><br/>• 2019-10-01<br/><br/>• 2019-11-01|
 |Usage|EA|[2020-01-01](usage-details-ea-2020-01-01.md)|• 2020-01-01<br/><br/>• 2020-08-01-preview<br/><br/>• 2020-12-01-preview|
@@ -47,5 +46,5 @@ Here's the list of all dataset schema files available in Cost Management + Billi
 |Usage|MCA|[2021-01-01](usage-details-mca-2021-01-01.md)|• 2021-01-01<br/><br/>• 2021-04-01-preview<br/><br/>• 2021-05-01<br/><br/>• 2020-05-01-preview|
 |Usage|MCA|[2021-10-01](usage-details-mca-2021-10-01.md)|• 2021-10-01<br/><br/>• 2022-02-01-preview<br/><br/>• 2022-04-01-preview<br/><br/>• 2022-05-01<br/><br/>• 2022-06-01<br/><br/>• 2022-09-01<br/><br/>• 2023-04-01-preview<br/><br/>• 2023-04-15-privatepreview<br/><br/>• 2023-08-01-preview|
 |Usage|MCA|[2023-12-01](usage-details-mca-2023-12-01.md)|2023-12-01-preview|
-|Usage|WebDirect|[2019-11-01](usage-details-web-direct-2019-11-01.md)|• 2018-05-31<br/><br/>• 2018-06-30<br/><br/>• 2018-08-31<br/><br/>• 2018-10-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2018-10-01<br/><br/>• 2018-07-31<br/><br/>• 2018-08-31<br/><br/>• 2018-08-01-preview<br/><br/>• 2018-11-01-preview<br/><br/>• 2018-12-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2019-01-01<br/><br/>• 2019-03-01-preview<br/><br/>• 2019-04-01-preview<br/><br/>• 2019-05-01-preview<br/><br/>• 2019-05-01<br/><br/>• 2018-08-01-preview<br/><br/>• 2019-11-01<br/><br/>• 2021-01-01<br/><br/>• 2021-04-01-preview<br/><br/>• 2021-05-01<br/><br/>• 2021-10-01<br/><br/>• 2022-02-01-preview<br/><br/>• 2022-04-01-preview<br/><br/>• 2022-05-01<br/><br/>• 2022-06-01<br/><br/>• 2022-09-01<br/><br/>• 2023-04-01-preview<br/><br/>• 2023-04-15-privatepreview<br/><br/>• 2023-08-01-preview|
+|Usage|Pay-as-you-go|[2019-11-01](usage-details-pay-as-you-go-2019-11-01.md)|• 2018-05-31<br/><br/>• 2018-06-30<br/><br/>• 2018-08-31<br/><br/>• 2018-10-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2018-10-01<br/><br/>• 2018-07-31<br/><br/>• 2018-08-31<br/><br/>• 2018-08-01-preview<br/><br/>• 2018-11-01-preview<br/><br/>• 2018-12-01-preview<br/><br/>• 2019-01-01-preview<br/><br/>• 2019-01-01<br/><br/>• 2019-03-01-preview<br/><br/>• 2019-04-01-preview<br/><br/>• 2019-05-01-preview<br/><br/>• 2019-05-01<br/><br/>• 2018-08-01-preview<br/><br/>• 2019-11-01<br/><br/>• 2021-01-01<br/><br/>• 2021-04-01-preview<br/><br/>• 2021-05-01<br/><br/>• 2021-10-01<br/><br/>• 2022-02-01-preview<br/><br/>• 2022-04-01-preview<br/><br/>• 2022-05-01<br/><br/>• 2022-06-01<br/><br/>• 2022-09-01<br/><br/>• 2023-04-01-preview<br/><br/>• 2023-04-15-privatepreview<br/><br/>• 2023-08-01-preview|
 
