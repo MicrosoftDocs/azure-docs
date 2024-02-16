@@ -135,6 +135,8 @@ items:
         items:   
         - name: Send data to a gRPC endpoint
           href: process-data/howto-configure-destination-grpc.md
+        - name: Send data to an HTTP endpoint
+          href: process-data/howto-configure-destination-http.md
         - name: Publish data to an MQTT broker
           href: process-data/howto-configure-destination-mq-broker.md
       - name: jq guide
