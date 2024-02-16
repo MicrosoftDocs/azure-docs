@@ -51,7 +51,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
 
 ## Configure WAF rules (optional)
 
-When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the CRS Ruleset you selected are blocked and/or logged in the WAF logs.
+When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the Microsoft Managed Rulesets you selected are blocked and/or logged in the WAF logs.
 
 ## Managed rules
 
