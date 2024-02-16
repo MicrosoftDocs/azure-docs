@@ -13,9 +13,6 @@ ms.subservice: calling
 
 You can set video constraints in your calls to control the video quality based on resolution or frameRate or bitrate in your video calls. In this quickstart guide, we illustrate how to set video constraints at the start of a call and how to use our `setConstraints` method on the call object to set video constraints dynamically during the call.
 
-
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 ## Send video constraints
 Azure Communication Services Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
 
