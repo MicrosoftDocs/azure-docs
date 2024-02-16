@@ -34,6 +34,9 @@ management needed for provisioning VM resources and getting them ready to servic
 your applications are latency sensitive or have long initialization steps, Standby Pools can help with reducing 
 that time as well as managing the steps to make your VMs ready on your behalf. 
 
+### Can I use Standby Pools on Virtual Machine Scale Sets with Uniform Orchestration?
+No. Standby Pools is only supported on Virtual Machine Scale Sets with Flexible Orchestration.
+
 ### Can I use Standby Pools for Virtual Machine Scale Sets if I'm already using Azure Autoscale? 
 Yes. However it is not suggested. Autoscale will consume the metrics of VMs in your scale set and the VMs in your pool to determine when to scale. This can result in unexpected scale out events. 
 
