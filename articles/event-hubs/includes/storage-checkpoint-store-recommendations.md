@@ -11,7 +11,7 @@ ms.custom: "include file"
 
 Follow these recommendations when using Azure Blob Storage as a checkpoint store: 
 
-- Use a separate container for each processor group. You can use the same storage account, but use one container per each group.
+- Use a separate container for each consumer group. You can use the same storage account, but use one container per each group.
 - Don't use the container for anything else, and don't use the storage account for anything else.
 - Storage account should be in the same region as the deployed application is located in. If the application is on-premises, try to choose the closest region possible.
 
