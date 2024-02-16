@@ -109,11 +109,11 @@ OS images for confidential VMs have to meet certain security and compatibility r
 - Windows 11 Enterprise, version 22H2 -x64 Gen 2
 - Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
 
-As we work to onboard more OS images with confidential OS disk encryption, there are various images available in preview that can be tested. You can join below.
+As we work to onboard more OS images with confidential OS disk encryption, there are various images available in early preview that can be tested. You can sign up below:
 
-- [Red Hat Enterprise Linux 9.3 (Intel TDX)](https://aka.ms/tdx-rhel-93-preview)
-- [SUSE Enterprise Linux 15 SP5 (Intel TDX)](https://aka.ms/cvm-sles-preview)
-- [SUSE Enterprise Linux 15 SAP SP5 (Intel TDX)](https://aka.ms/cvm-sles-preview)
+- [Red Hat Enterprise Linux 9.3 (Support for Intel TDX)](https://aka.ms/tdx-rhel-93-preview)
+- [SUSE Enterprise Linux 15 SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
+- [SUSE Enterprise Linux 15 SAP SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
 
