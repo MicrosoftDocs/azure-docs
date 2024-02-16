@@ -36,7 +36,9 @@ Your subscription may not have access to create a server in the selected region 
 If you see any of the following errors, [Register your subscription with the PostgreSQL RP](#register-with-postgresql-rp)] to resolve it.
 
 - `Your subscription does not have access to create a server in the selected region.`
+
 - `Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with issue type of 'Service and subscription limits' `
+
 - `Location 'region name' is not accepting creation of new Azure Database for PostgreSQL Flexible servers for the subscription 'subscription id' at this time`
 
 
@@ -61,9 +63,6 @@ If you receive the following errors, select a different availability zone.
 If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU isn't supported in the region or temporarily unavailable due to  capacity constraints.
 
 `Specified SKU is not supported in this region. Please choose a different SKU.`
-
-
-
 
 ## Register with PostgreSQL RP
 
