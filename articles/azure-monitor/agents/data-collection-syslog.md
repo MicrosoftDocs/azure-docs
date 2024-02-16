@@ -8,6 +8,9 @@ ms.reviewer: glinuxagent
 
 # Collect Syslog events with Azure Monitor Agent
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built in to Linux devices and appliances to collect local events of the types you specify. Then you can have it send those events to a Log Analytics workspace. Applications send messages that might be stored on the local machine or delivered to a Syslog collector.
 
 When the Azure Monitor agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent when Syslog collection is enabled in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). Azure Monitor Agent then sends the messages to an Azure Monitor or Log Analytics workspace where a corresponding Syslog record is created in a [Syslog table](/azure/azure-monitor/reference/tables/syslog).

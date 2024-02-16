@@ -7,11 +7,14 @@ ms.author: guywild
 ms.date: 12/14/2023
 ms.custom: references_regions
 ms.reviewer: jeffwo
-
 # Customer intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
 
 # How to use the Linux operating system (OS) Azure Monitor Agent Troubleshooter
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
 
 > [!Note]
@@ -90,7 +93,7 @@ If directory doesn't exist or the installation is failed, follow [Basic troubles
 If the directory exists, proceed to [Run the Troubleshooter](#run-the-troubleshooter).
 
 ## Run the Troubleshooter
-On the machine to be diagnosed, run the Agent Troubleshooter. 
+On the machine to be diagnosed, run the Agent Troubleshooter.
 
 **Log Mode** enables the collection of logs, which can then be compressed into .tgz format for export or review. **Interactive Mode** allows users to actively engage in troubleshooting scenarios and view the output directly within the shell.
 
@@ -103,7 +106,7 @@ To start the Agent Troubleshooter in log mode, copy the following command and ru
 
 ```Bash
 cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst/
-sudo sh ama_troubleshooter.sh -L	
+sudo sh ama_troubleshooter.sh -L
 ```
 
 Enter a path to output logs to. For instance, you might use **/tmp**.
@@ -121,7 +124,7 @@ To start the Agent Troubleshooter in interactive mode, copy the following comman
 
 ```Bash
 cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst/
-sudo sh ama_troubleshooter.sh -A	
+sudo sh ama_troubleshooter.sh -A
 ```
 
 It runs a series of scenarios and displays the results.
@@ -137,7 +140,7 @@ It runs a series of scenarios and displays the results.
 
 ### Can I copy the Troubleshooter from a newer agent to an older agent and run it on the older agent to diagnose issues with the older agent?
 It isn't possible to use the Troubleshooter to diagnose an older version of the agent by copying it. You must have an up-to-date version of the agent for the Troubleshooter to work properly.
- 
+
 ## Next Steps
 - [Troubleshooting guidance for the Azure Monitor agent](../agents/azure-monitor-agent-troubleshoot-linux-vm.md) on Linux virtual machines and scale sets
 - [Syslog troubleshooting guide for Azure Monitor Agent](../agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) for Linux

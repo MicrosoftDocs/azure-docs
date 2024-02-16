@@ -19,6 +19,7 @@ Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernete
 - Azure Arc-enabled App services
 - Azure Arc-enabled Machine Learning
 - Azure Arc-enabled data services (direct connectivity mode only)
+- Azure Arc resource bridge
 
 [!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
