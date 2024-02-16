@@ -44,15 +44,15 @@
     href: purview-setup.md
   - name: Manage permissions to the consumption URL
     href: consumption-plane-configure-permissions.md
-  - name: Manage ingestion agents
+  - name: Manage Azure Operator Insights ingestion agents
     items:
-    - name: Change configuration for ingestion agents
+    - name: Change configuration
       href: change-ingestion-agent-configuration.md
-    - name: Monitor and troubleshoot ingestion agents
+    - name: Monitor and troubleshoot
       href: monitor-troubleshoot-ingestion-agent.md
-    - name: Upgrade ingestion agents
+    - name: Upgrade
       href: upgrade-ingestion-agent.md
-    - name: Rotate secrets for ingestion agents
+    - name: Rotate secrets
       href: rotate-secrets-for-ingestion-agent.md
     - name: Configuration reference
       href: ingestion-agent-configuration-reference.md
