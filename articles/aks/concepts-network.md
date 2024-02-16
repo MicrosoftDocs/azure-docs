@@ -88,7 +88,7 @@ In AKS, there are multiple network setups that fit a variety of use cases:
 
 * **Azure Container Networking Interface (CNI) Overlay**
 
-  Azure CNI Overlay uses an overlay IP space for Pods, separate from the VNet space. This means that Pod IPs do not use up VNet address space and multiple clusters can have overlapping Pod CIDR ranges. Azure CNI Overlay also offers the highest scalability of any cluster configuration. It is the recommended network configuration for most clusters in any environment. Please see https://aka.ms/aks/azure-cni-overlay for more details.
+  Azure CNI Overlay uses an overlay IP space for Pods, separate from the VNet space. This means that Pod IPs do not use up VNet address space and multiple clusters can have overlapping Pod CIDR ranges. Azure CNI Overlay also offers the highest scalability of any cluster configuration. It is the recommended network configuration for most clusters in any environment. Please see the [Azure CNI Overlay][azure-cni-overlay] page for more details.
 
 * **Azure CNI**
 
@@ -96,7 +96,7 @@ In AKS, there are multiple network setups that fit a variety of use cases:
 
 * **Azure CNI with Dyanmic IP Allocation**
 
-  [Azure CNI with Dynamic IP Allocation](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation) is similar to standard Azure CNI in that Pods are assigned IPs from the same VNet but now they come from a separate subnet than the nodes.
+  [Azure CNI with Dynamic IP Allocation][configure-azure-cni-dynamic-ip-allocation] is similar to standard Azure CNI in that Pods are assigned IPs from the same VNet but now they come from a separate subnet than the nodes.
 
 * **Kubenet (legacy)**
 
@@ -137,19 +137,26 @@ It is possible to install in AKS a third party CNI using the [Bring your own CNI
 
 ### Compare network models
 
-Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
+While Azure CNI Overlay is the recommended network option, it is important to consider the advantages and disadvantages of each. Please consider the following:
 
-* **kubenet**
+* **Azure CNI Overlay**
 
-  * Conserves IP address space.
-  * Uses Kubernetes internal or external load balancers to reach pods from outside of the cluster.
-  * You manually manage and maintain user-defined routes (UDRs).
-  * Maximum of 400 nodes per cluster.
+  * Uses a virtual IP space for Pods, reducing VNet usage.
+  * Can be used with Cilium.
+  * Routing happens in the Azure network fabric, eliminating need for dependencies like Azure Route Tables.
+  * Offers the highest scalability option of any cluster configuration.
   
 * **Azure CNI**
 
   * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
   * Requires more IP address space.
+  * Cannot be used with Ciilum unless using the Dynamic IP Allocation feature
+
+* **kubenet**
+
+  * Conserves IP address space.
+  * Uses Kubernetes internal or external load balancers to reach pods from outside of the cluster.
+  * Maximum of 400 nodes per cluster.
 
 The following behavior differences exist between kubenet and Azure CNI:
 
@@ -163,9 +170,9 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | [No Application Gateway Ingress Controller (AGIC) support][azure-cni-overlay-limitations] | Same limitations when using Overlay mode |
 | Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
 
-For both kubenet and Azure CNI plugins, the DNS service is provided by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
+For all options, the DNS service is provided by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
-For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
+For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Use Azure CNI Overlay in AKS][azure-cni-overlay] and [Configure Azure CNI networking in AKS][azure-cni-aks].
 
 ### Support scope between network models
 
