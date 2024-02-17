@@ -82,7 +82,7 @@ In the following code, notice the absence of authentication parameters like `sas
 
 ### Azure blob container
 
-To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#azureml-core-datastore-register-azure-blob-container).
 
 The following code creates the `credentialless_blob` datastore, registers it to the `ws` workspace, and assigns it to the `blob_datastore` variable. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
 
@@ -96,7 +96,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure Data Lake Storage Gen1
 
-Use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) to register a datastore that connects to Azure Data Lake Storage Gen1.
+Use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore%28class%29#azureml-core-datastore-register-azure-data-lake) to register a datastore that connects to Azure Data Lake Storage Gen1.
 
 The following code creates the `credentialless_adls1` datastore, registers it to the `workspace` workspace, and assigns it to the `adls_dstore` variable. This datastore accesses the `adls_storage` Azure Data Lake Storage account.
 
@@ -110,7 +110,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### Azure Data Lake Storage Gen2
 
-Use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a datastore that connects to Azure Data Lake Storage Gen2.
+Use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore%28class%29#azureml-core-datastore-register-azure-data-lake-gen2) to register a datastore that connects to Azure Data Lake Storage Gen2.
 
 The following code creates the `credentialless_adls2` datastore, registers it to the `ws` workspace, and assigns it to the `adls2_dstore` variable. This datastore accesses the file system `tabular` in the `myadls2` storage account.  
 
@@ -124,7 +124,7 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 ### Azure SQL database
 
-For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) to register a datastore that connects to an Azure SQL database storage.
+For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore%28class%29#azureml-core-datastore-register-azure-sql-database) to register a datastore that connects to an Azure SQL database storage.
 
 The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
 
