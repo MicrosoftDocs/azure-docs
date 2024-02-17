@@ -95,51 +95,7 @@ For detailed instructions on how to set up logging for your Analysis Services se
 
 ### Analysis Services resource log data
 
-When you set up logging, you can select **Engine** or **Service** categories to log, or select **AllMetrics** to log metrics data.
-
-#### Engine
-
-The **Engine** category logs all [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You can't select individual events.
-
-|XEvent categories |Event name  |
-|---------|---------|
-|Security Audit    |   Audit Login      |
-|Security Audit    |   Audit Logout      |
-|Security Audit    |   Audit Server Starts And Stops      |
-|Progress Reports     |   Progress Report Begin      |
-|Progress Reports     |   Progress Report End      |
-|Progress Reports     |   Progress Report Current      |
-|Queries     |  Query Begin       |
-|Queries     |   Query End      |
-|Commands     |  Command Begin       |
-|Commands     |  Command End       |
-|Errors & Warnings     |   Error      |
-|Discover     |   Discover End      |
-|Notification     |    Notification     |
-|Session     |  Session Initialize       |
-|Locks    |  Deadlock       |
-|Query Processing     |   VertiPaq SE Query Begin      |
-|Query Processing     |   VertiPaq SE Query End      |
-|Query Processing     |   VertiPaq SE Query Cache Match      |
-|Query Processing     |   Direct Query Begin      |
-|Query Processing     |  Direct Query End       |
-
-#### Service
-
-The **Service** category logs the following events:
-
-|Operation name  |Occurs when  |
-|---------|---------|
-|ResumeServer     |    Resume a server     |
-|SuspendServer    |   Pause a server      |
-|DeleteServer     |    Delete a server     |
-|RestartServer    |     User restarts a server through SSMS or PowerShell    |
-|GetServerLogFiles    |    User exports server log through PowerShell     |
-|ExportModel     |   User exports a model in the portal by using Open in Visual Studio     |
-
-#### Metrics
-
-**AllMetrics** logs the [server metrics](monitor-analysis-services-reference.md#metrics) to the [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics) table. If you're using query [scale-out](analysis-services-scale-out.md) and need to separate metrics for each read replica, use the [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics) table instead, where **OperationName** is equal to **LogMetric**.
+When you set up logging for Analysis Services, you can select **Engine** or **Service** events to log, or select **AllMetrics** to log metrics data. For more information, see [Supported resource logs for Microsoft.AnalysisServices/servers](monitor-analysis-services-reference.md#supported-resource-logs-for-microsoftanalysisservicesservers).
 
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
@@ -254,9 +210,8 @@ The following table lists some common and popular alert rules for Analysis Servi
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Metric | Whenever the average QPU is greater or less than dynamic threshold. | If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan.|
-|Metric | The Query pool job queue length is greater than a threshold length. | The number of queries in the query thread pool queue exceeds available QPU.|
-|Metric | Whenever the average Memory: Memory Usage is greater than a threshold number of bytes. | |
+|Metric | Whenever the maximum qpu_metric is greater than dynamic threshold. | If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan.|
+|Metric | Whenever the maximum QueryPoolJobQueueLength is greater than dynamic threshold. | The number of queries in the query thread pool queue exceeds available QPU.|
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
