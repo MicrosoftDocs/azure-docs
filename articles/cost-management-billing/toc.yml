@@ -45,6 +45,8 @@
     href: manage/ea-understand-pricesheet.md
   - name: Request Withholding Tax credit - India
     href: manage/withholding-tax-credit-india.md
+  - name: Plan to manage Azure costs
+    href: understand/plan-manage-costs.md
 - name: How-to guides
   items:
   - name: Configure billing
