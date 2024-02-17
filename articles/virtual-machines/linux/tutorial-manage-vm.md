@@ -9,6 +9,7 @@ ms.date: 03/23/2023
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
+
 ---
 
 # Tutorial: Create and Manage Linux VMs with the Azure CLI
