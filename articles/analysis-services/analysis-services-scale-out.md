@@ -73,7 +73,7 @@ For maximum performance for both processing and query operations, you can choose
 
 To determine if scale-out for your server is necessary, [monitor your server](analysis-services-monitor.md) in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
 
-Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with the query pool. 
+Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with the query pool.
 
 ![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -86,8 +86,7 @@ Another good metric to watch is average QPU by ServerResourceType. This metric c
 
 ### Detailed diagnostic logging
 
-Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. To learn more, see example queries in [Analysis Services diagnostics logging](analysis-services-logging.md#example-queries).
-
+Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. For more information, see [Analyze logs in Log Analytics workspace](monitor-analysis-services.md#analyze-logs-in-log-analytics-workspace). For example queries, see [Sample Kusto queries]((monitor-analysis-services.md#sample-kusto-queries).
 
 ## Configure scale-out
 
@@ -177,5 +176,5 @@ You can change the pricing tier on a server with multiple replicas. The same pri
 
 ## Related information
 
-[Monitor server metrics](analysis-services-monitor.md)   
+[Monitor Azure Analysis Services](monitor-analysis-services.md)
 [Manage Azure Analysis Services](analysis-services-manage.md)
