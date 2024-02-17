@@ -912,7 +912,7 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 | `chunkSize` | int | Optional |1024 |This number defines the maximum number of tokens in each chunk produced by the ingestion flow. |
 
 
-### List ingestion jobs
+### List ingestion jobs (preview)
 
 ```console
 curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs?api-version=2023-10-01-preview \ 
@@ -946,7 +946,7 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 } 
 ```
 
-### Get the status of an ingestion job 
+### Get the status of an ingestion job (preview)
 
 ```console
 curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/YOUR_JOB_NAME?api-version=2023-10-01-preview \ 
