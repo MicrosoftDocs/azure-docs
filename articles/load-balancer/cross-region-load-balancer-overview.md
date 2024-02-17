@@ -23,7 +23,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
-The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions).
+The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions-in-azure).
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of cross-region load balancer." border="true":::
 
