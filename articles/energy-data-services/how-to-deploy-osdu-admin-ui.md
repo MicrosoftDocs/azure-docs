@@ -149,31 +149,32 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```
 1. Modify the parameters in the config file located at `/src/config/config.json`
     ```json
-{
-    "mapboxKey": "key", // Optional. Access token from Mapbox.com. Used to visualize data on the map feature.
-    ...
-    "data_partition": "adme_data_partition", // ADME Data Partition ID (i.e. opendes)
-  "idp": {
-     ...
-     "tenant_id": "tenant_id", // Entra ID tenant ID
-     "client_id": "client_id", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
-     "redirect_uri": "https://storageaccount.zXX.web.core.windows.net/", // This is the website URL ($REDIRECT_URI)
-     "scope": "client_id/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
-  },
-  "api_endpoints": { // Replace contoso with your ADME instance name in all the API endpoints below.
-     "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
-     "storage_endpoint": "https://contoso.energy.azure.com/api/",
-     "search_endpoint": "https://contoso.energy.azure.com/api/",
-     "legal_endpoint": "https://contoso.energy.azure.com/api/",
-     "schema_endpoint": "https://contoso.energy.azure.com/api/",
-     "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
-     "file_endpoint": "https://contoso.energy.azure.com/api/",
-     "graphAPI_endpoint": "https://contoso.energy.azure.com/api/",
-     "workflow_endpoint": "https://contoso.energy.azure.com/api/"
-  }
-  ...
-}
+    {
+        "mapboxKey": "key", // Optional. Access token from Mapbox.com. Used to visualize data on the map feature.
+        ...
+        "data_partition": "adme_data_partition", // ADME Data Partition ID (i.e. opendes)
+      "idp": {
+         ...
+         "tenant_id": "tenant_id", // Entra ID tenant ID
+         "client_id": "client_id", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
+         "redirect_uri": "https://storageaccount.zXX.web.core.windows.net/", // This is the website URL ($REDIRECT_URI)
+         "scope": "client_id/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
+      },
+      "api_endpoints": { // Replace contoso with your ADME instance name in all the API endpoints below.
+         "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
+         "storage_endpoint": "https://contoso.energy.azure.com/api/",
+         "search_endpoint": "https://contoso.energy.azure.com/api/",
+         "legal_endpoint": "https://contoso.energy.azure.com/api/",
+         "schema_endpoint": "https://contoso.energy.azure.com/api/",
+         "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
+         "file_endpoint": "https://contoso.energy.azure.com/api/",
+         "graphAPI_endpoint": "https://contoso.energy.azure.com/api/",
+         "workflow_endpoint": "https://contoso.energy.azure.com/api/"
+      }
+      ...
+    }
     ```
+
 
     \* [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
 
