@@ -12,7 +12,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # Set up diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. You can send [Azure Monitor resource logs](/azure/azure-monitor/essentials/platform-logs-overview) to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](/azure/azure-monitor/overview).
+An important part of any Analysis Services solution is monitoring how your servers are performing. For general information about monitoring Azure Analysis Services, see [Monitor Azure Analysis Services](monitor-analysis-services.md).
+
+This article describes how to set up, view, and manage [Azure Monitor resource logs](/azure/azure-monitor/essentials/platform-logs-overview) for your Analysis Services servers. You can send resource logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](/azure/azure-monitor/overview).
 
 ![Resource logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -124,7 +126,7 @@ To complete this tutorial, you must have the following resources:
 
 * An existing Azure Analysis Services server. For instructions on creating a server resource, see [Create a server in Azure portal](analysis-services-create-server.md), or [Create an Azure Analysis Services server by using PowerShell](analysis-services-create-powershell.md).
 
-### </a>Connect to your subscriptions
+### Connect to your subscriptions
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 

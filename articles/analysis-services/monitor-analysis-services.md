@@ -37,7 +37,7 @@ At a minimum your service should have the following two articles:
 
 Analysis Services also provides several non-Azure Monitor monitoring mechanisms:
 
-- SQL Server Profiler, installed with SQL Server Management Studio (SSMS), captures data about engine process events such as the start of a batch or a transaction, enabling you to monitor server and database activity. For more information, see [Monitor Analysis Services with SQL Server Profiler](/analysis-services/instances/use-sql-server-profiler-to-monitor-analysis-services)
+- SQL Server Profiler, installed with SQL Server Management Studio (SSMS), captures data about engine process events such as the start of a batch or a transaction, enabling you to monitor server and database activity. For more information, see [Monitor Analysis Services with SQL Server Profiler](/analysis-services/instances/use-sql-server-profiler-to-monitor-analysis-services).
 - Extended Events (xEvents) is a light-weight tracing and performance monitoring system that uses few system resources, making it an ideal tool for diagnosing problems on both production and test servers. For more information, see [Monitor Analysis Services with SQL Server Extended Events](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events).
 - Dynamic Management Views (DMVs) use SQL syntax to interface schema rowsets that return metadata and monitoring information about server instances. For more information, see [Use Dynamic Management Views (DMVs) to monitor Analysis Services](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services).
 
@@ -87,11 +87,11 @@ Non-Monitor metrics service-specific information. Add service-specific informati
   - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md#resource-logs).
+- For the available resource log categories, associated Log Analytics tables, and the logs schemas for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md#resource-logs).
 
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
-For detailed instructions on how to set up logging for your Analysis Services server, see [Set up diagnostic logging for Azure Analysis Services](analysis-services-logging.md).
+- For detailed instructions on how to set up logging for your Analysis Services server, see [Set up diagnostic logging for Azure Analysis Services](analysis-services-logging.md).
 
 ### Analysis Services resource log data
 
@@ -139,10 +139,12 @@ To view your diagnostic data, in Log Analytics workspace, open **Logs**  from th
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes **Engine** and **Service** events. Notice a query is created on the fly. The **EventClass\_s** field contains xEvent names, which might look familiar if you use xEvents for on-premises logging. Select **EventClass\_s** or one of the event names, and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
+<a name="example-queries"></a>
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
 
-<a name="example-queries"></a>
+The following queries are useful for monitoring your Analysis Services server.
+
 #### Example 1
 
 The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in Log Analytics Rate limits.
