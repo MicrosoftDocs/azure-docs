@@ -187,7 +187,8 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
         --source ./dist/ \
-        --destination '$web'
+        --destination '$web' \
+        --overwrite
     ```
     
 1. Fetch the website URL.
