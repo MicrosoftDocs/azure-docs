@@ -90,7 +90,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 2. Enter the required environment variables on the terminal.
 ```bash
-export ADMINUI_CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
+export CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
 export TENANT_ID="<tenant-id>" ## Tenant ID
 export ADME_URL="<adme-url>"
 export DATA_PARTITION="<partition>"
@@ -131,7 +131,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```azurecli-interactive
     export REDIRECT_URI=$(az storage account show --resource-group $RESOURCE_GROUP --name $WEBSITE_NAME --query "primaryEndpoints.web") && \
     echo "Redirect URL: $REDIRECT_URI" && \
-    echo "Add the redirect URI above to the following App Registration's Single-page Application (SPA) section: https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Authentication/appId/$ADMINUI_CLIENT_ID/isMSAApp~/false" 
+    echo "Add the redirect URI above to the following App Registration's Single-page Application (SPA) section: https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Authentication/appId/$CLIENT_ID/isMSAApp~/false" 
     ```
 
     Example:
