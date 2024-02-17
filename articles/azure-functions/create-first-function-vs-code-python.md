@@ -90,8 +90,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Authorization level**| Choose `ANONYMOUS`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.   
- 
-5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
+<!--- Remove these last steps after the next Core Tools version is released (4.28.0)---> 
+5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model when running locally.  
 
 6. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
 
@@ -152,20 +152,6 @@ In this section, you create a function app and related resources in your Azure s
 ## Deploy the project to Azure
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
-
-::: zone pivot="python-mode-decorators"
-## Update app settings
-
-To use the Python v2 model in your function app, you need to add a new application setting in Azure named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-
-1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
-
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-
-The setting added to your new function app, which enables it to run the v2 model in Azure. 
-::: zone-end
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

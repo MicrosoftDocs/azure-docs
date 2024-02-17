@@ -148,7 +148,7 @@ In this section, you create a function project and add an HTTP triggered functio
     ```
 
     If prompted, choose the **ANONYMOUS** option. [`func new`](functions-core-tools-reference.md#func-new) adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication.    
-   
+<!--- Remove these last steps after the next Core Tools version is released (4.28.0)--->    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This setting is required for Functions to interpret your project correctly as the Python v2 model when running locally. 
 
 1. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
@@ -302,30 +302,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
-
-::: zone pivot="python-mode-decorators"
-## Update app settings
-
-To use the Python v2 model in your function app, you need to add a new application setting in Azure named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-Run the following command to add this setting to your new function app in Azure.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli 
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
-```
-
----
-
-In the previous example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively. This setting is already in your local.settings.json file.
-::: zone-end
 
 ## Verify in Azure
 
