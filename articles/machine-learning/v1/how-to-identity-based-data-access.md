@@ -96,7 +96,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure Data Lake Storage Gen1
 
-Use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore%28class%29#azureml-core-datastore-register-azure-data-lake) to register a datastore that connects to Azure Data Lake Storage Gen1.
+Use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore%28class%29#azureml-core-datastore-register-azure-data-lake) to register a datastore that connects to Azure Data Lake Storage Gen1.
 
 The following code creates the `credentialless_adls1` datastore, registers it to the `workspace` workspace, and assigns it to the `adls_dstore` variable. This datastore accesses the `adls_storage` Azure Data Lake Storage account.
 
