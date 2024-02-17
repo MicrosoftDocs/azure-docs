@@ -49,7 +49,7 @@ If there are no entries in the list of attack paths, you can still test this fea
     az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>    
     ```
 
-1. Install [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
+1. Install the [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
 
     ```azurecli
     helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
@@ -74,7 +74,7 @@ After you completed testing the attack path, investigate the created attack path
 
 ## AWS: Testing the attack path and security explorer using a mock vulnerable container image
 
-1. Create ECR repository named *mdc-mock-0001*
+1. Create an ECR repository named *mdc-mock-0001*
 1. Go to your AWS account and choose **Command line or programmatic access**.
 1. Open a command line and choose **Option 1: Set AWS environment variables (Short-term credentials)**. Copy the credentials of the *AWS_ACCESS_KEY_ID*, *AWS_SECRET_ACCESS_KEY*, and *AWS_SESSION_TOKEN* environment variables.
 1. Run the following command to get the authentication token for your Amazon ECR registry. Replace `<REGION>` with the region of your registry. Replace `<ACCOUNT>` with your AWS account ID.
@@ -103,7 +103,7 @@ After you completed testing the attack path, investigate the created attack path
     kubectl get nodes
     ```
 
-1. Install [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
+1. Install the [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
 
     ```azurecli
     helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
@@ -114,6 +114,46 @@ After you completed testing the attack path, investigate the created attack path
     ```awscli
     helm install dcspmcharts oci://mcr.microsoft.com/mdc/stable/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/mdc-mock-0001 --set distribution=AWS
     ```
+
+The Helm chart deploys resources onto your cluster that can be used to infer attack paths. It also includes the vulnerable image.
+
+> [!NOTE]
+> After completing the above flow, it can take up to 24 hours to see results in the cloud security explorer and attack path.
+
+After you completed testing the attack path, investigate the created attack path by going to **Attack path analysis**, and search for the attack path you created. For more information, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
+
+## GCP: Testing the attack path and security explorer using a mock vulnerable container image
+
+1. In the GCP portal, search for **Artifact Registry**, and then create a GCP repository named *mdc-mock-0001*
+1. Follow [these instructions](https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling) to push the image to your repository. Run these commands:
+
+    ```docker
+    docker pull alpine
+    docker tag alpine <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/mdc-mock-0001
+    docker push <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/mdc-mock-0001
+    ```
+
+1. Go to the GCP portal. Then go to **Kubernetes Engine** > **Clusters**. Select the **Connect** button.
+1. Once connected,  either run the command in the Cloud Shell or copy the connection command and run it on your machine:
+
+   ```gcloud-cli
+   gcloud container clusters get-credentials contra-bugbash-gcp --zone us-central1-c --project onboardingc-demo-gcp-1
+   ```
+
+1. Verify the configuration. You can check if `kubectl` is correctly configured by running:
+
+    ```gcloud-cli
+    kubectl get nodes
+    ```
+
+1. To install the Helm chart, follow these steps:
+
+    1. Under **Artifact registry** in the portal, go to the repository, and find the image URI under **Pull by digest**.
+    1. Use the following command to install the Helm chart:
+
+        ```gcloud-cli
+        helm install dcspmcharts oci:/mcr.microsoft.com/mdc/stable/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<IMAGE_URI> --set distribution=GCP
+        ```
 
 The Helm chart deploys resources onto your cluster that can be used to infer attack paths. It also includes the vulnerable image.
 

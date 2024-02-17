@@ -51,7 +51,7 @@ Your API center resources appear in the tree view on the left-hand side. Expand 
 
 ## Search for APIs using GitHub Copilot Chat
 
-Use GitHub Copilot Chat to find APIs in your APIs based on semantic search queries. 
+Use GitHub Copilot Chat to search for APIs and API definitions based on semantic search queries. 
 
 1. In Visual Studio Code, in the Activity Bar, select GitHub Copilot Chat.
 1. Type `@apicenter /` to see available commands:

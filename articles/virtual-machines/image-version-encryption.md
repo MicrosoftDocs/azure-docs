@@ -4,10 +4,9 @@ description: Create an image version in an Azure Compute Gallery, by using custo
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/22/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 

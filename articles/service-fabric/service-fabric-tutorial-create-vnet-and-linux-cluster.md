@@ -104,7 +104,6 @@ The following is a template snippet for the Service Fabric Linux extension:
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
-         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"

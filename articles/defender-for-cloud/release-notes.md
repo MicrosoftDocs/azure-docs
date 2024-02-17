@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 01/16/2024
+ms.date: 02/07/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,15 +20,114 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## February 2024
+
+|Date | Update |
+|----------|----------|
+| February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
+| February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### AWS container vulnerability assessment powered by Trivy retired
+
+February 13, 2024
+
+The container vulnerability assessment powered by Trivy has been retired. Any customers who were previously using this assessment should upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md). For instructions on how to upgrade, see [How do I upgrade from the retired Trivy vulnerability assessment to the AWS vulnerability assessment powered by Microsoft Defender Vulnerability Management?](/azure/defender-for-cloud/faq-defender-for-containers#how-do-i-upgrade-from-the-retired-trivy-vulnerability-assessment-to-the-aws-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-)
+
+### Recommendations released for preview: four recommendations for Azure Stack HCI resource type
+
+February 8, 2024
+
+We have added four new recommendations for Azure Stack HCI as a new resource type that can be managed through Microsoft Defender for Cloud. These new recommendations are currently in public preview.
+
+| Recommendation | Description  | Severity |
+|----------|----------|----------|
+| [(Preview) Azure Stack HCI servers should meet Secured-core requirements](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f56c47221-b8b7-446e-9ab7-c7c9dc07f0ad)| Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+| [(Preview) Azure Stack HCI servers should have consistently enforced application control policies](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7384fde3-11b0-4047-acbd-b3cf3cc8ce07) | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | High |
+| [(Preview) Azure Stack HCI systems should have encrypted volumes](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fae95f12a-b6fd-42e0-805c-6b94b86c9830) | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | High |
+| [(Preview) Host and VM networking should be protected on Azure Stack HCI systems](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faee306e7-80b0-46f3-814c-d3d3083ed034) | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+
+See the [list of security recommendations](recommendations-reference.md).
+
 ## January 2024
 
-| Date | Update |
-|--|--|
+|Date | Update |
+|----------|----------|
+| January 31 | [New insight for active repositories in Cloud Security Explorer](#new-insight-for-active-repositories-in-cloud-security-explorer) |
+| January 25 | [Deprecation of security alerts and update of security alerts to informational severity level](#deprecation-of-security-alerts-and-update-of-security-alerts-to-informational-severity-level) |
 | January 24 | [Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-gcp-in-defender-for-containers-and-defender-cspm-preview) |
 | January 16 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
 | January 15 | [General availability of Defender for Cloud's integration with Microsoft Defender XDR](#general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr) |
 | January 12 | [DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors](#devops-security-pull-request-annotations-are-now-enabled-by-default-for-azure-devops-connectors) |
 | January 4 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations) |
+
+### New insight for active repositories in Cloud Security Explorer
+
+January 31, 2024
+
+A new insight for Azure DevOps repositories has been added to the Cloud Security Explorer to indicate whether repositories are active. This insight indicates that the code repository is not archived or disabled, meaning that write access to code, builds, and pull requests is still available for users. Archived and disabled repositories might be considered lower priority as the code is not typically used in active deployments.
+
+To test out the query through Cloud Security Explorer, use [this query link](https://ms.portal.azure.com#view/Microsoft_Azure_Security/SecurityGraph.ReactView/query/%7B%22type%22%3A%22securitygraphquery%22%2C%22version%22%3A2%2C%22properties%22%3A%7B%22source%22%3A%7B%22type%22%3A%22datasource%22%2C%22properties%22%3A%7B%22sources%22%3A%5B%7B%22type%22%3A%22entity%22%2C%22properties%22%3A%7B%22source%22%3A%22azuredevopsrepository%22%7D%7D%5D%2C%22conditions%22%3A%7B%22type%22%3A%22conditiongroup%22%2C%22properties%22%3A%7B%22operator%22%3A%22and%22%2C%22conditions%22%3A%5B%7B%22type%22%3A%22insights%22%2C%22properties%22%3A%7B%22name%22%3A%226b8f221b-c0ce-48e3-9fbb-16f917b1c095%22%7D%7D%5D%7D%7D%7D%7D%7D%7D)
+
+### Deprecation of security alerts and update of security alerts to informational severity level
+
+January 25, 2024
+
+This announcement includes container security alerts that are deprecated, and security alerts whose severity level is updated to **Informational**.
+
+- The following container security alerts are deprecated:
+
+  - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
+  - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
+  - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
+
+The following security alerts are updated to the **informational** severity level:
+
+- **Alerts for Windows machines**:
+  
+  - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlWindowsViolationAudited)`
+  - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlLinuxViolationAudited)`
+  
+- **Alerts for containers**:
+  
+  - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
+  - `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)`
+  - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
+  - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
+  - `Container with a sensitive volume mount detected (K8S_SensitiveMount)`
+  - `Creation of admission webhook configuration detected (K8S_AdmissionController)`
+  - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
+  - `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)`
+  - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
+  - `New high privileges role detected (K8S_HighPrivilegesRole)`
+  - `Privileged container detected (K8S_PrivilegedContainer)`
+  - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
+  - `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)`
+  - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
+  
+- **Alerts for DNS**:
+
+  - `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)`
+  - `Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)`
+  - `Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)`
+  - `Communication with suspicious random domain name (AzureDNS_RandomizedDomain)`
+  - `Communication with possible phishing domain (AzureDNS_PhishingDomain)`
+  - `Communication with possible phishing domain (Preview) (DNS_PhishingDomain)`
+  
+- **Alerts for Azure App Service**:
+
+  - `NMap scanning detected (AppServices_Nmap)`
+  - `Suspicious User Agent detected (AppServices_UserAgentInjection)`
+  
+- **Alerts for Azure network layer**:
+  
+  - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
+  - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
+
+- **Alerts for Azure Resource Manager**:
+
+  - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
+  
+See the full [list of security alerts](alerts-reference.md).
 
 ### Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)
 
@@ -109,7 +208,7 @@ December 24, 2023
 
 It's now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level.
 
-Learn more about [enabling Defender for Servers at the resource level](tutorial-enable-servers-plan.md#enable-the-plan-at-the-resource-level).
+Learn more about [enabling Defender for Servers at the resource level](tutorial-enable-servers-plan.md#enable-defender-for-servers-at-the-resource-level).
 
 ### Retirement of Classic connectors for multicloud
 
@@ -164,7 +263,7 @@ Support for Windows images was released in public preview as part of Vulnerabili
 
 December 13, 2023
 
-The [container vulnerability assessment powered by Trivy](defender-for-containers-vulnerability-assessment-elastic.md) is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
+The container vulnerability assessment powered by Trivy is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
 
 ### Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)
 
@@ -605,10 +704,10 @@ Updates in August include:
 |Date |Update  |
 |----------|----------|
 | August 30 | [Defender For Containers: Agentless Discovery for Kubernetes](#defender-for-containers-agentless-discovery-for-kubernetes)|
-| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
-| August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
+| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection) |
+| August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs) |
 | August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
-| August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
+| August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions) |
 | August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
 
 ### Defender For Containers: Agentless discovery for Kubernetes

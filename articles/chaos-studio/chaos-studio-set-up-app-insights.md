@@ -5,11 +5,14 @@ services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
 ms.date: 09/27/2023
-ms.author: nikhilkaul
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
+
 # How-to: Configure your experiment to emit Experiment Fault Events to App Insights
+
 In this guide, we'll show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. App Insights is the primary recommended logging solution for **Agent-based** experiments in Chaos Studio.
 
 ## Prerequisites

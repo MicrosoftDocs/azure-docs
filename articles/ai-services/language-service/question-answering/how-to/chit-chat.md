@@ -9,7 +9,7 @@ ms.author: jboback
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Use chitchat with a project
@@ -82,5 +82,3 @@ Select the **manage sources** pane, and choose your chitchat source. Your specif
 > ![Delete chitchat source](../media/chit-chat/delete-chit-chat.png)
 
 ## Next steps
-
-

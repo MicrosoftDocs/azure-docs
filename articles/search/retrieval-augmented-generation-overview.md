@@ -25,7 +25,7 @@ The decision about which information retrieval system to use is critical because
 
 + Security, global reach, and reliability for both data and operations.
 
-+ Integration with LLMs.
++ Integration with embedding models for indexing, and chat models or language understanding models for retrieval.
 
 Azure AI Search is a [proven solution for information retrieval](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
 
@@ -73,7 +73,7 @@ The web app provides the user experience, providing the presentation, context, a
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction) to coordinate the workflow. LangChain [integrates with Azure AI Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Azure AI Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
 
-The information retrieval system provides the searchable index, query logic, and the payload (query response). The search index can contain vectors or non-vector content. Although most samples and demos include vector fields, it's not a requirement. The query is executed using the existing search engine in Azure AI Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
+The information retrieval system provides the searchable index, query logic, and the payload (query response). The search index can contain vectors or nonvector content. Although most samples and demos include vector fields, it's not a requirement. The query is executed using the existing search engine in Azure AI Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
 
 The LLM receives the original prompt, plus the results from Azure AI Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
@@ -114,11 +114,11 @@ There's no query type in Azure AI Search - not even semantic or vector search - 
 
 | Query feature | Purpose | Why use it |
 |---------------|---------|------------|
-| [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and non-vector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
-| [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (non-vector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
+| [Simple or full Lucene syntax](search-query-create.md) | Query execution over text and nonvector numeric content | Full text search is best for exact matches, rather than similar matches. Full text search queries are ranked using the [BM25 algorithm](index-similarity-and-scoring.md) and support relevance tuning through scoring profiles. It also supports filters and facets. |
+| [Filters](search-filters.md) and [facets](search-faceted-navigation.md) | Applies to text or numeric (nonvector) fields only. Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
 | [Semantic ranking](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
-| [Hybrid search](hybrid-search-how-to-query.md) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
+| [Hybrid search](hybrid-search-how-to-query.md) | Combines any or all of the above query techniques. Vector and nonvector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
@@ -135,7 +135,7 @@ Rows are matches to the query, ranked by relevance, similarity, or both. By defa
 
 When you're working with complex processes, a large amount of data, and expectations for millisecond responses, it's critical that each step adds value and improves the quality of the end result. On the information retrieval side, *relevance tuning* is an activity that improves the quality of the results sent to the LLM. Only the most relevant or the most similar matching documents should be included in results.
 
-Relevance applies to keyword (non-vector) search and to hybrid queries (over the non-vector fields). In Azure AI Search, there's no relevance tuning for similarity search and vector queries. [BM25 ranking](index-similarity-and-scoring.md) is the ranking algorithm for full text search. 
+Relevance applies to keyword (nonvector) search and to hybrid queries (over the nonvector fields). In Azure AI Search, there's no relevance tuning for similarity search and vector queries. [BM25 ranking](index-similarity-and-scoring.md) is the ranking algorithm for full text search. 
 
 Relevance tuning is supported through features that enhance BM25 ranking. These approaches include:
 

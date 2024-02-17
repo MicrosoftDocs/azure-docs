@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/17/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Object detection

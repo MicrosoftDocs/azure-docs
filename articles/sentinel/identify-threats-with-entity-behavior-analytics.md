@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel

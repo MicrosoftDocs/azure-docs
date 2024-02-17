@@ -5,10 +5,12 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 

@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml
 ---
 
 # Assess AI systems by using the Responsible AI dashboard

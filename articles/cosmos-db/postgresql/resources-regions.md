@@ -6,9 +6,8 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ms.date: 01/21/2024
-
 ---
 
 # Regional availability for Azure Cosmos DB for PostgreSQL
