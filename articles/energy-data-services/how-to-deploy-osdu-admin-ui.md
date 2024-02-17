@@ -1,6 +1,6 @@
 ---
 title: Deploy OSDU Admin UI on top of Azure Data Manager for Energy
-description: Learn how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance
+description: Learn how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 ms.service: azure-data-manager-for-energy
 ms.topic: how-to
 ms.reviewer: shikhagarg
@@ -10,12 +10,12 @@ ms.date: 02/15/2024
 ---
 # Deploy OSDU Admin UI on top of Azure Data Manager for Energy
 
-This guide will show you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
+This guide shows you how to deploy the OSDU&trade Admin UI on top of your Azure Data Manager for Energy instance.
 
-The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. This includes entitlements (user & group management), legal tags, schemas, reference data, as well as view objects and visualize them on a map.
+The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to including entitlements (user & group management), legal tags, schemas, reference data, and view objects and visualize these on a map.
 
 ## Prerequisites
-- Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It is possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows WSL, we recommend using a Dev Container to eliminate potential conflicts (i.e. tooling versions, environments etc.). 
+- Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows WSL, we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
 - Create an [App Registration](/entra-docs/blob/main/docs/identity-platform/quickstart-register-app.md).
 - Provision an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 
@@ -50,7 +50,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
 
-7. Execute the command in the bash terminal to install NVM, Node.js, NPM and Angular CLI.
+7. Install NVM, Node.js, NPM, and Angular CLI by executing the command in the bash terminal.
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
@@ -61,12 +61,12 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
-8. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen
+8. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen.
     ```azurecli-interactive
     az login
     ```
 
-9. It takes you to the login screen. Enter your credentials and upon success, you will see a success message.
+9. It takes you to the login screen. Enter your credentials and upon success, you see a success message.
 
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
 
@@ -74,7 +74,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```azurecli-interactive
     az account show
     ```
- :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subsid-terminal.png" alt-text="Screenshot that shows subscription id on terminal.":::   
+ :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subsid-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
  
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subscription.png" alt-text="Screenshot that shows subscription.":::   
 
@@ -100,7 +100,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 ```
 
 ## Deploy storage account
-1. Create resource group. Skip this step if the resource group already exist.
+1. Create resource group. Skip this step if the resource group exists already.
     ```azurecli-interactive
     az group create \
         --name $RESOURCE_GROUP \
@@ -147,7 +147,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```nodejs    
     npm install
     ```
-1. Modify the parameters in the config file located at `/src/config/config.json`
+1. Modify the parameters in the config file located at `/src/config/config.json`.
     ```json
     {
         "mapboxKey": "key", // Optional. Access token from Mapbox.com. Used to visualize data on the map feature.
@@ -183,7 +183,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ng build
     ```
 
-1. Upload the build to Storage Account
+1. Upload the build to Storage Account.
     ```azurecli-interactive
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
@@ -200,5 +200,5 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     
 ## References
 
-For information about OSDU Admin UI, see [OSDU Gitlab](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies)<br>
-For other deployment methods (Terraform or Azure DevOps pipeline), see [OSDU Admin UI DevOps](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/-/tree/main/OSDUApp/devops/azure)
+For information about OSDU Admin UI, see [OSDU GitLab](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies).<br>
+For other deployment methods (Terraform or Azure DevOps pipeline), see [OSDU Admin UI DevOps](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/-/tree/main/OSDUApp/devops/azure).
