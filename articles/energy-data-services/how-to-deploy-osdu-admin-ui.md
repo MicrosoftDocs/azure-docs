@@ -191,7 +191,12 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
         --destination '$web'
     ```
     
-1. Validate that the Admin UI works by accessing the Website URL. This is the same as the redirect URI.
+1. Fetch the website URL.
+    ```bash
+   echo $REDIRECT_URI
+    ```
+
+2. Validate that the Admin UI works by accessing the Website URL. 
     
 ## References
 
