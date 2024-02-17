@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 04/06/2023
+ms.date: 02/16/2024
 ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -17,6 +17,9 @@ ms.author: junbchen
 In Kubernetes, you set up pods to consume configuration from ConfigMaps. It lets you decouple configuration from your container images, making your applications easily portable. [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about) can construct ConfigMaps and Secrets from your key-values and Key Vault references in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
 
 A ConfigMap can be consumed as environment variables or a mounted file. In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from a JSON file.
+
+> [!TIP]
+> See options for [workloads hosted in Kubernetes to access Azure App Configuration](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration).
 
 ## Prerequisites
 

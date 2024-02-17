@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: maud-lv
 ms.author: malev
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 02/16/2024
 ---
 
 # Enable staged rollout of features for targeted audiences
@@ -104,6 +104,9 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     services.AddFeatureManagement()
             .AddFeatureFilter<TargetingFilter>();
     ```
+    
+    > [!NOTE]
+    > For Blazor applications, see instructions for [enabling feature management as scoped services](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications).
 
 1. Update the *ConfigureServices* method to add the `TestTargetingContextAccessor` created in the earlier step to the service collection. The *TargetingFilter* uses it to determine the targeting context every time that the feature flag is evaluated.
 
@@ -111,24 +114,25 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
       services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
     ```
 
-The entire *ConfigureServices* method will look like this:
+    The entire *ConfigureServices* method will look like this:
 
-```csharp
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-    services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlite(
-            Configuration.GetConnectionString("DefaultConnection")));
-    services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-    services.AddControllersWithViews();
-    services.AddRazorPages();
+        services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlite(
+                Configuration.GetConnectionString("DefaultConnection")));
+        services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+        services.AddControllersWithViews();
+        services.AddRazorPages();
 
-    // Add feature management, targeting filter, and ITargetingContextAccessor to service collection
-    services.AddFeatureManagement().AddFeatureFilter<TargetingFilter>();
-    services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
+        // Add feature management, targeting filter, and ITargetingContextAccessor to service collection
+        services.AddFeatureManagement()
+                .AddFeatureFilter<TargetingFilter>();
+        services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
     }
-```
+    ```
 
 ## Update the feature flag to use TargetingFilter
 

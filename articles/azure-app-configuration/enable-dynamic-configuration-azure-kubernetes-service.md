@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider | Microsoft Docs"
+title: "Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider"
 description: "In this quickstart, use the Azure App Configuration Kubernetes Provider to dynamically load updated key-values from App Configuration store."
 services: azure-app-configuration
 author: junbchen
@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 02/16/2024
 ms.author: linglingye
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -16,6 +16,8 @@ ms.author: linglingye
 
 If you use Azure Kubernetes Service (AKS), this tutorial will show you how to enable dynamic configuration for your workloads in AKS by leveraging Azure App Configuration and its Kubernetes Provider. The tutorial assumes that you have already worked through the quickstart and have an App Configuration Kubernetes Provider set up, so before proceeding, make sure you have completed the [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) quickstart.
 
+> [!TIP]
+> See options for [workloads hosted in Kubernetes to access Azure App Configuration](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration).
 
 ## Prerequisites
 
