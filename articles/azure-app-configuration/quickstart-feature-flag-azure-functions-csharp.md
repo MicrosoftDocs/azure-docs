@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 3/20/2023
+ms.date: 02/17/2024
 ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
@@ -15,6 +15,9 @@ ms.author: malev
 In this quickstart, you create an Azure Functions C# code project and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
+
+>[!NOTE]  
+>This article currently only supports [C# in-process function apps](../azure-functions/functions-dotnet-class-library.md).
 
 ## Prerequisites
 
