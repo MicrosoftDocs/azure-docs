@@ -297,7 +297,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
    | **Field** | **Value** |
    | --- | --- |
    | **DomainName***  |  The FQDN of the domain, for example **avslab.local**.  |
-   | **SSLCertificatesSasUrl**  | A comma-delimited list of SAS path URI to Certificates for authentication. Ensure permissions to read included. To generate, place the certificates in any storage account blob and then right click the cert and generate SAS. If the value of this field is not provided from a user, the certificates will be downloaded from the default domain controllers.  |
+   | **SSLCertificatesSasUrl(optional)**  | A comma-delimited list of SAS path URI to Certificates for authentication. Ensure permissions to read included. To generate, place the certificates in any storage account blob and then right click the cert and generate SAS. If the value of this field is not provided from a user, the certificates will be downloaded from the default domain controllers.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
