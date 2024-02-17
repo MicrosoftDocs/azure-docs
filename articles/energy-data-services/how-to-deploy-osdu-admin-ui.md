@@ -186,7 +186,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 1. Upload the build to Storage Account
     ```azurecli-interactive
     az storage blob upload-batch \
-        --account-name soheilstorage \
+        --account-name $WEBSITE_NAME \
         --source ./dist/ \
         --destination '$web'
     ```
