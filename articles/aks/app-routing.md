@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) managed nginx Ingress with the application routing add-on 
+title: Azure Kubernetes Service (AKS) managed NGINX ingress with the application routing add-on 
 description: Use the application routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
@@ -9,17 +9,17 @@ ms.date: 11/21/2023
 ms.author: allensu
 ---
 
-# Managed nginx Ingress with the application routing add-on 
+# Managed NGINX ingress with the application routing add-on
 
-One way to route Hypertext Transfer Protocol (HTTP) and secure (HTTPS) traffic to applications running on an Azure Kubernetes Service (AKS) cluster is to use the [Kubernetes Ingress object][kubernetes-ingress-object-overview]. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
+One way to route Hypertext Transfer Protocol (HTTP) and secure (HTTPS) traffic to applications running on an Azure Kubernetes Service (AKS) cluster is to use the [Kubernetes Ingress object][kubernetes-ingress-object-overview]. When you create an Ingress object that uses the application routing add-on NGINX Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
 This article shows you how to deploy and configure a basic Ingress controller in your AKS cluster.
 
-## Application routing add-on with nginx features
+## Application routing add-on with NGINX features
 
-The application routing add-on with nginx delivers the following:
+The application routing add-on with NGINX delivers the following:
 
-* Easy configuration of managed nginx Ingress controllers based on [Kubernetes nginx Ingress controller][kubernetes-nginx-ingress].
+* Easy configuration of managed NGINX Ingress controllers based on [Kubernetes NGINX Ingress controller][kubernetes-nginx-ingress].
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
@@ -38,7 +38,7 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 - The application routing add-on supports up to five Azure DNS zones.
 - All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
-- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap isn't supported.
+- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap, isn't supported.
 
 ## Enable application routing using Azure CLI
 
@@ -67,7 +67,7 @@ az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
 
 The following add-ons are required to support this configuration:
 
-* **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx Ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
+* **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the NGINX Ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 ### Enable on a new cluster
 
@@ -178,7 +178,7 @@ The application routing add-on uses annotations on Kubernetes Ingress objects to
         app: aks-helloworld
     ```
 
-### Create the Ingress
+### Create the Ingress object
 
 The application routing add-on creates an Ingress class on the cluster named *webapprouting.kubernetes.azure.com*. When you create an Ingress object with this class, it activates the add-on.  
 
@@ -295,7 +295,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
         app: aks-helloworld
     ```
 
-### Create the Ingress
+### Create the Ingress object
 
 The application routing add-on creates an Ingress class on the cluster called *webapprouting.kubernetes.azure.com*. When you create an Ingress object with this class, it activates the add-on. The `kubernetes.azure.com/use-osm-mtls: "true"` annotation on the Ingress object creates an Open Service Mesh (OSM) [IngressBackend][ingress-backend] to configure a backend service to accept Ingress traffic from trusted sources.
 
