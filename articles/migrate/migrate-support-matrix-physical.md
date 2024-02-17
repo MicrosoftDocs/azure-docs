@@ -102,7 +102,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     Command | Purpose
     --- | --- |
     setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | Collects disk configuration data.
-    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Collects disk performance data
+    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Collects disk performance data.
     setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Collects BIOS serial number.
     chmod a+r /sys/class/dmi/id/product_uuid | Collects BIOS GUID.
 
