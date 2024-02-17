@@ -4,11 +4,9 @@ description: Learn how to build solutions on Azure confidential computing
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021
 ---
 
 # Building confidential computing solutions

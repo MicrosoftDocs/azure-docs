@@ -2209,6 +2209,27 @@
             "source_path_from_root": "/articles/storage/files/nfs-nconnect-performance.md",
             "redirect_url": "/azure/storage/files/nfs-performance",
             "redirect_document_id": true
-        }                
+        },
+        {
+            "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-accessibility.md",
+            "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-explorer-accessibility",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-blobs.md",
+            "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-explorer-blobs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/vs-azure-tools-storage-explorer-files.md",
+            "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-explorer-files",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/vs-azure-tools-storage-manage-with-storage-explorer.md",
+            "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+            "redirect_document_id": true
+        }
+                        
     ]
 }

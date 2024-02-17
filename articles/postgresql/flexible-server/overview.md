@@ -11,7 +11,6 @@ ms.topic: overview
 ms.custom:
   - mvc
   - references_regions
-  - ignite-2022
 ---
 
 # Azure Database for PostgreSQL - Flexible Server

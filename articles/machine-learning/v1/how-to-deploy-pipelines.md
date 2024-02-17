@@ -1,7 +1,7 @@
 ---
 title: Publish ML pipelines
 titleSuffix: Azure Machine Learning
-description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python. 
+description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,7 +10,7 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
 # Publish and track machine learning pipelines

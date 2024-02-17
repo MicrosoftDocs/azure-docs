@@ -7,7 +7,7 @@ ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: mbaldwin
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ---
 
 # Quickstart: Create an Microsoft Azure confidential ledger with an ARM template

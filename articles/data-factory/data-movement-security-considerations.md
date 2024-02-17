@@ -1,12 +1,11 @@
 ---
 title: Security considerations
-description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
+description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.
 ms.author: susabat
 author: ssabat
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 01/05/2024
 ---
 

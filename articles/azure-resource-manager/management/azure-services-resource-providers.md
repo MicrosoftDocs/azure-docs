@@ -3,7 +3,7 @@ title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
 ms.date: 11/07/2023
-ms.custom: ignite-2022, devx-track-arm-template
+ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
 ---
@@ -303,7 +303,7 @@ The resource providers for storage services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.ClassicStorage | Classic deployment model storage |
-| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
+| Microsoft.ElasticSan | [Elastic SAN](../../storage/elastic-san/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |

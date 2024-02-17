@@ -24,7 +24,7 @@ This article provides instructions on how to troubleshoot your deployments and m
 For the general deployment error code reference, you can go to the [Azure Machine Learning documentation](/azure/machine-learning/how-to-troubleshoot-online-endpoints). Much of the information there also applies to Azure AI Studio deployments.
 
 **Question:** I got the following error message. What should I do?
-"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI services resources. This subscription or region doesn't have access to this model."
+"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources. This subscription or region doesn't have access to this model."
 
 **Answer:** You might not have access to this particular Azure OpenAI model. For example, your subscription might not have access to the latest GPT model yet or this model isn't offered in the region you want to deploy to. You can learn more about it on [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 
@@ -64,11 +64,11 @@ You might have come across an ImageBuildFailure error: This happens when the env
 
 Option 1: Find the build log for the Azure default blob storage.
 
-1. Go to your project and select the settings icon on the lower left corner.
-2. Select YourAIResourceName under AI Resource on the Settings page.
-3. On the AI resource page, select YourStorageName under Storage Account. This should be the name of storage account listed in the error message you received.
-4. On the storage account page, select Container under Data Storage on the left navigation UI
-5. Select the ContainerName listed in the error message you received.
+1. Go to your project in [Azure AI Studio](https://ai.azure.com) and select the settings icon on the lower left corner.
+2. Select your Azure AI hub resource name under **Resource configurations** on the **Settings** page.
+3. On the Azure AI hub overview page, select your storage account name. This should be the name of storage account listed in the error message you received. You'll be taken to the storage account page in the [Azure portal](https://portal.azure.com).
+4. On the storage account page, select **Containers** under **Data Storage** on the left menu.
+5. Select the container name listed in the error message you received.
 6. Select through folders to find the build logs.
 
 Option 2: Find the build log within Azure Machine Learning studio, which is a separate portal from Azure AI Studio.

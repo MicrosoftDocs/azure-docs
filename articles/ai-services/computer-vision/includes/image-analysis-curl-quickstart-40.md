@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 01/24/2023
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022, references_regions
+ms.custom: references_regions
 ---
 
 Use the Image Analysis REST API to read text and generate captions for the image (version 4.0 only).
