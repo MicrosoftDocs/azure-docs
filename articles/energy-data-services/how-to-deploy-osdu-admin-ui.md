@@ -10,7 +10,7 @@ ms.date: 02/15/2024
 ---
 # Deploy OSDU Admin UI on top of Azure Data Manager for Energy
 
-This guide shows you how to deploy the OSDU&trade Admin UI on top of your Azure Data Manager for Energy instance.
+This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 
 The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to including entitlements (user & group management), legal tags, schemas, reference data, and view objects and visualize these on a map.
 
