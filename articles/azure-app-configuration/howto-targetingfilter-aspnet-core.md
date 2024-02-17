@@ -106,7 +106,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     ```
     
     > [!NOTE]
-    > For Blazor applications, see instructions for [enabling feature management as scoped services](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications).
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 1. Update the *ConfigureServices* method to add the `TestTargetingContextAccessor` created in the earlier step to the service collection. The *TargetingFilter* uses it to determine the targeting context every time that the feature flag is evaluated.
 

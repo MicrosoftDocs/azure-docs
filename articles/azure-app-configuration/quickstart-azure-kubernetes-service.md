@@ -19,7 +19,7 @@ In Kubernetes, you set up pods to consume configuration from ConfigMaps. It lets
 A ConfigMap can be consumed as environment variables or a mounted file. In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from a JSON file.
 
 > [!TIP]
-> See options for [workloads hosted in Kubernetes to access Azure App Configuration](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration).
+> See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
 
 ## Prerequisites
 

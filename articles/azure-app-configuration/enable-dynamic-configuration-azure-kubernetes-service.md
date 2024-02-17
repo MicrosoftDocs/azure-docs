@@ -17,7 +17,7 @@ ms.author: linglingye
 If you use Azure Kubernetes Service (AKS), this tutorial will show you how to enable dynamic configuration for your workloads in AKS by leveraging Azure App Configuration and its Kubernetes Provider. The tutorial assumes that you have already worked through the quickstart and have an App Configuration Kubernetes Provider set up, so before proceeding, make sure you have completed the [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) quickstart.
 
 > [!TIP]
-> See options for [workloads hosted in Kubernetes to access Azure App Configuration](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration).
+> See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
 
 ## Prerequisites
 

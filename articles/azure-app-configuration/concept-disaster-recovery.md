@@ -15,7 +15,7 @@ Azure App Configuration is a regional service. Each configuration store is creat
 This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
 
 > [!TIP]
-> See best practices for [building applications with high resiliency](./howto-best-practices.md#building-applications-with-high-resiliency).
+> See [best practices](./howto-best-practices.md#building-applications-with-high-resiliency) for building applications with high resiliency.
 
 ## High-availability architecture
 
