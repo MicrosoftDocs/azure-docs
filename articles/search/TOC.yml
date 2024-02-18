@@ -280,18 +280,30 @@
       href: knowledge-store-connect-power-bi.md
   - name: Indexers and skills
     items:
-    - name: Indexer overview
-      href: search-indexer-overview.md
     - name: Create an indexer
       href: search-howto-create-indexers.md
+    - name: Create a skillset
+      href: cognitive-search-defining-skillset.md
     - name: Indexers
       items:
+      - name: Indexer overview
+        href: search-indexer-overview.md
       - name: Run or reset indexers
         href: search-howto-run-reset-indexers.md
       - name: Schedule an indexer
         href: search-howto-schedule-indexers.md
       - name: Define field mappings
         href: search-indexer-field-mappings.md
+      - name: Connect with managed identities
+        items:
+        - name: Azure Storage
+          href: search-howto-managed-identities-storage.md
+        - name: Azure Cosmos DB
+          href: search-howto-managed-identities-cosmos-db.md
+        - name: SQL Database
+          href: search-howto-managed-identities-sql.md
+        - name: SQL Managed Instance
+          href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Portal indexing
         items:
         - name: Import data wizard
@@ -312,16 +324,6 @@
         href: search-indexer-troubleshooting.md
       - name: Troubleshoot indexer errors and warnings
         href: cognitive-search-common-errors-warnings.md
-    - name: Connect with managed identities
-      items:
-      - name: Azure Storage
-        href: search-howto-managed-identities-storage.md
-      - name: Azure Cosmos DB
-        href: search-howto-managed-identities-cosmos-db.md
-      - name: SQL Database
-        href: search-howto-managed-identities-sql.md
-      - name: SQL Managed Instance
-        href: search-index-azure-sql-managed-instance-with-managed-identity.md
     - name: Data sources (indexers)
       items:
         - name: Data sources gallery
@@ -362,10 +364,8 @@
           href: search-howto-index-sharepoint-online.md
     - name: Skillsets
       items:
-      - name: Attach an Azure AI multi-service resource
+      - name: Attach an Azure AI resource
         href: cognitive-search-attach-cognitive-services.md
-      - name: Create a skillset
-        href: cognitive-search-defining-skillset.md
       - name: Create an index projection for a secondary index
         href: index-projections-concept-intro.md
       - name: Debug sessions overview
