@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 02/18/2024
 ---
 
-```azurecli
+```bash
 resources 
 | where type == "microsoft.security/securityconnectors" 
 | extend source = tostring(properties.environmentName)  
