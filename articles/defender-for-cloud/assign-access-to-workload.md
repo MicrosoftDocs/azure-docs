@@ -76,7 +76,7 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. Toggle formatted results to **On**.
 
-    :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png" lightbox="media/assign-access-to-workload/formatted-results.png":::
+    :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png":::
 
 1. In the results, select the relevant subscription and resource group to locate the relevant security connector.
 
