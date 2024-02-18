@@ -66,9 +66,11 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
     :::image type="content" source="media/assign-access-to-workload/resource-graph-explorer.png" alt-text="Screenshot that shows you how to search for and select resource graph explorer." lightbox="media/assign-access-to-workload/resource-graph-explorer.png":::
 
-## [**AWS (EKS)**](#tab/assign-access-amazon-web-service)
+1. Run the following relevant query to locate the security connector:
 
-## [**GCP**](#tab/assign-access-google-cloud-project)
+    ### [AWS](#tab/assign-access-amazon-web-service)
+    
+    ### [GCP](#tab/assign-access-google-cloud-project)
 
 1. Select **Run query**.
 
