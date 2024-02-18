@@ -167,7 +167,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
          "schema_endpoint": "https://contoso.energy.azure.com/api/",
          "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
          "file_endpoint": "https://contoso.energy.azure.com/api/",
-         "graphAPI_endpoint": "https://contoso.energy.azure.com/api/",
+         "graphAPI_endpoint": "https://graph.microsoft.com/v1.0/",
          "workflow_endpoint": "https://contoso.energy.azure.com/api/"
       }
       ...
