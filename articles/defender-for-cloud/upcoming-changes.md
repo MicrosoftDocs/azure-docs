@@ -69,7 +69,7 @@ Customers that are still using the API version **2022-09-01-preview** under `Mic
 
 Customers currently using Defender for Cloud DevOps security from Azure portal won't be impacted.
 
-For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/).
+For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2023-09-01-preview).
 
 
 ## Changes in endpoint protection recommendations

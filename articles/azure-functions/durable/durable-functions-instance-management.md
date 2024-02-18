@@ -3,7 +3,7 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/13/2024
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -1109,10 +1109,10 @@ Functions can send instances of these objects to external systems to monitor or 
 public static void SendInstanceInfo(
     [ActivityTrigger] IDurableActivityContext ctx,
     [DurableClient] IDurableOrchestrationClient client,
-    [DocumentDB(
+    [CosmosDB(
         databaseName: "MonitorDB",
-        collectionName: "HttpManagementPayloads",
-        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+        containerName: "HttpManagementPayloads",
+        Connection = "CosmosDBConnectionSetting")]out dynamic document)
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
