@@ -126,7 +126,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
         --index-document index.html
     ```
 
-1. Fetch the redirect URI to the App Registration.
+1. Fetch the redirect URI.
     ```azurecli-interactive
     export REDIRECT_URI=$(az storage account show --resource-group $RESOURCE_GROUP --name $WEBSITE_NAME --query "primaryEndpoints.web") && \
     echo "Redirect URL: $REDIRECT_URI"
