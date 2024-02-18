@@ -3,7 +3,7 @@ title: Assign access to workload owners
 description: Learn how to use Defender for Cloud to assign access to a workload owner of an AWS or GCP connector so that they can view the suggested recommendations provided by Defender for Cloud.
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/15/2024
+ms.date: 02/18/2024
 ---
 
 # Assign access to workload owners
@@ -34,10 +34,14 @@ Permissions for a security connector can be configured through:
 
 ### All resources in the Azure portal
 
+To configure the permissions for a security connector in the Azure portal:
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Search for and select **All resources**.
-1. 
+
+    :::image type="content" source="media/assign-access-to-workload/all-resources.png" alt-text="Screenshot that shows you how to search for and select all resources.":::
+
 1. Select **Manage view** > **Show hidden types**.
 
     :::image type="content" source="media/assign-access-to-workload/show-hidden-types.png" alt-text="Screenshot that shows you where on the screen to find the show hidden types option." lightbox="media/assign-access-to-workload/show-hidden-types.png":::
@@ -56,9 +60,29 @@ Permissions for a security connector can be configured through:
 
 ### Azure Resource Graph
 
+To configure the permissions for a security connector in Azure Resource Graph:
 
+1. Search for and select **Resource Graph Explorer**.
 
+    :::image type="content" source="media/assign-access-to-workload/resource-graph-explorer.png" alt-text="Screenshot that shows you how to search for and select resource graph explorer.":::
+
+    [**AWS (EKS)**](#tab/assign-access-amazon-web-service)
+
+    [**GCP**](#tab/assign-access-google-cloud-project)
+
+1. Select **Run query**.
+
+1. Toggle formatted results to **On**.
+
+    :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png":::
+
+1. In the results, select the relevant subscription and resource group to locate the relevant security connector.
+
+1. [Configure the desired RBAC permissions](#configure-the-desired-rbac-permissions).
 
 ## Configure the desired RBAC permissions
+
+To configure the necessary RBAC permissions:
+
 
 ## Validate the configuration 
