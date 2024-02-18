@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/23/2024
+ms.date: 02/12/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -20,6 +20,9 @@ The Azure Automation Process Automation feature supports several types of runboo
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
+> [!NOTE]
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
+
 Take into account the following considerations when determining which type to use for a particular runbook.
 
 * You can't convert runbooks from graphical to text type, or the other way around.
@@ -30,7 +33,7 @@ Take into account the following considerations when determining which type to us
 
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
-The PowerShell version is determined by the **Runtime version** specified (that is version 7.2, 7.1 (preview) or 5.1). The Azure Automation service supports the latest PowerShell runtime.
+The PowerShell version is determined by the **Runtime version** specified (that is version 7.2, 7.1 (preview) or 5.1).
 
 The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShell** runbooks targeting different runtime versions side by side.
 
