@@ -10,15 +10,11 @@ ms.date: 12/20/2023
 
 # Ingest CEF logs with the Azure Monitor Agent
 
-This article describes how to use the **Common Event Format (CEF) via AMA (Preview)** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
+This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
 
 The connector uses the Azure Monitor Agent (AMA), which takes instructions from Data Collection Rules (DCRs). DCRs specify the systems to monitor, and they define filters to apply to the logs before they're ingested, for better performance and more efficient querying and analysis.
 
 You can also collect (non-CEF) Syslog logs with the Azure Monitor Agent. Learn how to [configure Syslog and create a DCR](../azure-monitor/agents/data-collection-syslog.md).
-
-> [!IMPORTANT]
->
-> The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects logs sent by your security devices and appliances in the CEF format. 
 
@@ -41,7 +37,7 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 
 ### How Microsoft Sentinel collects CEF logs with the Azure Monitor Agent
 
-This diagram illustrates the architecture of CEF log collection in Microsoft Sentinel, using the **Common Event Format (CEF) via AMA (Preview)** connector.
+This diagram illustrates the architecture of CEF log collection in Microsoft Sentinel, using the **Common Event Format (CEF) via AMA** connector.
 
 :::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." lightbox="media/connect-cef-ama/cef-forwarder-diagram.png":::
 
@@ -136,7 +132,7 @@ Select the appropriate tab below to see the instructions for each way.
 
 1. Select **Data connectors** from the navigation menu
 
-1. Type *CEF* in the **Search** box. From the results, select the **Common Event Format (CEF) via AMA (Preview)** connector.
+1. Type *CEF* in the **Search** box. From the results, select the **Common Event Format (CEF) via AMA** connector.
 
 1. Select **Open connector page** on the details pane.
 
@@ -597,7 +593,7 @@ The "installation" script doesn't actually install anything, but it configures t
 
 ## Next steps
 
-In this article, you learned how to set up data ingestion from security devices and appliances that support CEF over Syslog, using the **Common Event Format (CEF) via AMA (Preview)** connector. 
+In this article, you learned how to set up data ingestion from security devices and appliances that support CEF over Syslog, using the **Common Event Format (CEF) via AMA** connector. 
 
 - Explore in greater depth how to [collect CEF or Syslog logs with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
 - See other articles about ingesting CEF and Syslog logs:
