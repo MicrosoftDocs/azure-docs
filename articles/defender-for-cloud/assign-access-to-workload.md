@@ -40,7 +40,7 @@ To configure the permissions for a security connector in the Azure portal:
 
 1. Search for and select **All resources**.
 
-    :::image type="content" source="media/assign-access-to-workload/all-resources.png" alt-text="Screenshot that shows you how to search for and select all resources.":::
+    :::image type="content" source="media/assign-access-to-workload/all-resources.png" alt-text="Screenshot that shows you how to search for and select all resources." lightbox="media/assign-access-to-workload/all-resources.png":::
 
 1. Select **Manage view** > **Show hidden types**.
 
@@ -64,17 +64,17 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. Search for and select **Resource Graph Explorer**.
 
-    :::image type="content" source="media/assign-access-to-workload/resource-graph-explorer.png" alt-text="Screenshot that shows you how to search for and select resource graph explorer.":::
+    :::image type="content" source="media/assign-access-to-workload/resource-graph-explorer.png" alt-text="Screenshot that shows you how to search for and select resource graph explorer." lightbox="media/assign-access-to-workload/resource-graph-explorer.png":::
 
-    [**AWS (EKS)**](#tab/assign-access-amazon-web-service)
+## [**AWS (EKS)**](#tab/assign-access-amazon-web-service)
 
-    [**GCP**](#tab/assign-access-google-cloud-project)
+## [**GCP**](#tab/assign-access-google-cloud-project)
 
 1. Select **Run query**.
 
 1. Toggle formatted results to **On**.
 
-    :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png":::
+    :::image type="content" source="media/assign-access-to-workload/formatted-results.png" alt-text="Screenshot that shows where the formatted results toggle is located on the screen." lightbox="media/assign-access-to-workload/formatted-results.png" lightbox="media/assign-access-to-workload/formatted-results.png":::
 
 1. In the results, select the relevant subscription and resource group to locate the relevant security connector.
 
