@@ -17,7 +17,7 @@ ms.date: 09/29/2023
 
 This article provides information and solutions to common errors and warnings you might encounter during indexing and AI enrichment in Azure AI Search.
 
-Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-2-see-what-works-even-if-there-are-some-failures). 
 
 If you want indexers to ignore these errors (and skip over "failed documents"), consider updating the `maxFailedItems` and `maxFailedItemsPerBatch` as described [here](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
