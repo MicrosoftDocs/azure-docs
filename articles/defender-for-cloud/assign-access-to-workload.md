@@ -68,13 +68,13 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. Run the following relevant query to locate the security connector:
 
-### [AWS](#tab/assign-access-amazon-web-service)
+### [AWS](#tab/aws)
 
-[!INCLUDE [AWS](./includes/assign-access-amazon-web.md)]
+[!INCLUDE [AWS](/includes/assign-access-amazon-web.md)]
     
-### [GCP](#tab/assign-access-google-cloud-project)
+### [GCP](#tab/gcp)
 
-[!INCLUDE [GCP](./includes/assign-access-google-cloud-project.md)]
+[!INCLUDE [GCP](/includes/assign-access-google-cloud-project.md)]
 
 ---
 
@@ -90,7 +90,18 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 ## Configure the desired RBAC permissions
 
-1. 
+1. Select **Access control (IAM)**.
 
-1. 
+    :::image type="content" source="media/assign-access-to-workload/control-i-am.png" alt-text="Screenshot that shows where to select Access control IAM in the resource you selected." lightbox="media/assign-access-to-workload/control-i-am.png":::
+
+1. Select **+Add** > **Add role assignment**.
+
+1. Select the desired role.
+
+1. Select **Next**.
+
+1. Select **+ Select members**.
+
+    :::image type="content" source="media/assign-access-to-workload/select-members.png" alt-text="Screenshot that shows where the button is on the screen to select + select members.":::
+
 ## Validate the configuration 
