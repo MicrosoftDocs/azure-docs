@@ -23,7 +23,7 @@ A ConfigMap can be consumed as environment variables or a mounted file. In this 
 * An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 * An Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr#create-an-azure-container-registry).
 * An Azure Kubernetes Service (AKS) cluster that is granted permission to pull images from your Azure Container Registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [.NET SDK](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [helm](https://helm.sh/docs/intro/install/)
@@ -39,7 +39,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ### Create an application
 
-1. Use the .NET Core command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
+1. Use the .NET command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
    
     ```dotnetcli
     dotnet new webapp --output MyWebApp --framework net6.0

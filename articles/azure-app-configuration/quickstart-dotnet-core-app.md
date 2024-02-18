@@ -64,8 +64,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
 
-    ### [.NET 6.0+](#tab/core6x)
-
     ```csharp
     var builder = new ConfigurationBuilder();
     builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
@@ -73,21 +71,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     var config = builder.Build();
     Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
-
-    ### [.NET Core 3.x](#tab/core3x)
-    
-    ```csharp
-    static void Main(string[] args)
-    {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-    
-        var config = builder.Build();
-        Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
-    }
-    ```
-
-    ---
 
 ## Build and run the app locally
 
