@@ -961,6 +961,8 @@ items:
       href: ./domain-joined/apache-domain-joined-run-kafka.md
     - name: Use Apache Oozie in ESP clusters
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Use Apache Spark-SQL RBAC with Apache Ranger
+      href: ./spark/ranger-policies-for-spark.md
   - name: Concepts
     items:
     - name: Security baseline
