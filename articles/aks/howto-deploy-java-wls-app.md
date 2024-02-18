@@ -674,6 +674,14 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the Azure portal. Recall that this value is `wlsAksCluster2022`.
 
+1. In the **Domain Structure** box, select **Services**.
+
+1. Under the **Services**, select **Data Sources**.
+
+1. In the **Summary of JDBC Data Sources** panel, select **Monitoring**. Your screen should look similar to the following example. You find the state of data source is running on managed servers.
+
+   :::image type="content" source="media/howto-deploy-java-wls-app/datasource-state.png" alt-text="Screenshot of data source state." border="false":::
+
 1. In the **Domain Structure** box, select **Deployments**.
 
 1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` value in your *appmodel.yaml* file. Select the name.
