@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eric-urban
- ms.author: eur
- ms.service: azure-ai-speech
- ms.topic: include
- ms.date: 2/18/2024
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 2/18/2024
+ms.custom: include
 ---
 
 If you selected the [Neural](?tabs=neural) training type, you can train a voice to speak in multiple languages. The `zh-CN` and `zh-TW` locales both support bilingual training for the voice to speak both Chinese and English. Depending in part on your training data, the synthesized voice can speak English with an English accent or English with the same native accent as the training data.

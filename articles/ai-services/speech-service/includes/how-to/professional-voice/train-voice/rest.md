@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eric-urban
- ms.author: eur
- ms.service: azure-ai-speech
- ms.topic: include
- ms.date: 2/18/2024
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 2/18/2024
+ms.custom: include
 ---
 
 
@@ -45,7 +45,7 @@ To create a neural voice, use the [Models_Create](/rest/api/speechapi/models/cre
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
-- Set the required recipe `kind` property to `Default` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model). See [Bilingual training](#bilingual-training?tabs=neural) for more information about bilingual training and differences between locales.
+- Set the required recipe `kind` property to `Default` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model). See [Bilingual training](#bilingual-training) for more information about bilingual training and differences between locales.
 - Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
