@@ -14,7 +14,7 @@ ms.date: 02/18/2024
 When you onboard your AWS or GCP environments, Defender for Cloud automatically creates a security connector as an Azure resource inside the connected subscription and resource group. Defender for cloud also creates the identity provider as an IAM role it requires during the onboarding process.
 
 
-Assign permission to users, on specific security connectors, below the parent connector? Yes, you can. You need to determine to which AWS accounts or GCP projects you want users to have access to. Meaning, you need to identify the security connectors that correspond to the AWS account or GCP project to which you want to assign users access to.
+Assign permission to users, on specific security connectors, below the parent connector? Yes, you can. You need to determine to which AWS accounts or GCP projects you want users to have access to. Meaning, you need to identify the security connectors that correspond to the AWS account or GCP project to which you want to assign users access.
 
 
 **To identify the security connector**:
@@ -50,7 +50,7 @@ To configure the permissions for a security connector in the Azure portal:
 
 1. Enter `securityconnector` in the value field and add a check to the `microsoft.security/securityconnectors`.
 
-    :::image type="content" source="media/assign-access-to-workload/security-connector.png" alt-text="Screenshot that shows where the types equals all field and where to enter the value on  the screen." lightbox="media/assign-access-to-workload/security-connector.png":::
+    :::image type="content" source="media/assign-access-to-workload/security-connector.png" alt-text="Screenshot that shows where the field is located and where to enter the value on the screen." lightbox="media/assign-access-to-workload/security-connector.png":::
 
 1. Select **Apply**.
 
@@ -70,11 +70,23 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 ### [AWS](#tab/aws)
 
-[!INCLUDE [AWS](/includes/assign-access-amazon-web.md)]
-    
+```bash
+resources 
+| where type == "microsoft.security/securityconnectors" 
+| extend source = tostring(properties.environmentName)  
+| where source == "AWS" 
+| project name, subscriptionId, resourceGroup, accountId = properties.hierarchyIdentifier, cloud = properties.environmentName  
+```
+
 ### [GCP](#tab/gcp)
 
-[!INCLUDE [GCP](/includes/assign-access-google-cloud-project.md)]
+```bash
+resources 
+| where type == "microsoft.security/securityconnectors" 
+| extend source = tostring(properties.environmentName)  
+| where source == "GCP" 
+| project name, subscriptionId, resourceGroup, projectId = properties.hierarchyIdentifier, cloud = properties.environmentName  
+```
 
 ---
 
@@ -86,7 +98,7 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. In the results, select the relevant subscription and resource group to locate the relevant security connector.
 
-1. [Configure the desired RBAC permissions](#configure-the-desired-rbac-permissions).
+1. [Configure the desired role-based access control (RBAC) permissions](#configure-the-desired-rbac-permissions).
 
 ## Configure the desired RBAC permissions
 
@@ -104,4 +116,20 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
     :::image type="content" source="media/assign-access-to-workload/select-members.png" alt-text="Screenshot that shows where the button is on the screen to select + select members.":::
 
-## Validate the configuration 
+1. Search for and select the relevant user or group.
+
+1. Select **Select**.
+
+1. Select **Next**.
+
+1. Review the information.
+
+1. Select **Review + assign**.
+
+Once the permission is set for the security connector, the workload owners are able to see recommendations in Defender for Cloud for the AWS and GCP resources that are included in security connector.  
+
+## Next steps
+
+Learn more about [available RBAC permissions](permissions.md).
+
+
