@@ -7,7 +7,7 @@ ms.author: tomfitz
 ---
 | Resource | Limit | Comment |
 | --- | --- | ---|
-| Configuration stores for Free tier | One store per subscription. |
+| Configuration stores for Free tier | One store per region per subscription. |
 | Configuration stores for Standard tier | Unlimited stores per subscription. |
 | Configuration store requests for Free tier | 1,000 requests per day  | Once the quota is exhausted, HTTP status code 429 is returned for all requests until the end of the day. |
 | Configuration store requests for Standard tier | 30,000 per hour  |Once the quota is exhausted, requests may return HTTP status code 429 indicating Too Many Requests - until the end of the hour.|
