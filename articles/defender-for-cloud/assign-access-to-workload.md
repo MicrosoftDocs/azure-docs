@@ -68,27 +68,27 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. Run the following relevant query to locate the security connector:
 
-### [AWS](#tab/aws)
-
-```bash
-resources 
-| where type == "microsoft.security/securityconnectors" 
-| extend source = tostring(properties.environmentName)  
-| where source == "AWS" 
-| project name, subscriptionId, resourceGroup, accountId = properties.hierarchyIdentifier, cloud = properties.environmentName  
-```
-
-### [GCP](#tab/gcp)
-
-```bash
-resources 
-| where type == "microsoft.security/securityconnectors" 
-| extend source = tostring(properties.environmentName)  
-| where source == "GCP" 
-| project name, subscriptionId, resourceGroup, projectId = properties.hierarchyIdentifier, cloud = properties.environmentName  
-```
-
----
+    ### [AWS](#tab/aws)
+    
+    ```bash
+    resources 
+    | where type == "microsoft.security/securityconnectors" 
+    | extend source = tostring(properties.environmentName)  
+    | where source == "AWS" 
+    | project name, subscriptionId, resourceGroup, accountId = properties.hierarchyIdentifier, cloud = properties.environmentName  
+    ```
+    
+    ### [GCP](#tab/gcp)
+    
+    ```bash
+    resources 
+    | where type == "microsoft.security/securityconnectors" 
+    | extend source = tostring(properties.environmentName)  
+    | where source == "GCP" 
+    | project name, subscriptionId, resourceGroup, projectId = properties.hierarchyIdentifier, cloud = properties.environmentName  
+    ```
+    
+    ---
 
 1. Select **Run query**.
 
