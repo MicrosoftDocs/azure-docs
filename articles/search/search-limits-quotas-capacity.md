@@ -83,7 +83,7 @@ The table describes the vector index size quota per partition across the service
 
 Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
-### Services created prior to July 1, 2023
+### Services created before July 1, 2023
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |

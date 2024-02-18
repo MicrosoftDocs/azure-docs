@@ -117,7 +117,11 @@ The following setting in the `Values` collection of the local.settings.json file
   "AzureWebJobsStorage": "UseDevelopmentStorage=true"
   ```
 
-With this setting in place, any Azure Storage trigger or binding that uses `AzureWebJobsStorage` as its connection connects to Azurite when running locally. During local execution, you must have Azurite installed and running. The emulator is useful during development, but you should test with an actual storage connection before deployment. When you publish your project, don't publish this setting. You need to instead use an Azure Storage connection string in the same settings in your function app in Azure.
+With this setting value, any Azure Storage trigger or binding that uses `AzureWebJobsStorage` as its connection connects to Azurite when running locally. Keep these considerations in mind when using storage emulation during local execution:
+
++ You must have Azurite installed and running.
++ You should test with an actual storage connection to Azure services before publishing to Azure.
++ When you publish your project, don't publish the `AzureWebJobsStorage` setting as `UseDevelopmentStorage=true`. In Azure, the `AzureWebJobsStorage` setting must always be the connection string of the storage account used by your function app. For more information, see [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage).
 
 ## Next steps
 

@@ -541,6 +541,85 @@ Azure service: core
 > | Microsoft.AppConfiguration/configurationStores/snapshots/write | Creates or updates a snapshot in the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/snapshots/archive/action | Modifies archival state for an existing snapshot in the configuration store. |
 
+### Microsoft.AVS
+
+Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AVS/register/action | Register Subscription for Microsoft.AVS resource provider. |
+> | Microsoft.AVS/unregister/action | Unregister Subscription for Microsoft.AVS resource provider. |
+> | Microsoft.AVS/checkNameAvailability/read | Checks if the privateCloud Name is available |
+> | Microsoft.AVS/locations/checkNameAvailability/read | Checks if the privateCloud Name is available |
+> | Microsoft.AVS/locations/checkQuotaAvailability/read | Checks if quota is available for the subscription |
+> | Microsoft.AVS/locations/checkTrialAvailability/read | Checks if trial is available for the subscription |
+> | Microsoft.AVS/operations/read | Lists operations available on Microsoft.AVS resource provider. |
+> | Microsoft.AVS/privateClouds/register/action | Registers the Microsoft Microsoft.AVS resource provider and enables creation of Private Clouds. |
+> | Microsoft.AVS/privateClouds/write | Creates or updates a PrivateCloud resource. |
+> | Microsoft.AVS/privateClouds/read | Gets the settings for the specified PrivateCloud. |
+> | Microsoft.AVS/privateClouds/delete | Delete a specific PrivateCloud. |
+> | Microsoft.AVS/privateClouds/addOns/read | Read addOns. |
+> | Microsoft.AVS/privateClouds/addOns/write | Write addOns. |
+> | Microsoft.AVS/privateClouds/addOns/delete | Delete addOns. |
+> | Microsoft.AVS/privateClouds/addOns/operationStatuses/read | Read addOns operationStatuses. |
+> | Microsoft.AVS/privateClouds/authorizations/read | Gets the authorization settings for a PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/authorizations/write | Create or update a PrivateCloud authorization resource. |
+> | Microsoft.AVS/privateClouds/authorizations/delete | Delete a specific PrivateCloud authorization. |
+> | Microsoft.AVS/privateClouds/clusters/read | Gets the cluster settings for a PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/write | Create or update a PrivateCloud cluster resource. |
+> | Microsoft.AVS/privateClouds/clusters/delete | Delete a specific PrivateCloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/read | Get the datastore properties in a private cloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/write | Create or update datastore in private cloud cluster. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/delete | Delete datastore in private cloud cluster. |
+> | Microsoft.AVS/privateclouds/clusters/datastores/operationresults/read | Read privateClouds/clusters/datastores operationresults. |
+> | Microsoft.AVS/privateClouds/clusters/datastores/operationstatuses/read | Read privateClouds/clusters/datastores operationstatuses. |
+> | Microsoft.AVS/privateclouds/clusters/operationresults/read | Reads privateClouds/clusters operationresults. |
+> | Microsoft.AVS/privateClouds/clusters/operationstatuses/read | Reads privateClouds/clusters operationstatuses. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/delete | Delete globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/write | Write globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/read | Read globalReachConnections. |
+> | Microsoft.AVS/privateClouds/globalReachConnections/operationStatuses/read | Read globalReachConnections operationStatuses. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/read | Gets the hcxEnterpriseSites for a PrivateCloud. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/write | Create or update a hcxEnterpriseSites. |
+> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/delete | Delete a specific hcxEnterpriseSites. |
+> | Microsoft.AVS/privateClouds/hostInstances/read | Gets the hostInstances for a PrivateCloud. |
+> | Microsoft.AVS/privateClouds/hostInstances/write | Create or update a hostInstances. |
+> | Microsoft.AVS/privateClouds/hostInstances/delete | Delete a specific hostInstances. |
+> | Microsoft.AVS/privateClouds/operationresults/read | Reads privateClouds operationresults. |
+> | Microsoft.AVS/privateClouds/operationstatuses/read | Reads privateClouds operationstatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/delete | Delete dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/write | Write dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/read | Read dhcpConfigurations. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/operationStatuses/read | Read dhcpConfigurations operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/delete | Delete dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/write | Write dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/read | Read dnsServices. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/operationStatuses/read | Read dnsServices operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/delete | Delete dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/write | Write dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/read | Read dnsZones. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/operationStatuses/read | Read dnsZones operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/gateways/read | Read gateways. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/delete | Delete portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/write | Write portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/read | Read portMirroringProfiles. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/operationStatuses/read | Read portMirroringProfiles operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/delete | Delete segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/write | Write segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/read | Read segments. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/segments/operationStatuses/read | Read segments operationStatuses. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/virtualMachines/read | Read virtualMachines. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/delete | Delete vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/write | Write vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/read | Read vmGroups. |
+> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/operationStatuses/read | Read vmGroups operationStatuses. |
+> | **DataAction** | **Description** |
+> | Microsoft.AVS/privateClouds/listAdminCredentials/action | Lists the AdminCredentials for privateClouds. |
+> | Microsoft.AVS/privateClouds/rotateVcenterPassword/action | Rotate Vcenter password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+
 ### Microsoft.AzureStack
 
 Azure service: [Azure Stack](/azure-stack/)

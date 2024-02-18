@@ -6,7 +6,7 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 03/29/2023
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Write a C# user-defined function for Azure Stream Analytics job (Preview)

@@ -307,7 +307,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 } 
 ```
 > [!NOTE]
-> The View/Delete calls for runbook remains same and can be referenced [Runbook - REST API Azure Automation | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/runbook?view=rest-automation-2019-06-01).
+> The View/Delete calls for runbook remains same and can be referenced [Runbook - REST API Azure Automation | Microsoft Learn](/rest/api/automation/runbook).
 
 ---
 
@@ -374,7 +374,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 } 
 ```
 > [!NOTE]
-> Create/View calls for job remains same and can be referenced from [Job-REST API (Azure Automation) | Microsoft Learn](https://learn.microsoft.com/rest/api/automation/job?view=rest-automation-2019-06-01).
+> Create/View calls for job remains same and can be referenced from [Job-REST API (Azure Automation) | Microsoft Learn](/rest/api/automation/job).
 
 ---
 

@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 11/04/2023
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, update-code
 ---
 
 # Run OpenAI models in batch endpoints to compute embeddings

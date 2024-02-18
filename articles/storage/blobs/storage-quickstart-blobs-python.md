@@ -151,6 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
     ```python
     from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
     ```
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.

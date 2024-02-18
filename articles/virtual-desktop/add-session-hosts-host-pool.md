@@ -4,19 +4,19 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/16/2023
+ms.date: 01/24/2024
 ---
 
 # Add session hosts to a host pool
 
 > [!IMPORTANT]
-> Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Once you've created a host pool, workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You may also need to add more session hosts for extra capacity.
 
 You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively you can also create VMs outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool. When using Azure CLI or Azure PowerShell you'll need to create the VMs outside of Azure Virtual Desktop, then add them as session hosts to a host pool separately.
 
-For Azure Stack HCI (preview), you can also create new VMs to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively, if you want to create the VMs outside of the Azure Virtual Desktop service, see [Create Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), then add them as session hosts to a host pool separately.
+For Azure Stack HCI, you can also create new VMs to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively, if you want to create the VMs outside of the Azure Virtual Desktop service, see [Create Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), then add them as session hosts to a host pool separately.
 
 This article shows you how to generate a registration key using the Azure portal, Azure CLI, or Azure PowerShell, then how to add session hosts to a host pool using the Azure Virtual Desktop service or add them to a host pool separately.
 
@@ -195,7 +195,7 @@ Here's how to create session hosts and register them to a host pool using the Az
       |--|--|
       | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure Stack HCI virtual machine (Preview)**. |
+      | Virtual machine type | Select **Azure Stack HCI virtual machine**. |
       | Custom location | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the drop-down list. |
       | Images | Select the OS image you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can add more later. |

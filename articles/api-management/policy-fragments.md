@@ -8,7 +8,6 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep
-ms.custom: event-tier1-build-2022
 ---
 
 # Reuse policy configurations in your API Management policy definitions

@@ -6,9 +6,7 @@ cloud: gov
 
 ms.service: azure-government
 ms.topic: article
-ms.workload: azure-government
 ms.date: 08/10/2018
-
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and deploy an Azure App Services app in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
 
@@ -98,4 +96,3 @@ This tutorial showed you how to deploy an Azure App Services app to Azure Govern
 
 > [!div class="nextstepaction"]
 > [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
-

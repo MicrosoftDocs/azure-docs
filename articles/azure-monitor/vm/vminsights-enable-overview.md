@@ -79,7 +79,7 @@ Output for this command looks similar to the following and specify whether a mac
 When you enable VM Insights for a machine, the following agents are installed. 
 
 > [!IMPORTANT]
-> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data. 
+> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data.
 
 
 - **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
@@ -96,6 +96,7 @@ When you enable VM Insights for a machine, the following agents are installed.
     For more information, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md).
 
 - The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
+
 ## VM Insights data collection rule 
 
 To enable VM Insights on a machine with Azure Monitor Agent, associate a VM insights [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) with the agent. VM Insights creates a default data collection rule if one doesn't already exist.
@@ -111,11 +112,12 @@ The data collection rule specifies the data to collect and the workspace to use:
 > [!IMPORTANT]
 > VM Insights automatically creates a data collection rule that includes a special data stream required for its operation. Do not modify the VM Insights data collection rule or create your own data collection rule to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate data collection rules and associate them with your machines.
 
-If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
+If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
 
 ## Enable network isolation using Private Link
 
 By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for VM Insights, associate your VM Insights data collection rule to a data collection endpoint linked to an Azure Monitor Private Link Scope, as described in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
+
 
 ## Diagnostic and usage data
 
