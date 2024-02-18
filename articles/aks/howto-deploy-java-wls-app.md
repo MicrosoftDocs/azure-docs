@@ -583,9 +583,9 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
        ${SECRET_NAME} \
-       --from-literal=password='${DB_PASSWORD}' \
-       --from-literal=url='${DB_CONNECTION_STRING}' \
-       --from-literal=user='${DB_USER}'
+       --from-literal=password="${DB_PASSWORD}" \
+       --from-literal=url="${DB_CONNECTION_STRING}" \
+       --from-literal=user="${DB_USER}"
 
    kubectl -n ${WLS_DOMAIN_NS} label secret \
        ${SECRET_NAME} \
