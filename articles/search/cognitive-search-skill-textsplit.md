@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| `textItems` | An array of substrings that were extracted. `textItems` is the default name of the output. `targetName` is optional, but if you have multiple text split skills, make sure to set `targetName` so that you don't overwrite the data from the first skill with the second one. If `targetName` is set, use it in output field mappings or in downstream skills that use the skill output.|
+| `textItems` | Output is an array of substrings that were extracted. `textItems` is the default name of the output. `targetName` is optional, but if you have multiple Text Split skills, make sure to set `targetName` so that you don't overwrite the data from the first skill with the second one. If `targetName` is set, use it in output field mappings or in downstream skills that use the skill output.|
 
 ## Sample definition
 
@@ -137,7 +137,7 @@ This definition adds `pageOverlapLength` of 100 characters and `maximumPagesToTa
 
 Assuming the `maximumPageLength` is 5,000 characters (the default), then `"maximumPagesToTake": 1` processes the first 5,000 characters of each source document.
 
-This example sets `textItems` to `myPages` through `targetName`. Because `targetName` is set, `myPages` is the value you should use to select the output from the Text Split skill. Use `/document/mypages/*` in downstream skills, indexer output field mappings, knowledge store projection, or index projections.
+This example sets `textItems` to `myPages` through `targetName`. Because `targetName` is set, `myPages` is the value you should use to select the output from the Text Split skill. Use `/document/mypages/*` in downstream skills, indexer [output field mappings](cognitive-search-concept-annotations-syntax.md), [knowledge store projections](knowledge-store-projection-overview.md), and [index projections](index-projections-concept-intro.md).
 
 ```json
 {
