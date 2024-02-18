@@ -70,11 +70,13 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 ### [AWS](#tab/assign-access-amazon-web-service)
 
-[!INCLUDE [AWS](/includes/assign-access-amazon-web.md)]
+[!INCLUDE [AWS](./includes/assign-access-amazon-web.md)]
     
 ### [GCP](#tab/assign-access-google-cloud-project)
 
-[!INCLUDE [GCP](/includes/assign-access-google-cloud-project.md)]
+[!INCLUDE [GCP](./includes/assign-access-google-cloud-project.md)]
+
+---
 
 1. Select **Run query**.
 
@@ -88,7 +90,7 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 ## Configure the desired RBAC permissions
 
-To configure the necessary RBAC permissions:
+1. 
 
-
+1. 
 ## Validate the configuration 
