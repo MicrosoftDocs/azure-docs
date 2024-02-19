@@ -21,7 +21,7 @@ Creating a Layer-3 isolation domain with an external network enables inter-rack 
 
 You can deploy workloads that advertise external service IP addresses to PE devices via BGP, and load-balance traffic across multiple instances. You can also insert workload services (Firewalls, DNS, IPs) between north-south layers as explained in the next section.
 
-## Tenant Networking Use Cases
+## Tenant Networking use cases
 
 Nexus is a platform that enables different types of communication between workloads:
 
