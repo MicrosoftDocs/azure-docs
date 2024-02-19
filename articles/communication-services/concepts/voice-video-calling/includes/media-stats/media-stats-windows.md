@@ -30,10 +30,12 @@ The `MediaStatisticsCallFeature` feature object has the following API structure:
     - `Audio`: The list of media statistics for the outgoing audio.
     - `Video`: The list of media statistics for the outgoing video.
     - `ScreenShare`: The list of media statistics for the outgoing screen share.
+    - `DataChannel`: The list of media statistics for the outgoing data channel.
   - `IncomingMediaStatistics`: The list of media statistics for incoming media.
     - `Audio`: The list of media statistics for the incoming audio.
     - `Video`: The list of media statistics for the incoming video.
     - `ScreenShare`: The list of media statistics for the incoming screen share.
+    - `DataChannel`: The list of media statistics for the incoming data channel.
   - `LastUpdateAt`: The date when the report was generated.
 
 Then, subscribe to the `SampleReported` event to get regular updates about the current media quality statistics:
@@ -48,22 +50,28 @@ private void MediaStatisticsCallFeature_ReportReceived(object sender, MediaStati
     MediaStatisticsReport report = args.Report;
 
     // Obtain the outgoing media statistics for audio
-    IReadOnlyList<OutgoingAudioStatistics> outgoingAudioStatistics = report.OutgoingMediaStatistics.Audio;
+    IReadOnlyList<OutgoingAudioStatistics> outgoingAudioStatistics = report.OutgoingStatistics.Audio;
 
     // Obtain the outgoing media statistics for video
-    IReadOnlyList<OutgoingVideoStatistics> outgoingVideoStatistics = report.OutgoingMediaStatistics.Video;
+    IReadOnlyList<OutgoingVideoStatistics> outgoingVideoStatistics = report.OutgoingStatistics.Video;
 
     // Obtain the outgoing media statistics for screen share
-    IReadOnlyList<OutgoingScreenShareStatistics> outgoingScreenShareStatistics = report.OutgoingMediaStatistics.ScreenShare;
+    IReadOnlyList<OutgoingScreenShareStatistics> outgoingScreenShareStatistics = report.OutgoingStatistics.ScreenShare;
+
+    // Obtain the outgoing media statistics for data channel
+    IReadOnlyList<OutgoingDataChannelStatistics> outgoingDataChannelStatistics = report.OutgoingStatistics.DataChannel;
 
     // Obtain the incoming media statistics for audio
-    IReadOnlyList<IncomingAudioStatistics> incomingAudioStatistics = report.IncomingMediaStats.Audio;
+    IReadOnlyList<IncomingAudioStatistics> incomingAudioStatistics = report.IncomingStatistics.Audio;
 
     // Obtain the incoming media statistics for video
-    IReadOnlyList<IncomingVideoStatistics> incomingVideoStatistics = report.IncomingMediaStats.Video;
+    IReadOnlyList<IncomingVideoStatistics> incomingVideoStatistics = report.IncomingStatistics.Video;
 
     // Obtain the incoming media statistics for screen share
-    IReadOnlyList<IncomingScreenShareStatistics> incomingScreenShareStatistics = report.IncomingMediaStats.ScreenShare;
+    IReadOnlyList<IncomingScreenShareStatistics> incomingScreenShareStatistics = report.IncomingStatistics.ScreenShare;
+
+    // Obtain the incoming media statistics for data channel
+    IReadOnlyList<IncomingDataChannelStatistics> incomingDataChannelStatistics = report.IncomingStatistics.DataChannel;
 }
 ```
 
