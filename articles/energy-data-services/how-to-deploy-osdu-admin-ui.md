@@ -89,7 +89,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Configure environment variables
 1. Fetch `client-id`, `resource-group`, and `location`.
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/location-resource-group.png" alt-text="Screenshot that shows how to fetch location and resource group.":::
+  ![Screenshot that shows how to fetch location and resource group..](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
 
 2. Enter the required environment variables on the terminal.
 ```bash
