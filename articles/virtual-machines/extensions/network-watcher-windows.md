@@ -20,11 +20,11 @@ This article details the supported platforms and deployment options for the Netw
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be configured for Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Nano Server isn't supported at this time.
+The Network Watcher Agent extension for Windows can be configured for Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Currently, Nano Server isn't supported.
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent won't be able to upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/index.yml).
+Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/index.yml).
 
 ## Extension schema
 
