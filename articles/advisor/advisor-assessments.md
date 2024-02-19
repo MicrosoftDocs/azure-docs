@@ -1,5 +1,5 @@
 ---
-title: Well Architected Framework assessments in Azure Advisor
+title: Use Well Architected Framework assessments in Azure Advisor
 description: Azure Advisor offers Well Architected Framework assessments (curated and focused Advisor optimization reports) through the Assessments entry in the left menu of the Azure Advisor Portal.
 author: mabrahms
 ms.author: v-mabrahms
@@ -11,14 +11,16 @@ ms.date: 02/18/2024
 
 ---
 
-# What are Azure WAF assessments?
-
-The Azure Well-Architected Framework, WAF, is a design scheme that helps you understand the pros and cons of cloud system options and can improve the quality of a workload. To learn more, see [Azure Well- Architected Framework](/azure/well-architected/).
+# Use Azure WAF assessments
 
 Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers. You can take assessments on, and receive recommendations directly within, the Advisor platform.
 
 > [!NOTE]
 > Only the Assessments initiated via Advisor and the corresponding recommendations are visible on Advisor for the selected subscription and/or workload.
+
+## What are Azure WAF assessments?
+
+The Azure Well-Architected Framework, WAF, is a design scheme that helps you understand the pros and cons of cloud system options and can improve the quality of a workload. To learn more, see [Azure Well- Architected Framework](/azure/well-architected/).
 
 Microsoft WAF Assessments help you work through a scenario of questions and recommendations that result in a curated guidance report that is actionable and informative. Assessments take time but it's time well-spent. Azure Advisor WAF Assessments help you identify gaps in your workloads across five pillars: Reliability, Cost, Operational Excellence, Performance, and Security via a set of curated questions on your workload. Assessments need you to work through a scenario of questions on your workloads and then provide recommendations that are actionable and informative. For the preview launch, we enabled the following two assessments via Advisor:
 
@@ -81,7 +83,7 @@ If you chose **Azure Well-Architected Review** as the assessment type: The page 
      * [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
      * [Security](/azure/well-architected/iot/iot-security): Complete the security questions for IoT workloads in the Azure Well-Architected Review.  
    * **SAP On Azure (Preview)**: For detailed information on the different types of storage and their capability and usability with SAP workloads and SAP components, see [Azure Storage types for SAP workload](/azure/sap/workloads/planning-guide-storage).
-   * **Azure Stack Hub (Preview)**: Evaluates the performance efficiency of your workloads running on Azure Stack Hub. To learn more, see [Manage workloads that run on Azure Stack Hub](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-stack/manage)
+   * **Azure Stack Hub (Preview)**: Evaluates the performance efficiency of your workloads running on Azure Stack Hub. To learn more, see [Manage workloads that run on Azure Stack Hub](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-stack/manage).\
 When ready, select **Next**. The WAF Configuration options page opens.
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-new-question-workload.png" alt-text="Screenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-assessments/advisor-assessment-new-question-workload.png":::
 1. For **Azure Well-Architected** assessment types only.\
