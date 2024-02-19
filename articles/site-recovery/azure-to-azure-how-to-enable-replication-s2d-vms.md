@@ -92,4 +92,4 @@ For more information, see [Test failover to Azure in Site Recovery](site-recover
 For more information, see [Failover in Site Recovery](site-recovery-failover.md).
 ## Next steps
 
-[Learn more](./azure-to-azure-tutorial-failover-failback.md) about running failback.
+- [Learn more](./azure-to-azure-tutorial-failover-failback.md) about running failback.

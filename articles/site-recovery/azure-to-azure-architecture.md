@@ -192,4 +192,4 @@ When you initiate a failover, the VMs are created in the target resource group, 
 
 ## Next steps
 
-[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
+- [Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
