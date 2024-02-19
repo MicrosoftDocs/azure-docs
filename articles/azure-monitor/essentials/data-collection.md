@@ -33,7 +33,7 @@ The following sections describe the data collection scenarios that are currently
 ### Azure Monitor agent
 
 >[!IMPORTANT]
->The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
+>The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](../agents/azure-monitor-agent-migration.md) prior to that date.
 >
 The diagram below shows data collection for the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) running on a virtual machine. In this scenario, the DCR specifies events and performance data to collect from the agent machine, a transformation to filter and modify the data after its collected, and a Log Analytics workspace to send the transformed data. To implement this scenario, you create an association between the DCR and the agent. One agent can be associated with multiple DCRs, and one DCR can be associated with multiple agents.
 
