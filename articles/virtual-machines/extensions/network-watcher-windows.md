@@ -77,9 +77,7 @@ Set-AzVMExtension `
   -TypeHandlerVersion "1.4"
 ```
 
-## Troubleshooting and support
-
-### Troubleshooting
+## Troubleshooting
 
 You can retrieve data about the state of extension deployments from the Azure portal and PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module:
 
@@ -93,6 +91,7 @@ Extension execution output is logged to files found in the following directory:
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
 ```
 
-### Support
+## Related content
 
-If you need more help at any point in this article, you can refer to the [Network Watcher documentation](../../network-watcher/index.yml), or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+- [Network Watcher documentation](../../network-watcher/index.yml).
+- [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
