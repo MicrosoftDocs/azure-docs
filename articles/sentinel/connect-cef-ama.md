@@ -4,7 +4,7 @@ description: Ingest and filter CEF-based logs from security devices and applianc
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 02/19/2024
 #Customer intent: As a security operator, I want to ingest and filter CEF-based logs from security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 

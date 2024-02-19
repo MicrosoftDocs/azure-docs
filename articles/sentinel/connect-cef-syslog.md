@@ -1,10 +1,10 @@
 ---
 title: Stream logs in both the CEF and Syslog format to Microsoft Sentinel 
 description: Stream and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace.
-author: limwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.date: 02/09/2023
-ms.author: lwainstein
 #Customer intent: As a security operator, I want to stream and filter CEF an Syslog-based logs from my organization to my Microsoft Sentinel workspace, so I can avoid duplication between CEF and Syslog data.   
 ---
 
