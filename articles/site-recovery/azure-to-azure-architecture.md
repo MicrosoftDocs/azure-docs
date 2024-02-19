@@ -27,7 +27,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **Source VM storage** | Azure VMs can be managed, or have non-managed disks spread across storage accounts.<br/><br/>[Learn about](azure-to-azure-support-matrix.md#replicated-machines---storage) supported Azure storage.
 **Source VM networks** | VMs can be located in one or more subnets in a virtual network (VNet) in the source region. [Learn more](azure-to-azure-support-matrix.md#replicated-machines---networking) about networking requirements.
 **Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage.  Cache storage accounts must be Standard.<br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
-**Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that will be needed in the target region. 
+**Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that are needed in the target region. 
 
 ![Diagram showing source and target replication.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
@@ -49,8 +49,8 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 
 You can manage target resources as follows:
 
-- You can modify target settings as you enable replication. Please note that the default SKU for the target region VM is the same as the SKU of the source VM (or the next best available SKU in comparison to the source VM SKU). The dropdown list only shows relevant SKUs of the same family as the source VM (Gen 1 or Gen 2).
-- You can modify target settings after replication is already working. Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource which cannot be updated is the availability type (single instance, set or zone). To change this setting, you need to disable replication, modify the setting, and then reenable. 
+- You can modify target settings as you enable replication. Note that the default SKU for the target region VM is the same as the SKU of the source VM (or the next best available SKU in comparison to the source VM SKU). The dropdown list only shows relevant SKUs of the same family as the source VM (Gen 1 or Gen 2).
+- You can modify target settings after replication is already working. Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource, which cannot be updated is the availability type (single instance, set or zone). To change this setting, you need to disable replication, modify the setting, and then reenable. 
 
 ## Replication policy 
 
@@ -95,13 +95,13 @@ The following table explains different types of consistency.
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-A crash consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory.<br/><br/> It contains the equivalent of the on-disk data that would be present if the VM crashed or the power cord was pulled from the server at the instant that the snapshot was taken.<br/><br/> A crash-consistent doesn't guarantee data consistency for the operating system, or for apps on the VM. | Site Recovery creates crash-consistent recovery points every five minutes by default. This setting can't be modified.<br/><br/>  | Today, most apps can recover well from crash-consistent points.<br/><br/> Crash-consistent recovery points are usually sufficient for the replication of operating systems, and apps such as DHCP servers and print servers.
+A crash consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory.<br/><br/> It contains the equivalent of the on-disk data that would be present if the VM crashed or the power cord was pulled from the server at the instant that the snapshot was taken.<br/><br/> A crash-consistent doesn't guarantee data consistency for the operating system, or for apps on the VM. | Site Recovery creates crash-consistent recovery points every five minutes by default. This setting can't be modified.<br/><br/>  | Today, most apps can recover well from crash-consistent points.<br/><br/> Crash-consistent recovery points are sufficient for the replication of operating systems, and apps such as DHCP servers and print servers.
 
 ### App-consistent
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method, which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
 
 ## Replication process
 
@@ -162,17 +162,17 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 
-#### Control access with NSG rules
+#### Control access with Network Security Group rules
 
-If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/network-security-groups-overview.md), note the following requirements:
+If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [Network Security Group rules](../virtual-network/network-security-groups-overview.md), note the following requirements:
 
-- NSG rules for the source Azure region should allow outbound access for replication traffic.
+- Network Security Group rules for the source Azure region should allow outbound access for replication traffic.
 - We recommend you create rules in a test environment before you put them into production.
 - Use [service tags](../virtual-network/network-security-groups-overview.md#service-tags) instead of allowing individual IP addresses.
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  
-Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
+Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) for Site Recovery, and [controlling connectivity with Network Security Groups](concepts-network-security-group-with-site-recovery.md).
 
 
 ### Connectivity for multi-VM consistency
