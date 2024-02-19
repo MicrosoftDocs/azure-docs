@@ -142,7 +142,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```
 
 1. Open the link you got from the above result in the browser and add the `REDIRECT_URI`.
-       ![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-registration.png)
+       ![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-uri-config.png)
 
 ## Build and deploy the web app
 
