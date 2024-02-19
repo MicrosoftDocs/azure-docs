@@ -21,11 +21,11 @@ If you want to collect the data for offline inspection, we recommend that you co
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `CodecName` | Codec name | |
-| `Bitrate` | Audio send bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
+| `BitrateInBps` | Audio send bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
-| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketCount` | The total number of packets sent. | |
 | `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
-| `AvailableBitrate` | Bandwidth estimation (bits per second) | |
+| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
 
 ### Incoming audio metrics
 
@@ -33,7 +33,7 @@ If you want to collect the data for offline inspection, we recommend that you co
 | ----------- | ----------- | -------- |
 | `CodecName` | Codec name | |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
-| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketCount` | The total number of packets sent. | |
 | `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
 
 ### Outgoing video metrics
@@ -41,27 +41,27 @@ If you want to collect the data for offline inspection, we recommend that you co
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `CodecName` | Codec name | |
-| `Bitrate` | Video send bitrate (bits per second) | |
-| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `BitrateInBps` | Video send bitrate (bits per second) | |
+| `PacketCount` | The total number of packets sent. | |
 | `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
-| `AvailableBitrate` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
-| `FrameRateSent` | Frame rate sent on the RTP stream (frames per second) | |
-| `FrameWidthSent` | Frame width of the encoded frame (pixels) | |
-| `FrameHeightSent` | Frame height of the encoded frame (pixels) | |
+| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
+| `FrameRate` | Frame rate sent on the RTP stream (frames per second) | |
+| `FrameWidth` | Frame width of the encoded frame (pixels) | |
+| `FrameHeight` | Frame height of the encoded frame (pixels) | |
 
 ### Incoming video metrics
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `CodecName` | Codec name | |
-| `Bitrate` | Video receive bitrate (bits per second) | |
+| `BitrateInBps` | Video receive bitrate (bits per second) | |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
-| `PacketsPerSecond` | Packet rate (packets per second) | |
+| `PacketCount` | The total number of packets sent. | |
 | `PacketsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
 | `StreamId` | Stream ID | The `streamId` value corresponds to the ID of the video of the remote participant. It can be used to match the sender. |
-| `FrameRateReceived` | Frame rate received on the RTP stream (frames per second) | |
-| `FrameWidthReceived` | Frame width of the decoded frame (pixels) | |
-| `FrameHeightReceived` | Frame height of the decoded frame (pixels) | |
+| `FrameRate` | Frame rate received on the RTP stream (frames per second) | |
+| `FrameWidth` | Frame width of the decoded frame (pixels) | |
+| `FrameHeight` | Frame height of the decoded frame (pixels) | |
 | `TotalFreezeDurationInMs` | Total freeze duration (milliseconds) | |
 
 ### Outgoing screen share metrics
@@ -71,3 +71,19 @@ Currently, statistics fields are the same as *Outgoing video metrics*.
 ### Incoming screen share metrics
 
 Currently, statistics fields are the same as *Incoming video metrics*.
+
+### Outgoing data channel metrics
+
+| Metric name | Description | Comments |
+| ----------- | ----------- | -------- |
+| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
+| `PacketCount` | The total number of packets sent. | |
+| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+
+### Incoming data channel metrics
+
+| Metric name | Description | Comments |
+| ----------- | ----------- | -------- |
+| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
+| `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
+| `PacketCount` | The total number of packets sent. | |
