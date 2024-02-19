@@ -48,7 +48,7 @@ For Operator Connect or Teams Phone Mobile:
 
 Flow-through provisioning is when you use Azure Communications Gateway to provision a communications service. 
 
-For Operator Connect and Teams Phone Mobile, you can use Azure Communications Gateway to provision the Operator Connect and Teams Phone Mobile environment with subscribers (your customers and the numbers you assign to them). This integration is equivalent to separate integration with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. It meets the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
+For Operator Connect and Teams Phone Mobile, you can use the Provisioning API to provision the Operator Connect and Teams Phone Mobile environment with subscribers (your customers and the numbers you assign to them). This integration is equivalent to separate integration with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. It meets the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
 
 Azure Communications Gateway doesn't support flow-through provisioning for Microsoft Teams Direct Routing or Zoom Phone Cloud Peering.
 
