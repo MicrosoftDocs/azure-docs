@@ -45,7 +45,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 - If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
 
-- If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the AzureCommunicationsGateway enterprise application.
+- If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have **Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the AzureCommunicationsGateway enterprise application.
 
 [!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
