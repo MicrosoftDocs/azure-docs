@@ -11,7 +11,7 @@ ms.topic: reference
 
 # Isolation Domain Configuration
 
-## Layer 3 isolation domain restricted to within the fabric instance (E-W only traffic flows)
+## Layer 3 isolation domain restricted within the fabric instance (E-W only traffic flows)
 
 Creating a Layer-3 isolation domain with internal networks (so only on the ToR) enables communication between workloads deployed across racks by exchanging routes with the fabric. A single isolation domain can have multiple BGP peerings, each on a separate VLAN. BGP peering IP addresses can be a single IPv4 or IPv6 address, or a subnet to facilitate peering from multiple dynamic workload instances. BFD parameters can also be configured for each BGP peering. Import and export route policies can be defined to enforce policies on exchanged routes.
 
