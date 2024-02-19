@@ -43,7 +43,7 @@ In this article, you learn about the steps that you and your onboarding team mus
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenant))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
 
-- If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload your integration test numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
+- If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
 
 - If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the AzureCommunicationsGateway enterprise application.
 
@@ -183,13 +183,26 @@ Your staff can use a selection of key metrics to monitor Azure Communications Ga
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect APIs for provisioning. Choose the appropriate instructions for your deployment.
 
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+You can't use the Number Management Portal after you launch, because the Operator Connect and Teams Phone Mobile programs require full API integration. You can integrate with Azure Communications Gateway's [Provisioning API](provisioning-platform.md) or directly with the Operator Connect API.
+
+If you integrate with the Provisioning API, your onboarding team can obtain proof automatically.
+
+If you integrate with the Operator Connect API, provide your onboarding team with proof of successful Operator Connect API calls for:
+
+- Partner consent
+- TN Upload to Account
+- Unassign TN
+- Release TN
+
 # [Provisioning API (preview)](#tab/provisioning-api)
 
 Your onboarding team can obtain proof automatically. You don't need to do anything.
 
-# [Without the Azure Communications Gateway Provisioning API](#tab/no-flow-through)
+# [Operator Connect APIs](#tab/no-flow-through)
 
-You must provide your onboarding team with proof of successful API calls for:
+Provide your onboarding team with proof of successful API calls for:
 
 - Partner consent
 - TN Upload to Account
