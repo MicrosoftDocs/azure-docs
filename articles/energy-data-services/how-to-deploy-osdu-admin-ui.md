@@ -53,10 +53,12 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-    nvm install 14.17.3 && \
-    npm install -g @angular/cli@13.3.9
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+nvm install 14.17.3 && \
+export NG_CLI_ANALYTICS=false && \ 
+npm install -g @angular/cli@13.3.9 && \
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
