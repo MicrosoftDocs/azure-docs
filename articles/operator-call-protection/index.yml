@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Operator Call Protection?
             url: overview.md
           - text: Onboarding and Included Benefits
-            url: ../communications-gateway/onboarding.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+            url: onboarding.md
 
   # Card
   - title: Learn how to deploy Azure Operator Call Protection

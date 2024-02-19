@@ -9,7 +9,7 @@ items:
 - name: Planning
   items:
   - name: Onboarding and Included Benefits
-    href: ../communications-gateway/onboarding.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+    href: onboarding.md
 - name: Get started
   items:
   - name: Overview of deploying
