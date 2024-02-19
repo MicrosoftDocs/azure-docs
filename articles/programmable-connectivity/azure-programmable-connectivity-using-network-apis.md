@@ -29,9 +29,9 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 ## Obtain an authentication token
 
 1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
-    - At the step "Assign a role to the application", you are required to choose a scope and a role:
+    - At the step "Assign a role to the application", you're required to choose a scope and a role:
         - The correct scope is the APC Gateway you created. To use this as the scope, navigate to the APC Gateway in the Azure portal, and follow instructions from "Select Access control (IAM)" onwards.
-        - The correct role to assign is `Azure Programmable Connectivity Gateway User`
+        - The correct roles to assign are `Azure Programmable Connectivity Gateway User` and `Contributor`.
     - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
 2. Navigate to your App Registration in the Azure portal. Copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
 3. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
@@ -53,6 +53,10 @@ All requests must contain the following headers:
 
 - `Authorization`: This must have the value of `<APC_AUTH_TOKEN>` obtained in [Prerequisites](#prerequisites).
 - `apc-gateway-id`: This must have the value of `<APC_IDENTIFIER>` obtained in [Prerequisites](#prerequisites).
+
+Requests may also contain the following optional header:
+
+- `x-ms-client-request-id`: This is a unique ID to identify the specific request. This is useful for diagnosing and fixing errors.
 
 #### Network identifier
 
@@ -278,7 +282,7 @@ Option 2: use the device's hashed phone number:
 
 The response to this call is a 302 redirect. It has a header `location`, which contains a URL. 
 
-Follow the URL from the frontend of your application. This triggers an authorization flow between the device running the frontend and the Network specifed using the `networkIdentifier` block.
+Follow the URL from the frontend of your application. This triggers an authorization flow between the device running the frontend and the Network specified using the `networkIdentifier` block.
 
 At the end of the authorization flow, the Network returns a 302 redirect. This redirect:
 - Redirects to the `redirectUri` you sent in your request to APC
@@ -288,7 +292,7 @@ The frontend of your application must follow this `redirectUri`. This delivers t
 
 #### Call 2
 
-At the end of Call 1, your frontend made a request to the endpoint exposed at at `redirectUri` with a parameter `apcCode`. Your backend must obtain the value of `apcCode` and use it in the second call to APC.
+At the end of Call 1, your frontend made a request to the endpoint exposed at `redirectUri` with a parameter `apcCode`. Your backend must obtain the value of `apcCode` and use it in the second call to APC.
 
 Make a POST request to the endpoint `https://<APC_URL>/number-verification/number:verify`.
 
