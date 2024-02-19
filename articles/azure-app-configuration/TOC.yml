@@ -35,6 +35,8 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: .NET Background Service
+          href: quickstart-feature-flag-dotnet-background-service.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
