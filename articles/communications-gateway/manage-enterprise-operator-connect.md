@@ -1,6 +1,6 @@
 ---
 title: Use Azure Communications Gateway's Number Management Portal (preview) to manage an enterprise
-description: Learn how to add and remove enterprises and numbers for Operator Connect and Teams Phone Mobile with Azure Communication Gateway's Number Management Portal.
+description: Learn how to add and remove enterprises and numbers with Azure Communication Gateway's Number Management Portal.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -9,18 +9,16 @@ ms.date: 02/16/2024
 ms.custom: template-how-to-pattern
 ---
 
-# Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview) for Operator Connect and Teams Phone Mobile
+# Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview)
 
-Azure Communications Gateway's Number Management Portal (preview) enables you to manage enterprise customers and their numbers through the Azure portal.
+Azure Communications Gateway's Number Management Portal (preview) enables you to manage enterprise customers and their numbers through the Azure portal. Any changes made in this portal are automatically provisioned into the Operator Connect and Teams Phone Mobile environments. You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md).
 
-The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you launch your service in the Teams Admin Center. The Number Management Portal is a simple browser-based alternative.
-
-> [!TIP]
-> You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md).
+> [!IMPORTANT]
+> The Operator Connect and Teams Phone Mobile programs require that full API integration to your BSS is completed prior to launch in the Teams Admin Center. This can either be directly to the Operator Connect API or through the Azure Communications Gateway's Provisioning API (preview).
 
 ## Prerequisites
 
-Confirm that you have **Reader** access to the Azure Communications Gateway resource and appropriate permissions for the Project Synergy enterprise application:
+Confirm that you have **Reader** access to the Azure Communications Gateway resource and appropriate permissions for the AzureCommunicationsGateway enterprise application:
 
 <!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
 * To view configuration: **ProvisioningAPI.ReadUser**.
@@ -41,7 +39,6 @@ If you're uploading new numbers for an enterprise customer:
 
 |Information for each number |Notes  |
 |---------|---------|
-|Calling profile |One of the `CommsGw` Calling Profiles we created for you.|
 |Intended usage | Individuals (calling users), applications, or conference calls.|
 |Capabilities     |Which types of call to allow (for example, inbound calls or outbound calls).|
 |Civic address | A physical location for emergency calls. The enterprise must have configured this address in the Teams Admin Center. Only required for individuals (calling users) and only if you don't allow the enterprise to update the address.|
@@ -49,6 +46,8 @@ If you're uploading new numbers for an enterprise customer:
 |Whether the enterprise can update the civic address or location | If you don't allow the enterprise to update the civic address or location, you must specify a civic address or location. You can specify an address or location and also allow the enterprise to update it.|
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
+
+Each number is automatically assigned to the Operator Connect or Teams Phone Mobile calling profile associated with the Azure Communications Gateway which is being provisioned. 
 
 ## Go to your Communications Gateway resource
 

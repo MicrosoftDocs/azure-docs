@@ -93,12 +93,7 @@ For full details of the media interworking features available in Azure Communica
 
 ## Provisioning and Operator Connect APIs
 
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment is certified and launched, you must not use the Operator Connect portal for provisioning. Azure Communications Gateway offers two alternative methods for provisioning subscribers:
-
-- A Number Management Portal (preview), integrated into the Azure portal, for browser-based provisioning.
-- A Provisioning API (preview) that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments.
-
-Both methods integrate with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. They meet the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service. They therefore allow you to pass the certification process and sell Operator Connect or Teams Phone Mobile services.
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment is certified and launched, you must not use a portal for provisioning. Azure Communications Gateway offers an alternative method for provisioning subscribers with its Provisioning API (preview) that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments. Azure Communications Gateway also provides a Number Management Portal (preview), integrated into the Azure portal, for browser-based provisioning which can be used to get you started while you complete API integration. 
 
 For more information, see:
 

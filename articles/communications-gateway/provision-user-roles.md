@@ -34,7 +34,8 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploy Azure Communications Gateway or change its configuration. |**Contributor** access to the resource group.|
 | Raise support requests. |**Owner**, **Contributor**, or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level. |
 | Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
-| Use the Number Management Portal (preview) for Operator Connect or Teams Phone Mobile. | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
+| Use the Number Management Portal (preview) | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the AzureCommunicationsGateway enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
+
 
 ## Configure user roles
 
@@ -51,7 +52,7 @@ You need to use the Azure portal to configure user roles.
 ### Assign a user role
 
 1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [Understand the user roles required for Azure Communications Gateway](#understand-the-user-roles-required-for-azure-communications-gateway).
-1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the Project Synergy application.
+1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the AzureCommunicationsGateway enterprise application.
 
     <!-- Must be kept in sync with step 1 and with manage-enterprise-operator-connect.md  -->
     - To view configuration: **ProvisioningAPI.ReadUser**.

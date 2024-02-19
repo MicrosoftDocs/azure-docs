@@ -45,7 +45,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 - If you plan to use Azure Communications Gateway's Provisioning API (preview) to upload your integration test numbers to the Operator Connect environment, you must be able to make requests using [a client integrated with the API](integrate-with-provisioning-api.md). You must also have access to the [API Reference](/rest/api/voiceservices).
 
-- If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the Project Synergy enterprise application.
+- If you plan to use Azure Communications Gateway's Number Management Portal (preview) to configure numbers for integration testing, you must have *Reader** access to the Azure Communications Gateway resource and **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser** roles for the AzureCommunicationsGateway enterprise application.
 
 [!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
@@ -73,7 +73,6 @@ Integration testing requires setting up your test tenant for Operator Connect or
 > [!IMPORTANT]
 > Do not assign the service verification numbers to test users. Your onboarding team arranges configuration of your service verification numbers.
 
-1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `CommsGw`. We created this Calling Profile for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
@@ -103,6 +102,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
 
     # [Operator Portal](#tab/no-flow-through)
 
+    1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `CommsGw`. We created this Calling Profile for you during the Azure Communications Gateway deployment process.
     1. Open the Operator Portal.
     1. Select **Customer Consents**.
     1. Select your test tenant.
@@ -183,15 +183,11 @@ Your staff can use a selection of key metrics to monitor Azure Communications Ga
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect APIs for provisioning. Choose the appropriate instructions for your deployment.
 
-# [Number Management Portal (preview)](#tab/number-management-portal)
-
-Your onboarding team can obtain proof automatically. You don't need to do anything.
-
 # [Provisioning API (preview)](#tab/provisioning-api)
 
 Your onboarding team can obtain proof automatically. You don't need to do anything.
 
-# [Without the Number Management Portal or the Provisioning API](#tab/no-flow-through)
+# [Without the Azure Communications Gateway Provisioning API](#tab/no-flow-through)
 
 You must provide your onboarding team with proof of successful API calls for:
 

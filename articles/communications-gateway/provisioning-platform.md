@@ -15,8 +15,8 @@ ms.date: 02/16/2024
 Azure Communications Gateway's Provisioning API (preview) allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you assign to them.
 
 You can use the Provisioning API to:
-- Associate numbers with communications services.
-- Provision communication services with customer configuration (sometimes called _flow-through provisioning_).
+- Associate numbers with backend services.
+- Provision backend services with customer configuration (sometimes called _flow-through provisioning_).
 - Add custom header configuration.
 
 The following table shows how you can use the Provisioning API for each communications service. The following sections in this article provide more detail about each use case.
@@ -31,7 +31,7 @@ The following table shows how you can use the Provisioning API for each communic
 The flow-through provisioning for Operator Connect and Teams Phone Mobile interoperates with the Operator Connect APIs. It therefore allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs.
 
 > [!TIP]
-> For Operator Connect and Teams Phone Mobile, you can also use Azure Communications Gateway's Number Management Portal, available in the Azure portal. For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+> For Operator Connect and Teams Phone Mobile, you can also get started with the Azure Communications Gateway's Number Management Portal, available in the Azure portal. For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 ## Associating numbers for specific communications services
 
