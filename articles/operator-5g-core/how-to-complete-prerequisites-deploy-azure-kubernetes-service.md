@@ -94,8 +94,8 @@ To deploy an AKS cluster, you should have a basic understanding of [Kubernetes c
     - Enter a **Name** for the network interface, mark the **NIC network security group** as **None**. 
     - Attach the network interface to your subnet based on your requirements, and select **Create**. Repeat this step for each data plane port required in the Virtual Machine Scale Set template.
 1. Open a separate window and navigate to the **Azure Resource Explorer**. On the left side of the screen, locate the **Subscription** for this cluster.
-1. In the Azure Resource Explorer, find the **Infrastructure Resource group** for the cluster. Select **providers** \> **Microsoft.Compute** \> **virtualMachineScaleSets** \> **\<your VMSS name\>**. 
-1. Select the VMSS, then select and change from **Read Only** to **Read/Write**.
+1. In the Azure Resource Explorer, find the **Infrastructure Resource group** for the cluster. Select **providers** \> **Microsoft.Compute** \> **virtualMachineScaleSets** \> **\<your Azure Virtual Machine Scale Sets name\>**. 
+1. Select the virtual machine scale set, then select and change from **Read Only** to **Read/Write**.
 1. Choose **Edit** from the **Data** section of the screen.
 1. For each of your data planes, ensure that the **enableAcceleratedNetworking** and the **enableIPForwarding** fields are set to **true**. If they're set to **false**:
     1. Remove the **ImageGalleriesSection** from the json file.
