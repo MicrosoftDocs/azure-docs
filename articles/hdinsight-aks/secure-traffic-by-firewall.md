@@ -4,7 +4,7 @@ description: Learn how to secure traffic using firewall on HDInsight on AKS usin
 ms.service: hdinsight-aks
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 19/2/2024
+ms.date: 02/19/2024
 ---
 
 # Use firewall to restrict outbound traffic using Azure CLI
