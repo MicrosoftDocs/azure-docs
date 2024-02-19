@@ -23,15 +23,12 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
-### [.NET](#tab/dotnet)
-- [.NET SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+If you want to use .NET Framework, please install the following things.
 
-### [.NET Framework](#tab/dotnet-framework)
-- [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
-
----
+- [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
 ## Add a feature flag
 
@@ -44,7 +41,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ### [.NET](#tab/dotnet)
 
-You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
@@ -55,6 +52,8 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     ```
 
 ### [.NET Framework](#tab/dotnet-framework)
+
+You can use Visual Studio to create a new .NET Framework console app project.
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
