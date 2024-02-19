@@ -24,7 +24,7 @@ The Network Watcher Agent extension for Windows can be configured for Windows Se
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/index.yml).
+Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, please see the [Network Watcher documentation](../../network-watcher/index.yml).
 
 ## Extension schema
 
