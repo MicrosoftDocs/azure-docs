@@ -24,16 +24,22 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
 
-### Open Container Initiative (OCI) image format specification support 
+### Cloud support for Defender for Containers
+
+February 26, 2024
+
+Azure Kubernetes Service (AKS) threat detection features in Defender for Containers are now fully supported in commercial, Azure Government, and Azure China 21Vianet clouds. [Review](support-matrix-defender-for-containers.md#azure-aks) supported features.
+
+### Open Container Initiative (OCI) image format specification support
 
 February 18, 2024
 
 The [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification is now supported by vulnerability assessment, powered by Microsoft Defender Vulnerability Management for AWS, Azure & GCP clouds.
-
 
 ### AWS container vulnerability assessment powered by Trivy retired
 
