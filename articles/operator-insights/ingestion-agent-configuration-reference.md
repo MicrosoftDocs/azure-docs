@@ -102,7 +102,7 @@ source:
     message_queue_capacity: 32 MiB
     # Quick check on the maximum RAM that the agent should use.   
     # This is a guide to check the other tuning parameters, rather than a hard limit. 
-    maximum_overall_capacity_in_bytes: 1216 MiB
+    maximum_overall_capacity: 1216 MiB
     listener:
       # The TCP port to listen on.  Must match the port MCC is configured to send to.  Defaults to 36001.
       port: 36001
@@ -114,10 +114,10 @@ source:
       # EDRs greater than this size are dropped and the connection from MCC is closed. This condition
       # likely indicates an MCC bug or MCC sending corrupt data. It prevents the agent from uploading
       # corrupt EDRs to Azure. You should not need to change this value. Units are B, KiB, MiB, GiB, etc.
-      hard_maximum_message_size_in_bytes: 100000 B
+      hard_maximum_message_size: 100000 B
     batching:
       # The maximum size of a single blob (file) to store in the Data Product's input storage account. 
-      maximum_blob_size_in_bytes: 128 MiB. Units are B, KiB, MiB, GiB, etc.
+      maximum_blob_size: 128 MiB. Units are B, KiB, MiB, GiB, etc.
       # The maximum time to wait when no data is received before uploading pending batched data to the Data Product's input storage account. Examples: 30s, 10m, 1h, 1d.
       blob_rollover_period: 5m
 ```
