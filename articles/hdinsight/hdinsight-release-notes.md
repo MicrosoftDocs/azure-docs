@@ -72,4 +72,4 @@ We are listening: You’re welcome to add more ideas and other topics here and v
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
 * [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
-* Previous [release note](./hdinsight-release-notes-archive#release-date--january-10-2024)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--january-10-2024)
