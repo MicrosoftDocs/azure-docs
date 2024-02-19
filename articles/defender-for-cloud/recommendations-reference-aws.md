@@ -4,6 +4,7 @@ description: This article lists all Microsoft Defender for Cloud security recomm
 ms.topic: reference
 ms.date: 06/27/2023
 ms.custom: generated
+ai-usage: ai-assisted
 ---
 
 # Security recommendations for Amazon Web Services (AWS) resources
