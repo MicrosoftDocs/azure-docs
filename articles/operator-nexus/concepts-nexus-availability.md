@@ -15,25 +15,26 @@ When it comes to availability, there are two areas to consider:
 
 - Availability of the Nexus platform itself, including:
 
-    -   Capacity and Redundancy Planning
+    -   [Capacity and Redundancy Planning](#capacity-and-redundancy-planning)
 
-    -   Considering Workload Redundancy Requirements
+    -   [Considering Workload Redundancy Requirements](#considering-workload-redundancy-requirements)
 
-    -   Site Deployment and Connection
+    -   [Site Deployment and Connection](#site-deployment-and-connection)
 
-    -   Other Networking Considerations for Availability
+    -   [Other Networking Considerations for Availability](#other-networking-considerations-for-availability)
 
-    -   Identity and Authentication
+    -   [Identity and Authentication](#identity-and-authentication)
 
-    -   Managing Platform Upgrade
+    -   [Managing Platform Upgrade](#managing-platform-upgrade)
 
 - Availability of the Network Functions (NFs) running on the platform, including:
 
-    -   Configuration Updates
+    -   [Configuration Updates](#configuration-updates)
 
-    -   Workload Upgrade
+    -   [Workload Placement](#workload-placement)
 
-    -   Workload Healing
+    -   [Workload Upgrade](#workload-upgrade)
+
 
 ## Deploy and Configure Nexus for High Availability
 
