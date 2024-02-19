@@ -229,7 +229,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 ## Next steps
 
-A sample repository is available with demonstrating the deployment config file and all three parameter mapping methods. 
+A [sample repository](https://github.com/SentinelCICD/RepositoriesSampleContent) is available with demonstrating the deployment config file and all three parameter mapping methods. 
 
 For more information, see:
 
