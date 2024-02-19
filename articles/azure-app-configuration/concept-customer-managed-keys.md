@@ -43,7 +43,7 @@ After these resources are configured, use the following steps so that the Azure 
 To begin, you'll need a properly configured Azure App Configuration instance. If you don't yet have an App Configuration instance available, follow one of these quickstarts to set one up:
 
 - [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
-- [Create a .NET Core app with Azure App Configuration](quickstart-dotnet-core-app.md)
+- [Create a .NET app with Azure App Configuration](quickstart-dotnet-core-app.md)
 - [Create a .NET Framework app with Azure App Configuration](quickstart-dotnet-app.md)
 - [Create a Java Spring app with Azure App Configuration](quickstart-java-spring-app.md)
 - [Create a JavaScript app with Azure App Configuration](quickstart-javascript.md)

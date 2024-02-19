@@ -15,7 +15,7 @@ ms.custom: "devx-track-csharp, mvc"
 
 # Tutorial: Manage feature flags in Azure App Configuration
 
-You can store all feature flags in Azure App Configuration and administer them from a single place. App Configuration has a portal UI named **Feature Manager** that's designed specifically for feature flags. App Configuration also natively supports the .NET Core feature-flag data schema.
+You can store all feature flags in Azure App Configuration and administer them from a single place. App Configuration has a portal UI named **Feature Manager** that's designed specifically for feature flags. App Configuration also natively supports the .NET feature-flag data schema.
 
 In this tutorial, you learn how to:
 

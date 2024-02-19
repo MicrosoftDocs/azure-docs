@@ -130,8 +130,6 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
-    ### [.NET 6.0+](#tab/core6x)
-
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
@@ -140,23 +138,6 @@ The following steps describe how to assign the App Configuration Data Reader rol
             new Uri(builder.Configuration["AppConfig:Endpoint"]),
             new ManagedIdentityCredential()));
     ```
-
-    ### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
-    ```
-
-    ---
 
     > [!NOTE]
     > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).

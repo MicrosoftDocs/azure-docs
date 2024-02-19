@@ -99,7 +99,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     
     ---
 
-1. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET CLI, run the following command in the command shell:
 
     ```console
      dotnet build
