@@ -166,7 +166,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
          "redirect_uri": "<https://storageaccount.zXX.web.core.windows.net/>", // This is the website URL ($REDIRECT_URI)
          "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
       },
-      "api_endpoints": { // Replace contoso with your ADME instance name in all the API endpoints below.
+      "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
          "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
          "storage_endpoint": "https://contoso.energy.azure.com/api/",
          "search_endpoint": "https://contoso.energy.azure.com/api/",
