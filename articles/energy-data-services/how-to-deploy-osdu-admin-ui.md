@@ -79,8 +79,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     az account show
     ```
  :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subs-id-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
- 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/subscription.png" alt-text="Screenshot that shows subscription.":::   
+
 
 11. If you need to change subscription:
     ```azurecli-interactive
