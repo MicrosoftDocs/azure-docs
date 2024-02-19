@@ -52,7 +52,7 @@ Check if your workspace uses legacy alerting or unified alerting by going to the
 - If the menu shows **Alerting (legacy)**, the older version of the alerting feature is enabled. It will be updated to unified alerting when the workspace is upgraded to Grafana 10.
 - If the menu shows **Alerting**, unified alerting is enabled. Alerting will remain unchanged by the upgrade. 
 
-## Upgrade from Grafana 9 to Grafana 10 
+## Upgrade to Grafana 10 
 
 Now let’s upgrade an Azure Managed Grafana instance running Grafana 9.  
 
