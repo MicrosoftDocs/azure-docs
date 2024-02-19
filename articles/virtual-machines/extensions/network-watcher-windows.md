@@ -7,8 +7,7 @@ ms.subservice: extensions
 ms.author: halkazwini
 author: halkazwini
 ms.collection: windows
-ms.date: 06/09/2023
-ms.custom: template-concept, engagement-fy23
+ms.date: 02/19/2024
 ---
 
 # Network Watcher Agent virtual machine extension for Windows
@@ -21,7 +20,7 @@ This article details the supported platforms and deployment options for the Netw
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be configured for Windows Server 2008 R2, 2012, 2012 R2, 2016, 2019 and 2022 releases. Nano Server isn't supported at this time.
+The Network Watcher Agent extension for Windows can be configured for Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Nano Server isn't supported at this time.
 
 ### Internet connectivity
 
