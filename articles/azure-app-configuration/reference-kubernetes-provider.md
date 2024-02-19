@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.2.0`, see [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -157,15 +157,18 @@ The `spec.featureFlag.refresh` property has the following child properties.
 
 ## Installation
 
-You can use helm to [install Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about#usage). To override default [helm-values](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml), use the `--set` flag and pass configuration from the command line.
+Use the following `helm install` command to install the Azure App Configuration Kubernetes Provider. See [helm-values.yaml](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml) for the complete list of parameters and their default values. You can override the default values by passing the `--set` flag to the command.
+ 
+```bash
+helm install azureappconfiguration.kubernetesprovider \
+    oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
+    --namespace azappconfig-system \
+    --create-namespace
+```
 
 ### Autoscaling
 
-It's useful to enable `autoscaling` when you need to deploy multiple instances of the `AzureAppConfigurationProvider` resource in AKS cluster. Setting `autoscaling.enabled` to `true` , [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) will be used for managing pod autoscaling of Kubernetes Provider. `autoscaling` is disabled by default.
-
-### Node assignment
-
-You can set `nodeSelector`, `affinity` or `tolerations` to run Kubernetes Provider pod on particular nodes. For example, setting `nodeSelector.KEY=VALUE` during installation, Kubernetes Provider will be scheduled to the node with the label `KEY=VALUE`.
+By default, autoscaling is disabled. However, if you have multiple `AzureAppConfigurationProvider` resources to produce multiple ConfigMaps/Secrets and may hit a performance bottleneck of single pod, you can enable horizontal pod autoscaling by setting `autoscaling.enabled` to `true`.
 
 ## Examples
 
