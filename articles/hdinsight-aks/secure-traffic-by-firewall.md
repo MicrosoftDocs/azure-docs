@@ -172,7 +172,7 @@ Create a route table to be associated to HDInsight on AKS cluster pool. For more
 
 ## Create cluster
  
-In the previous steps, we have routed the traffic to firewall.
+In the previous steps, we routed network traffic to firewall.
 
 The following steps provide details about the specific network and application rules needed by each cluster type. You can refer to the cluster creation pages for creating [Apache Flink](./flink/flink-create-cluster-portal.md), [Trino](./trino/trino-create-cluster.md), and [Apache Spark](./spark/hdinsight-on-aks-spark-overview.md) clusters based on your need.
 
@@ -234,7 +234,7 @@ The following steps provide details about the specific network and application r
   az network route-table route create -g $AKS_MANAGED_RG --name clientip --route-table-name $ROUTE_TABLE_NAME --address-prefix {Client_IPs} --next-hop-type Internet
   ```
 
-  If you can't reach the cluster and have configured NSG, follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md) to allow the traffic.
+  If you can't reach the cluster after having configured NSG, follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md) to allow the traffic.
 
 > [!TIP]
 > If you want to allow more traffic, you can configure it over the firewall.
