@@ -1,6 +1,6 @@
 ---
-title: Resolving issues with assessments in supported scenarios using Azure Migrate
-description: Get help for assessments in Supported Scenarios with  Azure Migrate.
+title: Troubleshooting Supported Scenarios for Assessments
+description: Get help for resolving issues with assessments in supported scenarios using Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj

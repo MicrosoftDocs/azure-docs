@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Troubleshoot assessment
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios) for troubleshooting assessments and [FAQ](troubleshoot-assessment-faq) for commonly questions about troubleshoot issues with assessment
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios) for troubleshooting assessments and [FAQ](troubleshoot-assessment-faq) for commonly questions about troubleshoot issues with assessment.
 
 ## Common assessment errors
 
@@ -261,7 +261,7 @@ This section helps on fixing the following assessment readiness issues.
 
 ## Azure VMware Solution (AVS) assessment readiness issues
 
-This table lists help for fixing the following assessment readiness issues.
+This section provides help for fixing the following assessment readiness issues.
 
 ### Issue: Unsupported IPv6
 
