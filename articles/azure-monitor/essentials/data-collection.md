@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 11/01/2023
 ---
 
-# Data collection in Azure Monitor
+# Data collection in Azure Monitor 
 Azure Monitor has a [common data platform](../data-platform.md) that consolidates data from a variety of sources. Currently, different sources of data for Azure Monitor use different methods to deliver their data, and each typically require different types of configuration. Get a description of the most common data sources at [Sources of monitoring data for Azure Monitor](../data-sources.md).
 
 Azure Monitor is implementing a new [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection pipeline that improves on legacy data collection methods. This process uses a common data ingestion pipeline for all data sources and provides a standard method of configuration that's more manageable and scalable than current methods. Specific advantages of the new data collection include the following:
