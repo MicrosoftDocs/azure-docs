@@ -62,7 +62,7 @@ This section shows the backup flow for Azure File share.
    | Backup tier | Description |
    | --- | --- |
    | **Snapshot tier** | The file share snapshot is created using the File share API. The snapshot URL is stored in the metadata store only. |
-   | **Vault-Standard tier (preview)** | The file share snapshot is created, and then the changed files and data blocks since the last backup are identified and transferred to the vault. The time taken for data transfer depends on the amount of data and number of files changed. |
+   | **Vault-Standard tier (preview)** | Once the file share snapshot is created, the changed files and data blocks since the last backup are identified and transferred to the vault. The time taken for data transfer depends on the amount of data and number of files changed. |
 
 6. You can restore the Azure File share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
@@ -79,9 +79,9 @@ This section shows the backup flow for Azure File share.
 
 For snapshot tier, you'll incur the following costs:
 
-1. **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/)
+- **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Protected Instance fee**: Starting from September 1, 2020, you're charged a protected instance fee as per the [pricing details](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected file shares in a storage account.
+- **Protected Instance fee**: Starting from September 1, 2020, you're charged a protected instance fee as per the [pricing details](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected file shares in a storage account.
 
 To get detailed estimates for backing up Azure File shares, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
 

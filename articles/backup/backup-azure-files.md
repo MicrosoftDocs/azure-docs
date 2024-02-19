@@ -65,7 +65,7 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
 1. From the **Select File Shares** list, select one or more of the file shares you want to back up. Select **OK**.
 
-1. Under **Policy Details**, choose an existing *backup policy* from the list for your file share protection or [create a new policy.
+1. Under **Policy Details**, choose an existing *backup policy* from the list for your file share protection or create a new policy.
 
    To create a new backup policy, you can configure the following attributes in the backup policy:
 
@@ -125,7 +125,7 @@ The following steps explain how you can configure backup for individual file sha
       >[!IMPORTANT]
       >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
-1. On **Choose backup policy**, select an existing policy or create a new *backup policy* for Azure File share.
+1. Under **Choose backup policy**, select an existing *backup policy* from the list or create a new *backup policy* for Azure File share.
 
    ![Screenshot shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
 
