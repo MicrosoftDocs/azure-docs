@@ -51,7 +51,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 ## Methods
 
-In some parts of this article, the steps you must take depend on whether you're using the Number Management Portal (preview), the Provisioning API (preview), or the Operator Connect portal. This article provides instructions for each option. Choose the appropriate instructions.
+In some parts of this article, the steps you must take depend on whether you're using the Provisioning API (preview), the Number Management Portal (preview), or the Operator Connect portal and APIs. This article provides instructions for each option. Choose the appropriate instructions.
 
 ## Ask your onboarding team to register your test enterprise tenant
 
@@ -79,7 +79,15 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
 1. In your test tenant, create some test users (if you don't already have suitable users). License the users for Teams Phone System and place them in Teams Only mode.
 1. Configure emergency locations in your test tenant.
-1. Upload numbers in the Number Management Portal (preview), over the Provisioning API (preview), or using the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
+1. Upload numbers for integration testing over the Provisioning API (preview), in the Number Management Portal (preview), or using the Operator Connect Operator Portal.
+
+    # [Provisioning API (preview)](#tab/provisioning-api)
+
+    The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the [API Reference](/rest/api/voiceservices).
+
+    1. Find the _RFI_ (Request for information) resource for your test tenant and update the `status` property of its child _Customer Relationship_ resource to indicate the agreement has been signed.
+    1. Create an _Account_ resource that represents the customer.
+    1. Create a _Number_ resource as a child of the Account resource for each test number.
 
     # [Number Management Portal (preview)](#tab/number-management-portal)
 
@@ -91,14 +99,6 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **View account**.
     1. Select **View numbers** and select **Upload numbers**.
     1. Fill in the fields as required, and then select **Review and upload** and **Upload**.
-
-    # [Provisioning API (preview)](#tab/provisioning-api)
-
-    The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the [API Reference](/rest/api/voiceservices).
-
-    1. Find the _RFI_ (Request for information) resource for your test tenant and update the `status` property of its child _Customer Relationship_ resource to indicate the agreement has been signed.
-    1. Create an _Account_ resource that represents the customer.
-    1. Create a _Number_ resource as a child of the Account resource for each test number.
 
     # [Operator Portal](#tab/no-flow-through)
 
@@ -183,6 +183,10 @@ Your staff can use a selection of key metrics to monitor Azure Communications Ga
 
 Your onboarding team must provide Microsoft with proof that you have integrated with the Microsoft Teams Operator Connect APIs for provisioning. Choose the appropriate instructions for your deployment.
 
+# [Provisioning API (preview)](#tab/provisioning-api)
+
+Your onboarding team can obtain proof automatically. You don't need to do anything.
+
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
 You can't use the Number Management Portal after you launch, because the Operator Connect and Teams Phone Mobile programs require full API integration. You can integrate with Azure Communications Gateway's [Provisioning API](provisioning-platform.md) or directly with the Operator Connect API.
@@ -195,10 +199,6 @@ If you integrate with the Operator Connect API, provide your onboarding team wit
 - TN Upload to Account
 - Unassign TN
 - Release TN
-
-# [Provisioning API (preview)](#tab/provisioning-api)
-
-Your onboarding team can obtain proof automatically. You don't need to do anything.
 
 # [Operator Connect APIs](#tab/no-flow-through)
 
