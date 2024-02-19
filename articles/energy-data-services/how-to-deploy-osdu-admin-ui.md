@@ -53,13 +53,14 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-nvm install 14.17.3 && \
-export NG_CLI_ANALYTICS=false && \ 
-npm install -g @angular/cli@13.3.9 && \
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+    nvm install 14.17.3 && \
+    export NG_CLI_ANALYTICS=false && \ 
+    npm install -g @angular/cli@13.3.9 && \
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
+
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
 8. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen.
@@ -134,12 +135,12 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     echo "Redirect URL: $REDIRECT_URI"
     ```
 
-1. Go to the App Registration's Single-page Application (SPA) section by pasting below link in the browser.
+1. Get the App Registration's Single-page Application (SPA) section.
    ```azurecli-interactive
     echo "https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Authentication/appId/$CLIENT_ID/isMSAApp~/false" 
     ```
 
-1. Add the `REDIRECT_URI`.
+1. Open the link you got from the above result in the browser and add the `REDIRECT_URI`.
        ![Screenshot showing redirect URIs of an App Registration](./media/how-to-deploy-osdu-admin-ui/appregistration.png)
 
 ## Build and deploy the web app
@@ -192,7 +193,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```azurecli-interactive
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
-        --source ./dist/ \
+        --source ./dist/OSDUApp \
         --destination '$web' \
         --overwrite
     ```
