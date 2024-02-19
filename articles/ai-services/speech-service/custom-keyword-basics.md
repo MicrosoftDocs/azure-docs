@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 1/18/2024
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services
 ---
 

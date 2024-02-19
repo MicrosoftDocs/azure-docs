@@ -4,7 +4,6 @@ description: Learn how to build an application that securely gets the key from A
 author: ThomVanL
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 2/2/2023
 ms.author: simranparkhe

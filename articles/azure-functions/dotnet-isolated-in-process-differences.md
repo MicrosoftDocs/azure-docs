@@ -11,15 +11,15 @@ recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
 
-# Differences between isolated worker model and in-process model .NET Azure Functions
+# Differences between the isolated worker model and the in-process model for .NET on Azure Functions
 
-There are two process models for .NET functions:
+There are two execution models for .NET functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)] 
 
 This article describes the current state of the functional and behavioral differences between the two models. To migrate from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
 
-## Execution mode comparison table 
+## Execution model comparison table 
 
 Use the following table to compare feature and functional differences between the two models:
 

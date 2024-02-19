@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 02/02/2024
 ms.author: greglin
 ---
 
@@ -70,9 +70,6 @@ Define access policies to use the user-assigned managed identity with your Key V
 3. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
-
-> [!NOTE]
-> If you have Key Vaults for your HTTPS listener that use different identities, creating or updating the listener requires checking the certificates associated with each identity. In order for the operation to be successful, you must [grant permission](../key-vault/general/rbac-guide.md) to all identities.
 
 ### Verify Firewall Permissions to Key Vault
 

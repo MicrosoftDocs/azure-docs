@@ -4,7 +4,6 @@ description: Common PowerShell commands to get you started creating a virtual ne
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: networking
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: jushiman

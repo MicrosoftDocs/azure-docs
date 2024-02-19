@@ -4,7 +4,6 @@ description: Find installed software and software vulnerabilities on your Azure 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 01/16/2024
 ---
 
