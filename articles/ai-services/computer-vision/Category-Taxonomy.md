@@ -9,6 +9,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: reference
 ms.date: 04/17/2019
+ai-usage: ai-assisted
 ---
 
 # Azure AI Vision 86-category taxonomy
