@@ -46,7 +46,7 @@ To ensure all traffic from the worker nodes 0/0 route is advertised in the green
 
 To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE. you can use route targets to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
 
-## Configuration Options
+## Configuration options
 
 The following table gives detailed information about isolation domain configuration options.
 
