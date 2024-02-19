@@ -12,7 +12,7 @@ ms.custom: include
 If you selected the [Neural](?tabs=neural) training type, you can train a voice to speak in multiple languages. The `zh-CN` and `zh-TW` locales both support bilingual training for the voice to speak both Chinese and English. Depending in part on your training data, the synthesized voice can speak English with an English native accent or English with the same accent as the training data.
 
 > [!NOTE]
-> To enable a voice in the zh-CN locale to speak English with the same accent as the sample data, you should choose `Chinese (Mandarin, Simplified), English bilingual` when creating a project or specify the `zh-CN (English bilingual)` locale for the training set data via REST API.
+> To enable a voice in the `zh-CN` locale to speak English with the same accent as the sample data, you should choose `Chinese (Mandarin, Simplified), English bilingual` when creating a project or specify the `zh-CN (English bilingual)` locale for the training set data via REST API.
 
 If you want the voice to speak English with the same accent as the sample data, then at least 10% of the training set data must be in English. Moreover, the 10% threshold is calculated based on the data accepted after successful uploading, not the data before uploading. If some uploaded English data is rejected due to defects and doesn't meet the 10% threshold, the synthesized voice will default to an English native accent.
 
