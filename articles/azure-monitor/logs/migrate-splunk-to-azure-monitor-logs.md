@@ -58,7 +58,6 @@ The benefits of migrating to Azure Monitor include:
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Splunk Search Processing Language (SPL)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to translate your Splunk SPL knowledge to KQL. You can also [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/). |
 |[Log Analytics](../logs/log-analytics-tutorial.md)|Splunk Web, Search app, Pivot tool|A tool in the Azure portal for editing and running log queries in Azure Monitor Logs. Log Analytics also provides a rich set of tools for exploring and visualizing data without using KQL.|
 |[Cost optimization](../../azure-monitor/best-practices-cost.md)|         |Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs.|
-|Application Performance Monitoring|[Application Insights](../app/app-insights-overview.md) provides Application Performance Management (APM) for live web applications. This is a built-in feature of Azure Monitor that does not require a separate installation charge.|
 
 ## 1. Understand your current usage
 
