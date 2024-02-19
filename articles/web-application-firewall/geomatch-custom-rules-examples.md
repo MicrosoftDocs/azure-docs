@@ -27,7 +27,7 @@ This article introduces Azure WAF geomatch custom rules and shows you how to cre
 
 Geomatch custom rules enable you to meet diverse security goals, such as blocking requests from high-risk areas and permitting requests from trusted locations. They're particularly effective in mitigating distributed denial-of-service (DDoS) attacks, which seek to inundate your web application with a multitude of requests from various sources. With geomatch custom rules, you can promptly pinpoint and block regions generating the most DDoS traffic, while still granting access to legitimate users. In this article, you learn about various custom rule patterns that you can employ to optimize your Azure WAF using geomatch custom rules.
 
-## Scenario 1: Block traffic from all countries except "x"
+## Scenario 1 - Block traffic from all countries except "x"
 
 Geomatch custom rules prove useful when you aim to block traffic from all countries, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries except the US, refer to the following portal, Bicep, and PowerShell examples:
 
