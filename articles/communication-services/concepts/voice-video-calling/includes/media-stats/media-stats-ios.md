@@ -30,10 +30,12 @@ The `mediaStatisticsCallFeature` object has the following API structure:
     - `audio`: The list of media statistics for the outgoing audio.
     - `video`: The list of media statistics for the outgoing video.
     - `screenShare`: The list of media statistics for the outgoing screen share.
+    - `dataChannel`: The list of media statistics for the outgoing data channel.
   - `incomingMediaStatistics`: The list of media statistics for incoming media.
     - `audio`: The list of media statistics for the incoming audio.
     - `video`: The list of media statistics for the incoming video.
     - `screenShare`: The list of media statistics for the incoming screen share.
+    - `dataChannel`: The list of media statistics for the incoming data channel.
   - `lastUpdated`: The date when the report was generated.
 
 Then, implement the `didReceiveReport` delegate to get regular updates about the current media quality statistics:
@@ -51,22 +53,28 @@ public class MediaStatisticsDelegate : MediaStatisticsCallFeatureDelegate
         let report = args.report
 
         // Obtain the outgoing media statistics for audio
-        let outgoingAudioStatistics = report.outgoingMediaStatistics.audio
+        let outgoingAudioStatistics = report.outgoingStatistics.audio
     
         // Obtain the outgoing media statistics for video
-        let outgoingVideoStatistics = report.outgoingMediaStatistics.video
+        let outgoingVideoStatistics = report.outgoingStatistics.video
     
         // Obtain the outgoing media statistics for screen share
-        let outgoingScreenShareStatistics = report.outgoingMediaStatistics.screenShare
+        let outgoingScreenShareStatistics = report.outgoingStatistics.screenShare
+
+        // Obtain the outgoing media statistics for data channel
+        let outgoingDataChannelStatistics = report.outgoingStatistics.dataChannel
     
         // Obtain the incoming media statistics for audio
-        let incomingAudioStatistics = report.incomingMediaStatistics.audio
+        let incomingAudioStatistics = report.incomingStatistics.audio
     
         // Obtain the incoming media statistics for video
-        let incomingVideoStatistics = report.incomingMediaStatistics.video
+        let incomingVideoStatistics = report.incomingStatistics.video
     
         // Obtain the incoming media statistics for screen share
-        let incomingScreenShareStatistics = report.incomingMediaStatistics.screenShare
+        let incomingScreenShareStatistics = report.incomingStatistics.screenShare
+
+        // Obtain the incoming media statistics for data channel
+        let incomingDataChannelStatistics = report.incomingStatistics.dataChannel
     }
 }
 ```
