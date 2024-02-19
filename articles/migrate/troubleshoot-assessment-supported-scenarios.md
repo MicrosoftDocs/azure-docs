@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # Troubleshoot assessment
 
-This article provides supported scenarios for troubleshooting assessments. See articles [Troubleshoot](troubleshoot-assessment) issues with assessment and [FAQ](troubleshoot-assessment-faq) for commonly questions about troubleshoot issues with assessment.
+This article provides supported scenarios for troubleshooting assessments. See articles [Troubleshoot](troubleshoot-assessment.md) issues with assessment and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
 ## Scenario 1
 

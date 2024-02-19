@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # Troubleshoot assessment - FAQ
 
-This article provides answers to some of the most common questions about troubleshoot issues with assessment. See articles [Troubleshoot](troubleshoot-assessment) issues with assessment and [Supported Scenarios](troubleshoot-assessment-supported-scenarios) for troubleshooting assessments.
+This article provides answers to some of the most common questions about troubleshoot issues with assessment. See articles [Troubleshoot](troubleshoot-assessment.md) issues with assessment and [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments.
 
 ## Why is the recommended Azure disk SKU bigger than on-premises in an Azure VM assessment?
 
