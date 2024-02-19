@@ -132,7 +132,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     echo "Redirect URL: $REDIRECT_URI"
     ```
 
-1. Add the redirect URI above to the App Registration's Single-page Application (SPA) section.
+1. Add the `REDIRECT_URI` to the App Registration's Single-page Application (SPA) section.
    ```azurecli-interactive
     echo "https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Authentication/appId/$CLIENT_ID/isMSAApp~/false" 
     ```
