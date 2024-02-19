@@ -18,9 +18,13 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 - Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows WSL, we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
 - Provision an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - The App Registration requires the following permissions to function properly:
-> - [Application.Read.All](/graph/permissions-reference#applicationreadall)
-> - [User.Read](/graph/permissions-reference#applicationreadall)
-> - [User.Read.All](/graph/permissions-reference#userreadall)
+  - [Application.Read.All](/graph/permissions-reference#applicationreadall)
+  - [User.Read](/graph/permissions-reference#applicationreadall)
+  - [User.Read.All](/graph/permissions-reference#userreadall)
+    
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-1.png" alt-text="Screenshot that shows applications read all permission.":::
+
+:::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-2.png" alt-text="Screenshot that shows user read all permission.":::
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
