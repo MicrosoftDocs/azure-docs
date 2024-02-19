@@ -201,6 +201,7 @@ In Spring applications, properties are hold or refrenced as the beans within the
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
+- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file chagnes, or you use some other utils with equivalent function. The previous options require users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates.
 
 ## Configure Application Configuration Service settings
 
