@@ -16,25 +16,15 @@ You must refresh your service principal credentials before they expire. In this 
 
 ## Prerequisites
 
-- From the documentation for your data product, obtain the sample configuration for the ingestion agent.
+None.
 
+## Rotate certificates
 
-
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+1. Create a new certificate, and add it to the service principal. For instructions, refer to [Upload a trusted certificate issued by a certificate authority](/entra/identity-platform/howto-create-service-principal-portal).
+1. Obtain the new certificate and private key in the base64-encoded PKCS12 format, as described in [Set up Ingestion Agents for Azure Operator Insights](set-up-ingestion-agent.md).
+1. Copy the certificate to the ingestion agent VM.
+1. Save the existing certificate file and replace with the new certificate file.
+1. Restart the agent: `sudo systemctl restart az-aoi-ingestion.service`.
 
 ## Related content
 
