@@ -9,7 +9,7 @@ ms.service: azure-operator-nexus
 ms.topic: reference
 ---
 
-# Technical Requirements for an Isolation Domain
+# Technical requirements for an Isolation Domain
 
 -   To create an isolation domain, the network fabric must be provisioned first.
 
