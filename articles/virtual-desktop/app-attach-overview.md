@@ -255,6 +255,7 @@ To ensure the certificate is trusted on your session hosts, you need your sessio
 - **Public CA**: certificates from a public CA are trusted by default in Windows and Windows Server.
 
 - **Internal Enterprise CA**:
+
     - For session hosts joined to Active Directory, with AD CS configured as the internal enterprise CA, are trusted by default and stored in the configuration naming context of Active Directory Domain Services. When AD CS is a configured as a standalone CA, you need to configure Group Policy to distribute the root and intermediate certificates to session hosts. For more information, see [Distribute certificates to Windows devices by using Group Policy](/windows-server/identity/ad-cs/distribute-certificates-group-policy/).
 
     - For session hosts joined to Microsoft Entra ID, you can use Microsoft Intune to distribute the root and intermediate certificates to session hosts. For more information, see [Trusted root certificate profiles for Microsoft Intune](/mem/intune/protect/certificates-trusted-root).
