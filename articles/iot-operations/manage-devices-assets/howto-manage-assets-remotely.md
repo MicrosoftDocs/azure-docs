@@ -4,8 +4,10 @@ description: Use the Azure IoT Operations portal or the Azure CLI to manage your
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/24/2023
+ms.custom:
+  - ignite-2023
+  - devx-track-azurecli
+ms.date: 02/19/2024
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -178,7 +180,7 @@ To add an asset in the Azure IoT Operations portal:
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations portal.":::
 
-1. Add any optional information for the asset that you want to include such as:
+1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
     - Manufacturer
     - Manufacturer URI
@@ -189,13 +191,13 @@ To add an asset in the Azure IoT Operations portal:
     - Serial number
     - Documentation URI
 
-1. Select **Next** to go to the **Tags** page.
+1. Select **Next** to go to the **Add tags** page.
 
 ### Add individual tags to an asset
 
 Now you can define the tags associated with the asset. To add OPC UA tags:
 
-1. Select **Add > Add tag**.
+1. Select **Add tag or CSV > Add tag**.
 
 1. Enter your tag details:
 
@@ -212,7 +214,7 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     :::image type="content" source="media/howto-manage-assets-remotely/add-tag.png" alt-text="Screenshot that shows adding tags in the Azure IoT Operations portal.":::
 
-    The following table shows some example tag values that you can use to with the built-in OPC PLC simulator:
+    The following table shows some example tag values that you can use with the built-in OPC PLC simulator:
 
     | Node ID | Tag name | Observability mode |
     | ------- | -------- | ------------------ |
@@ -237,7 +239,7 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
     | ns=3;s=FastUInt1001 | Tag 1001 | 1000                           | 5         | none              |
     | ns=3;s=FastUInt1002 | Tag 1002 | 5000                           | 10        | none              |
 
-1. Select **Add > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
+1. Select **Add tag or CSV > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
 
     :::image type="content" source="media/howto-manage-assets-remotely/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the Azure IoT Operations portal.":::
 
@@ -251,7 +253,7 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
     :::image type="content" source="media/howto-manage-assets-remotely/export-tags.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the Azure IoT Operations portal.":::
 
-1. On the **Tags** page, select **Next** to go to the **Events** page.
+1. On the **Tags** page, select **Next** to go to the **Add events** page.
 
 > [!TIP]
 > You can use the filter box to search for tags.
@@ -290,7 +292,7 @@ When you create an asset by using the Azure CLI, you can define:
 
 Now you can define the events associated with the asset. To add OPC UA events:
 
-1. Select **Add > Add event**.
+1. Select **Add event or CSV > Add event**.
 
 1. Enter your event details:
 
@@ -349,7 +351,7 @@ For each event that you define, you can specify the:
 
 # [Azure IoT Operations portal](#tab/portal)
 
-Find and select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
+Find and select the asset you created previously. Use the **Asset details**, **Tags**, and **Events** tabs to make any changes:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations portal.":::
 
