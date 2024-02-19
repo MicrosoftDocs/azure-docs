@@ -200,7 +200,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
    echo $REDIRECT_URI
     ```
 
-2. Validate that the Admin UI works by accessing the Website URL. 
+2. Open the Website URL in the browser and validate that it is working correctly and connected to the correct Azure Data Manager for Energy instance. 
     
 ## References
 
