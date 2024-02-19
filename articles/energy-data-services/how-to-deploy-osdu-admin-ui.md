@@ -76,7 +76,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```azurecli-interactive
     az account show
     ```
- :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subsid-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
+ :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subs-id-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
  
 :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subscription.png" alt-text="Screenshot that shows subscription.":::   
 
@@ -141,7 +141,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```
 
 1. Open the link you got from the above result in the browser and add the `REDIRECT_URI`.
-       ![Screenshot showing redirect URIs of an App Registration](./media/how-to-deploy-osdu-admin-ui/appregistration.png)
+       ![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-registration.png)
 
 ## Build and deploy the web app
 
