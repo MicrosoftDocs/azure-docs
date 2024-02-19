@@ -185,6 +185,10 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 
     \* [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
 
+1. If you are not able to give app permsissions in the Prerequisite step because of the subscription constraints, remove `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively. 
+
+ :::image type="content" source="media/how-to-deploy-osdu-admin-ui/graph-permission.png" alt-text="Screenshot that shows graph permissions.":::   
+   
 1. Build the web UI.
     ```bash
     ng build
