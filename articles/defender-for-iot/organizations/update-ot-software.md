@@ -30,11 +30,11 @@ To perform the procedures described in this article, make sure that you have:
 
 - **Required access permissions**:
 
-    - **To download update packages or push updates from the Azure portal**, you'll need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
+    - **To download update packages or push updates from the Azure portal**, you need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
-    - **To run updates on an OT sensor or on-premises management console**, you'll need access as an **Admin** user.
+    - **To run updates on an OT sensor or on-premises management console**, you need access as an **Admin** user.
 
-    - **To update an OT sensor via CLI**, you'll need access to the sensor as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
+    - **To update an OT sensor via CLI**, you need access to the sensor as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -63,7 +63,7 @@ This section describes how to update Defender for IoT OT sensors using any of th
 
 For example, you might want to first send the update to your sensor or download an update package, and then have an administrator run the update later on, during a planned maintenance window.
 
-If you're using a legacy on-premises management console, make sure that you've [updated the on-premises management console](#update-the-on-premises-management-console) *before* updating any connected sensors.
+If you're using a legacy on-premises management console, make sure that you [update the on-premises management console](#update-the-on-premises-management-console) *before* updating any connected sensors.
 
 On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
 
@@ -88,7 +88,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-    The lower half of the page shows the sensors you selected and their status. Verify the status of the sensors. A sensor might not be available for update for various reasons, for example, it's already updated to the version you want to send, or there's a problem with the sensor, such as it's disconnected.
+    The lower half of the page shows the sensors you selected and their status. Verify the status of the sensors. A sensor might not be available for update for various reasons, for example, the sensor is already updated to the version you want to send, or there's a problem with the sensor, such as it's disconnected.
 
     :::image type="content" source="media/update-ot-software/sendpackage-pane-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="true":::
 
