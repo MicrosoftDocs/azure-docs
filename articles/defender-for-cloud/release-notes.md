@@ -33,7 +33,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 February 26, 2024
 
-Azure Kubernetes Service (AKS) threat detection features in Defender for Containers are now fully supported in commercial, Azure Government, and Azure China 21Vianet clouds. [Review](support-matrix-defender-for-containers.md#azure-aks) supported features.
+Azure Kubernetes Service (AKS) threat detection features in Defender for Containers are now fully supported in commercial, Azure Government, and Azure China 21Vianet clouds. [Review](support-matrix-defender-for-containers.md#azure) supported features.
 
 ### Open Container Initiative (OCI) image format specification support
 
