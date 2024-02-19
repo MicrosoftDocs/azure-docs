@@ -3,7 +3,7 @@ title: Assign access to workload owners
 description: Learn how to use Defender for Cloud to assign access to a workload owner of an AWS or GCP connector so that they can view the suggested recommendations provided by Defender for Cloud.
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/18/2024
+ms.date: 02/19/2024
 ---
 
 # Assign access to workload owners
@@ -126,7 +126,7 @@ To configure the permissions for a security connector in Azure Resource Graph:
 
 1. Select **Review + assign**.
 
-Once the permission is set for the security connector, the workload owners are able to see recommendations in Defender for Cloud for the AWS and GCP resources that are included in security connector.  
+After setting the permission for the security connector, the workload owners will be able to view recommendations in Defender for Cloud for the AWS and GCP resources that are associated with the security connector.
 
 ## Next steps
 
