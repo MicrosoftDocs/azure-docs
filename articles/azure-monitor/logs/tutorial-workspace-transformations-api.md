@@ -134,15 +134,15 @@ Use Log Analytics to test the transformation query before adding it to a data co
     :::image type="content" source="media/tutorial-workspace-transformations-portal/modified-query.png" lightbox="media/tutorial-workspace-transformations-portal/modified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
 
 
-4. Make the following changes to the query to use it in the transformation:
+1. Make the following changes to the query to use it in the transformation:
 
    - Instead of specifying a table name (`LAQueryLogs` in this case) as the source of data for this query, use the `source` keyword. This is a virtual table that always represents the incoming data in a transformation query.
-   - Remove any operators that aren't supported by transform queries. See [Supported tables for ingestion-time transformations](tables-feature-support.md) for a detail list of operators that are supported.
+   - Remove any operators that aren't supported by transform queries. See [Supported KQL features](/azure/azure-monitor/essentials/data-collection-transformations-structure) for a detail list of operators that are supported.
    - Flatten the query to a single line so that it can fit into the DCR JSON.
 
    Following is the query that you will use in the transformation after  these modifications:
 
-   ```kusto
+      ```kusto
    source | where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''
    ```
 
