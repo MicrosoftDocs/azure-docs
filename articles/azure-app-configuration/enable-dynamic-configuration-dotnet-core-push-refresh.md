@@ -9,8 +9,8 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 02/03/2022
-ms.author: msolomon
+ms.date: 02/20/2024
+ms.author: malev
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a .NET app
