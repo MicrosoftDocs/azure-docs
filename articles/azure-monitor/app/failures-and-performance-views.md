@@ -14,7 +14,7 @@ ms.reviewer: cogoodson
 
 ## [Failures view](#tab/failures-view)
 
-Application Insights automatically collects data about your application's performance and health, and displays this data in the Azure portal. Application Insights comes with a curated Application Performance Management (APM) experience to help you diagnose failures in your monitored applications. Select the **Failures** option in the Application Insights resource menu on the left, under **Investigate**, to get a list of all failures collected for your application and drill into each one. 
+Application Insights comes with a curated Application Performance Management (APM) experience to help you diagnose failures in your monitored applications. Select the **Failures** option in the Application Insights resource menu on the left, under **Investigate**, to get a list of all failures collected for your application and drill into each one. 
 
 :::image type="content" source="media/failures-and-performance-views/4-application-insights-02.png" lightbox="media/failures-and-performance-views/4-application-insights-02.png" alt-text="Screenshot of analyzing failures." :::
 
