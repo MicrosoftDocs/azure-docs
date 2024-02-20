@@ -41,9 +41,9 @@ Here's how to customize the display name for a published RemoteApp or Remote Des
 7. Select **Save**. The application you edited should now display the updated name.
 
 
-#### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
-#### Customize the display name for a RemoteApp
+### Customize the display name for a RemoteApp
 
 Here's how to customize the friendly name for a RemoteApp using PowerShell. By default, the friendly name is the same as the name of the RemoteApp program.
 
@@ -74,7 +74,7 @@ Update-AzWvdApplication @parameters
 ```
 
 
-#### Customize the display name for a Remote Desktop
+### Customize the display name for a Remote Desktop
 
 You can change the display name for a published remote desktop by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is "Session Desktop." If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name. If you have a personal host pool, you can also [set a friendly name for individual session hosts](#customize-the-display-name-for-a-session-host). 
 
