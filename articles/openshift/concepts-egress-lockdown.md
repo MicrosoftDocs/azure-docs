@@ -49,7 +49,7 @@ Depending on whether egress lockdown is enabled or disabled, you'll see one of t
 ## Relation to storage lockdown
 
 Storage lockdown is another feature of Azure Red Hat OpenShift that enhances cluster security. Storage Accounts created with the cluster are configured to restrict any public access. Exceptions are added for the Azure Red Hat OpenShift Resource Provisioner subnets as well as the subnet of egress lockdown gateway.
-Cluster components that utilise this storage, for example OpenShift Image Registry, rely on egress lockdown functionality instead of accessing the storage accounts directly.
+Cluster components that utilize this storage, for example, OpenShift Image Registry, rely on egress lockdown functionality instead of accessing the storage accounts directly.
 
 ## Next steps
 
