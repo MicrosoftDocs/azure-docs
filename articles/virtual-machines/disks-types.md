@@ -60,10 +60,10 @@ The following table provides a comparison of disk sizes and performance caps to 
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
 |32     |9,600         |2,400         |
-|64     |19,200         |4,000         |
-|128     |38,400         |4,000         |
-|256     |76,800         |4,000         |
-|512     |153,600         |4,000         |
+|64     |19,200         |4,900         |
+|128     |38,400         |9,800         |
+|256     |76,800         |10,000         |
+|512     |153,600         |10,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
 
 ### Ultra disk performance
