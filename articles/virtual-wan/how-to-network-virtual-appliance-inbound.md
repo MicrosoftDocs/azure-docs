@@ -115,12 +115,12 @@ Select the IP you want to remove from the grid and click **Delete**.
 
 ## Programming DNAT Rules
 
-The following section contains NVA provider-specific documentation on configuring DNAT rules with NVAs in Virtual WAN
+The following section contains NVA provider-specific instructions on configuring DNAT rules with NVAs in Virtual WAN
 
-|Partner| Documentation Link|
+|Partner| Instructions|
 |--|--|
-|checkpoint|[placeholderlink]()|
-|fortinet| [placeholderlink]()|
+|checkpoint|[Check Point documentation](https://aka.ms/ckptDNAT)|
+|fortinet| Contact azurevwan@fortinet.com for access to the preview and documentation|
 
 ## Troubleshooting
 The following section describes some common troubleshooting scenarios.
