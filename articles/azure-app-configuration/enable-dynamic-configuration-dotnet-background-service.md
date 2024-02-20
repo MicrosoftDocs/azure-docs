@@ -27,4 +27,25 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+
+## Add a key-value
+
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+
+| Key                        | Value                               |
+|----------------------------|-------------------------------------|
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
+
+## Create a .NET background service
+
+You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+
+1. Create a new folder for your project.
+
+2. In the new folder, run the following command to create a new .NET background service project:
+
+    ```dotnetcli
+    dotnet new worker
+    ```
+
