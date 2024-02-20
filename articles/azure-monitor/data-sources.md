@@ -10,43 +10,32 @@ ms.date: 15/20224
 
 # Sources of monitoring data for Azure Monitor
 
+Azure Monitor can collect data from a variety of sources, and different sources use difference collection methods and send data to different repositories in the Azure Monitor data platform. Different Azure Monitor features access different repositories, so it's important to not only understand how to collect data from the different sources in your environment, but you also need to understand where that data is stored so you know your options for analyzing it.
+
 This article describes common sources of monitoring data collected by Azure Monitor. Links are provided to detailed information on configuration required to collect this data to different locations.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
 
-| Data source | Data type | Description | Data Platform Destinations | Collection method |
-|:---|:---|:---|:---|:---|
-| Microsoft Entra audit logs | Audit logs | History of sign-in activity and audit trail of changes made within a particular tenant. | [Log Analytics workspace](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)<br>[Azure Storage](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)<br>[Event Hubs](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
-| Azure resources | [Activity logs](essentials/activity-log.md) | Service health records and configuration changes made to resources in your Azure subscription. | [Azure Monitor Logs](essentials/activity-log.md)<br>[Azure Storage](essentials/resource-logs.md#send-to-azure-storage)<br>[Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs) | Automatic<br>Diagnostic settings to send to elsewhere |
-| | Platform metrics | | Metrics<br>Log Analytics workspace<br>Azure Storage<br>Event Hubs | Automatic<br>Diagnostic settings to send to elsewhere |
-| | [Resource logs](essentials/resource-logs.md) |  | [Log Analytics workspace](essentials/resource-logs.md#send-to-log-analytics-workspace)<br>[Azure Storage](essentials/resource-logs.md#send-to-azure-storage)<br>[Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs) | [Diagnostic settings](essentials/resource-logs.md#send-to-log-analytics-workspace) |
-| Operating system (guest) | Events | Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of an agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves. | [Azure Monitor Logs](agents/azure-monitor-agent-overview.md#data-sources-and-destinations)<br>[Azure Monitor Metrics](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) | [Azure Monitor agent](agents/azure-monitor-agent-manage.md)<br>SCOM MI |
+| Data source | Data type | Description | Data platform destinations and collection method |
+|:---|:---|:---|:---|
+| Azure resources | [Activity log](essentials/activity-log.md) | Provides insight into subscription-level events for Azure services including service health records and configuration changes. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations including[Azure Monitor Logs](essentials/activity-log.md), [Azure Storage](essentials/resource-logs.md#send-to-azure-storage), [Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs). |
+| | Platform metrics | Numerical values that are automatically collected at regular intervals for different aspects of a resource. | Collected automatically and stored in [Azure Monitor Metrics](./essentials/data-platform-metrics.md). View in metrics explorer or create a diagnostic setting to send it to other destinations including Log Analytics workspace, Azure Storage, Event Hubs. |
+| | [Resource logs](essentials/resource-logs.md) | Provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type.  | Create a diagnostic setting to send it to other destinations including[Azure Monitor Logs](essentials/activity-log.md), [Azure Storage](essentials/resource-logs.md#send-to-azure-storage), [Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs).|
+| Microsoft Entra | Audit logs<br>Sign-in logs<br>Provisioning logs | History of sign-in activity and audit trail of changes made within a particular tenant.<br>Information about sign-ins and how your resources are used by your users.<br>Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations  [Log Analytics workspace](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), [Azure Storage](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md), [Event Hubs](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Virtual machines | Events<br>Performance data | Azure virtual machines create the same activity logs and platform metrics as other Azure resources, but these are for the host and not the guest operating system running on the machine. To monitor the workloads running on the virtual machine, you require such telemetry as Windows and Syslog events, performance data, service and deamon details, and  | To gather this information, you require the Azure Monitor agent, which can run on both Azure virtual machines and Arc-enabled servers. | 
+| Kubernetes cluster | Metrics | | |
+| | Logs | | |
+| Custom sources | Logs | In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, write this data to either Metrics or Logs using an Azure Monitor API. | [Logs ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md) |
+| | Metrics | | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
+
+
+| Destination | Method | Description | Reference |
+|:---|:---|:---|:---|
+| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md) |
 
 
 
-
-## Azure subscription
-Telemetry related to the health and operation of your Azure subscription.
-
-:::image type="content" source="media/data-sources/azure-subscription.png" lightbox="media/data-sources/azure-subscription.png" alt-text="Diagram that shows Azure subscription collection." border="false":::
-
-### Azure Activity log 
-The [Azure Activity log](essentials/platform-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
-
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. |[Query the Activity log with the Azure portal](essentials/activity-log.md#view-the-activity-log) |
-| Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](essentials/activity-log.md) |
-| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](essentials/resource-logs.md#send-to-azure-storage)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hubs](essentials/resource-logs.md#send-to-azure-event-hubs). |
-
-### Azure Service Health
-[Azure Service Health](../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
-
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Activity log<br>Azure Monitor Logs | Service Health records are stored in the Azure Activity log, so you can view them in the Azure portal or perform any other activities you can perform with the Activity log. | [View service health notifications by using the Azure portal](../service-health/service-notifications.md) |
 
 ### Azure Monitor Change Analysis
 
@@ -58,10 +47,6 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 | Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager configuration changes](./change/change-analysis.md#azure-resource-manager-resource-properties-changes) |
 | Web app in-guest changes | Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. | [Diagnose and solve problems tool for Web App](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) |
 
-## Azure resources
-Metrics and resource logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
-
-:::image type="content" source="media/data-sources/data-source-azure-resources.svg" lightbox="media/data-sources/data-source-azure-resources.svg" alt-text="Diagram that shows Azure resource collection." border="false":::
 
 
 ### Platform metrics 
@@ -107,15 +92,7 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 |:---|:---|:---|
 | Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](agents/om-agents.md) |
 
-### Azure diagnostic extension
-Enabling the Azure diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale Sets, and Service Fabric.
 
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
-| Azure Monitor Metrics (preview) | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](agents/diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
-| Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](agents/diagnostics-extension-to-application-insights.md) |
 
 
 ### VM insights 
@@ -149,33 +126,16 @@ When you enable Application Insights for an application by installing an instrum
 |            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](app/profiler-overview.md) 
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](app/snapshot-debugger.md#how-snapshots-work) |
 
-## Insights
-[Insights](insights/insights-overview.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
 
-### Container insights
-[Container insights](containers/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](../aks/index.yml). It collects additional data about these resources described in the following table.
-
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Container insights](containers/container-insights-analyze.md) |
-| Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Provides direct access to your Azure Kubernetes Service (AKS) container logs (stdout/stderror), events, and pod metrics in the portal. | [How to view Kubernetes logs, events, and pod metrics in real-time](containers/container-insights-livedata-overview.md) |
-
-### VM insights
-[VM insights](vm/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by VM insights is included in the [Operating System (guest)](#operating-system-guest) section above.
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, write this data to either Metrics or Logs using an Azure Monitor API.
 
 
-:::image type="content" source="media/data-sources/custom.png" lightbox="media/data-sources/custom.png" alt-text="Diagram that shows custom data collection." border="false":::
-
-
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
 | Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md) |
-|                    | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (preview)](logs/data-collector-api.md) |
 | Azure Monitor Metrics | Custom Metrics API | Collect metric data from any REST client and store in Azure Monitor metrics database. | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
 
 
