@@ -99,7 +99,7 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 ## Azure Stack HCI
 
-Azure Stack HCI is a hyperconverged infrastructure operating system delivered as an Azure service. This is a hybrid solution that is designed to host virtualized Windows and Linux VM or containerized workloads and their storage. Azure Stack HCI is a hybrid product that is offered on validated hardware and connects on-premises estates to Azure, enabling cloud-based services, monitoring and management. This helps customers manage their infrastructure from Azure and run virtualized workloads on-premises, making it easy for them to consolidate aging infrastructure and connect to Azure.
+[Azure Stack HCI](/azure-stack/hci/overview) is a hyperconverged infrastructure operating system delivered as an Azure service. This is a hybrid solution that is designed to host virtualized Windows and Linux VM or containerized workloads and their storage. Azure Stack HCI is a hybrid product that is offered on validated hardware and connects on-premises estates to Azure, enabling cloud-based services, monitoring and management. This helps customers manage their infrastructure from Azure and run virtualized workloads on-premises, making it easy for them to consolidate aging infrastructure and connect to Azure.
 
 ### Capabilities
 
