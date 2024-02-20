@@ -43,7 +43,7 @@ Metrics are reported in a simple human-friendly form.  They're provided primaril
 
 Microsoft Support might request diagnostic packages when investigating an issue.
 
-To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
+To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-aoi-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
 > [!NOTE]
 > Diagnostics packages don't contain any customer data or the value of any credentials.
