@@ -180,10 +180,10 @@ Use the following steps to build and deploy the sample applications.
 
 1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select **Application Insights** on the page.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Application Insights page with the Application Insights highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
 
    > [!NOTE]
-   > If there's no default Application Insight, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
+   > If there's no default Application Insights available, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
 1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and pre-aggregation](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) section of [Log-based and pre-aggregated metrics in Application Insights](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md).
 
@@ -215,12 +215,12 @@ Use the following steps to build and deploy the sample applications.
 
 ::: zone pivot="sc-enterprise"
 
-1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select the default Application Insights on the page.
+1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select the default **Application Insights** on the page.
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Enterprise Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png":::
 
    > [!NOTE]
-   > If there's no default Application Insight, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
+   > If there's no default Application Insights available, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
 1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and pre-aggregation](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) section of [Log-based and pre-aggregated metrics in Application Insights](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md).
 
