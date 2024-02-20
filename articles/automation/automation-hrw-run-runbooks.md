@@ -415,13 +415,13 @@ You will perform the following steps to complete this configuration:
 
 > [!NOTE]
 > - PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
-> - Signed python runbooks aren't supported in extension-based linux hybrid workers.
+> - Signed PowerShelll and Python runbooks aren't supported in extension-based linux hybrid workers.
 
 
 ### Create a GPG keyring and keypair
 
 > [!NOTE]
-> The Create a GPG keyring and keypair is applicable only for the agent-based hybrid workers.
+> The Create a GPG keyring and keypair are applicable only for the agent-based hybrid workers.
 
 To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
 
