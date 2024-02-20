@@ -3,7 +3,6 @@ title: Disaster recovery for FarmBeats
 description: This article describes how data recovery protects from losing your data.
 author: RiyazPishori
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 04/13/2020
 ms.author: riyazp
 ---

@@ -5,7 +5,6 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/27/2022
 ms.author: mimckitt
 ms.reviewer: davberg

@@ -8,10 +8,13 @@ ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/29/2023
-ms.custom: seodec18, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurepowershell, linux-related-content
 ---
 
 # Azure Disk Encryption sample scripts for Linux VMs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 

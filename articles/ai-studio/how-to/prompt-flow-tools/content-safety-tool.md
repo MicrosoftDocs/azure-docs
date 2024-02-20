@@ -27,7 +27,7 @@ Create an Azure Content Safety connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
 1. Go to **Settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog box. You can use an Azure AI resource or Azure AI Content Safety resource. An Azure AI resource that supports multiple Azure AI services is recommended. 
+1. Complete all steps in the **Create a new connection** dialog box. You can use an Azure AI hub resource or Azure AI Content Safety resource. An Azure AI hub resource that supports multiple Azure AI services is recommended. 
 
 ## Build with the Content Safety tool
 

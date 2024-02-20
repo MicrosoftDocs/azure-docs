@@ -6,11 +6,13 @@ manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.workload: storage-backup-recovery
 ms.date: 08/01/2023
 ms.author: ankitadutta
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 

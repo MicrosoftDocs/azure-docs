@@ -4,7 +4,6 @@ description: This guide is for IT professionals, security analysts, and cloud ad
 author: dcurwin
 ms.author: dacurwin
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 01/24/2024
 ---
 

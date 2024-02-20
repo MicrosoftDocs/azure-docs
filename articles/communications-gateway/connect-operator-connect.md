@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 11/27/2023
+ms.date: 02/16/2024
 ms.custom:
     - template-how-to-pattern
     - has-azure-ad-ps-ref
@@ -33,11 +33,13 @@ You must allocate "service verification" test numbers. These numbers are used by
 You must also allocate at least one test number for each service for integration testing.
 
 If you want to set up Teams Phone Mobile and you didn't select it when you deployed Azure Communications Gateway, choose:
+
 - The number used in Teams Phone Mobile to access the Voicemail Interactive Voice Response (IVR) from native dialers.
-- How you plan to route Teams Phone Mobile calls to Microsoft Phone System. Choose from:
-    - Integrated MCP (MCP in Azure Communications Gateway).
-    - On-premises MCP.
-    - Another method to route calls.
+- The method for routing Teams Phone Mobile calls to Microsoft Phone System. Choose from:
+
+  - Integrated MCP (MCP in Azure Communications Gateway).
+  - On-premises MCP.
+  - Another method to route calls.
 
 ## Enable Operator Connect or Teams Phone Mobile support
 
@@ -46,9 +48,9 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource and select it.
-1. In the side menu bar, find **Communications services** and select **Operator Connect** or **Teams Phone Mobile** (as appropriate) to open a page for the service.
-1. On the service's page, select **Operator Connect settings** or **Teams Phone Mobile settings**.
-1. Fill in the fields, selecting **Review + create** and **Create**.
+1. In the side menu bar, under **Communications services**, select **Operator Connect** or **Teams Phone Mobile** (as appropriate) to open a page for the service.
+1. Select **Operator Connect settings** or **Teams Phone Mobile settings**.
+1. Fill in the fields, then select **Review + create** and **Create**.
 1. Select the **Overview** page for your resource.
 1. Select **Add test lines** and add the service verification lines you chose in [Prerequisites](#prerequisites). Set the **Testing purpose** to **Automated**.
     > [!IMPORTANT]
@@ -72,7 +74,7 @@ To add the Project Synergy application:
        ```azurepowershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module:
+    1. If `AzureAD` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
@@ -136,7 +138,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
        ```azurepowershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module:
+    1. If `AzureAD` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.

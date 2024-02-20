@@ -8,7 +8,6 @@ author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: troubleshooting
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021
 ---
 # Troubleshooting for QnA Maker
 

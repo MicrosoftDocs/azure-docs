@@ -3,13 +3,11 @@ title: Review your individual Azure subscription bill
 description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription, including pay-as-you-go.
 author: bandersmsft
 ms.reviewer: judupont
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
 ms.date: 04/05/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Tutorial: Review your individual Azure subscription bill

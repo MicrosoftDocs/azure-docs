@@ -1,17 +1,17 @@
 ---
 title: Query Apache Hive through the JDBC driver - Azure HDInsight
-description: Use the JDBC driver from a Java application to submit Apache Hive queries to Hadoop on HDInsight. Connect programmatically and from the SQuirrel SQL client.
+description: Use the JDBC driver from a Java application to submit Apache Hive queries to Hadoop on HDInsight. 
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, hdiseo17may2017, seoapr2020, devx-track-extended-java
-ms.date: 01/06/2023
+ms.custom: hdinsightactive, devx-track-extended-java
+ms.date: 02/12/2024
 ---
 
 # Query Apache Hive through the JDBC driver in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Learn how to use the JDBC driver from a Java application. To submit Apache Hive queries to Apache Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically, and from the SQuirreL SQL client.
+Learn how to use the JDBC driver from a Java application. To submit Apache Hive queries to Apache Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically, and from the `SQuirreL SQL` client.
 
 For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
@@ -71,7 +71,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png" alt-text="SQuirreL SQL application drivers icon" border="true":::
 
-5. In the Add Driver dialog, add the following information:
+5. In the Added Driver dialog, add the following information:
 
     |Property | Value |
     |---|---|
@@ -143,9 +143,9 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 ### Connection disconnected by HDInsight
 
-**Symptoms**: When trying to download huge amount of data (say several GBs) through JDBC/ODBC, the connection is disconnected by HDInsight unexpectedly while downloading.
+**Symptoms**: HDInsight unexpectedly disconnects the connection when trying to download a huge amount of data (say several GBs) through JDBC/ODBC.
 
-**Cause**: This error is caused by the limitation on Gateway nodes. When getting data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway isn't designed to download a huge amount of data, so the Gateway might close the connection if it can't handle the traffic.
+**Cause**:  The limitation on Gateway nodes causes this error. When getting data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway isn't designed to download a huge amount of data, so the Gateway might close the connection if it can't handle the traffic.
 
 **Resolution**: Avoid using JDBC/ODBC driver to download huge amounts of data. Copy data directly from blob storage instead.
 

@@ -4,7 +4,6 @@ description: Explains how to use standard storage with cool access to configure 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: anfdocs
@@ -46,6 +45,7 @@ Standard storage with cool access is supported for the following regions:
 * East US 2   
 * France Central
 * Germany West Central
+* Japan East
 * North Central US 
 * North Europe  
 * Southeast Asia
@@ -54,10 +54,12 @@ Standard storage with cool access is supported for the following regions:
 * Sweden Central
 * UAE North 
 * UK South
+* UK West
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia 
 * West US
+* West US 3
 
 ## Effects of cool access on data
 

@@ -116,9 +116,6 @@ conceptualContent:
         - url: ./iot-overview-solution-extensibility.md
           itemType: overview
           text: Introduction to Azure IoT extensibility options
-        - url: ../industrial-iot/overview-what-is-industrial-iot.md
-          itemType: overview
-          text: Industrial IoT
         - url: ../iot/iot-sdks.md#iot-hub-service-sdks
           itemType: reference
           text: Service SDKs

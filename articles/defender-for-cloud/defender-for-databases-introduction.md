@@ -55,8 +55,6 @@ Threat intelligence enriched security alerts are triggered when there are:
 > [!TIP]
 > View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-osrdb).
 
-
-
 ## Next steps
 
 In this article, you learned about Microsoft Defender for open-source relational databases.

@@ -3,12 +3,15 @@ title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 02/06/2024
 ---
 
 # Required outbound traffic for HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+> [!NOTE]
+> HDInsight on AKS uses Azure CNI network model by default. For more information, see [Azure CNI networking](../aks/concepts-network.md#azure-cni-overlay-networking).
 
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 

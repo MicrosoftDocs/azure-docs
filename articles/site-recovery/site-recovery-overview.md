@@ -3,7 +3,7 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: site-recovery
-ms.date: 09/20/2023
+ms.date: 02/07/2024
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -41,8 +41,8 @@ Site Recovery can manage replication for:
 **VMware VM replication** | You can replicate VMware VMs to Azure using the improved Azure Site Recovery replication appliance that offers better security and resilience than the configuration server. For more information, see [Disaster recovery of VMware VMs](vmware-azure-about-disaster-recovery.md).
 **On-premises VM replication** | You can replicate on-premises VMs and physical servers to Azure, or to a secondary on-premises datacenter. Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
 **Workload replication** | Replicate any workload running on supported Azure VMs, on-premises Hyper-V and VMware VMs, and Windows/Linux physical servers.
-**Data resilience** | Site Recovery orchestrates replication without intercepting application data. When you replicate to Azure, data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data. This also applies to Public MEC to Azure region Azure Site Recovery scenario. In case of Azure Public MEC to Public MEC Azure Site Recovery scenario (the Azure Site Recovery functionality for Public MEC is in preview state), data is stored in the Public MEC.
-**RTO and RPO targets** | Keep recovery time objectives (RTO) and recovery point objectives (RPO) within organizational limits. Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce RTO further by integrating with [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
+**Data resilience** | Site Recovery orchestrates replication without intercepting application data. When you replicate to Azure, data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data. This also applies to Public MEC to Azure region Azure Site Recovery scenario. In case of Azure Public MEC to Public MEC Azure Site Recovery scenario (the ASR functionality for Public MEC is in preview state), data is stored in the Public MEC.
+**RTO and RPO targets** | Keep recovery time objectives (RTO) and recovery point objectives (RPO) within organizational limits. Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce RTO further by integrating with [Azure Traffic Manager](./concepts-traffic-manager-with-site-recovery.md).
 **Keep apps consistent over failover** | You can replicate using recovery points with application-consistent snapshots. These snapshots capture disk data, all data in memory, and all transactions in process.
 **Testing without disruption** | You can easily run disaster recovery drills, without affecting ongoing replication.
 **Flexible failovers** | You can run planned failovers for expected outages with zero-data loss. Or, unplanned failovers with minimal data loss, depending on replication frequency, for unexpected disasters. You can easily fail back to your primary site when it's available again.
