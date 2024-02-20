@@ -49,3 +49,166 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     dotnet new worker
     ```
 
+## Reload data from App Configuration
+
+1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following commands:
+
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    ```
+
+1. Run the following command to restore packages for your project:
+
+    ```dotnetcli
+    dotnet restore
+    ```
+
+1. Open *Program.cs* and add the following statements:
+
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+1. Connect to App Configuration.
+
+    ```csharp
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+            // Load all keys that start with `TestApp:`.
+            .Select("TestApp:*")
+            // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+            .ConfigureRefresh(refresh =>
+            {
+                refresh.Register("TestApp:Settings:Message")
+                       .SetCacheExpiration(TimeSpan.FromSeconds(5));
+            });
+
+        // Register the refresher so that the Worker service can consume it through DI
+        builder.Services.AddSingleton(options.GetRefresher());
+    });
+
+    builder.Services.AddFeatureManagement();
+    ```
+
+    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 5 seconds instead for demonstration purposes.
+
+1. Open *Worker.cs*. Inject `IConfiguration` and `IConfigurationRefresher` to the `Worker` service and log the configuration data from App Configuration.
+
+    ```csharp
+    public class Worker : BackgroundService
+    {
+        private readonly ILogger<Worker> _logger;
+        private static IConfiguration _configuration;
+        private readonly IConfigurationRefresher _refresher;
+
+        public Worker(ILogger<Worker> logger, IConfiguration configuration, IConfigurationRefresher refresher)
+        {
+            _logger = logger;
+            _configuration = configuration;
+            _refresher = refresher;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                if (_refresher != null)
+                {
+                    await _refresher.TryRefreshAsync(stoppingToken);
+                }
+
+                if (_logger.IsEnabled(LogLevel.Information))
+                {
+                    _logger.LogInformation(_configuration["TestApp:Settings:Message"] ?? "No data.");
+                }
+                await Task.Delay(1000, stoppingToken);
+            }
+        }
+    }
+    ```
+
+    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` when you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+
+## Build and run the app locally
+
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command.
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command.
+
+    ```console
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+
+    ### [PowerShell](#tab/powershell)
+
+    If you use Windows PowerShell, run the following command.
+
+    ```azurepowershell
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
+
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command.
+
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command.
+
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+
+    ---
+
+1. Run the following command to build the console app.
+
+    ```dotnetcli
+    dotnet build
+    ```
+
+1. After the build successfully completes, run the following command to run the app locally.
+
+    ```dotnetcli
+    dotnet run
+    ```
+
+1. You should see the following outputs in the console.
+
+    ![Background service](./media/dotnet-background-service-run.png)
+
+1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
+
+    | Key                        | Value                                         |
+    |----------------------------|-----------------------------------------------|
+    | *TestApp:Settings:Message* | *Data from Azure App Configuration - Updated* |
+
+1. Wait for about 5 seconds. You should see the console outputs changed.
+
+    ![Background service refresh](./media/dotnet-background-service-refresh.png)
+
+## Clean up resources
+
+[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+
+In this tutorial, you enabled your .NET background service to dynamically refresh configuration settings from App Configuration. To learn how to enable dynamic configuration in an ASP.NET Web Application, continue to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration in ASP.NET Web Applications](./enable-dynamic-configuration-aspnet-core.md)
+
+To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
