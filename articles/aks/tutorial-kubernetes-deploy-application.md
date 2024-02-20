@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Deploy an application to Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using images stored in Azure Container Registry.
 ms.topic: tutorial
-ms.date: 11/02/2023
+ms.date: 02/20/2023
 ms.custom: mvc
 #Customer intent: As a developer, I want to learn how to deploy apps to an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
@@ -38,6 +38,10 @@ This tutorial requires Azure CLI version 2.34.1 or later. Run `az --version` to 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+This tutorial requires Azure Developer CLI version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
@@ -109,11 +113,18 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 4. Save and close the file. In `vi`, use `:wq`.
 
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+AZD does not require a container registry step.
+
 ---
 
-## Deploy the application
+## Run the application
 
-* Deploy the application using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
+### [Azure CLI](#tab/azure-cli)
+
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
 
     ```console
     kubectl apply -f aks-store-quickstart.yaml
@@ -131,6 +142,18 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     deployment.apps/store-front created
     service/store-front created
     ```
+
+2. Check the deployment is successful by viewing the pods with `kubectl`
+
+    ```console
+    kubectl get pods
+    ```
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+To deploy your services, run `azd up`
+
+---
 
 ## Test the application
 
@@ -182,6 +205,7 @@ In the next tutorial, you learn how to use PaaS services for stateful workloads 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [az-acr-list]: /cli/azure/acr
+[azure-azd-install]: /azure/developer/azure-developer-cli/install-azd
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
