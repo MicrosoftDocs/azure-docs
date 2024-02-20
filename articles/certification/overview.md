@@ -1,6 +1,6 @@
 ---
 title: Overview of the Edge Secured-core program
-description: An overview of the Edge Secured-core program for our partners and customers. Use these resources to start the certification process. Find out how to certify your device, from IoT device requirements to the device being publishrf.
+description: An overview of the Edge Secured-core program for our partners and customers. Use these resources to start the certification process. Find out how to certify your device, from IoT device requirements to the device being published.
 author: sufon
 ms.author: sufon
 ms.topic: overview 
