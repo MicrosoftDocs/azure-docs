@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
