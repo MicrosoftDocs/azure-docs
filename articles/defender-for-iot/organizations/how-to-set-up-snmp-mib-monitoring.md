@@ -88,22 +88,23 @@ If you're configuring *Solorwinds* or *Sanofi* to discover and monitor the OT se
 | **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
-| **Microsoft Defender for IoT**  | 1.3.6.1.2.1.1.1 - sysDescr  | DISPLAYSTRING  | Return string value |
-| **Value = 1.3.6.1.4.1.53313.1** |1.3.6.1.2.1.1.2 - sysObjectID  | DISPLAYSTRING | This points to the private MIB allocation  |
-| **Sensor OS uptime** |1.3.6.1.2.1.1.3 - sysUpTime | DISPLAYSTRING  | The textual identification of the contact person for this managed node, together with information on how to contact this person.  |
-| **Appliance Name** | 1.3.6.1.2.1.1.5 - sysName | DISPLAYSTRING  | Sensor the name the customer sets |
-| **Value = Portal.azure.com** |1.3.6.1.2.1.1.6 - sysLocation  | DISPLAYSTRING | Allow user to edit in CLI / property file  |
-| **Value = 7** | 1.3.6.1.2.1.1.7 - sysServices  | INTEGER   | |
-| **Network card #** |1.3.6.1.2.1.2.2.1.1 - ifIndex  | GAUGE32  | |
-| **Network card role**  | 1.3.6.1.2.1.2.2.1.2 - ifDescription | DISPLAYSTRING | NIC linux hardware description |
-| **1.3.6.1.2.1.2.2.1.3.117** | 1.3.6.1.2.1.2.2.1.3 - ifinterface type  |  | |
-| **For management MTU set**  | 1.3.6.1.2.1.2.2.1.4 - ifMtu | GAUGE32  | Return value  |
-| **Interface speed** | 1.3.6.1.2.1.2.2.1.5 – ifspeed  | GAUGE32 | Return value  |
+| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | This returns “Microsoft Defender for IoT”  |
+| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example will always return - 1.3.6.1.4.1.53313.1  ?? not sure about this?? |
+| **sysUpTime** | 1.3.6.1.2.1.1.3  | DISPLAYSTRING  | This returns the sensor uptime ?in seconds?? |
+| **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | This returns the textual name of the admin user for this sensor   |
+| **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | This returns the appliance name  |
+| **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | This returns the default location Portal.azure.com  |
+| **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | This returns a value indicating the service this entity offers. For example, “7” signifies “applications” |
+| **ifIndex** |1.3.6.1.2.1.2.2.1.1  | GAUGE32  | This returns the sequential id numbers for each network card |
+| **ifDescription**  | 1.3.6.1.2.1.2.2.1.2  | DISPLAYSTRING | This returns a string of the hardware description for each network interface card |
+| **ifType**  | 1.3.6.1.2.1.2.2.1.3  | INTEGER | This returns the type of network adapter, for example “1.3.6.1.2.1.2.2.1.3.117” signifies “Gigabit Ethernet” |
+| **ifMtu**  | 1.3.6.1.2.1.2.2.1.4 | GAUGE32  | This returns the MTU value for this network adapter. **Note** – monitoring interfaces won't show an MTU value  |
+| **ifspeed** | 1.3.6.1.2.1.2.2.1.5  | GAUGE32 | This returns the interface speed for this network adapter   |
 
 Note that:
 
 - Nonexisting keys respond with null, HTTP 200.
-- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
+- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
 <!-- where is the public MiB file that needs to be updated? -->
 
