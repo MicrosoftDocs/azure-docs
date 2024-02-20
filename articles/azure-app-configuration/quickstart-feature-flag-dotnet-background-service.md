@@ -42,7 +42,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     dotnet new worker
     ```
 
-## Use feature flag
+## Use the feature flag
 
 1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
 
