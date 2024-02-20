@@ -168,7 +168,7 @@ helm install azureappconfiguration.kubernetesprovider \
 
 ### Autoscaling
 
-By default, autoscaling is disabled. However, if you have multiple `AzureAppConfigurationProvider` resources to produce multiple ConfigMaps/Secrets and may hit a performance bottleneck of single pod, you can enable horizontal pod autoscaling by setting `autoscaling.enabled` to `true`.
+By default, autoscaling is disabled. However, if you have multiple `AzureAppConfigurationProvider` resources to produce multiple ConfigMaps/Secrets, you can enable horizontal pod autoscaling by setting `autoscaling.enabled` to `true`.
 
 ## Examples
 
@@ -462,7 +462,7 @@ Assuming an App Configuration store has these key-values:
 
 #### [default](#tab/default)
 
-and the `configMapData.type` property is absent or set to `default`,
+And the `configMapData.type` property is absent or set to `default`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -475,7 +475,7 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
 ```
 
-the generated ConfigMap is populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -486,7 +486,7 @@ data:
 
 #### [json](#tab/json)
 
-and the `configMapData.type` property is set to `json`,
+And the `configMapData.type` property is set to `json`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -502,7 +502,7 @@ spec:
       key: appSettings.json
 ```
 
-the generated ConfigMap is populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -512,7 +512,7 @@ data:
 
 #### [yaml](#tab/yaml)
 
-and the `configMapData.type` property is set to `yaml`,
+And the `configMapData.type` property is set to `yaml`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -528,7 +528,7 @@ spec:
       key: appSettings.yaml
 ```
 
-the generated ConfigMap is populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -540,7 +540,7 @@ data:
 
 #### [properties](#tab/properties)
 
-and the `configMapData.type` property is set to `properties`,
+And the `configMapData.type` property is set to `properties`,
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -556,7 +556,7 @@ spec:
       key: app.properties
 ```
 
-the generated ConfigMap is populated with the following data:
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
