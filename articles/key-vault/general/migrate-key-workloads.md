@@ -7,7 +7,6 @@ services: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.service: key-vault
-ms.subservice: general
 ms.date: 02/20/2024
 ---
 
