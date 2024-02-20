@@ -22,9 +22,9 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
   - [User.Read](/graph/permissions-reference#applicationreadall)
   - [User.Read.All](/graph/permissions-reference#userreadall)
     
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-1.png" alt-text="Screenshot that shows applications read all permission.":::
+    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-1.png" alt-text="Screenshot that shows applications read all permission.":::
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-2.png" alt-text="Screenshot that shows user read all permission.":::
+    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/app-permission-2.png" alt-text="Screenshot that shows user read all permission.":::
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
@@ -34,22 +34,22 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 3. Accept the cloning prompt.
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/clone-the-repository.png" alt-text="Screenshot that shows cloning the repository.":::
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/clone-the-repository.png" alt-text="Screenshot that shows cloning the repository.":::
 
 4. When prompted for a container configuration template,
-   1. Select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu).
-   2. Accept the default version.
-   3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature.
+  1. Select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu).
+  2. Accept the default version.
+  3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature.
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/option-selection.png" alt-text="Screenshot that shows option selection.":::
+    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/option-selection.png" alt-text="Screenshot that shows option selection.":::
 
 5. After a few minutes, the devcontainer is running.
    
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/running-devcontainer.png" alt-text="Screenshot that shows running devcontainer.":::
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/running-devcontainer.png" alt-text="Screenshot that shows running devcontainer.":::
    
 6. Open the terminal
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
 
 7. Install NVM, Node.js, NPM, and Angular CLI by executing the command in the bash terminal.
     
@@ -63,7 +63,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/install-screen.png" alt-text="Screenshot that shows installation.":::
 
 8. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen.
     ```azurecli-interactive
@@ -72,13 +72,14 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 9. It takes you to the login screen. Enter your credentials and upon success, you see a success message.
 
-:::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
 
 10. Make sure the correct subscription is selected by running the following command:
     ```azurecli-interactive
     az account show
     ```
- :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subs-id-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
+
+    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subs-id-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
 
 
 11. If you need to change subscription:
@@ -89,7 +90,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Configure environment variables
 1. Fetch `client-id`, `resource-group`, and `location`.
 
-  ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
+   ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
 
 2. Enter the required environment variables on the terminal.
 ```bash
@@ -188,7 +189,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 
 4. If you aren't able to give app permissions in the Prerequisite step because of the subscription constraints, remove `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively. 
 
- :::image type="content" source="media/how-to-deploy-osdu-admin-ui/graph-permission.png" alt-text="Screenshot that shows graph permissions.":::   
+   :::image type="content" source="media/how-to-deploy-osdu-admin-ui/graph-permission.png" alt-text="Screenshot that shows graph permissions.":::   
    
 5. Build the web UI.
     ```bash
