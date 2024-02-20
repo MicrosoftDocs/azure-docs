@@ -24,7 +24,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 1. Save a copy of the existing */etc/az-mcc-edr-uploader/config.yaml* configuration file.
 
-1. Upgrade the RPM: `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  
+1. Upgrade the RPM: `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  
 
 1. Create a new config file based on the new sample, keeping values from the original. Follow specific instructions in the release notes for the upgrade to ensure the new configuration is generated correctly. 
 

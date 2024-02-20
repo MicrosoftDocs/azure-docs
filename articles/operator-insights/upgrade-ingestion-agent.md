@@ -24,7 +24,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 1. Copy the RPM to the VM. In an SSH session, change to the directory where the RPM was copied.
 1. Save a copy of the existing */etc/az-aoi-ingestion/config.yaml* configuration file.
-1. Upgrade the RPM: `sudo dnf install .\*.rpm`. Answer 'y' when prompted.  
+1. Upgrade the RPM: `sudo dnf install ./*.rpm`. Answer 'y' when prompted.  
 1. Create a new config file based on the new sample, keeping values from the original. Follow specific instructions in the release notes for the upgrade to ensure the new configuration is generated correctly. 
 1. Restart the agent: `sudo systemctl restart az-aoi-ingestion.service`.
 1. Once the agent is running, configure the az-aoi-ingestion service to automatically start on a reboot: `sudo systemctl enable az-aoi-ingestion.service`.
