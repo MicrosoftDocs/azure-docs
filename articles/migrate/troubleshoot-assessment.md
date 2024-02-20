@@ -181,7 +181,7 @@ This section helps on fixing the following assessment readiness issues.
 
 ### Issue: Conditionally endorsed Linux OS
 
-**Fix:** Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure. [Learn more](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
+**Fix:** Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure.
 
 ### Issue: Unendorsed Linux OS
 
