@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Simulcast
 titleSuffix: An Azure Communication Services concept document
-description: Overview of Simulcast - how sending multiple video quality streams helps overall call quality
+description: Overview of Simulcast - how sending multiple video quality streams helps overall call quality.
 author: sloanster
 manager: chpalm
 services: azure-communication-services
