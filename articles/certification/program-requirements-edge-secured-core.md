@@ -1,10 +1,10 @@
 ---
 title: Edge Secured-core Certification Requirements
 description: Edge Secured-core Certification program requirements
-author: cbroad
-ms.author: cbroad
+author: sufon
+ms.author: sufon
 ms.topic: conceptual 
-ms.date: 06/21/2021
+ms.date: 02/20/2024
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
@@ -239,7 +239,6 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Status|Required|
 |Description|The device boot sequence must support either: <ul><li>Approved firmware with SRTM support + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
 |Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
-|Dependencies||
 |Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
 ---
@@ -428,7 +427,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
 |Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement as MT3620 includes the integrated Pluton security processor.|
 
 ---
 </br>
@@ -438,7 +437,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A securely configurable peripheral firewall.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a securely configurable peripheral firewall.|
 
 ---
 </br>
@@ -448,7 +447,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device boot sequence must protect against firmware security threats.|
 |Purpose|Protects against firmware weaknesses, persistent untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed, hardened, and approved authenticated boot chain.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed, hardened, and authenticated boot chain.|
 
 ---
 </br>
@@ -458,7 +457,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device boot sequence must be authenticated.|
 |Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed authenticated boot chain.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed authenticated boot chain.</li></ul>|
 
 ---
 </br>
@@ -468,7 +467,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to a Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Device Authentication and Attestation (DAA) as part of the Azure Sphere Security Service (AS3).</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through the Device Authentication and Attestation (DAA) service provided as part of the Azure Sphere Security Service (AS3).|
 
 ---
 </br>
@@ -478,7 +477,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device must feature a secure enclave capable of performing security functions.|
 |Purpose|Ensures that sensitive cryptographic operations (those key to device identity and chain-of-trust) are isolated and protected from the primary OS and some forms of side-channel attack.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement as MT3260 includes the Pluton security processor.|
 
 ## Azure Sphere OS Configuration Requirements
 
@@ -486,9 +485,9 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|Sensitive and private data must be encrypted at rest using dm-crypt or similar, supporting XTS-AES as the default algorithm with a key length of 128 bits or higher, with encryption keys backed by hardware protection.|
+|Description|Sensitive and private data must be encrypted at rest, with encryption keys backed by hardware protection.|
 |Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor, in-package non-volatile memory storage, and customer-exposed wolfCrypt APIs.</li></ul>|
+|Dependencies| Azure Sphere enables this requirement to be met using the Pluton security processor, in-package non-volatile memory, and customer-exposed wolfCrypt APIs.|
 
 ---
 </br>
@@ -498,8 +497,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have secure TLS cipher suites available.|
 |Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers without known weaknesses, that are supported by Azure Services.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.</li></ul>|
-|Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.|
 
 ---
 </br>
@@ -509,7 +507,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The OS must feature code integrity support, with code operating under least privilege.|
 |Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and hardened OS with read-only filesystem stored on in-package non-volatile memory storage and executed in on-die RAM, with restricted/contained and least-privilaged workloads.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through the Microsoft-managed and hardened OS with read-only filesystem stored on in-package non-volatile memory storage and executed in on-die RAM, with restricted/contained and least-privileged workloads.|
 
 ---
 </br>
@@ -519,7 +517,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Services listening for input from the network must not run with elevated privileges, such as SYSTEM or root. Exceptions may apply for security-related services.|
 |Purpose|Limits the exploitability of compromised networked services.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Restricted/contained and least-privilaged workloads.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through restricted/contained and least-privileged workloads.|
 
 ---
 </br>
@@ -529,7 +527,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Applications can't connect to endpoints that haven't been authorized.|
 |Purpose|Limits the exploitability of compromised or malicious applications for upstream network traffic and remote access/control.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A securely configurable network firewall with wildcard restrictions and Device Authentication and Attestation (DAA) certificates.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a securely configurable network firewall and Device Authentication and Attestation (DAA) certificates.|
 
 ## Azure Sphere Software/Service Requirements
 ---
@@ -538,7 +536,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor, remote crash-dump support via Azure Watson, and customer-samples for in-application logging via Azure services.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor and the ability for applications to send security logs and alerts via Azure services.|
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
@@ -549,7 +547,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device must support auditing and setting of system configuration (and certain management actions) through Azure.|
 |Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A secure customer application configuration manifest, underpinned by a Microsoft-managed, and hardened OS.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through secure customer application configuration manifests, underpinned by a Microsoft-managed, and hardened OS.
 
 ---
 </br>
@@ -557,9 +555,9 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Name|SecuredCore.Update|
 |:---|:---|
 |Status|Required|
-|Description|The device must be able to receive and update its firmware and software through Azure Device Update or other approved services.|
+|Description|The device must be able to receive and update its firmware and software.|
 |Purpose|Enables continuous security and renewable trust.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and automatically updated OS, with customer application updates delivered remotely via the Azure Sphere Security Service (AS3).</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed and automatically updated OS, with customer application updates delivered remotely via the Azure Sphere Security Service (AS3).|
 
 ---
 </br>
@@ -569,7 +567,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The system is able to successfully apply a baseline security configuration.|
 |Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A a Microsoft-managed and hardened OS.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed and hardened OS.|
 
 ---
 </br>
@@ -579,7 +577,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|The device must be restorable to the last known good state if an update causes issues.|
 |Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: A golden-image mechanism.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement through a built-in rollback mechanism for updates.|
 
 ---
 </br>
@@ -589,7 +587,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Updates to the operating system, drivers, application software, libraries, packages, and firmware must be signed.|
 |Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: All images are signed.</li></ul>|
+|Dependencies| Azure Sphere meets this requirement.|
 
 ## Azure Sphere Policy Requirements
 ---
@@ -598,7 +596,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
 |Purpose|Ensures that the software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Debug locked-down for production state devices and further restricted through the authenticated capabilities mechanism.</li></ul>|
+|Dependencies| Azure Sphere OS meets this requirement as debug functionality requires a signed capability that is only provided to the device OEM owner.|
 
 ---
 </br>
@@ -608,7 +606,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|It must be possible to reset the device (remove user data, remove user configs).|
 |Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Remote update of the application and automatic erasure of MutableStorage when the 'component id' is modified (indicating a new application).</li></ul>|
+|Dependencies| The Azure Sphere OS enables OEM applications to implement reset functionality.|
 
 ---
 </br>
@@ -618,7 +616,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Software updates must be provided for at least 60 months from date of submission.|
 |Purpose|Ensures a minimum period of continuous security.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: OS and silicon update support provided until at least July 2031.</li></ul>|
+|Dependencies| The Azure Sphere OS meets this requirement as Microsoft provides OS security updates, and the AS3 service enables OEMs to provide application software updates. |
 
 ---
 </br>
@@ -628,7 +626,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
 |Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Vulnerabilities are collected by Microsoft through Microsoft Security Response Center (MSRC) and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.</li></ul>|
+|Dependencies| Azure Sphere OS vulnerabilities can be reported to Microsoft Security Response Center (MSRC) and are published to customers through the Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
 |Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
 
 ---
@@ -639,7 +637,7 @@ The Mediatek MT3620AN must be included in your design. More guidance for buildin
 |Status|Required|
 |Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
 |Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
-|Dependencies| Microsoft meets this requirement for Azure Sphere based products through:<ul><li>MT3620: Compliant with requirement.</li></ul>|
+|Dependencies| Azure Sphere OS meets this requirement as Microsoft provides OS security updates meeting the above requirement. The AS3 service enables OEMs to provide application software updates meeting this requirement.|
 
 </br>
 ::: zone-end
