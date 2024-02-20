@@ -59,7 +59,7 @@ pipelines:
       <sink configuration>
 ```
 
-# Sink configuration
+## Sink configuration
 
 All pipelines require sink config, which covers upload of files to the Data Product's input storage account.
 
@@ -87,13 +87,13 @@ sink:
   block_size: 32 MiB
 ```
 
-# Source configuration
+## Source configuration
 
 All pipelines require source config, which covers how the ingestion agent ingests files and where from. There are two supported source types: MCC EDRs and SFTP pull.
 
 Combining different types of source in one agent instance isn't recommended in production. It's only for lab trials and testing.
 
-## MCC EDR source configuration
+### MCC EDR source configuration
 
 ```
 source:
@@ -122,7 +122,7 @@ source:
       blob_rollover_period: 5m
 ```
 
-## SFTP pull source configuration
+### SFTP pull source configuration
 
 This configuration specifies which files are ingested from the SFTP server.
 

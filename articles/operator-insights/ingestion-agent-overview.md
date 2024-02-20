@@ -1,5 +1,5 @@
 ---
-title: Overview of SFTP Ingestion Agents for Azure Operator Insights
+title: Overview of the Azure Operator Insights ingestion agent
 description: Understand how ingestion agents for Azure Operator Insights collect and upload data about your network to Azure.
 author: rcdun
 ms.author: rdunstan
