@@ -154,7 +154,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. You can see the successful set up of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
+1. You can see the successful setup of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
 
 ### Build and run container for debugging and debug in attach mode
 
