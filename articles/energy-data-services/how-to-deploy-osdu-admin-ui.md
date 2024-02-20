@@ -12,7 +12,7 @@ ms.date: 02/15/2024
 
 This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 
-The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user & group management), legal tags, schemas, reference data, and view objects and visualize those on a map.
+The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user and group management), legal tags, schemas, reference data, and view objects and visualize those on a map.
 
 ## Prerequisites
 - Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows WSL, we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
@@ -89,7 +89,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Configure environment variables
 1. Fetch `client-id`, `resource-group`, and `location`.
 
-  ![Screenshot that shows how to fetch location and resource group..](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
+  ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
 
 2. Enter the required environment variables on the terminal.
 ```bash
@@ -142,6 +142,7 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```
 
 1. Open the link you got from the above result in the browser and add the `REDIRECT_URI`.
+   
        ![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-uri-config.png)
 
 ## Build and deploy the web app
@@ -150,11 +151,11 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
     ```bash
     cd OSDUApp/
     ```
-1. Install the dependencies.
+2. Install the dependencies.
     ```nodejs    
     npm install
     ```
-1. Modify the parameters in the config file located at `/src/config/config.json`.
+3. Modify the parameters in the config file located at `/src/config/config.json`.
     ```json
     {
         "mapboxKey": "key", // This is optional for the access token from Mapbox.com and used to visualize data on the map feature.
@@ -185,16 +186,16 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
 
     \* [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
 
-1. If you aren't able to give app permissions in the Prerequisite step because of the subscription constraints, remove `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively. 
+4. If you aren't able to give app permissions in the Prerequisite step because of the subscription constraints, remove `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively. 
 
  :::image type="content" source="media/how-to-deploy-osdu-admin-ui/graph-permission.png" alt-text="Screenshot that shows graph permissions.":::   
    
-1. Build the web UI.
+5. Build the web UI.
     ```bash
     ng build
     ```
 
-1. Upload the build to Storage Account.
+6. Upload the build to Storage Account.
     ```azurecli-interactive
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
@@ -203,12 +204,12 @@ export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
         --overwrite
     ```
     
-1. Fetch the website URL.
+7. Fetch the website URL.
     ```bash
    echo $REDIRECT_URI
     ```
 
-2. Open the Website URL in the browser and validate that it's working correctly and connected to the correct Azure Data Manager for Energy instance. 
+8. Open the Website URL in the browser and validate that it's working correctly and connected to the correct Azure Data Manager for Energy instance. 
     
 ## References
 
