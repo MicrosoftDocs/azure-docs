@@ -2,7 +2,7 @@
 title: Reliability in Azure App Service
 description: Find out about reliability in Azure App Service
 author: anaharris-ms 
-ms.author: CSUDRIsforResiliency
+ms.author: csudrisforresiliency
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
