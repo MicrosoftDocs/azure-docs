@@ -124,6 +124,12 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 > [!NOTE]
 > Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.
 
+### Minor version upgrades with the ingress gateway
+
+If you're currently using [Istio ingress gateways](./istio-deploy-ingress.md) and are performing a [minor version upgrade](#minor-version-upgrade), keep in mind that Istio ingress gateway Pods / Deployments are deployed per-revision. However, we provide a single LoadBalancer Service across all ingress gateway Pods over multiple revisions, so the external/internal IP address of the ingress gateways will not change throughout the course of an upgrade. 
+
+Thus, if multiple control plane revisions are installed in their cluster, keep in mind that you may need to troubleshoot multiple ingress gateway Pods across both revisions.
+
 ## Patch version upgrade
 
 * Istio add-on patch version availability information is published in [AKS release notes][aks-release-notes].
