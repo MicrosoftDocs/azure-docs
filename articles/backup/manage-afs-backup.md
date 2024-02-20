@@ -2,7 +2,7 @@
 title: Manage Azure File share backups
 description: This article describes common tasks for managing and monitoring the Azure File shares that are backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 11/03/2021
+ms.date: 03/01/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

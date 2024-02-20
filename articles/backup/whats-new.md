@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/02/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -19,7 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2024
-  - [Azure Files vaulted backup (preview).](#azure-files-vaulted-backup-preview)
+  - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
 
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
@@ -86,7 +86,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
 
-## Azure Files vaulted backup (preview).
+## Azure Files vaulted backup (preview)
 
 Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
 
