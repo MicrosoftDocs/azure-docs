@@ -7,6 +7,8 @@ ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
+
+#CustomerIntent: As a someone managing an agent that has already been set up, I want to upgrade it to receive the latest enhancements or receive fixes.
 ---
 # Upgrade Azure Operator Insights ingestion agents
 
