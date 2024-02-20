@@ -32,7 +32,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Create a .NET background service
 
-You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
@@ -161,8 +161,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
     ### [Linux](#tab/linux)
 
     If you use Linux, run the following command.
@@ -170,8 +168,6 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     ```console
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
     ---
 
