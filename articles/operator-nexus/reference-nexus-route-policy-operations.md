@@ -1,5 +1,5 @@
 ---
-title: Operator Nexus Route Policy Configuration Operations
+title: Azure Operator Nexus Route Policy Configuration Operations
 description: Configuration operation details for Route Policies
 ms.topic: article
 ms.date: 02/14/2024
@@ -8,7 +8,7 @@ ms.author: joemarshall
 ms.service: azure-operator-nexus
 ---
 
-# Configuration Operations for Nexus Route Policies
+# Configuration Operations for Azure Operator Nexus Route Policies
 
 This article gives an overview of operational procedures to create, modify, and delete Route Policies for Azure Operator Nexus.
 

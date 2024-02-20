@@ -1,5 +1,5 @@
 ---
-title: Operator Nexus Route Policy Configuration Examples
+title: Azure Operator Nexus Route Policy Configuration Examples
 description: Configuration examples for Route Policies
 ms.topic: article
 ms.date: 02/14/2024
@@ -8,7 +8,7 @@ ms.author: joemarshall
 ms.service: azure-operator-nexus
 ---
 
-# Configuration Examples for Nexus Route Policies
+# Configuration Examples for Azure Nexus Route Policies
 
 This article gives examples of how to configure route policies for Operator Nexus.
 
