@@ -1,6 +1,6 @@
 ---
 title: Quality of Experience - Affirmed MCC Data Products - Azure Operator Insights
-description: This article gives an overview of the Azure Operator Insights Data Products provided to monitor the Quality of Experience for the Affirmed Mobile Content Cloud (MCC) 
+description: This article gives an overview of the Azure Operator Insights Data Products provided to monitor the Quality of Experience for the Affirmed Mobile Content Cloud (MCC).
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
@@ -13,7 +13,7 @@ ms.date: 10/25/2023
 
 # Quality of Experience - Affirmed MCC Data Product overview
 
-The *Quality of Experience - Affirmed MCC* Data Products support data analysis and insight for operators of the Affirmed Networks Mobile Content Cloud (MCC). They ingest Event Data Records (EDRs) from MCC network elements, and then digest and enrich this data to provide a range of visualizations for the operator.  Operator data scientists have access to the underlying enriched data to support further data analysis.
+The *Quality of Experience - Affirmed MCC* Data Products support data analysis and insight for operators of the Affirmed Networks Mobile Content Cloud (MCC). They ingest Event Data Records (EDRs) from MCC network elements, and then digest and enrich this data to provide a range of visualizations for the operator. Operator data scientists have access to the underlying enriched data to support further data analysis.
 
 ## Background
 
@@ -26,7 +26,7 @@ The Affirmed Networks Mobile Content Cloud (MCC) is a virtualized Evolved Packet
 - Serving GPRS support node and MME (SGSN/MME) is responsible for the delivery of data packets to and from the mobile stations within its geographical service area.
 - Control and User Plane Separation (CUPS), an LTE enhancement that separates control and user plane function to allow independent scaling of functions.
 
-The data produced by the MCC varies according to the functionality.  This variation affects the enrichments and visualizations that are relevant.  Azure Operator Insights provides the following Quality of Experience Data Products to support specific MCC functions.
+The data produced by the MCC varies according to the functionality. This variation affects the enrichments and visualizations that are relevant. Azure Operator Insights provides the following Quality of Experience Data Products to support specific MCC functions.
 
 - **Quality of Experience - Affirmed MCC GIGW**
 - **Quality of Experience - Affirmed MCC PGW/GGSN**
@@ -35,7 +35,7 @@ The data produced by the MCC varies according to the functionality.  This variat
 
 The following data types are provided for all Quality of Experience - Affirmed MCC Data Products.
 
-- *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements.  EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
+- *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
 - *edr-sanitized* contains data from the *edr* data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
 
 ## Setup
@@ -56,13 +56,68 @@ Use the VM requirements to set up a suitable VM for the ingestion agent. Use the
 
 ### VM requirements
 
-> [!WARNING]
-> TODO: add data-product-specific information from [Create and configure MCC EDR Ingestion Agents for Azure Operator Insights](how-to-install-mcc-edr-agent.md)
+Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
+
+Latency on the MCC to agent connection can negatively affect throughput. Latency should usually be low if the MCC and agent are colocated or the agent runs in an Azure region close to the MCC.
+
+Talk to the Affirmed Support Team to determine your requirements.
+
+Each VM running the agent must meet the following minimum specifications.
+
+| Resource | Requirements                                                        |
+|----------|---------------------------------------------------------------------|
+| OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
+| vCPUs    | 4                                                                   |
+| Memory   | 32 GB                                                               |
+| Disk     | 64 GB                                                               |
+| Network  | Connectivity from MCCs and to Azure                                 |
+| Software | systemd, logrotate, and zip installed                               |
+| Other    | SSH or alternative access to run shell commands                     |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
+
+#### Deploying multiple VMs for fault tolerance
+
+The ingestion agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
+
+The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
+
+For extra fault tolerance, you can deploy multiple instances of the ingestion agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support) or speak to the Affirmed Networks Support Team.
 
 ### Required agent configuration
 
-> [!WARNING]
-> TODO: add sample configuration, with information about how to replace parameters.
+This section should be followed as part of [Configure the agent software](set-up-ingestion-agent.md).
+
+1. Change to the configuration directory: `cd /etc/az-aoi-ingestion`
+1. Make a copy of the default configuration file: `sudo cp example_config.yaml config.yaml`
+1. Edit the *config.yaml* and fill out the fields. Most of them are set to default values and don't need to be changed. The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
+
+    1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname. This name becomes searchable metadata in Operator Insights for all EDRs from this agent.
+
+    1. For the secret provider with name `data_product_keyvault`, set the following fields:
+        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
+        1. **provider.auth** must be filled out with:
+
+            1. **tenant\_id** as your Microsoft Entra ID tenant.
+
+            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
+
+            3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
+
+    1. **sink.container\_name** *must be set as "edr".*
+
+### Configure Affirmed MCCs
+
+Once the agents are installed and running, configure the MCCs to send EDRs to them.
+
+1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support), making the following changes:
+
+    - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
+
+    - Confirm that the following EDR server parameters are set.
+
+        - port: 36001
+        - encoding: protobuf
+        - keep-alive: 2 seconds
 
 ## Related content
 
