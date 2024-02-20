@@ -16,7 +16,7 @@ Follow the steps in the [Create load balancer](../articles/load-balancer/quickst
 1. **Inbound rules:** Create a load-balancing rule. Follow the same steps for both load-balancing rules.
      - **Frontend IP address**: Select a front-end IP.
      - **Backend pool**: Select a back-end pool.
-     - Select **High-availability ports**.
+     - **High-availability ports**: Select this option.
      - **Protocol**: TCP
      - **Health probe**: Create a health probe with the following details:
        - **Protocol**: TCP
@@ -24,7 +24,7 @@ Follow the steps in the [Create load balancer](../articles/load-balancer/quickst
        - **Interval**: 5
        - **Probe threshold**: 2
      - **Idle timeout (minutes)**: 30
-     - Select **Enable Floating IP**.
+     - **Enable Floating IP**: Select this option.
 
 > [!NOTE]
 >
