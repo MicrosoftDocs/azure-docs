@@ -41,7 +41,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
   2. Accept the default version.
   3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature.
 
-    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/option-selection.png" alt-text="Screenshot that shows option selection.":::
+    ![Screenshot that shows option selection.](./media/how-to-deploy-osdu-admin-ui/option-selection.png)
 
 5. After a few minutes, the devcontainer is running.
    
