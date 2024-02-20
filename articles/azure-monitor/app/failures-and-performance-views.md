@@ -16,11 +16,11 @@ ms.reviewer: cogoodson
 
 Application Insights automatically collects data about your application's performance and health, and displays this data in the Azure portal. Application Insights comes with a curated Application Performance Management (APM) experience to help you diagnose failures in your monitored applications. Select the **Failures** option in the Application Insights resource menu on the left, under **Investigate**, to get a list of all failures collected for your application and drill into each one. 
 
-:::image type="content" source="media/failures-and-performance-views/4-application-insights-02.png" lightbox="media/4-application-insights-02.png" alt-text="Screenshot of analyzing failures." :::
+:::image type="content" source="media/failures-and-performance-views/4-application-insights-02.png" lightbox="media/failures-and-performance-views/4-application-insights-02.png" alt-text="Screenshot of analyzing failures." :::
 
 To continue your investigation into the root cause of the error or exception, you can drill into the problematic transaction for a detailed end-to-end transaction view that includes dependencies and exception details.
 
-:::image type="content" source="media/failures-and-performance-views/4-application-insights-03.png" lightbox="media/4-application-insights-03.png" alt-text="Screenshot of analyzing failure with end-to-end view.":::
+:::image type="content" source="media/failures-and-performance-views/4-application-insights-03.png" lightbox="media/failures-and-performance-views/4-application-insights-03.png" alt-text="Screenshot of analyzing failure with end-to-end view.":::
 
 You can also diagnose failures in your application or its components from the application map, by selecting **Investigate failures** from the triage pane of [Application Map](app-map.md).
 
@@ -28,7 +28,7 @@ You can also diagnose failures in your application or its components from the ap
 
 You can further investigate slow transactions to identify slow requests and server-side dependencies. Select the **Performance** option in the Application Insights resource menu on the left, under **Investigate**, to get a list of operations collected for your application and drill into each one.
 
-:::image type="content" source="media/failures-and-performance-views/4-application-insights-05.png" alt-text="Screenshot of analyzing performance." lightbox="media/4-application-insights-05.png":::
+:::image type="content" source="media/failures-and-performance-views/4-application-insights-05.png" alt-text="Screenshot of analyzing performance." lightbox="media/failures-and-performance-views/4-application-insights-05.png":::
 
 You can also analyze performance in your application or its components from the application map, by selecting **Investigate performance** from the triage pane of [Application Map](app-map.md).
 
