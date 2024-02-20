@@ -26,9 +26,9 @@ Organized by subject area.
 | [Metric alerts](/rest/api/monitor/metric-alerts) | Manages and lists [metric alert rules](./alerts/alerts-overview.md). |
 | [Metric alerts status](/rest/api/monitor/metric-alerts-status) | Lists the status of [metric alert rules](./alerts/alerts-overview.md). |
 | [Prometheus rule groups](/rest/api/monitor/prometheus-rule-groups) | Manages and lists [Prometheus rule groups](./essentials/prometheus-rule-groups.md) (alert rules and recording rules). |
-| [Scheduled query rules - 2023-03-15 (preview)](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2023-03-15-preview&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
-| [Scheduled query rules - 2018-04-16](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2018-04-16&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
-| [Scheduled query rules - 2021-08-01](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2021-08-01&preserve-view=true) | Manages and lists [log alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Scheduled query rules - 2023-03-15 (preview)](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2023-03-15-preview&preserve-view=true) | Manages and lists [log search alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Scheduled query rules - 2018-04-16](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2018-04-16&preserve-view=true) | Manages and lists [log search alert rules](./alerts/alerts-types.md#log-alerts). |
+| [Scheduled query rules - 2021-08-01](/rest/api/monitor/scheduled-query-rules?view=rest-monitor-2021-08-01&preserve-view=true) | Manages and lists [log search alert rules](./alerts/alerts-types.md#log-alerts). |
 | [Smart Detector alert rules](/rest/api/monitor/smart-detector-alert-rules) | Manages and lists [smart detection alert rules](./alerts/alerts-types.md#smart-detection-alerts). |
 | ***Application Insights*** |  |
 | [Components](/rest/api/application-insights/components) | Enables you to manage components that contain Application Insights data. |

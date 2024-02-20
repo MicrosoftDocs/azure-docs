@@ -42,7 +42,7 @@ The current alert rule wizard is different from the earlier experience:
 
 1. Edit the alert rule conditions by using these sections:
     - **Search query**: In this section, you can modify your query.
-    - **Alert logic**: Log search alerts can be based on two types of [measures](./alerts-unified-log.md#measure):
+    - **Alert logic**: Log search alerts can be based on two types of [measures](./alerts-types.md#log-alerts):
         1. **Number of results**: Count of records returned by the query.
         1. **Metric measurement**: **Aggregate value** is calculated by using `summarize` grouped by the expressions chosen and the [bin()](/azure/data-explorer/kusto/query/binfunction) selection. For example:
             ```Kusto
@@ -52,7 +52,7 @@ The current alert rule wizard is different from the earlier experience:
             or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
             | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
             ```
-        For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions) by using the **Aggregate on** option. The row grouping expression must be unique and sorted.
+        For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions) by using the **Aggregate on** option. The row grouping expression must be unique and sorted.
         
         The [bin()](/azure/data-explorer/kusto/query/binfunction) function can result in uneven time intervals, so the alert service automatically converts the [bin()](/azure/data-explorer/kusto/query/binfunction) function to a [binat()](/azure/data-explorer/kusto/query/binatfunction) function with appropriate time at runtime to ensure results with a fixed point.
         
@@ -61,14 +61,14 @@ The current alert rule wizard is different from the earlier experience:
         
         :::image type="content" source="media/alerts-log/aggregate-on.png" lightbox="media/alerts-log/aggregate-on.png" alt-text="Screenshot that shows Aggregate on.":::
 
-    - **Period**: Choose the time range over which to assess the specified condition by using the [Period](./alerts-unified-log.md#query-time-range) option.
+    - **Period**: Choose the time range over which to assess the specified condition by using the [Period](./alerts-types.md) option.
 
 1. When you're finished editing the conditions, select **Done**.
-1. Use the preview data to set the [Operator, Threshold value](./alerts-unified-log.md#threshold-and-operator), and [Frequency](./alerts-unified-log.md#frequency).
-1. Set the [number of violations to trigger an alert](./alerts-unified-log.md#number-of-violations-to-trigger-alert) by using **Total** or **Consecutive breaches**.
+1. Use the preview data to set the [Operator, Threshold value](./alerts-types.md), and [Frequency](./alerts-types.md).
+1. Set the [number of violations to trigger an alert](./alerts-types.md) by using **Total** or **Consecutive breaches**.
 1. Select **Done**.
 1. You can edit the rule **Description** and **Severity**. These details are used in all alert actions. You can also choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
-1. Use the [Suppress Alerts](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
+1. Use the [Suppress Alerts](./alerts-processing-rules.md) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-log/AlertsPreviewSuppress.png" lightbox="media/alerts-log/AlertsPreviewSuppress.png" alt-text="Screenshot that shows the Alert Details pane." border="false":::
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
@@ -137,7 +137,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 
 ## Next steps
 
-* Learn about [log search alerts](./alerts-unified-log.md).
+* Learn about [log search alerts](./alerts-types.md#log-alerts).
 * Create log search alerts by using [Azure Resource Manager templates](./alerts-log-create-templates.md).
 * Understand [webhook actions for log search alerts](./alerts-log-webhook.md).
 * Learn more about [log queries](../logs/log-query-overview.md).

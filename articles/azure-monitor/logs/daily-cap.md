@@ -101,7 +101,7 @@ To configure the daily cap with Azure Resource Manager, set the `dailyQuota`, `d
 ## Alert when daily cap is reached
 When the daily cap is reached for a Log Analytics workspace, a banner is displayed in the Azure portal, and an event is written to the **Operations** table in the workspace. You should create an alert rule to proactively notify you when this occurs. 
 
-To receive an alert when the daily cap is reached, create a [log alert rule](../alerts/alerts-unified-log.md) with the following details.
+To receive an alert when the daily cap is reached, create a [log search alert rule](../alerts/alerts-types.md#log-alerts) with the following details.
 
 | Setting | Value |
 |:---|:---|
