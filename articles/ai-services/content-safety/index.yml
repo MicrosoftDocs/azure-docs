@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/07/2023 #Required; mm/dd/yyyy format.
+  ms.date: 02/14/2024 #Required; mm/dd/yyyy format.
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 
@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Content Safety Studio
             url: studio-quickstart.md
+      - linkListType: concept
+        links:
+          - text: Harm categories
+            url: concepts/harm-categories.md
       - linkListType: whats-new
         links:
           - text: What's new in Azure AI Content Safety
@@ -63,6 +67,18 @@ landingContent:
         links:
           - text: Use a blocklist
             url: how-to/use-blocklist.md
+
+  - title: Jailbreak risk detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Jailbreak risk detection
+            url: concepts/jailbreak-detection.md
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstart-jailbreak.md
+
 
   - title: Reference
     linkLists:

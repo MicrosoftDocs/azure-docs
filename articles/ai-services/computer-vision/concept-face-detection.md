@@ -70,7 +70,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
     >[!NOTE]
     > The availability of each attribute depends on the detection model specified. QualityForRecognition attribute also depends on the recognition model, as it is currently only available when using a combination of detection model detection_01 or detection_03, and recognition model recognition_03 or recognition_04.
 
-## Input data
+## Input requirements
 
 Use the following tips to make sure that your input images give the most accurate detection results:
 

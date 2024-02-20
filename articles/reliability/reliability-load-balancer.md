@@ -2,7 +2,7 @@
 title: Reliability in Azure Load Balancer
 description: Find out about reliability in Azure Load Balancer
 author: anaharris-ms
-ms.author: mbender
+ms.author: csudrisforresiliency
 ms.topic: conceptual
 ms.custom: references_regions, subject-reliability
 ms.service: load-balancer

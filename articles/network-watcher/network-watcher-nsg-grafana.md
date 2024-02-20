@@ -4,7 +4,6 @@ titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 05/03/2023
