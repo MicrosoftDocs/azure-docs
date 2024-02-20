@@ -11,7 +11,7 @@ ms.service: azure-maps
 
 # The Azure Maps Web SDK v1 and v2 migration guide
 
-Thank you for choosing the Azure Maps Web SDK for your mapping needs. This migration guide helps you transition from version 1 and 2 to version 3, allowing you to take advantage of the latest features and enhancements.
+Thank you for choosing the Azure Maps Web SDK for your mapping needs. This migration guide helps you transition from v1 and v2 to v3, allowing you to take advantage of the latest features and enhancements.
 
 ## Understand the changes
 
@@ -21,7 +21,7 @@ Before you start the migration process, it's important to familiarize yourself w
 
 ### CDN
 
-If you're using CDN ([content delivery network]), update the references to the stylesheet and JavaScript within the `head` element of your HTML files.
+If you're using CDN ([content delivery network]), update the references to the [v3](#v3) stylesheet and JavaScript within the `head` element of your HTML files.
 
 #### v1
 
@@ -54,7 +54,7 @@ npm install azure-maps-control@latest
 
 ## Review authentication methods (optional)
 
-To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Microsoft Entra authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
+To enhance security, more authentication methods are included in the Web SDK starting in v2. The new methods include [Microsoft Entra authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
 
 ## Testing
 
@@ -64,7 +64,7 @@ Comprehensive testing is essential during migration. Conduct thorough testing of
 
 Consider a gradual rollout strategy for the updated version. Release the migrated version to a smaller group of users or in a controlled environment before making it available to your entire user base.
 
-By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 and v2 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
+By following these steps and considering best practices, you can successfully migrate your application from Azure Maps Web SDK v1 and v2 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
 
 ## Next steps
 
