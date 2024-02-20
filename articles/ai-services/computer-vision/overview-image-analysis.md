@@ -70,13 +70,13 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 [Product Recognition](./concept-shelf-analysis.md)
 
-## Multi-modal embeddings (v4.0 preview only)
+## Multimodal embeddings (v4.0 preview only)
 
-The multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+The multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Multi-modal embeddings](./concept-image-retrieval.md)
+[Multimodal embeddings](./concept-image-retrieval.md)
 
 ## Background removal (v4.0 preview only)
 
@@ -97,7 +97,7 @@ Image Analysis works on images that meet the following requirements:
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 > [!TIP]
-> Input requirements for multi-modal embeddings are different and are listed in [Multi-modal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
+> Input requirements for multimodal embeddings are different and are listed in [Multimodal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
 
 #### [Version 3.2](#tab/3-2)
 

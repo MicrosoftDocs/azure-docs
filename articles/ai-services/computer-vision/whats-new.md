@@ -36,7 +36,7 @@ Major changes:
 
 The Analyze Image 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
-The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
+The other features of Image Analysis, such as model customization, background removal, and multimodal embeddings, remain in public preview. 
 
 ### Face client-side SDK for liveness detection
 
@@ -87,9 +87,9 @@ Search and interact with video content in the same intuitive way you think and w
 
 You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
 
-### Multi-modal embeddings APIs (public preview)
+### Multimodal embeddings APIs (public preview)
 
-The [Multi-modal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+The [Multimodal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
 
 ### Background removal APIs (public preview)
 

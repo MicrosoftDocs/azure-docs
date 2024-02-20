@@ -1,5 +1,5 @@
 ---
-title: Do image retrieval using multi-modal embeddings - Image Analysis 4.0
+title: Do image retrieval using multimodal embeddings - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn how to call the image retrieval API to vectorize image and search terms.
 #services: cognitive-services
@@ -13,9 +13,9 @@ ms.author: pafarley
 ms.custom: references_regions
 ---
 
-# Do image retrieval using multi-modal embeddings (version 4.0 preview)
+# Do image retrieval using multimodal embeddings (version 4.0 preview)
 
-The Multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+The Multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
 
 > [!IMPORTANT]
 > These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
@@ -26,9 +26,9 @@ The Multi-modal embeddings APIs enable the _vectorization_ of images and text qu
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
-## Try out Multi-modal embeddings
+## Try out Multimodal embeddings
 
-You can try out the Multi-modal embeddings feature quickly and easily in your browser using Vision Studio.
+You can try out the Multimodal embeddings feature quickly and easily in your browser using Vision Studio.
 
 > [!IMPORTANT]
 > The Vision Studio experience is limited to 500 images. To use a larger image set, create your own search application using the APIs in this guide.
