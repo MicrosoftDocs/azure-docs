@@ -24,16 +24,22 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
 
-### Open Container Initiative (OCI) image format specification support 
+### New version of Defender Agent for Defender for Containers
+
+February 20, 2024
+
+[A new version](/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) is available. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you need to upgrade. Support for ARM 64 is only available from AKS V1.29 and above. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
+
+### Open Container Initiative (OCI) image format specification support
 
 February 18, 2024
 
 The [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification is now supported by vulnerability assessment, powered by Microsoft Defender Vulnerability Management for AWS, Azure & GCP clouds.
-
 
 ### AWS container vulnerability assessment powered by Trivy retired
 
