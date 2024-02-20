@@ -19,7 +19,7 @@ In this quickstart, you learn how to create an Azure Programmable Connectivity (
 
 ### Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com)
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create a new APC gateway
 
@@ -31,18 +31,18 @@ Sign in to the [Azure portal](https://portal.azure.com)
   
    :::image type="content" source="media/create.jpg" alt-text="Screenshot of the create gateway page in Azure portal." lightbox="media/create.jpg":::  
      
-1. Provide a **Name** for the gateway and click **Next**
+1. Provide a **Name** for the gateway and click **Next**.
 
 ### Select APIs
 
-1. Click on the API that you want to use
-1. Select the country
-1. **Add** the plans you want to subscribe to  
+1. Click on the API that you want to use.
+1. Select the country.
+1. **Add** the plans you want to subscribe to.  
   
    :::image type="content" source="media/select.jpg" alt-text="Screenshot of the select APIs page in the Azure portal." lightbox="media/select.jpg":::  
      
-1. Click **Done**
-1. Click **Next**
+1. Click **Done**.
+1. Click **Next**.
 
 ### Provide application details
 
@@ -52,21 +52,21 @@ In order to use the operators API, you must provide extra details, which will be
   
    :::image type="content" source="media/app-details.jpg" alt-text="Screenshot of the application details page in the Azure portal." lightbox="media/app-details.jpg":::  
      
-1. Click **Next**
+1. Click **Next**.
 
 ### Agree to operators' terms and conditions
 
-On the **Terms and Conditions** page
+On the **Terms and Conditions** page.
 
-1. Click **Awaiting input** and then **I Agree**  
+1. Click **Awaiting input** and then **I Agree**.  
   
    :::image type="content" source="media/terms.jpg" alt-text="Screenshot of the terms and conditions page in the Azure portal." lightbox="media/terms.jpg":::  
      
-1. Repeat the above step for each line
-1. Click **Next**
+1. Repeat the above step for each line.
+1. Click **Next**.
 
 ### Verify details and create
 
-Once you see the **Validation passed** message, click **Create**  
+Once you see the **Validation passed** message, click **Create**.  
   
    :::image type="content" source="media/verify-create.jpg" alt-text="Screenshot of the verify and create page in Azure portal." lightbox="media/verify-create.jpg":::
