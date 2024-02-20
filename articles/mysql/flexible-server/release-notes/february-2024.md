@@ -14,8 +14,8 @@ ms.topic: conceptual
 We're pleased to announce the February 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance mainly focuses on known issue fix, underlying OS upgrading and vulnerability patching.
 
 ## Engine version changes
- - All existing 5.7.42 version will upgrade to 5.7.44.
- - All existing 8.0.34 version will upgrade to 8.0.35.
+ - All existing 5.7.42 version server will upgrade to 5.7.44.
+ - All existing 8.0.34 version server will upgrade to 8.0.35.
 
 To check your engine version, run `SELECT VERSION();` command at the MySQL prompt
 
