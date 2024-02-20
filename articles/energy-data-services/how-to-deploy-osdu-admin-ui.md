@@ -51,7 +51,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
 
-7. Install NVM, Node.js, NPM, and Angular CLI by executing the command in the bash terminal.
+7. Install NVM, Node.js, npm, and Angular CLI by executing the command in the bash terminal.
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
