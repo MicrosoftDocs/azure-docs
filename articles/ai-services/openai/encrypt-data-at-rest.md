@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 2/14/2024
+ms.date: 2/21/2024
 ms.author: mbullwin
 ---
 
@@ -33,31 +33,55 @@ To enable customer-managed keys, the key vault containing your keys must meet th
 - You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 - If you use the [Key Vault firewall](/azure/key-vault/general/access-behind-firewall), you must allow trusted Microsoft services to access the key vault.
 - The key vault must use [legacy access policies](/azure/key-vault/general/assign-access-policy).
-- You must grant the Azure OpenAI resource's system-assigned managed identity the following permissions to keys: get key, wrap key, unwrap key.
+- You must grant the Azure OpenAI resource's system-assigned managed identity the following permissions on your key vault: *get key*, *wrap key*, *unwrap key*.
 
 Only RSA and RSA-HSM keys of size 2048 are supported with Azure AI services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
 
-## Enable customer-managed keys on your Azure OpenAI resource
+### Enable your Azure OpenAI resource's managed identity
+
+1. Go to your Azure AI services resource.
+1. On the left, under **Resource Management**, select **Identity**.
+1. Switch the system-assigned managed identity status to **On**.
+1. Save your changes, and confirm that you want to enable the system-assigned managed identity.
+
+### Configure your key vault's access permissions
+
+1. In the Azure portal, go to your key vault.
+1. On the left, select **Access policies**.
+   
+   If you see a message advising you that access policies aren't available, [reconfigure your key vault to use legacy access policies](/azure/key-vault/general/assign-access-policy) before continuing.
+1. Select **Create**.
+1. Under **Key permissions**, select **Get**, **Wrap Key**, and **Unwrap Key**. Leave the remaining checkboxes unselected.
+
+   :::image type="content" source="../media/cognitive-services-encryption/key-vault-access-policy.png" alt-text="Screenshot of the Azure portal page for a key vault access policy. The permissions selected are Get Key, Wrap Key, and Unwrap Key.":::
+
+1. Select **Next**.
+1. Search for the name of your Azure OpenAI resource and select its managed identity.
+1. Select **Next**.
+1. Select **Next** to skip configuring any application settings.
+1. Select **Create**.
+
+### Enable customer-managed keys on your Azure OpenAI resource
 
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Go to your Azure AI services resource.
-1. On the left, select **Encryption**.
+1. On the left, under **Resource Management**, select **Encryption**.
 1. Under **Encryption type**, select **Customer Managed Keys**, as shown in the following screenshot.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of create a resource user experience](./media/encryption/encryption.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of create a resource user experience](./media/encryption/encryption.png)
 
-## Specify a key
+### Specify a key
 
 After you enable customer-managed keys, you can specify a key to associate with the Azure AI services resource.
 
-### Specify a key as a URI
+#### Specify a key as a URI
 
 To specify a key as a URI, follow these steps:
 
 1. In the Azure portal, go to your key vault.
-1. Under **Settings**, select **Keys**.
+1. Under **Objects**, select **Keys**.
 1. Select the desired key, and then select the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the **Key Identifier** value, which provides the URI.
 
@@ -72,7 +96,7 @@ To specify a key as a URI, follow these steps:
 1. Under **Subscription**, select the subscription that contains the key vault.
 1. Save your changes.
 
-### Select a key from a key vault
+#### Select a key from a key vault
 
 To select a key from a key vault, first make sure that you have a key vault that contains a key. Then follow these steps:
 
