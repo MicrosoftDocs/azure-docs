@@ -11,7 +11,7 @@ ms.date: 02/14/2024
 ms.author: rwaller
 ---
 
-In this quickstart, you build an iOS app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
+In this quickstart, you build an iOS app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 ## Prerequisites
 
@@ -23,21 +23,21 @@ In this quickstart, you build an iOS app from scratch and integrate the Immersiv
 
 Create a new project in Xcode.
 
-![New Project - Swift](../../media/ios/xcode-create-project.png)
+:::image type="content" source="../../media/ios/xcode-create-project.png" alt-text="Screenshot of the Create a new Xcode project screen.":::
 
 Choose **Single View App**.
 
-![New Single View App - Swift](../../media/ios/xcode-single-view-app.png)
+:::image type="content" source="../../media/ios/xcode-single-view-app.png" alt-text="Screenshot of the template gallery to select a single view app.":::
 
 ## Set up authentication
 
 In the top menu, select **Product > Scheme > Edit Scheme...**.
 
-![Edit Scheme - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
+:::image type="content" source="../../media/ios/quickstart-ios-edit-scheme.png" alt-text="Screenshot of the edit scheme dropdown menu.":::
 
 In the **Run** view, select **Arguments** tab.
 
-![Edit Scheme environment variables - Swift](../../media/ios/quickstart-ios-env-vars.png)
+:::image type="content" source="../../media/ios/quickstart-ios-env-vars.png" alt-text="Screenshot of the edit scheme environment variables.":::
 
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
 
@@ -552,23 +552,21 @@ function sendContentToReader(message) {
 
 Set the archive scheme in Xcode by selecting a simulator or device target.
 
-![Archive scheme - Swift](../../media/ios/xcode-archive-scheme.png)
+:::image type="content" source="../../media/ios/xcode-archive-scheme.png" alt-text="Screenshot of the archive stream.":::
 
-![Select Target - Swift](../../media/ios/xcode-select-target.png)
+:::image type="content" source="../../media/ios/xcode-select-target.png" alt-text="Screenshot of the simulator selection target.":::
 
 In Xcode, press **Ctrl+R** or select the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
-![Sample app - Swift](../../media/ios/sample-app-ipad.png)
+:::image type="content" source="../../media/ios/sample-app-ipad.png" alt-text="Screenshot of the sample app with text to be read.":::
 
 When you select the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
-![Immersive Reader - Swift](../../media/ios/immersive-reader-ipad.png)
+:::image type="content" source="../../media/ios/immersive-reader-ipad.png" alt-text="Screenshot of the Immersive Reader app.":::
 
 ## Next step
 
-CHANGE - THIS WAS A PREREQ
-
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)

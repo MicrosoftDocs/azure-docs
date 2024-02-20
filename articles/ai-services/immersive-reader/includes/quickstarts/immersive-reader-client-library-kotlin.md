@@ -12,7 +12,7 @@ ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
-In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
+In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 ## Prerequisites
 
@@ -69,18 +69,18 @@ Replace the existing dependencies in the *build.gradle* file with the following 
 
 ```build.gradle
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation ("androidx.core:core-ktx:1.12.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
-    implementation ("com.google.code.gson:gson:2.10.1")
-    implementation ("io.github.cdimascio:java-dotenv:5.1.3")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'io.github.cdimascio:java-dotenv:5.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
 ```
 
@@ -612,7 +612,5 @@ Use Android Studio to run the app on a device emulator. When you select **Immers
 
 ## Next step
 
-CHANGE - THIS WAS A PREREQ
-
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)

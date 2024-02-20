@@ -12,7 +12,7 @@ ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
-In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 ## Prerequisites
 
@@ -251,7 +251,5 @@ When you select the **Immersive Reader** button, the Immersive Reader launches w
 
 ## Next step
 
-CHANGE - THIS WAS A PREREQ
-
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)
