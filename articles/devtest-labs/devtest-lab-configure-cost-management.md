@@ -30,13 +30,13 @@ Tag inheritance can be enabled either with billing properties OR Azure Policies.
 
 If updated correctly using the first method, you see that Tag Inheritance now shows **Enabled**: 
 
- ![Screenshot that shows Tag Inheritance is enabled.](media/devtest-lab-configure-cost-management/tag-inheritance.png)
+:::image type="content" source="./media/devtest-lab-configure-cost-management/tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is enabled.":::
 
 ## Step 2: Apply Tags to DevTest Labs
 
 DevTest Labs automatically propagates tags applied at the lab level to the resources that are created by the lab. This includes virtual machines (tags are applied to the billable resources) and environments (tags are applied to the resource group for the environment). Follow the steps in this article to apply tags to your labs: [Add tags to a lab](devtest-lab-add-tag.md).
 
- ![Screenshot that shows tags in DevTest Labs in the Azure portal.](media/devtest-lab-configure-cost-management/devtest-tags.png)
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags in DevTest Labs in the Azure portal.":::
 
 It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/phauge/update-dtl-tags/samples/DevTestLabs/Scripts/UpdateDtlTags). 
 
@@ -52,9 +52,9 @@ For a quick view of costs per lab, see the following steps:
 
 1. Select **Cost Management** and then on **Cost analysis**
 1. Select **Daily Costs**
- ![Screenshot that shows the daily costs card](media/devtest-lab-configure-cost-management/devtest-tags.png)
+:::image type="content" source="./media/devtest-lab-configure-cost-management/daily-costs.png" alt-text="Screenshot that shows the daily costs card.":::
 1. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by 
- ![Screenshot that shows searching for tag in the group by filter](media/devtest-lab-configure-cost-management/tag.png)
+:::image type="content" source="./media/devtest-lab-configure-cost-management/tag.png" alt-text="Screenshot that shows searching for tag in the group by filter.":::
 
 The resulting view shows costs in the subscription grouped by the tag (which is grouping by the lab & its resources).
 
