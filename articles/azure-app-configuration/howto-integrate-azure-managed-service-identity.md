@@ -45,7 +45,7 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
-* [.NET SDK](https://dotnet.microsoft.com/download).
+* [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 :::zone-end

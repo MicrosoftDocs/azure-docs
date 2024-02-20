@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start this tutorial, install the [.NET SDK](https://dotnet.microsoft.com/download).
+Before you start this tutorial, install the [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
