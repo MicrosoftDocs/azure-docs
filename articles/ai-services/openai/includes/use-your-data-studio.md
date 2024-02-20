@@ -27,6 +27,7 @@ The **Advanced settings** on the left are [runtime parameters](../concepts/use-y
 
 - **Retrieved documents** are the number of matching search results used to answer the question. It's capped at 20 to minimize latency and to stay under the model input limits.
 
+- When **Limit responses to your data** is enabled, the model attempts to only rely on your documents for responses.
 :::image type="content" source="../../../search/media/search-get-started-rag/azure-openai-studio-advanced-settings.png" alt-text="Screenshot of the advanced settings.":::
 
 Send your first query. The chat models perform best in question and answer exercises. For example, "*who gave the Gettysburg speech.*" or "*when was the Gettysburg speech delivered?*".
