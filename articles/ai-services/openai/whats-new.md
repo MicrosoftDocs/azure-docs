@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 2/6/2024
+ms.date: 02/15/2024
 recommendations: false
 ---
 
@@ -34,6 +34,7 @@ Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assist
 - [Code Interpreter](./how-to/code-interpreter.md)
 - [Function calling](./how-to/assistant-functions.md)
 - [Assistants model & region availability](./concepts/models.md#assistants-preview)
+- [Assistants Python & REST reference](./assistants-reference.md)
 - [Assistants Samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
 ### OpenAI text to speech voices public preview
@@ -49,22 +50,21 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
-### Chunk size parameter for Azure OpenAI on your data
+### New regional support for Azure OpenAI On Your Data
 
-- You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
-
-### New regional support for Azure OpenAI on your data
-
-You can now use Azure OpenAI on your data in the following Azure regions:
+You can now use Azure OpenAI On Your Data in the following Azure region:
 * South Africa North
-* UAE North
+
+### Azure OpenAI On Your Data general availability
+
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now generally available.
 
 ## December 2023
 
-### Azure OpenAI on your data
+### Azure OpenAI On Your Data
 
-- Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
-- New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+- Full VPN and private endpoint support for Azure OpenAI On Your Data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI On Your Data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
 
 ### GPT-4 Turbo with Vision now available
 
@@ -78,9 +78,9 @@ GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 
 
 ## November 2023
 
-### New data source support in Azure OpenAI on your data
+### New data source support in Azure OpenAI On Your Data
 
-- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md#supported-data-sources) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
@@ -131,7 +131,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 - [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
 
-### Azure OpenAI on your data
+### Azure OpenAI On Your Data
 
 - New [custom parameters](./concepts/use-your-data.md#runtime-parameters) for determining the number of retrieved documents and strictness.
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
@@ -167,12 +167,12 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Azure OpenAI on your own data (preview) updates
 
-- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- Azure OpenAI on your data now supports private endpoints.
+- You can now deploy Azure OpenAI On Your Data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- Azure OpenAI On Your Data now supports private endpoints.
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
-- [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
-- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
 
 ## July 2023
 
@@ -192,7 +192,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Use Azure OpenAI on your own data (preview)
 
-- [Azure OpenAI on your data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
+- [Azure OpenAI On Your Data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as GPT-35-Turbo and GPT-4 and receive responses based on your data. 
 
 ### New versions of gpt-35-turbo and gpt-4 models
 

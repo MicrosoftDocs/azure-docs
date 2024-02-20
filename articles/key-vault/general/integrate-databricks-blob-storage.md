@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ---
 
 # Tutorial: Access Azure Blob Storage using Azure Databricks and Azure Key Vault

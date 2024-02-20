@@ -13,6 +13,8 @@ ms.author: kumud
 ---
 # Create an Internet Analyzer test using Portal (Preview)
 
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
+
 There are two ways to create an Internet Analyzer resource- using the Azure portal or using [CLI](internet-analyzer-cli.md). This section helps you create a new Azure Internet Analyzer resource using our portal experience.
 
 > [!IMPORTANT]
