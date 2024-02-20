@@ -67,6 +67,12 @@ This web UI provides a unified experience for operational technologists to manag
 
 On first mention in an article, use _Azure IoT Operations Experience Preview_. On subsequent mentions, you can use _Operations Experience_. Never use an acronym.
 
+### Azure Device Registry Preview
+
+This component provides a single centralized registry for devices and assets that are projected as Azure resources.
+
+On first mention in an article, use _Azure Device Registry Preview_. On subsequent mentions, you can use _Device Registry_. Never use an acronym.
+
 ## Related content
 
 - [What is Azure IoT Operations?](../get-started/overview-iot-operations.md)
