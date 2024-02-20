@@ -90,7 +90,7 @@ Each VM running the agent must meet the following minimum specifications.
 | Network  | Connectivity to the SFTP server and to Azure                        |
 | Software | systemd, logrotate, and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
-| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](set-up-ingestion-agent.md#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
 ### Required agent configuration
 

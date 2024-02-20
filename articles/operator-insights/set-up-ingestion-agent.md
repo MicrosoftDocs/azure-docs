@@ -64,19 +64,22 @@ The ingestion agent only supports certificate-based authentication for service p
     - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 4. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
-
-    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
+    ```
+    openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>
+    ```
 
 > [!IMPORTANT]
 > The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
 
 5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key:
-
-    `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
+    ```
+    openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info
+    ```
 
 6. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the command:
-
-    `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
+    ```
+    base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>
+    ```
 
 ### Grant permissions for the Data Product Key Vault
 
@@ -108,10 +111,11 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     # [MCC EDR sources](#tab/edr)
 
-    1. Verify that the VM has the following ports open:
-        - Port 36001/TCP inbound from the MCCs
-        - Port 443/TCP outbound to Azure
-        These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+    Verify that the VM has the following ports open:
+    - Port 36001/TCP inbound from the MCCs
+    - Port 443/TCP outbound to Azure
+    These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+
     ---
 
 
@@ -167,7 +171,11 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM: `sudo dnf install ./*.rpm`. Answer 'y' when prompted. If there are any missing dependencies, the RPM won't be installed.
+1. Install the RPM:
+    ```
+    sudo dnf install ./*.rpm
+    ```
+    Answer 'y' when prompted. If there are any missing dependencies, the RPM won't be installed.
 
 ## Configure the agent software
 
@@ -177,11 +185,11 @@ The configuration you need is specific to the type of source and your Data Produ
 
 1. Log in to the VM.
 1. Change to the configuration directory.
-    ```bash
+    ```
     cd /etc/az-aoi-ingestion
     ```
 1. Make a copy of the default configuration file: 
-    ```bash
+    ```
     sudo cp example_config.yaml config.yaml
     ```
 1. Set the `agent_id` field to a unique identifier for the site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
@@ -195,9 +203,9 @@ The configuration you need is specific to the type of source and your Data Produ
     1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
         - `provider.vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
         - `provider.auth` must be filled out with:
-            - `tenant_id` as your Microsoft Entra ID tenant.
-            - `identity_name` as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-            - `cert_path` as the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+            - `tenant_id`: your Microsoft Entra ID tenant.
+            - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
+            - `cert_path`: the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
 
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields:
         - `provider.auth.secrets_directory` the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
@@ -206,15 +214,16 @@ The configuration you need is specific to the type of source and your Data Produ
 
     # [MCC EDR sources](#tab/edr)
     
-    Configure a secret provider with name `data_product_keyvault` and the following fields.
+    Configure a secret provider with type `key_vault` and name `data_product_keyvault`, setting the following fields.
 
-    1. `provider.vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
+    1. `provider.vault_name`: the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
     1. `provider.auth` must be filled out with:
-        - `tenant_id` as your Microsoft Entra ID tenant.
-        - `identity_name` as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-        - `cert_path` as the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
-    
+        - `tenant_id`: your Microsoft Entra ID tenant.
+        - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
+        - `cert_path`: the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
+
     ---
 1. Configure the `pipelines` section using the example configuration and your Data Product's documentation. Each `pipeline` has three configuration sections:
     - `id`. This identifies the pipeline and must not be the same as any other pipeline ID for this ingestion agent.  Any URL reserved characters must be percent-encoded. Refer to your Data Product's documentation for any recommendations.
@@ -255,12 +264,21 @@ The configuration you need is specific to the type of source and your Data Produ
 
 ## Start the agent software
 
-1. Start the agent: `sudo systemctl start az-aoi-ingestion`
-1. Check that the agent is running: `sudo systemctl status az-aoi-ingestion`
+1. Start the agent.
+    ```
+    sudo systemctl start az-aoi-ingestion
+    ```
+1. Check that the agent is running: ``
+    ```
+    sudo systemctl status az-aoi-ingestion
+    ```
     1. If you see any status other than `active (running)`, look at the logs as described in [Monitor and troubleshoot ingestion agents for Azure Operator Insights](monitor-troubleshoot-ingestion-agent.md) to understand the error.  It's likely that some configuration is incorrect.
     1. Once you resolve the issue,  attempt to start the agent again.
     1. If issues persist, raise a support ticket.
-1. Once the agent is running, ensure it starts automatically after reboots: `sudo systemctl enable az-aoi-ingestion.service`
+1. Once the agent is running, ensure it starts automatically after reboot.
+    ```    
+    sudo systemctl enable az-aoi-ingestion.service
+    ```
 1. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
 ## Related content
