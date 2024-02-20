@@ -11,6 +11,7 @@ ms.author: eur
 Add support for the latest model versions:
 - Custom speech to text 4.6.0
 - Speech to text 4.6.0
+- Neural text to speech 3.1.0
 
 ### 2023-November release
 
