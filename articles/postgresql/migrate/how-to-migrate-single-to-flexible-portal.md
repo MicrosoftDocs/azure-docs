@@ -98,7 +98,7 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
-**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.   **Online migrations preview** is currently available in France Central, Germany West Central, North Europe, South Africa North, UAE North, all regions across Asia, Australia, UK and public US regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. **Online migrations preview** is currently available in all public clouds and in China regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
