@@ -51,27 +51,27 @@ Here's how to customize the friendly name for a RemoteApp using PowerShell. By d
 
 2. To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
-```powershell
-$parameters = @{
-    ResourceGroupName = "<resourcegroupname>"
-    ApplicationGroupName = "<appgroupname>"
-}
+   ```powershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+   }
 
-Get-AzWvdApplication @parameters
-```
+   Get-AzWvdApplication @parameters
+   ```
 
 3. To assign a friendly name to a RemoteApp, run the following cmdlet with the required parameters:
 
-```powershell
-$parameters = @{
-    ResourceGroupName = "<resourcegroupname>"
-    ApplicationGroupName = "<appgroupname>"
-    Name = "<applicationname>"
-    FriendlyName = "<newfriendlyname>"
-}
+   ```powershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+      FriendlyName = "<newfriendlyname>"
+   }
 
-Update-AzWvdApplication @parameters
-```
+   Update-AzWvdApplication @parameters
+   ```
 
 
 ### Customize the display name for a Remote Desktop
@@ -82,32 +82,32 @@ You can change the display name for a published remote desktop by setting a frie
 
 2. To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
-```powershell
-$parameters = @{
-    ResourceGroupName = "<resourcegroupname>"
-    ApplicationGroupName = "<appgroupname>"
-    Name = "<applicationname>"
-    FriendlyName = "<newfriendlyname>"
-}
+   ```powershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+      FriendlyName = "<newfriendlyname>"
+   }
 
-Update-AzWvdDesktop @parameters
-```
+   Update-AzWvdDesktop @parameters
+   ```
 
 3. To retrieve the friendly name for the remote desktop resource, run the following PowerShell cmdlet:
 
-```powershell
-$parameters = @{
-    ResourceGroupName = "<resourcegroupname>"
-    ApplicationGroupName = "<appgroupname>"
-    Name = "<applicationname>"
-}
-
-Get-AzWvdDesktop @parameters | FL ApplicationGroupName, Name, FriendlyName
-```
+   ```powershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+   }
+    
+   Get-AzWvdDesktop @parameters | FL ApplicationGroupName, Name, FriendlyName
+   ```
 
 --- 
 
-## Customize the display name for a session host
+## Set the friendly name for a session host
 
 You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. 
 
