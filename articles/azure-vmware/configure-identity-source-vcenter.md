@@ -77,7 +77,7 @@ To verify that the certificate is valid:
 
 1. Select **OK**.
 
-To export the certificate:
+#### To export the certificate:
 
 1. In the Certificates console, right-click the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard opens. Select **Next**.
 1. In the **Export Private Key** section, select **No, do not export the private key**, and then select **Next**.
@@ -283,6 +283,23 @@ To remove all existing external identity sources at once, run the Remove-Externa
 
 > [!WARNING]
 > If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
+
+## Renew existing certificates for LDAPS identity source
+
+1. Renew the existing certificates in your domain controllers.
+
+1. Optional: If the certificates are stored in default domain controllers, this step is optional. Leave the SSLCertificatesSasUrl parameter blank and the new certificates will be downloaded from the default domain controllers and updated in vCenter automatically. If you choose to not use the default way, [export the certificate for LDAPS authentication](#to-export-the-certificate) and [upload the LDAPS certificate to blob storage and generate an SAS URL](#upload-the-ldaps-certificate-to-blob-storage-and-generate-an-sas-url-optional). Save the SAS URL for the next step.
+
+1. Select **Run command** > **Packages** > **Update-IdentitySourceCertificates**.
+
+1. Provide the required values and the new SAS URL (optional), and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **DomainName***  |  The FQDN of the domain, for example **avslab.local**.  |
+   | **SSLCertificatesSasUrl (optional)**  | A comma-delimited list of SAS path URI to Certificates for authentication. Ensure permissions to read are included. To generate, place the certificates in any storage account blob and then right-click the cert and generate SAS. If the value of this field isn't provided by a user, the certificates will be downloaded from the default domain controllers.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 ## Related content
 
