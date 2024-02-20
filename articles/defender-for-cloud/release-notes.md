@@ -30,7 +30,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
 
-## New endpoint detection and response recommendations
+### New endpoint detection and response recommendations
 
 February 28 2024
 
