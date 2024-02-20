@@ -163,11 +163,13 @@ After you create and locally test your workflow, create your deployment scripts.
 
    1. In the **Source Control** window, select **Initialize Repository**.
 
-   1. From the prompt menu, select **Choose Folder**. Select your workspace root folder, and then select **Initialize Repository**.
+   1. From the prompt menu, select **Choose Folder**. Select the workspace root folder, and then select **Initialize Repository**.
+
+      :::image type="content" source="media/automate-build-deployment-standard/initialize-repo.png" alt-text="Screenshot shows Visual Studio Code, Source Control window, and selected option named Initialize Repository." lightbox="media/automate-build-deployment-standard/initialize-repo.png":::
 
    1. In the **Source Control** window, select **Open Repository**.
 
-   1. From the prompt menu, select the repository that you just initialized.
+   1. From the prompt menu, select the repository that you just created.
 
    For more information, see [Visual Studio Code - Initialize a repository in a local folder](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_initialize-a-repository-in-a-local-folder).
 
@@ -179,15 +181,19 @@ After you create and locally test your workflow, create your deployment scripts.
 
    1. On the **Files** pane toolbar, select **Clone**.
 
-   1. In the **Clone Repository** window, copy the HTTPS version of the URL.
+      :::image type="content" source="media/automate-build-deployment-standard/clone-git-repository.png" alt-text="Screenshot shows Azure DevOps team project, Git repository, and selected option named Clone." lightbox="media/automate-build-deployment-standard/clone-git-repository.png":::
+
+   1. In the **Clone Repository** window, copy the HTTPS version of the clone's URL.
 
       For more information, see [Get the clone URL for your Git repository in Azure Repos](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
 
 1. Follow these steps to add a remote for your Git repository:
 
-   1. Return to Visual Studio Code and the **Source Control** window.
+   1. Return to Visual Studio Code and to the **Source Control** window.
 
-   1. Under **Source Control Repositories**, on your repository's toolbar, open the ellipses (**...**) menu, and select **Remote** > **Add remote**.
+   1. Under **Source Control Repositories**, from your repository's toolbar, open the ellipses (**...**) menu, and select **Remote** > **Add remote**.
+
+      :::image type="content" source="media/automate-build-deployment-standard/add-remote.png" alt-text="Screenshot shows Visual Studio Code, Source control window, and selected option named Add remote." lightbox="media/automate-build-deployment-standard/add-remote.png":::
 
 1. At the prompt, paste your copied URL, and enter a name for the remote, which is usually **origin**.
 
@@ -205,16 +211,19 @@ To create the infrastructure along with the CI and CD pipelines, repeat the foll
 - **CI-pipeline.yml** for the Continuous Integration pipeline.
 - **CD-pipeline.yml** for the Continuous Delivery pipeline.
 
-> [!NOTE]
->
-> Before you set up the CD pipeline, in the **CD-pipeline.yml** file, you must update 
-> the *CI* pipeline name to match the name that you entered in the previous step.
+## Rename your CI pipeline
+
+Before you set up the CD pipeline, open the **CD-pipeline.yml** file, and rename the *CI* pipeline name to match the CI pipeline name that you entered earlier.
+
+:::image type="content" source="media/automate-build-deployment-standard/rename-ci-pipeline.png" alt-text="Screenshot shows Visual Studio Code, Source control window, opened CD-pipeline.yml file, and highlighted source field for CI pipeline name." lightbox="media/automate-build-deployment-standard/rename-ci-pipeline.png":::
 
 ## Set up a pipeline
 
-1. In Azure DevOps, return to **Repos** > **Files** pane in your team project.
+1. In Azure DevOps, go back to the **Repos** > **Files** pane in your team project.
 
 1. On the **Files** pane toolbar, select **Set up build**.
+
+   :::image type="content" source="media/automate-build-deployment-standard/set-up-build.png" alt-text="Screenshot shows Azure DevOps team project, Git repository, and selected option named Set up build." lightbox="media/automate-build-deployment-standard/set-up-build.png":::
 
 1. On the **Inventory your pipeline** pane, confirm the repository information, and select **Configure pipeline**.
 
