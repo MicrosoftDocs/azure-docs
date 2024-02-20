@@ -28,8 +28,6 @@ The following table lists the current versions available for the public and Insi
 
 *Date published: February 13, 2024* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
-
 In this release, we've made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
@@ -53,8 +51,6 @@ In this release, we've made the following changes:
 
 *Published: February 7, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session.
@@ -62,8 +58,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.5105
 
 *Published: January 9, 2024*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gq9I), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gxVu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gnAc)
 
 In this release, we've made the following changes:
 
