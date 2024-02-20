@@ -116,7 +116,16 @@ The following capacity utilization charts are provided:
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
 <!-- convertborder later -->
-:::image type="content" source="./media/vminsights-performance/vminsights-performance-directvm-01.png" lightbox="./media/vminsights-performance/vminsights-performance-directvm-01.png" alt-text="Screenshot that shows VM insights Performance directly from the VM view." border="false":::
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-directvm.png" lightbox="./media/vminsights-performance/vminsights-performance-directvm.png" alt-text="Screenshot that shows VM insights Performance directly from the VM view." border="false":::
+
+## Troubleshoot VM performance issues with Performance Diagnostics
+
+[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. The tool does not analyze historical monitoring data you collect, but rather checks the current state of the machine for known issues, implementation of best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory. 
+
+To install and run the Performance Diagnostics tool, select the **Performance Diagnostics** button from the VM insights Performance screen. For more information, see [Install and run performance diagnostics on your VM](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm?toc=/azure/azure-monitor/toc.json)
+
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-directvm.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen." border="false":::
+
 
 ## View performance directly from an Azure virtual machine scale set
 
