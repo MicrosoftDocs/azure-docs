@@ -148,6 +148,7 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
+export BASE_DIR=$PWD
 git checkout 20240109
 ```
 
@@ -156,6 +157,7 @@ git checkout 20240109
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
+$env:BASE_DIR=$PWD.Path
 git checkout 20240109
 ```
 
@@ -197,9 +199,9 @@ Now that you've gathered the necessary properties, you can build the application
 
 #### [Bash](#tab/in-bash)
 
-```bash
-cd <path-to-your-repo>/java-app
 
+```bash
+cd $BASE_DIR/java-app
 # The following variables will be used for deployment file generation into target.
 export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
 export REGISTRY_NAME=<Azure-Container-Registry-name>
@@ -217,7 +219,7 @@ mvn clean install
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app
+cd $env:BASE_DIR\java-app
 
 # The following variables will be used for deployment file generation into target.
 $Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
@@ -244,14 +246,14 @@ You can now run and test the project locally before deploying to Azure. For conv
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app
+   cd $BASE_DIR/java-app
    mvn liberty:run
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app
+   cd $env:BASE_DIR\java-app
    mvn liberty:run
    ```
 
@@ -268,7 +270,7 @@ You can now run the `docker build` command to build the image.
 #### [Bash](#tab/in-bash)
 
 ```bash
-cd <path-to-your-repo>/java-app/target
+cd $BASE_DIR/java-app
 
 docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
@@ -276,7 +278,7 @@ docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Docke
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app/target
+cd $env:BASE_DIR\java-app
 
 docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
@@ -352,14 +354,14 @@ Use the following steps to deploy and test the application:
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app/target
+   cd $BASE_DIR/java-app
    kubectl apply -f db-secret.yaml
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app/target
+   cd $env:BASE_DIR\java-app
    kubectl apply -f db-secret.yaml
    ```
 
