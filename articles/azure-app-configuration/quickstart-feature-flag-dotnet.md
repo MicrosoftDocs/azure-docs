@@ -1,9 +1,9 @@
 ---
-title: Quickstart for adding feature flags to .NET apps
+title: Quickstart for adding feature flags to .NET/.NET Framework apps
 titleSuffix: Azure App Configuration
-description: A quickstart for adding feature flags to .NET apps and managing them in Azure App Configuration.
+description: A quickstart for adding feature flags to .NET/.NET Framework apps and managing them in Azure App Configuration.
 services: azure-app-configuration
-author: maud-lv
+author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
@@ -23,12 +23,9 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
-
-If you want to use .NET Framework, please install the following things.
-
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) for .NET console app.
+- [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework) for .NET Framework console app.
 
 ## Add a feature flag
 
@@ -37,82 +34,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-## Create a .NET console app
+## Create a console app
 
 ### [.NET](#tab/dotnet)
 
-You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
-
-1. Create a new folder for your project.
-
-1. In the new folder, run the following command to create a new .NET console app project:
-
-    ```dotnetcli
-    dotnet new console
-    ```
-
-### [.NET Framework](#tab/dotnet-framework)
-
-You can use Visual Studio to create a new .NET Framework console app project.
+You can use Visual Studio to create a new console app project.
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
-1. In **Create a new project**, filter on the **Console** project type and click on **Console App (.NET Framework)**. Click **Next**.
+1. In **Create a new project**, filter on the **Console** project type and select **Console App**. If you want to create a .NET Framework app, please select **Console App (.NET Framework)** instead. Click **Next**.
 
-1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.8** or higher. Click **Create**.
+1. In **Configure your new project**, enter a project name. If you are creating a .NET Framework app, please select **.NET Framework 4.7.2** or higher under **Framework**. Click **Create**.
 
----
-
-## Use feature flag
-
-### [.NET](#tab/dotnet)
-
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands.
-
-    ```dotnetcli
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
-    dotnet add package Microsoft.FeatureManagement
-    ```
-
-1. Run the following command to restore packages for your project.
-
-    ```dotnetcli
-    dotnet restore
-    ```
-
-1. Open *Program.cs* and add the following statements.
-
-    ```csharp
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    using Microsoft.FeatureManagement;
-    ```
-
-1. Connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
-
-    ```csharp
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(options =>
-            {
-                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    .UseFeatureFlags();
-            }).Build();
-
-        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
-
-        IFeatureManager featureManager = new FeatureManager(
-            featureDefinitionProvider, 
-            new FeatureManagementOptions());
-
-        if (await featureManager.IsEnabledAsync("Beta"))
-        {
-            Console.WriteLine("Welcome to the beta!");
-        }
-
-        Console.WriteLine("Hello World!");
-    ```
-
-### [.NET Framework](#tab/dotnet-framework)
+## Use the feature flag
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
 
@@ -127,19 +61,18 @@ You can use Visual Studio to create a new .NET Framework console app project.
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
-    using System.Threading.Tasks;
     ```
 
-1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definitions from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
+1. Connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
 
-    ```csharp
-        public static async Task Main(string[] args)
-        {         
+    ### [.NET](#tab/dotnet)
+
+        ```csharp
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                           .UseFeatureFlags();
+                        .UseFeatureFlags();
                 }).Build();
 
             IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
@@ -154,18 +87,44 @@ You can use Visual Studio to create a new .NET Framework console app project.
             }
 
             Console.WriteLine("Hello World!");
-        }
-    ```
+        ```
 
----
+    ### [.NET Framework](#tab/dotnet-framework)
+
+        ```csharp
+            public static async Task Main(string[] args)
+            {         
+                IConfiguration configuration = new ConfigurationBuilder()
+                    .AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                            .UseFeatureFlags();
+                    }).Build();
+
+                IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+
+                IFeatureManager featureManager = new FeatureManager(
+                    featureDefinitionProvider, 
+                    new FeatureManagementOptions());
+
+                if (await featureManager.IsEnabledAsync("Beta"))
+                {
+                    Console.WriteLine("Welcome to the beta!");
+                }
+
+                Console.WriteLine("Hello World!");
+            }
+        ```
+
+    ---
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command.
+1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command:
+    If you use the Windows command prompt, run the following command.
 
     ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -181,51 +140,11 @@ You can use Visual Studio to create a new .NET Framework console app project.
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [macOS](#tab/unix)
-
-    If you use macOS, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
-    ### [Linux](#tab/linux)
-
-    If you use Linux, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
     ---
 
-1. Build and run the application.
+1. Restart Visual Studio to allow the change to take effect. 
 
-    ### [.NET](#tab/dotnet)
-
-    - Run the following command to build the console app.
-
-        ```dotnetcli
-        dotnet build
-        ```
-
-    - After the build successfully completes, run the following command to run the app locally.
-
-        ```dotnetcli
-        dotnet run
-        ```
-
-    ### [.NET Framework](#tab/dotnet-framework)    
-
-    - Restart Visual Studio to allow the change to take effect. 
-
-    - Press Ctrl + F5 to build and run the console app.
-
-    ---
+1. Press Ctrl + F5 to build and run the application.
 
 1. You should see the following outputs in the console.
 
@@ -245,7 +164,12 @@ You can use Visual Studio to create a new .NET Framework console app project.
 
 ## Next steps
 
-In this quickstart, you created a feature flag in App Configuration and used it with a .NET Framework console app. To learn how to dynamically update feature flags and other configuration values without restarting the application, continue to the next tutorial.
+In this quickstart, you created a feature flag in App Configuration and used it with a console app. To learn how to dynamically update feature flags and other configuration values without restarting the application, continue to the next tutorial.
+
 
 > [!div class="nextstepaction"]
-> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)
+> [Enable dynamic configuration in a .NET app](./enable-dynamic-configuration-dotnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration in a .NET Framework app](./enable-dynamic-configuration-dotnet.md)
+
