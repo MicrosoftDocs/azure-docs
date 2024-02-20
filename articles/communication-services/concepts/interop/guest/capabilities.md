@@ -110,22 +110,22 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Receive information of call being locally recorded                                                                  | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
-|                   | Manage Teams closed captions                                                                                        | ❌ |
+|                   | Manage Teams closed captions                                                                                        | ✔️ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
 | Engagement        | Raise and lower hand                                                                                                | ✔️ |
 |                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
-|                   | Trigger reactions                                                                                                   | ❌ |
-|                   | Indicate other participants' reactions                                                                              | ❌ |
+|                   | Trigger reactions                                                                                                   | ✔️ |
+|                   | Indicate other participants' reactions                                                                              | ✔️ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
-|                   | Receive PowerPoint Live stream                                                                                      | ❌ |
+|                   | Receive PowerPoint Live stream                                                                                      | ✔️ |
 |                   | Receive Whiteboard stream                                                                                           | ❌ |
 |                   | Interact with a poll                                                                                                | ❌ |
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 |                   | Interact with a OneNote                                                                                             | ❌ |
 |                   | Manage SpeakerCoach                                                                                                 | ❌ |
 | | [Include participant in Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ✔️ |
-| Accessibility     | Receive closed captions                                                                                             | ❌ |
+| Accessibility     | Receive Teams closed captions                                                                                             | ✔️ |
 |                   | Communication access real-time translation (CART)                                                                   | ❌ |
 |                   | Language interpretation                                                                                             | ❌ |
 | Advanced call routing   | Does meeting dial-out honor forwarding rules                                                                   |   ✔️      |
