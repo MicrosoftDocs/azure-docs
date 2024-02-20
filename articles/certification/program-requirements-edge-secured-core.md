@@ -45,7 +45,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|All Direct Memory Access(DMA) enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
+|Description|All Direct Memory Access (DMA) enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
 |Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
@@ -83,7 +83,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 
 ---
 
-## Windows IoT configuration requirements
+## Windows IoT Configuration requirements
 ---
 </br>
 
