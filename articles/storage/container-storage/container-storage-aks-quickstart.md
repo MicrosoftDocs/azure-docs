@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 02/14/2024
+ms.date: 02/20/2024
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -92,23 +92,35 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 
 - **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
-You'll specify the storage pool type when you install Azure Container Storage.
+### Resource consumption
+
+Azure Container Storage requires certain node resources to run components for the service. Based on your storage pool type selection, which you'll specify when you install Azure Container Storage, these are the resources that will be consumed:
+
+| **Storage pool type** | **CPU cores** | **RAM** |
+|-----------------------|---------------|---------|
+| Azure Elastic SAN | None | None |
+| Azure Disks | 1 | 1 GiB |
+| Ephemeral Disk - Temp SSD |  1 | 1 GiB |
+| Ephemeral Disk - Local NVMe |  25% of cores (depending on node size) | 2 GiB |
+
+The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed.
 
 > [!NOTE]
 > For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
 
 ## Choose a VM type for your cluster
 
-If you intend to use Azure Elastic SAN or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. You'll specify the VM type when you create the cluster in the next section.
+You'll specify the VM type when you create the cluster in the next section. Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
 
-> [!IMPORTANT]
-> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+- If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5**.
+- If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
+- If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](../../virtual-machines/ev3-esv3-series.md).
 
 ## Create a new AKS cluster and install Azure Container Storage
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
 
 Optional storage pool parameters:
 
@@ -123,7 +135,10 @@ Optional storage pool parameters:
 az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
 ```
 
-The deployment will take 10-15 minutes to complete.
+The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](#enable-additional-storage-pool-types).
+
+> [!IMPORTANT]
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ## Display available storage pools
 
@@ -133,8 +148,13 @@ To get the list of available storage pools, run the following command:
 kubectl get sp -n acstor
 ```
 
-> [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
+To check the status of a storage pool, run the following command:
+
+```azurecli-interactive
+kubectl describe sp <storage-pool-name> -n acstor
+```
+
+If the `Message` doesn't say `StoragePool is ready`, then your storage pool is still creating or ran into a problem.
 
 ## Install Azure Container Storage on an existing AKS cluster
 
@@ -161,11 +181,32 @@ If you want to install Azure Container Storage on specific node pools, follow th
    az aks nodepool list --resource-group <resource-group-name> --cluster-name <cluster-name>
    ```
    
-2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
    
    ```azurecli-interactive
    az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names>
    ```
+
+## Enable additional storage pool types
+
+If you want to enable a storage pool type that wasn't originally enabled during installation of Azure Container Storage, run the following command. Replace `<resource-group-name>`, `<cluster-name>`, and `<storage-pool-type>` with your own values.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
+```
+
+If the new storage pool type that you've enabled takes up more resources than the storage pool type that's already enabled, the [resource consumption](#resource-consumption) will change to the maximum amount.
+
+## Disable storage pool types
+
+If you're no longer using a specific storage pool type and want to disable it to free up resources in your node pool, run the following command. Replace `<resource-group-name>`, `<cluster-name>`, and `<storage-pool-type>` with your own values.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group-name> --disable-azure-container-storage <storage-pool-type>
+```
+
+> [!NOTE]
+> If you have an existing storage pool of the type that you're trying to disable, the storage pool type won't be disabled.
 
 ## Next steps
 
