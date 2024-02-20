@@ -7,10 +7,10 @@ ms.date: 2/15/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
-# Migration to App Service Environment v3 using the side by side migration feature
+# Migration to App Service Environment v3 using the side by side migration feature (Preview)
 
 > [!NOTE]
-> The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently in preview. 
+> The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently **in preview**. 
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
@@ -127,7 +127,7 @@ This step is also where you decide if you want to enable zone redundancy for you
 
 ### Update dependent resources with new outbound IPs
 
-The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80.
+The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer health probe, which now uses port 80.
 
 ### Delegate your App Service Environment subnet
 
@@ -181,15 +181,15 @@ The final step is to redirect traffic to your new App Service Environment v3 and
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, you can revert all changes and return to your old App Service Environment v2. The revert process takes 3 to 6 hours to complete. There's no downtime associated with this process. Once the revert process completes, your old App Service Environment is back online and your new App Service Environment v3 is deleted. You can then attempt the migration again once you resolve any issues.
 
-> [!NOTE]
-> Due to the differences between the Isolated to Isolated v2 pricing tiers, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
->
-
 ## Pricing
 
 There's no cost to migrate your App Service Environment. However, you're billed for both your App Service Environment v2 and your new App Service Environment v3 once you start the migration process. You stop being charged for your old App Service Environment v2 when you complete the final migration step where your DNS is updated and the old environment gets deleted. You should complete your validation as quickly as possible to prevent excess charges from accumulating. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
 When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. Consider [reservations](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances) and [savings plans](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) to further reduce your costs. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
+
+> [!NOTE]
+> Due to the differences between the Isolated to Isolated v2 pricing tiers, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
+>
 
 ### Scale down your App Service plans
 

@@ -8,10 +8,10 @@ ms.date: 2/15/2024
 ms.author: jordanselig
 # zone_pivot_groups: app-service-cli-portal
 ---
-# Use the side by side migration feature to migrate App Service Environment v2 to App Service Environment v3
+# Use the side by side migration feature to migrate App Service Environment v2 to App Service Environment v3 (Preview)
 
 > [!NOTE]
-> The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently in preview. 
+> The migration feature described in this article is used for side by side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently **in preview**. 
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
