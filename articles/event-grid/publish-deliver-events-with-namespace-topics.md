@@ -171,8 +171,6 @@ event_subscription="<your_event_subscription_name>"
 ```
 
 ```azurecli-interactive
-az eventgrid namespace topic event-subscription create -g $resource_group --topic-name $topic -n $event_subscription --namespace-name $namespace --delivery-configuration "{\"deliveryMode\": \"Push\",\"push\": {\"maxDeliveryCount\": 10,\"deliveryWithResourceIdentity\": {\"identity\": {\"type\": \"SystemAssigned\" }, \"destination\": { \"endpointType\": \"EventHub\", \"properties\": {\"resourceId\": \"$eventHubResourceId\"}}}}}"
-
 az resource create --api-version 2023-06-01-preview --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type eventsubscriptions --name $event_subscription --parent namespaces/$namespace/topics/$topic --location $location --properties "{\"deliveryConfiguration\":{\"deliveryMode\":\"Push\",\"push\":{\"maxDeliveryCount\":10,\"deliveryWithResourceIdentity\":{\"identity\":{\"type\":\"SystemAssigned\"},\"destination\":{\"endpointType\":\"EventHub\",\"properties\":{\"resourceId\":\"$eventHubResourceId\"}}}}}}"
 ```
 
