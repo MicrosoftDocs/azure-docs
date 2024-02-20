@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Operator Call Protection?
     href: overview.md
+- name: Planning
+  items:
+  - name: Onboarding and Included Benefits
+    href: onboarding.md
 - name: Get started
   items:
   - name: Overview of deploying
