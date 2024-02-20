@@ -69,8 +69,8 @@ sink:
   container_name: example-container
   # Optional A string giving an optional base path to use in the container in the Data Product's input storage account. Reserved URL characters must be percent-encoded. See the Data Product for what value, if any, is required.
   base_path: base-path
-  # Optional. How often the sink should refresh its ADLS token. Defaults to 1h.  Examples: 30s, 10m, 1h, 1d.
-  adls_token_cache_period: 1h
+  # Optional. How often the sink should refresh its SAS token for the Data Product's input storage account. Defaults to 1h.  Examples: 30s, 10m, 1h, 1d.
+  sas_token_cache_period: 1h
   auth:
     type: sas_token
     # This must reference a secret provider configured above. 
