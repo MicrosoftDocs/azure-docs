@@ -92,28 +92,29 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Populate availability zone for Terraform-managed volumes
 
-The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you cannot modify it. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
+The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you can't modify it after the volume has been created. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
 
 >[!IMPORTANT]
 >To prevent data loss on any Azure resource that includes volatile resources, you should use the [`prevent_destroy` lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy).
 
-1. Navigate to the Terraform module `terraform.tfstate`. The `"zone"` property should be an empty string. 
-1. In the Terraform-managed volume's configuration file (`main.tf`), locate the lifecycle configuration block. Modify the block with `ignore_changes = [zone]`. If no lifecycle configuration block exists, add it:
+1. Navigate to the Terraform module `terraform.tfstate` file. The `"zone"` property should be an empty string. 
+1. In the Terraform-managed volume's configuration file (`main.tf`), locate the lifecycle configuration block for the volume resource. Modify the block with `ignore_changes = [zone]`. If no lifecycle configuration block exists, add it:
     ```
     lifecycle {
         ignore_changes = [zone]
     }
     ```
-1. In the Azure portal, locate the Terraform module. In the volume **Overview**, select **Populate availability zone** and make note of the availability zone. Do _not_ select save. 
+1. In the Azure portal, locate the Terraform-managed volume. In the volume **Overview**, select **Populate availability zone** and make note of the availability zone. Do _not_ select save. 
 
     :::image type="content" source="./media/manage-availability-zone-volume-placement/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone menu." lightbox="./media/manage-availability-zone-volume-placement/populate-availability-zone.png":::
     
-1. In the volume's configuration file (`main.tf`), add a value for `zone`, entering the numerical value you retrieved in the previous step. For example, if the volume's availability zone is 2, enter `zone = 2`. Save the file. 
+1. In the volume's configuration file (`main.tf`), add a value for `zone`, entering the numerical value you retrieved in the previous step. For example, if the volume's availability zone is 1, enter `zone = 1`.
+1. Save the file. 
 1. Return to the Azure portal. Select **Save** to populate the availability zone. 
 1. Run `terraform plan` to confirm that no changes will be made to your volume. The CLI output should display: `No changes. Your infrastructure matches the configuration.`
 1. Run `terraform apply` to apply the changes. You should see the same CLI output as in the previous step. 
 
-If you need to delete and recreate the volume in a different availability zone, remove the `ignore_changes = [zone]` line in the configuration file then run `terraform plan`. If the output indicates that no changes will be made to the volume, you can successfully populate the availability zone.
+If you need to delete and recreate the volume in a different availability zone, remove the `ignore_changes = [zone]` line in the configuration file then run `terraform plan` followed by `terraform apply`.
 
 ## Configure custom RBAC roles
 

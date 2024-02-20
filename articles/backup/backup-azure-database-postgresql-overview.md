@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/09/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

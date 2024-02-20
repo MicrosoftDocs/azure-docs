@@ -1,6 +1,6 @@
 ---
 title: Migrate apps from Azure Functions version 3.x to 4.x
-description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
+description: This article shows you how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.custom:
   - devx-track-dotnet
@@ -16,14 +16,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Migrate apps from Azure Functions version 3.x to version 4.x 
 
-Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
+Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely migrate to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of extended support. For more information, see [Retired versions](functions-versions.md#retired-versions).
 
-This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
-## Identify function apps to upgrade
+## Identify function apps to migrate
 
 Use the following PowerShell script to generate a list of function apps in your subscription that currently target versions 2.x or 3.x:
 
@@ -38,9 +38,9 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
+> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
 >
-> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 8 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick migration path. However, you might also consider upgrading to .NET 8 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 This guide doesn't present specific examples for .NET 7 or .NET 6 on the isolated worker model. If you need to target these versions, you can adapt the .NET 8 isolated worker model examples.
 
@@ -48,24 +48,24 @@ This guide doesn't present specific examples for .NET 7 or .NET 6 on the isolate
 
 ## Prepare for migration
 
-If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-upgrade).
+If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-migrate).
 
-Before you upgrade an app to version 4.x of the Functions runtime, you should do the following tasks:
+Before you migrate an app to version 4.x of the Functions runtime, you should do the following tasks:
 
 1. Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
-1. Complete the steps in [Upgrade your local project](#upgrade-your-local-project) to migrate your local project to version 4.x.
+1. Complete the steps in [Migrate your local project](#migrate-your-local-project) to migrate your local project to version 4.x.
 1. After migrating your project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
 1. [Run the pre-upgrade validator](#run-the-pre-upgrade-validator) on the app hosted in Azure, and resolve any identified issues.
-1. Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).
-1. Publish your migrated project to the upgraded function app.
+1. Update your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Update using slots](#update-using-slots).
+1. Publish your migrated project to the updated function app.
 
 ::: zone pivot="programming-language-csharp"
 
-  When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
+  When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio update the function app to version 4.x during deployment. This update uses the same process defined in [Update without slots](#update-without-slots).
 
 ::: zone-end
 
-## Upgrade your local project
+## Migrate your local project
 
 Upgrading instructions are language dependent. If you don't see your language, choose it from the selector at the [top of the article](#top).
 
@@ -122,7 +122,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 ### Package and namespace changes
 
-Based on the model you are migrating to, you might need to upgrade or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
+Based on the model you are migrating to, you might need to update or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
 
 # [.NET 8 (isolated)](#tab/net8)
 
@@ -197,7 +197,7 @@ namespace Company.FunctionApp
 
 The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file). 
 
-When you upgrade to version 4.x, make sure that your local.settings.json file has at least the following elements:
+When you migrate to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
 # [.NET 8 (isolated)](#tab/net8)
 
@@ -389,7 +389,7 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 
 1. In **Function App Diagnostics**, start typing `Functions 4.x Pre-Upgrade Validator` and then choose it from the list. 
 
-1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#upgrade-your-local-project) or by [using a staging slot](#upgrade-using-slots). 
+1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#migrate-your-local-project) or by [using a staging slot](#update-using-slots). 
 
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
 
@@ -401,11 +401,11 @@ If you don't see your programming language, go select it from the [top of the pa
 
 ### Runtime
 
-- Azure Functions Proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions Proxies can be re-enabled in version 4.x so that you can successfully upgrade your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). To learn how to re-enable Proxies support in Functions version 4.x, see [Re-enable Proxies in Functions v4.x](legacy-proxies.md#re-enable-proxies-in-functions-v4x).  
+- Azure Functions Proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions Proxies can be re-enabled in version 4.x so that you can successfully update your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). To learn how to re-enable Proxies support in Functions version 4.x, see [Re-enable Proxies in Functions v4.x](legacy-proxies.md#re-enable-proxies-in-functions-v4x).  
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
+- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Update to the latest version of affected extensions. For non-.NET languages, [update](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x for function apps running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 

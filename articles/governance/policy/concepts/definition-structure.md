@@ -186,11 +186,13 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
+### Adding or removing parameters
+
 Parameters may be added to an existing and assigned definition. The new parameter must include the
 **defaultValue** property. This prevents existing assignments of the policy or initiative from
 indirectly being made invalid.
 
-Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Some built-in policy definitions have deprecated parameters using metadata `"deprecated": true`, which hides the parameter when assigning the definition in Azure Portal. While this is not supported for custom policy definitions, another option is to duplicate and create a new custom policy definition without the parameter.
 
 ### Parameter properties
 
@@ -212,6 +214,7 @@ A parameter has the following properties that are used in the policy definition:
     the assignment scope. There's one role assignment per role definition in the policy (or per role
     definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
+  - `deprecated`: A boolean flag to indicate whether a parameter is deprecated in a built-in definition.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
   assignment.
