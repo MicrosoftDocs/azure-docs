@@ -39,7 +39,8 @@ The following bandwidth requirements are for the JavaScript SDKs.
 |500 Kbps|Peer-to-peer quality video calling 360 pixels at 30 FPS|
 |1.2 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 720 pixels at 30 FPS|
 |500 Kbps|Group video calling 360 pixels at 30 FPS|
-|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS| 
+|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS|
+|1.5 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 1080 pixels at 30 FPS |
 
 The following bandwidth requirements are for the native Windows, Android, and iOS SDKs.
 

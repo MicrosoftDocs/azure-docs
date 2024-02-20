@@ -168,6 +168,14 @@ The Azure Communication Services Calling SDK supports the following streaming co
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
 While the Calling SDK does not enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
+## Supported video resolutions
+The Azure Communicaton Services Calling SDK support the following video resolutions:
+
+| Maximum video resolution        | WebJS | iOS   | Android | Windows |
+| ------------- | ----- | ----- | ------- | ------- |
+| **Receiving video** | 1080P | 1080P | 1080P   | 1080P   |
+| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
+
 ## Calling SDK timeouts
 
 The following timeouts apply to the Communication Services Calling SDKs:
