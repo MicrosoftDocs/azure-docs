@@ -149,7 +149,7 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 export BASE_DIR=$PWD
-git checkout 20240109
+git checkout 20240220
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -354,14 +354,14 @@ Use the following steps to deploy and test the application:
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd $BASE_DIR/java-app
+   cd $BASE_DIR/java-app/target
    kubectl apply -f db-secret.yaml
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd $env:BASE_DIR\java-app
+   cd $env:BASE_DIR\java-app\target
    kubectl apply -f db-secret.yaml
    ```
 
