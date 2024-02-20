@@ -89,7 +89,7 @@ This section should be followed as part of [Configure the agent software](set-up
 
 1. Change to the configuration directory: `cd /etc/az-aoi-ingestion`
 1. Make a copy of the default configuration file: `sudo cp example_config.yaml config.yaml`
-1. Edit the *config.yaml* and fill out the fields. Delete all pipelines except `mcc_edrs`. Most of the fields are set to default values and don't need to be changed. The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
+1. Edit the *config.yaml* and fill out the fields. Delete all pipelines except `mcc_edrs`. Most of the fields are set to default values and don't need to be changed. The full reference for each parameter is described in [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md). The following parameters must be set:
 
     1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname. This name becomes searchable metadata in Operator Insights for all EDRs from this agent.
 

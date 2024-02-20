@@ -139,7 +139,7 @@ Follow these steps on the SFTP server:
 1. Configure the SFTP server to remove files after a period of time (a _retention period_). Ensure the retention period is long enough that the agent should have processed the files before the SFTP server deletes them. The example configuration file contains configuration for checking for new files every five minutes.
 
 > [!IMPORTANT]
-> Your SFTP server must remove files after a suitable retention period so that it does not run out of disk space. The SFTP ingestion agent does not remove files automatically.
+> Your SFTP server must remove files after a suitable retention period so that it does not run out of disk space. The ingestion agent does not remove files automatically.
 >
 > A shorter retention time reduces disk usage, increases the speed of the agent and reduces the risk of duplicate uploads. However, a shorter retention period increases the risk that data is lost if data cannot be retrieved by the agent or uploaded to Azure Operator Insights.
 

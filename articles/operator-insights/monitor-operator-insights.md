@@ -133,7 +133,7 @@ For a list of common queries for Azure Operator Insights, see the [Log Analytics
 
 Azure Operator Insights also requires ingestion agents deployed in your network.
 
-Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored on the VM on which you installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
+Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored on the VM on which you installed the agent, and aren't uploaded to Azure Monitor. For details, see [Monitor and troubleshoot ingestion agents for Azure Operator Insights](monitor-troubleshoot-ingestion-agent.md).
 
 ## Next steps
 
