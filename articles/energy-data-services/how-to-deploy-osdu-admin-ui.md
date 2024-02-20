@@ -47,7 +47,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
    
    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/running-devcontainer.png" alt-text="Screenshot that shows running devcontainer.":::
    
-6. Open the terminal
+6. Open the terminal.
 
    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/open-terminal.png" alt-text="Screenshot that shows opening terminal.":::
 
@@ -76,16 +76,16 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
     
 ## Configure environment variables
-1. Fetch `client-id` as authAppId, `resource-group`, `subscription-id` and `location`.
+1. Fetch `client-id` as authAppId, `resource-group`, `subscription-id`, and `location`.
 
    ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
 
-2. Fetch the value of `id` as the subscription id by running the following command on the terminal:
+2. Fetch the value of `id` as the subscription ID by running the following command on the terminal.
     ```azurecli-interactive
     az account show
     ```
 
-3. If the above ID is not same as the `subcription-id` from the Azure Data Manager for Energy instance, you need to change subscription:
+3. If the above ID isn't same as the `subcription-id` from the Azure Data Manager for Energy instance, you need to change subscription.
     ```azurecli-interactive
     az account set --subscription <subscription-id>
     ```
