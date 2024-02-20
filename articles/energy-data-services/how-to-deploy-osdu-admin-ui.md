@@ -74,7 +74,13 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/login.png" alt-text="Screenshot that shows successful login.":::
 
-10. Make sure the correct subscription is selected by running the following command:
+    
+## Configure environment variables
+1. Fetch `client-id` as authAppId, `resource-group`, `subscription-id` and `location`.
+
+   ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
+
+2. Make sure the correct subscription is selected by running the following command:
     ```azurecli-interactive
     az account show
     ```
@@ -82,18 +88,13 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     :::image type="content" source="media/how-to-deploy-osdu-admin-ui/subs-id-terminal.png" alt-text="Screenshot that shows subscription ID on terminal.":::   
 
 
-11. If you need to change subscription:
+3. If you need to change subscription:
     ```azurecli-interactive
     az account set --subscription <subscription-id>
     ```
-    
-## Configure environment variables
-1. Fetch `client-id`, `resource-group`, and `location`.
 
-   ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
-
-2. Enter the required environment variables on the terminal.
-```bash
+4. Enter the required environment variables on the terminal.
+   ```bash
 export CLIENT_ID="<client-id>" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
 export TENANT_ID="<tenant-id>" ## Tenant ID
 export ADME_URL="<adme-url>"  ## Remove www or https from the text
@@ -101,7 +102,7 @@ export DATA_PARTITION="<partition>"
 export WEBSITE_NAME="<storage-name>" ## Unique name of the storage account or  static web app that will be generated
 export RESOURCE_GROUP="<resource-group>" ## Name of resource group
 export LOCATION="<location>" ## Azure region to deploy to, i.e. "westeurope"
-```
+   ```
 
 ## Deploy storage account
 1. Create resource group. Skip this step if the resource group exists already.
