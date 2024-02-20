@@ -4,7 +4,7 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 2/2/2024
+ms.date: 2/20/2024
 ---
 
 # Upgrade to App Service Environment v3
@@ -55,7 +55,7 @@ There are two automated migration features available to help you upgrade to App 
 
 Use the following decision tree to determine which migration path is right for you.
 
-:::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Decision tree for helping decide which App Service Environment upgrade option to use.":::
+:::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Screenshot of the decision tree for helping decide which App Service Environment upgrade option to use." lightbox="./media/migration/migration-path-decision-tree-expanded.png":::
 
 ### Cost saving opportunities after upgrading to App Service Environment v3
 
