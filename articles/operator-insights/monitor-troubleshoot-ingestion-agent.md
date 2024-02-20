@@ -1,6 +1,6 @@
 ---
 title: Monitor and troubleshoot ingestion agents for Azure Operator Insights
-description: Learn how to detect, troubleshoot and fix problems with Azure Operator Insights ingestion agents.
+description: Learn how to detect, troubleshoot, and fix problems with Azure Operator Insights ingestion agents.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
@@ -10,18 +10,6 @@ ms.date: 02/29/2024
 
 #CustomerIntent: As a someone managing an agent that has already been set up, I want to monitor and troubleshoot it so that data products in Azure Operator Insights receive the correct data.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
 
 <!-- 1. H1 -----------------------------------------------------------------------------
 
@@ -37,95 +25,128 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 # Monitor and troubleshoot Azure Operator Insights ingestion agents
 
-> [!WARNING]
-> TODO Update with content from:
-> - [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md)
-> - [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md)
-
 For an overview of ingestion agents, see [Ingestion agent overview](ingestion-agent-overview.md).
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+If you notice problems with data collection from your ingestion agents, use the information in this section to fix common problems or create a diagnostics package. You can upload the diagnostics package to support tickets that you create in the Azure portal.
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental "why would I want to do this?" question. Keep it short.
+The ingestion bus agent is a software package, so their diagnostics are limited to the functioning of the application. Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data, logs, and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
-
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
-
--->
-
-TODO: Add your introductory paragraph
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
-
--->
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Required: Make Prerequisites the first H2 after the H1. 
-
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
--->
+Metrics are reported in a simple human-friendly form.  They're provided primarily to help Microsoft Support debug unexpected issues.
 
 ## Prerequisites
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+- For most of these troubleshooting techniques, you need an SSH connection to the VM running the agent.
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+## Collect diagnostics
 
-For portal-based procedures, minimize bullets and numbering.
+Microsoft Support might request diagnostic packages when investigating an issue.
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
--->
+> [!NOTE]
+> Diagnostics packages don't contain any customer data or the value of any credentials.
 
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+## Problems common to all sources
 
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+### Agent fails to start
 
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in failed state.
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+Steps to fix:
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+- Ensure the service is running: `sudo systemctl start az-aoi-ingestion`.
+- Look at the */var/log/az-aoi-ingestion/stdout.log* file and check for any reported errors. Fix any issues with the configuration file and start the agent again.
+ 
+### No data appearing in AOI
 
--->
+Symptoms: no data appears in Azure Data Explorer.
+
+Steps to fix:
+
+- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
+- Check the network connectivity and firewall configuration on the storage account.
+- Check that the ingestion agent is receiving data from its source. Check the network connectivity and firewall configuration between your network and the ingestion agent.
+
+## Problems with the MCC EDR source
+
+This section covers problems specific to the MCC EDR source.
+
+You can also use the diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, to help identify and debug ingestion issues.
+
+### MCC can't connect
+
+Symptoms: MCC reports alarms about MSFs being unavailable.
+
+- Check that the agent is running.
+- Ensure that MCC is configured with the correct IP and port.
+- Check the logs from the agent and see if it's reporting connections. If not, check the network connectivity to the agent VM and verify that the firewalls aren't blocking traffic to port 36001.
+- Collect a packet capture to see where the connection is failing.
+
+### No EDRs appearing in AOI
+
+Symptoms: no data appears in Azure Data Explorer.
+
+- Check that the MCC is healthy and ingestion bus agents are running.
+- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
+- Check the network connectivity and firewall configuration on the storage account.
+
+### Data missing or incomplete
+
+Symptoms: Azure Monitor shows a lower incoming EDR rate in ADX than expected.
+
+- Check that the agent is running on all VMs and isn't reporting errors in logs.
+- Verify that the agent VMs aren't being sent more than the rated load.
+- Check agent metrics for dropped bytes/dropped EDRs. If the metrics don't show any dropped data, then MCC isn't sending the data to the agent. Check the "received bytes" metrics to see how much data is being received from MCC.
+- Check that the agent VM isn't overloaded – monitor CPU and memory usage. In particular, ensure no other process is taking resources from the VM.
+ 
+## Problems with the SFTP pull source
+
+This section covers problems specific to the SFTP pull source.
+
+You can also use the diagnostics provided by Azure Operator Insights itself in Azure Monitor to help identify and debug ingestion issues.
+
+### Agent can't connect to SFTP server
+
+Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-aoi-ingestion/stdout.log*, contains errors about connecting the SFTP server.
+
+- Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
+- Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFTP connections.
+- Check that the `known_hosts` file on the agent VM contains a valid public SSH key for the SFTP server: 
+  - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*` 
+  - If there's no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Set up the Azure Operator Insights ingestion agent](set-up-ingestion-agent.md) to add a `known_hosts` entry for the SFTP server.
+
+### No files are uploaded to Azure Operator Insights
+
+Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric for the relevant data type is zero. 
+
+- Check that the agent is running on all VMs and isn't reporting errors in logs.
+- Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
+- Check the network connectivity and firewall configuration between the ingestion agent and Azure Operator Insights.
+
+### Files are missing
+
+Symptoms: Data is missing from Azure Data Explorer. The AOI *Data Ingested* and *Processed File Count* metrics for the relevant data type are lower than expected. 
+
+- Check that the agent is running on all VMs and isn't reporting errors in logs. Search the logs for the name of the missing file to find errors related to that file.
+- Check that the files exist on the SFTP server and that they aren't being excluded due to file source config. Check the file source config and confirm that:
+  - The files exist on the SFTP server under the path defined in `base_path`. Ensure that there are no symbolic links in the file paths of the files to upload: the ingestion agent ignores symbolic links.
+  - The "last modified" time of the files is at least `settling_time` seconds earlier than the time of the most recent upload run for this file source.
+  - The "last modified" time of the files is later than `exclude_before_time` (if specified).
+  - The file path relative to `base_path` matches the regular expression given by `include_pattern` (if specified).
+  - The file path relative to `base_path` *doesn't* match the regular expression given by `exclude_pattern` (if specified).
+- If recent files are missing, check the agent logs to confirm that the ingestion agent performed an upload run for the source at the expected time. The `cron` parameter in the source config gives the expected schedule.
+- Check that the agent VM isn't overloaded – monitor CPU and memory usage. In particular, ensure no other process is taking resources from the VM.
+
+### Files are uploaded more than once
+
+Symptoms: Duplicate data appears in Azure Operator Insights
+
+- Check whether the ingestion agent encountered a retryable error on a previous upload and then retried that upload more than 24 hours after the last successful upload. In that case, the agent might upload duplicate data during the retry attempt. The duplication of data should affect only the retry attempt.
+- Check that the file sources defined in the config file refer to nonoverlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
+- If you're running multiple instances of the SFTP ingestion agent, check that the file sources configured for each agent don't overlap with file sources on any other agent. In particular, look out for file source config that has been accidentally copied from another agent's config.
+- If you recently changed the pipeline `id` for a configured file source, use the `exclude_before_time` field to avoid files being reuploaded with the new pipeline `id`. For instructions, see [Change configuration for ingestion agents for Azure Operator Insights](change-ingestion-agent-configuration.md).
 
 ## Related content
 
