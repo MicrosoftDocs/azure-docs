@@ -81,7 +81,7 @@ If you chose **Azure Well-Architected Review** as the assessment type: The page 
      * [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
      * [Security](/azure/well-architected/iot/iot-security): Complete the security questions for IoT workloads in the Azure Well-Architected Review.  
    * **SAP On Azure (Preview)**: For detailed information on the different types of storage and their capability and usability with SAP workloads and SAP components, see [Azure Storage types for SAP workload](/azure/sap/workloads/planning-guide-storage).
-   * **Azure Stack Hub (Preview)**: Evaluates the performance efficiency of your workloads running on Azure Stack Hub. To learn more, see [Manage workloads that run on Azure Stack Hub](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-stack/manage).\
+   * **Azure Stack Hub (Preview)**: Evaluates the performance efficiency of your workloads running on Azure Stack Hub. To learn more, see [Manage workloads that run on Azure Stack Hub](/azure/cloud-adoption-framework/scenarios/azure-stack/manage).\
 When ready, select **Next**. The WAF Configuration options page opens.
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-new-question-workload.png" alt-text="Screenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-assessments/advisor-assessment-new-question-workload.png":::
 1. For **Azure Well-Architected** assessment types only:\
@@ -114,7 +114,7 @@ To learn more about permissions, see [Permissions in Azure Advisor](/azure/advis
 
 1. You can sort the recommendations based on **Priority**, **Recommendation**, and **Category**. You can also use **Actions** > **Group** to group the recommendations by category or priority.
 
-:::image type="content" source="./media/advisor-assessments/advisor-assessments-recommendation-list-filtered-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-assessments/advisor-assessments-recommendation-list-filtered-m.png":::
+:::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-filtered-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-filtered-m.png":::
 
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score.
