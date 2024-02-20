@@ -2,13 +2,13 @@
 title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 02/13/2024
+ms.date: 02/20/2024
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
 # Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) node pools to run compute-intensive Kubernetes workloads.
+Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](./gpu-cluster.md) node pools to run compute-intensive Kubernetes workloads.
 
 This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters.
 
@@ -295,81 +295,6 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
     kubectl apply -f windows-gpu-workload.yaml
     ```
 
-## View the status of the GPU-enabled workload
-
-1. Monitor the progress of the job using the [`kubectl get jobs`][kubectl-get] command with the `--watch` flag. It may take a few minutes to first pull the image and process the dataset.
-
-    ```console
-    kubectl get jobs windows-gpu-workload --watch
-    ```
-
-    When the *COMPLETIONS* column shows *1/1*, the job has successfully finished, as shown in the following example output:
-
-    ```console
-    NAME                    COMPLETIONS   DURATION   AGE
-
-    windows-gpu-workload    0/1           3m29s      3m29s
-    windows-gpu-workload    1/1   3m10s   3m36s
-    ```
-
-2. Exit the `kubectl --watch` process with *Ctrl-C*.
-
-3. Get the name of the pod using the [`kubectl get pods`][kubectl-get] command.
-
-    ```console
-    kubectl get pods --selector app=windows-gpu-workload
-    ```
-
-4. View the output of the GPU-enabled workload using the [`kubectl logs`][kubectl-logs] command.
-
-    ```console
-    kubectl logs windows-gpu-workload-smnr6
-    ```
-
-    The following condensed example output of the pod logs confirms that the appropriate GPU device, `Tesla K80`, has been discovered:
-
-    ```console
-    2019-05-16 16:08:31.258328: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-    2019-05-16 16:08:31.396846: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
-    name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
-    pciBusID: 2fd7:00:00.0
-    totalMemory: 11.17GiB freeMemory: 11.10GiB
-    2019-05-16 16:08:31.396886: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 2fd7:00:00.0, compute capability: 3.7)
-    2019-05-16 16:08:36.076962: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
-    Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
-    Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz
-    Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
-    Extracting /tmp/tensorflow/input_data/train-labels-idx1-ubyte.gz
-    Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
-    Extracting /tmp/tensorflow/input_data/t10k-images-idx3-ubyte.gz
-    Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
-    Extracting /tmp/tensorflow/input_data/t10k-labels-idx1-ubyte.gz
-    Accuracy at step 0: 0.1081
-    Accuracy at step 10: 0.7457
-    Accuracy at step 20: 0.8233
-    Accuracy at step 30: 0.8644
-    Accuracy at step 40: 0.8848
-    Accuracy at step 50: 0.8889
-    Accuracy at step 60: 0.8898
-    Accuracy at step 70: 0.8979
-    Accuracy at step 80: 0.9087
-    Accuracy at step 90: 0.9099
-    Adding run metadata for 99
-    Accuracy at step 100: 0.9125
-    Accuracy at step 110: 0.9184
-    Accuracy at step 120: 0.922
-    Accuracy at step 130: 0.9161
-    Accuracy at step 140: 0.9219
-    Accuracy at step 150: 0.9151
-    Accuracy at step 160: 0.9199
-    Accuracy at step 170: 0.9305
-    Accuracy at step 180: 0.9251
-    Accuracy at step 190: 0.9258
-    Adding run metadata for 199
-    [...]
-    Adding run metadata for 499
-    ```
-
 ## Use Container Insights to monitor GPU usage
 
 [Container Insights with AKS][aks-container-insights] monitors the following GPU usage metrics:
@@ -421,7 +346,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-quickstart-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-windows-container-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-windows-containers-deploy-powershell.md
+[aks-quickstart-powershell]: ./learn/quick-windows-container-deploy-powershell.md
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
