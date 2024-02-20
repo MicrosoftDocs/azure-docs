@@ -129,11 +129,11 @@ You observe no outbound connectivity on your NAT gateway.
 
   To explore options for updating your traffic routes on your subnet routing table, see:
 
-      * [Add a custom route](/azure/virtual-network/manage-route-table#create-a-route)
+    * [Add a custom route](/azure/virtual-network/manage-route-table#create-a-route)
 
-      * [Change a route](/azure/virtual-network/manage-route-table#change-a-route)
+    * [Change a route](/azure/virtual-network/manage-route-table#change-a-route)
 
-      * [Delete a route](/azure/virtual-network/manage-route-table#delete-a-route)
+    * [Delete a route](/azure/virtual-network/manage-route-table#delete-a-route)
 
 * Update NSG security rules that block internet access for any of your VMs. For more information, see [manage network security groups](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal).
 
