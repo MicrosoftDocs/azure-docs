@@ -53,7 +53,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date of change: February 28, 2024**
 
-Recently Azure converted "Cognitive Services" resources to "Azure AI Services" resources, and added new resource types under that category. As a result, the following recommendations and related policy are set to be updated to comply with the new Azure AI Services naming format and align with the relevant resources.
+The Azure AI Services category (formerly known as Cognitive Services) is adding new resource types. As a result, the following recommendations and related policy are set to be updated to comply with the new Azure AI Services naming format and align with the relevant resources.
 
 | Current Recommendation | Updated Recommendation |
 | ---- | ---- |
