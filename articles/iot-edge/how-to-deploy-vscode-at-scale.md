@@ -132,7 +132,7 @@ If you need to determine which IoT Edge devices you can currently configure, run
 
 ## Identify devices with target conditions
 
-To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria is matched by a deviceId, tag value, or a reported property value.
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria are matched by a deviceId, tag value, or a reported property value.
 
 You configure tags in the device twin. Here is an example of a device twin that has tags:
 
