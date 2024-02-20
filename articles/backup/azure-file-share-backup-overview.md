@@ -2,7 +2,7 @@
 title: About Azure File share backup
 description: Learn how to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/04/2024
 ms.service: backup
 ms.custom:
   - engagement-fy23
