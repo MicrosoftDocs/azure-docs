@@ -16,7 +16,4 @@ Deploying Azure Operator Call Protection requires Azure Communications Gateway. 
 
 For more information about Included Benefits, see [Onboarding with Included Benefits for Azure Communications Gateway](../communications-gateway/onboarding.md).
 
-## Next steps
-
-- [Learn about with Included Benefits](../communications-gateway/onboarding.md).
-- [Learn more about deploying Azure Operator Call Protect](onboarding.md).
+You can also [learn more about deploying Azure Operator Call Protect](deployment-overview.md).
