@@ -63,7 +63,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible custom role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md). To list eligible custom role assignments, you can use PowerShell or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) and [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
