@@ -98,7 +98,7 @@ This section should be followed as part of [Configure the agent software](set-up
 
 1. Change to the configuration directory: `cd /etc/az-aoi-ingestion`
 1. Make a copy of the default configuration file: `sudo cp example_config.yaml config.yaml`
-1. Edit the *config.yaml* file and fill out the fields. Start by filling out the parameters that don't depend on the type of Data Product. Many parameters are set to default values and don't need to be changed. The full reference for each parameter is described in [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md). The following parameters must be set:
+1. Edit the *config.yaml* file and fill out the fields. Delete all pipelines except `contoso-logs`, and change the pipeline ID to `pmstats`. Start by filling out the parameters that don't depend on the type of Data Product. Many parameters are set to default values and don't need to be changed. The full reference for each parameter is described in [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md). The following parameters must be set:
 
     1. **agent\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
     1. For the secret provider with name `data_product_keyvault`, set the following fields:
