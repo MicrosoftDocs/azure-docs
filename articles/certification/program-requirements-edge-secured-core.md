@@ -58,7 +58,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Description|The device boot sequence must support Dynamic Root of Trust for Measurement (DRTM) alongside UEFI Management Mode mitigations.|
 |Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies|DRTM + UEFI|
-|Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
+|Resources| <ul><li>[Trusted Computing Group](https://trustedcomputinggroup.org/)</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
 
 ---
 </br>
@@ -145,7 +145,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Status|Required|
 |Description|The system is able to successfully apply a baseline security configuration.|
 |Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines<br>https://www.cisecurity.org/cis-benchmarks|
+|Resources|[Microsoft Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)<br>[CIS Benchmarks List](https://www.cisecurity.org/cis-benchmarks)|
 
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
@@ -189,7 +189,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Status|Required|
 |Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
 |Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
-|Resources|https://msrc.microsoft.com/report/vulnerability/new|
+|Resources|[MSRC Portal](https://msrc.microsoft.com/report/vulnerability/new)|
 
 ---
 </br>
@@ -352,7 +352,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Status|Required|
 |Description|The system is able to successfully apply a baseline security configuration.|
 |Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Resources|<ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines</li><li>https://www.cisecurity.org/cis-benchmarks/</li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux</li></ul>|
+|Resources|<ul><li>[Microsoft Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)</li><li>[CIS Benchmarks List](https://www.cisecurity.org/cis-benchmarks/)</li><li>[Linux Security Baseline](https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux)</li></ul>|
 
 ---
 </br>
@@ -415,7 +415,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 <!---------------------------------------------->
 ::: zone pivot="platform-sphere"
 
-## Azure Sphere platform Support
+## Azure Sphere Platform Support
 The Mediatek MT3620AN must be included in your design. More guidance for building secured Azure Sphere applications can be found within the [Azure Sphere application notes](/azure-sphere/app-notes/app-notes-overview).
 
 
