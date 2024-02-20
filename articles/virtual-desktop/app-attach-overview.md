@@ -248,7 +248,7 @@ All MSIX and Appx packages require a valid code signing certificate. To use thes
 
 - A tool such as the PowerShell cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) that generates a self-signed certificate. You should only use self-signed certificates in a test environment. For more information on creating a self-signed certificate for MSIX and Appx packages, see [Create a certificate for package signing](/windows/msix/package/create-certificate-package-signing).
 
-Once you've obtained a certificate, you need to digitally sign your MSIX or Appx packages with the certificate. You can use the [SignTool](/windows/win32/seccrypto/signtool) command-line tool to sign your packages. For more information on signing your packages, see [Sign an app package using SignTool](/windows/msix/package/sign-app-package-using-signtool).
+Once you've obtained a certificate, you need to digitally sign your MSIX or Appx packages with the certificate. You can use the [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) to sign your packages when you create an MSIX package. For more information, see [Create an MSIX package from any desktop installer](/windows/msix/packaging-tool/create-app-package).
 
 To ensure the certificate is trusted on your session hosts, you need your session hosts to trust the whole certificate chain. How you do this depends on where you got the certificate from and how you manage your session hosts and the identity provider you use. The following table provides some guidance on how to ensure the certificate is trusted on your session hosts:
 
@@ -265,7 +265,7 @@ To ensure the certificate is trusted on your session hosts, you need your sessio
 - **Self-signed**: install the trusted root to the **Trusted Root Certification Authorities** store on each session host. We don't recommend distributing this certificate using Group Policy or Intune as it should only be used for testing.
 
 > [!IMPORTANT]
-> Once the certificate has expired, you need to update the package with a new valid certificate and once again ensure it's trusted on your session hosts.
+> You should timestamp your package so that its validity can outlast your certificate's expiration date. Otherwise, once the certificate has expired, you need to update the package with a new valid certificate and once again ensure it's trusted on your session hosts.
 
 ## Next steps
 
