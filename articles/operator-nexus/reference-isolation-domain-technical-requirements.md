@@ -20,9 +20,9 @@ ms.topic: reference
 -   For IPv4, the maximum length allowed for a BGP listen range is /28, and the maximum length allowed for a static route prefix is /24. For IPv6, the maximum length allowed for a BGP listen range is /127, and the maximum length allowed for a static route prefix is /64.
 
 
-- Nexus supports:
-    -   3500 Layer 2 isolation domains per Nexus instance
-    -   200 Layer 3 isolation domains per Nexus instance
+- Azure Operator Nexus supports:
+    -   3500 Layer 2 isolation domains per Operator Nexus instance
+    -   200 Layer 3 isolation domains per Operator Nexus instance
 
 
 ## Configuration parameters for the Isolation Domain Resource

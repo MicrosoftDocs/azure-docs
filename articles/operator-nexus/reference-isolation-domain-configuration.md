@@ -23,9 +23,9 @@ You can deploy workloads that advertise external service IP addresses to PE devi
 
 ## Tenant Networking use cases
 
-Nexus is a platform that enables different types of communication between workloads:
+Azure Operator Nexus is a platform that enables different types of communication between workloads:
 
--   East-West Communication: communication between workloads within the same Nexus instance, such as inter-k8s cluster communication for a 5G control plane.
+-   East-West Communication: communication between workloads within the same Operator Nexus instance, such as inter-k8s cluster communication for a 5G control plane.
 
 -   External-Internal Communication: communication between workloads inside and outside the instance. For example:
     - North-south communication with option B, which involves inserting and scaling firewall and network address translation appliances.
@@ -44,7 +44,7 @@ In the scenario shown in the picture, the Operator deploys Worker 1 and Worker 2
 
 To ensure all traffic from the worker nodes 0/0 route is advertised in the green layer-2 isolation domain. The FW instances SNAT the traffic and inject the traffic into the orange L3 ID. One interface of the Firewall instances in the diagram is in the orange layer-3 isolation domain. Combination of green layer-2 isolation domain and orange layer-3 isolation domains enable connectivity within the fabric for various workloads with ability to route the traffic towards the PE.
 
-To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE. you can use route targets to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
+To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE. You can use route targets to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
 
 ## Configuration options
 
@@ -54,10 +54,10 @@ The following table gives detailed information about isolation domain configurat
 |---|---|
 | Layer 2 connectivity | <ul><li>Provides layer 2 networking capabilities within and across racks.</li> <li>Flat L2 network spanning racks (L2 BGP EVPN).</li><li>Supports multicast and broadcast.</li></ul> |
 | Layer 3 connectivity             | <ul><li>Layer 3 North-South and East-West connectivity (L3 BGP EVPN). </li><li>East-West Connectivity on an Internal Network.</li>  <li>Multiple internal networks can be configured for each isolation domain.</li> <li>Workloads can communicate with external services via the provider network. Each layer 3 Isolation domain supports only one external network.</li> </ul>|
-| Routing Configuration            | BGP with connected subnets, static routing and BFD |
+| Routing Configuration            | BGP with connected subnets, static routing, and BFD |
 | IP Addressing Support            | Dual Stack (IPv4 and IPv6) support |
 | Configurable parameters          | VLANs, MTU, IPv4/IPv6 subnets, BGP. |
-| Dynamic scale up and down        | Workloads networks can be created dynamically. An L3 Isolation domain provides the ability to advertise redistributed routes. |
+| Dynamic scale up and down        | Workloads networks can be created dynamically. An L3 Isolation domain lets you advertise redistributed routes. |
 
 ### Example scenarios and implementation- Isolation Domain with Internal Networks
 
@@ -93,13 +93,13 @@ For more information on configurable parameters, see the How to Guides, or consu
 | allowASOverride | Enable Or Disable state. | Enable | |
 | annotation | Switch configuration description. | string | |
 | bfdConfiguration | BFD configuration properties. | Refer to the BFD Configuration table |  |
-| defaultRouteOriginate | Originate a defaultRoute. Ex: \"True\" \| \"False\".  | True |  |
+| defaultRouteOriginate | Originate a defaultRoute. Ex: \"True\" \| \"False\". | True |  |
 | fabricASN | ASN of the Network Fabric. | 65048 |  |
 | ipv4ListenRangePrefixes | List of BGP IPv4 Listen Range prefixes. | 10.1.0.0/26 | yes  |
 | ipv4NeighborAddress | List of IPv4 neighbor addresses. | 10.1.1.4  |  |
-| ipv6ListenRangePrefixes | List of BGP IPv6 Listen Ranges prefixes.  | 2fff::/66  |  |
-| ipv6NeighborAddress | List of IPv6 neighbor addresses.  | 2fff:: |  |
-| peerASN  | ASN of workload.  | 65047  | yes  |
+| ipv6ListenRangePrefixes | List of BGP IPv6 Listen Ranges prefixes. | 2fff::/66  |  |
+| ipv6NeighborAddress | List of IPv6 neighbor addresses. | 2fff:: |  |
+| peerASN  | ASN of workload. | 65047  | yes  |
 
 ## Static Configuration
 
@@ -112,7 +112,7 @@ For more information on configurable parameters, see the How to Guides, or consu
 
 ## Isolation Domain Administrative state
 
-Isolation domains have an administrative state which helps operators o manage them. The table below provide information on the available actions, and how they affect the isolation domain.
+Isolation domains have an administrative state that helps operators o manage them. The table below provide information on the available actions, and how they affect the isolation domain.
 
 | **Name** | **Type** | **Description** |
 |--|--|--|
