@@ -13,7 +13,7 @@ ms.date: 02/18/2024
 
 # Use Azure WAF assessments
 
-Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers. You can take assessments on, and receive recommendations directly within, the Advisor platform.
+Microsoft now offers Well Architected Framework (WAF) Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers. You can take assessments on, and receive recommendations directly within, the Advisor platform.
 
 > [!NOTE]
 > Only the Assessments initiated via Advisor and the corresponding recommendations are visible on Advisor for the selected subscription and/or workload.
@@ -32,7 +32,7 @@ To see all Microsoft assessment choices, go to the [Learn platform > Assessments
 
 ## Prerequisites
 
-You can manage access to Advisor reviews using built-in roles. The permissions vary by role.
+You can manage access to Advisor WAF assessments using built-in roles. The permissions vary by role.
 
 > [!NOTE]
 > These roles must be configured for the relevant subscription to create the assessment and view the corresponding recommendations.
@@ -41,8 +41,6 @@ You can manage access to Advisor reviews using built-in roles. The permissions v
 |---|:---:|
 |Reader|View assessments for a workload and the corresponding recommendations|
 |Contributor|Create assessments for a workload and triage the corresponding recommendations|
-
-Additionally, this feature is in preview so you must have feature flag (*feature.isEngageAssessmentsEnabled=true*) in the Advisor URL.
 
 ## Access Azure Advisor WAF Assessments
 
@@ -86,7 +84,7 @@ If you chose **Azure Well-Architected Review** as the assessment type: The page 
    * **Azure Stack Hub (Preview)**: Evaluates the performance efficiency of your workloads running on Azure Stack Hub. To learn more, see [Manage workloads that run on Azure Stack Hub](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-stack/manage).\
 When ready, select **Next**. The WAF Configuration options page opens.
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-new-question-workload.png" alt-text="Screenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-assessments/advisor-assessment-new-question-workload.png":::
-1. For **Azure Well-Architected** assessment types only.\
+1. For **Azure Well-Architected** assessment types only:\
    Select a Core Pillar of WAF to be used in the assessment. To learn more about well architected pillars, see [Introducing the Microsoft Azure Well-Architected Framework](https://azure.microsoft.com/blog/introducing-the-microsoft-azure-wellarchitected-framework/). When ready, select **Next**.
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-new-question-pillar-m.png" alt-text="Screenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-assessments/advisor-assessment-new-question-pillar-m.png":::
 1. The assessment begins, the number of questions vary based on the selected assessment type. The following screenshot is an example only.\
