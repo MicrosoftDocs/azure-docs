@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 02/11/2024
+ms.date: 02/20/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,7 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Deprecation of recommendation related to Defender for AI](#deprecation-of-recommendation-related-to-defender-for-ai) | February 12, 2024 | March 14, 2024 |
+| [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
+| [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
@@ -33,7 +34,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
-| [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
@@ -45,7 +45,22 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
-## Deprecation of recommendation related to Defender for AI
+## Update recommendations to align with Azure AI Services resources
+
+**Announcement date: February 20, 2024**
+
+**Estimated date of change: February 28, 2024**
+
+The Azure AI Services category (formerly known as Cognitive Services) is adding new resource types. As a result, the following recommendations and related policy are set to be updated to comply with the new Azure AI Services naming format and align with the relevant resources.
+
+| Current Recommendation | Updated Recommendation |
+| ---- | ---- |
+| Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
+| Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
+
+See the [list of security recommendations](recommendations-reference.md).
+
+## Deprecation of data recommendation
 
 **Announcement date: February 12, 2024**
 
@@ -69,8 +84,8 @@ Customers that are still using the API version **2022-09-01-preview** under `Mic
 
 Customers currently using Defender for Cloud DevOps security from Azure portal won't be impacted.
 
-For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2023-09-01-preview).
 
+For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups).
 
 ## Changes in endpoint protection recommendations
 
@@ -168,14 +183,6 @@ For more information about our decision to unify our vulnerability assessment of
 For more information about transitioning to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
 
 For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
-
-## New version of Defender Agent for Defender for Containers
-
-**Announcement date: January 4, 2024**
-
-**Estimated date for change: February 2024**
-
-A new version of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) will be released in February 2024. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you'll need to upgrade. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
 
 ## Upcoming change for the Defender for Cloud’s multicloud network requirements
 
