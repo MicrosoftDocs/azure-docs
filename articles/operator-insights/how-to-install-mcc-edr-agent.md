@@ -159,7 +159,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-            2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
+            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
 
             3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
 
