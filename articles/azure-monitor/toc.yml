@@ -357,7 +357,7 @@ items:
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
       - name: Troubleshoot VM performance issues
-        href: ../virtual-machines/performance-diagnostics.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
+        href: /troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json
     - name: VM insights
       items:
       - name: Overview
