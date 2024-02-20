@@ -4,7 +4,7 @@ description: Learn about recent changes to the Azure Virtual Desktop Store app f
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/29/2023
+ms.date: 02/20/2024
 ---
 
 # What's new in the Azure Virtual Desktop Store app for Windows (preview)
@@ -21,12 +21,109 @@ The following table lists the current versions available for the public and Insi
 
 | Release     | Latest version   | Download |
 |-------------|------------------|----------|
-| Public      | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider     | 1.2.4577         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+| Public      | 1.2.5112         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider     | 1.2.5248         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.4577 (Insider)
+## Updates for version 1.2.5248 (Insider)
 
-*Published: August 29, 2023*
+*Date published: February 13, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
+- Fixed an issue where resizing the Teams video call window caused the client to temporarily stop responding.
+- Fixed an issue that made Teams calls echo after expanding a two-person call to meeting call.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5126
+
+*Published: January 24, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed the regression that caused a display issue when a user selects monitors for their session. 
+- Made the following accessibility improvements: 
+  - Improved screen reader experience.
+  - Greater contrast for background color of the connection bar remote commands drop-down menu. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5112
+
+*Published: February 7, 2024*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
+
+- Fixed the regression that caused a display issue when a user selects monitors for their session.
+
+## Updates for version 1.2.5105
+
+*Published: January 9, 2024*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gq9I), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gxVu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gnAc)
+
+In this release, we've made the following changes:
+
+- Fixed the [CVE-2024-21307](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21307) security vulnerability.
+- Improved accessibility by making the **Change the size of text and apps** drop-down menu more visible in the High Contrast theme.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed a Teams issue that caused incoming videos to flicker green during meeting calls.
+
+>[!NOTE]
+>This release was originally 1.2.5102 in Insiders, but we changed the Public version number to 1.2.5105 after adding the security improvements addressing [CVE-2024-21307](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21307).
+
+## Updates for version 1.2.5018
+
+*Published: November 20, 2023*
+
+> [!NOTE]
+> We replaced this Insiders version with [version 1.2.5102](#updates-for-version-125105). As a result, version 1.2.5018 is no longer available for download.
+
+In this release, we've made the following change:
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4763
+
+*Published: November 7, 2023*
+
+In this release, we've made the following changes:
+
+- Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
+- Improved the connection bar user interface (UI). 
+- Fixed an issue that caused the client to stop responding when a user tries to resize the client window during a Teams video call. 
+- Fixed a bug that prevented the client from loading more than 255 workspaces.  
+- Fixed an authentication issue that allowed users to choose a different account whenever the client required more interaction. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4677
+
+*Published: October 17, 2023*
+
+In this release, we've made the following changes:
+
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
+- Fixed a bug that caused a crash when using Teams Media Optimization. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+>[!NOTE]
+>This Insiders release was originally version 1.2.4675, but we made a hotfix for the vulnerability known as [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217). 
+
+## Updates for version 1.2.4583
+
+*Published: October 6, 2023*
+
+In this release, we've made the following change:
+
+- Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
+
+## Updates for version 1.2.4582
+
+*Published: September 19, 2023*
 
 In this release, we've made the following changes:
 
@@ -38,6 +135,9 @@ In this release, we've made the following changes:
    - Keyboard focus is now set correctly when a warning dialog loads.
    - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
    - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
+
+> [!NOTE]
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
 
 ## Updates for version 1.2.4487
 
