@@ -414,8 +414,8 @@ You will perform the following steps to complete this configuration:
 * Sign a runbook
 
 > [!NOTE]
-> - PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
-> - Signed PowerShelll and Python runbooks aren't supported in extension-based linux hybrid workers.
+> - PowerShell 7.x does not support signed runbooks for agent-based Windows and agent-based Linux Hybrid Runbook Worker.
+> - Signed PowerShell and Python runbooks aren't supported in extension-based Linux Hybrid Workers.
 
 
 ### Create a GPG keyring and keypair
