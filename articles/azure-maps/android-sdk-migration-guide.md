@@ -114,7 +114,7 @@ In your HTML file, initialize a map with your subscription key. Replace `<YOUR_S
                     zoom: 12,
                     authOptions: {
                         authType: "subscriptionKey",
-                        subscriptionKey: " <YOUR_SUBSCRIPTION_KEY>"
+                        subscriptionKey: "<YOUR_SUBSCRIPTION_KEY>"
                     }
                 });
 
