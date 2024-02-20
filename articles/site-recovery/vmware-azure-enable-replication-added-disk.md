@@ -20,7 +20,7 @@ Enabling replication for a disk you add to a virtual machine is now supported fo
 -	If you enable protection for the added disks, the warning will disappear after initial replication of the disk.
 -	If you choose not to enable replication for the disk, you can select to dismiss the warning.
 
-    ![Enable replication for added disk](./media/vmware-azure-enable-replication-added-disk/post-add-disk.png)
+    ![Screenshot of `Enable replication` for an added disk.](./media/vmware-azure-enable-replication-added-disk/post-add-disk.png)
 
 ## Before you start
 
