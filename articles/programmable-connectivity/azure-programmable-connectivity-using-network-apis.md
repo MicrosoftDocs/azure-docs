@@ -18,40 +18,34 @@ In this guide, you learn how to use Network APIs exposed by Azure Programmable C
 
 Create an APC Gateway, following instructions in [Create an APC Gateway](azure-programmable-connectivity-create-gateway.md).
 
-- Obtain the resource identifier of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, and copying the URL from `/subscriptions` onwards. A full identifier has the following format, with variables in <ANGLE_BRACKETS> templated: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.programmableconnectivity/gateways/<APC_GATEWAY_NAME>`. Note this as `APC_IDENTIFIER`.
+- Obtain the Resource ID of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, clicking `JSON View` in the top right, and copying the value of `Resource ID`. Note this as `APC_IDENTIFIER`.
 - Obtain the URL of your APC Gateway. This can be found by navigating to the APC Gateway in the Azure portal, and obtaining the `Gateway base URL` under Properties. Note this as `APC_URL`.
-
-## Definitions
-
-- Phone number: a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
-- Hashed phone number: the SHA-256 hash, in hexadecimal representation, of a phone number
 
 ## Obtain an authentication token
 
 1. Follow the instructions at [How to create a Service Principal](/entra/identity-platform/howto-create-service-principal-portal) to create an App Registration that can be used to access your APC Gateway. 
-    - At the step "Assign a role to the application", you're required to choose a scope and a role:
-        - The correct scope is the APC Gateway you created. To use this as the scope, navigate to the APC Gateway in the Azure portal, and follow instructions from "Select Access control (IAM)" onwards.
-        - The correct roles to assign are `Azure Programmable Connectivity Gateway User` and `Contributor`.
+    - For the step "Assign a role to the application", go to the APC Gateway in the Azure portal and follow the instructions from `3. Select Access Control (IAM)` onwards. Assign the new App registration `Azure Programmable Connectivity Gateway User` and `Contributor` roles.
     - At the step "Set up authentication", select "Option 3: Create a new client secret". Note the value of the secret as `CLIENT_SECRET`, and store it securely (for example in an Azure Key Vault).
-2. Navigate to your App Registration in the Azure portal. Copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
-3. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
-4. Obtain a token from your App Registration. When asked for `client_id`, `client_secret`, and `tenant`, use the values obtained in this process. Use `https://management.azure.com//.default` as the scope. 
-    - This can be done using an HTTP request, following the instructions in the [documentation](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret).
-    - You can instead choose to use an SDK to obtain the token. For example:
-        - [Python](/entra/msal/python/)
-        - [.NET](/entra/msal/dotnet/)
-        - [Java](/entra/msal/java/)
-5. Note the value of the token you have obtained as `APC_AUTH_TOKEN`.
+    - After you have created the App registration, copy the value of Client ID from the Overview page, and note it as `CLIENT_ID`.
+2. Navigate to "Tenant Properties" in the Azure portal. Copy the value of Tenant ID, and note it as `TENANT`.
+3. Obtain a token from your App Registration. This can be done using an HTTP request, following the instructions in the [documentation](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret). Alternatively, you can use an SDK (such as those for [Python](/entra/msal/python/), [.NET](/entra/msal/dotnet/), and [Java](/entra/msal/java/)). 
+    - When asked for `client_id`, `client_secret`, and `tenant`, use the values obtained in this process. Use `https://management.azure.com//.default` as the scope. 
+4. Note the value of the token you have obtained as `APC_AUTH_TOKEN`.
 
 ## Use an API
 
-### Common components
+### Common attributes
+
+#### Definitions
+
+- Phone number: a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
+- Hashed phone number: the SHA-256 hash, in hexadecimal representation, of a phone number
 
 #### Headers
 
 All requests must contain the following headers:
 
-- `Authorization`: This must have the value of `<APC_AUTH_TOKEN>` obtained in [Prerequisites](#prerequisites).
+- `Authorization`: This must have the value of `<APC_AUTH_TOKEN>` obtained in [Obtain an authentication token](#obtain-an-authentication-token).
 - `apc-gateway-id`: This must have the value of `<APC_IDENTIFIER>` obtained in [Prerequisites](#prerequisites).
 
 Requests may also contain the following optional header:
@@ -64,7 +58,7 @@ Each request body contains the field `networkIdentifier`. This object contains t
 
 APC can identify the correct Network in one of three ways:
 - Using the `IPv4` address of the device. Set `identifierType` to `IPv4`, and `identifier` to the IPv4 address of the relevant device.
-- Using the `IPv6` address of the device. Set `identifierType` to `IPv6`, and `identifier` to the IPv4 address of the relevant device.
+- Using the `IPv6` address of the device. Set `identifierType` to `IPv6`, and `identifier` to the IPv6 address of the relevant device.
 - Using a Network Code to route to a specific Network. Set `identifierType` to `NetworkCode`, and `identifier` to a Network Code. Network Codes can be obtained using the [`Network` endpoint](#obtain-the-network-of-a-device), or chosen from the following table:
 
 | Operator | NetworkCode |
