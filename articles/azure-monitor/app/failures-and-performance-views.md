@@ -1,7 +1,7 @@
 ---
 title: Failures and Performance views in Application Insights | Microsoft Docs
 description: Monitor application performance and failures with Application Insights.
-author: v-kennedyden
+author: KennedyDenMSFT
 ms.author: aaronmax
 ms.topic: conceptual
 ms.date: 02/15/2024
@@ -10,7 +10,7 @@ ms.reviewer: cogoodson
 
 # Failures and Performance
 
-[Application Insights](./app-insights-overview.md) features two key tools: the Performance view and the Failures view. The Performance view quickly identifies and helps resolve application bottlenecks by displaying response times and operation counts. The Failures view tracks errors, exceptions, and faults, offering clear insights for fast problem-solving and enhanced stability. Together, they ensure the ongoing health and efficiency of web applications.
+[Application Insights](./app-insights-overview.md) features two key tools: the Failures view and the Performance view. The Failures view tracks errors, exceptions, and faults, offering clear insights for fast problem-solving and enhanced stability. The Performance view quickly identifies and helps resolve application bottlenecks by displaying response times and operation counts. Together, they ensure the ongoing health and efficiency of web applications.
 
 ## [Failures view](#tab/failures-view)
 
