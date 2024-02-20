@@ -82,7 +82,7 @@ Fields in `MeshConfig` are classified into three categories:
 
 Mesh configuration and the list of allowed/supported fields are revision specific to account for fields being added/removed across revisions. The full list of allowed fields and the supported/unsupported ones within the allowed list is provided in the below table. When new mesh revision is made available, any changes to allowed and supported classification of the fields is noted in this table.
 
-### MeshConfig:
+### MeshConfig
 
 | **Field** | **Supported** |
 |-----------|---------------|
@@ -118,7 +118,7 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | meshMTLS | false |
 | tlsDefaults | false |
 
-### ProxyConfig (meshConfig.defaultConfig):
+### ProxyConfig (meshConfig.defaultConfig)
 
 | **Field** | **Supported** |
 |-----------|---------------|
@@ -145,7 +145,7 @@ Fields present in [open source MeshConfig reference documentation][istio-meshcon
 > [!CAUTION]
 > **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the support scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
 
-## Common Errors and Troubleshooting Tips
+## Common errors and troubleshooting tips
 
 - Ensure that the MeshConfig is indented with spaces instead of tabs. 
 - Ensure that you're only editing the revision specific shared ConfigMap (for example `istio-shared-configmap-asm-1-18`) and not trying to edit the default ConfigMap (for example `istio-asm-1-18`).

@@ -1,5 +1,5 @@
 ---
-title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
 ms.topic: conceptual
 ms.date: 05/04/2023
