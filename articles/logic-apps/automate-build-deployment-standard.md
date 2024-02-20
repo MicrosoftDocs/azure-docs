@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/29/2024
-## Customer intent: 
+## Customer intent: As a developer, I want to set up automation for building and deploying my Standard logic app workflows.
 ---
 
 # Automate build and deployment for Standard logic app workflows with Azure DevOps (preview)
@@ -80,6 +80,8 @@ For more information, see the following documentation:
 
 1. In the **Azure** window, on the **Workspace** toolbar, open the **Azure Logic Apps** menu, and select **Create new logic app workspace**.
 
+   :::image type="content" source="media/automate-build-deployment-standard/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure icon selected on left menu, Workspace section, and selected option for Create new logic app workspace." lightbox="media/automate-build-deployment-standard/create-workspace.png":::
+
 1. Follow the prompts to complete the following tasks:
 
    1. Find and select the folder where you want to create your workspace.
@@ -94,15 +96,31 @@ For more information, see the following documentation:
 
    1. Open the workflow designer, either in the current Visual Studio Code window or a new window.
 
-You can now add operations to your workflow and test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+      Visual Studio Code shows your new workspace, project, and the workflow designer. The project automatically includes folders for a logic app workflow and for [custom code](create-run-custom-code-functions.md). The workflow designer is prepopulated with a [Request trigger](../connectors/connectors-native-reqres.md), an action that can [call custom code that you create](create-run-custom-code-functions.md), and a [Response action to use with the Request trigger](../connectors/connectors-native-reqres.md).
+
+      :::image type="content" source="media/automate-build-deployment-standard/created-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, and workflow designer prepopulated with trigger and actions." lightbox="media/automate-build-deployment-standard/created-project.png":::
+
+   1. To enable the [Microsoft-managed connectors hosted in Azure](../connectors/managed.md), follow these steps:
+
+      1. Open the **workflow.json** shortcut menu, select **Use Connectors from Azure**, and follow the prompts to select these items:
+   
+         - Your project's **local.settings.json** file
+         - **Use connectors from Azure**
+         - The existing resource group where you plan to deploy your logic app
+
+      1. When you're done, reload the workflow designer. Sign in Azure, if prompted.
+
+You can now edit the workflow in any way that you want and locally test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 ## Generate deployment scripts
 
 After you create and locally test your workflow, create your deployment scripts.
 
-1. From your project's shortcut menu, select **Generate deployment scripts**.
+1. From the blank area under all your project files, open your project's shortcut menu, and select **Generate deployment scripts**.
 
-1. Follow the prompts to complete the following tasks:
+   :::image type="content" source="media/automate-build-deployment-standard/generate-deployment-scripts.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, opened project window shortcut menu, and selected option for Generate deployment scripts." lightbox="media/automate-build-deployment-standard/generate-deployment-scripts.png":::
+
+1. Follow the prompts to complete these steps:
 
    1. Select the Azure subscription that you want to use.
 
@@ -121,7 +139,7 @@ After you create and locally test your workflow, create your deployment scripts.
       | **New deployment folder** (Default) | Create a new folder in the current workspace. |
       | **Choose a different folder** | Select a different folder in the current workspace. |
 
-   When you're done, Visual Studio Code creates a folder named **Deployment/{logic-app-name}** in your logic app project. This folder uses the same logic app name that you provided in these steps.
+   When you're done, Visual Studio Code creates a folder named **Deployment/{*logic-app-name*}** in your logic app project. This folder uses the same logic app name that you provided in these steps.
 
    > [!NOTE]
    >
@@ -129,12 +147,12 @@ After you create and locally test your workflow, create your deployment scripts.
    > based on the input that you provided in these steps. When you target a different environment, 
    > make sure that you update the values for the created parameters and variable files.
 
-   Under the **{logic-app-name}** folder, you have the following structure:
+   Under the **{*logic-app-name*}** folder, you have the following structure:
 
    | Folder name | File name and description |
    |-------------|---------------------------|
    | **ADOPipelineScripts** | - **CD-pipeline.yml**: The continuous delivery pipeline that contains the instructions to deploy the logic app code to the logic app resource. <br><br>- **CD-pipeline-variables.yml**: A YAML file that contains the variables used by the **CD-pipeline.yml** file. <br><br>- **CI-pipeline.yml**: The continuous integration pipeline that contains the instructions to build and generate the artifacts required to deploy the logic app resource to Azure. <br><br>- **CI-pipeline-variables.yml**: A YAML file that contains the variables used by the **CI-pipeline.yml** file. <br><br>- **Infrastructure-pipeline.yml**: A YAML "Infrastructure-as-Code" pipeline that contains the instructions to load all the ARM templates to Azure and to execute the steps in the **Infrastructure-pipeline-template.yml** file. <br><br>- **Infrastructure-pipeline-template.yml**: A YAML pipeline file that contains the steps to deploy a logic app resource with all required dependencies and to deploy each managed connection required by the source code. <br><br>- **Infrastructure-pipeline-variables.yml**: A YAML pipeline that contains all the variables required to execute the steps in the **Infrastructure-pipeline-template.yml** file. |
-   | **ArmTemplates** | - **<*connection-reference*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy an Azure-hosted connection named **<*connection-reference*>** to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*connection-reference*>.template.json**: A Resource Manager template file that represents an Azure-hosted connection named **<*connection-reference*>** and contains the information used to deploy the corresponding connection resource to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **<*logic-app-name*>.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy the Standard logic app resource named **<*logic-app-name*>** to Azure, including all the dependencies. <br><br>- **<*logic-app-name*>.template.json**: A Resource Manager template file that represents the Standard logic app resource named **<*logic-app-name*>** and contains the information used to deploy the logic app resource to Azure. |
+   | **ArmTemplates** | - **{*connection-reference*}.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy an Azure-hosted connection named **{*connection-reference*}** to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **{*connection-reference*}.template.json**: A Resource Manager template file that represents an Azure-hosted connection named **{*connection-reference*}** and contains the information used to deploy the corresponding connection resource to Azure. This file exists for each Azure-hosted connection in your workflow. <br><br>- **{*logic-app-name*}.parameters.json**: A Resource Manager parameters file that contains the parameters required to deploy the Standard logic app resource named **{*logic-app-name*}** to Azure, including all the dependencies. <br><br>- **{*logic-app-name*}.template.json**: A Resource Manager template file that represents the Standard logic app resource named **{*logic-app-name*}** and contains the information used to deploy the logic app resource to Azure. |
    | **WorkflowParameters** | **parameters.json**: This JSON file is a copy of the local parameters file and contains a copy of all the user-defined parameters plus the cloud version of any parameters created by the extension to parameterize Azure-hosted connections. This file is used to build the package that deploys to Azure. |
 
 ## Connect your workspace to your Git repository
@@ -208,7 +226,7 @@ To create the infrastructure along with the CI and CD pipelines, repeat the foll
 
    1. For **Path**, select the path to use for your pipeline. The following path is the default value:
 
-      **Deployment/<*logic-app-name*>/ADOPipelineScripts/<*infrastructure-pipeline-name*>.yml**
+      **Deployment/{*logic-app-name*}/ADOPipelineScripts/{*infrastructure-pipeline-name*}.yml**
 
    1. When you're ready, select **Continue**.
 
