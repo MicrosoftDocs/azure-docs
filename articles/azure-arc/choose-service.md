@@ -9,18 +9,15 @@ ms.topic: conceptual
 
 Azure Arc offers different services based on your existing IT infrastructure and management needs. Before onboarding your resources to Azure Arc-enabled servers, you should investigate the different Azure Arc offerings to determine which best suits your requirements. Choosing the right Azure Arc service provides the best possible inventorying and management of your resources.
 
-There are four different ways you can connect your Windows and Linux machines to Azure Arc:
+## Connecting existing machines to Azure Arc
+
+There are three different ways you can connect your existing Windows and Linux machines to Azure Arc:
 
 - Azure Arc-enabled servers
 - Azure Arc-enabled VM Sphere
 - Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
-- Azure Arc-enabled Stack HCI
 
-Each of these services extends the Azure control plane to your existing infrastructure and enables the use of Azure security, governance, and management capabilities.
-
-One important differences between these four services is that three of them--Azure Arc-enabled VMware Sphere, Azure Arc-enabled SCVMM, and Azure Arc-enabled Stack HCI--use Azure Arc Resource Bridge. Azure Arc resource bride is part of the core Azure Arc platform and provides self-servicing and additional management capabilities for VMs hosted on these services.
-
-Where your machine runs determines the best Azure Arc service to use. Organizations with diverse infrastructure may end up using more than one Azure Arc service; this is alright. The core set of features remains the same no matter which Azure Arc service you use.
+Each of these services extends the Azure control plane to your existing infrastructure and enables the use of Azure security, governance, and management capabilities. These services all use Azure Arc Resource Bridge, a part of the core Azure Arc platform that provides self-servicing and additional management capabilities for VMs hosted on these services.
 
 General recommendations about the right service to use are as follows:
 
@@ -29,14 +26,19 @@ General recommendations about the right service to use are as follows:
 |VMware VM (not running on AVS) |Azure Arc-enabled VMware vSphere |
 |Azure VMware Solution (AVS) VM |Arc-enabled Azure VMware Solution |
 |VM managed by System Center Virtual Machine Manager |Azure Arc-enabled SCVMM |
-|Azure Stack HCI VM |Azure Arc-enabled Azure Stack HCI |
 |Physical server |Azure Arc-enabled servers |
 |VM on another hypervisor |Azure Arc-enabled servers |
 |VM on another cloud provider |Azure Arc-enabled servers |
 
-If you're unsure about the right service to use, you can start with Azure Arc-enabled servers and add a resource bridge for additional management capabilities later. Azure Arc-enabled servers allows you to connect servers containing all of the types of VMs supported by the other services and provides a wide range of capabilities such as Azure Policy and monitoring, while adding resource bridge can extend additional capabilities.
+If you're unsure about which of these services to use, you can start with Azure Arc-enabled servers and add a resource bridge for additional management capabilities later. Azure Arc-enabled servers allows you to connect servers containing all of the types of VMs supported by the other services and provides a wide range of capabilities such as Azure Policy and monitoring, while adding resource bridge can extend additional capabilities.
 
-Region availability also varies between Azure Arc services, so you may need to use Azure Arc-enabled servers if a more specialized version of Azure Arc is unavailable in your preferred region. See [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all&rar=true) to learn more about region availability for Azure Arc services.   
+Region availability also varies between Azure Arc services, so you may need to use Azure Arc-enabled servers if a more specialized version of Azure Arc is unavailable in your preferred region. See [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all&rar=true) to learn more about region availability for Azure Arc services.
+
+Where your machine runs determines the best Azure Arc service to use. Organizations with diverse infrastructure may end up using more than one Azure Arc service; this is alright. The core set of features remains the same no matter which Azure Arc service you use.
+
+### Azure Stack HCI—fully integrated OS
+
+In addition to the "Arc-enabled" services, Azure Stack HCI is another service for managing virtual machines through Azure Arc. Unlike the "Arc-enable" services, Azure Stack HCI is a fully integrated OS that runs on validated hardware purchased by the customer. It comes with Azure Resource Bridge installed and uses the Azure Arc control plane for infrastructure and workload management, allowing you to monitor, update, and secure your HCI infrastructure from the Azure portal.
 
 ## Azure Arc-enabled servers
 
@@ -52,9 +54,9 @@ Region availability also varies between Azure Arc services, so you may need to u
 
 - Procure Extended Security Updates (ESUs) at scale for your Windows Server 2012 and 2012R2 machines running on vCenter managed estate.
 
-Note that all of the other Azure Arc services described below have all the capabilities of Azure Arc-enabled servers. The differences lie in the additional capabilities they provide.
-
-
+> [!IMPORTANT]
+> Azure Arc-enabled VMware vSphere and Azure Arc-enabled SCVMM have all the capabilities of Azure Arc-enabled servers, but also provide specific, additional capabilities.
+> 
 ## Azure Arc-enabled VMware vSphere
 
 [Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) simplifies the management of hybrid IT resources distributed across VMware vSphere and Azure.
@@ -95,15 +97,28 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 - Install the Arc-connected machine agents at scale on SCVMM VMs to govern, protect, configure, and monitor them.
 
-## Azure Arc-enabled Azure Stack HCI
+## Azure Stack HCI
 
-Azure Arc-enabled Azure Stack HCI is a hybrid cloud solution that merges the power of the Azure control plane with hyperconverged infrastructure (HCI) and enables organizations to modernize with cost-effective technology. 
-
-Azure Arc-enabled Stack HCI consolidates containers and virtualized workloads when data needs to remain on premises. 
+Azure Stack HCI is a hyperconverged infrastructure operating system delivered as an Azure service. This is a hybrid solution that is designed to host virtualized Windows and Linux VM or containerized workloads and their storage. Azure Stack HCI is a hybrid product that is offered on validated hardware and connects on-premises estates to Azure, enabling cloud-based services, monitoring and management. This helps customers manage their infrastructure from Azure and run virtualized workloads on-premises, making it easy for them to consolidate aging infrastructure and connect to Azure.
 
 ### Capabilities
 
 - Deploy and manage workloads, including VMs and Kubernetes clusters from Azure through the Azure Arc resource bridge.
 
-- Monitor, update, and secure your Azure Stack HCI infrastructure, including fleets of locations, directly from the Azure portal.
+- Manage VM lifecycle operations such as start, stop, delete from Azure control plane.
 
+- Manage Kubernetes lifecycle operations such as scale, update, upgrade, and delete clusters from Azure control plane.
+
+- Install Azure connected machine agent and Azure Arc-enabled Kubernetes agent on your VM and Kubernetes clusters to use Azure services (i.e., Azure Monitor, Azure Defender for cloud, etc.).
+
+- Leverage Azure Virtual Desktop for Azure Stack HCI to deploy session hosts on to your on-premises infrastructure to better meet your performance or data locality requirements.
+
+- Empower developers and application teams to self-serve VM and Kubernetes cluster operations on demand using Azure role-based access control (RBAC).
+
+- Monitor, update, and secure your Azure Stack HCI infrastructure and workloads across fleets of locations directly from the Azure portal.
+
+- Deploy and manage static and DHCP-based logical networks on-premises to host your workloads.
+
+- VM image management with Azure marketplace integration and ability to bring your own images from Azure storage account and cluster shared volumes.
+
+- Create and manage storage paths to store your VM disks and config files.
