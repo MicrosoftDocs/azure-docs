@@ -37,8 +37,6 @@
     href: understand/mca-overview.md
   - name: Billing accounts for Microsoft Partner Agreement
     href: understand/mpa-overview.md
-  - name: Get started in the Azure EA portal
-    href: manage/ea-portal-get-started.md
   - name: Get started with EA billing in the Azure portal
     href: manage/ea-direct-portal-get-started.md
   - name: Direct EA billing invoice documents
@@ -47,6 +45,8 @@
     href: manage/ea-understand-pricesheet.md
   - name: Request Withholding Tax credit - India
     href: manage/withholding-tax-credit-india.md
+  - name: Plan to manage Azure costs
+    href: understand/plan-manage-costs.md
 - name: How-to guides
   items:
   - name: Configure billing
@@ -151,6 +151,8 @@
         href: manage/mpa-request-ownership.md
   - name: Perform key billing administration tasks
     items:
+    - name: Enable Azure Marketplace purchases
+      href: manage/enable-marketplace-purchases.md
     - name: Create subscriptions programmatically
       items:
       - name: Create subscriptions programmatically
@@ -169,20 +171,14 @@
       items:
       - name: EA roles in Azure
         href: manage/understand-ea-roles.md
-      - name: Azure EA portal administration
-        href: manage/ea-portal-administration.md
       - name: EA billing administration
         href: manage/direct-ea-administration.md
       - name: Azure portal administration for partners
         href: manage/ea-billing-administration-partners.md
-      - name: Azure EA portal administration for partners
-        href: manage/ea-partner-portal-administration.md
       - name: EA tasks in Microsoft Customer Agreement
         href: manage/mca-enterprise-operations.md
       - name: Azure EA agreements and amendments
         href: manage/ea-portal-agreements.md
-      - name: Enterprise enrollment invoices
-        href: manage/ea-portal-enrollment-invoices.md
       - name: View and download EA usage details
         href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
@@ -247,10 +243,6 @@
       href: troubleshoot-billing/troubleshoot-declined-card.md
     - name: Troubleshoot threshold billing
       href: troubleshoot-billing/troubleshoot-threshold-billing.md
-    - name: Enterprise cost view disabled
-      href: troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md
-    - name: Troubleshoot Azure EA portal access
-      href: troubleshoot-billing/ea-portal-troubleshoot.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request

@@ -160,14 +160,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
-#### Azure Government regions
-
-The following GPT-3 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
-
-|Model ID | Model Availability |
-|--|--|
-|`gpt-35-turbo` (1106) |US Gov Virginia<br>US Gov Arizona |
-
 ### Embeddings models
 
 These models can only be used with Embedding API requests.
@@ -229,11 +221,12 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
-| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106-preview)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-35-turbo (0301)` | `gpt-35-turbo (0613)` | `gpt-35-turbo-16k (0613)` | `gpt-4-32k (0314)` | `gpt-4-32k (0613)` |
-|---|---|---|---|---|---|---|---|---|---|
-| Sweden Central | ✅|✅|✅|✅|✅|✅|✅||✅|
-| East US 2 ||✅|✅|||✅|||✅|
-| Australia East |✅|✅|✅|||✅|||✅|
+
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | 
+|-----|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ |
+| East US 2 | ✅ | ⬜| ✅ |✅ |
+| Sweden Central | ✅ |✅ |✅ |✅|
 
 
 ## Next steps
