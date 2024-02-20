@@ -1,5 +1,5 @@
 ---
-title: Manage custom policies with PowerShell
+title: Manage custom policies with Microsoft Graph PowerShell
 titleSuffix: Azure AD B2C
 description: Use the Microsoft Graph PowerShell cmdlets for programmatic management of your Azure AD B2C custom policies. Create, read, update, and delete custom policies with PowerShell.
 author: kengaderdus
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 ---
 
-# Manage Azure AD B2C custom policies with PowerShell
+# Manage Azure AD B2C custom policies with Microsoft Graph PowerShell
 
 Microsoft Graph PowerShell provides several cmdlets for command line- and script-based custom policy management in your Azure AD B2C tenant. Learn how to use the Azure AD PowerShell module to:
 
@@ -38,10 +38,10 @@ Microsoft Graph PowerShell provides several cmdlets for command line- and script
 
 To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-MgGraph][Connect-MgGraph] command.
 
-Execute the following command. Sign in with an account that's assigned the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role in the directory.
+Execute the following command. Sign in with an account that's assigned the [B2C IEF Policy Administrator](/entra/identity/role-based-access-control/permissions-reference#b2c-ief-policy-administrator) role in the directory.
 
 ```PowerShell
-Connect-MgGraph -Scopes "Policy.ReadWrite.TrustFramework"
+Connect-MgGraph -TenantId "{b2c-tenant-name}.onmicrosoft.com" -Scopes "Policy.ReadWrite.TrustFramework"
 ```
 
 Example command output showing a successful sign-in:
