@@ -115,9 +115,7 @@ During a disconnection event, the on-premises infrastructure and workloads aren'
 
 Operator Nexus upgrade is initiated by the customer, but it's then managed by the platform itself. From an availability perspective, the following points are key:
 
--   The customer decides when to initiate the upgrade. They can opt, for example, to initiate the upgrade in a maintenance window.
-
--   Upgrade is done cluster by cluster (that is, site by site), so the customer can implement their own Safe Deployment Process. Implementing a Safe Deployment Process is strongly recommended. For example, a new version could be deployed in a lab site, then a small production site, and then some larger production sites. If the new version is satisfactory, the customer can deploy it on all remaining sites. This process ensures that any issues introduced by a change have a tightly limited scope of impact before they're identified and rolled-back.
+-   The customer has full control of the upgrade. They can opt, for example, to initiate the upgrade in a maintenance window, and can implement their own Safe Deployment Process. For example, a new version could be progressively deployed in a lab site, then a small production site, then larger productions sites, allowing for testing, and, if necessary, rollback.
 
 -   The process is only active on one rack in the selected site at a time. Although upgrade is done in-place, there's still some impact to the worker nodes in the rack during the upgrade.
 
