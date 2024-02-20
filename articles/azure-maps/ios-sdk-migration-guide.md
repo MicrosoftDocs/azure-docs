@@ -20,7 +20,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 * An [Azure Maps account].
 * A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
-### 1. Create a WebView
+## Create a WebView
 
 If your iOS application doesn't already have a WebView, you need to add one. You can do so by adding a WKWebView to your storyboard or programmatically in your Swift code. Make sure to set up the WKWebView to occupy the desired area of your view.
 
@@ -59,7 +59,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 }
 ```
 
-### 2. Set up a map with Azure Maps Web SDK
+## Set up a map with Azure Maps Web SDK
 
 In your HTML file, initialize a map with your subscription key. Replace `<YOUR_SUBSCRIPTION_KEY>` with your actual key.
 
@@ -121,15 +121,15 @@ Save and run the app. A map should be shown within a WebView. Add any features o
 
 :::image type="content" source="./media/ios-sdk-migration-guide/maps-ios.png" alt-text="A screenshot of a map in a WebView.":::
 
-### 3. Communication between native code and WebView (optional)
+## Communication between native code and WebView (optional)
 
 To enable communication between your iOS application and the WebView, you can use the `WKScriptMessageHandler` protocol provided by the `WKWebView` class. It allows you to establish a bridge for communication between JavaScript running in the WebView and your Swift code. For more information, see the [iOS webkit documentation].
 
-### 4. Clean Up Native Map Implementation
+## Clean Up Native Map Implementation
 
 Remove the code related to the native Azure Maps iOS SDK from your project. This includes dependencies and initialization code related to `azure-maps-ios-sdk-distribution`.
 
-### 5. Testing
+## Testing
 
 Test your application thoroughly to ensure that the migration has been successful. Check for any issues related to map functionality, user interactions, and performance.
 

@@ -20,7 +20,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 * An [Azure Maps account].
 * A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
-### 1. Create a WebView
+## Create a WebView
 
 If your Android application doesn't already have a WebView, you need to add one. You can do so by adding the WebView element to your layout XML or programmatically in your Java code. Make sure to set up the WebView to occupy the desired area of your layout.
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-### 2. Set up a map with Azure Maps Web SDK
+## Set up a map with Azure Maps Web SDK
 
 In your HTML file, initialize a map with your subscription key. Replace `<YOUR_SUBSCRIPTION_KEY>` with your actual key.
 
@@ -138,15 +138,15 @@ Save and run the app. A map should be shown within a WebView. Add any features o
 
 :::image type="content" source="./media/android-sdk-migration-guide/maps-android.png" alt-text="A screenshot of a map in a WebView.":::
 
-### 3. Communication between native code and WebView (optional)
+## Communication between native code and WebView (optional)
 
 To enable communication between your Android application and the WebView, you can use the WebView's `addJavascriptInterface` method to expose a Java object to the JavaScript running in the WebView. It allows you to call Java methods from your JavaScript code. For more information, see the [Android WebView documentation].
 
-### 4. Clean Up Native Map Implementation
+## Clean Up Native Map Implementation
 
 Remove the code related to the native Azure Maps Android SDK from your project. This includes dependencies and initialization code related to `com.azure.android:azure-maps-control`.
 
-### 5. Testing
+## Testing
 
 Test your application thoroughly to ensure that the migration has been successful. Check for any issues related to map functionality, user interactions, and performance.
 
