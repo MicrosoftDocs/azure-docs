@@ -4,7 +4,7 @@ description: Learn how to use Defender for Cloud recommendations to identify if 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/20/2024
 ---
 
 # Review and remediate endpoint detection and response  recommendations (agentless)
@@ -134,7 +134,7 @@ This recommended action is available when:
 
 - Defender for Servers plan 2 isn't enabled on the VM.
 
-**To enable the Defender for Servers on the affected VM**:
+**To enable the Defender for Endpoint integration on your Defender for Servers plan on the affected VM**:
 
 1. Select the affected machine. 
 
