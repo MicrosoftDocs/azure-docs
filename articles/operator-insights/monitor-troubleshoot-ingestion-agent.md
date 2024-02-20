@@ -50,11 +50,16 @@ To collect a diagnostics package, SSH to the Virtual Machine and run the command
 
 ## Problems common to all sources
 
+Problems broadly fall into four categories.
+
+- An agent misconfiguration, which prevents the agent from starting.
+- A problem with receiving data from the source, typically misconfiguration, or network connectivity.
+- A problem with uploading files to the Data Product's input storage account, typically network connectivity.
+- A problem with the VM on which the agent is running.
+
 ### Agent fails to start
 
 Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in failed state.
-
-Steps to fix:
 
 - Ensure the service is running: `sudo systemctl start az-aoi-ingestion`.
 - Look at the */var/log/az-aoi-ingestion/stdout.log* file and check for any reported errors. Fix any issues with the configuration file and start the agent again.
@@ -62,8 +67,6 @@ Steps to fix:
 ### No data appearing in AOI
 
 Symptoms: no data appears in Azure Data Explorer.
-
-Steps to fix:
 
 - Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
 - Check the network connectivity and firewall configuration on the storage account.
@@ -114,8 +117,8 @@ Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-aoi-ing
 - Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 - Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFTP connections.
 - Check that the `known_hosts` file on the agent VM contains a valid public SSH key for the SFTP server: 
-  - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*` 
-  - If there's no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Set up the Azure Operator Insights ingestion agent](set-up-ingestion-agent.md) to add a `known_hosts` entry for the SFTP server.
+  - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*`.
+  - If there's no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Setup the Azure Operator Insights ingestion agent](set-up-ingestion-agent.md) to add a `known_hosts` entry for the SFTP server.
 
 ### No files are uploaded to Azure Operator Insights
 
@@ -141,7 +144,7 @@ Symptoms: Data is missing from Azure Data Explorer. The AOI *Data Ingested* and 
 
 ### Files are uploaded more than once
 
-Symptoms: Duplicate data appears in Azure Operator Insights
+Symptoms: Duplicate data appears in Azure Operator Insights.
 
 - Check whether the ingestion agent encountered a retryable error on a previous upload and then retried that upload more than 24 hours after the last successful upload. In that case, the agent might upload duplicate data during the retry attempt. The duplication of data should affect only the retry attempt.
 - Check that the file sources defined in the config file refer to nonoverlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
