@@ -74,78 +74,13 @@ Update-AzWvdApplication @parameters
 ```
 
 
-For example, let's say you retrieved the current applications with the following example cmdlet:
-
-```powershell
-$parameters = @{
-    ResourceGroupName = "0301RG"
-    ApplicationGroupName = "0301RAG"
-}
-
-Get-AzWvdApplication @parameters | format-list
-```
-
-The output would look like this:
-
-```powershell
-CommandLineArgument :
-CommandLineSetting  : DoNotAllow
-Description         :
-FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
-FriendlyName        : Microsoft Word
-IconContent         : {0, 0, 1, 0…}
-IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64
-IconIndex           : 0
-IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
-Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word
-Name                : 0301RAG/Microsoft Word
-ShowInPortal        : False
-Type                : Microsoft.DesktopVirtualization/applicationgroups/applications
-```
-
-To update the friendly name, run this cmdlet:
-
-```powershell
-$parameters = @{
-    ResourceGroupName = "0301RG"
-    ApplicationGroupName = "0301RAG"
-    Name = "Microsoft Word"
-    FriendlyName = "WordUpdate"
-    IconIndex = 0
-    IconPath = "C:\Program Files\Windows NT\Accessories\wordpad.exe"
-    ShowInPortal = $true
-    CommandLineSetting = "DoNotallow"
-    FilePath = "C:\Program Files\Windows NT\Accessories\wordpad.exe"
-}
-
-Update-AzWvdApplication @parameters
-```
-
-The cmdlet should give you the following output:
-
-```powershell
-FriendlyName        : WordUpdate
-```
-
 #### Customize the display name for a Remote Desktop
 
-You can change the display name for a published remote desktop by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is "Session Desktop." If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name.
+You can change the display name for a published remote desktop by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is "Session Desktop." If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name. If you have a personal host pool, you can also [set a friendly name for individual session hosts](#customize-the-display-name-for-a-session-host). 
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. To retrieve the remote desktop resource, run the following PowerShell cmdlet:
-
-```powershell
-$parameters = @{
-    ResourceGroupName = "<resourcegroupname>"
-    ApplicationGroupName = "<appgroupname>"
-    Name = "<applicationname>"
-}
-
-Get-AzWvdDesktop @parameters
-```
-
-3. To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
+2. To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
 ```powershell
 $parameters = @{
@@ -158,8 +93,19 @@ $parameters = @{
 Update-AzWvdDesktop @parameters
 ```
 
---- 
+3. To retrieve the friendly name for the remote desktop resource, run the following PowerShell cmdlet:
 
+```powershell
+$parameters = @{
+    ResourceGroupName = "<resourcegroupname>"
+    ApplicationGroupName = "<appgroupname>"
+    Name = "<applicationname>"
+}
+
+Get-AzWvdDesktop @parameters | FL ApplicationGroupName, Name, FriendlyName
+```
+
+--- 
 
 ## Customize the display name for a session host
 
