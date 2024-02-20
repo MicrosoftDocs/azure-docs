@@ -122,7 +122,7 @@ source:
       blob_rollover_period: 5m
 ```
 
-### SFTP pull source configuration
+## SFTP pull source configuration
 
 This configuration specifies which files are ingested from the SFTP server.
 

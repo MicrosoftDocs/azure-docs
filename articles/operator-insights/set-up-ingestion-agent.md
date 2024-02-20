@@ -86,39 +86,34 @@ The ingestion agent only supports certificate-based authentication for service p
 
 ## Prepare the VMs
 
-Repeat these steps for each VM onto which you want to install the agent:
+Repeat these steps for each VM onto which you want to install the agent.
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
 1. Install systemd, logrotate and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`. 
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
+1. Configure the agent based on the type of ingestion source.
 
-Further steps are required that are specific to the type of ingestion source.
+    # [SFTP sources](#tab/sftp)
 
-### Prepare the VMs for an MCC EDR source
+    1. Verify that the VM has the following ports open:
+        - Port 443/TCP outbound to Azure
+        - Port 22/TCP outbound to the SFTP server
+        These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+    1. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it's the directory where you'll add secrets for connecting to the SFTP server.
+    1. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
-Repeat these steps for each VM onto which you want to install the agent:
+    > [!TIP]
+    > Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
-1. Verify that the VM has the following ports open:
-    - Port 36001/TCP inbound from the MCCs
-    - Port 443/TCP outbound to Azure
-    
-    These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+    # [MCC EDR sources](#tab/edr)
 
-### Prepare the VMs for an SFTP pull source
+    1. Verify that the VM has the following ports open:
+        - Port 36001/TCP inbound from the MCCs
+        - Port 443/TCP outbound to Azure
+        These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+    ---
 
-Repeat these steps for each VM onto which you want to install the agent:
-
-1. Verify that the VM has the following ports open:
-    - Port 443/TCP outbound to Azure
-    - Port 22/TCP outbound to the SFTP server
-  
-    These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
-1. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it's the directory where you'll add secrets for connecting to the SFTP server.
-1. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
-
-> [!TIP]
-> Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
 ## Configure the connection between the SFTP server and VM
 
@@ -176,10 +171,87 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 ## Configure the agent software
 
-Configuration is specific to the type of ingestion source.  See one of:
-
+The configuration you need is specific to the type of source and your Data Product. Ensure you have access to your Data Product's documentation to see the required values. For example:
 - [Quality of Experience - Affirmed MCC Data Product - required agent configuration](concept-mcc-data-product.md#required-agent-configuration)
 - [Monitoring - Affirmed MCC Data Product - required agent configuration](concept-monitoring-mcc-data-product.md#required-agent-configuration)
+
+1. Log in to the VM.
+1. Change to the configuration directory.
+    ```bash
+    cd /etc/az-aoi-ingestion
+    ```
+1. Make a copy of the default configuration file: 
+    ```bash
+    sudo cp example_config.yaml config.yaml
+    ```
+1. Set the `agent_id` field to a unique identifier for the site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
+1. Configure the `secret_providers` section.
+    # [SFTP sources](#tab/sftp)
+
+    SFTP sources require two types of secret providers:
+        -  A secret provider of type `key_vault` which contains details required to connect to the Data Product's Azure Key Vault and allow connection to the Data Product's input storage account. This is always required.
+        -  A secret provider of type `file_system`, which specifies a directory on the VM for storing credentials for connecting to an SFTP server.
+    
+    1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
+        - `provider.vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
+        - `provider.auth` must be filled out with:
+            - `tenant_id` as your Microsoft Entra ID tenant.
+            - `identity_name` as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
+            - `cert_path` as the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+
+    1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields:
+        - `provider.auth.secrets_directory` the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
+    
+    You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret providers.
+
+    # [MCC EDR sources](#tab/edr)
+    
+    Configure a secret provider with name `data_product_keyvault` and the following fields.
+
+    1. `provider.vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
+    1. `provider.auth` must be filled out with:
+        - `tenant_id` as your Microsoft Entra ID tenant.
+        - `identity_name` as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
+        - `cert_path` as the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+    
+    You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
+    ---
+1. Configure the `pipelines` section using the example configuration and your Data Product's documentation. Each `pipeline` has three configuration sections:
+    - `id`. This identifies the pipeline and must not be the same as any other pipeline ID for this ingestion agent.  Any URL reserved characters must be percent-encoded. Refer to your Data Product's documentation for any recommendations.
+    - `sink`. This controls uploading data to the Data Product's input storage account.
+        - In the `auth` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `type` and `secret_name` unchanged.
+        - Refer to your Data Product's documentation for information on required values for other parameters.
+            > [!IMPORTANT]
+            > The `container_name` field must be set exactly as specified by your Data Product's documentation.
+    - `source`. This controls which files are ingested. You can configure multiple sources.
+
+        # [SFTP sources](#tab/sftp)
+
+        The following fields are required for each source.
+
+        - `host`: the hostname or IP address of the SFTP server.
+        - `filtering.base_path`: the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
+        - `known_hosts_file`: the path on the VM to the global known_hosts file, located at `/etc/ssh/ssh_known_hosts`. This file should contain the public SSH keys of the SFTP host server as outlined in [Prepare the VMs](#prepare-the-vms). 
+        - `user`: the name of the user on the SFTP server that the agent should use to connect.
+        - In `auth`, the `type` (`password` or `key`) you chose in [Configure the connection between the SFTP server and VM](#configure-the-connection-between-the-sftp-server-and-vm). For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the key is protected with a passphrase, set `passphrase_secret_name`.
+        
+        For required or recommended values for other fields, refer to the documentation for your Data Product.
+
+        > [!TIP]
+        > The agent supports additional optional configuration for the following:
+        > - Specifying a pattern of files in the `base_path` folder which will be uploaded (by default all files in the folder are uploaded).
+        > - Specifying a pattern of files in the `base_path` folder which should not be uploaded.
+        > - A time and date before which files in the `base_path` folder will not be uploaded.
+        > - How often the ingestion agent uploads files (the value provided in the example configuration file corresponds to every hour).
+        > - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (the value provided in the example configuration file is 5 minutes).
+        >
+        > For more information about these configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
+
+        # [MCC EDR sources](#tab/edr)
+
+        Delete all pipelines in the example except `mcc_edrs`. Most of the fields in `mcc_edrs` are set to default values. You can leave them unchanged unless you need a specific value.
+
+        ---
 
 ## Start the agent software
 

@@ -85,25 +85,16 @@ For extra fault tolerance, you can deploy multiple instances of the ingestion ag
 
 ### Required agent configuration
 
-This section should be followed as part of [Configure the agent software](set-up-ingestion-agent.md).
+Use the information in this section when [setting up the agent and configuring the agent software](set-up-ingestion-agent.md#configure-the-agent-software).
 
-1. Change to the configuration directory: `cd /etc/az-aoi-ingestion`
-1. Make a copy of the default configuration file: `sudo cp example_config.yaml config.yaml`
-1. Edit the *config.yaml* and fill out the fields. Delete all pipelines except `mcc_edrs`. Most of the fields are set to default values and don't need to be changed. The full reference for each parameter is described in [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md). The following parameters must be set:
+|Information | Configuration setting for Azure Operator Ingestion agent  | Value  |
+|---------|---------|---------|
+|Container in the Data Product input storage account |`sink.container_name` | `edr` |
 
-    1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname. This name becomes searchable metadata in Operator Insights for all EDRs from this agent.
+> [!IMPORTANT]
+> `sink.container_name` must be set exactly as specified here. You can change other configuration to meet your requirements.
 
-    1. For the secret provider with name `data_product_keyvault`, set the following fields:
-        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
-        1. **provider.auth** must be filled out with:
-
-            1. **tenant\_id** as your Microsoft Entra ID tenant.
-
-            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-
-            3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
-
-    1. **sink.container\_name** *must be set as "edr".*
+For more information about all the configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
 
 ### Configure Affirmed MCCs
 
