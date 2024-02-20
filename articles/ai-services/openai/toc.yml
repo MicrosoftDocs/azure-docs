@@ -33,7 +33,7 @@ items:
       href: gpt-v-quickstart.md
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
-    - name: Use your data (preview)
+    - name: Use your data
       href: use-your-data-quickstart.md
     - name: Whisper (preview)
       href: whisper-quickstart.md
@@ -70,7 +70,7 @@ items:
       displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data - text (preview)
+    - name: Using your data - text
       href: ./concepts/use-your-data.md
     - name: Using your data - image (preview)
       href: ./concepts/use-your-image-data.md
@@ -107,6 +107,8 @@ items:
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
+    - name: Deploy and use web apps
+      href: ./how-to/use-web-app.md
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
