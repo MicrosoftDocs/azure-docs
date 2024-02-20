@@ -28,19 +28,6 @@ You should:
    - [Quickstart: Create and configure an Azure Deployment Environments project](quickstart-create-and-configure-projects.md)
 - A catalog attached to your dev center.
 
-## AZD compatible catalogs
-
-Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the attached catalog to provision new environments. 
-
-> [!NOTE]
-> Currently, Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog.
-
-To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.
-
-You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
-
-To get help with AZD compatibility, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create).  
-
 ## Prepare to work with AZD 
 
 When you work with AZD for the first time, there are some one-time setup tasks you need to complete. These tasks include installing the Azure Developer CLI, signing in to your Azure account, and enabling AZD support for Azure Deployment Environments.
