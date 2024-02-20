@@ -263,6 +263,10 @@ For more information on how to track costs, see [monitor costs for models offere
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
+## Data and Policy
+
+No data from the user using models deployed as a service with pay-as-you-go is sent to the model provider (in this case Mistral AI).
+
 ## Content filtering
 
 Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
