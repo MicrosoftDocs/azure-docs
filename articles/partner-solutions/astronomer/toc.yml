@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Apache Airflow on Astro – An Azure Native ISV Service?
     href: astronomer-overview.md
+  - name: Astro resources and developer tools
+    href: astronomer-tools.md  
 - name: Quickstarts
   expanded: true
   items:
@@ -16,5 +18,4 @@ items:
     href: astronomer-manage.md
   - name: Troubleshoot Astro
     href: astronomer-troubleshoot.md
-  - name: Resources and tools
-    href: astronomer-tools.md
+

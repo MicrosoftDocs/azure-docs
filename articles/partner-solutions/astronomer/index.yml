@@ -57,7 +57,7 @@ landingContent:
 #            url: /cli/azure/service-page/astro
 #          - text: Azure PowerShell
 #            url: /powershell/module/az.astro
-           - text: Apache Airflow on Astro developer tools 
+           - text: Astro developer tools 
              url: astronomer-tools.md#developer-tools
 
   
