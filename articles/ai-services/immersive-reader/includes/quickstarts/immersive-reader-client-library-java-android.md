@@ -39,7 +39,7 @@ Name the project **QuickstartJava**, and select a location to save it. Select **
 
 ## Set up assets and authentication
 
-Create a new */assets* folder. Right-click on **app** and select **Folder** -> **Assets Folder** from the dropdown.
+To create a new *assets* folder, right-click on **app** and select **Folder** -> **Assets Folder** from the dropdown.
 
 :::image type="content" source="../../media/android/java/android-studio-assets-folder.png" alt-text="Screenshot of the Assets folder option.":::
 
@@ -69,14 +69,14 @@ Replace the existing dependencies in the *build.gradle* file with the following 
 
 ```build.gradle
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'io.github.cdimascio:java-dotenv:5.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("io.github.cdimascio:java-dotenv:5.1.3")
+    testImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
 }
 ```
 
