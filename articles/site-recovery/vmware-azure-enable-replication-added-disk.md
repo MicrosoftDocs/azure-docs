@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 ms.service: site-recovery
 ---
 
-# Enable replication for a disk added to an VMware virtual machine 
+# Enable replication for a disk added to a VMware virtual machine 
 
 This article describes how to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled to an Azure region, using [Azure Site Recovery](site-recovery-overview.md).
 
