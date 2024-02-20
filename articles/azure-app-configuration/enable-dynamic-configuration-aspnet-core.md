@@ -6,7 +6,7 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/30/2022
+ms.date: 02/20/2024
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---

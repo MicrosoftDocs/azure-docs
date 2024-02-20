@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 02/20/2024
 ---
 
 # Feature management overview

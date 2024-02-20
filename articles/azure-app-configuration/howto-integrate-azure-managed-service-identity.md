@@ -7,7 +7,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/20/2024
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration

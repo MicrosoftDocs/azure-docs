@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 07/11/2023
+ms.date: 02/20/2024
 ms.author: malev
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to control feature availability in my app by using the .NET Feature Manager library.

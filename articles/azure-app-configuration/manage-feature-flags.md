@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 10/18/2023
+ms.date: 02/20/2024
 ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
