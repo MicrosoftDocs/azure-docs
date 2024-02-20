@@ -122,7 +122,7 @@ The structure of the JSON is:
     {
       "sourceServerPassword": "<password>",
       "targetServerPassword": "<password>"
-    }
+    },
    "sourceServerUserName": "<username>@<servername>",
    "targetServerUserName": "<username>"
 },
