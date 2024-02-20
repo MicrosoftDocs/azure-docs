@@ -195,7 +195,7 @@ Here are steps to help find the role assignments before deleting a custom role:
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
 - Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.md).
 - [Remove the role assignments](role-assignments-remove.md) that use the custom role.
-- To list eligible custom role assignments, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+- If you are using [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
 
 For information about how to find unused custom roles, see [Symptom - No more role definitions can be created](troubleshoot-limits.md#symptom---no-more-role-definitions-can-be-created).
