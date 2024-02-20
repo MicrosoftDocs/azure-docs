@@ -64,11 +64,27 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
     ```
 
 ## Limitations
+### Unsupported features:
+- Windows and Azure Linux node pools
+- Kubelet configuration through Node pool configuration
+- IPv6 clusters
+- [Service Principals](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops#about-service-principals-and-managed-identities)
+  - *Note: must be MSI-based, either system managed identity or user managed identity*
+- Disk encryption sets
+- CustomCATrustCertificates
+- [Start Stop mode](https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster?tabs=azure-cli#about-the-cluster-stopstart-feature)
+-[ Cost Analysis](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/plan-manage-costs#costs) (new preview feature)
+- [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) (deprecated)
+- [HTTP proxy](https://learn.microsoft.com/en-us/azure/aks/http-proxy)
+- [OutboundType](https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype) mutation (all OutboundTypes are supported, you just cannot change them once created)
 
-- Windows and Azure Linux node pools aren't supported yet
-- Kubelet configuration through Node pool configuration is not supported
-- NAP can only be enabled on new clusters currently
-
+### Other limitations
+- The only network configuration allowed is Cilium + Overlay + Azure
+- Cannot be enabled in a cluster in which **any** AgentPools have autoscaler enabled
+- Cannot be enabled in an existing cluster
+- [Cluster autoupgrade](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-cluster#use-cluster-auto-upgrade) **must** be set to `none` or `node-image`.
+- [Node OS autoupgrade](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-os-image) **cannot** be set to `SecurityPatch` or `Unmanaged`
+  
 ## Enable node autoprovisioning
 
 To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
