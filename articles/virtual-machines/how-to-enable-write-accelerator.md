@@ -5,7 +5,6 @@ author: raiye
 manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 04/11/2023
 ms.author: raiye
 ms.subservice: disks

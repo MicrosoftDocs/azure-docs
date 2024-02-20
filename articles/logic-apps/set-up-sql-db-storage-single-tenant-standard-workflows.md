@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-ms.custom: ignite-fall-2021
 ---
 
 # Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps (preview)

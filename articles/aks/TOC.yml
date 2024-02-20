@@ -10,7 +10,7 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
-    - name: Long Term Support
+    - name: Long-term support
       href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -33,6 +33,8 @@
       items:
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md
+        - name: Use the Azure Developer CLI
+          href: learn/quick-kubernetes-deploy-azd.md
         - name: Use Azure PowerShell
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
@@ -158,6 +160,20 @@
       href: best-practices.md
     - name: Baseline architecture for an AKS cluster
       href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: High availability disaster recovery
+      items:
+        - name: Overview
+          href: ha-dr-overview.md
+          required: yes
+          limit: 1
+        - name: Solutions
+          items:
+            - name: Active-active
+              href: active-active-solution.md
+            - name: Active-passive
+              href: active-passive-solution.md
+            - name: Passive-cold
+              href: passive-cold-solution.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -180,8 +196,6 @@
           href: operator-best-practices-network.md
         - name: Storage
           href: operator-best-practices-storage.md
-        - name: Business continuity (BC) and disaster recovery (DR)
-          href: operator-best-practices-multi-region.md
     - name: Performance and scaling
       items:
         - name: For small to medium workloads
@@ -226,7 +240,7 @@
           href: cluster-configuration.md 
         - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
-        - name: Stop an AKS cluster
+        - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
         - name: Configure private clusters
           items:
@@ -254,7 +268,7 @@
                        href: istio-deploy-addon.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
-                     - name: Plug in CA certificates for Istio
+                     - name: Plug-in CA certificates for Istio
                        href: istio-plugin-ca.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
@@ -347,15 +361,15 @@
           href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Cluster Autoscaler
+        - name: Cluster autoscaler
           items:
-            - name: Cluster Autoscaler overview
+            - name: Cluster autoscaler overview
               href: cluster-autoscaler-overview.md
-            - name: Use the Cluster Autoscaler on AKS
+            - name: Use the cluster autoscaler on AKS
               href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
-        - name: Availability Zones
+        - name: Availability zones
           href: availability-zones.md
     - name: Cluster management
       items:
@@ -381,7 +395,7 @@
               href: image-cleaner.md
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-            - name: Scanning images in ACR registries
+            - name: Scan images in ACR registries
               href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
@@ -397,6 +411,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Manage cluster certificates and rotation
+              href: certificate-rotation.md
             - name: Use custom certificate authorities
               href: custom-certificate-authority.md
             - name: Use Azure Policy
@@ -409,7 +425,7 @@
               href: use-kms-etcd-encryption.md
         - name: Node security
           items:
-            - name: BYOK for disks
+            - name: BYOK for Azure managed disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
@@ -579,7 +595,7 @@
               - name: Bring your own keys for disks
                 href: azure-disk-customer-managed-keys.md
               - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md
+                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
@@ -634,8 +650,12 @@
           href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
+        - name: Monitor control plane metrics
+          href: monitor-control-plane-metrics.md
         - name: Monitor reference
           href: monitor-aks-reference.md
+        - name: Control plane metrics reference
+          href: control-plane-metrics-default-list.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time
@@ -680,7 +700,11 @@
                 href: node-upgrade-github-actions.md
 
     - name: Azure Linux container host for AKS
-      href: use-azure-linux.md
+      items:
+        - name: Use Azure Linux for AKS
+          href: use-azure-linux.md
+        - name: Azure Linux AKS partner solutions
+          href: azure-linux-aks-partner-solutions.md
     - name: Windows Server containers
       items:
         - name: Windows Server containers FAQ
@@ -699,6 +723,10 @@
           href: windows-aks-partner-solutions.md
         - name: Windows AKS customer stories
           href: windows-aks-customer-stories.md
+        - name: Migration and modernization solutions for Windows containers on AKS
+          href: windows-aks-migration-modernization-solutions.md
+        - name: Use Azure Hybrid Benefit
+          href: azure-hybrid-benefit.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm

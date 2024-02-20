@@ -8,19 +8,19 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 01/19/2024
+ms.date: 02/13/2024
 recommendations: false
 ---
 
-# Securely use Azure OpenAI on your data
+# Securely use Azure OpenAI On Your Data
 
-Use this article to learn how to use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
 
-This article is only applicable when using [Azure OpenAI on your data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI on your data with images](/azure/ai-services/openai/concepts/use-your-image-data).
+This article is only applicable when using [Azure OpenAI On Your Data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI On Your Data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
 ## Data ingestion architecture 
 
-When you use Azure OpenAI on your data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
+When you use Azure OpenAI On Your Data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
@@ -47,10 +47,65 @@ When you send API calls to chat with an Azure OpenAI model on your data, the ser
 
 If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
 
+## Document-level access control
+
+> [!NOTE] 
+> Document-level access control is supported for Azure AI search only.
+
+Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
+
+1. Follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
+1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
+        
+    ```json
+    {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true }
+    ```
+
+    `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](../concepts/use-your-data.md#index-field-mapping).
+
+1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
+1. In [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](../concepts/use-your-data.md#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
+
+**Azure OpenAI Studio**
+
+Once the Azure AI Search index is connected, your responses in the studio will have document access based on the Microsoft Entra permissions of the logged in user.
+
+**Web app**
+
+If you are using a published [web app](./use-web-app.md), you need to redeploy it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Microsoft Entra account, cache it, and include the group IDs in each API request.
+
+**API**
+
+When using the API, pass the `filter` parameter in each API request. For example:
+
+```json
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "who is my manager?"
+        }
+    ],
+    "dataSources": [
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": "'$SearchEndpoint'",
+                "key": "'$SearchKey'",
+                "indexName": "'$SearchIndex'",
+                "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
+            }
+        }
+    ]
+}
+```
+* `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](../concepts/use-your-data.md#index-field-mapping).
+* `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
+
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below.
 
 ## Create resource group
 
@@ -157,6 +212,8 @@ To allow access to your Azure AI Search resource from your client machines, like
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
+The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve**` button above should be clickable.
+
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
 
@@ -167,6 +224,9 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 To allow access to your Storage Account from Azure OpenAI and Azure AI Search, while the Storage Account has no public network access, you need to set up Storage Account to bypass your Azure OpenAI and Azure AI Search as [trusted services based on managed identity](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity).
 
 In the Azure portal, navigate to your storage account networking tab, choose "Selected networks", and then select **Allow Azure services on the trusted services list to access this storage account** and click Save.
+
+> [!NOTE]
+> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
 
 ### Disable public network access
 
@@ -200,6 +260,7 @@ To enable the developers to use these resources to build applications, the admin
 |Role| Resource | Description |
 |--|--|--|
 | `Cognitive Services OpenAI Contributor` | Azure OpenAI | Call public ingestion API from Azure OpenAI Studio. The `Contributor` role is not enough, because if you only have `Contributor` role, you cannot call data plane API via Microsoft Entra ID authentication, and Microsoft Entra ID authentication is required in the secure setup described in this article. |
+| `Cognitive Services User` | Azure OpenAI | List API-Keys from Azure OpenAI Studio.|
 | `Contributor` | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
 | `Contributor` | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
 | `Contributor` | The resource group or Azure subscription where the developer need to deploy the web app to | Deploy web app to the developer's Azure subscription.|

@@ -69,19 +69,19 @@ Document size is actually a limit on the size of the Index API request body. Sin
 
 When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
 
-## Vector storage limits
+## Vector index size limits
 
 When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
-The service enforces a vector storage quota **for every partition** in your search service. Each extra partition increases the available vector storage quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector storage quota per partition across the service tiers (or SKU). For context, it includes:
+The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
 
 + [Partition storage limits](#service-limits) for each tier, repeated here for context.
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
-Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector storage quota. See our [documentation on vector storage](vector-search-index-size.md) for more details.
+Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
 ### Services created before July 1, 2023
 
@@ -96,7 +96,7 @@ Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice
 
 ### Services created after July 1, 2023 in supported regions
 
-Azure AI Search is rolling out increased vector storage limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
+Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
 The following regions **do not** support increased limits:
 

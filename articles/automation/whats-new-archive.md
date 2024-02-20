@@ -9,6 +9,9 @@ ms.custom: references_regions
 
 # Archive for What's new in Azure Automation?
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The primary [What's new in Azure Automation?](whats-new.md) article contains updates for the last six months, while this article contains all the older information.
 
 What's new in Azure Automation? provides you with information about:

@@ -4,7 +4,6 @@ description: include file
 author: CelesteDG
 ms.service: active-directory
 ms.topic: include
-ms.workload: identity
 ms.date: 10/04/2018
 ms.author: celested
 ms.custom: include file

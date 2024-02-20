@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021, mentions_regions
+ms.custom: language-service-clu, mentions_regions
 ---
 
 # Orchestration workflow limits

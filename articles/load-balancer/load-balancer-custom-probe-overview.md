@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
-#customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
+# Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
 
 # Azure Load Balancer health probes
