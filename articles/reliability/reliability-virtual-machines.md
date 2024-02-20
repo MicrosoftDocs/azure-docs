@@ -2,7 +2,7 @@
 title: Reliability in Azure Virtual Machines
 description: Find out about reliability in Azure Virtual Machines 
 author: ericd-mst-github
-ms.author: erd
+ms.author: csudrisforresiliency
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: virtual-machines
