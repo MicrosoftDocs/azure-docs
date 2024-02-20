@@ -22,3 +22,9 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up your .NET background service to update its configuration in response to changes in an App Configuration store.
 > * Consume the latest configuration in your background service.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [.NET SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
