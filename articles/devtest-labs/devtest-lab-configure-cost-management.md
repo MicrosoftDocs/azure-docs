@@ -51,9 +51,12 @@ Now that DevTest Labs is configured to provide the lab-specific information for 
 For a quick view of costs per lab, see the following steps: 
 
 1. Select **Cost Management** and then on **Cost analysis**
-1. Select **Daily Costs**
+2. Select **Daily Costs**
+
 :::image type="content" source="./media/devtest-lab-configure-cost-management/daily-costs.png" alt-text="Screenshot that shows the daily costs card.":::
-1. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by 
+
+3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by 
+
 :::image type="content" source="./media/devtest-lab-configure-cost-management/tag.png" alt-text="Screenshot that shows searching for tag in the group by filter.":::
 
 The resulting view shows costs in the subscription grouped by the tag (which is grouping by the lab & its resources).
