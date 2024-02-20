@@ -1,11 +1,11 @@
 ---
 title: Getting started with Azure Communications Gateway
-description: Learn how to plan for and deploy Azure Communications Gateway
+description: Learn how to plan for and deploy Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 02/16/2024
 
 #CustomerIntent: As someone setting up Azure Communications Gateway, I want to understand the steps I need to carry out to have live traffic through my deployment.
 ---
@@ -29,13 +29,13 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to Operator Connect or Teams Phone Mobile and the support we can provide.
 - [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
-- [Provisioning API for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
+- [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
-- [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway
+- [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway.
 
 For Operator Connect and Teams Phone Mobile, also read:
 
-- [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
+- [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md).
 - [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 - [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calls-operator-connect.md).
 
@@ -59,10 +59,9 @@ Use the following procedures to deploy Azure Communications Gateway and connect 
 
 1. [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) describes the steps you need to take before you can start creating your Azure Communications Gateway resource. You might need to refer to some of the articles listed in [Learn about and plan for Azure Communications Gateway](#learn-about-and-plan-for-azure-communications-gateway).
 1. [Deploy Azure Communications Gateway](deploy.md) describes how to create your Azure Communications Gateway resource in the Azure portal and connect it to your networks.
-1. [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
+1. [Integrate with Azure Communications Gateway's Provisioning API (preview)](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
     - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
-    - Optional for Operator Connect: only required to add custom headers to messages entering your core network.
-    - Not supported for Teams Phone Mobile.
+    - Recommended for Operator Connect and Teams Phone Mobile because it enables flow-through API-based provisioning of your customers both on Azure Communications Gateway and in the Operator Connect environment. This enables additional functionality to be provided by Azure Communications Gateway, such as injecting custom SIP headers, while also fulfilling the requirement from the the Operator Connect and Teams Phone Mobile programs for you to use APIs for provisioning customers in the Operator Connect environment. For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
 
 ## Integrate with your chosen communications services
 
@@ -86,5 +85,5 @@ Use the following procedures to integrate with Zoom Phone Cloud Peering.
 
 ## Next steps
 
-- Learn about [your network and Azure Communications Gateway](role-in-network.md)
+- Learn about [your network and Azure Communications Gateway](role-in-network.md).
 - Find out about [the newest enhancements to Azure Communications Gateway](whats-new.md).
