@@ -13,9 +13,8 @@ Add support for the latest model versions:
 - Speech to text 4.6.0
 - Neural text to speech 3.1.0
 
-Fix a bunch of high risk vulnerability issues.
-Upgrade speech to text components to latest.
-Upgrade `es-**` locales models to ltatest.
+Upgrade speech to text components to the latest.
+Upgrade all `es` locales models to the latest.
 Increase media transforming buffer for speech to text use cases.
 
 ### 2023-November release
