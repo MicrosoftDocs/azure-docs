@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: references_regions
 ms.date: 08/10/2023
 ---
 

@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 01/30/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 # Configure multistage attack detection (Fusion) rules in Microsoft Sentinel
 

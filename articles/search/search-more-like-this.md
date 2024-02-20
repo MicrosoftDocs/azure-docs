@@ -8,8 +8,8 @@ ms.author: beloh
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 10/06/2022
+ms.topic: reference
+ms.date: 02/16/2024
 ---
 
 # moreLikeThis (preview) in Azure AI Search

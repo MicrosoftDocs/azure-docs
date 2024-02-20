@@ -2,11 +2,7 @@
 title: Azure App Configuration best practices | Microsoft Docs
 description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
-documentationcenter: ''
 author: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 12/21/2023
@@ -108,6 +104,16 @@ App Configuration offers the option to bulk [import](./howto-import-export-data.
 ## Multi-region deployment in App Configuration
 
 If your application is deployed in multiple regions, we recommend that you [enable geo-replication](./howto-geo-replication.md) of your App Configuration store. You can let your application primarily connect to the replica matching the region where instances of your application are deployed and allow them to fail over to replicas in other regions. This setup minimizes the latency between your application and App Configuration, spreads the load as each replica has separate throttling quotas, and enhances your application's resiliency against transient and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
+
+## Building applications with high resiliency
+
+Applications often rely on configuration to start, making Azure App Configuration's high availability critical. For improved resiliency, applications should leverage App Configuration's reliability features and consider taking the following measures based on your specific requirements. 
+
+* **Provision in regions with Azure availability zone support.** Availability zones allow applications to be resilient to data center outages. App Configuration offers zone redundancy for all customers without any extra charges. Creating your App Configuration store in regions with support for availability zones is recommended. You can find [a list of regions](./faq.yml#how-does-app-configuration-ensure-high-data-availability) where App Configuration has enabled availability zone support.
+* **[Enable geo-replication](./howto-geo-replication.md) and allow your application to failover among replicas.** This setup gives you a model for scalability and enhanced resiliency against transient failures and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
+* **Deploy configuration with [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).** Incorrect or accidental configuration changes can frequently cause application downtime. You should avoid making configuration changes that impact the production directly from, for example, the Azure portal whenever possible. In safe deployment practices (SDP), you use a progressive exposure deployment model to minimize the potential blast radius of deployment-caused issues. If you adopt SDP, you can build and test a [configuration snapshot](./howto-create-snapshots.md) before deploying it to production. During the deployment, you can update instances of your application to progressively pick up the new snapshot. If issues are detected, you can roll back the change by redeploying the last-known-good (LKG) snapshot. The snapshot is immutable, guaranteeing consistency throughout all deployments. You can utilize snapshots along with dynamic configuration. Use a snapshot for your foundational configuration and dynamic configuration for emergency configuration overrides and feature flags.
+* **Include configuration with your application.** If you want to ensure that your application always has access to a copy of the configuration, or if you prefer to avoid a runtime dependency on App Configuration altogether, you can pull the configuration from App Configuration during build or release time and include it with your application. To learn more, check out examples of integrating App Configuration with your [CI/CD pipeline](./integrate-ci-cd-pipeline.md) or [Kubernetes deployment](./integrate-kubernetes-deployment-helm.md).
+* **Use App Configuration providers.** Applications play a critical part in achieving high resiliency because they can account for issues arising during their runtime, such as networking problems, and respond to failures more quickly. The App Configuration providers offer a range of built-in resiliency features, including automatic replica discovery, replica failover, startup retries with customizable timeouts, configuration caching, and adaptive strategies for reliable configuration refresh. It's highly recommended that you use App Configuration providers to benefit from these features. If that's not an option, you should consider implementing similar features in your custom solution to achieve the highest level of resiliency.
 
 ## Client applications in App Configuration 
 

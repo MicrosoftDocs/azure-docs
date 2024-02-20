@@ -1,11 +1,11 @@
 ---
 title: IT Service Management Connector in Log Analytics
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about using it to monitor and manage ITSM work items in Log Analytics and resolve problems quickly.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 01/30/2022
 ms.custom: references_regions
 ms.reviewer: nolavime
-
 ---
 
 # Connect Azure to ITSM tools by using IT Service Management
@@ -62,7 +62,7 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
 
 ## Create ITSM work items from Azure alerts
 
-After you create your ITSM connection, use the ITSM action in action groups to create work items in your ITSM tool based on Azure alerts. Action groups provide a modular and reusable way to trigger actions for your Azure alerts. You can use action groups with metric alerts, activity log alerts, and Log Analytics alerts in the Azure portal.
+After you create your ITSM connection, use the ITSM action in action groups to create work items in your ITSM tool based on Azure alerts. Action groups provide a modular and reusable way to trigger actions for your Azure alerts. You can use action groups with metric alerts, activity log alerts, and log search alerts in the Azure portal.
 
 > [!NOTE]
 > Wait 30 minutes after you create the ITSM connection for the sync process to finish.
@@ -94,10 +94,10 @@ To create an action group:
 1. In the **Work Item** type field, select **Incident**.
 
     > [!NOTE]
-    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information on the deprecated behavior, see [Use Azure alerts to create a ServiceNow alert or event work item](https://learn.microsoft.com/previous-versions/azure/azure-monitor/alerts/alerts-create-itsm-work-items).
-    > As of October 2023, we are not supporting UI creation of connector for using ITSM actions to send alerts and events to ServiceNow. Until full deprecation the action creation should be by [API](https://learn.microsoft.com/rest/api/monitor/action-groups/create-or-update?view=rest-monitor-2021-09-01&tabs=HTTP).
+    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information on the deprecated behavior, see [Use Azure alerts to create a ServiceNow alert or event work item](/previous-versions/azure/azure-monitor/alerts/alerts-create-itsm-work-items).
+    > As of October 2023, we are not supporting UI creation of connector for using ITSM actions to send alerts and events to ServiceNow. Until full deprecation the action creation should be by [API](/rest/api/monitor/action-groups/create-or-update?tabs=HTTP).
 
-1. In the last section of the interface for creating an ITSM action group, if the alert is a log alert, you can define how many work items will be created for each alert. For all other alert types, one work item is created per alert.
+1. In the last section of the interface for creating an ITSM action group, if the alert is a log search alert, you can define how many work items will be created for each alert. For all other alert types, one work item is created per alert.
       
       :::image type="content" source="media/itsmc-definition/itsm-action-incident.png" lightbox="media/itsmc-definition/itsm-action-incident.png" alt-text="Screenshot that shows the ITSM Ticket area with an incident work item type.":::
    

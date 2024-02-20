@@ -1,7 +1,7 @@
 ---
 title: Use availability zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
-ms.custom: fasttrack-edit, references_regions, devx-track-azurecli, devx-track-linux
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli, linux-related-content
 ms.topic: article
 ms.date: 12/06/2023
 ---
@@ -67,6 +67,9 @@ AKS clusters deployed using availability zones can distribute nodes across multi
 ![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
 
 If a single zone becomes unavailable, your applications continue to run on clusters configured to spread across multiple zones.
+
+> [!NOTE]
+> When implementing **availability zones with the [cluster autoscaler](./cluster-autoscaler-overview.md)**, we recommend using a single node pool for each zone. You can set the `--balance-similar-node-groups` parameter to `True` to maintain a balanced distribution of nodes across zones for your workloads during scale up operations. When this approach isn't implemented, scale down operations can disrupt the balance of nodes across zones.
 
 ## Create an AKS cluster across availability zones
 

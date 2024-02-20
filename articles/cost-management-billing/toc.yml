@@ -37,8 +37,6 @@
     href: understand/mca-overview.md
   - name: Billing accounts for Microsoft Partner Agreement
     href: understand/mpa-overview.md
-  - name: Get started in the Azure EA portal
-    href: manage/ea-portal-get-started.md
   - name: Get started with EA billing in the Azure portal
     href: manage/ea-direct-portal-get-started.md
   - name: Direct EA billing invoice documents
@@ -47,6 +45,8 @@
     href: manage/ea-understand-pricesheet.md
   - name: Request Withholding Tax credit - India
     href: manage/withholding-tax-credit-india.md
+  - name: Plan to manage Azure costs
+    href: understand/plan-manage-costs.md
 - name: How-to guides
   items:
   - name: Configure billing
@@ -151,6 +151,8 @@
         href: manage/mpa-request-ownership.md
   - name: Perform key billing administration tasks
     items:
+    - name: Enable Azure Marketplace purchases
+      href: manage/enable-marketplace-purchases.md
     - name: Create subscriptions programmatically
       items:
       - name: Create subscriptions programmatically
@@ -169,20 +171,14 @@
       items:
       - name: EA roles in Azure
         href: manage/understand-ea-roles.md
-      - name: Azure EA portal administration
-        href: manage/ea-portal-administration.md
       - name: EA billing administration
         href: manage/direct-ea-administration.md
       - name: Azure portal administration for partners
         href: manage/ea-billing-administration-partners.md
-      - name: Azure EA portal administration for partners
-        href: manage/ea-partner-portal-administration.md
       - name: EA tasks in Microsoft Customer Agreement
         href: manage/mca-enterprise-operations.md
       - name: Azure EA agreements and amendments
         href: manage/ea-portal-agreements.md
-      - name: Enterprise enrollment invoices
-        href: manage/ea-portal-enrollment-invoices.md
       - name: View and download EA usage details
         href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
@@ -229,42 +225,40 @@
       href: manage/change-credit-card.md
     - name: View payment history
       href: manage/view-payment-history.md
-  - name: Troubleshoot
+  - name: Troubleshoot billing
     items:
     - name: Can't view or find invoices
-      href: manage/troubleshoot-cant-find-invoice.md
+      href: troubleshoot-billing/troubleshoot-cant-find-invoice.md
     - name: View billing account
-      href: manage/troubleshoot-account-not-found.md
+      href: troubleshoot-billing/troubleshoot-account-not-found.md
     - name: EA billing issues with usage files
-      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+      href: troubleshoot-billing/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
     - name: MCA billing issues with usage files
-      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+      href: troubleshoot-billing/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
     - name: CSP billing issues with usage files
-      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
-    - name: No subscriptions found
-      href: manage/no-subscriptions-found.md
+      href: troubleshoot-billing/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
     - name: Payment issues
-      href: manage/billing-troubleshoot-azure-payment-issues.md
+      href: troubleshoot-billing/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
-      href: manage/troubleshoot-declined-card.md
+      href: troubleshoot-billing/troubleshoot-declined-card.md
     - name: Troubleshoot threshold billing
-      href: manage/troubleshoot-threshold-billing.md
-    - name: Azure account sign-up issues
-      href: manage/troubleshoot-azure-sign-up.md
-    - name: Subscription sign-in issues
-      href: manage/troubleshoot-sign-in-issue.md
-    - name: Create multiple subscriptions message
-      href: manage/create-subscriptions-deploy-resources.md
-    - name: Not available due to conflict error
-      href: manage/troubleshoot-not-available-conflict.md
-    - name: Enterprise cost view disabled
-      href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
-    - name: Troubleshoot Azure EA portal access
-      href: manage/ea-portal-troubleshoot.md
+      href: troubleshoot-billing/troubleshoot-threshold-billing.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request
-      href: manage/how-to-create-azure-support-request-ea.md
+      href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
+  - name: Troubleshoot subscriptions
+    items:
+    - name: No subscriptions found
+      href: troubleshoot-subscription/no-subscriptions-found.md
+    - name: Azure account sign-up issues
+      href: troubleshoot-subscription/troubleshoot-azure-sign-up.md
+    - name: Subscription sign-in issues
+      href: troubleshoot-subscription/troubleshoot-sign-in-issue.md
+    - name: Create multiple subscriptions message
+      href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
+    - name: Not available due to conflict error
+      href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
 - name: Reference
   items:
   - name: Billing Automation Scenarios

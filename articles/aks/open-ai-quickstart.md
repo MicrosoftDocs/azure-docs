@@ -229,7 +229,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
                 memory: 50Mi
               limits:
                 cpu: 30m
-                memory: 65Mi
+                memory: 85Mi
     ---
     apiVersion: v1
     kind: Service

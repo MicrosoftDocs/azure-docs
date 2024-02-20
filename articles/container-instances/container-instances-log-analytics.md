@@ -195,6 +195,19 @@ ContainerInstanceLog_CL
 |_ResourceId|string|A unique identifier for the resource that the record is associated with|
 |_SubscriptionId|string|A unique identifier for the subscription that the record is associated with|
 
+## Using Diagnostic Settings
+
+Diagnostic Settings for container groups is a preview feature and it can be enabled through preview features options in Azure portal. Once this feature is enabled for a subscription, Diagnostic Settings can be applied to a container group. Applying Diagnostic Settings will cause a container group to restart.
+
+For example, here is how we can use New-AzDiagnosticSetting command to apply a Diagnostic Settings object to a container group.
+
+```azurepowershell
+$log = @()
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category ContainerInstanceLog -RetentionPolicyDay 7 -RetentionPolicyEnabled $true
+ 
+New-AzDiagnosticSetting -Name test-setting -ResourceId <container-group-resource-id> -WorkspaceId <log-analytics-workspace-id> -Log $log
+```
+
 ## Next steps
 
 ### Azure Monitor logs

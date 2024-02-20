@@ -53,7 +53,7 @@ This article demonstrates how to automate the CI and CD processes with [Azure Pi
 ## Source control management
 
 Source control management is needed to track changes and enable collaboration between team members.
-For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repository. The collaboration workflow is based on a branching model. For example, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
+For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repository. The collaboration workflow is based on a branching model.
 
 ### Python Notebook Source Code
 

@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 1/23/2024
 ms.custom: template-concept
 #Customer intent: As a device developer, I want to understand when to use the Azure IoT C SDK or the Embedded C SDK to optimize device and application performance.
 ---

@@ -65,6 +65,9 @@
       href: tutorial-deploy-app-bicep-aks.md
     - name: KQL transformations for workspace data
       href: ../tutorial-log-transformation.md
+    - name: Connect using Spark
+      href: tutorial-spark-connector.md
+      displayName: Python, Scala, Spark, Java, Databricks
 - name: Samples
   items:
     - name: .NET
@@ -384,6 +387,8 @@
           href: ../notebooks-faq.yml
     - name: Emulator
       href: ../emulator.md
+    - name: Network bandwidth
+      href: ../network-bandwidth.md
 - name: How to
   items:
     - name: Access preview features
@@ -931,20 +936,16 @@
       items:
         - name: Java SDK v4
           href: sdk-java-v4.md
-        - name: Async Java SDK v2 (legacy)
-          href: sdk-java-async-v2.md
         - name: Sync Java SDK v2 (legacy)
           href: sdk-java-v2.md
+        - name: Async Java SDK v2 (legacy)
+          href: sdk-java-async-v2.md
         - name: Spring Data Connector v2 (legacy)
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
         - name: Spring Data Connector v5
           href: sdk-java-spring-data-v5.md
-        - name: Spark 3.x OLTP Connector
-          href: sdk-java-spark-v3.md
-        - name: Spark 2.x LTS OLTP Connector
-          href: sdk-java-spark-v2.md
         - name: Java bulk executor library v2 (legacy)
           href: sdk-java-bulk-executor-v2.md
     - name: Azure CLI

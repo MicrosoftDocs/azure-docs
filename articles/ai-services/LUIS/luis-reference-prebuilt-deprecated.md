@@ -3,14 +3,13 @@ title: Deprecated Prebuilt entities - LUIS
 titleSuffix: Azure AI services
 description: This article contains deprecated prebuilt entity information in Language Understanding (LUIS).
 #services: cognitive-services
-ms.custom: seodec18
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 01/19/2024
 ---
 
 # Deprecated prebuilt entities in a LUIS app
@@ -162,4 +161,3 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ## Next steps
 
 Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).
-

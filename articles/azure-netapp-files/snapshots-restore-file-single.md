@@ -1,16 +1,9 @@
 ---
 title: Restore individual files in Azure NetApp Files using single-file snapshot restore | Microsoft Docs
-description: Describes how to recover individual files directly within a volume from a snapshot. 
+description: Describes how to recover individual files directly within a volume from a snapshot.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: anfdocs
@@ -43,7 +36,7 @@ The restore operation does not create directories in the process. If the specifi
 
 3. Right-click the snapshot that you want to use for restoring files, and then select **Restore Files** from the menu.
 
-    [ ![Snapshot that shows how to access the Restore Files menu item.](../media/azure-netapp-files/snapshot-restore-files-menu.png) ](../media/azure-netapp-files/snapshot-restore-files-menu.png#lightbox)
+    [ ![Snapshot that shows how to access the Restore Files menu item.](./media/snapshots-restore-file-single/snapshot-restore-files-menu.png) ](./media/snapshots-restore-file-single/snapshot-restore-files-menu.png#lightbox)
 
 5. In the Restore Files window that appears, provide the following information:  
     1. In the **File Paths** field, specify the file or files to restore by using their full paths.   
@@ -61,7 +54,7 @@ The restore operation does not create directories in the process. If the specifi
 
     3. Click **Restore** to begin the restore operation.
 
-    ![Snapshot the Restore Files window.](../media/azure-netapp-files/snapshot-restore-files-window.png)
+    ![Snapshot the Restore Files window.](./media/snapshots-restore-file-single/snapshot-restore-files-window.png)
 
 ## Examples 
 The following examples show you how to specify files from a volume snapshot for restore. 

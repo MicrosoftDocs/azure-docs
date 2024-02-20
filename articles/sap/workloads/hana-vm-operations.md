@@ -3,11 +3,9 @@ title: SAP HANA infrastructure configurations and operations on Azure | Microsof
 description: Operations guide for SAP HANA systems that are deployed on Azure virtual machines.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 11/09/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

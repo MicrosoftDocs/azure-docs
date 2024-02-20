@@ -1,7 +1,7 @@
 ---
 title: Search over JSON blobs
 titleSuffix: Azure AI Search
-description: Crawl Azure JSON blobs for text content using the Azure AI Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
+description: Extract searchable text from JSON blobs using the Blob indexer in Azure AI Search. Indexers provide indexing automation for supported data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,19 +11,20 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 01/11/2024
 ---
+
 # Index JSON blobs and files in Azure AI Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-This article shows you how to set JSON-specific properties for blobs or files that consist of JSON documents. JSON blobs in Azure Blob Storage or Azure File Storage commonly assume any of these forms:
+For blob indexing in Azure AI Search, this article shows you how to set properties for blobs or files consisting of JSON documents. JSON files in Azure Blob Storage or Azure File Storage commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements
 + A JSON document containing multiple entities, separated by a newline
 
-The blob indexer provides a "parsingMode" parameter to optimize the output of the search document based on the structure. Parsing modes consist of the following options:
+The blob indexer provides a `parsingMode` parameter to optimize the output of the search document based on JSON structure. Parsing modes consist of the following options:
 
 | parsingMode | JSON document | Description |
 |--------------|-------------|--------------|
@@ -55,7 +56,7 @@ By default, blob indexers parse JSON blobs as a single chunk of text, one search
 
 The blob indexer parses the JSON document into a single search document, loading an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
 
-Although the default behavior is one search document per JSON blob, setting the 'json' parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
+Although the default behavior is one search document per JSON blob, setting the **`json`** parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
 
 ```http
 POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -93,7 +94,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 ]
 ```
 
-The "parameters" property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
+The `parameters` property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
 ```http
 POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -118,7 +119,7 @@ The data set consists of eight blobs, each containing a JSON array of entities, 
 
 ### Parsing nested JSON arrays
 
-For JSON arrays having nested elements, you can specify a "documentRoot" to indicate a multi-level structure. For example, if your blobs look like this:
+For JSON arrays having nested elements, you can specify a `documentRoot` to indicate a multi-level structure. For example, if your blobs look like this:
 
 ```http
 {
@@ -169,7 +170,7 @@ api-key: [admin key]
 
 ## Map JSON fields to search fields
 
-Field mappings are used to associate a source field with a destination field in situations where the field names and types are not identical. But field mappings can also be used to match parts of a JSON document and "lift" them into top-level fields of the search document.
+Field mappings associate a source field with a destination field in situations where the field names and types aren't identical. But field mappings can also be used to match parts of a JSON document and "lift" them into top-level fields of the search document.
 
 The following example illustrates this scenario. For more information about field mappings in general, see [field mappings](search-indexer-field-mappings.md).
 

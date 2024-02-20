@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, devx-track-js
+
+
+#Customer intent: As a Node.js web app developer, I want to enable and customize Azure Active Directory B2C authentication in my application, so that I can provide a secure and personalized authentication experience for my users.
+
 ---
 
 # Enable authentication options in a Node.js web app by using Azure Active Directory B2C 

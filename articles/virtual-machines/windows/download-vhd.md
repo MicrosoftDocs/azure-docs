@@ -1,10 +1,9 @@
 ---
-title: Download a Windows VHD from Azure 
+title: Download a Windows VHD from Azure
 description: Download a Windows VHD using the Azure portal.
 author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/17/2023
 ---

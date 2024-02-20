@@ -76,7 +76,7 @@ The following conceptual articles cover some of the fundamental features and com
 
 ## Next steps
 
-For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+For guidance on a designing an enterprise-scale implementation of AKS, see [Plan your AKS design][plan-aks-design].
 
 <!-- LINKS - internal -->
-[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+[plan-aks-design]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

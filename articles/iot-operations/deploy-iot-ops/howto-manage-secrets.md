@@ -6,8 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
 ---
@@ -28,7 +27,7 @@ For more information, see [Deploy Azure IoT Operations extensions](./howto-deplo
 
 ## Configure service principal and Azure Key Vault upfront
 
-If the Azure account executing the `az iot ops init` command does not have permissions to query the Azure Resource Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+If the Azure account executing the `az iot ops init` command does not have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
 
 ### Configure service principal for interacting with Azure Key Vault via Microsoft Entra ID
 
@@ -54,7 +53,7 @@ First, register an application with Microsoft Entra ID.
 
    When your application is created, you are directed to its resource page.
 
-1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value as an argument when running Azure IoT Operations deployment.
+1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value as an argument when running Azure IoT Operations deployment with the `az iot ops init` command.
 
 Next, give your application permissions for key vault.
 
@@ -78,7 +77,7 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Provide an optional description for the secret, then select **Add**.
 
-1. Copy the **Value** and **Secret ID** from your new secret. You'll use these values later below.
+1. Copy the **Value** from your new secret. You'll use this value later when you run `az iot ops init`.
 
 Retrieve the service principal Object Id
 
@@ -133,7 +132,11 @@ Once you have the secret store set up on your cluster, you can create and add Az
 
 1. Create your secret in Key Vault with whatever name and value you need. You can create a secret by using the [Azure portal](https://portal.azure.com) or the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command.
 
-1. On your cluster, identify the secret provider class (SPC) for the component that you want to add the secret to. For example, `aio-default-spc`.
+1. On your cluster, identify the secret provider class (SPC) for the component that you want to add the secret to. For example, `aio-default-spc`. Use the following command to list all SPCs on your cluster:
+
+   ```bash
+   kubectl get secretproviderclasses -A
+   ```
 
 1. Open the file in your preferred text editor. If you use k9s, type `e` to edit.
 

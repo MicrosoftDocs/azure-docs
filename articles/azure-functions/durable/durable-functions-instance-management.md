@@ -3,10 +3,10 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/13/2024
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
-ms.custom: ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
@@ -698,7 +698,7 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
-## Suspend and Resume instances (preview)
+## Suspend and Resume instances
 
 Suspending an orchestration allows you to stop a running orchestration. Unlike with termination, you have the option to resume a suspended orchestrator at a later point in time.
 
@@ -715,7 +715,9 @@ public static async Task Run(
     string suspendReason = "Need to pause workflow";
     await client.SuspendAsync(instanceId, suspendReason);
     
-    // ... wait for some period of time since suspending is an async operation...
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
+    DateTime dueTime = context.CurrentUtcDateTime.AddSeconds(30);
+    await context.CreateTimer(dueTime, CancellationToken.None);
     
     string resumeReason = "Continue workflow";
     await client.ResumeAsync(instanceId, resumeReason);
@@ -723,20 +725,84 @@ public static async Task Run(
 ```
 
 # [JavaScript](#tab/javascript)
-> [!NOTE]
-> This feature is currently not supported in JavaScript.
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+
+    const suspendReason = "Need to pause workflow";
+    await client.suspend(instanceId, suspendReason);
+
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.  
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
+    yield context.df.createTimer(deadline.toJSDate());
+
+    const resumeReason = "Continue workflow";
+    await client.resume(instanceId, resumeReason);
+};
+```
 
 # [Python](#tab/python)
-> [!NOTE]
-> This feature is currently not supported in Python.
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import timedelta
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str):
+    client = df.DurableOrchestrationClient(starter)
+
+    suspend_reason = "Need to pause workflow"
+    await client.suspend(instance_id, suspend_reason)
+
+    # Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
+    due_time = context.current_utc_datetime + timedelta(seconds=30)
+    yield context.create_timer(due_time)
+
+    resume_reason = "Continue workflow"
+    await client.resume(instance_id, resume_reason)
+```
 
 # [PowerShell](#tab/powershell)
-> [!NOTE]
-> This feature is currently not supported in PowerShell.
+
+```powershell
+param($Request, $TriggerMetadata)
+
+# Get instance id from body
+$InstanceId = $Request.Body.InstanceId
+$SuspendReason = 'Need to pause workflow'
+
+Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
+
+# Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.
+$duration = New-TimeSpan -Seconds 30
+Start-DurableTimer -Duration $duration
+
+$ResumeReason = 'Continue workflow'
+Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
+```
 
 # [Java](#tab/java)
-> [!NOTE]
-> This feature is currently not supported in Java.
+
+```java
+@FunctionName("SuspendResumeInstance")
+public void suspendResumeInstance(
+        @HttpTrigger(name = "req", methods = {HttpMethod.POST}) HttpRequestMessage<String> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    String instanceID = req.getBody();
+    DurableTaskClient client = durableContext.getClient();  
+    String suspendReason = "Need to pause workflow";
+    client.suspendInstance(instanceID, suspendReason);
+
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
+    ctx.createTimer(Duration.ofSeconds(30)).await();
+
+    String resumeReason = "Continue workflow";
+    client.getClient().resumeInstance(instanceID, resumeReason);
+}
+```
 
 ---
 
@@ -1043,10 +1109,10 @@ Functions can send instances of these objects to external systems to monitor or 
 public static void SendInstanceInfo(
     [ActivityTrigger] IDurableActivityContext ctx,
     [DurableClient] IDurableOrchestrationClient client,
-    [DocumentDB(
+    [CosmosDB(
         databaseName: "MonitorDB",
-        collectionName: "HttpManagementPayloads",
-        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+        containerName: "HttpManagementPayloads",
+        Connection = "CosmosDBConnectionSetting")]out dynamic document)
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 

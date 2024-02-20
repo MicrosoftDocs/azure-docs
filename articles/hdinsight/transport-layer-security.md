@@ -3,8 +3,7 @@ title: Transport layer security in Azure HDInsight
 description: Transport layer security (TLS) and secure sockets layer (SSL) are cryptographic protocols that provide communications security over a computer network.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
-ms.date: 10/16/2023
+ms.date: 02/20/2024
 ---
 
 # Transport layer security in Azure HDInsight
