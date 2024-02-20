@@ -9,24 +9,24 @@ ms.custom: UpdateFrequency2
 ---
 
 # Track costs associated with a lab in Azure DevTest Labs
-This article provides information on how to track the cost of your lab through [Azure Cost Management](../cost-management-billing/cost-management-billing-overview) by applying tags to the DevTest Lab to filter costs. DevTest Labs may create more resource groups for resources related to the lab (depending on the features used and the settings of the lab). For this reason, it’s often not straightforward to get a view of the total costs for a lab just by looking at Resource Groups. To create a single view of costs per lab, tags are used. 
+This article provides information on how to track the cost of your lab through [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) by applying tags to the lab to filter costs. DevTest Labs may create more resource groups for resources related to the lab (depending on the features used and the settings of the lab). For this reason, it’s often not straightforward to get a view of the total costs for a lab just by looking at Resource Groups. To create a single view of costs per lab, tags are used. 
 
 ## Steps to Leverage Cost Management for DevTest Labs
 
 These are the steps needed to use cost management for DevTest Labs. More details are captured in the following sections. 
-1. Enable tag inheritance for costs 
-1. Apply tags to the DevTest Labs (cost center, business unit, etc.) 
-1. Provide permissions to allow users to view costs 
-1. Use Azure Cost Management for viewing/filtering costs for DevTest Labs, based on the tags 
+1. Enable tag inheritance for costs.
+1. Apply tags to the DevTest Labs (cost center, business unit, etc.).
+1. Provide permissions to allow users to view costs.
+1. Use Azure Cost Management for viewing/filtering costs for DevTest Labs, based on the tags.
 
 ## Step 1: Enable Tag Inheritance for Tags on Resource Groups 
 
-When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), these are each placed in their own resource group. To ensure that the DevTest Lab tags flow down (for billing purposes) from the resource group to the resources, tag inheritance must be enabled. 
+When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), they are each placed in their own resource group. To ensure that the lab tags flow down (for billing purposes) from the resource group to the resources, tag inheritance must be enabled. 
 
-This can be done either with billing properties OR via Azure Policies. The first method (billing properties) is the easiest & fastest if it doesn’t affect billing reporting for other resources in the same subscription. 
+Tag inheritance can be enabled either with billing properties OR Azure Policies. The first method (billing properties) is the easiest & fastest if it doesn’t affect billing reporting for other resources in the same subscription. 
 
-- [Group and allocate costs using tag inheritance](../cost-management-billing/costs/enable-tag-inheritance)
-- [Use the "Inherit a tag from the resource group" Azure Policy](../azure-resource-manager/management/tag-policies)
+- [Group and allocate costs using tag inheritance](../cost-management-billing/costs/enable-tag-inheritance.md)
+- [Use the "Inherit a tag from the resource group" Azure Policy](../azure-resource-manager/management/tag-policies.md)
 
 If updated correctly using the first method, you see that Tag Inheritance now shows **Enabled**: 
 
@@ -38,15 +38,15 @@ DevTest Labs automatically propagates tags applied at the lab level to the resou
 
  ![Screenshot that shows tags in DevTest Labs in the Azure portal.](media/devtest-lab-configure-cost-management/devtest-tags.png)
 
-It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the DevTest Lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/phauge/update-dtl-tags/samples/DevTestLabs/Scripts/UpdateDtlTags). 
+It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/phauge/update-dtl-tags/samples/DevTestLabs/Scripts/UpdateDtlTags). 
 
 ## Step 3: Provide permissions to allow users to view costs 
 
-DevTest Labs users don’t automatically have permission to view costs for their resources via Cost Management. There's one more step to [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don’t already have permissions that include Billing Reader access. More information is found here on managing access to billing information: [Manage access to Azure billing - Microsoft Cost Management](../cost-management-billing/manage/manage-billing-access)
+DevTest Labs users don’t automatically have permission to view costs for their resources via Cost Management. There's one more step to [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data.md#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don’t already have permissions that include Billing Reader access. More information is found here on managing access to billing information: [Manage access to Azure billing - Microsoft Cost Management.](../cost-management-billing/manage/manage-billing-access.md)
 
 ## Step 4: Use Azure Cost Management for viewing/filtering costs for DevTest Labs 
 
-Now that DevTest Labs is configured to provide the lab-specific information for Cost Management, start here on Cost Management Reporting to view costs: Get started with [Cost Management reporting - Azure - Microsoft Cost Management](../cost-management-billing/costs/reporting-get-started). You can visualize the costs in the Azure Portal, download cost reporting information, or use PowerBI to visualize the costs. 
+Now that DevTest Labs is configured to provide the lab-specific information for Cost Management, start here on Cost Management Reporting to view costs: Get started with [Cost Management reporting - Azure - Microsoft Cost Management](../cost-management-billing/costs/reporting-get-started.md). You can visualize the costs in the Azure portal, download cost reporting information, or use Power BI to visualize the costs. 
 
 For a quick view of costs per lab, see the following steps: 
 
@@ -61,6 +61,6 @@ The resulting view shows costs in the subscription grouped by the tag (which is 
 ## Related content
 
 - [Define lab policies](devtest-lab-set-lab-policy.md). Learn how to set the various policies used to govern how your lab and its virtual machines (VMs) are used. 
-- [Create custom image](devtest-lab-create-template.md). When you create a VM, you specify a base. The base can be either a custom image or a Marketplace image. This article describes how to create a custom image from a VHD file. 
+- [Create custom image](devtest-lab-create-template.md). When you create a virtual machine (VM), you specify a base. The base can be either a custom image or a Marketplace image. This article describes how to create a custom image from a virtual hard disk (VHD) file. 
 - [Configure Marketplace images](devtest-lab-configure-marketplace-images.md). DevTest Labs supports creating VMs based on Azure Marketplace images. This article illustrates how to specify Azure Marketplace images you can use when creating VMs in a lab. 
 - [Create a VM in a lab](devtest-lab-add-vm.md). This article illustrates how to create a VM from a custom or Marketplace base image, and work with artifacts in the VM. 
