@@ -36,7 +36,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new .NET console app project:
+2. In the new folder, run the following command to create a new .NET background service project:
 
     ```dotnetcli
     dotnet new worker
