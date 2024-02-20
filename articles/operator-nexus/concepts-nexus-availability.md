@@ -141,8 +141,6 @@ The Operator Nexus platform makes use of the Azure Resource Manager to handle al
 
 Workloads running on Operator Nexus can follow a similar model, creating their own Resource Providers (RPs) in order to benefit from everything Resource Manager has to offer. Resource Manager can only apply updates to the on-premises NFs while the Operator Nexus site is connected to the Azure Cloud. During a Disconnect event, these configuration updates can't be applied. This is considered acceptable for the Operator Nexus RPs as it isn't common to update their configuration while in production. Workloads should therefore only use Resource Manager if the same assumption holds.
 
-If updates in production are a common requirement, the workloads need to provide an alternative configuration framework to ensure that on-premises operators are able to apply updates even when the site is disconnected from the Azure Cloud.
-
 ### Workload Upgrade
 
 Unlike a Public Cloud environment, as a Hybrid Cloud platform, Operator Nexus is more restricted in terms of the available capacity. This restriction needs to be taken into consideration when designing the process for upgrade of the workload instances, which needs to be managed by the customer, or potentially the provider of the workload, depending on the details of the arrangement between the Telco customer and the workload provider.
