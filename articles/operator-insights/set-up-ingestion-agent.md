@@ -145,7 +145,7 @@ Follow these steps on the SFTP server:
 
 ## VMs without public DNS: Map Azure host names to IP addresses
 
-**If your agent VMs have access to public DNS, skip this step and continue to [Install agent software](#install-agent-software).**
+**If your agent VMs have access to public DNS, skip this step and continue to [Install the agent software](#install-the-agent-software).**
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
@@ -167,7 +167,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     <Public IP>   login.microsoftonline.com
     ````
 
-## Install agent software
+## Install the agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
