@@ -37,9 +37,9 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
    :::image type="content" source="media/how-to-deploy-osdu-admin-ui/clone-the-repository.png" alt-text="Screenshot that shows cloning the repository.":::
 
 4. When prompted for a container configuration template,
-  1. Select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu).
-  2. Accept the default version.
-  3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature.
+   1. Select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu).
+   2. Accept the default version.
+   3. Add the [Azure CLI](https://github.com/devcontainers/features/tree/main/src/azure-cli) feature.
 
    ![Screenshot that shows option selection.](./media/how-to-deploy-osdu-admin-ui/option-selection.png)
 
