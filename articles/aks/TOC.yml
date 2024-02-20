@@ -595,7 +595,7 @@
               - name: Bring your own keys for disks
                 href: azure-disk-customer-managed-keys.md
               - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md
+                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
@@ -700,7 +700,11 @@
                 href: node-upgrade-github-actions.md
 
     - name: Azure Linux container host for AKS
-      href: use-azure-linux.md
+      items:
+        - name: Use Azure Linux for AKS
+          href: use-azure-linux.md
+        - name: Azure Linux AKS partner solutions
+          href: azure-linux-aks-partner-solutions.md
     - name: Windows Server containers
       items:
         - name: Windows Server containers FAQ

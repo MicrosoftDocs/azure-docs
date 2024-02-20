@@ -10641,11 +10641,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/load-balancer/cross-region-overview.md",
-            "redirect_url": "/azure/reliability/reliability-load-balancer",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
             "redirect_url": "/azure/reliability/reliability-load-balancer",
             "redirect_document_id": false
