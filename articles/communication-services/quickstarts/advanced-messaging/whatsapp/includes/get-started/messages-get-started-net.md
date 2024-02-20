@@ -20,38 +20,9 @@ zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 [!INCLUDE [Setup project with VS Code](./messages-get-started-net-vscode-setup.md)]
 ::: zone-end
 
-Update your Project.cs
-
 Open the *Program.cs* file in a text editor.   
 
-Add a `using` directive to include the `Azure.Communication.Messages` namespace.   
-
-```csharp
-using Azure.Communication.Messages;
-```
-
-For this quickstart, you need the following includes:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Azure;
-```
-
-Update the `Main` method declaration to support async code.   
-```csharp
-public static async Task Main(string[] args)
-```
-
-Include the package in your C# project   
-Add the directive to include the Messages package.
-
-```csharp
-using Azure.Communication.Messages;
-```
-
-Or, you can replace your Program.cs with the following code:
+Replace the contents of your Program.cs with the following code:
 
 ```csharp
 using System;
@@ -74,10 +45,17 @@ namespace AdvancedMessagingQuickstart
 }
 ```
 
+To use the Advanced Messaging features, we've added a `using` directive to include the `Azure.Communication.Messages` namespace.
+
+```csharp
+using Azure.Communication.Messages;
+```
+
+
 ### Configure environment variables
 
 In this section, you set up an Environment Variable for Azure Communication Service Resource Connection.
-Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
 :::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
@@ -137,7 +115,7 @@ The Channel Registration ID GUID was created during channel registration. You ca
 
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
-Assign it to a variable called channelRegistrationId   
+Assign it to a variable called channelRegistrationId.
 ```csharp
 var channelRegistrationId = new Guid("<your channel registration id GUID>");
 ```
@@ -175,7 +153,7 @@ Initiate a conversation by sending a template message.
 First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
 > To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
-> If you don't have any template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
+> If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`:
 ```csharp
@@ -188,13 +166,10 @@ For more examples of how to assemble your MessageTemplate and how to create your
 For further requirements on templates, refer to the guidelines in the WhatsApp Business Platform API references [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/), [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components), and [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates). 
 
 
-Assemble the template message:
+Assemble then send the template message:
 ```csharp
 var templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
-```
 
-Then send the template message:
-```csharp
 Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendAsync(templateContent);
 ```
 

@@ -10,7 +10,7 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-In this quick start, you'll learn about how to send messages using our Advance Messaging SDKs.
+In this quick start, you learn about how to send messages using our Advance Messaging SDKs.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

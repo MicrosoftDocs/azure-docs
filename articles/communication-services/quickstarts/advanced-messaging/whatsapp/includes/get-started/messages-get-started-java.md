@@ -10,10 +10,6 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-In this quick start, you'll learn about how to send messages using our Advance Messaging SDKs.
-
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
 > [!NOTE]
 > Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
 

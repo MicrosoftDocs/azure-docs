@@ -10,6 +10,7 @@ ms.topic: include
 ms.custom: include file
 ms.author: memontic
 ---
+
 ### Templates with no parameters
 
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
