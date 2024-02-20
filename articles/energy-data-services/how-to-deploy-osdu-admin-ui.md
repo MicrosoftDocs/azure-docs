@@ -80,12 +80,12 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    ![Screenshot that shows how to fetch location and resource group.](./media/how-to-deploy-osdu-admin-ui/location-resource-group.png)
 
-2. Fetch the value of `id` as the subscription id by running the following command:
+2. Fetch the value of `id` as the subscription id by running the following command on the terminal:
     ```azurecli-interactive
     az account show
     ```
 
-3. If the above id is not same as the `subcription-id` from the Azure Data Manager for Energy instance, you need to change subscription:
+3. If the above ID is not same as the `subcription-id` from the Azure Data Manager for Energy instance, you need to change subscription:
     ```azurecli-interactive
     az account set --subscription <subscription-id>
     ```
