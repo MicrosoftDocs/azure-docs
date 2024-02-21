@@ -158,13 +158,13 @@ When you modify and commit your configurations in a Git repository, several step
 
 This process, though automated, involves the following distinct stages and components, each with its own timing and behavior.
 
-- **Polling by Application Configuraiton Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
-- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there is a natural delay in this process due to the frequency at which the kubelet refreshes its cache to recognize changes in ConfigMaps.
-- **Application Reads Updated Configuration**: Your application running in the Azure Spring Apps environment can access the updated configuration values. Note that the existing beans in the Spring Context isn't refreshed to use the updated configurations automatically.
+- **Polling by Application Configuration Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
+- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the Kubelet refreshes its cache to recognize changes in ConfigMaps.
+- **Application Reads Updated Configuration**: Your application running in the Azure Spring Apps environment can access the updated configuration values. Note that the existing beans in the Spring Context aren't refreshed to use the updated configurations automatically.
 
 You can adjust the polling refresh interval of the Application Configuration Service to align with your specific needs. To apply the updated configurations in your application, a restart or refresh action is necessary.
 
-In Spring applications, properties are hold or refrenced as the beans within the Spring Context. To load new configurations, use the following methods:
+In Spring applications, properties are hold or referenced as the beans within the Spring Context. To load new configurations, use the following methods:
 
 - Restart the application. Restarting the application always loads the new configuration.
 
@@ -203,7 +203,7 @@ In Spring applications, properties are hold or refrenced as the beans within the
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file changes, or you can use another utility with similar function. The previous option require users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates. The file path, as methioned in the [Polyglot support](#polyglot-support) section, can be retrieved using the environment variable `AZURE_SPRING_APPS_CONFIG_FILE_PATH`.
+- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file changes, or you can use another utility with similar function. The previous option requires users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates. The file path, as mentioned in the [Polyglot support](#polyglot-support) section, can be retrieved using the environment variable `AZURE_SPRING_APPS_CONFIG_FILE_PATH`.
 
 ## Configure Application Configuration Service settings
 
@@ -284,17 +284,17 @@ Use the following steps to use Application Configuration Service with applicatio
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. In the navigation menu, select **Apps** to view the list all the apps.
+1. In the navigation menu, select **Apps** to view the list of all the apps.
 
-1. Select the target app to configure patterns for from the `name` column.
+1. Select the target app to configure patterns for the `name` column.
 
 1. In the navigation pane, select **Configuration** and then select **General settings**.
 
-1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section.
+1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](#pattern) section in this article.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png" alt-text="Screenshot of the Azure portal that shows the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png":::
 
-1. Select **Save**
+1. Select **Save**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
