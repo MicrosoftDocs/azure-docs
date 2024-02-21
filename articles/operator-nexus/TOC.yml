@@ -153,6 +153,8 @@
           href: howto-use-azure-policy.md
         - name: MDE Runtime Protection
           href: howto-use-mde-runtime-protection.md
+        - name: Configure Network Access Control Lists for SSH Access on Management VPN
+          href: howto-configure-acls-for-ssh-management-on-access-vpn.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
