@@ -1,6 +1,6 @@
 ---
-title: View and manage log alert rules created in previous versions| Microsoft Docs
-description: Use the Azure Monitor portal to manage log alert rules created in earlier versions.
+title: View and manage log search alert rules created in previous versions| Microsoft Docs
+description: Use the Azure Monitor portal to manage log search alert rules created in earlier versions.
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/20/2023
@@ -10,10 +10,10 @@ ms.reviewer: harelbr
 
 # Manage alert rules created in previous versions
 
-This article describes the process of managing alert rules created in the previous UI or by using API version `2018-04-16` or earlier. Alert rules created in the latest UI are viewed and managed in the new UI, as described in [Create, view, and manage log alerts by using Azure Monitor](alerts-log.md).
+This article describes the process of managing alert rules created in the previous UI or by using API version `2018-04-16` or earlier. Alert rules created in the latest UI are viewed and managed in the new UI, as described in [Create, view, and manage log search alerts by using Azure Monitor](alerts-log.md).
 
 
-## Changes to the log alert rule creation experience
+## Changes to the log search alert rule creation experience
 
 The current alert rule wizard is different from the earlier experience:
 
@@ -42,7 +42,7 @@ The current alert rule wizard is different from the earlier experience:
 
 1. Edit the alert rule conditions by using these sections:
     - **Search query**: In this section, you can modify your query.
-    - **Alert logic**: Log alerts can be based on two types of [measures](./alerts-unified-log.md#measure):
+    - **Alert logic**: Log search alerts can be based on two types of [measures](./alerts-types.md#log-alerts):
         1. **Number of results**: Count of records returned by the query.
         1. **Metric measurement**: **Aggregate value** is calculated by using `summarize` grouped by the expressions chosen and the [bin()](/azure/data-explorer/kusto/query/binfunction) selection. For example:
             ```Kusto
@@ -52,7 +52,7 @@ The current alert rule wizard is different from the earlier experience:
             or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
             | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
             ```
-        For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-unified-log.md#split-by-alert-dimensions) by using the **Aggregate on** option. The row grouping expression must be unique and sorted.
+        For metric measurements alert logic, you can specify how to [split the alerts by dimensions](./alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions) by using the **Aggregate on** option. The row grouping expression must be unique and sorted.
         
         The [bin()](/azure/data-explorer/kusto/query/binfunction) function can result in uneven time intervals, so the alert service automatically converts the [bin()](/azure/data-explorer/kusto/query/binfunction) function to a [binat()](/azure/data-explorer/kusto/query/binatfunction) function with appropriate time at runtime to ensure results with a fixed point.
         
@@ -61,47 +61,47 @@ The current alert rule wizard is different from the earlier experience:
         
         :::image type="content" source="media/alerts-log/aggregate-on.png" lightbox="media/alerts-log/aggregate-on.png" alt-text="Screenshot that shows Aggregate on.":::
 
-    - **Period**: Choose the time range over which to assess the specified condition by using the [Period](./alerts-unified-log.md#query-time-range) option.
+    - **Period**: Choose the time range over which to assess the specified condition by using the [Period](./alerts-types.md) option.
 
 1. When you're finished editing the conditions, select **Done**.
-1. Use the preview data to set the [Operator, Threshold value](./alerts-unified-log.md#threshold-and-operator), and [Frequency](./alerts-unified-log.md#frequency).
-1. Set the [number of violations to trigger an alert](./alerts-unified-log.md#number-of-violations-to-trigger-alert) by using **Total** or **Consecutive breaches**.
+1. Use the preview data to set the [Operator, Threshold value](./alerts-types.md), and [Frequency](./alerts-types.md).
+1. Set the [number of violations to trigger an alert](./alerts-types.md) by using **Total** or **Consecutive breaches**.
 1. Select **Done**.
 1. You can edit the rule **Description** and **Severity**. These details are used in all alert actions. You can also choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
-1. Use the [Suppress Alerts](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
+1. Use the [Suppress Alerts](./alerts-processing-rules.md) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-log/AlertsPreviewSuppress.png" lightbox="media/alerts-log/AlertsPreviewSuppress.png" alt-text="Screenshot that shows the Alert Details pane." border="false":::
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met. For limits on the actions that can be performed, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
-1. (Optional) Customize actions in log alert rules:
+1. (Optional) Customize actions in log search alert rules:
     - **Custom email subject**: Overrides the *email subject* of email actions. You can't modify the body of the mail and this field *isn't for email addresses*.
-    - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log alerts](./alerts-log-webhook.md).
+    - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log search alerts](./alerts-log-webhook.md).
     <!-- convertborder later -->
-    :::image type="content" source="media/alerts-log/AlertsPreviewOverrideLog.png" lightbox="media/alerts-log/AlertsPreviewOverrideLog.png" alt-text="Screenshot that shows Action overrides for log alerts." border="false":::
+    :::image type="content" source="media/alerts-log/AlertsPreviewOverrideLog.png" lightbox="media/alerts-log/AlertsPreviewOverrideLog.png" alt-text="Screenshot that shows Action overrides for log search alerts." border="false":::
 1. After you've finished editing all the alert rule options, select **Save**.
 
-## Manage log alerts using PowerShell
+## Manage log search alerts using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Use the following PowerShell cmdlets to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules):
 
-- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): PowerShell cmdlet to create a new log alert rule.
-- [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule): PowerShell cmdlet to update an existing log alert rule.
-- [New-AzScheduledQueryRuleSource](/powershell/module/az.monitor/new-azscheduledqueryrulesource): PowerShell cmdlet to create or update the object that specifies source parameters for a log alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
-- [New-AzScheduledQueryRuleSchedule](/powershell/module/az.monitor/new-azscheduledqueryruleschedule): PowerShell cmdlet to create or update the object that specifies schedule parameters for a log alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
-- [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction): PowerShell cmdlet to create or update the object that specifies action parameters for a log alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
-- [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): PowerShell cmdlet to create or update the object that specifies action group parameters for a log alert. Used as input by the [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): PowerShell cmdlet to create or update the object that specifies trigger condition parameters for a log alert. Used as input by the [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): PowerShell cmdlet to create or update the object that specifies metric trigger condition parameters for a metric measurement log alert. Used as input by the [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
-- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule): PowerShell cmdlet to list existing log alert rules or a specific log alert rule.
-- [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule): PowerShell cmdlet to enable or disable a log alert rule.
-- [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule.
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): PowerShell cmdlet to create a new log search alert rule.
+- [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule): PowerShell cmdlet to update an existing log search alert rule.
+- [New-AzScheduledQueryRuleSource](/powershell/module/az.monitor/new-azscheduledqueryrulesource): PowerShell cmdlet to create or update the object that specifies source parameters for a log search alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
+- [New-AzScheduledQueryRuleSchedule](/powershell/module/az.monitor/new-azscheduledqueryruleschedule): PowerShell cmdlet to create or update the object that specifies schedule parameters for a log search alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
+- [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction): PowerShell cmdlet to create or update the object that specifies action parameters for a log search alert. Used as input by the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlets.
+- [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): PowerShell cmdlet to create or update the object that specifies action group parameters for a log search alert. Used as input by the [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
+- [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): PowerShell cmdlet to create or update the object that specifies trigger condition parameters for a log search alert. Used as input by the [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): PowerShell cmdlet to create or update the object that specifies metric trigger condition parameters for a metric measurement log search alert. Used as input by the [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule): PowerShell cmdlet to list existing log search alert rules or a specific log search alert rule.
+- [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule): PowerShell cmdlet to enable or disable a log search alert rule.
+- [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log search alert rule.
 
 > [!NOTE]
-> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](./alerts-log-api-switch.md).
+> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log search alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](./alerts-log-api-switch.md).
 
-Example steps for creating a log alert rule by using PowerShell:
+Example steps for creating a log search alert rule by using PowerShell:
 
 ```powershell
 $source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews"
@@ -113,7 +113,7 @@ $alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsAction
 New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name"
 ```
 
-Example steps for creating a log alert rule by using PowerShell with cross-resource queries:
+Example steps for creating a log search alert rule by using PowerShell with cross-resource queries:
 
 ```powershell
 $authorized = @ ("/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicewsCrossExample", "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceAppInsights")
@@ -126,7 +126,7 @@ $alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsAction
 New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name" 
 ```
 
-You can also create the log alert by using [a template and parameters](./alerts-log-create-templates.md) files using PowerShell:
+You can also create the log search alert by using [a template and parameters](./alerts-log-create-templates.md) files using PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -137,7 +137,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 
 ## Next steps
 
-* Learn about [log alerts](./alerts-unified-log.md).
-* Create log alerts by using [Azure Resource Manager templates](./alerts-log-create-templates.md).
-* Understand [webhook actions for log alerts](./alerts-log-webhook.md).
+* Learn about [log search alerts](./alerts-types.md#log-alerts).
+* Create log search alerts by using [Azure Resource Manager templates](./alerts-log-create-templates.md).
+* Understand [webhook actions for log search alerts](./alerts-log-webhook.md).
 * Learn more about [log queries](../logs/log-query-overview.md).
