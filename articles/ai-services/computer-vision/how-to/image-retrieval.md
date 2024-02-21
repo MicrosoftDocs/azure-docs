@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 02/20/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
@@ -43,9 +43,10 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"url"` to the URL of a remote image you want to use.
+1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2024-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
@@ -69,9 +70,10 @@ The `retrieval:vectorizeText` API lets you convert a text string to a vector. To
 1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"text"` to the example search term you want to use.
+1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeText?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeText?api-version=2023-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'text':'cat jumping'
 }"
