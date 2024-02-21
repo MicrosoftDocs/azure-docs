@@ -429,7 +429,7 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 
 If the latest changes don't reflect on the applications, there are several things to check based on the [Refresh Strategies](#refresh-strategies) section.
 
-1. Check wether the Git repo has been updated correctly and the application is bound to the application configuration service:
+1. Check whether the Git repo has been updated correctly and the application is bound to the application configuration service:
    - Check the branch of the desired config file changes is updated.
    - Check the pattern configured in application configuration service matches the updated config files.
    - Check the application is bound to the application configuration service.
