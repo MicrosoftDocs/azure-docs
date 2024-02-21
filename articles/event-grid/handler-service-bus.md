@@ -2,7 +2,7 @@
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 01/17/2024
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -88,10 +88,10 @@ You can also use the [`New-AzEventGridSystemTopicEventSubscription`](/powershell
 
 When you send an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
-The internal system ID for the message will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
+The internal system ID for the message is maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
 
 ## Delivery properties
-Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Service Bus queues and topics.
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that the destination requires. You can set custom headers on the events that are delivered to Azure Service Bus queues and topics.
 
 Azure Service Bus supports the use of following message properties when sending single messages. 
 
@@ -204,6 +204,8 @@ For more information, see [Custom delivery properties](delivery-properties.md).
 }
 ```
 
+> [!NOTE]
+> When a failover occurs for a Service Bus namespace that's Geo-DR enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

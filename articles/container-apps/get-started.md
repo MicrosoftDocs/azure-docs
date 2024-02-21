@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -159,6 +159,8 @@ The `up` command returns the fully qualified domain name for the container app. 
 The following message is displayed when the container app is deployed:
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Screenshot of container app web page.":::
+
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

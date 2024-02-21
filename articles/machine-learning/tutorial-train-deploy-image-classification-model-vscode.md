@@ -9,11 +9,9 @@ ms.topic: tutorial
 author: ssalgadodev
 ms.author: tbombach
 ms.reviewer: ssalgado
-ms.date: 05/25/2021
+ms.date: 01/25/2024
 ms.custom:
-  - contperf-fy20q4
   - cliv2
-  - event-tier1-build-2022
   - build-2023
   - ignite-2023
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
@@ -38,7 +36,7 @@ In this tutorial, you learn the following tasks:
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/). If you're using the free subscription, only CPU clusters are supported.
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
-- Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
+- Azure Machine Learning studio Visual Studio Code extension. For install instructions, see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
 - CLI (v2). For installation instructions, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md)
 -  Clone the community driven repository
     ```bash
@@ -47,13 +45,13 @@ In this tutorial, you learn the following tasks:
 
 ## Understand the code
 
-The code for this tutorial uses TensorFlow to train an image classification machine learning model that categorizes handwritten digits from 0-9. It does so by creating a neural network that takes the pixel values of 28 px x 28 px image as input and outputs a list of 10 probabilities, one for each of the digits being classified. Below is a sample of what the data looks like.  
+The code for this tutorial uses TensorFlow to train an image classification machine learning model that categorizes handwritten digits from 0-9. It does so by creating a neural network that takes the pixel values of 28 px x 28 px image as input and outputs a list of 10 probabilities, one for each of the digits being classified. This is a sample of what the data looks like.  
 
 ![MNIST Digits](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
 
 ## Create a workspace
 
-The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models as well as the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md).
+The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models and the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md).
 
 1. Open the *azureml-examples/cli/jobs/single-step/tensorflow/mnist* directory from the community driven repository in Visual Studio Code.
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
@@ -86,7 +84,7 @@ For more information on workspaces, see [how to manage resources in VS Code](how
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
-Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
+Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file, which looks like the following:
 
 
 ```yml
@@ -119,15 +117,6 @@ When the dialog requesting to open an external website appears, select **Open**.
 When the model is done training, the status label next to the run node updates to "Completed".
 
 ## Next steps
-
-In this tutorial, you learn the following tasks:
-
-> [!div class="checklist"]
-> * Understand the code
-> * Create a workspace
-> * Train a model
-
-For next steps, see:
 
 * [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md)
 * For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).

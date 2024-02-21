@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/08/2021
 ms.author: ruxu 
-ms.reviewer: 
 ms.custom: devx-track-python
 ---
 

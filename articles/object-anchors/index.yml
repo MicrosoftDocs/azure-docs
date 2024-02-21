@@ -6,7 +6,6 @@ summary: Object Anchors can be used to detect an object in the physical world an
 metadata:
   title: Azure Object Anchors documentation
   description: Use Azure Object Anchors to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
-  services: azure-object-anchors
   ms.service: azure-object-anchors
   ms.topic: landing-page
   author: craigktreasure

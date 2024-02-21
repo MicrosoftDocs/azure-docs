@@ -4,8 +4,7 @@ metadata:
   description: Frequently asked questions about Azure Key Vault certificates
   services: key-vault
   author: msmbaldwin
-  tags: azure-resource-manager
-  
+    
   ms.service: key-vault
   ms.subservice: certificates
   ms.topic: overview
@@ -25,7 +24,7 @@ sections:
       - question: |
           After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?
         answer: |
-          After a certificate is imported and protected in Key Vault, its associated password isn't saved. The password is required only once during the import operation. This is by design, but you can always get the certificate as a secret and convert it from Base64 to PFX by adding the password through [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).    
+          After a certificate is imported and protected in Key Vault, its associated password isn't saved. The password is required only once during the import operation. This is by design, but you can always get the certificate as a secret and convert it from Base64 to PFX by adding the password through [Azure PowerShell](/azure/app-service/configure-ssl-app-service-certificate?tabs=portal#export-an-app-service-certificate).    
       - question: |
           How can I resolve a "Bad parameter" error? What are the supported certificate formats for importing to Key Vault?
         answer: |
@@ -112,7 +111,7 @@ sections:
           Yes, though it depends on how you configured your DigiCert account.
       - question: How can I create an OV SSL or EV SSL certificate with DigiCert?
         answer: |
-          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: `OV-SSL`, `EV-SSL`
    
           You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 

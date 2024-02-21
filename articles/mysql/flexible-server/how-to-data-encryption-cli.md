@@ -19,7 +19,7 @@ This tutorial shows you how to set up and manage data encryption for Azure Datab
 
 In this tutorial, you learn how to:
 
-- Create a Azure Database for MySQL flexible server instance with data encryption
+- Create an Azure Database for MySQL flexible server instance with data encryption
 - Update an existing Azure Database for MySQL flexible server instance with data encryption
 - Using an Azure Resource Manager template to enable data encryption
 

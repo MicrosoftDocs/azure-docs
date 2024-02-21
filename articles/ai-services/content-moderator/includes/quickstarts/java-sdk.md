@@ -7,8 +7,8 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: include
-ms.date: 10/16/2020
-ms.custom: "devx-track-java, cog-serv-seo-aug-2020"
+ms.date: 01/18/2024
+ms.custom: devx-track-java
 ms.author: pafarley
 ---
 

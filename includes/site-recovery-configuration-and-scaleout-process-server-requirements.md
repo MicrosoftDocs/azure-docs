@@ -3,7 +3,6 @@ title: include file
 description: include file
 services: site-recovery
 author: ankitaduttaMSFT
-manager: carmonm
 ms.service: site-recovery
 ms.topic: include
 ms.date: 12/04/2023

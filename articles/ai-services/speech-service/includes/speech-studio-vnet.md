@@ -8,7 +8,7 @@ ms.author: alexeyo
 
 ## Use of Speech Studio
 
-[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom neural voice](../professional-voice-create-project.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
+[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [custom speech](../custom-speech-overview.md), [Custom neural voice](../professional-voice-create-project.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
 
 
 ### Reaching Speech Studio web portal from a Virtual network
@@ -26,9 +26,9 @@ This section describes working with the different kind of Speech Studio projects
 1. In the **Resource Management** group in the left pane, select **Networking** > **Firewalls and virtual networks**. 
 1. Select one option from **All networks**, **Selected Networks and Private Endpoints**, or **Disabled**. 
 
-#### Custom Speech
+#### Custom speech
 
-The following table describes Custom Speech project accessibility per Speech resource **Networking** > **Firewalls and virtual networks** security setting.
+The following table describes custom speech project accessibility per Speech resource **Networking** > **Firewalls and virtual networks** security setting.
 
 > [!NOTE]
 > If you allow only private endpoints via the **Networking** > **Private endpoint connections** tab, then you can't use Speech Studio with the Speech resource. You can still use the Speech resource outside of Speech Studio.  

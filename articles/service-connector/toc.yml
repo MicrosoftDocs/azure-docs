@@ -77,7 +77,7 @@ items:
       expanded: false
       items:
       - name: Java app to PostgreSQL
-        href: ../spring-apps/how-to-bind-postgres.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&tabs=Passwordlessflex&toc=%2fazure%2fservice-connector%2fTOC.json
+        href: ../spring-apps/enterprise/how-to-bind-postgres.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&tabs=Passwordlessflex&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: Spring Boot app to Kafka on Confluent Cloud
         href: tutorial-java-spring-confluent-kafka.md
       - name: Spring app to MySQL

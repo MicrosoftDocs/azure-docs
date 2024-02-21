@@ -6,7 +6,6 @@ description: This article provides a list of natural languages supported by Azur
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/27/2022
 ms.author: pafarley

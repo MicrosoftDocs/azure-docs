@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 
 # Estimate Azure Virtual Desktop monitoring costs

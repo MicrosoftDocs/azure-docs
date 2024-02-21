@@ -2,16 +2,16 @@
 title: Tutorial to configure Azure Active Directory B2C with HYPR
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Hypr for true passwordless strong customer authentication
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 12/7/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer integrating HYPR with Azure AD B2C. I want a tutorial to configure the Azure AD B2C policy to enable passwordless authentication using HYPR for my customer applications.
 ---
 
 # Tutorial for configuring HYPR with Azure Active Directory B2C

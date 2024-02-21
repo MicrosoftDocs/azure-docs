@@ -7,7 +7,7 @@ ms.service: deployment-environments
 ms.topic: best-practice 
 ms.date: 11/27/2023
 
-#customer intent: As a platform engineer, I want to structure my catalog so that Azure Deployment Environments can find and cache  environment definitions efficiently.
+# Customer intent: As a platform engineer, I want to structure my catalog so that Azure Deployment Environments can find and cache  environment definitions efficiently.
 
 ---
 

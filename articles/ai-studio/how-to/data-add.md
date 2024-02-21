@@ -35,7 +35,7 @@ To create and work with data, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin.
 
-* An Azure AI Studio project.
+* An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 
 ## Create data
 
@@ -77,8 +77,6 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 ### Create data: File type
 
 A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
-
-
 
 # [Studio](#tab/azure-studio)
 
@@ -131,7 +129,6 @@ myfile = Data(
 
 client.data.create_or_update(myfile)
 ```
-
 
 ---
 

@@ -2,12 +2,17 @@
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 06/01/2023
 ms.reviewer: JeffWo
+ms.author: guywild
+author: guywi-ms
 ---
 
 # Install the Log Analytics agent on Linux computers
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 This article provides details on installing the Log Analytics agent on Linux computers hosted in other clouds or on-premises.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
@@ -32,14 +37,14 @@ OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit). OpenSSL earlier t
 >[!NOTE]
 >The Log Analytics Linux agent doesn't run in containers. To monitor containers, use the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
 
-Starting with versions released after August 2018, we're making the following changes to our support model:  
+Starting with versions released after August 2018, we're making the following changes to our support model:
 
-* Only the server versions are supported, not the client versions.  
+* Only the server versions are supported, not the client versions.
 * Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). There might be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date aren't supported.
 * Only support VM images. Containers aren't supported, even those derived from official distro publishers' images.
-* New versions of AMI aren't supported.  
+* New versions of AMI aren't supported.
 * Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
@@ -51,18 +56,18 @@ Starting from agent version 1.13.27, the Linux agent will support both Python 2 
 
 If you're using an older version of the agent, you must have the virtual machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default, then you must install it. The following sample commands will install Python 2 on different distros:
 
-- **Red Hat, CentOS, Oracle**: 
- 
+- **Red Hat, CentOS, Oracle**:
+
  ```bash
     sudo yum install -y python2
  ```
- - **Ubuntu, Debian**: 
- 
+- **Ubuntu, Debian**:
+
  ```bash
     sudo apt-get update
     sudo apt-get install -y python2
  ```
- - **SUSE**: 
+- **SUSE**:
 
  ```bash
     sudo zypper install -y python2
@@ -71,7 +76,7 @@ If you're using an older version of the agent, you must have the virtual machine
 Again, only if you're using an older version of the agent, the python2 executable must be aliased to *python*. Use the following method to set this alias:
 
 1. Run the following command to remove any existing aliases:
- 
+
     ```bash
     sudo update-alternatives --remove-all python
     ```
@@ -101,12 +106,12 @@ The following table highlights the packages required for [supported Linux distro
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |    GNU C library | 2.5-12 
+|Glibc |    GNU C library | 2.5-12
 |Openssl    | OpenSSL libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
 |Python | | 2.7 or 3.6+
-|Python-ctypes | | 
-|PAM | Pluggable authentication modules | | 
+|Python-ctypes | |
+|PAM | Pluggable authentication modules | |
 
 >[!NOTE]
 >Either rsyslog or syslog-ng is required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) isn't supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
@@ -121,7 +126,7 @@ Regardless of the installation method used, you need the workspace ID and key fo
 :::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 >[!NOTE]
->While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
+>While regenerating the Log Analytics Workspace shared keys is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Agent install package
 
@@ -155,7 +160,7 @@ On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is
 
 ### [Wrapper script](#tab/wrapper-script)
 
-The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud. A wrapper script is used for Linux computers that can communicate directly or through a proxy server to download the agent hosted on GitHub and install the agent.  
+The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud. A wrapper script is used for Linux computers that can communicate directly or through a proxy server to download the agent hosted on GitHub and install the agent.
 
 If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `protocol` property accepts `http` or `https`. The `proxyhost` property accepts a fully qualified domain name or IP address of the proxy server.
 
@@ -164,7 +169,7 @@ For example: `https://proxy01.contoso.com:30443`
 If authentication is required in either case, specify the username and password. For example: `https://user01:password@proxy01.contoso.com:30443`
 
 1. To configure the Linux computer to connect to a Log Analytics workspace, run the following command that provides the workspace ID and primary key. The following command downloads the agent, validates its checksum, and installs it.
-    
+
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
@@ -179,7 +184,7 @@ If authentication is required in either case, specify the username and password.
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
-    ``` 
+    ```
 
     The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server:
 
@@ -190,7 +195,7 @@ If authentication is required in either case, specify the username and password.
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
-    ``` 
+    ```
 
 ### [Shell](#tab/shell)
 
@@ -205,7 +210,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
 
     >[!NOTE]
     > Use the `--upgrade` argument if any dependent packages, such as omi, scx, omsconfig, or their older versions, are installed. This would be the case if the System Center Operations Manager agent for Linux is already installed.
-  
+
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
     ```
@@ -213,14 +218,14 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     > [!NOTE]
     > The preceding command uses the optional `--skip-docker-provider-install` flag to disable the Container Monitoring data collection because the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) is being retired.
 
-1. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command. It provides the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `proxyhost` property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
+1. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command. It provides the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `proxyhost` property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
     If authentication is required, specify the username and password. For example:
-    
+
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```

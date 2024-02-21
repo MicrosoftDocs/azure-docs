@@ -1,7 +1,6 @@
 ---
 title: Handle Service Bus events via Event Grid using Azure Functions
 description: This article provides steps for handling Service Bus events via Event Grid using Azure Functions. 
-documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
 ms.date: 12/12/2022

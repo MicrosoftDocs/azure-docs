@@ -2,12 +2,11 @@
 title: Jupyter Notebooks in Azure Cosmos DB (preview)
 description: Create and use built-in Jupyter Notebooks in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
-ms.topic: overview 
+ms.topic: overview
 ms.date: 09/29/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
-ms.custom: ignite-2022
 ---
 
 # Jupyter Notebooks in Azure Cosmos DB (preview)
