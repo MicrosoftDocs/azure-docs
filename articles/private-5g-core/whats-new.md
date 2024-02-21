@@ -23,7 +23,7 @@ To help you stay up to date with the latest developments, this article covers:
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
 ## February 2024
-### New Microsoft Entra ID user required for SAS trace
+### New Entra ID user role needed for distributed tracing tool
 
 **Type:** New feature
 

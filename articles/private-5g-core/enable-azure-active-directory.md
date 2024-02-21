@@ -64,7 +64,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     - In **Value**, enter **sas.user**
     - In **Do you want to enable this app role?**, ensure the checkbox is selected.
 
-    You'll be able to use these roles when managing access to the distributed tracing tool.
+    You'll be able to use this role when managing access to the distributed tracing tool.
 
 1. Follow [Assign users and groups to roles](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
 
