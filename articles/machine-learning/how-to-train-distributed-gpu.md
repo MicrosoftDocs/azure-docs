@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 01/29/2024
-ms.custom: sdkv2
+ms.custom: sdkv2, update-code
 ---
 
 # Distributed GPU training guide (SDK v2)

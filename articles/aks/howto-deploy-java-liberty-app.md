@@ -5,7 +5,7 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 01/16/2024
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
 ---
@@ -27,6 +27,8 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+* You can use Azure Cloud Shell or a local terminal.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -88,7 +90,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. You can deploy WebSphere Liberty Operator by selecting **Yes** for option **IBM supported?**. Leaving the default **No** deploys Open Liberty Operator.
    1. You can deploy an application for your selected Operator by selecting **Yes** for option **Deploy an application?**. Leaving the default **No** doesn't deploy any application.
 
-1. Select **Review + create** to validate your selected options. In the ***Review + create** pane, when you see **Create** light up after validation pass, select **Create**. The deployment may take up to 20 minutes.
+1. Select **Review + create** to validate your selected options. In the ***Review + create** pane, when you see **Create** light up after validation pass, select **Create**. The deployment may take up to 20 minutes. While you wait for the deployment to complete, you can follow the steps in the section [Create an Azure SQL Database](#create-an-azure-sql-database). After completing that section, come back here and continue.
 
 ## Capture selected information from the deployment
 
@@ -146,7 +148,8 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20240109
+export BASE_DIR=$PWD
+git checkout 20240220
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -154,6 +157,7 @@ git checkout 20240109
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
+$env:BASE_DIR=$PWD.Path
 git checkout 20240109
 ```
 
@@ -195,18 +199,18 @@ Now that you've gathered the necessary properties, you can build the application
 
 #### [Bash](#tab/in-bash)
 
-```bash
-cd <path-to-your-repo>/java-app
 
+```bash
+cd $BASE_DIR/java-app
 # The following variables will be used for deployment file generation into target.
 export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
 export REGISTRY_NAME=<Azure-Container-Registry-name>
 export USER_NAME=<Azure-Container-Registry-username>
-export PASSWORD=<Azure-Container-Registry-password>
+export PASSWORD='<Azure-Container-Registry-password>'
 export DB_SERVER_NAME=<server-name>.database.windows.net
 export DB_NAME=<database-name>
 export DB_USER=<server-admin-login>@<server-name>
-export DB_PASSWORD=<server-admin-password>
+export DB_PASSWORD='<server-admin-password>'
 export INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
 
 mvn clean install
@@ -215,7 +219,7 @@ mvn clean install
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app
+cd $env:BASE_DIR\java-app
 
 # The following variables will be used for deployment file generation into target.
 $Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
@@ -242,14 +246,14 @@ You can now run and test the project locally before deploying to Azure. For conv
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app
+   cd $BASE_DIR/java-app
    mvn liberty:run
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app
+   cd $env:BASE_DIR\java-app
    mvn liberty:run
    ```
 
@@ -266,15 +270,15 @@ You can now run the `docker build` command to build the image.
 #### [Bash](#tab/in-bash)
 
 ```bash
-cd <path-to-your-repo>/java-app/target
+cd $BASE_DIR/java-app/target
 
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
 
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app/target
+cd $env:BASE_DIR\java-app\target
 
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
@@ -350,14 +354,14 @@ Use the following steps to deploy and test the application:
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app/target
+   cd $BASE_DIR/java-app/target
    kubectl apply -f db-secret.yaml
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app/target
+   cd $env:BASE_DIR\java-app\target
    kubectl apply -f db-secret.yaml
    ```
 

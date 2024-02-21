@@ -13,6 +13,9 @@ ms.custom: linux-related-content
 
 # Troubleshooting VM provisioning with cloud-init
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 If you have been creating generalized custom images, using cloud-init to do provisioning, but have found that VM did not create correctly, you will need to troubleshoot your custom images.

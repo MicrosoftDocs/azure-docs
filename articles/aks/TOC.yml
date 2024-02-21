@@ -266,6 +266,8 @@
                        href: istio-about.md
                      - name: Deploy Istio service mesh add-on
                        href: istio-deploy-addon.md
+                     - name: Configure Istio service mesh add-on
+                       href: istio-meshconfig.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
                      - name: Plug-in CA certificates for Istio
@@ -595,7 +597,7 @@
               - name: Bring your own keys for disks
                 href: azure-disk-customer-managed-keys.md
               - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md
+                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
