@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/20/2024
 ms.author: pafarley
 ---
 
@@ -43,8 +43,8 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 
 Each dimension of the vector corresponds to a different feature or attribute of the content, such as its semantic meaning, syntactic role, or context in which it commonly appears. In Azure AI Vision, image and text vector embeddings have 1024 dimensions.
 
-> [!NOTE]
-> Vector embeddings can only be meaningfully compared if they are from the same model type.
+> [!IMPORTANT]
+> Vector embeddings can only be compared and matched if they're from the same model type. Images vectorized by one model won't be searchable through a different model. The latest Image Analysis API offers two models, version `2023-04-15` which supports text search in many languages, and the legacy `2022-04-11` model which supports only English.
 
 ## How does it work? 
 
