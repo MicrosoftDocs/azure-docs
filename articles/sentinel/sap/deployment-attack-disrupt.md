@@ -29,11 +29,13 @@ To deploy automatic attack disruption for SAP, you need the following:
 
 - The *[MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File)* SAP agent role assignment in your SAP system. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
 
-- *Owner* rights on your Microsoft Sentinel workspace's Azure resource group. To ensure you have the correct permissions, in Microsoft Sentinel, select **Settings > Settings > Playbook permissions > Configure permissions**. Make sure that your Microsoft Sentinel workspace's resource group is listed under **Current permissions**.
+- *Owner* rights on your Microsoft Sentinel workspace's Azure resource group.
 
 - The Microsoft Sentinel solution for SAP applications [deployed in your Microsoft Sentinel workspace](deployment-overview.md)
 
 - [Microsoft Sentinel integrated into the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+
+Microsoft Sentinel must also have playbook permissions configured. To ensure you have the correct permissions, in Microsoft Sentinel, select **Settings > Settings > Playbook permissions > Configure permissions**. Make sure that your Microsoft Sentinel workspace's resource group is listed under **Current permissions**.
 
 ## Deployed Azure resources
 
