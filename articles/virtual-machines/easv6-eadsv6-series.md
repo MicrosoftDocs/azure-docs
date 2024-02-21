@@ -11,17 +11,6 @@ ms.date:     01/29/2024
 
 # Easv6 and Eadsv6-series
 
-**In this article** 
-[Easv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Eadsv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Size table definitions](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Other sizes and information](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Next steps](/azure/virtual-machines/dasv5-dadsv5-series) 
-
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 
 > [!IMPORTANT]
