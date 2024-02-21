@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/6/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -112,19 +112,19 @@ If you're developing a python tool that requires calling external services with 
 Create a custom connection that stores all your LLM API KEY or other required credentials.
 
 1. Go to Prompt flow in your workspace, then go to **connections** tab.
-2. Select **Create** and select **Custom**.
-3. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
-4. Besides your key value pairs, please also add following extra meta data to the connection:
-    - azureml.flow.connection_type: Custom
-    - azureml.flow.module: promptflow.connections
-    
-    :::image type="content" source="./media/python-tool/custom-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "./media/python-tool/custom-connection-meta.png"::: 
+1. Select **Create** and select **Custom**.
+1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**. 
 
-    
-> [!NOTE]
-> - You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
-> - Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully.
+    > [!NOTE]
+    > Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully. You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
 
+1. Add the following custom keys to the connection:
+    - `azureml.flow.connection_type`: `Custom`
+    - `azureml.flow.module`: `promptflow.connections`
+    
+    :::image type="content" source="../../media/prompt-flow/custom-connection-keys.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "../../media/prompt-flow/custom-connection-keys.png"::: 
+
+   
 
 ### Consume custom connection in Python
 

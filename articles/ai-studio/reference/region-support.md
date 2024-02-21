@@ -48,7 +48,9 @@ Azure AI Studio preview is currently not available in Azure Government regions o
 
 ## Speech capabilities
 
-Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
+[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
+
+Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
 
 ## Next steps
 

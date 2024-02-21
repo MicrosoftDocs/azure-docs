@@ -7,7 +7,6 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/18/2024
 ms.author: radeltch
 ---

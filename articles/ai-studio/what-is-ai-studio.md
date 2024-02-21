@@ -6,7 +6,7 @@ manager: nitinme
 keywords: Azure AI services, cognitive
 ms.service: azure-ai-studio
 ms.topic: overview
-ms.date: 11/15/2023
+ms.date: 2/6/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -24,18 +24,17 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 [Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
-- Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
+- Directly from the studio you can interact with a project code-first via the [Azure AI SDK](how-to/sdk-install.md) and [Azure AI CLI](how-to/cli-install.md). 
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
-- Build together as one team. Your Azure AI hub resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
-- Organize your way. Your project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Build together as one team. Your [Azure AI hub resource](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
+- Organize your way. Your [Azure AI project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
 ## Getting around in Azure AI Studio
 
-Wherever you're at or going in Azure AI Studio, use the Home, Explore, Build, and Manage tabs to find your way around.
-
+Wherever you're at or going in Azure AI Studio, use the **Home**, **Explore**, **Build**, and **Manage** tabs to find your way around.
 
 # [Home](#tab/home)
 
@@ -60,7 +59,7 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 
 - Simplified development of large language model (LLM) solutions and copilots with end-to-end app templates and prompt samples for common use cases.
 - Orchestration framework to handle the complex mapping of functions and code between LLMs, tools, custom code, prompts, data, search indexes, and more.
-- Evaluate, deploy, and continuously monitor your AI application and app performance 
+- Evaluate, deploy, and continuously monitor your AI application and app performance.
 
 :::image type="content" source="./media/explore/ai-studio-tab-build.png" alt-text="Screenshot of the signed-out Azure AI Studio Build page." lightbox="./media/explore/ai-studio-tab-build.png":::
 
@@ -68,8 +67,8 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 
 As a developer, you can manage settings such as connections and compute. Your admin will mainly use this section to look at access control, usage, and billing.
 
-- Centralized backend infrastructure to reduce complexity for developers
-- A single Azure AI hub resource for enterprise configuration, unified data story, and built-in governance
+- Centralized backend infrastructure to reduce complexity for developers.
+- A single Azure AI hub resource for enterprise configuration, unified data story, and built-in governance.
 
 :::image type="content" source="./media/explore/ai-studio-tab-manage.png" alt-text="Screenshot of the signed-out Azure AI Studio manage page." lightbox="./media/explore/ai-studio-tab-manage.png":::
 
@@ -86,9 +85,7 @@ Using Azure AI Studio also incurs cost associated with the underlying services, 
 
 ## Region availability
 
-Azure AI Studio is currently available in the following regions: Australia East, Brazil South, Canada Central, East US, East US 2, France Central, Germany West Central, India South, Japan East, North Central US, Norway East, Poland Central, South Africa North, South Central US, Sweden Central, Switzerland North, UK South, West Europe, and West US. 
-
-To learn more, see [Azure AI Studio regions](./reference/region-support.md).
+Azure AI Studio is available in most regions where Azure AI services are available. For more information, see [region support for Azure AI Studio](reference/region-support.md).
 
 ## How to get access
 

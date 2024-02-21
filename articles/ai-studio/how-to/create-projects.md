@@ -21,6 +21,8 @@ This article describes how to create an Azure AI project in Azure AI Studio. A p
 
 Projects are hosted by an Azure AI hub resource that provides enterprise-grade security and a collaborative environment. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
 
+## Create a project
+
 You can create a project in Azure AI Studio in more than one way. The most direct way is from the **Build** tab.
 1. Select the **Build** tab at the top of the page.
 1. Select **+ New project**.

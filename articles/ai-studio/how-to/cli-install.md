@@ -134,7 +134,7 @@ The following table describes the scenarios for each flow.
 | Scenario | Description |
 | --- | --- |
 | Initialize a new AI project | Choose if you don't have an existing AI project that you have been working with in the Azure AI Studio. The `ai init` command walks you through creating or attaching resources. |
-| Initialize an existing AI project | Choose if you have an existing AI project you want to work with. The `ai init` command checks your existing linked resources, and ask you to set anything that hasn't been set before. |
+| Initialize an existing AI project | Choose if you have an existing AI project you want to work with. The `ai init` command checks your existing linked resources, and asks you to set anything that hasn't been set before. |
 | Initialize standalone resources| Choose if you're building a simple solution connected to a single AI service, or if you want to attach more resources to your development environment |
 
 Working with an AI project is recommended when using the Azure AI Studio and/or connecting to multiple AI services. Projects come with An Azure AI hub resource that houses related projects and shareable resources like compute and connections to services. Projects also allow you to connect code to cloud resources (storage and model deployments), save evaluation results, and host code behind online endpoints. You're prompted to create and/or attach Azure AI Services to your project.
@@ -143,7 +143,7 @@ Initializing standalone resources is recommended when building simple solutions 
 
 The following resources can be initialized standalone, or attached to projects:
 
-- Azure AI services: Includes Azure AI Speech, Azure AI Vision, and Azure OpenAI
+- Azure AI services: Includes Azure OpenAI, Azure AI Speech, and Azure AI Vision.
 - Azure OpenAI: Provides access to OpenAI's powerful language models.
 - Azure AI Search: Provides keyword, vector, and hybrid search capabilities.
 - Azure AI Speech: Provides speech recognition, synthesis, and translation.

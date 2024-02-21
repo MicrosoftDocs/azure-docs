@@ -152,4 +152,3 @@ ms.author: eur
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zu-ZA` | Zulu (South Africa) | Plain text |
 
-<sup>1</sup> It is a bilingual model with support for the English language as well.

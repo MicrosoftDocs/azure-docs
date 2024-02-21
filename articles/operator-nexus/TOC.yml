@@ -39,6 +39,8 @@
       href: concepts-security.md
     - name: Control Plane Resiliency
       href: concepts-rack-resiliency.md
+    - name: Availability
+      href: concepts-nexus-availability.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment

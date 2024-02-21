@@ -4,7 +4,6 @@ description: Helps you understand SMB performance and best practices for Azure N
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 02/07/2022
 ms.author: anfdocs

@@ -75,12 +75,24 @@ To build the application, follow these steps:
 
 1. Create the app in your Azure Spring Apps instance:
 
+   ### [Standard plan](#tab/standard)
+
    ```azurecli
    az spring app create \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
        --name demo \
        --runtime-version Java_17 \
+       --assign-endpoint
+   ```
+
+   ### [Enterprise plan](#tab/enterprise)
+
+   ```azurecli
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name demo \
        --assign-endpoint
    ```
 
@@ -122,6 +134,8 @@ To build the application, follow these steps:
 
 1. Create the green deployment:
 
+   ### [Standard plan](#tab/standard)
+
    ```azurecli
    az spring app deployment create \
        --resource-group <resource-group-name> \
@@ -129,6 +143,17 @@ To build the application, follow these steps:
        --app demo \
        --name green \
        --runtime-version Java_17 \
+       --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
+   ```
+
+   ### [Enterprise plan](#tab/enterprise)
+
+   ```azurecli
+   az spring app deployment create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --app demo \
+       --name green \
        --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 

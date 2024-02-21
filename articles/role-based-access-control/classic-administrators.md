@@ -7,8 +7,7 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 01/26/2024
+ms.date: 02/13/2024
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -16,7 +15,7 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 26, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting March 26, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -30,15 +29,57 @@ Will Co-Administrators lose access after August 31, 2024?
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
-- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider another Azure role with fewer permissions or reduce the scope.
+- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider a job function role with fewer permissions, reduce the scope, or add a condition.
 
 What should I do if I have a strong dependency on Co-Administrators?
 
 - Email ACARDeprecation@microsoft.com and describe your scenario.
 
-## View Co-Administrators
+## Prepare for Co-Administrators retirement
 
-Follow these steps to view the Co-Administrators for a subscription using the Azure portal.
+Use the following steps to help you prepare for the Co-Administrator role retirement.
+
+### Step 1: Review your current Co-Administrators
+
+1. Use the Azure portal to [get a list of your Co-Administrators](#view-classic-administrators).
+
+1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they are active users.
+
+### Step 2: Remove Co-Administrators that no longer need access
+
+1. If user is no longer in your enterprise, [remove Co-Administrator](#remove-a-co-administrator).
+
+1. If user was deleted, but their Co-Administrator assignment was not removed, [remove Co-Administrator](#remove-a-co-administrator).
+
+    Users that have been deleted typically include the text **(User was not found in this directory)**.
+
+    :::image type="content" source="media/classic-administrators/user-not-found.png" alt-text="Screenshot of user not found in directory and with Co-Administrator role." lightbox="media/classic-administrators/user-not-found.png":::
+
+1. After reviewing activity of user, if user is no longer active, [remove Co-Administrator](#remove-a-co-administrator).
+
+### Step 3: Replace existing Co-Administrators with job function roles
+
+Most users don't need the same permissions as a Co-Administrator. Consider a job function role instead.
+
+1. If a user still needs some access, determine the appropriate [job function role](role-assignments-steps.md#job-function-roles) they need.
+
+1. Determine the [scope](scope-overview.md) user needs.
+
+1. Follow steps to [assign a job function role to user](role-assignments-portal.md).
+
+1. [Remove Co-Administrator](#remove-a-co-administrator).
+
+### Step 4: Replace existing Co-Administrators with Owner role and conditions
+
+Some users might need more access than what a job function role can provide. If you must assign the [Owner](built-in-roles.md#owner) role, consider adding a condition to constrain the role assignment.
+
+1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.md) to the user.
+
+1. [Remove Co-Administrator](#remove-a-co-administrator).
+
+## View classic administrators
+
+Follow these steps to view the Service Administrator and Co-Administrators for a subscription using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
@@ -50,20 +91,10 @@ Follow these steps to view the Co-Administrators for a subscription using the Az
 
     ![Screenshot that opens Classic administrators.](./media/shared/classic-administrators.png)
 
-## Assess Co-Administrators
-
-Use the following table to assess how to remove or re-assign Co-Administrators.
-
-| Assessment | Next steps|
-| --- | --- |
-| User no longer needs access | Follow steps to [remove Co-Administrator](#remove-a-co-administrator). |
-| User still needs some access, but not full access | 1. Determine the Azure role the user needs.<br/>2. Determine the scope the user needs.<br/>3. Follow steps to [assign an Azure role to user](role-assignments-portal.md).<br/>4. [Remove Co-Administrator](#remove-a-co-administrator). |
-| User needs the same access as a Co-Administrator | 1. Assign the [Owner role at subscription scope](role-assignments-portal-subscription-admin.md).<br/>2. [Remove Co-Administrator](#remove-a-co-administrator). |
-
 ## Remove a Co-Administrator
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 26, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting March 26, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Follow these steps to remove a Co-Administrator.
 
@@ -86,7 +117,7 @@ Follow these steps to remove a Co-Administrator.
 ## Add a Co-Administrator
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 26, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting March 26, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 > 
 > You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](/powershell/azure/servicemanagement/install-azure-ps). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
@@ -178,7 +209,7 @@ For more information about Microsoft accounts and Microsoft Entra accounts, see 
 
 ## Remove the Service Administrator
 
-You might want to remove the Service Administrator, for example, if they are no longer with the company. If you do remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+To remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 

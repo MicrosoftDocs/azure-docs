@@ -85,4 +85,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-A suggested next step is to learn [how to connect Azure IoT Edge for Linux on Windows (EFLOW)](./howto-connect-eflow.md).
+A suggested next step is to learn [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshooting.md).

@@ -24,7 +24,7 @@ This article provides instructions on how to troubleshoot your deployments and m
 For the general deployment error code reference, you can go to the [Azure Machine Learning documentation](/azure/machine-learning/how-to-troubleshoot-online-endpoints). Much of the information there also applies to Azure AI Studio deployments.
 
 **Question:** I got the following error message. What should I do?
-"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI services resources. This subscription or region doesn't have access to this model."
+"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources. This subscription or region doesn't have access to this model."
 
 **Answer:** You might not have access to this particular Azure OpenAI model. For example, your subscription might not have access to the latest GPT model yet or this model isn't offered in the region you want to deploy to. You can learn more about it on [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 

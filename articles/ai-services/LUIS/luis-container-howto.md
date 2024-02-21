@@ -256,7 +256,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 ## Endpoint APIs supported by the container
 
-Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available with the container.
+Both V2 and V3 versions of the API are available with the container.
 
 ## Query the container's prediction endpoint
 

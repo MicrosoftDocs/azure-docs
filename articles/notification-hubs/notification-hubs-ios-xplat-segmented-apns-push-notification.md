@@ -1,12 +1,11 @@
 ---
 title: Send push notifications to specific iOS devices using Azure Notification Hubs | Microsoft Docs
-description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices. 
+description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices.
 services: notification-hubs
 author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article

@@ -103,6 +103,7 @@ You can analyze metrics for App Configuration with metrics from other Azure serv
 * Daily Storage Usage
 * Request Quota Usage
 * Replication Latency
+* Snapshot Storage Size
 
 In the portal, navigate to the **Metrics** section and select the **Metric Namespaces** and **Metrics** you want to analyze. This screenshot shows you the metrics view when selecting **Http Incoming Request Count** for your configuration store.
 
