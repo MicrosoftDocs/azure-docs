@@ -216,7 +216,7 @@
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
     - name: Route Policy
-      expanded: false:
+      expanded: false
       items:
         - name: Route Policy configuration
           href: reference-route-policy-configuration.md
