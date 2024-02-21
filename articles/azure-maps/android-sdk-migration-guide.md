@@ -22,7 +22,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 
 ## Create a WebView
 
-If your Android application doesn't already have a WebView, you need to add one. You can do so by adding the WebView element to your layout XML or programmatically in your Java code. Make sure to set up the WebView to occupy the desired area of your layout.
+Add a `WebView` if your Android application doesn't have one. Do so by adding the `WebView` element to your layout XML or programmatically in your Java code. Be sure it's configured to occupy the desired area of your layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -41,7 +41,7 @@ If your Android application doesn't already have a WebView, you need to add one.
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-Make sure to include the necessary permissions in your AndroidManifest.xml to enable internet access.
+Enable internet access by adding permissions in AndroidManifest.xml.
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -144,11 +144,11 @@ To enable communication between your Android application and the WebView, you ca
 
 ## Clean Up Native Map Implementation
 
-Remove the code related to the native Azure Maps Android SDK from your project. This includes dependencies and initialization code related to `com.azure.android:azure-maps-control`.
+Remove code related to the native Azure Maps Android SDK, including dependencies and initialization code related to `com.azure.android:azure-maps-control`.
 
 ## Testing
 
-Test your application thoroughly to ensure that the migration has been successful. Check for any issues related to map functionality, user interactions, and performance.
+Test your application thoroughly to ensure the migration was successful. Check for issues related to map functionality, user interactions, and performance.
 
 ## Next steps
 

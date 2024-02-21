@@ -1,5 +1,5 @@
 ---
-title: The Azure Maps Web SDK v1 and v2 migration guide
+title: The Azure Maps Web SDK migration guide
 titleSuffix: Microsoft Azure Maps
 description: Find out how to migrate your Azure Maps Web SDK v1 and v2 applications to the most recent version of the Web SDK.
 author: sinnypan
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure-maps
 ---
 
-# The Azure Maps Web SDK v1 and v2 migration guide
+# The Azure Maps Web SDK migration guide
 
 Thank you for choosing the Azure Maps Web SDK for your mapping needs. This migration guide helps you transition from v1 and v2 to v3, allowing you to take advantage of the latest features and enhancements.
 
@@ -21,7 +21,7 @@ Before you start the migration process, it's important to familiarize yourself w
 
 ### CDN
 
-If you're using CDN ([content delivery network]), update the references to the [v3](#v3) stylesheet and JavaScript within the `head` element of your HTML files.
+If you're using CDN ([content delivery network]), update the references to the [v3](#v3) stylesheet and JavaScript in the `head` element of your HTML files.
 
 #### v1
 

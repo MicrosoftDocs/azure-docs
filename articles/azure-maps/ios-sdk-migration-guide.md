@@ -22,7 +22,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 
 ## Create a WebView
 
-If your iOS application doesn't already have a WebView, you need to add one. You can do so by adding a WKWebView to your storyboard or programmatically in your Swift code. Make sure to set up the WKWebView to occupy the desired area of your view.
+Add a `WebView` if your iOS application doesn't have one. Do so by adding the `WKWebView` to your storyboard or programmatically in your Swift code. Be sure it's configured to occupy the desired area of your layout.
 
 ```swift
 import UIKit
@@ -123,15 +123,15 @@ Save and run the app. A map should be shown within a WebView. Add any features o
 
 ## Communication between native code and WebView (optional)
 
-To enable communication between your iOS application and the WebView, you can use the `WKScriptMessageHandler` protocol provided by the `WKWebView` class. It allows you to establish a bridge for communication between JavaScript running in the WebView and your Swift code. For more information, see the [iOS webkit documentation].
+To enable communication between your iOS application and the WebView, you can use the `WKScriptMessageHandler` protocol provided by the `WKWebView` class. It allows you to establish a bridge for communication between JavaScript running in the WebView and your Swift code. For more information, see [WKScriptMessageHandler] in the iOS webkit documentation.
 
 ## Clean Up Native Map Implementation
 
-Remove the code related to the native Azure Maps iOS SDK from your project. This includes dependencies and initialization code related to `azure-maps-ios-sdk-distribution`.
+Remove code related to the native Azure Maps iOS SDK from your project, including dependencies and initialization code related to `azure-maps-ios-sdk-distribution`.
 
 ## Testing
 
-Test your application thoroughly to ensure that the migration has been successful. Check for any issues related to map functionality, user interactions, and performance.
+Test your application thoroughly to ensure that the migration was successful. Check for issues related to map functionality, user interactions, and performance.
 
 ## Next steps
 
@@ -145,7 +145,7 @@ Learn how to add maps to web and mobile applications using the Map Control clien
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
 [Azure Maps documentation]: how-to-use-map-control.md
 [Azure Maps Code Samples website]: https://samples.azuremaps.com/
-[iOS webkit documentation]: https://developer.apple.com/documentation/webkit/wkscriptmessagehandler
+[WKScriptMessageHandler]: https://developer.apple.com/documentation/webkit/wkscriptmessagehandler
 [Use the Azure Maps map control]: how-to-use-map-control.md
 
 
