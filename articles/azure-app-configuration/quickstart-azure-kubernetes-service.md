@@ -121,7 +121,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ### Push the image to Azure Container Registry
 
-1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to login your container registry. The following example logs into a registry named *myregistry*. Replace the registry name with yours.
+1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to log in your container registry. The following example logs into a registry named *myregistry*. Replace the registry name with yours.
 
     ```azurecli
     az acr login --name myregistry
