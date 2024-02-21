@@ -86,6 +86,14 @@ For example: select * from pgaadauth_create_principal('mary@contoso.com', false,
 
 <a name='create-a-role-using-azure-ad-object-identifier'></a>
 
+## Drop a role using Microsoft Entra principal name
+
+Please remember that any Microsoft Entra role that is created in PostgreSQL must be dropped using a Microsoft Entra Admin. If you use a regular PostgreSQL admin to drop an Entra role then it will result in an error.
+
+```sql
+Drop Role rolename;
+```
+
 ## Create a role using Microsoft Entra object identifier
 
 ```sql
