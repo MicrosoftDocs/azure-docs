@@ -44,6 +44,8 @@ You can find the new recommendations in the **Manage Access and Permissions** Se
     - Your subscription has a new Reader assignment for the Cloud Infrastructure Entitlement Management application.
 
     - The new **Azure CSPM (Preview)** standard is assigned to your subscription.
+> [!NOTE]
+> Azure CSPM standard (Preview) is automatically assigned to the subscriptions once Defender CSPM plan is enabled. 
 
     :::image type="content" source="media/enable-permissions-management/enable-permissions-management-azure.png" alt-text="Screenshot of how to enable permissions management for Azure." lightbox="media/enable-permissions-management/enable-permissions-management-azure.png":::
 
@@ -75,7 +77,10 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 1. The deployment template is autofilled with default role ARN names. You can customize the role names by selecting the hyperlink.
 1. Run the updated CFT / terraform script on your AWS environment.
 1. Select **Save**.
-1. After a few seconds, you'll notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
+1. Notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
+
+> [!NOTE]
+> AWS CSPM standard (Preview) is automatically assigned to the security connector, once Defender CSPM plan is enabled. 
 
     :::image type="content" source="media/enable-permissions-management/aws-policies.png" alt-text="Screenshot of how to enable permissions management for AWS." lightbox="media/enable-permissions-management/aws-policies.png":::
 
@@ -107,6 +112,9 @@ Follow these steps to [connect your GCP account](quickstart-onboard-gcp.md) to M
 1. Run the updated CFT / terraform script on your GCP environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **GCP CSPM (Preview)** standard is assigned on your security connector.
+
+> [!NOTE]
+> GCP CSPM standard (Preview) is automatically assigned to the security connector, once Defender CSPM plan is enabled. 
 
     :::image type="content" source="media/enable-permissions-management/gcp-policies.png" alt-text="Screenshot of how to enable permissions management for GCP." lightbox="media/enable-permissions-management/gcp-policies.png":::
 
