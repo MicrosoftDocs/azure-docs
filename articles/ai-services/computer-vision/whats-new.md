@@ -22,11 +22,10 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 #### Multimodal embeddings GA: new multi-language model
 
-The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 76 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
+The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
 
-
-See the [language support](/azure/ai-services/computer-vision/concept-language-support) page for the list of supported languages.
+See the [language support](/azure/ai-services/computer-vision/concept-language-support#multimodal-embeddings) page for the list of supported languages.
 
 ## January 2024
 
