@@ -15,6 +15,8 @@ ms.date: 11/15/2023
 
 # Publish and subscribe MQTT messages using Azure IoT MQ Preview
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Azure IoT MQ Preview features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview - enabled by Azure Arc, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 

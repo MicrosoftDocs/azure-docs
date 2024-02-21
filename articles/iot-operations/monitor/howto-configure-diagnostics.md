@@ -16,6 +16,8 @@ ms.date: 11/14/2023
 
 # Configure Azure IoT MQ Preview diagnostic service settings
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Azure IoT MQ Preview includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
 

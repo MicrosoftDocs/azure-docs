@@ -13,6 +13,8 @@ ms.date: 01/10/2024
 
 # Glossary for Azure IoT Operations Preview - enabled by Azure Arc
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 This article lists and defines some of the key terms associated with Azure IoT Operations. The article includes usage guidance to help you use the terms correctly if you're talking or writing about Azure IoT Operations.
 
 ## Service and component names
