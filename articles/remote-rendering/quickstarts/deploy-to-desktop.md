@@ -58,19 +58,16 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **PC, Mac & Linux Standalone**
-1. Set *Target Platform* to **Windows**.
-1. Set *Architecture* to **Intel 64-bit**.\
-  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'PC, Mac & Linux Standalone', and the setting 'Target Platform' being 'Windows' and the settings 'Architecture' being 'Intel 32-bit' in Unity 2021 and later.](./media/unity-2021-build-settings-pc-standalone.png)
+1. Set *Target Platform* to **Windows**.\
+  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'PC, Mac & Linux Standalone', and the setting 'Target Platform' being 'Windows' in Unity 2021 and later.](./media/unity-2021-build-settings-pc-standalone.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
 # [Unity 2021+ - UWP](#tab/Unity2021PlusBuild)
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**
-1. Set *Architecture* to **Intel 32-bit**.
-1. Set *Build Type* to **D3D Project**.\
-  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Architecture' being 'Intel 32-bit' in Unity 2021 and later.](./media/unity-2021-build-settings-pc.png)
+1. Change *Platform* to **Universal Windows Platform**\
+  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2021 and later.](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
