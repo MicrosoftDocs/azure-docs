@@ -85,7 +85,7 @@ The VM availability metric is currently in public preview. This metric value ind
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-Virtual Machines and Virtual Machine Scale Sets have the following dimensions that are associated with their metrics:
+### Dimensions associated with Virtual Machines and Virtual Machine Scale Sets metrics
 
 | Dimension name | Description |
 | ------------------- | ----------------- |
@@ -104,7 +104,7 @@ Virtual Machines and Virtual Machine Scale Sets have the following dimensions th
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
-### Virtual Machines
+
 |Microsoft.Compute/VirtualMachines|Microsoft.Compute/virtualMachineScaleSets|
 |--------------|------------------------|
 |[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|

@@ -36,9 +36,8 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-> [!NOTE]
-> This article provides basic information to help you get started with monitoring Azure Virtual Machines and Virtual Machine Scale Sets. For a complete guide to monitoring your entire environment of Azure and hybrid virtual machines (VMs), see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
-> - 
+>[!NOTE]
+>This article provides basic information to help you get started with monitoring Azure Virtual Machines and Virtual Machine Scale Sets. For a complete guide to monitoring your entire environment of Azure and hybrid virtual machines (VMs), see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
 
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
@@ -85,6 +84,9 @@ Add service-specific information about your container/Prometheus metrics here.--
 [!INCLUDE [horz-monitor-system-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
 
 <!-- ## Custom metrics. Optional. If your service uses custom imported metrics, add the following include and information. -->
+
+Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. However, to collect logs and performance data from the guest operating system of the VM, you must install the Azure Monitor agent. You can install the agent and configure collection by using VM insights or by creating a DCR.
+
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
 
 To see how to retrieve the CPU usage for a Linux VM by using the Azure REST API, sees [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
@@ -117,10 +119,6 @@ Add service-specific information about your imported logs here. -->
 <!-- ## Other logs. Optional section.
 If your service has other logs that aren't resource logs or in the activity log, add information that states what they are and what they cover here. You can describe how to route them in a later section. -->
 
-## Azure Monitor agent
-
-Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. However, to collect logs and performance data from the guest operating system of the VM, you must install the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview). You can install the agent and configure collection by using VM insights or by creating a DCR.
-
 <!-- LOGS SECTION END ------------------------------------->
 
 <!-- ANALYSIS SECTION START -------------------------------------->
@@ -131,11 +129,7 @@ Azure Monitor starts automatically collecting metric data for your virtual machi
 <!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-### Analyze Virtual Machines metrics
-
-Although platform metrics for the VM host are collected automatically, you must install the Azure Monitor agent and create a DCR to collect guest metrics.
-
-### Analyze Virtual Machines logs
+### Query logs from VM insights
 
 VM insights stores the data it collects in Azure Monitor Logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](/azure/azure-monitor/vm/vminsights-log-query).
 
@@ -160,8 +154,7 @@ Add short information or links to specific articles that outline how to analyze 
 <!-- ## Alerts. Required section. -->
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-<!-- ONLY if applications run on your service that work with Application Insights, add the following include. -->
-[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+You can create a single multi-resource alert rule that applies to all VMs in a particular resource group or subscription within the same region. See [Create availability alert rule for Azure virtual machine (preview)](/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability.md) for a tutorial using the availability metric.
 
 <!-- ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. -->
 [!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
@@ -180,8 +173,6 @@ Ask your PMs if you don't know. This information is the BIGGEST request we get i
 To see common log alert rules in the Azure portal, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
 
 For a list and description of common alert rules for Virtual Machines, see [Common alert rules](/azure/azure-monitor/vm/monitor-virtual-machine-alerts#common-alert-rules).
-
-You can create a single multi-resource alert rule that applies to all VMs in a particular resource group or subscription within the same region. See [Create availability alert rule for Azure virtual machine (preview)](/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability.md) for a tutorial using the availability metric.
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
