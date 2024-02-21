@@ -3,9 +3,9 @@ title: Prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes 
 description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Nexus Azure Kubernetes Service.
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: azure-operator-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/16/2024
+ms.date: 02/21/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---

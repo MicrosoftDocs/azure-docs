@@ -3,9 +3,9 @@ title: Deploy a network function on Azure Kubernetes Services or Nexus Azure Kub
 description: Learn the high-level process to deploy a network function on Azure Kubernetes services.
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: azure-operator-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 02/13/2024
+ms.date: 02/21/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
