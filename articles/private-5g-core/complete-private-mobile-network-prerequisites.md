@@ -3,10 +3,10 @@ title: Prepare to deploy a private mobile network
 titleSuffix: Azure Private 5G Core
 description: Learn how to complete the prerequisite tasks for deploying a private mobile network with Azure Private 5G Core.
 author: robswain
-ms.author: robswain
+ms.author: sudeepch
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 03/30/2023
+ms.date: 02/21/2024
 ms.custom: template-how-to, devx-track-azurecli
 zone_pivot_groups: ase-pro-version
 ---
@@ -34,7 +34,7 @@ Contact your trials engineer and ask them to register your Azure subscription fo
 
 ## Choose the core technology type (5G, 4G, or combined 4G and 5G)
 
-Choose whether each site in the private mobile network should provide coverage for 5G, 4G, or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites, they can each support different core technology types.
+Choose whether each site in the private mobile network should provide coverage for 5G, 4G, or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites, they can each support different core technology type.
 
 ## Allocate subnets and IP addresses
 
@@ -174,15 +174,15 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 #### Azure Private 5G Core
 
-| Port | ASE interface | Description|
-|--|--|--|
-| TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
-| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
-| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
-| SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
-| SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
-| UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
-| All IP traffic       | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G). </br> Only required on port 3 if data networks are configured on that port. |
+| Port No. | In/Out | Port Scope | Description|
+|--|--|--|--|
+| TCP 443 (HTTPS) |In      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 |In/Out    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| 5672 |In/Out    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| SCTP 38412 |In   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
+| SCTP 36412 |In   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
+| UDP 2152 |In/Out | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
+| All IP traffic |In/Out      | Ports 3 and 4 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G). </br> Only required on port 3 if data networks are configured on that port. |
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -192,15 +192,15 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 #### Azure Private 5G Core
 
-| Port | ASE interface | Description|
-|--|--|--|
-| TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
-| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
-| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
-| SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
-| SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
-| UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
-| All IP traffic       | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G)). </br> Only required on port 5 if data networks are configured on that port.  |
+| Port No. | In/Out | Port Scope | Description|
+|--|--|--|--|
+| TCP 443 (HTTPS) |In      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 |In/Out    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| 5672 |In/Out    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| SCTP 38412 |In   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
+| SCTP 36412 |In   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
+| UDP 2152 |In/Out | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
+| All IP traffic |In/Out      | Ports 5 and 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G, or N6/SGi for combined 4G and 5G). </br> Only required on port 5 if data networks are configured on that port.  |
 :::zone-end
 
 #### Port requirements for Azure Stack Edge
@@ -212,14 +212,14 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 |TCP 5985 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment.</br> See [Commission an AKS cluster](commission-cluster.md).  |
 |TCP 5986 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment.</br> See [Commission an AKS cluster](commission-cluster.md). |
 |UDP 67 (DHCP)|Out|LAN|Yes|
-|TCP 445 (SMB)|In|LAN|No|ASE for AP5GC does not require a local file server.|
-|TCP 2049 (NFS)|In|LAN|No|ASE for AP5GC does not require a local file server.|
+||||||
 
 #### Port requirements for IoT Edge
 
 |Port No.|In/Out|Port Scope|Required|Notes|
 |--|--|--|--|--|
 |TCP 443 (HTTPS)|Out|WAN|No|This configuration is only required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
+||||||
 
 #### Port requirements for Kubernetes on Azure Stack Edge
 
@@ -227,8 +227,9 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 |--|--|--|--|--|
 |TCP 31000 (HTTPS)|In|LAN|Yes|Required for Kubernetes dashboard to monitor your device.|
 |TCP 6443 (HTTPS)|In|LAN|Yes|Required for kubectl access|
+||||||
 
-### Outbound firewall ports required
+### Outbound Firewall URL's required
 
 Review and apply the firewall recommendations for the following services:
 
@@ -249,6 +250,7 @@ The following table contains the URL patterns for Azure Private 5G Core's outbou
 |--|--|
 | `https://*.azurecr.io` | Required to pull container images for Azure Private 5G Core workloads. |
 | `https://*.microsoftmetrics.com` </br> `https://*.hot.ingestion.msftcloudes.com`| Required for monitoring and telemetry for the Azure Private 5G Core service. |
+||||||
 
 ## Register resource providers
 
