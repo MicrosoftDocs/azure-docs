@@ -158,6 +158,8 @@
       href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
+    - name: Azure Bot Service 
+      href: reliability-bot.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
