@@ -356,6 +356,8 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
+      - name: Troubleshoot VM performance issues
+        href: /troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json
     - name: VM insights
       items:
       - name: Overview
