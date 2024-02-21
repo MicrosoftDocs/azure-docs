@@ -162,7 +162,7 @@ Simulate test data by deploying a Kubernetes workload. It simulates a sensor by 
 1. Confirm the simulator is running:
 
     ```bash
-    kubectl logs deployment/mqtt-publisher-deployment -f 
+    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f 
     ```
 
     With the following output:
