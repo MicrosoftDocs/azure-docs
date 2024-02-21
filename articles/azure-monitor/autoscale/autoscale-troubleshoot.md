@@ -22,12 +22,12 @@ The autoscale service provides metrics and logs to help you understand what scal
 
 ## Flex Virtual Machine Scale Sets
 
-Autoscale scaling actions are delayed up to several hours, after a manual scaling action takes place on a [Flex Microsoft.Compute/virtualMachineScaleSets (VMSS)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) resource for a specific set of Virtual Machine operations.   
+Autoscale scaling actions are delayed up to several hours after a manual scaling action is applied to a [Flex Microsoft.Compute/virtualMachineScaleSets (VMSS)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) resource for a specific set of Virtual Machine operations.   
 For example, [Azure VM CLI Delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete), or [Azure VM Rest API Delete](/rest/api/compute/virtual-machines/delete?view=rest-compute-2023-10-02&tabs=HTTP) where the operation is performed on an individual VM.  
   
 In these cases, the autoscale service isn't aware of the individual VM operations.  
   
-To avoid this scenario, use the same operation, but at Virtual Machine Scale Set level. For example, [Azure VMSS CLI Delete instance](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete-instances), or [Azure VMSS Rest API Delete Instance](/en-us/rest/api/compute/virtual-machine-scale-sets/delete-instances?view=rest-compute-2023-10-02&tabs=HTTP). Autoscale detects the instance count change in Virtual Machine Scale Set and perform corresponding scaling actions.
+To avoid this scenario, use the same operation, but at Virtual Machine Scale Set level. For example, [Azure VMSS CLI Delete instance](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete-instances), or [Azure VMSS Rest API Delete Instance](/en-us/rest/api/compute/virtual-machine-scale-sets/delete-instances?view=rest-compute-2023-10-02&tabs=HTTP). Autoscale detects the instance count change in Virtual Machine Scale Set and performs the appropriate scaling actions.
   
 ## Autoscale metrics
 
