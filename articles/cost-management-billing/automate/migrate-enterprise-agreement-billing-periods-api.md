@@ -21,7 +21,7 @@ Endpoints to migrate off:
 | --- | --- |
 | /v2/enrollments/{enrollmentNumber}/billingperiods | • API method: GET  <br> • Synchronous (non polling)  <br> • Data format: JSON |
 
-## No single new solution
+## New solutions
 
 There's no new single API that has the same functionality that returns billing periods with consumption data and that returns the API routes for the four sets of data. Instead, you call each new API individually. If data of the requested type is available, it gets included in the response. Otherwise, no data is included in the response.
 
