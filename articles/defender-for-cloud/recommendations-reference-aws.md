@@ -13,16 +13,16 @@ This article lists all the recommendations you might see in Microsoft Defender f
 
 To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
-Your secure score is based on the number of security recommendations you've completed. To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
+Your secure score is based on the number of security recommendations you completed. To decide which recommendations to resolve first, look at the severity of each recommendation and its potential effect on your secure score.
 
 ## AWS Compute recommendations
 
 ### [Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5b3c2887-d7b7-4887-b074-4e6057027709)
 
 **Description**: This control checks whether the compliance status of the Amazon EC2 Systems Manager patch compliance is COMPLIANT or NON_COMPLIANT after the patch installation on the instance.
-It only checks instances that are managed by AWS Systems Manager Patch Manager.
-It does not check whether the patch was applied within the 30-day limit prescribed by PCI DSS requirement '6.2'.
-It also does not validate whether the patches applied were classified as security patches.
+It only checks instances managed by AWS Systems Manager Patch Manager.
+It doesn't check whether the patch was applied within the 30-day limit prescribed by PCI DSS requirement '6.2'.
+It also doesn't validate whether the patches applied were classified as security patches.
 You should create patching groups with the appropriate baseline settings and ensure in-scope systems are managed by those patch groups in Systems Manager. For more information about patch groups, see [AWS Systems Manager User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-patch-group-tagging.html).
 
 **Severity**: Medium
@@ -31,8 +31,8 @@ You should create patching groups with the appropriate baseline settings and ens
 
 **Description**: This control checks whether Amazon Elastic File System is configured to encrypt the file data using AWS KMS. The check fails in the following cases:
 *"[Encrypted](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html)" is set to "false" in the DescribeFileSystems response.
- The "[KmsKeyId](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html)" key in the [DescribeFileSystems](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html) response does not match the KmsKeyId parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html).
- Note that this control does not use the "KmsKeyId" parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html). It only checks the value of "Encrypted". For an added layer of security for your sensitive data in Amazon EFS, you should create encrypted file systems.
+ The "[KmsKeyId](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html)" key in the [DescribeFileSystems](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html) response doesn't match the KmsKeyId parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html).
+ Note that this control doesn't use the "KmsKeyId" parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html). It only checks the value of "Encrypted". For an added layer of security for your sensitive data in Amazon EFS, you should create encrypted file systems.
  Amazon EFS supports encryption for file systems at-rest. You can enable encryption of data at rest when you create an Amazon EFS file system.
 To learn more about Amazon EFS encryption, see [Data encryption in Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/encryption.html) in the Amazon Elastic File System User Guide.
 
@@ -40,14 +40,14 @@ To learn more about Amazon EFS encryption, see [Data encryption in Amazon EFS](h
 
 ### [Amazon EFS volumes should be in backup plans](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e864e460-158b-4a4a-beb9-16ebc25c1240)
 
-**Description**: This control checks whether Amazon Elastic File System (Amazon EFS) file systems are added to the backup plans in AWS Backup. The control fails if Amazon EFS file systems are not included in the backup plans.
+**Description**: This control checks whether Amazon Elastic File System (Amazon EFS) file systems are added to the backup plans in AWS Backup. The control fails if Amazon EFS file systems aren't included in the backup plans.
  Including EFS file systems in the backup plans helps you to protect your data from deletion and data loss.
 
 **Severity**: Medium
 
 ### [Application Load Balancer deletion protection should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5c508bf1-26f9-4696-bb61-8341d395e3de)
 
-**Description**: This control checks whether an Application Load Balancer has deletion protection enabled. The control fails if deletion protection is not configured.
+**Description**: This control checks whether an Application Load Balancer has deletion protection enabled. The control fails if deletion protection isn't configured.
 Enable deletion protection to protect your Application Load Balancer from deletion.
 
 **Severity**: Medium
@@ -55,13 +55,13 @@ Enable deletion protection to protect your Application Load Balancer from deleti
 ### [Auto Scaling groups associated with a load balancer should use health checks](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/837d6a45-503f-4c95-bf42-323763960b62)
 
 **Description**: Auto Scaling groups that are associated with a load balancer are using Elastic Load Balancing health checks.
- PCI DSS does not require load balancing or highly available configurations. This is recommended by AWS best practices.
+ PCI DSS doesn't require load balancing or highly available configurations. This is recommended by AWS best practices.
 
 **Severity**: Low
 
 ### [AWS accounts should have Azure Arc auto provisioning enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/882a80f0-943f-473e-b6d7-40c7a625540e)
 
-**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable auto-provisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](/azure/azure-arc/servers/overview), and [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction).
+**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](/azure/azure-arc/servers/overview), and [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction).
 
 **Severity**: High
 
@@ -111,7 +111,7 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 ### [EC2 instances should be managed by AWS Systems Manager](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4be5393d-cc33-4ef7-acae-80295bc3ae35)
 
 **Description**: Status of the Amazon EC2 Systems Manager patch compliance is 'COMPLIANT' or 'NON_COMPLIANT' after the patch installation on the instance.
- Only  instances that are managed by AWS Systems Manager Patch Manager are checked. Patches that were applied within the 30-day limit prescribed by PCI DSS requirement '6' are not checked.
+ Only  instances managed by AWS Systems Manager Patch Manager are checked. Patches that were applied within the 30-day limit prescribed by PCI DSS requirement '6' aren't checked.
 
 **Severity**: Medium
 
@@ -119,19 +119,19 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 **Description**: This control checks whether the status of the AWS Systems Manager association compliance is COMPLIANT or NON_COMPLIANT after the association is run on an instance. The control passes if the association compliance status is COMPLIANT.
 A State Manager association is a configuration that is assigned to your managed instances. The configuration defines the state that you want to maintain on your instances. For example, an association can specify that antivirus software must be installed and running on your instances, or that certain ports must be closed.
-After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API operations. For associations, "Configuration" Compliance shows statuses of Compliant or Non-compliant and the severity level assigned to the association, such as "Critical" or "Medium". To learn more about State Manager association compliance, see [About State Manager association compliance](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-about-association) in the AWS Systems Manager User Guide.
-You must configure your in-scope EC2 instances for Systems Manager association. You must also configure the patch baseline for the security rating of the vendor of patches, and set the autoapproval date to meet PCI DSS '3.2.1' requirement '6.2'. For additional guidance on how to [Create an association](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html), see Create an association in the AWS Systems Manager User Guide. For additional information on working with patching in Systems Manager, see [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html) in the AWS Systems Manager User Guide.
+After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API operations. For associations, "Configuration" Compliance shows statuses of Compliant or Non-compliant and the severity level assigned to the association, such as *Critical* or *Medium*. To learn more about State Manager association compliance, see [About State Manager association compliance](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-about-association) in the AWS Systems Manager User Guide.
+You must configure your in-scope EC2 instances for Systems Manager association. You must also configure the patch baseline for the security rating of the vendor of patches, and set the autoapproval date to meet PCI DSS *3.2.1* requirement *6.2*. For more guidance on how to [Create an association](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html), see Create an association in the AWS Systems Manager User Guide. For more information on working with patching in Systems Manager, see [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html) in the AWS Systems Manager User Guide.
 
 **Severity**: Low
 
 ### [Lambda functions should have a dead-letter queue configured](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65)
 
-**Description**: This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function is not configured with a dead-letter queue.
+**Description**: This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function isn't configured with a dead-letter queue.
 As an alternative to an on-failure destination, you can configure your function with a dead-letter queue to save discarded events for further processing.
- A dead-letter queue acts the same as an on-failure destination. It is used when an event fails all processing attempts or expires without being processed.
+ A dead-letter queue acts the same as an on-failure destination. It's used when an event fails all processing attempts or expires without being processed.
 A dead-letter queue allows you to look back at errors or failed requests to your Lambda function to debug or identify unusual behavior.
-From a security perspective, it is important to understand why your function failed and to ensure that your function does not drop data or compromise data security as a result.
- For example, if your function cannot communicate to an underlying resource, that could be a symptom of a denial of service (DoS) attack elsewhere in the network.
+From a security perspective, it's important to understand why your function failed and to ensure that your function doesn't drop data or compromise data security as a result.
+ For example, if your function can't communicate to an underlying resource, that could be a symptom of a denial of service (DoS) attack elsewhere in the network.
 
 **Severity**: Medium
 
@@ -139,21 +139,21 @@ From a security perspective, it is important to understand why your function fai
 
 **Description**: This control checks that the Lambda function settings for runtimes match the expected values set for the supported runtimes for each language. This control checks for the following runtimes:
  **nodejs14.x**, **nodejs12.x**, **nodejs10.x**, **python3.8**, **python3.7**, **python3.6**, **ruby2.7**, **ruby2.5**, **java11**, **java8**, **java8.al2**, **go1.x**, **dotnetcore3.1**, **dotnetcore2.1**
-[Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) are built around a combination of operating system, programming language, and software libraries that are subject to maintenance and security updates. When a runtime component is no longer supported for security updates, Lambda deprecates the runtime. Even though you cannot create functions that use the deprecated runtime, the function is still available to process invocation events. Make sure that your Lambda functions are current and do not use out-of-date runtime environments.
+[Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) are built around a combination of operating system, programming language, and software libraries that are subject to maintenance and security updates. When a runtime component is no longer supported for security updates, Lambda deprecates the runtime. Even though you can't create functions that use the deprecated runtime, the function is still available to process invocation events. Make sure that your Lambda functions are current and don't use out-of-date runtime environments.
 To learn more about the supported runtimes that this control checks for the supported languages, see [AWS Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) in the AWS Lambda Developer Guide.
 
 **Severity**: Medium
 
 ### [Management ports of EC2 instances should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b26b102-ccde-4697-aa30-f0621f865f99)
 
-**Description**: Microsoft Defender for Cloud has identified some overly-permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation)
+**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation)
 
 **Severity**: High
 
 ### [Unused EC2 security groups should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f065cc7b-f63b-4865-b8ff-4a1292e1a5cb)
 
 **Description**: Security groups should be attached to Amazon EC2 instances or to an ENI.
- healthy finding can indicate there are unused Amazon EC2 security groups.
+ Healthy finding can indicate there are unused Amazon EC2 security groups.
 
 **Severity**: Low
 
@@ -162,7 +162,7 @@ To learn more about the supported runtimes that this control checks for the supp
 ### [EKS clusters should grant the required AWS permissions to Microsoft Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/7d3a977e-46f1-419a-9046-4bd44db80aac)
 
 **Description**: Microsoft Defender for Containers provides protections for your EKS clusters.
- To monitor your cluster for security vulnerabilities and threats, Defender for Containers needs permissions for your AWS account. These permissions will be used to enable Kubernetes control plane logging on your cluster and establish a reliable pipeline between your cluster and Defender for Cloud's backend in the cloud.
+ To monitor your cluster for security vulnerabilities and threats, Defender for Containers needs permissions for your AWS account. These permissions are used to enable Kubernetes control plane logging on your cluster and establish a reliable pipeline between your cluster and Defender for Cloud's backend in the cloud.
  Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/security-center/defender-for-kubernetes-introduction).
 
 **Severity**: High
@@ -180,7 +180,7 @@ Learn more about [Microsoft Defender for Cloud's security features for container
 **Description**: Microsoft Defender for Containers provides real-time threat protection for containerized environments and generates alerts about suspicious activities.
 Use this information to harden the security of Kubernetes clusters and remediate security issues.
 
-Important: When you've enabled Microsoft Defender for Containers and deployed Azure Arc to your EKS clusters, the protections - and charges - will begin. If you don't deploy Azure Arc on a cluster, Defender for Containers will not protect it and no charges will be incurred for this Microsoft Defender plan for that cluster.
+Important: When you enabled Microsoft Defender for Containers and deployed Azure Arc to your EKS clusters, the protections - and charges - will begin. If you don't deploy Azure Arc on a cluster, Defender for Containers won't protect it, and no charges are incurred for this Microsoft Defender plan for that cluster.
 
 **Severity**: High
 
@@ -208,8 +208,8 @@ For more information about backtracking in Aurora, see [Backtracking an Aurora D
 
 **Description**: This control checks whether an active Amazon ECS task definition that has host networking mode also has privileged or user container definitions.
  The control fails for task definitions that have host network mode and container definitions where privileged=false or is empty and user=root or is empty.
-If a task definition has elevated privileges, it is because the customer has specifically opted in to that configuration.
- This control checks for unexpected privilege escalation when a task definition has host networking enabled but the customer hasn't opted in to elevated privileges.
+If a task definition has elevated privileges, it is because the customer specifically opted in to that configuration.
+ This control checks for unexpected privilege escalation when a task definition has host networking enabled but the customer didn't opt in to elevated privileges.
 
 **Severity**: High
 
@@ -233,7 +233,7 @@ If a task definition has elevated privileges, it is because the customer has spe
 
 ### [Amazon RDS instance should be configured with automatic backup settings](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/894259c2-c1d5-47dc-b5c6-b242d5c76fdf)
 
-**Description**: This check identifies RDS instances, which aren't set with the automatic backup setting. If Automatic Backup is set, RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not just individual databases, which provide for point-in-time recovery. The automatic backup will happen during the specified backup window time and keeps the backups for a limited period of time as defined in the retention period. It's recommended to set automatic backups for your critical RDS servers that will help in the data restoration process.
+**Description**: This check identifies RDS instances, which aren't set with the automatic backup setting. If Automatic Backup is set, RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not just individual databases, which provide for point-in-time recovery. The automatic backup happens during the specified backup window time and keeps the backups for a limited period of time as defined in the retention period. It's recommended to set automatic backups for your critical RDS servers that help in the data restoration process.
 
 **Severity**: Medium
 
@@ -247,7 +247,7 @@ Amazon Redshift audit logging provides additional information about connections 
 ### [Amazon Redshift clusters should have automatic snapshots enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/7a152832-6600-49d1-89be-82e474190e13)
 
 **Description**: This control checks whether Amazon Redshift clusters have automated snapshots enabled. It also checks whether the snapshot retention period is greater than or equal to seven.
-Backups help you to recover more quickly from a security incident. They strengthen the resilience of your systems. Amazon Redshift takes periodic snapshots by default. This control checks whether automatic snapshots are enabled and retained for at least seven days. For more details on Amazon Redshift automated snapshots, see [Automated snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html#about-automated-snapshots) in the *Amazon Redshift Cluster Management Guide*.
+Backups help you to recover more quickly from a security incident. They strengthen the resilience of your systems. Amazon Redshift takes periodic snapshots by default. This control checks whether automatic snapshots are enabled and retained for at least seven days. For more information about Amazon Redshift automated snapshots, see [Automated snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html#about-automated-snapshots) in the *Amazon Redshift Cluster Management Guide*.
 
 **Severity**: Medium
 
@@ -352,7 +352,7 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 
 ### [Application and Classic Load Balancers logging should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ba5c359-495f-4ba6-9897-7fdbc0aed675)
 
-**Description**: This control checks whether the Application Load Balancer and the Classic Load Balancer have logging enabled. The control fails if access_logs.s3.enabled is false.
+**Description**: This control checks whether the Application Load Balancer and the Classic Load Balancer have logging enabled. The control fails if `access_logs.s3.enabled` is false.
 Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 To learn more, see [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html) in User Guide for Classic Load Balancers.
 
@@ -387,7 +387,7 @@ Before you start to use a load balancer, you must add one or more listeners. A l
 ### [Classic Load Balancers should have connection draining enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dd60e31e-073a-42b6-9b23-db7ca86fd5e0)
 
 **Description**: This control checks whether Classic Load Balancers have connection draining enabled.
-Enabling connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This is useful for instances in Auto Scaling groups, to ensure that connections aren't severed abruptly.
+Enabling connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are deregistering or unhealthy. It keeps the existing connections open. This is useful for instances in Auto Scaling groups, to ensure that connections aren't severed abruptly.
 
 **Severity**: Medium
 
@@ -402,7 +402,7 @@ AWS WAF is a web application firewall that helps protect web applications and AP
 
 **Description**: This control checks whether server access logging is enabled on CloudFront distributions. The control fails if access logging isn't enabled for a distribution.
  CloudFront access logs provide detailed information about every user request that CloudFront receives. Each log contains information such as the date and time the request was received, the IP address of the viewer that made the request, the source of the request, and the port number of the request from the viewer.
-These logs are useful for applications such as security and access audits and forensics investigation. For more guidance on how to analyze access logs, see Querying Amazon CloudFront logs in the Amazon Athena User Guide.
+These logs are useful for applications such as security and access audits and forensics investigation. For more information on how to analyze access logs, see Querying Amazon CloudFront logs in the Amazon Athena User Guide.
 
 **Severity**: Medium
 
@@ -415,14 +415,14 @@ HTTPS (TLS) can be used to help prevent potential attackers from using person-in
 
 ### [CloudTrail logs should be encrypted at rest using KMS CMKs](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/190f732b-c68e-4816-9961-aba074272627)
 
-**Description**: We recommended to configure CloudTrail use SSE-KMS.
+**Description**: We recommended configuring CloudTrail to use SSE-KMS.
 Configuring CloudTrail to use SSE-KMS provides more confidentiality controls on log data as a given user must have S3 read permission on the corresponding log bucket and must be granted decrypt permission by the CMK policy.
 
 **Severity**: Medium
 
 ### [Connections to Amazon Redshift clusters should be encrypted in transit](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/036bb56b-c442-4352-bb4c-5bd0353ad314)
 
-**Description**: This control checks whether connections to Amazon Redshift clusters are required to use encryption in transit. The check fails if the Amazon Redshift cluster parameter require_SSL isn't set to '1'.
+**Description**: This control checks whether connections to Amazon Redshift clusters are required to use encryption in transit. The check fails if the Amazon Redshift cluster parameter require_SSL isn't set to *1*.
 TLS can be used to help prevent potential attackers from using person-in-the-middle or similar attacks to eavesdrop on or manipulate network traffic. Only encrypted connections over TLS should be allowed. Encrypting data in transit can affect performance. You should test your application with this feature to understand the performance profile and the impact of TLS.
 
 **Severity**: Medium
@@ -446,7 +446,7 @@ HTTPS (TLS) can be used to help prevent potential attackers from using person-in
 
 **Description**: This control checks whether account-level encryption is enabled by default for Amazon Elastic Block Store(Amazon EBS).
  The control fails if the account level encryption isn't enabled.
-When encryption is enabled for your account, Amazon EBS volumes and snapshot copies are encrypted at rest. This adds an more layer of protection for your data.
+When encryption is enabled for your account, Amazon EBS volumes and snapshot copies are encrypted at rest. This adds another layer of protection for your data.
 For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the Amazon EC2 User Guide for Linux Instances.
 Note that following instance types don't support encryption: R1, C1, and M1.
 
@@ -469,7 +469,7 @@ Enabling managed platform updates ensures that the latest available platform fix
 
 ### [Elastic Load Balancer shouldn't have ACM certificate expired or expiring in 90 days.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a5e0d700-3de1-469a-96d2-6536d9a92604)
 
-**Description**: This check identifies Elastic Load Balancers (ELB) which are using ACM certificates expired or expiring in 90 days. AWS Certificate Manager (ACM) is the preferred tool to provision, manage, and deploy your server certificates. With ACM you can request a certificate or deploy an existing ACM or external certificate to AWS resources. As a best practice, it's recommended to reimport expiring/expired certificates while preserving the ELB associations of the original certificate.
+**Description**: This check identifies Elastic Load Balancers (ELB) which are using ACM certificates expired or expiring in 90 days. AWS Certificate Manager (ACM) is the preferred tool to provision, manage, and deploy your server certificates. With ACM. you can request a certificate or deploy an existing ACM or external certificate to AWS resources. As a best practice, it's recommended to reimport expiring/expired certificates while preserving the ELB associations of the original certificate.
 
 **Severity**: High
 
@@ -511,10 +511,10 @@ Enhanced Monitoring metrics are useful when you want to see how different proces
 
 ### [Ensure rotation for customer created CMKs is enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/66748314-d51c-4d9c-b789-eebef29a7039)
 
-**Description**: AWS Key Management Service (KMS) allows customers to rotate the backing key which is key material stored within the KMS which is tied to the key ID of the Customer Created customer master key (CMK).
+**Description**: AWS Key Management Service (KMS) allows customers to rotate the backing key, which is key material stored within the KMS that is tied to the key ID of the Customer Created customer master key (CMK).
  It's the backing key that is used to perform cryptographic operations such as encryption and decryption.
  Automated key rotation currently retains all prior backing keys so that decryption of encrypted data can take place transparently. It's recommended that CMK key rotation be enabled.
- Rotating encryption keys helps reduce the potential impact of a compromised key as data encrypted with a new key can't be accessed with a previous key that may have been exposed.
+ Rotating encryption keys helps reduce the potential impact of a compromised key as data encrypted with a new key can't be accessed with a previous key that might have been exposed.
 
 **Severity**: Medium
 
@@ -523,15 +523,15 @@ Enhanced Monitoring metrics are useful when you want to see how different proces
 **Description**: S3 Bucket Access Logging generates a log that contains access records Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket for each request made to your S3 bucket.
  An access log record contains details about the request, such as the request type, the resources specified in the request worked, and the time and date the request was processed.
 It's recommended that bucket access logging be enabled on the CloudTrail S3 bucket.
-By enabling S3 bucket logging on target S3 buckets, it's possible to capture all events, which may affect objects within an target buckets. Configuring logs to be placed in a separate bucket allows access to log information, which can be useful in security and incident response workflows.
+By enabling S3 bucket logging on target S3 buckets, it's possible to capture all events, which might affect objects within target buckets. Configuring logs to be placed in a separate bucket allows access to log information, which can be useful in security and incident response workflows.
 
 **Severity**: Low
 
 ### [Ensure the S3 bucket used to store CloudTrail logs isn't publicly accessible](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a41f2846-4a59-44e9-89bb-1f62d4b03a85)
 
 **Description**: CloudTrail logs a record of every API call made in your AWS account. These log files are stored in an S3 bucket.
- It's recommended that the bucket policy, or access control list (ACL), applied to the S3 bucket that CloudTrail logs to prevents public access to the CloudTrail logs.
-Allowing public access to CloudTrail log content may aid an adversary in identifying weaknesses in the affected account's use or configuration.
+ It's recommended that the bucket policy, or access control list (ACL), applied to the S3 bucket that CloudTrail logs to prevent public access to the CloudTrail logs.
+Allowing public access to CloudTrail log content might aid an adversary in identifying weaknesses in the affected account's use or configuration.
 
 **Severity**: High
 
@@ -552,7 +552,7 @@ For more information about managed renewal for ACM certificates, see [Managed re
 
 ### [Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2482620f-f324-4add-af68-2e01e27485e9)
 
-**Description**: Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage
+**Description**: Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage.
 
 **Severity**: Medium
 
@@ -575,7 +575,7 @@ Encrypting data at rest reduces the risk that an unauthenticated user gets acces
 
 **Description**: This control checks whether RDS clusters have deletion protection enabled.
 This control is intended for RDS DB instances. However, it can also generate findings for Aurora DB instances, Neptune DB instances, and Amazon DocumentDB clusters. If these findings aren't useful, then you can suppress them.
-Enabling cluster deletion protection is an more layer of protection against accidental database deletion or deletion by an unauthorized entity.
+Enabling cluster deletion protection is another layer of protection against accidental database deletion or deletion by an unauthorized entity.
 When deletion protection is enabled, an RDS cluster can't be deleted. Before a deletion request can succeed, deletion protection must be disabled.
 
 **Severity**: Low
@@ -615,7 +615,7 @@ Identification and inventory of your IT assets is a crucial aspect of governance
 ### [RDS DB instances should have deletion protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8e1f7933-faa9-4379-a9bd-697740dedac8)
 
 **Description**: This control checks whether your RDS DB instances that use one of the listed database engines have deletion protection enabled.
-Enabling instance deletion protection is an more layer of protection against accidental database deletion or deletion by an unauthorized entity.
+Enabling instance deletion protection is another layer of protection against accidental database deletion or deletion by an unauthorized entity.
 While deletion protection is enabled, an RDS DB instance can't be deleted. Before a deletion request can succeed, deletion protection must be disabled.
 
 **Severity**: Low
@@ -701,20 +701,20 @@ For example, API permissions are required to decrypt the data before it can be r
 
 ### [Amazon Elasticsearch Service domains should be in a VPC](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/df952171-786d-44b5-b309-9c982bddeb7c)
 
-**Description**: VPC cannot contain domains with a public endpoint.
-Note: this does not evaluate the VPC subnet routing configuration to determine public reachability.
+**Description**: VPC can't contain domains with a public endpoint.
+Note: this doesn't evaluate the VPC subnet routing configuration to determine public reachability.
 
 **Severity**: High
 
 ### [Amazon S3 permissions granted to other AWS accounts in bucket policies should be restricted](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/de8ae504-ec39-4ffb-b3ef-6e36fdcbb455)
 
-**Description**: Implementing least privilege access is fundamental to reducing security risk and the impact of errors or malicious intent. If an S3 bucket policy allows access from external accounts, it could result in data exfiltration by an insider threat or an attacker. The 'blacklistedactionpatterns' parameter allows for successful evaluation of the rule for S3 buckets. The parameter grants access to external accounts for action patterns that are not included in the 'blacklistedactionpatterns' list.
+**Description**: Implementing least privilege access is fundamental to reducing security risk and the impact of errors or malicious intent. If an S3 bucket policy allows access from external accounts, it could result in data exfiltration by an insider threat or an attacker. The 'blacklistedactionpatterns' parameter allows for successful evaluation of the rule for S3 buckets. The parameter grants access to external accounts for action patterns that aren't included in the 'blacklistedactionpatterns' list.
 
 **Severity**: High
 
 ### [Avoid the use of the "root" account](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a47a6c3b-0629-406c-ad09-d91f7d9f78a3)
 
-**Description**: The "root" account has unrestricted access to all resources in the AWS account. It is highly recommended that the use of this account be avoided.
+**Description**: The "root" account has unrestricted access to all resources in the AWS account. It's highly recommended that the use of this account be avoided.
 The "root" account is the most privileged AWS account. Minimizing the use of this account and adopting the principle of least privilege for access management will reduce the risk of accidental changes and unintended disclosure of highly privileged credentials.
 
 **Severity**: High
@@ -722,29 +722,29 @@ The "root" account is the most privileged AWS account. Minimizing the use of thi
 ### [AWS KMS keys should not be unintentionally deleted](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/10c59743-84c4-4711-adb7-ba895dc57339)
 
 **Description**: This control checks whether KMS keys are scheduled for deletion. The control fails if a KMS key is scheduled for deletion.
-KMS keys cannot be recovered once deleted. Data encrypted under a KMS key is also permanently unrecoverable if the KMS key is deleted. If meaningful data has been encrypted under a KMS key scheduled for deletion, consider decrypting the data or re-encrypting the data under a new KMS key unless you are intentionally performing a cryptographic erasure.
-When a KMS key is scheduled for deletion, a mandatory waiting period is enforced to allow time to reverse the deletion, if it was scheduled in error. The default waiting period is 30 days, but it can be reduced to as short as 7 days when the KMS key is scheduled for deletion. During the waiting period, the scheduled deletion can be canceled and the KMS key will not be deleted.
-For additional information regarding deleting KMS keys, see [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the AWS Key Management Service Developer Guide.
+KMS keys can't be recovered once deleted. Data encrypted under a KMS key is also permanently unrecoverable if the KMS key is deleted. If meaningful data has been encrypted under a KMS key scheduled for deletion, consider decrypting the data or re-encrypting the data under a new KMS key unless you're intentionally performing a cryptographic erasure.
+When a KMS key is scheduled for deletion, a mandatory waiting period is enforced to allow time to reverse the deletion, if it was scheduled in error. The default waiting period is 30 days, but it can be reduced to as short as seven days when the KMS key is scheduled for deletion. During the waiting period, the scheduled deletion can be canceled and the KMS key won't be deleted.
+For more information regarding deleting KMS keys, see [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the AWS Key Management Service Developer Guide.
 
 **Severity**: High
 
 ### [AWS WAF Classic global web ACL logging should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ad593449-a095-47b5-91b8-894396a1aa7f)
 
-**Description**: This control checks whether logging is enabled for an AWS WAF global Web ACL. This control fails if logging is not enabled for the web ACL.
-Logging is an important part of maintaining the reliability, availability, and performance of AWS WAF globally. It is a business and compliance requirement in many organizations, and allows you to troubleshoot application behavior. It also provides detailed information about the traffic that is analyzed by the web ACL that is attached to AWS WAF.
+**Description**: This control checks whether logging is enabled for an AWS WAF global Web ACL. This control fails if logging isn't enabled for the web ACL.
+Logging is an important part of maintaining the reliability, availability, and performance of AWS WAF globally. It's a business and compliance requirement in many organizations, and allows you to troubleshoot application behavior. It also provides detailed information about the traffic that is analyzed by the web ACL that is attached to AWS WAF.
 
 **Severity**: Medium
 
 ### [CloudFront distributions should have a default root object configured](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/186509dc-f326-415f-b085-4d27f1342849)
 
-**Description**: This control checks whether an Amazon CloudFront distribution is configured to return a specific object that is the default root object. The control fails if the CloudFront distribution does not have a default root object configured.
+**Description**: This control checks whether an Amazon CloudFront distribution is configured to return a specific object that is the default root object. The control fails if the CloudFront distribution doesn't have a default root object configured.
 A user might sometimes request the distributions root URL instead of an object in the distribution. When this happens, specifying a default root object can help you to avoid exposing the contents of your web distribution.
 
 **Severity**: High
 
 ### [CloudFront distributions should have origin access identity enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a0ab1f4e-bafb-4947-a7d1-13a9c35c7d82)
 
-**Description**: This control checks whether an Amazon CloudFront distribution with Amazon S3 Origin type has Origin Access Identity (OAI) configured. The control fails if OAI is not configured.
+**Description**: This control checks whether an Amazon CloudFront distribution with Amazon S3 Origin type has Origin Access Identity (OAI) configured. The control fails if OAI isn't configured.
 CloudFront OAI prevents users from accessing S3 bucket content directly. When users access an S3 bucket directly, they effectively bypass the CloudFront distribution and any permissions that are applied to the underlying S3 bucket content.
 
 **Severity**: Medium
@@ -799,7 +799,7 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 **Description**: AWS console defaults the checkbox for creating access keys to enabled. This results in many access keys being generated unnecessarily.
  In addition to unnecessary credentials, it also generates unnecessary management work in auditing and rotating these keys.
- Requiring that additional steps be taken by the user after their profile has been created will give a stronger indication of intent that access keys are [a] necessary for their work and [b] once the access key is established on an account that the keys may be in use somewhere in the organization
+ Requiring that additional steps be taken by the user after their profile has been created will give a stronger indication of intent that access keys are [a] necessary for their work and [b] once the access key is established on an account that the keys might be in use somewhere in the organization.
 
 **Severity**: Medium
 
@@ -807,7 +807,7 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 **Description**: AWS provides a support center that can be used for incident notification and response, as well as technical support and customer services.
  Create an IAM Role to allow authorized users to manage incidents with AWS Support.
-By implementing least privilege for access control, an IAM Role will require an appropriate IAM Policy to allow Support Center Access in order to manage Incidents with AWS Support.
+By implementing least privilege for access control, an IAM Role requires an appropriate IAM Policy to allow Support Center Access in order to manage Incidents with AWS Support.
 
 **Severity**: Low
 
@@ -815,9 +815,9 @@ By implementing least privilege for access control, an IAM Role will require an 
 
 **Description**: Access keys consist of an access key ID and secret access key, which are used to sign programmatic requests that you make to AWS.
  AWS users need their own access keys to make programmatic calls to AWS from the AWS Command Line Interface (AWS CLI), Tools for Windows PowerShell, the AWS SDKs, or direct HTTP calls using the APIs for individual AWS services.
- It is recommended that all access keys be regularly rotated.
- Rotating access keys will reduce the window of opportunity for an access key that is associated with a compromised or terminated account to be used.
- Access keys should be rotated to ensure that data cannot be accessed with an old key which might have been lost, cracked, or stolen.
+ It's recommended that all access keys be regularly rotated.
+ Rotating access keys reduce the window of opportunity for an access key that is associated with a compromised or terminated account to be used.
+ Access keys should be rotated to ensure that data can't be accessed with an old key, which might have been lost, cracked, or stolen.
 
 **Severity**: Medium
 
@@ -825,7 +825,7 @@ By implementing least privilege for access control, an IAM Role will require an 
 
 **Description**: AWS Config is a web service that performs configuration management of supported AWS resources within your account and delivers log files to you.
 The recorded information includes the configuration item (AWS resource), relationships between configuration items (AWS resources), any configuration changes between resources.
-It is recommended to enable AWS Config be enabled in all regions.
+It's recommended to enable AWS Config be enabled in all regions.
 
 The AWS configuration item history captured by AWS Config enables security analysis, resource change tracking, and compliance auditing.
 
@@ -839,22 +839,22 @@ The AWS API call history produced by CloudTrail enables security analysis, resou
 
 - ensuring that a multi-regions trail exists will ensure that unexpected activity occurring in otherwise unused regions is detected
 - ensuring that a multi-regions trail exists will ensure that "Global Service Logging" is enabled for a trail by default to capture recording of events generated on AWS global services
-- for a multi-regions trail, ensuring that management events configured for all type of Read/Writes ensures recording of management operations that are performed on all resources in an AWS account.
+- for a multi-regions trail, ensuring that management events configured for all type of Read/Writes ensures recording of management operations that are performed on all resources in an AWS account
 
 **Severity**: High
 
 ### [Ensure credentials unused for 90 days or greater are disabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f13dc885-79aa-456b-ba28-3428147ecf55)
 
 **Description**: AWS IAM users can access AWS resources using different types of credentials, such as passwords or access keys.
- It is recommended that all credentials that have been unused in 90 or greater days be removed or deactivated.
- Disabling or removing unnecessary credentials will reduce the window of opportunity for credentials associated with a compromised or abandoned account to be used.
+ It's recommended that all credentials that have been unused in 90 or greater days be removed or deactivated.
+ Disabling or removing unnecessary credentials reduce the window of opportunity for credentials associated with a compromised or abandoned account to be used.
 
 **Severity**: Medium
 
 ### [Ensure IAM password policy expires passwords within 90 days or less](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/729c20d1-fe7c-4e1b-8c9c-ab5ad56d7f96)
 
 **Description**: IAM password policies can require passwords to be rotated or expired after a given number of days.
- It is recommended that the password policy expire passwords after 90 days or less.
+ It's recommended that the password policy expire passwords after 90 days or less.
  Reducing the password lifetime increases account resiliency against brute force login attempts. Additionally, requiring regular password changes help in the following scenarios:
 
 - Passwords can be stolen or compromised sometimes without your knowledge. This can happen via a system compromise, software vulnerability, or internal threat.
@@ -867,23 +867,23 @@ The AWS API call history produced by CloudTrail enables security analysis, resou
 ### [Ensure IAM password policy prevents password reuse](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/22e99393-671c-4979-a08a-cd1533da9ece)
 
 **Description**: IAM password policies can prevent the reuse of a given password by the same user.
-It is recommended that the password policy prevent the reuse of passwords.
+It's recommended that the password policy prevent the reuse of passwords.
  Preventing password reuse increases account resiliency against brute force login attempts.
 
 **Severity**: Low
 
 ### [Ensure IAM password policy requires at least one lowercase letter](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1c420241-9bec-4af8-afb7-038a711b7d22)
 
-**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets.
- It is recommended that the password policy require at least one lowercase letter.
-Setting a password complexity policy increases account resiliency against brute force login attempts
+**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are composed of different character sets.
+ It's recommended that the password policy require at least one lowercase letter.
+Setting a password complexity policy increases account resiliency against brute force login attempts.
 
 **Severity**: Medium
 
 ### [Ensure IAM password policy requires at least one number](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/84fb0ae8-4785-449c-b9ac-e106a2509540)
 
-**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets.
- It is recommended that the password policy require at least one number.
+**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are composed of different character sets.
+ It's recommended that the password policy require at least one number.
  Setting a password complexity policy increases account resiliency against brute force login attempts.
 
 **Severity**: Medium
@@ -891,16 +891,16 @@ Setting a password complexity policy increases account resiliency against brute 
 ### [Ensure IAM password policy requires at least one symbol](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1919c309-1c8b-4fab-bd8c-7ff77521db40)
 
 **Description**: Password policies are, in part, used to enforce password complexity requirements.
- IAM password policies can be used to ensure password are comprised of different character sets.
- It is recommended that the password policy require at least one symbol.
+ IAM password policies can be used to ensure password are composed of different character sets.
+ It's recommended that the password policy require at least one symbol.
  Setting a password complexity policy increases account resiliency against brute force login attempts.
 
 **Severity**: Medium
 
 ### [Ensure IAM password policy requires at least one uppercase letter](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6e5ebe18-e026-4c26-875c-fcbea8089071)
 
-**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are comprised of different character sets.
- It is recommended that the password policy require at least one uppercase letter.
+**Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are composed of different character sets.
+ It's recommended that the password policy require at least one uppercase letter.
  Setting a password complexity policy increases account resiliency against brute force login attempts.
 
 **Severity**: Medium
@@ -908,7 +908,7 @@ Setting a password complexity policy increases account resiliency against brute 
 ### [Ensure IAM password policy requires minimum length of 14 or greater](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e109af9f-128b-4774-a40c-aab8eff3934c)
 
 **Description**: Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are at least a given length.
-It is recommended that the password policy require a minimum password length '14'.
+It's recommended that the password policy require a minimum password length '14'.
  Setting a password complexity policy increases account resiliency against brute force login attempts.
 
 **Severity**: Medium
@@ -916,8 +916,8 @@ It is recommended that the password policy require a minimum password length '14
 ### [Ensure multifactor authentication (MFA) is enabled for all IAM users that have a console password](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b73d3c97-01e1-43b4-bf01-a459e5eed3de)
 
 **Description**: Multifactor Authentication (MFA) adds an extra layer of protection on top of a user name and password.
- With MFA enabled, when a user signs in to an AWS website, they will be prompted for their user name and password as well as for an authentication code from their AWS MFA device.
- It is recommended that MFA be enabled for all accounts that have a console password.
+ With MFA enabled, when a user signs in to an AWS website, they'll be prompted for their user name and password as well as for an authentication code from their AWS MFA device.
+ It's recommended that MFA be enabled for all accounts that have a console password.
 Enabling MFA provides increased security for console access as it requires the authenticating principal to possess a device that emits a time-sensitive key and have knowledge of a credential.
 
 **Severity**: Medium
@@ -925,14 +925,14 @@ Enabling MFA provides increased security for console access as it requires the a
 ### [GuardDuty should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4b32e0a4-44a7-4f18-ad92-549f7d219061)
 
 **Description**: To provide additional protection against intrusions, GuardDuty should be enabled on your AWS account and region.
- Note: GuardDuty might not be a complete solution for every environment
+ Note: GuardDuty might not be a complete solution for every environment.
 
 **Severity**: Medium
 
 ### [Hardware MFA should be enabled for the "root" account](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/eb39e935-38fc-4b0c-8cf2-d6affab0306a)
 
 **Description**: The root account is the most privileged user in an account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they're prompted for their user name and password and for an authentication code from their AWS MFA device.
- For Level 2, it is recommended that you protect the root account with a hardware MFA. A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA doesn't suffer the attack surface introduced by the mobile smartphone that a virtual MFA resides on.
+ For Level 2, it's recommended that you protect the root account with a hardware MFA. A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA doesn't suffer the attack surface introduced by the mobile smartphone that a virtual MFA resides on.
  Using hardware MFA for many, many accounts might create a logistical device management issue. If this occurs, consider implementing this Level 2 recommendation selectively to the highest security accounts. You can then apply the Level 1 recommendation to the remaining accounts.
 
 **Severity**: Low
@@ -953,9 +953,9 @@ IAM database authentication allows authentication to database instances with an 
 
 ### [IAM customer managed policies should not allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d088fb9f-11dc-451e-8f79-393916e42bb2)
 
-**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that may grant broad access to your secrets across AWS accounts.This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It does not check inline policies or AWS managed policies.
-With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the "kms:Decrypt" or "kms:ReEncryptFrom" permissions and only for the keys that are required to perform a task. Otherwise, the user might use keys that are not appropriate for your data.
-Instead of granting permissions for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow users to use only those keys. For example, do not allow "kms:Decrypt" permission on all KMS keys. Instead, allow "kms:Decrypt" only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
+**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It doesn't check inline policies or AWS managed policies.
+With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the "kms:Decrypt" or "kms:ReEncryptFrom" permissions and only for the keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
+Instead of granting permissions for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow "kms:Decrypt" only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
 
 **Severity**: Medium
 
@@ -975,8 +975,8 @@ Instead of granting permissions for all keys, determine the minimum set of keys 
 ```
 
  The control also fails if you use 'Effect': 'Allow' with 'NotAction': 'service:*'. In that case, the NotAction element provides access to all of the actions in an AWS service, except for the actions specified in NotAction.
-This control only applies to customer managed IAM policies. It does not apply to IAM policies that are managed by AWS.
- When you assign permissions to AWS services, it is important to scope the allowed IAM actions in your IAM policies. You should restrict IAM actions to only those actions that are needed. This helps you to provision least privilege permissions. Overly permissive policies might lead to privilege escalation if the policies are attached to an IAM principal that might not require the permission.
+This control only applies to customer managed IAM policies. It doesn't apply to IAM policies that are managed by AWS.
+ When you assign permissions to AWS services, it's important to scope the allowed IAM actions in your IAM policies. You should restrict IAM actions to only those actions that are needed. This helps you to provision least privilege permissions. Overly permissive policies might lead to privilege escalation if the policies are attached to an IAM principal that might not require the permission.
 In some cases, you might want to allow IAM actions that have a similar prefix, such as DescribeFlowLogs and DescribeAvailabilityZones. In these authorized cases, you can add a suffixed wildcard to the common prefix. For example, ec2:Describe*.
 
 This control passes if you use a prefixed IAM action with a suffixed wildcard. For example, the following statement in a policy results in a passed finding.
@@ -998,16 +998,16 @@ When you group related IAM actions in this way, you can also avoid exceeding the
 ### [IAM policies should be attached only to groups or roles](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a773f81a-0b2d-4f8e-826a-77fc432416c3)
 
 **Description**: By default, IAM users, groups, and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users, groups, or roles.
- It is recommended that IAM policies be applied directly to groups and roles but not users.
+ It's recommended that IAM policies be applied directly to groups and roles but not users.
 Assigning privileges at the group or role level reduces the complexity of access management as the number of users grow.
- Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.
+ Reducing access management complexity might in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.
 
 **Severity**: Low
 
 ### [IAM policies that allow full "*:*" administrative privileges should not be created](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1d08b362-7e24-46b0-bed1-4a6c1d1526a5)
 
 **Description**: IAM policies are the means by which privileges are granted to users, groups, or roles.
- It is recommended and considered a standard security advice to grant least privilege-that is, granting only the permissions required to perform a task.
+ It's recommended and considered a standard security advice to grant least privilege-that is, granting only the permissions required to perform a task.
  Determine what users need to do and then craft policies for them that let the users perform only those tasks, instead of allowing full administrative privileges.
  It's more secure to start with a minimum set of permissions and grant additional permissions as necessary, rather than starting with permissions that are too lenient and then trying to tighten them later.
  Providing full administrative privileges instead of restricting to the minimum set of permissions that the user is required to do exposes the resources to potentially unwanted actions.
@@ -1017,16 +1017,16 @@ Assigning privileges at the group or role level reduces the complexity of access
 
 ### [IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/18be55d0-b681-4693-af8d-b8815518d758)
 
-**Description**: Checks whether the inline policies that are embedded in your IAM identities (role, user, or group) allow the AWS KMS decryption actions on all KMS keys. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that may grant broad access to your secrets across AWS accounts.
+**Description**: Checks whether the inline policies that are embedded in your IAM identities (role, user, or group) allow the AWS KMS decryption actions on all KMS keys. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.
 This control fails if "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys in an inline policy.
-With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the permissions they need and only for keys that are required to perform a task. Otherwise, the user might use keys that are not appropriate for your data.
-Instead of granting permission for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow the users to use only those keys. For example, do not allow "kms:Decrypt" permission on all KMS keys. Instead, allow them only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
+With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the permissions they need and only for keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
+Instead of granting permission for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow the users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow them only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
 
 **Severity**: Medium
 
 ### [Lambda functions should restrict public access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/64b236a0-f9d7-454a-942a-8c2ba3943cf7)
 
-**Description**: Lambda function resource-based policy should restrict public access. This recommendation does not check access by internal principals.
+**Description**: Lambda function resource-based policy should restrict public access. This recommendation doesn't check access by internal principals.
  Ensure access to the function is restricted to authorized principals only by using least privilege resource-based policies.
 
 **Severity**: High
@@ -1040,7 +1040,7 @@ Instead of granting permission for all keys, determine the minimum set of keys t
 ### [MFA should be enabled for the "root" account](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1c9ea4ef-3bb5-4f02-b8b9-55e788e1a21a)
 
 **Description**: The root account is the most privileged user in an account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they're prompted for their user name and password and for an authentication code from their AWS MFA device.
- When you use virtual MFA for root accounts, it is recommended that the device used is not a personal device. Instead, use a dedicated mobile device (tablet or phone) that you manage to keep charged and secured independent of any individual personal devices.
+ When you use virtual MFA for root accounts, it's recommended that the device used isn't a personal device. Instead, use a dedicated mobile device (tablet or phone) that you manage to keep charged and secured independent of any individual personal devices.
  This lessens the risks of losing access to the MFA due to device loss, device trade-in, or if the individual owning the device is no longer employed at the company.
 
 **Severity**: Low
@@ -1061,7 +1061,7 @@ Instead of granting permission for all keys, determine the minimum set of keys t
 ### [Root account access key shouldn't exist](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/412835f5-0339-4180-9c22-ea8735dc6c24)
 
 **Description**: The root account is the most privileged user in an AWS account. AWS Access Keys provide programmatic access to a given AWS account.
- It is recommended that all access keys associated with the root account be removed.
+ It's recommended that all access keys associated with the root account be removed.
  Removing access keys associated with the root account limits vectors by which the account can be compromised.
  Additionally, removing the root access keys encourages the creation and use of role based accounts that are least privileged.
 
@@ -1108,20 +1108,20 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
 ### [Stopped EC2 instances should be removed after a specified time period](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a3340b3-8916-40fe-942d-a937e60f5d4c)
 
-**Description**: This control checks whether any EC2 instances have been stopped for more than the allowed number of days. An EC2 instance fails this check if it is stopped for longer than the maximum allowed time period, which by default is 30 days.
- A failed finding indicates that an EC2 instance has not run for a significant period of time. This creates a security risk because the EC2 instance is not being actively maintained (analyzed, patched, updated). If it is later launched, the lack of proper maintenance could result in unexpected issues in your AWS environment. To safely maintain an EC2 instance over time in a nonrunning state, start it periodically for maintenance and then stop it after maintenance. Ideally this is an automated process.
+**Description**: This control checks whether any EC2 instances have been stopped for more than the allowed number of days. An EC2 instance fails this check if it's stopped for longer than the maximum allowed time period, which by default is 30 days.
+ A failed finding indicates that an EC2 instance has not run for a significant period of time. This creates a security risk because the EC2 instance isn't being actively maintained (analyzed, patched, updated). If it's later launched, the lack of proper maintenance could result in unexpected issues in your AWS environment. To safely maintain an EC2 instance over time in a nonrunning state, start it periodically for maintenance and then stop it after maintenance. Ideally this is an automated process.
 
 **Severity**: Medium
 
 ### [AWS overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2499299f-7149-4af6-8405-d5492cabaa65)
 
-**Description**: An over-provisioned active identity is an identity that has access to privileges that they have not used. Over-provisioned active identities, especially for non-human accounts that have defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise. Remove unneeded permissions and establish review processes to achieve the least privileged permissions.
+**Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for non-human accounts that have defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise. Remove unneeded permissions and establish review processes to achieve the least privileged permissions.
 
 **Severity**: Medium
 
 ### [Unused identities in your AWS environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/71016e8c-d079-479d-942b-9c95b463e4a6)
 
-**Description**: Inactive identities are human and non-human entities that have not performed any action on any resource in the last 90 days. Inactive IAM identities with high-risk permissions in your AWS account can be prone to attack if left as is and leave organizations open to credential misuse or exploitation. Proactively detecting and responding to unused identities helps you prevent unauthorized entities from gaining access to your AWS resources.
+**Description**: Inactive identities are human and non-human entities that haven't performed any action on any resource in the last 90 days. Inactive IAM identities with high-risk permissions in your AWS account can be prone to attack if left as is and leave organizations open to credential misuse or exploitation. Proactively detecting and responding to unused identities helps you prevent unauthorized entities from gaining access to your AWS resources.
 
 **Severity**: Medium
 
@@ -1129,8 +1129,8 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
 ### [Amazon EC2 should be configured to use VPC endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e700ddd4-bb55-4602-b93a-d75895fbf7c6)
 
-**Description**: This control checks whether a service endpoint for Amazon EC2 is created for each VPC. The control fails if a VPC does not have a VPC endpoint created for the Amazon EC2 service.
- To improve the security posture of your VPC, you can configure Amazon EC2 to use an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to access Amazon EC2 API operations privately. It restricts all network traffic between your VPC and Amazon EC2 to the Amazon network. Because endpoints are supported within the same Region only, you cannot create an endpoint between a VPC and a service in a different Region. This prevents unintended Amazon EC2 API calls to other Regions.
+**Description**: This control checks whether a service endpoint for Amazon EC2 is created for each VPC. The control fails if a VPC doesn't have a VPC endpoint created for the Amazon EC2 service.
+ To improve the security posture of your VPC, you can configure Amazon EC2 to use an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to access Amazon EC2 API operations privately. It restricts all network traffic between your VPC and Amazon EC2 to the Amazon network. Because endpoints are supported within the same Region only, you can't create an endpoint between a VPC and a service in a different Region. This prevents unintended Amazon EC2 API calls to other Regions.
 To learn more about creating VPC endpoints for Amazon EC2, see [Amazon EC2 and interface VPC endpoints](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/interface-vpc-endpoints.html) in the Amazon EC2 User Guide for Linux Instances.
 
 **Severity**: Medium
@@ -1139,7 +1139,7 @@ To learn more about creating VPC endpoints for Amazon EC2, see [Amazon EC2 and i
 
 **Description**: A public IP address is an IP address that is reachable from the internet.
  If you launch your Amazon ECS instances with a public IP address, then your Amazon ECS instances are reachable from the internet.
- Amazon ECS services should not be publicly accessible, as this may allow unintended access to your container application servers.
+ Amazon ECS services shouldn't be publicly accessible, as this might allow unintended access to your container application servers.
 
 **Severity**: High
 
@@ -1166,14 +1166,14 @@ Enhanced VPC routing forces all COPY and UNLOAD traffic between the cluster and 
 
 ### [Application load balancers should be configured to drop HTTP headers](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ca924610-5a8e-4c5e-9f17-8dff1ab1757b)
 
-**Description**: This control evaluates AWS Application Load Balancers (ALB) to ensure they are configured to drop invalid HTTP headers. The control fails if the value of routing.http.drop_invalid_header_fields.enabled is set to false.
-By default, ALBs are not configured to drop invalid HTTP header values. Removing these header values prevents HTTP desync attacks.
+**Description**: This control evaluates AWS Application Load Balancers (ALB) to ensure they're configured to drop invalid HTTP headers. The control fails if the value of routing.http.drop_invalid_header_fields.enabled is set to false.
+By default, ALBs aren't configured to drop invalid HTTP header values. Removing these header values prevents HTTP desync attacks.
 
 **Severity**: Medium
 
 ### [Configure Lambda functions to a VPC](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/10445918-c305-4c6a-9851-250e8ec7b872)
 
-**Description**: This control checks whether a Lambda function is in a VPC. It does not evaluate the VPC subnet routing configuration to determine public reachability.
+**Description**: This control checks whether a Lambda function is in a VPC. It doesn't evaluate the VPC subnet routing configuration to determine public reachability.
  Note that if Lambda@Edge is found in the account, then this control generates failed findings. To prevent these findings, you can disable this control.
 
 **Severity**: Low
@@ -1181,7 +1181,7 @@ By default, ALBs are not configured to drop invalid HTTP header values. Removing
 ### [EC2 instances should not have a public IP address](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/63afb20c-4e8e-42ad-bc6d-dc48d4bebc5f)
 
 **Description**: This control checks whether EC2 instances have a public IP address. The control fails if the "publicIp" field is present in the EC2 instance configuration item. This control applies to IPv4 addresses only.
- A public IPv4 address is an IP address that is reachable from the internet. If you launch your instance with a public IP address, then your EC2 instance is reachable from the internet. A private IPv4 address is an IP address that is not reachable from the internet. You can use private IPv4 addresses for communication between EC2 instances in the same VPC or in your connected private network.
+ A public IPv4 address is an IP address that is reachable from the internet. If you launch your instance with a public IP address, then your EC2 instance is reachable from the internet. A private IPv4 address is an IP address that isn't reachable from the internet. You can use private IPv4 addresses for communication between EC2 instances in the same VPC or in your connected private network.
 IPv6 addresses are globally unique, and therefore are reachable from the internet. However, by default all subnets have the IPv6 addressing attribute set to false. For more information about IPv6, see [IP addressing in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html) in the Amazon VPC User Guide.
 If you have a legitimate use case to maintain EC2 instances with public IP addresses, then you can suppress the findings from this control. For more information about front-end architecture options, see the [AWS Architecture Blog](http://aws.amazon.com/blogs/architecture/) or the [This Is My Architecture series](http://aws.amazon.com/blogs/architecture/).
 
@@ -1189,7 +1189,7 @@ If you have a legitimate use case to maintain EC2 instances with public IP addre
 
 ### [EC2 instances should not use multiple ENIs](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/fead4128-7325-4b82-beda-3fd42de36920)
 
-**Description**: This control checks whether an EC2 instance uses multiple Elastic Network Interfaces (ENIs) or Elastic Fabric Adapters (EFAs).This control passes if a single network adapter is used. The control includes an optional parameter list to identify the allowed ENIs.
+**Description**: This control checks whether an EC2 instance uses multiple Elastic Network Interfaces (ENIs) or Elastic Fabric Adapters (EFAs). This control passes if a single network adapter is used. The control includes an optional parameter list to identify the allowed ENIs.
 Multiple ENIs can cause dual-homed instances, meaning instances that have multiple subnets. This can add network security complexity and introduce unintended network paths and access.
 
 **Severity**: Low
@@ -1218,16 +1218,16 @@ Security Hub recommends that you configure your EC2 instances with IMDSv2.
 ### [Ensure a log metric filter and alarm exist for AWS Config configuration changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/965a7c7f-e6da-4062-83f4-9c1800e51e44)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations.
-Monitoring changes to AWS Config configuration will help ensure sustained visibility of configuration items within the AWS account.
+ It's recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations.
+Monitoring changes to AWS Config configuration helps ensure sustained visibility of configuration items within the AWS account.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for AWS Management Console authentication failures](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0e09bb35-54a3-48a1-855d-9fd3239deaf7)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for failed console authentication attempts.
- Monitoring failed console logins may decrease lead time to detect an attempt to brute force a credential, which may provide an indicator, such as source IP, that can be used in other event correlation.
+ It's recommended that a metric filter and alarm be established for failed console authentication attempts.
+ Monitoring failed console logins might decrease lead time to detect an attempt to brute force a credential, which might provide an indicator, such as source IP, that can be used in other event correlation.
 
 **Severity**: Low
 
@@ -1235,31 +1235,31 @@ Monitoring changes to AWS Config configuration will help ensure sustained visibi
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. NACLs are used as a stateless packet filter to control ingress and egress traffic for subnets within a VPC.
  It is recommended that a metric filter and alarm be established for changes made to NACLs.
-Monitoring changes to NACLs will help ensure that AWS resources and services are not unintentionally exposed.
+Monitoring changes to NACLs helps ensure that AWS resources and services aren't unintentionally exposed.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for changes to network gateways](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7156050-6f51-4d3f-a880-9f2363648cfb)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Network gateways are required to send/receive traffic to a destination outside of a VPC.
- It is recommended that a metric filter and alarm be established for changes to network gateways.
-Monitoring changes to network gateways will help ensure that all ingress/egress traffic traverses the VPC border via a controlled path.
+ It's recommended that a metric filter and alarm be established for changes to network gateways.
+Monitoring changes to network gateways helps ensure that all ingress/egress traffic traverses the VPC border via a controlled path.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for CloudTrail configuration changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0dc3b824-092a-4fc6-b8b4-31d5c2403024)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations.
+ It's recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations.
 
- Monitoring changes to CloudTrail's configuration will help ensure sustained visibility to activities performed in the AWS account.
+ Monitoring changes to CloudTrail's configuration helps ensure sustained visibility to activities performed in the AWS account.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d12e97c1-1f3e-4c69-8cc1-6e4cc6a9b167)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for customer created CMKs which have changed state to disabled or scheduled deletion.
+ It's recommended that a metric filter and alarm be established for customer created CMKs, which have changed state to disabled or scheduled deletion.
  Data encrypted with disabled or deleted keys will no longer be accessible.
 
 **Severity**: Low
@@ -1267,24 +1267,24 @@ Monitoring changes to network gateways will help ensure that all ingress/egress 
 ### [Ensure a log metric filter and alarm exist for IAM policy changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8e5ad1a9-3803-4399-baf2-a7eb9483b954)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established changes made to Identity and Access Management (IAM) policies.
- Monitoring changes to IAM policies will help ensure authentication and authorization controls remain intact.
+ It's recommended that a metric filter and alarm be established changes made to Identity and Access Management (IAM) policies.
+ Monitoring changes to IAM policies helps ensure authentication and authorization controls remain intact.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for Management Console sign-in without MFA](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/001ddfe0-1b98-443f-819d-99f060fd67d5)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for console logins that are not protected by multi-factor authentication (MFA).
-Monitoring for single-factor console logins will increase visibility into accounts that are not protected by MFA.
+ It's recommended that a metric filter and alarm be established for console logins that aren't protected by multifactor authentication (MFA).
+Monitoring for single-factor console logins increases visibility into accounts that aren't protected by MFA.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for route table changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/7e70666f-4bec-4ca0-8b59-c6c8b9b3cc1e)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Routing tables are used to route network traffic between subnets and to network gateways.
- It is recommended that a metric filter and alarm be established for changes to route tables.
-Monitoring changes to route tables will help ensure that all VPC traffic flows through an expected path.
+ It's recommended that a metric filter and alarm be established for changes to route tables.
+Monitoring changes to route tables helps ensure that all VPC traffic flows through an expected path.
 
 **Severity**: Low
 
@@ -1292,46 +1292,46 @@ Monitoring changes to route tables will help ensure that all VPC traffic flows t
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
  It is recommended that a metric filter and alarm be established for changes to S3 bucket policies.
-Monitoring changes to S3 bucket policies may reduce time to detect and correct permissive policies on sensitive S3 buckets.
+Monitoring changes to S3 bucket policies might reduce time to detect and correct permissive policies on sensitive S3 buckets.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for security group changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/aedabb63-8bdb-47f9-955c-72b652a75e2a)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Security Groups are a stateful packet filter that controls ingress and egress traffic within a VPC.
- It is recommended that a metric filter and alarm be established changes to Security Groups.
-Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.
+ It's recommended that a metric filter and alarm be established changes to Security Groups.
+Monitoring changes to security group helps ensure that resources and services aren't unintentionally exposed.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for unauthorized API calls](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231951ea-e9db-41cd-a7d0-611105fa4fb9)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for unauthorized API calls.
- Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.
+ It's recommended that a metric filter and alarm be established for unauthorized API calls.
+ Monitoring unauthorized API calls helps reveal application errors and might reduce time to detect malicious activity.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for usage of 'root' account](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/59f84fbd-7946-41b3-88b1-d899dcac92bc)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is recommended that a metric filter and alarm be established for root login attempts.
+ It's recommended that a metric filter and alarm be established for root login attempts.
 
- Monitoring for root account logins will provide visibility into the use of a fully privileged account and an opportunity to reduce the use of it.
+ Monitoring for root account logins provides visibility into the use of a fully privileged account and an opportunity to reduce the use of it.
 
 **Severity**: Low
 
 ### [Ensure a log metric filter and alarm exist for VPC changes](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4b4bfa9b-fd2a-43f1-961f-654b9d5c9a60)
 
 **Description**: Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms.
- It is possible to have more than 1 VPC within an account, in addition it is also possible to create a peer connection between 2 VPCs enabling network traffic to route between VPCs. It is recommended that a metric filter and alarm be established for changes made to VPCs.
-Monitoring changes to IAM policies will help ensure authentication and authorization controls remain intact.
+ It's possible to have more than one VPC within an account, in addition it's also possible to create a peer connection between 2 VPCs enabling network traffic to route between VPCs. It's recommended that a metric filter and alarm be established for changes made to VPCs.
+Monitoring changes to IAM policies helps ensure authentication and authorization controls remain intact.
 
 **Severity**: Low
 
 ### [Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/79082bbe-34fc-480a-a7fc-3aad94954609)
 
-**Description**: Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to port 3389.
+**Description**: Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It's recommended that no security group allows unrestricted ingress access to port 3389.
  Removing unfettered connectivity to remote console services, such as RDP, reduces a server's exposure to risk.
 
 **Severity**: High
@@ -1356,14 +1356,14 @@ When you change the port, you must also update the existing connection strings t
 
 ### [S3 buckets should require requests to use Secure Socket Layer](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1fb7ea50-412e-4dd4-ac79-94d54bd8f21e)
 
-**Description**: We recommend to require requests to use Secure Socket Layer (SSL) on all Amazon S3 bucket.
+**Description**: We recommend requiring requests to use Secure Socket Layer (SSL) on all Amazon S3 bucket.
  S3 buckets should have policies that require all requests ('Action: S3:*') to only accept transmission of data over HTTPS in the S3 resource policy, indicated by the condition key 'aws:SecureTransport'.
 
 **Severity**: Medium
 
 ### [Security groups should not allow ingress from 0.0.0.0/0 to port 22](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e1f4bba6-5f43-4dc5-ab15-f2a9f5807fea)
 
-**Description**: To reduce the server's exposure, it is recommended not to allow unrestricted ingress access to port '22'.
+**Description**: To reduce the server's exposure, it's recommended not to allow unrestricted ingress access to port '22'.
 
 **Severity**: High
 
@@ -1379,7 +1379,7 @@ Security groups provide stateful filtering of ingress and egress network traffic
 - 23 (Telnet)
 - 110 (POP3)
 - 143 (IMAP)
-- 3306 (mySQL)
+- 3306 (MySQL)
 - 8080 (proxy)
 - 1433, 1434 (MSSQL)
 - 9200 or 9300 (Elasticsearch)
@@ -1398,9 +1398,9 @@ Security groups provide stateful filtering of ingress and egress network traffic
 **Description**: This control checks whether the security groups that are in use allow unrestricted incoming traffic. Optionally the rule checks whether the port numbers are listed in the "authorizedTcpPorts" parameter.
 
 - If the security group rule port number allows unrestricted incoming traffic, but the port number is specified in "authorizedTcpPorts", then the control passes. The default value for "authorizedTcpPorts" is **80, 443**.
-- If the security group rule port number allows unrestricted incoming traffic, but the port number is not specified in authorizedTcpPorts input parameter, then the control fails.
-- If the parameter is not used, then the control fails for any security group that has an unrestricted inbound rule.
-Security groups provide stateful filtering of ingress and egress network traffic to AWS. Security group rules should follow the principal of least privileged access. Unrestricted access (IP address with a /0 suffix) increases the opportunity for malicious activity such as hacking, denial-of-service attacks, and loss of data.
+- If the security group rule port number allows unrestricted incoming traffic, but the port number isn't specified in authorizedTcpPorts input parameter, then the control fails.
+- If the parameter isn't used, then the control fails for any security group that has an unrestricted inbound rule.
+Security groups provide stateful filtering of ingress and egress network traffic to AWS. Security group rules should follow the principle of least privileged access. Unrestricted access (IP address with a /0 suffix) increases the opportunity for malicious activity such as hacking, denial-of-service attacks, and loss of data.
 Unless a port is specifically allowed, the port should deny unrestricted access.
 
 **Severity**: High
