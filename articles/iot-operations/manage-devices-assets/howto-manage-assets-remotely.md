@@ -19,14 +19,14 @@ An _asset_ in Azure IoT Operations Preview - enabled by Azure Arc is a logical e
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker (preview) instance and Azure IoT MQ (preview) instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
+An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker Preview instance and Azure IoT MQ Preview instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
 This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
 
 - Define asset endpoints
 - Add assets, and define tags and events.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor Preview pipelines.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 # [Azure IoT Operations portal](#tab/portal)
 
-To sign in to the Azure IoT Operations portal, navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
+To sign in to the Azure IoT Operations portal, navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 

@@ -12,11 +12,11 @@ ms.date: 01/10/2024
 #CustomerIntent: As an operator, I want to send data from a pipeline to Azure Data Explorer so that I can store and analyze my data in the cloud.
 ---
 
-# Send data to Azure Data Explorer from a Data Processor pipeline
+# Send data to Azure Data Explorer from an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
+Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
 
 ## Prerequisites
 

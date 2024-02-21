@@ -16,7 +16,7 @@ ms.date: 10/23/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The SQL Server source stage lets you read data from a Microsoft SQL Server database at a user-defined interval.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The SQL Server source stage lets you read data from a Microsoft SQL Server database at a user-defined interval.
 
 In the source stage, you define:
 

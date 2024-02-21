@@ -71,7 +71,7 @@ This section highlights the key capabilities and supported features in Azure IoT
 - **Secure credential management**. Azure IoT Akri facilitates secure access to assets and devices by integrating with services for secure distribution of credential material to brokers.
 
 ### Features supported
-The following features are supported in Azure IoT Akri (preview):
+The following features are supported in Azure IoT Akri Preview:
 
 | [CNCF Akri Features](https://docs.akri.sh/)                                                    | Meaning   | Symbol   |
 | ---------------------------------------------------------------------------------------------- | --------- | -------: |

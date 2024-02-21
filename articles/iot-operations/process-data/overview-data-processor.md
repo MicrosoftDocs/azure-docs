@@ -18,7 +18,7 @@ ms.date: 09/08/2023
 
 Industrial assets generate data in many different formats and use various communication protocols. This diversity of data sources, coupled with varying schemas and unit measures, makes it difficult to use and analyze raw industrial data effectively. Furthermore, for compliance, security, and performance reasons, you can’t upload all datasets to the cloud.
 
-To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor (preview) is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
+To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor Preview is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
 
 ## What is Azure IoT Data Processor Preview?
 

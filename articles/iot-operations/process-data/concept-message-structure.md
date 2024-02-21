@@ -16,7 +16,7 @@ ms.date: 09/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Azure IoT Data Processor (preview) processes incoming messages by passing them through a series of pipeline stages. Each stage in the pipeline can transform the message before passing it to the next stage. This article describes the structure used to represent the messages as they move through the pipeline. Understanding the message structure is important when you configure pipeline stages to process your telemetry messages.
+The Azure IoT Data Processor Preview processes incoming messages by passing them through a series of pipeline stages. Each stage in the pipeline can transform the message before passing it to the next stage. This article describes the structure used to represent the messages as they move through the pipeline. Understanding the message structure is important when you configure pipeline stages to process your telemetry messages.
 
 The following example shows the JSON representation of a message that was read from Azure IoT MQ Preview by a pipeline:
 

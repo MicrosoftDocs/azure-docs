@@ -21,7 +21,7 @@ This article contains known issues for Azure IoT Operations Preview - enabled by
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
-## Azure IoT MQ (preview)
+## Azure IoT MQ Preview
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
 
@@ -50,7 +50,7 @@ This article contains known issues for Azure IoT Operations Preview - enabled by
 
 - If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
-## OPC UA Broker (preview)
+## OPC UA Broker Preview
 
 - All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations portal.
 
@@ -100,4 +100,4 @@ To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID acc
 1. On the **Members** page, add your new user to the role.
 1. Select **Review and assign** to complete setting up the new user.
 
-You can now use the new user account to sign in to the [Azure IoT Operations portal](https://iotoperations.azure.com).
+You can now use the new user account to sign in to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal.

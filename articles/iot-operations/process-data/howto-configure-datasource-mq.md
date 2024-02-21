@@ -16,7 +16,7 @@ ms.date: 10/23/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The MQ source stage lets you subscribe to messages from an MQTT topic. In the source stage, you define connection details to the MQ source and establish a partitioning configuration based on your specific data processing requirements.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The MQ source stage lets you subscribe to messages from an MQTT topic. In the source stage, you define connection details to the MQ source and establish a partitioning configuration based on your specific data processing requirements.
 
 ## Prerequisites
 

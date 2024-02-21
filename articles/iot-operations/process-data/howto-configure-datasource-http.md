@@ -16,7 +16,7 @@ ms.date: 10/23/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
 
 In the source stage, you define:
 

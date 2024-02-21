@@ -20,7 +20,7 @@ ms.date: 11/6/2023
 In this article, you learn how to configure several OPC UA authentication options. These options provide more control over your OPC UA authentication, and let you configure authentication in a way that makes sense for your solution. 
 
 You can configure OPC UA authentication for the following areas:
-- **Transport authentication**. In accord with the [OPC UA specification](https://reference.opcfoundation.org/), OPC UA Broker acts as a single UA application when it establishes secure communication to OPC UA servers. Azure IoT OPC UA Broker (preview) uses the same client certificate for all secure channels between itself and the OPC UA servers that it connects to.
+- **Transport authentication**. In accord with the [OPC UA specification](https://reference.opcfoundation.org/), OPC UA Broker acts as a single UA application when it establishes secure communication to OPC UA servers. Azure IoT OPC UA Broker Preview uses the same client certificate for all secure channels between itself and the OPC UA servers that it connects to.
 - **User authentication**. When a session is established on the secure communication channel, OPC UA server requires it to authenticate as a user.
 
 ## Prerequisites

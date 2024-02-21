@@ -16,7 +16,7 @@ ms.date: 09/21/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Reference datasets within the Azure IoT Data Processor (preview) store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
+Reference datasets within the Azure IoT Data Processor Preview store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
 
 ## Prerequisites
 

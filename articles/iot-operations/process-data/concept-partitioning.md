@@ -16,7 +16,7 @@ ms.date: 09/28/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In an Azure IoT Data Processor (preview) pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the [last known value](howto-configure-lkv-stage.md) and [aggregate](howto-configure-aggregate-stage.md) stages, process data.
+In an Azure IoT Data Processor Preview pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the [last known value](howto-configure-lkv-stage.md) and [aggregate](howto-configure-aggregate-stage.md) stages, process data.
 
 
 ## Partitioning concepts

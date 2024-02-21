@@ -23,7 +23,7 @@ Use a _filter_ stage to filter out messages that you don't need for further proc
 
 ## Prerequisites
 
-To configure and use a filter pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use a filter pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
 
 ## Configure the stage
 

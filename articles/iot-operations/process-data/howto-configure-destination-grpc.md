@@ -28,7 +28,7 @@ When you send data to a gRPC endpoint from a destination stage:
 
 To configure and use a destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 

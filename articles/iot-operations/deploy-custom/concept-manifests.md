@@ -20,7 +20,7 @@ The Azure IoT Orchestrator Preview service extends the resource management capab
 
 ## Target
 
-A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor (preview). Each target has its own configuration settings, which can be customized to meet the specific needs of the deployment environment. It also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, PowerShell scripts, K8s, CRs, or Bash scripts).
+A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor Preview. Each target has its own configuration settings, which can be customized to meet the specific needs of the deployment environment. It also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, PowerShell scripts, K8s, CRs, or Bash scripts).
 
 To create a target resource for an Arc-enabled K8s cluster, add the resource definition JSON to an Azure Resource Manager template. The following example creates a target resource that defines multiple components and bindings.
 

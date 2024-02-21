@@ -15,13 +15,13 @@ ms.date: 10/24/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you manually add OPC UA assets to your Azure IoT Operations Preview - enabled by Azure Arc cluster. These assets publish messages to the Azure IoT MQ (preview) broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
+In this quickstart, you manually add OPC UA assets to your Azure IoT Operations Preview - enabled by Azure Arc cluster. These assets publish messages to the Azure IoT MQ Preview broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
 
 An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-In this quickstart, you use the Azure IoT Operations portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+In this quickstart, you use the Azure IoT Operations (preview) portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ To sign in to the Azure IoT Operations portal you need a work or school account 
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor (preview) pipelines.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor Preview pipelines.
 
-## Sign into the Azure IoT Operations portal
+## Sign into the Azure IoT Operations (preview) portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).

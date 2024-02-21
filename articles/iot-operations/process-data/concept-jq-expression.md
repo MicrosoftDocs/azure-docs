@@ -2029,7 +2029,7 @@ true
 
 ## Binary manipulation
 
-While jq itself is designed to work with data that can be represented as JSON, Azure IoT Data Processor (preview) pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
+While jq itself is designed to work with data that can be represented as JSON, Azure IoT Data Processor Preview pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
 
 - Convert back and forth between binary and other formats such as base64 and integer arrays.
 - Use built-in functions to read numeric and string values from a binary message.

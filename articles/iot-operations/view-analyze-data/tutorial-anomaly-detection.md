@@ -212,7 +212,7 @@ To make the ERP data available to the enrichment stage in the operations data pr
 
 To create the _erp-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) (preview) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
@@ -408,7 +408,7 @@ Now you can send your transformed and enriched measurement data to Microsoft Azu
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Azure Data Explorer instance.
 
-1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename the pipeline to _adx-pipeline_, and **Apply** the change.
 

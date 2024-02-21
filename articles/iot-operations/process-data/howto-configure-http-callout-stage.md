@@ -25,7 +25,7 @@ Use the _HTTP call out_ stage to call an external HTTP endpoint  with an optiona
 
 To configure and use an aggregate pipeline stage, you need a:
 
-- Deployed instance of Azure IoT Data Processor (preview).
+- Deployed instance of Azure IoT Data Processor Preview.
 - An HTTP server that's accessible from the Data Processor instance.
 
 ## Configure an HTTP call out stage

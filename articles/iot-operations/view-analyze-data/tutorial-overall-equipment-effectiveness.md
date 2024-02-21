@@ -236,7 +236,7 @@ To make the production data available to the enrichment stage in the process pip
 
 To create the _production-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) (preview) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
@@ -295,7 +295,7 @@ To make the operations data available to the enrichment stage in the process pip
 
 To create the _operations-data_ dataset:
 
-1. In the [Azure IoT Operations](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
 
 1. Select **Reference datasets**. Then select **Create reference dataset**.
 
@@ -614,7 +614,7 @@ Next, you can send your transformed and enriched measurement data to Microsoft F
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Microsoft Fabric lakehouse.
 
-1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _oee-fabric_, and **Apply** the change.
 

@@ -16,7 +16,7 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
+Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
 
 ## Prerequisites
 
