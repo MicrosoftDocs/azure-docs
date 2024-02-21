@@ -86,7 +86,7 @@ Get started by following the recommendations in our [joint blog](https://techcom
 
 New Relic's Azure Kubernetes integration is a powerful solution that seamlessly connects New Relic's monitoring and observability capabilities with Azure Kubernetes Service (AKS). By deploying the New Relic Kubernetes integration, users gain deep insights into their AKS clusters' performance, health, and resource utilization. This integration allows users to efficiently manage and troubleshoot containerized applications, optimize resource allocation, and proactively identify and resolve issues in their AKS environments. With New Relic's comprehensive monitoring and analysis tools, businesses can ensure the smooth operation and optimal performance of their Kubernetes workloads on Azure. 
 
-Check this [blog](https://techcommunity.microsoft.com/t5/containers/persistent-storage-for-windows-containers-on-azure-kubernetes/ba-p/3836781) for detailed information. 
+Check this [blog](https://techcommunity.microsoft.com/t5/containers/leveraging-new-relic-for-instrumentation-of-windows-container-on/ba-p/3870323) for detailed information. 
 
 ## Security 
 
