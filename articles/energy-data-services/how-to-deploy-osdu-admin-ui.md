@@ -146,7 +146,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     echo "Add the redirect URI above to the following App Registration's Single-page Application (SPA) section: https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Authentication/appId/$ADMINUI_CLIENT_ID/isMSAApp~/false"
     ```
       
-   [![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-uri-config.png)](/media/how-to-deploy-osdu-admin-ui/app-uri-config.png#lightbox)
+   [![Screenshot showing redirect URIs of an App Registration.](./media/how-to-deploy-osdu-admin-ui/app-uri-config.png)](./media/how-to-deploy-osdu-admin-ui/app-uri-config.png#lightbox)
 
 ## Build and deploy the web app
 
