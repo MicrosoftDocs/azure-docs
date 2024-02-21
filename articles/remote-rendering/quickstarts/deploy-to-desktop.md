@@ -30,11 +30,11 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
-# [Unity 2020+ - Standalone](#tab/Unity2020PlusSettingsStandalone)
+# [Standalone](#tab/Unity2020PlusSettingsStandalone)
 
 1. In the standalone build VR support is automatically disabled. No steps are needed here.
 
-# [Unity 2020+ - UWP](#tab/Unity2020PlusSettings)
+# [UWP](#tab/Unity2020PlusSettings)
 
 1. Open *Edit > Project Settings...*
 1. Select **XR Plugin Management** in the menu to the left.
@@ -42,19 +42,9 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Disable **OpenXR**.\
     ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2020 and later](./media/unity-2020-disable-xr.png)
 
-# [Unity 2019 - Legacy](#tab/Unity2020Settings)
-
-1. Open *Edit > Project Settings...*
-1. Select **Player** in the menu to the left.
-1. Select the **Universal Windows Platform settings** tab.
-1. Expand the **XR Settings**.
-1. Disable **Virtual Reality Supported**.\
-    ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2019](./media/unity-2019-disable-xr.png)
----
-
 ## Build the sample project
 
-# [Unity 2021+ - Standalone](#tab/Unity2021PlusBuild)
+# [Unity 2021 and later - Standalone](#tab/Unity2021PlusBuild)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **PC, Mac & Linux Standalone**
@@ -63,7 +53,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
-# [Unity 2021+ - UWP](#tab/Unity2021PlusBuild)
+# [Unity 2021 and later - UWP](#tab/Unity2021PlusBuild)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
