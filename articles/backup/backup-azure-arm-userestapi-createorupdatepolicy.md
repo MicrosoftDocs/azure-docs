@@ -42,7 +42,7 @@ This section provides the example request body to create policies for the backup
 
 **Choose a datasource**:
 
-# [Azure VM](#tabs/azure-vm)
+# [Azure VM](#tab/azure-vm)
 
 The following request body defines a standard backup policy for Azure VM backups.
 
@@ -221,7 +221,7 @@ This policy:
 
 
 
-# [SQL in Azure VM](#tabs/sql-in-azure-vm) backup
+# [SQL in Azure VM](#tab/sql-in-azure-vm) backup
 
 The following request body defines the backup policy for SQL in Azure VM backup.
 
@@ -407,7 +407,7 @@ The following is an example of a policy that takes a differential backup everyda
   }
 ```
 
-# [SAP HANA in Azure VM](#tabs/sap-hana-in-azure-vm)
+# [SAP HANA in Azure VM](#tab/sap-hana-in-azure-vm)
 
 The following request body defines the policy for SAP HANA database in Azure VM backup.
 
@@ -629,7 +629,7 @@ The following is an example of a policy that takes a full backup once a week and
 ```
 
 
-# [Azure File share](#tabs/azure-file-share)
+# [Azure File share](#tab/azure-file-share)
 
 The following request body defines the policy for Azure File share backup.
 
