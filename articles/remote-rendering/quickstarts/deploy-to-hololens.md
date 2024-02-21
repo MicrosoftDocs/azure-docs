@@ -40,9 +40,8 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 # [Unity 2020](#tab/Unity2020Build)
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**
-1. Set *Target Device* to **HoloLens**\
-    ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button and the setting 'Target Device' being set to 'HoloLens' in Unity 2020.](./media/unity-2020-build-settings-hl.png)
+1. Change *Platform* to **Universal Windows Platform**\
+    ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2020.](./media/unity-2020-build-settings-hl.png)
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
 
