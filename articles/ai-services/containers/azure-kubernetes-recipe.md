@@ -191,7 +191,7 @@ The following steps are needed to get the required information to connect your c
 1. Get your container registry ID.
 
     ```azurecli-interactive
-    az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --output table
     ```
 
     Save the output for the scope parameter value, `<acrId>`, in the next step. It looks like:
