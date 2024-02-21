@@ -93,8 +93,8 @@ You can send custom VM metrics to Azure Monitor via several methods:
 
 - Install the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your Windows or Linux Azure virtual machine or virtual machine scale set and use a [data collection rule](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) to send performance counters to Azure Monitor metrics.
 - Install the Azure Diagnostics extension on your [Azure VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm), [Virtual Machine Scale Set](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vmss), or [classic VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-vm-classic). Then send performance counters to Azure Monitor.
-- Install the [InfluxData Telegraf agent](/azure/monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
-- Send custom metrics [directly to the Azure Monitor REST API](/azure/monitor/essentials/metrics-store-custom-rest-api).
+- Install the [InfluxData Telegraf agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
+- Send custom metrics [directly to the Azure Monitor REST API](/azure/azure-monitor/essentials/metrics-store-custom-rest-api).
 
 For more information about custom metrics, see [Custom metrics in Azure Monitor (preview)](/azure/azure-monitor/essentials/metrics-custom-overview). To retrieve metrics like CPU usage for a Linux VM by using the Azure REST API, see [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
 
