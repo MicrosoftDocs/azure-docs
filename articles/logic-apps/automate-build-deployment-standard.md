@@ -227,7 +227,11 @@ Before you set up the CD pipeline, open the **CD-pipeline.yml** file, and rename
 
 1. On the **Inventory your pipeline** pane, confirm the repository information, and select **Configure pipeline**.
 
+   :::image type="content" source="media/automate-build-deployment-standard/inventory-pipeline.png" alt-text="Screenshot shows Inventory page with repo information for your pipeline." lightbox="media/automate-build-deployment-standard/inventory-pipeline.png":::
+
 1. On the **Configure your pipeline** pane, select **Existing Azure Pipelines YAML file**.
+
+   :::image type="content" source="media/automate-build-deployment-standard/configure-pipeline.png" alt-text="Screenshot shows Configure page for selecting a pipeline type." lightbox="media/automate-build-deployment-standard/configure-pipeline.png":::
 
 1. On the **Select an existing YAML file** pane, select your **Infrastructure-pipeline.yml** file
 
