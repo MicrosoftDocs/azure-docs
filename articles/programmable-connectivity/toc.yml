@@ -39,6 +39,4 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
-    href: https://aka.ms/apcblog
-  - name: Pricing
-    href: azure-programmable-connectivity-pricing.md
+    href: https://aka.ms/AzureProgrammableConnectivity
