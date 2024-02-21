@@ -79,8 +79,10 @@ Create an event subscription setting its delivery mode to *queue*, which support
 ## Send events to your topic
 Now, send a sample event to the namespace topic by following steps in this section. 
 
-1. Launch Cloud Shell in the Azure portal. Switch to Bash. 
-1. Declare a variable to hold the access key for the namespace.
+1. Launch Cloud Shell in the Azure portal. Switch to **Bash**. 
+
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Cloud Shell." lightbox="./media/publish-events-using-namespace-topics-portal/cloud-shell-bash.png":::
+1. In the Cloud Shell, run the following command to declare a variable to hold the access key for the namespace. You noted the access key earlier in this quickstart.
 
     ```bash
     key=ACCESSKEY
