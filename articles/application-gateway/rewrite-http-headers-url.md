@@ -16,9 +16,9 @@ The HTTP header and URL rewrite features are only available for the [**Applicati
 
 ### Request and response headers
 
-Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
+Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers. 
 
-HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers. To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
+You can rewrite all headers in requests and responses, except for the `Connection`, and `Upgrade` headers. You can also use the application gateway to **create custom headers** and add them to the requests and responses being routed through it. To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
 
 ![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
@@ -27,9 +27,8 @@ HTTP headers allow a client and server to pass additional information with a req
 
 With URL rewrite capability in Application Gateway, you can:
 
-* Rewrite the host name, path and query string of the request URL.
-* Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request properties (request header and server variables).
-* Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL.
+* Rewrite the host name, path and query string of a request URL. This can be done for all requests on a listener or only those that match some conditions.
+* Choose to route the request to a specific backend pool based on the rewritten URL.
 
 To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
@@ -40,15 +39,15 @@ To learn how to rewrite URL with Application Gateway using Azure portal, see [he
 
 A rewrite set is a collection of a Routing Rule, Condition and Action.
 
-* **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
+* **Request routing rule association:** The rewrite configuration is associated to a source listener via its routing rule. When you use a routing rule of the type Basic, the rewrite configuration is associated with its listener and works as a global rewrite. When you use a Path-based routing rule, the rewrite configuration is defined as per the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules but a routing rule can have only one rewrite associated with it.
 
-* **Rewrite Condition:** This is an optional configuration. Based on the conditions that you defined, the Application Gateway will evaluate the contents of the HTTP(S) requests and responses. A rewrite action will occur if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
+* **Rewrite Condition:** This is an optional configuration. Based on the conditions that you define, the Application Gateway will evaluate the contents of the HTTP(S) requests and responses. The susequent "rewrite action" will occur if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
 
-  You can choose the following types to check for a condition:
+  You can choose the following types to look for a condition:
   1. HTTP header (Request and Response)
-  1. Supported Server variables <link to below section>
+  1. Supported [Server variables](#server-variables)
 
-  A Condition lets you evaluate whether a specified header or variable exists by matching their values using text or to a pattern using Regex. You can also capture this value for later use in Action. Know more about pattern and capturing. <link to below section>
+  A Condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Know more about pattern and capturing.
 
 * **Rewrite Action:** Use rewrite action set to rewrite Headers (Request or Response) or the URL components.
 
