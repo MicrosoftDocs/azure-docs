@@ -325,6 +325,8 @@
       items:
       - name: Set up the source environment
         href: vmware-azure-set-up-source.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Deploy the configuration server
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment
