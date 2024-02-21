@@ -263,7 +263,7 @@ Device identity certificate requirements:
     - subjectKeyIdentifier = hash
     - authorityKeyIdentifier = keyid:always,issuer:always
 
-Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the important field that needs to match.
 
 Example device identity certificate:
 
