@@ -437,11 +437,11 @@ If the latest changes don't reflect on the applications, check the following ite
   - The pattern configured in the Application Configuration Service matches the updated config files.
   - The application is bound to the Application Configuration Service.
 - Check whether the `ConfigMap` is updated:
-  - `ConfigMap` of the app should be updated. If it's not updated, raise a ticket.  
+  - `ConfigMap` of the app should be updated. If it isn't updated, raise a ticket.  
 - Check whether the `ConfigMap` is mounted to the application as a file:
   - Use `web shell` to check the mounted file. If the file isn't updated, wait for the K8S refresh interval (1 minute). Or, you can force a refresh by restarting the application.
 
-Now, the updated configurations should reflect on the applications. If it's not updated, raise a ticket.
+Now, the updated configurations should reflect on the applications. If it isn't updated, raise a ticket.
 
 ## Next steps
 
