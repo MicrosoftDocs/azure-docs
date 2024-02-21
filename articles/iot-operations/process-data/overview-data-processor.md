@@ -66,6 +66,7 @@ Data Processor pipelines can use the following stages:
 | [Source - MQ](howto-configure-datasource-mq.md) | Retrieves data from an MQTT broker. |
 | [Source - HTTP endpoint](howto-configure-datasource-http.md) | Retrieves data from an HTTP endpoint. |
 | [Source - SQL](howto-configure-datasource-sql.md) | Retrieves data from a Microsoft SQL Server database. |
+| [Source - InfluxDB](howto-configure-datasource-influxdb.md) | Retrieves data from an InfluxDB database. |
 | [Filter](howto-configure-filter-stage.md) | Filters data coming through the stage. For example, filter out any message with temperature outside of the `50F-150F` range. |
 | [Transform](howto-configure-transform-stage.md) | Normalizes the structure of the data. For example, change the structure from `{"Name": "Temp", "value": 50}` to `{"temp": 50}`. |
 | [LKV](howto-configure-lkv-stage.md) | Stores selected metric values into an LKV store. For example, store only temperature and humidity measurements into LKV, ignore the rest. A subsequent stage can enrich a message with the stored LKV data. |

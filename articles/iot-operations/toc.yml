@@ -107,6 +107,8 @@ items:
           href: process-data/howto-configure-datasource-http.md
         - name: Configure a pipeline SQL Server source stage
           href: process-data/howto-configure-datasource-sql.md
+        - name: Configure a pipeline InfluxDB source stage
+          href: process-data/howto-configure-datasource-influxdb.md
       - name: Process data
         items:
         - name: Aggregate data in a pipeline
