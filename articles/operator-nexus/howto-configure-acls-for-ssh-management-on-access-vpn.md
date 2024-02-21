@@ -1,5 +1,5 @@
 ---
-title: How to Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN
+title: "Azure Operator Nexus: How to Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN."
 description: Instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
@@ -17,9 +17,9 @@ Ingress and Egress ACLs are created prior to the creation of NNI resources and a
 
 ## Steps to Create an ACL on an NNI:
 
-1. **Create NNI Ingress and Egress ACLs**
-2. **Update ARM Resource Reference in Management NNI**
-3. **Create NNI and Provision Network Fabric**
+1. Create NNI Ingress and Egress ACLs
+2. Update ARM Resource Reference in Management NNI
+3. Create NNI and Provision Network Fabric
 
 ## Parameter Usage Guidance:
 
@@ -43,7 +43,8 @@ Ingress and Egress ACLs are created prior to the creation of NNI resources and a
 | actions              | Action to be taken based on match condition.                 | Example: permit                |
 | configuration-type   | Configuration type can be inline or by using a file. However, AON supports only inline today. | Example: inline                |
 
-**Note:**
+
+There are some further restrictions that you should be aware of:
 
 - **Inline ports and inline VLANs** are a static way of defining the ports or VLANs using `azcli`.
 - **PortGroupNames and VLANGroupNames** are dynamic ways of defining ports and VLANs.
@@ -205,10 +206,10 @@ This command creates an Egress ACL with the specified configurations and outputs
 
 This step enables the creation of ACLs (ingress and egress if reference is provided) during the creation of the NNI resource. Post creation of NNI and before fabric provisioning, re-put can be done on NNI.
 
-- `ingressAclId`: Reference id for ingress ACL
-- `egressAclId`: Reference id for egress ACL
+- `ingressAclId`: Reference ID for ingress ACL
+- `egressAclId`: Reference ID for egress ACL
 
-To get ARM resource id, navigate to the resource group of the subscription used.
+To get ARM resource ID, navigate to the resource group of the subscription used.
 
 ```bash
 az networkfabric nni create
