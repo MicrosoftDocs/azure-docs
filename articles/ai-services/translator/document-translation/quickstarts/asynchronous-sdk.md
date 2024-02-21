@@ -1,23 +1,23 @@
 ---
-title: "Document Translation C#/.NET or Python client library"
+title: "Batch Document Translation C#/.NET or Python client library"
 titleSuffix: Azure AI services
-description: Use the Document Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process
+description: Use the Batch Document Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process.
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-ms.date: 09/28/2023
+ms.date: 02/12/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
 
-# Document Translation client-library SDKs
+# Batch Document Translation client libraries
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#batch-supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 > [!IMPORTANT]
 >
@@ -29,7 +29,7 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../..
 
 To get started, you need:
 
-* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource). If you're planning on using the Document Translation feature with [managed identity authorization](../how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**. Select the **Standard S1 or D3** or pricing tier.
 
@@ -48,10 +48,10 @@ To learn more, *see* [Managed identities for Document Translation](../how-to-gui
 
   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. 
+**✔️ Shared Access Signature (SAS)**. A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
-* Your **source** container or blob must have designated  **read** and **list** access.
-* Your **target** container or blob must have designated  **write** and **list** access.
+* Your **source** container or blob must designate **read** and **list** access.
+* Your **target** container or blob must designate **write** and **list** access.
 
 To learn more, *see* [**Create SAS tokens**](../how-to-guides/create-sas-tokens.md).
 
