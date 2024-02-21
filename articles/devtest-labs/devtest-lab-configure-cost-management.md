@@ -38,7 +38,7 @@ DevTest Labs automatically propagates tags applied at the lab level to the resou
 
 :::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags in DevTest Labs in the Azure portal.":::
 
-It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/phauge/update-dtl-tags/samples/DevTestLabs/Scripts/UpdateDtlTags). 
+It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags). 
 
 ## Step 3: Provide permissions to allow users to view costs 
 
@@ -55,9 +55,7 @@ For a quick view of costs per lab, see the following steps:
 
 :::image type="content" source="./media/devtest-lab-configure-cost-management/daily-costs.png" alt-text="Screenshot that shows the daily costs card.":::
 
-3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by 
-
-:::image type="content" source="./media/devtest-lab-configure-cost-management/tag.png" alt-text="Screenshot that shows searching for tag in the group by filter.":::
+3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by. More information on group and filter options in Cost analysis can be found [here](../cost-management-billing/costs/group-filter.md).
 
 The resulting view shows costs in the subscription grouped by the tag (which is grouping by the lab & its resources).
 
