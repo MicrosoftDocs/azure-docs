@@ -29,7 +29,7 @@ For more information, see [Understand volume languages](understand-volume-langua
 
 ## Does Azure Databricks support mounting Azure NetApp Files NFS volumes?
 
-No, [Azure Databricks](./flink/azure-databricks.md) does not support mounting any NFS volumes including those provided by Azure NetApp Files. Please contact the Azure Databricks team for more details. 
+No, [Azure Databricks](/azure/databricks/) does not support mounting any NFS volumes including those provided by Azure NetApp Files. Please contact the Azure Databricks team for more details. 
 
 
 ## Next steps  
