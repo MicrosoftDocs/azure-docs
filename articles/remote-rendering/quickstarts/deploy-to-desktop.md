@@ -35,9 +35,6 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Open *Edit > Project Settings...*
 1. Select **Player** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
-1. Expand the **Publishing Settings**.
-1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![A screenshot showing the Project settings in the Player menu, highlighting the enabled checkbox for 'Desktop' in the 'Supported Device Families' list under the 'Universal Windows Platform' tab in Unity 2020](./media/unity-2020-enable-desktop-support.png)
 1. Expand the **XR Settings**.
 1. Disable **Virtual Reality Supported**.\
     ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2020](./media/unity-2020-disable-xr.png)
@@ -47,9 +44,6 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Open *Edit > Project Settings...*
 1. Select **Player** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
-1. Expand the **Publishing Settings**.
-1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![A screenshot showing the Project settings in the Player menu, highlighting the enabled checkbox for Desktop in the Supported Device Families list under the Universal Windows Platform tab in Unity 2021 and later](./media/unity-2021-enable-desktop-support.png)
 1. Select **XR Plugin Management** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
 1. Disable **OpenXR**.\
