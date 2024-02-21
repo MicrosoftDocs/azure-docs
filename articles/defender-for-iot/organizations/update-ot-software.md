@@ -80,7 +80,7 @@ This procedure describes how to send a software version update to OT sensors at 
     If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need.
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**.
-    :::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
+    :::image type="content" source="media/update-ot-software/sensor-updates-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
 
     For one or more individual sensors, select **Step one: Send package to sensor**. This option is also available from the **...** options menu to the right of the sensor row.
 
@@ -90,7 +90,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
     The lower half of the page shows the sensors you selected and their status. Verify the status of the sensors. A sensor might not be available for update for various reasons, for example, the sensor is already updated to the version you want to send, or there's a problem with the sensor, such as it's disconnected.
 
-    :::image type="content" source="media/update-ot-software/sendpackage-pane-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="true":::
+    :::image type="content" source="media/update-ot-software/send-package-pane-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/send-package-pane.png" border="true":::
 
 1. Once you've checked the list of sensors to be updated, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage completed automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
@@ -106,7 +106,7 @@ To install the sensor software update, ensure that you see the :::image type="ic
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen.
 
-    :::image type="content" source="media/update-ot-software/sensorupdates2.png" alt-text="Screenshot of the package update option." lightbox="media/update-ot-software/sensorupdates2.png":::
+    :::image type="content" source="media/update-ot-software/sensor-updates-2.png" alt-text="Screenshot of the package update option." lightbox="media/update-ot-software/sensor-updates-2.png":::
 
     For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu.
 
