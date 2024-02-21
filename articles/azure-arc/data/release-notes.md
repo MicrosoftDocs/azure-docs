@@ -20,6 +20,12 @@ ms.custom:
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## February 13, 2024
+
+**Image tag**:`v1.27.0_2024-02-13`
+
+For complete release version information, review [Version log](version-log.md#february-13-2024).
+
 ## December 12, 2023
 
 **Image tag**: `v1.26.0_2023-12-12`

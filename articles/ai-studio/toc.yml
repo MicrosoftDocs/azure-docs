@@ -8,6 +8,8 @@
   - name: What are AI services?
     href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
+  - name: Azure AI Studio architecture
+    href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
   - name: What's new in Azure AI Studio?
@@ -105,6 +107,8 @@
         href: how-to/flow-develop.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
+      - name: Process images in a flow
+        href: how-to/flow-process-image.md
     - name: Use prompt flow tools
       items:
       - name: Overview of prompt flow tools
