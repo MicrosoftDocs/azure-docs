@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 02/21/2024
 ms.author: lajanuar
 ---
 
@@ -184,15 +184,16 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
 > [!NOTE]
-> Microsoft Word and HTML file are supported since `2023-10-31-preview`. Compared with PDF and images, below features are not supported:
-> - There are no angle, width/height and unit with each page object.
-> - For each object detected, there is no bounding polygon or bounding region.
-> - Page range (`pages`) is not supported as a parameter.
-> - No `lines` object.
+> Version `2023-10-31-preview` and later support Microsoft Word and HTML files. The following features are not supported:
+>
+> * There are no angle, width/height and unit with each page object.
+> * For each object detected, there is no bounding polygon or bounding region.
+> * Page range (`pages`) is not supported as a parameter.
+> * No `lines` object.
 
 ### Pages
 
-The pages collection is a list of pages within the document. For each page, it is represented with the sequential number of the page within the document, the orientation angle, which could indicate if the page has been rotated, the width and height (dimentions in pixels) of the page. The page units in the model output are computed as shown:
+The pages collection is a list of pages within the document. Each page is represented sequentially within the document and includes the orientation angle indicating if the page is rotated and the width and height (dimensions in pixels). The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
@@ -271,11 +272,11 @@ The new machine-learning based page object detection extracts logical roles like
 
 ```
 
-### Text, lines and words
+### Text, lines, and words
 
 The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Layout model extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images are not supported.
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Layout model extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images aren't supported.
 
 ```json
 "words": [
@@ -312,7 +313,8 @@ The response includes classifying whether each text line is of handwriting style
     ]
 }
 ```
-If you have turned on [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you will also get the font/style result as part of the `styles` object.
+
+If you enable the [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you also get the font/style result as part of the `styles` object.
 
 ### Selection marks
 

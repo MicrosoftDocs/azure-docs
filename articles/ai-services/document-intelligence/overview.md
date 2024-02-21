@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 02/06/2024
+ms.date: 02/21/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -217,14 +217,14 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
     :::column:::
         * **Classification model**</br>
-         ✔️ Custom classifiers identify document types prior to invoking an extraction model.
+         ✔️ Custom classifiers identify document types before invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>prior to invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>before invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -266,7 +266,7 @@ Document Intelligence supports optional features that can be enabled and disable
 
 ✓ - Enabled</br>
 O - Optional</br>
-\* - Premium features incur extra costs
+\* - Premium features incur extra costs.
 
 ## Models and development options
 
@@ -416,7 +416,7 @@ You can use Document Intelligence to automate document processing in application
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099 form variations.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence)|
+|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099-form variations.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -550,9 +550,9 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [Choose a Document Intelligence model](choose-model-feature.md)
+* [Choose a Document Intelligence model](choose-model-feature.md).
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -560,7 +560,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

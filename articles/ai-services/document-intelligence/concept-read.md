@@ -109,23 +109,24 @@ See our [Language Support—document analysis models](language-support-ocr.md) p
 
 > [!NOTE]
 > Microsoft Word and HTML file are supported in v3.1 and later versions. Compared with PDF and images, below features are not supported:
-> - There are no angle, width/height and unit with each page object.
-> - For each object detected, there is no bounding polygon or bounding region.
-> - Page range (`pages`) is not supported as a parameter.
-> - No `lines` object.
+>
+> * There are no angle, width/height and unit with each page object.
+> * For each object detected, there is no bounding polygon or bounding region.
+> * Page range (`pages`) is not supported as a parameter.
+> * No `lines` object.
 
 ### Pages
 
-The pages collection is a list of pages within the document. For each page, it is represented with the sequential number of the page within the document, the orientation angle, which could indicate if the page has been rotated, the width and height (dimentions in pixels) of the page. The page units in the model output are computed as shown:
+The pages collection is a list of pages within the document. Each page is represented sequentially within the document and includes the orientation angle indicating if the page is rotated and the width and height (dimensions in pixels). The page units in the model output are computed as shown:
 
- **File format**   | **Computed page unit**   | **Total pages**  |
+|**File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
 |Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
 |TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
 |Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
-|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets |
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ```json
@@ -165,7 +166,7 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
 
 The Read OCR model extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read model v3.1 and later versions extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images are not supported.
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read model v3.1 and later versions extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images aren't supported.
 
 
 ```json
@@ -204,7 +205,7 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
-If you have turned on [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you will also get the font/style result as part of the `styles` object.
+If you enabled the [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you also get the font/style result as part of the `styles` object.
 
 ## Next steps
 
