@@ -13,7 +13,7 @@ ms.reviewer: maminn
 
 # Migrate from the EA Billing Periods API
 
-EA customers that previously used the [Get billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) Enterprise Reporting consumption.azure.com API to get their billing periods need to use different mechanisms to get the data they need. This article helps you migrate from the old API by using replacement APIs.
+EA customers that previously used the [Billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) Enterprise Reporting consumption.azure.com API to get their billing periods need to use different mechanisms to get the data they need. This article helps you migrate from the old API by using replacement APIs.
 
 Endpoints to migrate off:
 
@@ -25,7 +25,7 @@ Endpoints to migrate off:
 
 There's no new single API that has the same functionality that returns billing periods with consumption data and that returns the API routes for the four sets of data. Instead, you call each new API individually. If data of the requested type is available, it gets included in the response. Otherwise, no data is included in the response.
 
-The following APIs use the billing period *as a parameter*. Create your GET request with the billing period using the year and month (_yyyyMM_) format.
+The Balance Summary and Price Sheet APIs use the billing period *as a parameter*. Create your GET request with the billing period using the year and month (_yyyyMM_) format.
 
 ### Balance Summary
 
@@ -33,7 +33,11 @@ Call the new Balances API to get either [the balances for all billing periods](/
 
 ### Usage Details
 
-To get usage details, use either Cost Management Exports or the [Cost Management Cost Details API](/rest/api/cost-management/generate-cost-details-report). You can get the cost and usage details data for a time period. If data exists for the specified period, it gets returned. Otherwise, no data is included in the response. For more information about each option, see [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md).
+To get usage details, use either Cost Management Exports or the [Cost Management Cost Details API](/rest/api/cost-management/generate-cost-details-report). You can get the cost and usage details data for a time period. If data exists for the specified period, it gets returned. Otherwise, no data is included in the response.
+
+The billing period can be represented in the Usage Details alternatives by using the billing period time frame as the selected start and end date.
+
+For more information about each option, see [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md).
 
 ### Marketplace charges
 
@@ -41,7 +45,7 @@ Call the [List Marketplaces API](/rest/api/consumption/marketplaces/list/#market
 
 ### Price Sheet
 
-Call the new [Price Sheet API](/rest/api/consumption/price-sheet) get the price sheet for either [the current billing period](/rest/api/consumption/price-sheet/get/) or for [a specific billing period](/rest/api/consumption/price-sheet/get-by-billing-period/).
+Call the new [Price Sheet API](/rest/api/consumption/price-sheet) to get the price sheet for either [the current billing period](/rest/api/consumption/price-sheet/get/) or for [a specific billing period](/rest/api/consumption/price-sheet/get-by-billing-period/).
 
 ## Next steps
 
