@@ -28,7 +28,7 @@ A traffic policy MATCHING CONFIGURATION defines the conditions and parameters fo
 
 -   **dscp**: the differentiated services code point (DSCP) value in the IP header.
 
-## Example Match Conditions
+## Example match conditions
 
 -   **Match on source and destination IP prefixes**: You can use the source prefix and destination prefix conditions to match on the IP addresses of a packet. For example, `source prefix 10.0.0.0/24` matches any packet with a source IP address in the range of 10.0.0.0 to 10.0.0.255. You can also use the longest prefix option to match the most specific prefix. For example, `destination longest-prefix 10.0.0.0/24 10.0.0.128/25` will match any packet with a destination IP address in the range of 10.0.0.128 to 10.0.0.255, but not 10.0.0.0. to 10.0.0.127.
 

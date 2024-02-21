@@ -10,7 +10,9 @@ ms.date: 02/09/2024
 
 # Access Control List Creation and Configuration Examples
 
-## Overview of the ACL Create Flow
+This article gives examples of how to create and update Access Control Lists (ACLS).
+
+## Overview of the ACL create flow
 
 Creating an Access Control List (ACL) associated with a Network-to-Network Interconnect (NNI) involves these steps:
 
@@ -22,7 +24,7 @@ Creating an Access Control List (ACL) associated with a Network-to-Network Inter
 
 -   Provision the Network Fabric resource using the `az networkfabric fabric provision` command. This generates the base configuration and the dynamic match configuration for the ACLs and sends them to the devices.
 
-## Overview of the ACL Update Flow
+## Overview of the ACL update flow
 
 -   Create ingress and egress ACL resources using `az networkfabric acl create` as described in the previous section.
 
@@ -42,7 +44,7 @@ This example shows you how to create an NNI with two ACLs - one for ingress and 
 
 The ACLs must be applied before provisioning the Network Fabric. This limitation is temporary and will be removed in future release. The ingress and egress ACLs are created before the NNI resource and referenced when the NNI is created, which also triggers the creation of the ACLs. This configuration must be done before provisioning the network fabric.
 
-#### Create Ingress ACL: Example Command
+#### Create ingress ACL: example command
 
 ```azurecli
 az networkfabric acl create \
@@ -55,7 +57,7 @@ az networkfabric acl create \
     --match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.20.20.20/12']}}],actions:[{type:Count,counterName:'example-counter'}]}]"
 ```
 
-#### Create Egress ACL: Example Command
+#### Create egress ACL: example command
 
 ```azurecli
 az networkfabric acl create \
@@ -68,7 +70,7 @@ az networkfabric acl create \
     --dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['10.20.3.1/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
 ```
 
-### Access Control List on an Isolation Domain External Network
+### Access Control List on an isolation domain external network
 
 Use the `az networkfabric acl create` command to create ingress and egress ACLs for the external network. In the example, we specify the resource group, name, location, network fabric ID, external network ID, and other parameters. You can also specify the match conditions and actions for the ACL rules using the `--match` and `--action` parameters.
 
