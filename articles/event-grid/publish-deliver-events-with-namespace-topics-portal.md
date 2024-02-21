@@ -98,7 +98,7 @@ Create an Event Hubs resource that is used as the handler destination for the na
 1. On the **Select managed identities** page, select **Event Grid Namespace** for the **Managed identity**, and then select the managed identity that has the same name as the Event Grid namespace.
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/select-managed-identities.png" alt-text="Screenshot that shows the Select managed identities page." lightbox="./media/publish-events-using-namespace-topics-portal/select-managed-identities.png":::
 1. On the **Select managed identities** page, choose **Select**. 
-    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/select-managed-identy.png" alt-text="Screenshot that shows the selected managed identity." lightbox="./media/publish-events-using-namespace-topics-portal/select-managed-identy.png":::
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/select-managed-identity.png" alt-text="Screenshot that shows the selected managed identity." lightbox="./media/publish-events-using-namespace-topics-portal/select-managed-identity.png":::
 1. Now, on the **Add role assignment** page, select **Review + assign**. 
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/add-role-assignment-managed-identity.png" alt-text="Screenshot that shows Add role assignment page with the managed identity selected." lightbox="./media/publish-events-using-namespace-topics-portal/add-role-assignment-managed-identity.png":::
 1. On the **Review + assign** page, select **Review + assign**. 
