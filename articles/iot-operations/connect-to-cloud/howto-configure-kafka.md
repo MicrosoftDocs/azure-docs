@@ -1,6 +1,6 @@
 ---
 title: Send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
 author: PatAltimore
 ms.author: patricka
@@ -13,11 +13,11 @@ ms.date: 01/16/2024
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
 
-# Send and receive messages between Azure IoT MQ and Event Hubs or Kafka
+# Send and receive messages between Azure IoT MQ Preview and Event Hubs or Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Kafka connector pushes messages from Azure IoT MQ's MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
+The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
 
 ## Configure Event Hubs connector via Kafka endpoint

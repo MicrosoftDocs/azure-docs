@@ -13,7 +13,7 @@ ms.date: 11/1/2023
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT MQ
+# Metrics for Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

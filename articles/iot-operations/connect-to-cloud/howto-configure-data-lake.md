@@ -13,11 +13,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
 
-# Send data from Azure IoT MQ to Data Lake Storage
+# Send data from Azure IoT MQ Preview to Data Lake Storage
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use the data lake connector to send data from Azure IoT MQ broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2) and Microsoft Fabric OneLake. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
+You can use the data lake connector to send data from Azure IoT MQ Preview broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2) and Microsoft Fabric OneLake. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
 
 ## What's supported
 

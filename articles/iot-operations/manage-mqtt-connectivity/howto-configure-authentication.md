@@ -243,7 +243,7 @@ spec:
           secretName: x509-attributes
 ```
 
-### Connect mosquitto client to Azure IoT MQ with X.509 client certificate
+### Connect mosquitto client to Azure IoT MQ Preview with X.509 client certificate
 
 A client like mosquitto needs three files to be able to connect to Azure IoT MQ with TLS and X.509 client authentication. For example:
 
@@ -263,7 +263,7 @@ In the example:
   - When mosquitto client connects to Azure IoT MQ over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
   - When the Azure IoT MQ requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. Azure IoT MQ can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the `cafile` must contain both the intermediate and root certificates.
 
-### Understand Azure IoT MQ X.509 client authentication flow
+### Understand Azure IoT MQ Preview X.509 client authentication flow
 
 ![Diagram of the X.509 client authentication flow.](./media/howto-configure-authentication/x509-client-auth-flow.svg)
 

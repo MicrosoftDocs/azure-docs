@@ -244,7 +244,7 @@ Now, you can deploy Azure IoT Operations to your cluster.
 
 ### Configure cluster network (AKS EE)
 
-On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
 
 1. Enable a firewall rule for port 8883:
 

@@ -15,7 +15,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you send MQTT data from Azure IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
+In this walkthrough, you send MQTT data from Azure IoT MQ Preview directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
 Azure IoT Operations Peview - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
@@ -64,7 +64,7 @@ From the deployment JSON outputs, note the name of the IoT MQ extension. It shou
 
 Next, create and set up the required Fabric resources.
 
-### Create a Fabric workspace and give access to IoT MQ 
+### Create a Fabric workspace and give access to Azure IoT MQ Preview
 
 Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to IoT MQ's extension identity in the **Add people** sidebar.
 

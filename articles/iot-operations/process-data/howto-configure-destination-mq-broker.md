@@ -17,7 +17,7 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
+Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ Preview instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
 
 ## Prerequisites
 

@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid
+# Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -47,7 +47,7 @@ az eventgrid namespace topic-space create -g <RESOURCE_GROUP> --namespace-name <
 
 By using the `#` wildcard in the topic template, you can publish to any topic under the `telemetry` topic space. For example, `telemetry/temperature` or `telemetry/humidity`.
 
-## Give IoT MQ access to the Event Grid topic space
+## Give Azure IoT MQ Preview access to the Event Grid topic space
 
 Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension.
 

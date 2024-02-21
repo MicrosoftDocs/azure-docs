@@ -158,6 +158,6 @@ Once you have the secret store set up on your cluster, you can create and add Az
 
 The CSI driver updates secrets according to a polling interval, so a new secret won't be updated on the pods until the next polling interval. If you want the secrets to be updated immediately, update the pods for that component. For example, for the Azure IoT Data Processor Preview component, update the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods.
 
-## Azure IoT MQ secrets
+## Azure IoT MQ Preview secrets
 
-The steps to manage secrets with Azure Key Vault for Azure IoT MQ are different. For more information, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
+The steps to manage secrets with Azure Key Vault for Azure IoT MQ Preview are different. For more information, see [Manage Azure IoT MQ secrets using Azure Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).

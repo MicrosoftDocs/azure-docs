@@ -1,6 +1,6 @@
 ---
 title: Test connectivity to IoT MQ with MQTT clients
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
@@ -13,11 +13,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my Azure IoT MQ broker correctly.
 ---
 
-# Test connectivity to IoT MQ with MQTT clients
+# Test connectivity to Azure IoT MQ Preview with MQTT clients
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article shows different ways to test connectivity to IoT MQ with MQTT clients.
+This article shows different ways to test connectivity to Azure IoT MQ Preview with MQTT clients.
 
 By default:
 

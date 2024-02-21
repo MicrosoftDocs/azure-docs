@@ -93,7 +93,7 @@ The simulation generates data and measurements from two sources for anomaly dete
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ Preview.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/anomaly-detection/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
@@ -627,7 +627,7 @@ This tutorial shows you how to do anomaly detection with the Contoso manufacturi
 ## Related content
 
 - [Tutorial: Calculate overall equipment effectiveness](tutorial-overall-equipment-effectiveness.md)
-- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

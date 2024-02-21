@@ -1,6 +1,6 @@
 ---
 title: Configure MQ diagnostics service
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: How to configure Azure IoT MQ diagnostics service.
 author: timlt
 ms.author: timlt
@@ -14,9 +14,9 @@ ms.date: 11/14/2023
 #to monitor the health of the MQ service.
 ---
 
-# Configure Azure IoT MQ diagnostic service settings
+# Configure Azure IoT MQ Preview diagnostic service settings
 
-Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
+Azure IoT MQ Preview includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
 
 ## Diagnostics service configuration
