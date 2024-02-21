@@ -51,7 +51,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Set *Target Platform* to **Windows**.\
   ![A screenshot showing the Build Menu, highlighting the chosen platform of 'PC, Mac & Linux Standalone', and the setting 'Target Platform' being 'Windows' in Unity 2021 and later.](./media/unity-2021-build-settings-pc-standalone.png)
 1. Select **Switch to Platform**.
-1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
+1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the exe should be stored.
 
 # [UWP](#tab/UnityUWP)
 
@@ -65,18 +65,34 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the Visual Studio solution
 
+# [Standalone](#tab/UnityStandalone)
+
+Building in standalone mode does not produce a Visual Studio solution, but instead a simple .exe file. So no building is necessary here.
+
+# [UWP](#tab/UnityUWP)
+
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
   ![A screenshot showing the Visual Studio and highlighting the 'Solution Configurations' being Release, the 'Solution Platforms' being 'x86' and the 'Debugger mode' being 'Local Machine'.](./media/unity-deploy-config-pc.png)
 1. Build the solution.
 
+---
+
 ## Launch the sample project
+
+# [Standalone](#tab/UnityStandalone)
+
+Simply run the .exe file which was produced in the build step.
+
+# [UWP](#tab/UnityUWP)
 
 Start the Debugger in Visual Studio (F5). It automatically deploys the app to the PC.
 
 The sample app should launch and then start a new session. After a while, the session is ready and the remotely rendered model will appear in front of you.
 If you want to launch the sample a second time later, you can also find it from the Start menu now.
+
+---
 
 ## Next steps
 
