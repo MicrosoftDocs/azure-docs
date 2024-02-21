@@ -24,8 +24,7 @@ This operation should be exactly the same as on-premises in the prism portal.
 
 ## Is NC2 on Azure a third party or first party offering?
 
-NC2 on Azure is a 3rd-party offering on Azure Marketplace.
-However, we're working hand in hand with Nutanix to offer the best product experience.
+Both. On Azure Marketplace, Nutanix on Azure as Baremetal is first party; as Nutanix Software, it is third party-offering, with a direct engagement by Microsoft for sales and support. This includes a co-developed product and joint support model: Nutanix software is supposted by Nutanix, and Azuire infrastructure is supported by Microsoft. 
 
 ## How will I be billed?
 

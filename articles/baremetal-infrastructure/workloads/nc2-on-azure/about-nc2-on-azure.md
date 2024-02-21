@@ -79,10 +79,11 @@ Advantages of the hybrid benefit over license mobility when adopting IaaS are:
 
 NC2 on Azure requires manual escalation to request, approve and deliver ESU keys to the client.
 
-* ESUs for deployment to the supported platforms are intended to be free of charge (Azure and Azure connected), however unlike the majority of VMs on Azure today, MSFT cannot provide automatic updates. Rather, clients must request keys and install the updates themselves. Supported platforms are:
+* ESUs for deployment to the supported platforms are intended to be free of charge (Azure and Azure connected), however unlike the majority of VMs on Azure today, Microsoft cannot provide automatic updates. Rather, clients must request keys and install the updates themselves. Supported platforms are:
   * Windows Server 2008 and Windows Server 2008 R2
   * Windows Server 2012 and Windows Server 2012 R2
-* For regular on-premises customers – there is no manual escalation process; these customers must work with VLSC and EA processes. To be eligible to purchase ESUs for on-premises deployment, customers must have Software Assurance.
+* For regular on-premises customers – there is no manual escalation process; these customers must work with Volume Licensing Service Center (VLSC) and EA processes. To be eligible to purchase ESUs for on-premises deployment, customers must have Software Assurance.
+* An ESU is generally valid for three years. 
 
 #### To request ESU keys
 
