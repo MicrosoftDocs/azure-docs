@@ -1,12 +1,12 @@
 ---
-title: Get started with Document Translation
+title: Get started with asynchronous Document Translation
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and the REST API"
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 01/17/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp
@@ -15,9 +15,9 @@ ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-g
 zone_pivot_groups: programming-languages-set-translator
 ---
 
-# Get started with Document Translation
+# Get started with asynchronous document translation
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#batch-supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../..
 
 To get started, you need:
 
-* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/)
 
 * An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure Blob Storage account for your source and target files:
 
@@ -65,7 +65,7 @@ To get started, you need:
 
 ### Retrieve your key and document translation endpoint
 
-*Requests to the Translator service require a read-only key and custom endpoint to authenticate access. The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories and is available in the Azure portal.
+Requests to the Translator service require a read-only key and custom endpoint to authenticate access. The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories and is available in the Azure portal.
 
 1. If you created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 
@@ -95,7 +95,6 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
-
 
 ### Sample document
 

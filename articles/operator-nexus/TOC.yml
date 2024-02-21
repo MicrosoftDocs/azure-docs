@@ -30,8 +30,13 @@
       href: concepts-security.md
     - name: Control Plane Resiliency
       href: concepts-rack-resiliency.md
+<<<<<<< HEAD
     - name: Route Policy
       href: concepts-nexus-route-policies-overview.md
+=======
+    - name: Availability
+      href: concepts-nexus-availability.md
+>>>>>>> main
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
