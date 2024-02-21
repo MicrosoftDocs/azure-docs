@@ -49,7 +49,7 @@ sections:
           1. Recommend setting up HDInsight clusters with a [Custom Ambari DB](./hdinsight-custom-ambari-db.md) to improve the cluster scalability.
           2. Use [Azure Data Lake Storage Gen2](./hdinsight-hadoop-use-data-lake-storage-gen2.md) to create HDInsight clusters to take advantage of higher bandwidth and other performance characteristics of Azure Data Lake Storage Gen2.
           3. Headnodes should be sufficiently large to accommodate multiple master services running on these nodes.
-          4. Some specific workloads such as Interactive Query will also need larger Zookeeper nodes. Please consider minimum of 8 core VMs.
+          4. Some specific workloads such as Interactive Query will also need larger Zookeeper nodes. Please consider minimum of eight core VMs.
           5. In the case of Hive and Spark, use [External Hive metastore](./hdinsight-use-external-metadata-stores.md).
           
   - name: Individual Components
@@ -394,7 +394,7 @@ sections:
             ```
           
           > [!NOTE]
-          > Curl will prompt you for a password. You must enter a valid password for the cluster login username.
+          > Curl prompts you for a password. You must enter a valid password for the cluster login username.
           
   - name: Billing
     questions:
