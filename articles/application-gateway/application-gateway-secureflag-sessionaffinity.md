@@ -25,29 +25,29 @@ In this guide you will learn to create a Rewrite set for your Application Gatewa
 1. Select Rewrites in the left pane.
 1. Select Rewrite set.
 1. Under the Name and Association tab
-  1. Specify a name for this new rewrite set.
-  1. Select the routing rule(s) for which you wish to rewrite the ApplicationGatewayAffinity cookie's flag.
-  1. Select Next.
+    1. Specify a name for this new rewrite set.
+    1. Select the routing rule(s) for which you wish to rewrite the ApplicationGatewayAffinity cookie's flag.
+    1. Select Next.
 1. Select "Add rewrite rule"
-  1. Enter a name for the rewrite rule.
-  1. Enter a numeric value for Rule Sequence field.
+    1. Enter a name for the rewrite rule.
+    1. Enter a numeric value for Rule Sequence field.
 1. Select "Add condition"
 1. Now open the "If" condition box and use the following details.
-  1. Type of variable to check - HTTP header
-  1. Header type - Response header
-  1. Header name - Common header
-  1. Common header - Set-Cookie
-  1. Case-sensitive - No
-  1. Operator - equal (=)
-  1. Pattern to match - (.*)
-  1. Select Ok to save these details.
+    1. Type of variable to check - HTTP header
+    1. Header type - Response header
+    1. Header name - Common header
+    1. Common header - Set-Cookie
+    1. Case-sensitive - No
+    1. Operator - equal (=)
+    1. Pattern to match - (.*)
+    1. Select Ok to save these details.
 1. Go to the Then box to specify action details.
-  1. Rewrite type - Response header
-  1. Action type - Set
-  1. Header name - Common header
-  1. Common header - Set-Cookie
-  1. Header value - {http_resp_Set-Cookie_1}; HttpOnly ; Secure
-  1. Select Ok
+    1. Rewrite type - Response header
+    1. Action type - Set
+    1. Header name - Common header
+    1. Common header - Set-Cookie
+    1. Header value - {http_resp_Set-Cookie_1}; HttpOnly ; Secure
+    1. Select Ok
 1. Select Update to save the rewrite set configurations.
 
 
