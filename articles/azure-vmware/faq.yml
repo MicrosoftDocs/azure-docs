@@ -122,8 +122,8 @@ sections:
       - question: Is NSX-T Data Center required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX-T Data Center on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
 
-      - question: Is NSX-T Data Center Identity Firewall supported with Azure VMware Solution?
-        answer: Yes, NSX-T Data Center Identity Firewall is supported with Azure VMware Solution.
+      - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
+        answer: Yes with add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall licence.This add-on license needs to be bought from VMware and Microsoft will apply that license on to AVS customer SDDC with a support request.
         
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
