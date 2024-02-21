@@ -3,6 +3,8 @@
 - name: Get started
   expanded: true
   items:
+  - name: What's new?
+    href: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
   - name: Overview
     items:
     - name: About API Management
@@ -12,8 +14,6 @@
       href: api-management-features.md
     - name: v2 service tiers
       href: v2-service-tiers-overview.md
-    - name: What's new?
-      href: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
     - name: Terminology
       href: api-management-terminology.md
     - name: Service limits
@@ -605,10 +605,8 @@
     href: api-management-faq.yml
   - name: Pricing
     href: https://aka.ms/apimpricing
-  - name: Product updates
+  - name: Azure updates
     href: https://aka.ms/apimupdates
-  - name: Release notes
-    href: https://aka.ms/apim/releases
   - name: API design
     items:
     - name: API design ebook
