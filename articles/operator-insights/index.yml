@@ -68,6 +68,8 @@ landingContent:
           url: upgrade-ingestion-agent.md
         - text: Rotate secrets for the Azure Operator Insights ingestion agent
           url: rotate-secrets-for-ingestion-agent.md
+        - text: Configuration reference
+          url: ingestion-agent-configuration-reference.md
 
   # Card
   - title: Use Azure Operator Insights

@@ -228,16 +228,13 @@ The configuration you need is specific to the type of source and your Data Produ
     ---
 1. Configure the `pipelines` section using the example configuration and your Data Product's documentation. Each `pipeline` has three configuration sections.
     - `id`. The ID identifies the pipeline and must not be the same as any other pipeline ID for this ingestion agent. Any URL reserved characters must be percent-encoded. Refer to your Data Product's documentation for any recommendations.
-    - `sink`. Sink configuration controls uploading data to the Data Product's input storage account.
-        - In the `auth` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `type` and `secret_name` unchanged.
-        - Refer to your Data Product's documentation for information on required values for other parameters.
-            > [!IMPORTANT]
-            > The `container_name` field must be set exactly as specified by your Data Product's documentation.
-    - `source`. Source configurations controls which files are ingested. You can configure multiple sources.
+    - `source`. Source configuration controls which files are ingested. You can configure multiple sources.
 
         # [SFTP sources](#tab/sftp)
 
-        The following fields are required for each source.
+        Delete all pipelines in the example except the `contoso-logs` example, which contains `sftp_pull` source configuration.
+
+        Update the example to meet your requirements. The following fields are required for each source.
 
         - `host`: the hostname or IP address of the SFTP server.
         - `filtering.base_path`: the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
@@ -262,6 +259,11 @@ The configuration you need is specific to the type of source and your Data Produ
         Delete all pipelines in the example except `mcc_edrs`. Most of the fields in `mcc_edrs` are set to default values. You can leave them unchanged unless you need a specific value.
 
         ---
+    - `sink`. Sink configuration controls uploading data to the Data Product's input storage account.
+        - In the `auth` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `type` and `secret_name` unchanged.
+        - Refer to your Data Product's documentation for information on required values for other parameters.
+            > [!IMPORTANT]
+            > The `container_name` field must be set exactly as specified by your Data Product's documentation.
 
 ## Start the agent software
 

@@ -95,8 +95,9 @@ Each VM running the agent must meet the following minimum specifications.
 
 ### Required agent configuration
 
-
 Use the information in this section when [setting up the agent and configuring the agent software](set-up-ingestion-agent.md#configure-the-agent-software).
+
+The ingestion agent must use SFTP pull as a data source.
 
 |Information | Configuration setting for Azure Operator Ingestion agent  | Value  |
 |---------|---------|---------|

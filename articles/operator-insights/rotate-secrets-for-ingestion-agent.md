@@ -26,7 +26,10 @@ None.
 1. Obtain the new certificate and private key in the base64-encoded PKCS12 format, as described in [Set up Ingestion Agents for Azure Operator Insights](set-up-ingestion-agent.md).
 1. Copy the certificate to the ingestion agent VM.
 1. Save the existing certificate file and replace with the new certificate file.
-1. Restart the agent: `sudo systemctl restart az-aoi-ingestion.service`.
+1. Restart the agent.
+    ```
+    sudo systemctl restart az-aoi-ingestion.service
+    ```
 
 ## Related content
 
