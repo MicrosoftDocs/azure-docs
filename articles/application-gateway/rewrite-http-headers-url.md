@@ -62,24 +62,22 @@ A rewrite set is a collection of a Routing Rule, Condition and Action.
   1. URL Query String: The new value to which the query string must be rewritten to.
   1. Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
-DONE
-
 ## Pattern matching and Capturing 
-Patten matching and capturing are supported under Condition and Action. Pattern matching and capturing under Action is supported only for a specific header.
+Patten matching and capturing are supported under Condition and Action (under Action, it is supported only for a specific header).
 
 ### Pattern matching
 Application Gateway uses regular expressions for pattern matching. You should use Regular Expression 2 (RE2) compatible expressions when writing your pattern matching syntax.
 
 You can use pattern matching under both Condition and Action.
 1. **Condition**: This is used to match the values for a Header or Server Variable. To match a pattern under "Conditions" use the "pattern" property.
-1. **Action**: Pattern matching under Action Set is only available for Response header "Set-Cookie". To match a pattern for Set-Cookie under an action, use the "HeaderValueMatcher" property. If captured, its value can be used as {capt_header_value_matcher}. As there can be multiple Set-Cookie, a pattern matching here allows you to look for other additional conditions. Example: For certain versions of user-agent under Condition, rewrite the set-cookie named "cookie2" with max-age=3600 (one hour). 
+1. **Action**: Pattern matching under Action Set is only available for Response header "Set-Cookie". To match a pattern for Set-Cookie under an action, use the "HeaderValueMatcher" property. If captured, its value can be used as {capt_header_value_matcher}. As there can be multiple Set-Cookie, a pattern matching here allows you to look for a specific cookie. Example: For a certain version of user-agent, you want to rewrite the set-cookie named "cookie2" with max-age=3600 (one hour). In this case, you can use
+   * Condition - Type: Request header, Header name: user-agent, Pattern to match: *2.0
+   * Action - Rewrite type: Response header, Action type: Set, Header name: Set-Cookie, Header Value Matcher: cookie2=(.*), Header value: cookie2={capt_header_value_matcher_1};Max-Age=3600
 
 > [!Note]
 > If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using Perl Compatible Regular Expressions (PCRE) while doing lookahead and lookbehind (negative or positive) assertions.
 
 ### Syntax for capturing
-
-To capture a substring for later use, put parentheses around the subpattern that matches it in the condition regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. Some examples from [ref]: 
 
 Patterns can also be used to capture a sub-string for later use. Put parentheses around a sub-pattern in the regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. You can find some example in this [Perl programming guidance](https://docstore.mik.ua/orelly/perl/prog3/ch05_07.htm).
 * (\d)(\d) # Match two digits, capturing them into groups 1 and 2
