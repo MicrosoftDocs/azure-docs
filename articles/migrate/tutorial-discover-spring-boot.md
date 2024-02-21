@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/01/2023
-ms.custom: mvc, subject-rbac-steps, engagement-fy23, references_regions
+ms.date: 02/21/2024
+ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
@@ -89,7 +89,7 @@ After you have performed server discovery and software inventory using the Azure
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 8 GB RAM, with 30 GB storage, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> api.snapcraft.io <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud) <br/><br/>[Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
+    **Network Requirements** | Access to the following endpoints: <br/><br/>*.docker.io <br/></br>*.docker.com <br/><br/>api.snapcraft.io <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud) <br/><br/>[Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 After copying the script, you can go to your Linux server, save the script as *Deploy.sh* on the server. 
 
@@ -195,10 +195,17 @@ After you save the script on the Linux server, follow these steps:
 
 ## Encryption at rest
 
+#### [Bring your own cluster](#tab/encrypt-rest)
+
 As you're bringing your own Kubernetes cluster, there's a shared responsibility to ensure that the secrets are secured. 
 - We recommend you choose a Kubernetes cluster with disk encryption for its services. 
 - [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
 
+#### [Packaged Kubernetes cluster](#tab/cluster)
+
+As you are setting a packaged appliance, we would have shared responsibility to ensure that the secrets are secured.  
+- We recommend you choose a Linux VM with disk encryption for its services.
+---
 
 ## Configure Kubernetes-based appliance
 
