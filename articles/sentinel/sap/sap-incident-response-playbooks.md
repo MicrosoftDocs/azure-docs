@@ -65,4 +65,5 @@ In this article, you learned about the playbooks available in the Microsoft Sent
 - Learn more about the [Microsoft Sentinel solution for SAP® applications](solution-overview.md).
 - Learn how to [deploy the Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
 - Learn about the [security content available in the Microsoft Sentinel solution for SAP® applications](sap-solution-security-content.md).
+- Learn about more playbooks available when you [integrate with the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard) and [deploy automatic attack disruption for SAP](deployment-attack-disrupt.md).
 - Learn about [automation rules](../automate-incident-handling-with-automation-rules.md) and [playbooks](../automate-responses-with-playbooks.md).
