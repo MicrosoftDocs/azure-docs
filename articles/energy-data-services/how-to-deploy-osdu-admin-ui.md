@@ -60,7 +60,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     npm install -g @angular/cli@13.3.9 && \
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
-    [![Screenshot that shows installation](./media/how-to-deploy-osdu-admin-ui/install-screen.png)](./media/how-to-deploy-osdu-admin-ui/install-screen.png#lightbox)
+    [![Screenshot that shows installation.](./media/how-to-deploy-osdu-admin-ui/install-screen.png)](./media/how-to-deploy-osdu-admin-ui/install-screen.png#lightbox)
 
 1. Log into Azure CLI by executing the command on the terminal. It takes you to the sign-in screen.
     ```azurecli-interactive
@@ -177,8 +177,8 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     }
     ```
 
-> [!NOTE]
-> [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
+   > [!NOTE]
+   > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
 
 1. If you aren't able to give app permissions in the Prerequisite step because of the subscription constraints, remove `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively. 
 
