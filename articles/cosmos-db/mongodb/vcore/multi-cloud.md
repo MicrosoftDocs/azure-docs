@@ -2,7 +2,7 @@
 title: Azure Cosmos DB for MongoDB vCore is Your Multi-Cloud Solution
 description: Azure Cosmos DB for MongoDB vCore offers a flexible, multi-cloud database service, leveraging the MongoDB wire protocol for seamless migration and integration across environments.
 author: gahl-levy
-ms.autho: gahllevy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: overview
