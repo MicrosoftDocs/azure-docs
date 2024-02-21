@@ -7,7 +7,7 @@ author: spelluru
 ms.date: 02/20/2024
 ---
 
-# Publish to namespace topics and consume events in Azure Event Grid
+# Publish to namespace topics and consume events in Azure Event Grid - Azure portal
 
 
 In this quickstart, you use the Azure portal to do the following tasks.
