@@ -58,7 +58,7 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 
 | **Workload**                       | **SKUs**               |
 | ---                                | ---                    |
-| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic and VpnGw1 |
+| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
 | **Dev-test or proof of concept**   | Basic (**)             |
 |                                    |                        |
 
