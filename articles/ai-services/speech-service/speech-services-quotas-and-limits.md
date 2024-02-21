@@ -46,7 +46,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-| [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
+| [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 100 requests per 10 seconds (600 requests per minute) |
 | Max audio input file size | N/A | 1 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
@@ -58,7 +58,7 @@ The limits in this table apply per Speech resource when you create a custom spee
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-| REST API limit | 300 requests per minute | 300 requests per minute |
+| REST API limit | 100 requests per 10 seconds (600 requests per minute) | 100 requests per 10 seconds (600 requests per minute) |
 | Max number of speech datasets | 2 | 500 |
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
