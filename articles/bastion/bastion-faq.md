@@ -29,9 +29,13 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), default 0.0.0.0/0 route must not be overwritten. 
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), the AzureBastionSubnet must reside within a Virtual Network where the default 0.0.0.0/0 route propagation is disabled at the VNet connection level. 
 
-### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
+### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
+
+### <a name="forcedtunnel"></a>Can I use Azure Bastion if I am force-tunneling Internet traffic back to On-Premises?
+
+No, if you are advertising a default route (0.0.0.0/0) over ExpressRoute or VPN, and this route is being injected in to your Virtual Networks, this will break the Azure Bastion service. 
 
 Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select doesn't overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, make sure that the host virtual network isn't linked to a private DNS zone with the following exact names:
 
