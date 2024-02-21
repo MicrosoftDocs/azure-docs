@@ -254,7 +254,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 1. Select the route you want to view details of.
 
-    :::image type="content" source="./media/manage-route-table/view-route.png" alt-text="Screenshot of a route details page":::
+    :::image type="content" source="./media/manage-route-table/view-route.png" alt-text="Screenshot of a route with details page.":::
 
 ### View details of a route - commands
 
