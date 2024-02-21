@@ -9,7 +9,7 @@ ms.author: kesheth
 ms.custom: "include file"
 ---
 
-### Allow specific IP addresses from other Azure regions to access the Azure storage account
+### Allow specific IP addresses to access the Azure storage account from other Azure regions
 
 1. In the Azure portal, go to the Azure Data Lake Storage Gen2 account.
 
