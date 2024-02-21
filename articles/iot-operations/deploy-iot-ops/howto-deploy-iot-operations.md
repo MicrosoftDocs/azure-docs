@@ -223,9 +223,9 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | `clusterLocation` | string | Specify the cluster's location if it's different than the resource group's location. Otherwise, this parameter defaults to the resource group's location. |
    | `location` | string | If the resource group's location isn't supported for Azure IoT Operations deployments, use this parameter to override the default and set the location for the Azure IoT Operations resources. |
    | `simulatePLC` | Boolean | Set to `true` if you want to include a simulated component to generate test data. |
-   | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor Preview resource. |
+   | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
    | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
-   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
+   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure IoT OPC UA Broker resource. |
    | `deployResourceSyncRules` | Set to `false` if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription. |
 
 1. Save your changes to the parameters file.
