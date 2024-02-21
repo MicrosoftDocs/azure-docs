@@ -6,11 +6,11 @@ summary: Learn how to securely deploy and manage  mobile networks for 5G Interne
 metadata:
   title: Azure Operator 5G Core documentation
   description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
-  ms.service: azure
+  ms.service: azure-operator-5g-core-operator-5g-core
   ms.topic: landing-page
   author: HollyCl
   ms.author: HollyCl
-  ms.date: 02/13/2024
+  ms.date: 02/21/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
