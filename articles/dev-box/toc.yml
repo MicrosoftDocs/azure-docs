@@ -50,6 +50,10 @@ items:
     href: how-to-configure-azure-compute-gallery.md
   - name: Provision a Custom Image with Azure Image Builder
     href: how-to-customize-devbox-azure-image-builder.md
+- name: Customize dev boxes
+  items:
+  - name: Create reusable customizations
+    href: how-to-customize-dev-box-setup-tasks.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal

@@ -266,6 +266,8 @@
                        href: istio-about.md
                      - name: Deploy Istio service mesh add-on
                        href: istio-deploy-addon.md
+                     - name: Configure Istio service mesh add-on
+                       href: istio-meshconfig.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
                      - name: Plug-in CA certificates for Istio
