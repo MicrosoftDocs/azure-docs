@@ -81,19 +81,7 @@ Run `azd auth login`
 4. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
 5. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
-### Troubleshooting: Can't Connect to Localhost
-
-Certain Azure security policies cause conflicts when trying to sign in. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
-
-The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
-
-1. Inside a terminal, run `az login --scope https://graph.microsoft.com/.default` 
-2. Copy the "localhost" URL from the failed redirect
-3. In a new terminal window,  type `curl` and paste your url
-4. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
-5. Close the terminal and go back to the old terminal
-6. Copy and note down which subscription_id you want to use
-7. Paste in the subscription_ID to the command `az account set -n {sub}`
+[!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
 
 - If you have multiple Azure subscriptions, select the appropriate subscription for billing using the [az account set](/cli/azure/account#az-account-set) command.
 
