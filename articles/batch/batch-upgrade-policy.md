@@ -41,7 +41,7 @@ Only certain OS platform images are currently supported for automatic upgrade. F
 ## Requirements
 
 * The version property of the image must be set to **latest**. 
-* Use Batch API version 2023-11-01 or higher. 
+* Use Batch API version 2024-02-01 or higher. 
 * Ensure that external resources specified in the pool are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more. 
 * If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to 'false' in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update is not required.
 
@@ -57,7 +57,7 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 > [!Note]
 > **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the provisioned scale set by Azure Batch. The Upgrade Policy mode will determine what happens to existing instances in scale set. However, Automatic OS Upgrade Policy enableAutomaticOSUpgrade is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
 
-> [!Note]
+> [!IMPORTANT]
 > If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **Microsoft.Compute/RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use *osRollingUpgradeDeferral* unless this feature is registered. To enable this feature, please [manually register](../azure-resource-manager/management/preview-features.md) it on your subscription.
 
 ### REST API
@@ -124,7 +124,8 @@ Request Body
 
 ### SDK (C#)
 The following example describes how to create a pool with Auto OS Upgrade via C# codes:
-```
+
+```csharp
 public async Task CreateUpgradePolicyPool()
 {
      // Authenticate
@@ -205,6 +206,16 @@ public async Task CreateUpgradePolicyPool()
      Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 }
 ```
+
+## FAQs
+
+- How can I enable Auto OS Upgrade?
+
+   Please start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
+
+- Will my tasks be disrupted if I enabled Auto OS Upgrade?
+
+  Tasks will not be disrupted when *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. Otherwise, node will upgrade when it receives a new OS version, regardless of whether it is currently running a task or not. So we strongly advise enabling *automaticOSUpgradePolicy.osRollingUpgradeDeferral*.
 
 ## Next steps
 
