@@ -96,17 +96,17 @@ Using a `textSplitMode` of `pages` results in a majority of chunks having total 
 
 The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `pages`, a `maximumPageLength` of 2000, and a `pageOverlapLength` of 500 on the Earth at Night e-book:
 
-   :::image type="content" source="media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlaplength-500-charaters.png" alt-text="Histogram of chunk character count for maximumPageLength 2000 and pageOverlapLength 500.":::
+   :::image type="content" source="./media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlap-500-characters.png" alt-text="Histogram of chunk character count for maximumPageLength 2000 and pageOverlapLength 500.":::
 
-   :::image type="content" source="media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlaplength-500-tokens.png" alt-text="Histogram of chunk token count for maximumPageLength 2000 and pageOverlapLength 500.":::
+   :::image type="content" source="./media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlap-500-tokens.png" alt-text="Histogram of chunk token count for maximumPageLength 2000 and pageOverlapLength 500.":::
 
 Using a `textSplitMode` of `sentences` results in a large number of chunks consisting of individual sentences. These chunks are significantly smaller than those produced by `pages`, and the token count of the chunks more closely matches the character counts.
 
 The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `sentences` on the Earth at Night e-book:
 
-   :::image type="content" source="media/vector-search-how-to-chunk-documents/sentences-characters.png" alt-text="Histogram of chunk character count for sentences.":::
+   :::image type="content" source="./media/vector-search-how-to-chunk-documents/sentences-characters.png" alt-text="Histogram of chunk character count for sentences.":::
 
-   :::image type="content" source="media/vector-search-how-to-chunk-documents/sentences-tokens.png" alt-text="Histogram of chunk token count for sentences.":::
+   :::image type="content" source="./media/vector-search-how-to-chunk-documents/sentences-tokens.png" alt-text="Histogram of chunk token count for sentences.":::
 
 The optimal choice of parameters depends on how the chunks will be used. For most applications, it's recommended to start with the following default parameters:
 
@@ -157,8 +157,6 @@ print(f"Max: {max_token_count}")
 ```
 
 Output indicates that no pages have zero tokens, the average token length per page is 189 tokens, and the maximum token count of any page is 1,583.
-
-:::image type="content" source="media/vector-search-how-to-chunk-documents/langchain-example-tiktoken-histogram.png" alt-text="Histogram of tokens using tiktoken.":::
 
 Knowing the average and maximum token size gives you insight into setting chunk size. Although you could use the standard recommendation of 2000 characters with a 500 character overlap, in this case it makes sense to go lower given the token counts of the sample document. In fact, setting an overlap value that's too large can result in no overlap appearing at all.
 
