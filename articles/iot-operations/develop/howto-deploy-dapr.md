@@ -1,7 +1,7 @@
 ---
-title: Deploy Dapr Pluggable Components
+title: Deploy Dapr pluggable components
 titleSuffix: Azure IoT MQ
-description: Deploy Dapr and the IoT MQ Pluggable Components to a cluster.
+description: Deploy Dapr and the IoT MQ pluggable components to a cluster.
 author: timlt
 ms.author: timlt
 ms.subservice: mq
@@ -10,18 +10,18 @@ ms.custom:
 ms.date: 1/31/2024
 ---
 
-# Deploy Dapr Pluggable Components
+# Deploy Dapr pluggable components
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
+The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed applications. Dapr lets you build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
 
 Azure IoT MQ Preview supports two of these building blocks, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md):
 
-- Publish and Subscribe
-- State Management
+- Publish and subscribe
+- State management
 
-To use the IoT MQ Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
+To use the IoT MQ Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
 
 ## Install Dapr runtime
 
@@ -39,9 +39,9 @@ helm upgrade --install dapr dapr/dapr --version=1.11 --namespace dapr-system --c
 > [!IMPORTANT]
 > **Dapr v1.12** is currently not supported.
 
-## Register MQ's pluggable components
+## Register MQ pluggable components
 
-To register MQ's pluggable Pub/sub and State Management components, create the component manifest yaml, and apply it to your cluster. 
+To register MQ's pluggable pub/sub and state management components, create the component manifest yaml, and apply it to your cluster. 
 
 To create the yaml file, use the following component definitions:
 
@@ -157,4 +157,4 @@ To configure authorization policies to Azure IoT MQ, first you create a [BrokerA
 
 ## Next steps
 
-Now that you have deployed the Dapr components, you can [Use Dapr to develop distributed applications](howto-develop-dapr-apps).
+Now that you have deployed the Dapr components, you can [Use Dapr to develop distributed applications](howto-develop-dapr-apps.md).

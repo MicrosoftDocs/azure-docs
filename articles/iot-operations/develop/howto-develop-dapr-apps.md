@@ -22,7 +22,7 @@ To use the IoT MQ Dapr pluggable components, deploy both the pub/sub and state s
 ## Prerequisites
 
 * Azure IoT Operations deployed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
-* IoT MQ Dapr Components deployed - [Deploy IoT MQ Dapr Components](./howto-develop-deploy-dapr.md)
+* IoT MQ Dapr Components deployed - [Deploy IoT MQ Dapr Components](./howto-deploy-dapr.md)
 
 ## Creating a Dapr application
 
@@ -170,4 +170,4 @@ kubectl logs dapr-workload daprd
 
 ## Next steps
 
-Now that you know how to develop a Dapr application, you can run through the tutorial to [Build an event-driven app with Dapr](tutorial-event-driven-with-dapr).
+Now that you know how to develop a Dapr application, you can run through the tutorial to [Build an event-driven app with Dapr](tutorial-event-driven-with-dapr.md).

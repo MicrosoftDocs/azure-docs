@@ -205,7 +205,7 @@ items:
       items:
       - name: About distributed apps
         href: develop/concept-about-distributed-apps.md
-      - name: Develop Dapr apps
+      - name: Dapr apps
         items:
         - name: Deploy Dapr
           href: develop/howto-deploy-dapr.md
