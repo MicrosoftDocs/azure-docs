@@ -184,12 +184,6 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
    kubectl config use-context default
    ```
 
-1. Install `nfs-common` on the host machine:
-
-   ```bash
-   sudo apt install nfs-common
-   ```
-
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048) and the file descriptor limit.
 
    ```bash
@@ -212,7 +206,7 @@ Use the Azure IoT Operations extension for Azure CLI to verify that your cluster
 az iot ops verify-host
 ```
 
-This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
+This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
 
 ## Configure cluster and deploy Azure IoT Operations
 

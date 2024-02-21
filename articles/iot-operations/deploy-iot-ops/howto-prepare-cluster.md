@@ -176,7 +176,7 @@ pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0           
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
 
-To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
+To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
 
 ```azurecli
 az iot ops verify-host
