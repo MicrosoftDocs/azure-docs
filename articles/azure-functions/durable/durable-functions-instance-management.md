@@ -712,12 +712,11 @@ public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     [QueueTrigger("suspend-resume-queue")] string instanceId)
 {
+    // To suspend an orchestration
     string suspendReason = "Need to pause workflow";
     await client.SuspendAsync(instanceId, suspendReason);
     
-    // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches the Suspended state.
-    
+    // To resume an orchestration
     string resumeReason = "Continue workflow";
     await client.ResumeAsync(instanceId, resumeReason);
 }
@@ -731,12 +730,11 @@ const df = require("durable-functions");
 module.exports = async function(context, instanceId) {
     const client = df.getClient(context);
 
+    // To suspend an orchestration
     const suspendReason = "Need to pause workflow";
     await client.suspend(instanceId, suspendReason);
 
-    // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches the Suspended state.
-
+    // To resume an orchestration
     const resumeReason = "Continue workflow";
     await client.resume(instanceId, resumeReason);
 };
@@ -752,12 +750,11 @@ from datetime import timedelta
 async def main(req: func.HttpRequest, starter: str, instance_id: str):
     client = df.DurableOrchestrationClient(starter)
 
+    # To suspend an orchestration
     suspend_reason = "Need to pause workflow"
     await client.suspend(instance_id, suspend_reason)
 
-    # Instance status will not be updated to Suspended immediately.
-    # Resume the instance after it reaches the Suspended state.
-
+    # To resume an orchestration
     resume_reason = "Continue workflow"
     await client.resume(instance_id, resume_reason)
 ```
@@ -768,13 +765,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
 param($Request, $TriggerMetadata)
 
 $InstanceId = $Request.Body.InstanceId
-$SuspendReason = 'Need to pause workflow'
 
+# To suspend an orchestration
+$SuspendReason = 'Need to pause workflow'
 Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 
-# Instance status will not be updated to Suspended immediately.
-# Resume the instance after it reaches the Suspended state.
-
+# To resume an orchestration
 $ResumeReason = 'Continue workflow'
 Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
@@ -791,14 +787,14 @@ public void suspendResumeInstance(
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
     String instanceID = req.getBody();
     DurableTaskClient client = durableContext.getClient();  
+
+    // To suspend an orchestration
     String suspendReason = "Need to pause workflow";
     client.suspendInstance(instanceID, suspendReason);
 
-    // Instance status will not be updated to Suspended immediately.
-    // Resume the instance after it reaches the Suspended state.
-
+    // To resume an orchestration
     String resumeReason = "Continue workflow";
-    client.getClient().resumeInstance(instanceID, resumeReason);
+    client.resumeInstance(instanceID, resumeReason);
 }
 ```
 
