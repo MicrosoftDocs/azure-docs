@@ -531,7 +531,7 @@ export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 Azurite refreshes custom account names and keys from the environment variable every minute by default. With this feature, you can dynamically rotate the account key, or add new storage accounts without restarting Azurite.
 
 > [!NOTE]
-> The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
+> The default `devstoreaccount1` storage account is disabled when you set custom storage accounts. If you want to continue using `devstoreaccount1` after enabling custom storage accounts, you need to add it to the list of custom accounts and keys in the `AZURITE_ACCOUNTS` environment variable. 
 
 The account keys must be a base64 encoded string.
 
