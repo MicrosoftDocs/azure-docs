@@ -14,7 +14,7 @@ ms.author: janschietse
 
 - Does the Radiology Insights service take into account specific formatting like bold and italic?
 
-  Radiology Insights expects plain text, bolding, italic or other formatting is not taken into account.
+  Radiology Insights expects plain text, bolding or other formatting is not taken into account.
 
 
 - What happens when you process a document with non radiology content?
