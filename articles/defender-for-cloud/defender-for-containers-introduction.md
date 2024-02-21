@@ -50,7 +50,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
   :::image type="content" source="media/defender-for-containers/resource-filter.png" alt-text="Screenshot showing you where the resource filter is located." lightbox="media/defender-for-containers/resource-filter.png":::
 
-  For details included with this capability, check out the [containers section](recommendations-reference.md#recs-container) of the recommendations reference table, and look for recommendations with type "Control plane"
+  For details included with this capability, check out the [containers section](recommendations-reference.md#container-recommendations) of the recommendations reference table, and look for recommendations with type "Control plane"
 
 ### Agent-based capabilities
 

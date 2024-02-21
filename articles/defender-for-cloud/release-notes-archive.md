@@ -4126,7 +4126,7 @@ Learn more about Security Center's container security in the following articles:
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
 - [How-to scan your registries and harden your Docker hosts](defender-for-containers-introduction.md)
 - [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
-- [Security recommendations for containers](recommendations-reference.md#recs-compute)
+- [Security recommendations for containers](recommendations-reference.md#compute-recommendations)
 
 ### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
 
@@ -4199,7 +4199,7 @@ These new recommendations will appear in the same four security controls as the 
 
 The recommendations also include the Quick fix capability to accelerate the deployment process.
 
-Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-compute) table.
+Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#compute-recommendations) table.
 
 Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](./faq-data-collection-agents.yml#what-is-the-log-analytics-agent-).
 
@@ -4232,7 +4232,7 @@ The "implement security best practices" security control now includes the follow
 
 An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
 
-Learn more in the [Network recommendations](recommendations-reference.md#recs-networking) table.
+Learn more in the [Network recommendations](recommendations-reference.md#networking-recommendations) table.
 
 ### New policies for enabling threat protection and advanced data security
 
@@ -4411,7 +4411,7 @@ Examples of identity and access recommendations include:
 
 If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
 
-Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
+Learn more about [identity and access recommendations](recommendations-reference.md#identity-and-access-recommendations).
 
 Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
@@ -4684,7 +4684,7 @@ Security Center now supports cross-tenant management scenarios as part of Azure 
 
 Azure Security Center (ASC) has launched new networking recommendations and improved some existing ones. Now, using Security Center ensures even greater networking protection for your resources.
 
-[Learn more about network recommendations](recommendations-reference.md#recs-networking).
+[Learn more about network recommendations](recommendations-reference.md#networking-recommendations).
 
 ## June 2019
 
