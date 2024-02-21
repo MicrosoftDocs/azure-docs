@@ -33,6 +33,9 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
+> [!NOTE]
+> While the sensor console displays an alert's detection information in real-time, Defender for IoT in the Azure portal may take up to one hour to display the latest detection information. 
+
 1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description

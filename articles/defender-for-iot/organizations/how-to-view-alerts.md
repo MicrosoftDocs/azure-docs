@@ -25,6 +25,9 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 ## View alerts on an OT sensor
 
+> [!NOTE]
+> While the sensor console displays an alert's detection information in real-time, Defender for IoT in the Azure portal may take up to one hour to display the latest detection information. 
+
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
     By default, the following details are shown in the grid:
