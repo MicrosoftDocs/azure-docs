@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers and URL
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 02/21/2024
 ms.author: greglin
 ---
 
@@ -12,89 +12,90 @@ ms.author: greglin
 
 Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 
-> [!NOTE]
-> HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
-
-## Rewrite types supported
+The HTTP header and URL rewrite features are only available for the [**Application Gateway v2 SKU**](application-gateway-autoscaling-zone-redundant.md).
 
 ### Request and response headers
 
-HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers.
+Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
 
-Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools.
-
-To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
+HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers. To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
 
 ![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
-
-**Supported headers**
-
-You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
 
 ### URL path and query string
 
 With URL rewrite capability in Application Gateway, you can:
 
-* Rewrite the host name, path and query string of the request URL 
-
+* Rewrite the host name, path and query string of the request URL.
 * Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request properties (request header and server variables).
-
-* Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
+* Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL.
 
 To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
 ![Diagram that describes the process for rewriting a URL with Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
-## Rewrite actions
 
-You use rewrite actions to specify the URL, request headers or response headers that you want to rewrite and the new value to which you intend to rewrite them to. The value of a URL or a new or existing header can be set to these types of values:
+## Understanding Rewrites in Application Gateway
 
-* Text
-* Request header. To specify a request header, you need to use the syntax {http_req_*headerName*}
-* Response header. To specify a response header, you need to use the syntax {http_resp_*headerName*}
-* Server variable. To specify a server variable, you need to use the syntax {var_*serverVariable*}. See the list of supported server variables
-* A combination of text, a request header, a response header, and a server variable. 
+A rewrite set is a collection of a Routing Rule, Condition and Action.
 
-## Rewrite Conditions
+* **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
 
-You can use rewrite conditions, an optional configuration, to evaluate the content of HTTP(S) requests and responses and perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
+* **Rewrite Condition:** This is an optional configuration. Based on the conditions that you defined, the Application Gateway will evaluate the contents of the HTTP(S) requests and responses. A rewrite action will occur if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
 
-* HTTP headers in the request
-* HTTP headers in the response
-* Application Gateway server variables
+  You can choose the following types to check for a condition:
+  1. HTTP header (Request and Response)
+  1. Supported Server variables <link to below section>
 
-You can use a condition to evaluate whether a specified variable is present, whether a specified variable matches a specific value, or whether a specified variable matches a specific pattern. 
+  A Condition lets you evaluate whether a specified header or variable exists by matching their values using text or to a pattern using Regex. You can also capture this value for later use in Action. Know more about pattern and capturing. <link to below section>
+
+* **Rewrite Action:** Use rewrite action set to rewrite Headers (Request or Response) or the URL components.
+
+  The action can have the following value types or their combinations:
+  1. Text
+  1. Request header's value - To use a captured request header value, specify the syntax as {http_req_headerName}
+  1. Response header's value - To use a captured response header value from Condition, specify the syntax as {http_resp_headerName}. Use {capt_header_value_matcher} if the value is captured from Action Set's Set-  Cookie response header. Know more about Action Set capture. <link to section>
+  1. Server variable - To use a server variable, specify the syntax as {var_serverVariable}. [List of supported Server variables](#server-variables).
+
+  When using an Action for URL rewrite the following operations are supported:
+  1. URL path: The value to which the path is to be rewritten to.
+  1. URL Query String: The value to which the query string is to be rewritten to.
+  1. Re-evaluate path map: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 
-### Pattern Matching 
+## Pattern matching and Capturing 
+Patten matching and capturing are supported under Condition and Action. Pattern matching and capturing under Action is supported only for a specific header.
 
-Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/) while doing lookahead and lookbehind (negative or positive) assertions.
+### Pattern matching
+Application Gateway uses regular expressions for pattern matching. You should use Regular Expression 2 (RE2) compatible expressions when writing your pattern matching syntax.
 
-
-### Capturing
-
-To capture a substring for later use, put parentheses around the subpattern that matches it in the condition regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. Some examples from [ref](https://docstore.mik.ua/orelly/perl/prog3/ch05_07.htm): 
-
-* (\d)(\d) # Match two digits, capturing them into groups 1 and 2 
-
-* (\d+) # Match one or more digits, capturing them all into group 1 
-
-* (\d)+ # Match a digit one or more times, capturing the last into group 1
+You can use pattern matching under both Condition and Action.
+1. **Condition**: This is used to match the values for a Header or Server Variable. To match a pattern under "Conditions" use the "pattern" property.
+1. **Action**: Pattern matching under Action Set is only available for Response header "Set-Cookie". To match a pattern for Set-Cookie under an action, use the "HeaderValueMatcher" property. If captured, its value can be used as {capt_header_value_matcher}. As there can be multiple Set-Cookie, a pattern matching here allows you to look for other additional conditions. Example: For certain versions of user-agent under Condition, rewrite the set-cookie named "cookie2" with max-age=3600 (one hour). 
 
 > [!Note]
-> Use of */* to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
+> If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using Perl Compatible Regular Expressions (PCRE) while doing lookahead and lookbehind (negative or positive) assertions.
 
-Once captured, you can reference them in the action set using the following format:
+### Syntax for capturing
 
+To capture a substring for later use, put parentheses around the subpattern that matches it in the condition regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. Some examples from [ref]: 
+
+Patterns can also be used to capture a sub-string for later use. Put parentheses around a sub-pattern in the regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. You can find some example in this [Perl programming guidance](https://docstore.mik.ua/orelly/perl/prog3/ch05_07.htm).
+* (\d)(\d) # Match two digits, capturing them into groups 1 and 2
+* (\d+) # Match one or more digits, capturing them all into group 1
+* (\d)+ # Match a digit one or more times, capturing the last into group 1
+
+Once captured, you can use them in the Action Set value using the following format:
 * For a request header capture, you must use {http_req_headerName_groupNumber}. For example, {http_req_User-Agent_1} or {http_req_User-Agent_2}
-* For a response header capture, you must use {http_resp_headerName_groupNumber}. For example, {http_resp_Location_1} or {http_resp_Location_2}
+* For a response header capture, you must use {http_resp_headerName_groupNumber}. For example, {http_resp_Location_1} or {http_resp_Location_2}. Whereas for a response header Set-Cookie captured through "HeaderValueMatcher" property, you must use {capt_header_value_matcher_groupNumber}. For example, {capt_header_value_matcher_1} or {capt_header_value_matcher_2}.
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
 > [!Note]
-> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
+> * Use of / to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
+> * The case of the condition variable needs to match case of the capture variable. For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}). If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
+> * If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
-If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
 ## Server variables
 
@@ -142,50 +143,17 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
 | client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:\<reason\>*, or *NONE* if a certificate was not present. | 
 
-## Rewrite configuration
 
-To configure a rewrite rule, you need to create a rewrite rule set and add the rewrite rule configuration in it.
+## Common scenarios for header rewrite
 
-A rewrite rule set contains:
-
-* **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
-
-* **Rewrite Condition**: It is an optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
-
-* **Rewrite type**: There are 3 types of rewrites available:
-   * Rewriting request headers 
-   * Rewriting response headers
-   * Rewriting URL components
-      * **URL path**: The value to which the path is to be rewritten to. 
-      * **URL Query String**: The value to which the query string is to be rewritten to. 
-      * **Re-evaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
-
-## Rewrite configuration common pitfalls
-
-* Enabling 'Re-evaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
-
-* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
-
-* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
-
-### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
-
-When you configure URL rewrite or host header rewrite, the WAF evaluation will happen after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation will be done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
-
-For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
-
-Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
-
-### Common scenarios for header rewrite
-
-#### Remove port information from the X-Forwarded-For header
+### Remove port information from the X-Forwarded-For header
 
 Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the backend servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
 
 ![Remove port](./media/rewrite-http-headers-url/remove-port.png)
 
 
-#### Modify a redirection URL
+### Modify a redirection URL
 
 Modification of a redirect URL can be useful under certain circumstances.  For example: clients were originally redirected to a path like "/blog" but now should be sent to "/updates" due to a change in content structure.  
 
@@ -205,7 +173,7 @@ Here are the steps for replacing the hostname:
 
 ![Modify location header](./media/rewrite-http-headers-url/app-service-redirection.png)
 
-#### Implement security HTTP headers to prevent vulnerabilities
+### Implement security HTTP headers to prevent vulnerabilities
 
 You can fix several security vulnerabilities by implementing necessary headers in the application response. These security headers include X-XSS-Protection, Strict-Transport-Security, and Content-Security-Policy. You can use Application Gateway to set these headers for all responses.
 
@@ -217,15 +185,15 @@ You might want to remove headers that reveal sensitive information from an HTTP 
 
 ![Deleting header](./media/rewrite-http-headers-url/remove-headers.png)
 
-#### Check for the presence of a header
+### Check for the presence of a header
 
 You can evaluate an HTTP request or response header for the presence of a header or server variable. This evaluation is useful when you want to perform a header rewrite only when a certain header is present.
 
 ![Checking presence of a header](./media/rewrite-http-headers-url/check-presence.png)
 
-### Common scenarios for URL rewrite
+## Common scenarios for URL rewrite
 
-#### Parameter based path selection
+### Parameter based path selection
 
 To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use the combination of URL Rewrite capability and path-based routing. For example, if you have a shopping website and the product category is passed as query string in the URL, and you want to route the request to backend based on the query string, then:
 
@@ -243,8 +211,6 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL rewrite scenario 1-2.":::
 
- 
-
 **Step 2 (b):** Associate this rewrite set with the default path of the above path-based rule
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL rewrite scenario 1-3.":::
@@ -256,7 +222,7 @@ If the user requests *contoso.com/listing?category=shoes*, then again the defaul
 > [!NOTE]
 > This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the conditions defined and essentially enables you to route requests based on those conditions.
 
-#### Rewrite query string parameters based on the URL
+### Rewrite query string parameters based on the URL
 
 Consider a scenario of a shopping website where the user visible link should be simple and legible, but the backend server needs the query string parameters to show the right content.
 
@@ -272,7 +238,25 @@ In that case, Application Gateway can capture parameters from the URL and add qu
 
 For a step-by-step guide to achieve the scenario described above, see [Rewrite URL with Application Gateway using Azure portal](rewrite-url-portal.md)
 
-### URL rewrite vs URL redirect
+
+## Rewrite configuration common pitfalls
+
+* Enabling 'Re-evaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+
+* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
+
+### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
+
+When you configure URL rewrite or host header rewrite, the WAF evaluation will happen after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation will be done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
+
+For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
+
+Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
+
+
+## URL rewrite vs URL redirect
 
 For a URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This won't change what users see in the browser because the changes are hidden from the user.
 
@@ -282,7 +266,6 @@ For a URL redirect, Application Gateway sends a redirect response to the client 
 
 ## Limitations
 
-- If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you're using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites aren't supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters will be discarded when a request is sent to the backend target.
 - Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
