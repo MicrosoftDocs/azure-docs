@@ -221,7 +221,7 @@ This policy:
 
 
 
-# [SQL in Azure VM](#tab/sql-in-azure-vm) backup
+# [SQL in Azure VM](#tab/sql-in-azure-vm)
 
 The following request body defines the backup policy for SQL in Azure VM backup.
 
