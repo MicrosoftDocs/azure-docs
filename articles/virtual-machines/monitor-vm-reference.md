@@ -1,40 +1,76 @@
 ---
-title: 'Reference: Monitoring Azure virtual machine data'
-description: This article covers important reference material for monitoring Azure virtual machines.
-ms.service: virtual-machines
-ms.custom: subject-monitoring
-ms.date: 12/03/2022
+title: Monitoring data reference for Azure Virtual Machines
+description: This article contains important reference material you need when you monitor Azure Virtual Machines and Virtual Machine Scale Sets.
+ms.date: 02/20/2024
+ms.custom: horz-monitor
 ms.topic: reference
+ms.service: virtual-machines
 ---
 
-# Reference: Monitoring Azure virtual machine data
+<!-- 
+IMPORTANT 
+To make this template easier to use, first:
+1. Search and replace Virtual Machines with the official name of your service.
+2. Search and replace virtual-machines with the service name to use in GitHub filenames.-->
 
-For more information about collecting and analyzing monitoring data for Azure virtual machines (VMs), see [Monitoring Azure virtual machines](monitor-vm.md).
+<!-- VERSION 3.0 2024_01_01
+For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
 
-## Metrics
+<!-- Most services can use the following sections unchanged. All headings are required unless otherwise noted.
+The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
 
-This section lists the platform metrics that are collected for Azure virtual machines and Virtual Machine Scale Sets.  
+At a minimum your service should have the following two articles:
 
-| Metric type | Resource provider / type namespace<br/> and link to individual metrics |
-|-------|-----|
-| Virtual machines | [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
-| Virtual Machine Scale Sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
-| Virtual Machine Scale Sets and virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+1. The primary monitoring article (based on the template monitor-service-template.md)
+   - Title: "Monitor Virtual Machines"
+   - TOC title: "Monitor"
+   - Filename: "monitor-virtual-machines.md"
 
-For more information, see a list of [platform metrics that are supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+2. A reference article that lists all the metrics and logs for your service (based on this template).
+   - Title: "Virtual Machines monitoring data reference"
+   - TOC title: "Monitoring data reference"
+   - Filename: "monitor-virtual-machines-reference.md".
+-->
 
-## Metric dimensions
+# Azure Virtual Machines monitoring data reference
 
-For more information about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+<!-- Intro. Required. -->
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-Azure virtual machines and Virtual Machine Scale Sets have the following dimensions that are associated with their metrics.
+See [Monitor Azure Virtual Machines](monitor-virtual-machines.md) for details on the data you can collect for Azure Virtual Machines and Virtual Machine Scale Sets and how to use it.
 
-| Dimension name | Description |
-| ------------------- | ----------------- |
-| LUN | Logical unit number |
-| VMName | Used with Virtual Machine Scale Sets |
+<!-- ## Metrics. Required section. -->
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+<!-- Repeat the following section for each resource type/namespace in your service. -->
 
-## VM availability metric (preview)
+>[!IMPORTANT]
+>Metrics for the guest operating system (guest OS) that runs in Azure Virtual Machines aren't listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
+>
+>Host OS metrics are available and listed in the tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
+
+### Supported metrics for Microsoft.Compute/virtualMachines
+The following table lists the metrics available for the Microsoft.Compute/virtualMachines resource type.
+<!-- For each ### section:
+1. Replace the <ResourceType/namespace> placeholder in the heading and introductory sentence. Example: ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
+2. Find the metrics for the resource type at https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index#supported-metrics-per-resource-type, which is autogenerated from underlying systems.
+3. Either link to the listed metrics page(s), OR #include the metrics table(s), starting with the tableheader #include.
+4. Add any further information after each metrics table #include or link.
+Example link to metrics page: - [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
+Example #include. Start with the metrics tableheader: -->
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachines-metrics-include.md)]
+
+### Supported metrics for Microsoft.Compute/virtualmachineScaleSets
+The following table lists the metrics available for the Microsoft.Compute/virtualmachineScaleSets resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Compute/virtualmachineScaleSets](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachinescalesets-metrics-include.md)]
+
+### Supported metrics for Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+The following table lists the metrics available for the Microsoft.Compute/virtualMachineScaleSets/virtualMachines resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachinescalesets-virtualmachines-metrics-include.md)]
+
+### VM availability metric (preview)
 The VM availability metric is currently in public preview. This metric value indicates whether a machine is currently running and available. You can use the metric to trend availability over time and to alert if the machine is stopped. VM availability has the values in the following table.
 
 | Value | Description |
@@ -43,21 +79,85 @@ The VM availability metric is currently in public preview. This metric value ind
 | 0 | VM is unavailable. The VM could be stopped or rebooting. If you shutdown a VM from within the VM, it will emit this value. |
 | Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it will immediately stop emitting the availability metric, and you will see null values. |
 
+<!-- ## Metric dimensions. Required section. -->
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+<!-- Use one of the following includes, depending on whether you have metrics with dimensions.
+- If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-## Azure Monitor Logs tables
+Virtual Machines and Virtual Machine Scale Sets have the following dimensions that are associated with their metrics:
 
-This section refers to all the Azure Monitor Logs tables that are relevant to virtual machines and Virtual Machine Scale Sets and available for query by Log Analytics. 
+| Dimension name | Description |
+| ------------------- | ----------------- |
+| LUN | Logical unit number |
+| VMName | Used with Virtual Machine Scale Sets |
 
-|Resource type | Notes |
-|-------|-----|
-| [Virtual machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual Machine Scale Sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
+<!-- If you DON'T have metrics with dimensions, use the following include: 
+[!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)] -->
 
-For reference documentation about Azure Monitor Logs and Log Analytics tables, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+<!-- ## Resource logs. Required section. -->
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Activity log
+<!-- Add at least one resource provider/resource type here. Repeat this section for each resource type/namespace in your service. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices -->
+### Supported resource logs for Microsoft.Compute/virtualMachines
+[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-compute-virtualmachines-logs-include.md)]
 
-The following table lists a few example operations that relate to creating virtual machines in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](../role-based-access-control/resource-provider-operations.md#compute).
+<!-- ## Azure Monitor Logs tables. Required section. -->
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+### Virtual Machines
+|Microsoft.Compute/VirtualMachines|Microsoft.Compute/virtualMachineScaleSets|
+--------------|------------------------|
+[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)|[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
+[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)
+[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)
+[ADAssessmentRecommendation#columns)|[ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)
+[ADReplicationResult](/azure/azure-monitor/reference/tables/ADReplicationResult#columns)|[Event](/azure/azure-monitor/reference/tables/Event#columns)
+[ComputerGroup](/azure/azure-monitor/reference/tables/ComputerGroup#columns)|[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)
+[ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|[Perf](/azure/azure-monitor/reference/tables/Perf#columns)
+[DnsEvents](/azure/azure-monitor/reference/tables/DnsEvents#columns)|[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)
+[DnsInventory](/azure/azure-monitor/reference/tables/DnsInventory#columns)|[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)
+[SecurityBaselineSummary](/azure/azure-monitor/reference/tables/SecurityBaselineSummary#columns)|[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)
+[SQLAssessmentRecommendation#columns)|[SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)
+[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|[Update](/azure/azure-monitor/reference/tables/Update#columns)
+[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)
+[Event](/azure/azure-monitor/reference/tables/Event#columns)|[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)
+[Perf](/azure/azure-monitor/reference/tables/Perf#columns)|[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)
+[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)|[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)
+[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)|[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)
+[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)|[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)
+[Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)
+[Update](/azure/azure-monitor/reference/tables/Update#columns)|[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)
+[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)|[WireData](/azure/azure-monitor/reference/tables/WireData#columns)
+[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)|[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)
+[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)|[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)
+[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)||
+[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)||
+[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)||
+[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)||
+[WireData](/azure/azure-monitor/reference/tables/WireData#columns)||
+[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)||
+[HealthStateChangeEvent](/azure/azure-monitor/reference/tables/HealthStateChangeEvent#columns)||
+[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)||
+
+<!-- Example:
+### Storage Accounts
+Microsoft.Storage/storageAccounts
+- [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs#columns)
+
+Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. These files are auto generated from the REST API. 
+Also refer to https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#azure-diagnostics-mode to see whether your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics. 
+Link to the service-specific tables. If your service uses the AzureDiagnostics table, list the fields you use and what they're for. If your service uses both tables, list both types of information. Add any further information after each table link, such as descriptions and usage, or information not found in the tables. 
+
+IMPORTANT: Field names for Log Analytics may vary from the same field names for Storage. Many services need a mapping table to map the two sets of fields. -->
+
+<!-- ## Activity log. Required section. -->
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+<!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
+Example: - [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage).
+If there are other operations not in the link, list them here in table form. -->
+
+The following table lists a few example operations that relate to creating VMs in the activity log. For a complete list of operations, see [Microsoft.Compute resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcompute).
 
 | Operation | Description |
 |:---|:---|
@@ -68,9 +168,11 @@ The following table lists a few example operations that relate to creating virtu
 | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 | Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the virtual machine scale set |
 
-For more information about the schema of activity log entries, see [Activity log schema](../azure-monitor/essentials/activity-log-schema.md). 
+<!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. 
+[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
+List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
+## Related content
 
-## See also
-
-For a description of monitoring Azure virtual machines, see [Monitoring Azure virtual machines](../virtual-machines/monitor-vm.md).
+- See [Monitor Virtual Machines](monitor-virtual-machines.md) for a description of monitoring Virtual Machines.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
