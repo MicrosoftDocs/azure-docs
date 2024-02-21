@@ -12,7 +12,7 @@ ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
-# Multimodal embeddings (version 4.0 preview)
+# Multimodal embeddings (version 4.0)
 
 Multimodal embedding is the process of generating a numerical representation of an image that captures its features and characteristics in a vector format. These vectors encode the content and context of an image in a way that is compatible with text search over the same vector space.
 
