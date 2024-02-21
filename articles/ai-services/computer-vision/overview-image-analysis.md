@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: references_regions, build-2023, build-2023-dataai
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 02/20/2024
 ms.author: pafarley
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 ---
@@ -73,6 +73,8 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 ## Multimodal embeddings (v4.0 only)
 
 The multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
+
+The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
