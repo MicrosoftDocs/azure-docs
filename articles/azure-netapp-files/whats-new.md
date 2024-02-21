@@ -16,6 +16,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2024
 
+
+* [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
+
+    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+
 * The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
 
     You still must register the feature before using it for the first time.
