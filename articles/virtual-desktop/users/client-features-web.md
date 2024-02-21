@@ -10,7 +10,7 @@ ms.author: daknappe
 # Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop
 
 >[!NOTE]
->Users can now only see the New Client version of the Azure Virtual Desktop Web client user experience. Old versions are no longer supported.
+>Users can now only see the New Client version of the Azure Virtual Desktop Web client user experience. 
 
 Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -19,7 +19,8 @@ Once you've connected to Azure Virtual Desktop using the Remote Desktop client, 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
 > [!NOTE]
-> Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Users can now only see the new client version of the Azure Virtual Desktop Web client user experience. 
 
 ## Display preferences
 
