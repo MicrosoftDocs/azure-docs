@@ -9,9 +9,6 @@ ms.date: 02/20/2024
 
 # Publish to namespace topics and consume events in Azure Event Grid
 
-This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.NET](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
- For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
-
 
 In this quickstart, you use the Azure portal to do the following tasks.
 
@@ -59,7 +56,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 Create a topic that's used to hold all events published to the namespace endpoint.
 
 1. Select **Topics** on the left menu.
-1. On the **Topics** page, select **+ Topic** on the commandbar.
+1. On the **Topics** page, select **+ Topic** on the command bar.
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/topics-page.png" alt-text="Screenshot that shows the Topics page." lightbox="./media/publish-events-using-namespace-topics-portal/topics-page.png":::
 1. On the **Create Topic** page, follow these steps:
     1. Enter a **name** for the topic.     
@@ -69,7 +66,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 ## Create an event subscription
 Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
-1. On the **Topics** page, select the topic you just created. 
+1. On the **Topics** page, select the topic you created in the previous step.
 1. Select **+ Event subscription** on the command bar. 
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-subscription-button.png" alt-text="Screenshot that shows the Topic page with Create subscription button selected." lightbox="./media/publish-events-using-namespace-topics-portal/create-subscription-button.png":::       
 1. On the **Create Event Subscription** page, follow these steps:
@@ -88,7 +85,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
     ```bash
     key=ACCESSKEY
     ```
-1. Declare a variable to hold the publish operation URI. Replace `NAMESPACENAME` with the name of your Event Grid namespace and `TOPICNAME` with the name of the topic.
+1. Declare a variable to hold the publishing operation URI. Replace `NAMESPACENAME` with the name of your Event Grid namespace and `TOPICNAME` with the name of the topic.
 
     ```bash
     publish_operation_uri=https://NAMESPACENAME.eastus-1.eventgrid.azure.net/topics/TOPICNAME:publish?api-version=2023-06-01-preview
@@ -110,7 +107,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
 
 You receive events from Event Grid using an endpoint that refers to an event subscription. 
 
-1. Declare a variable to hold the receive operation URI. Replace `NAMESPACENAME` with the name of your Event Grid namespace, `TOPICNAME` with the name of the topic, and replace `EVENTSUBSCRIPTIONNAME` with the name of the event subscription.
+1. Declare a variable to hold the receiving operation URI. Replace `NAMESPACENAME` with the name of your Event Grid namespace, `TOPICNAME` with the name of the topic, and replace `EVENTSUBSCRIPTIONNAME` with the name of the event subscription.
 
     ```azurecli-interactive
     receive_operation_uri=https://NAMESPACENAME.eastus-1.eventgrid.azure.net/topics/TOPICNAME/eventsubscriptions/EVENTSUBSCRIPTIONNAME:receive?api-version=2023-06-01-preview
@@ -154,4 +151,10 @@ After you receive an event, you pass that event to your application for processi
     ```
     
 ## Next steps
-To learn more about pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
+For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
+
+For sample code using the data plane SDKs, see the [.NET](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
+
+
+
+
