@@ -100,7 +100,7 @@ To securely import FHIR data into the FHIR service from an Azure Data Lake Stora
 
 * Enable the FHIR service as a trusted Microsoft service.
 * Allow specific IP addresses associated with the FHIR service to access the storage account from other Azure regions.
-* Allow specific IP addresses associated with the FHIR Service to access the storage account in the same region as the FHIR service.
+* Allow specific IP addresses associated with the FHIR service to access the storage account in the same region as the FHIR service.
 
 ### Enable the FHIR service as a trusted Microsoft service
 

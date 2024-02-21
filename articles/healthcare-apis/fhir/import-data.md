@@ -48,7 +48,7 @@ To achieve the best performance with the `import` operation, consider these fact
 
 - **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs.
 
-- **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but running multiple jobs might affect the overall throughput of the import operation. The FHIR server can handle up to five parallel `import` jobs. If you exceed this limit, the FHIR server might throttle or reject your requests.
+- **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but running multiple jobs might affect the overall throughput of the `import` operation. The FHIR server can handle up to five parallel `import` jobs. If you exceed this limit, the FHIR server might throttle or reject your requests.
 
 ## Perform the import operation
 
@@ -85,9 +85,9 @@ Content-Type:application/fhir+json
 
 | Input part name   | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| `type`   |  Resource type of input file.   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
+| `type`   |  Resource type of the input file.   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
 |`url`   |  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
-| `etag`   |  ETag of the input file in the Azure storage; used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file. |
+| `etag`   |  ETag of the input file in the Azure storage. It's used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file. |
 
 ```json
 {
@@ -137,7 +137,7 @@ Content-Type:application/fhir+json
 
 ### Check import status
 
-After you start an `import` operation, an empty response body with a `callback` link is returned in the `Content-location` header of the response, together with an `202 Accepted` status code. Store the callback link to check the import status.
+After you start an `import` operation, an empty response body with a `callback` link is returned in the `Content-location` header of the response, together with an `202 Accepted` status code. Store the `callback` link to check the import status.
 
 Registration of the `import` operation is implemented as an idempotent call. The same registration payload yields the same registration, which affects the ability to reprocess files with the same name. Refrain from updating files in place. Instead, we suggest that you use a different file name for updated data. Or, if an in-place update with same file name is unavoidable, add ETags in the registration payload.
 
@@ -156,7 +156,7 @@ The following table describes the important fields in the response body:
 
 | Field | Description |
 | ----------- | ----------- |
-|`transactionTime`|Start time of the bulk-import operation.|
+|`transactionTime`|Start time of the bulk `import` operation.|
 |`output.count`|Count of resources that were successfully imported.|
 |`error.count`|Count of resources that weren't imported because of an error.|
 |`error.url`|URL of the file that contains details of the error. Each `error.url` instance is unique to an input URL.|
