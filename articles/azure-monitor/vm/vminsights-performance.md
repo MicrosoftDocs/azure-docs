@@ -115,8 +115,8 @@ The following capacity utilization charts are provided:
 * **Bytes Receive Rate**: Defaults show the average bytes received.
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
-<!-- convertborder later -->
-:::image type="content" source="./media/vminsights-performance/vminsights-performance-directvm.png" lightbox="./media/vminsights-performance/vminsights-performance-directvm.png" alt-text="Screenshot that shows VM insights Performance directly from the VM view." border="false":::
+
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-direct-vm.png" lightbox="./media/vminsights-performance/vminsights-performance-direct-vm.png" alt-text="Screenshot that shows VM insights Performance directly from the VM view.":::
 
 ## Troubleshoot VM performance issues with Performance Diagnostics
 
@@ -124,7 +124,7 @@ Selecting the pushpin icon in the upper-right corner of a chart pins it to the l
 
 To install and run the Performance Diagnostics tool, select the **Performance Diagnostics** button from the VM Insights Performance screen > **Install performance diagnostics** and [select an analysis scenario](/troubleshoot/azure/virtual-machines/performance-diagnostics#select-an-analysis-scenario-to-run?toc=/azure/azure-monitor/toc.json)
 
-:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-diagnostics.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen." border="false":::
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-diagnostics.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen.":::
 
 
 ## View performance directly from an Azure virtual machine scale set
@@ -139,7 +139,7 @@ This page loads the Azure Monitor performance view scoped to the selected scale 
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
 
-:::image type="content" source="./media/vminsights-performance/vminsights-performance-directvmss-01.png" lightbox="./media/vminsights-performance/vminsights-performance-directvmss-01.png" alt-text="Screenshot that shows VM insights Performance directly from the virtual machine scale set view.":::
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-direct-vmss.png" lightbox="./media/vminsights-performance/vminsights-performance-direct-vmss.png" alt-text="Screenshot that shows VM insights Performance directly from the virtual machine scale set view.":::
 
 >[!NOTE]
 >You can also access a detailed performance view for a specific instance from the **Instances** view for your scale set. Under the **Settings** section, go to **Instances** and select **Insights**.
