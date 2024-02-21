@@ -58,7 +58,7 @@ The ingestion agent authenticates to two separate systems, with separate credent
 - To authenticate to the ingestion endpoint of an Azure Operator Insights Data Product, the agent obtains a connection string from an Azure Key Vault. The agent authenticates to this Key Vault with a Microsoft Entra ID service principal and certificate that you setup when you created the agent.
 - To authenticate to your SFTP server, the agent can use password authentication or SSH key authentication.
 
-For configuration instructions, see [Set up authentication to Azure](set-up-ingestion-agent.md#set-up-authentication-to-azure) and [Configure the connection between the SFTP server and VM](set-up-ingestion-agent.md#configure-the-connection-between-the-sftp-server-and-vm).
+For configuration instructions, see [Set up authentication to Azure](set-up-ingestion-agent.md#set-up-authentication-to-azure), [Prepare the VMs](set-up-ingestion-agent.md#prepare-the-vms) and [Configure the agent software](set-up-ingestion-agent.md#configure-the-agent-software).
 
 ## Next step
 

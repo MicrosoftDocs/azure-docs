@@ -239,7 +239,7 @@ The configuration you need is specific to the type of source and your Data Produ
         - `filtering.base_path`: the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
         - `known_hosts_file`: the path on the VM to the global known_hosts file, located at `/etc/ssh/ssh_known_hosts`. This file should contain the public SSH keys of the SFTP host server as outlined in [Prepare the VMs](#prepare-the-vms). 
         - `user`: the name of the user on the SFTP server that the agent should use to connect.
-        - In `auth`, the `type` (`password` or `key`) you chose in [Configure the connection between the SFTP server and VM](#configure-the-connection-between-the-sftp-server-and-vm). For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the key is protected with a passphrase, set `passphrase_secret_name`.
+        - In `auth`, the `type` (`password` or `key`) you chose in [Prepare the VMs](#prepare-the-vms). For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the key is protected with a passphrase, set `passphrase_secret_name`.
         
         For required or recommended values for other fields, refer to the documentation for your Data Product.
 
