@@ -97,11 +97,11 @@ Update your application following the tutorial [Migrate a Java application to us
     
     # Uncomment the following lines according to the authentication type. Customize the driver version as you want.
     # For system-assigned managed identity.
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For user-assigned managed identity.
     # user = os.getenv('AZURE_SQL_USER')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};UID={user};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};UID={user};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For service principal.
     # user = os.getenv('AZURE_SQL_USER')
