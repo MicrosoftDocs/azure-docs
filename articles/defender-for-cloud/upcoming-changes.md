@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 02/20/2024
+ms.date: 02/21/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -91,7 +91,7 @@ For details on the new API version, see [Microsoft Defender for Cloud REST APIs]
 
 **Announcement date: February 1, 2024**
 
-**Estimated date of change: February 2024**
+**Estimated date of change: March 2024**
 
 As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations, which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
 
@@ -108,12 +108,12 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 
 | Preliminary recommendation name | Estimated release date |
 |--|--|--|
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
 
 Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
 
