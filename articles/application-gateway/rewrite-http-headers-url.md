@@ -47,21 +47,22 @@ A rewrite set is a collection of a Routing Rule, Condition and Action.
   1. HTTP header (Request and Response)
   1. Supported [Server variables](#server-variables)
 
-  A Condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Know more about pattern and capturing.
+  A Condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Know more about [pattern and capturing](#pattern-matching-and-capturing).
 
-* **Rewrite Action:** Use rewrite action set to rewrite Headers (Request or Response) or the URL components.
+* **Rewrite Action:** Rewrite action set allows you to rewrite Headers (Request or Response) or the URL components.
 
-  The action can have the following value types or their combinations:
-  1. Text
-  1. Request header's value - To use a captured request header value, specify the syntax as {http_req_headerName}
-  1. Response header's value - To use a captured response header value from Condition, specify the syntax as {http_resp_headerName}. Use {capt_header_value_matcher} if the value is captured from Action Set's Set-  Cookie response header. Know more about Action Set capture. <link to section>
-  1. Server variable - To use a server variable, specify the syntax as {var_serverVariable}. [List of supported Server variables](#server-variables).
+  An action can have the following value types or their combinations:
+  1. Text.
+  1. Request header's value - To use a captured request header value, specify the syntax as `{http_req_headerName}`.
+  1. Response header's value - To use a captured response header value from the preceeding Condition, specify the syntax as `{http_resp_headerName}`. You can use `{capt_header_value_matcher}` when the value is captured from Action Set's "Set-Cookie" response header. Know more about [capture under Action set](#syntax-for-capturing).
+  1. Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
 
-  When using an Action for URL rewrite the following operations are supported:
-  1. URL path: The value to which the path is to be rewritten to.
-  1. URL Query String: The value to which the query string is to be rewritten to.
-  1. Re-evaluate path map: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+  When using an Action to rewrite a URL, the following operations are supported:
+  1. URL path: The new value to be set as the path.
+  1. URL Query String: The new value to which the query string must be rewritten to.
+  1. Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
+DONE
 
 ## Pattern matching and Capturing 
 Patten matching and capturing are supported under Condition and Action. Pattern matching and capturing under Action is supported only for a specific header.
