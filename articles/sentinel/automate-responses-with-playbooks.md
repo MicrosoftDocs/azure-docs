@@ -371,7 +371,7 @@ The following recommended playbooks, and other similar playbooks are available t
 
     | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content&nbsp;hub/<br>Azure Marketplace |
     | -------- | ----------------------------------- | ----------------------------------------- |
-    |  **Unlock a SAP user that was locked by an automatic attack disruption** <br>Requires you to integrate with the Microsoft Defender portal and [deploy automated attack disruption for SAP](sap/deployment-attack-disrupt.md#deploy-automatic-attack-disruption-for-sap)| <!--tbd--> | [Microsoft Sentinel solution for SAP® applications](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sentinel4sap.sentinel4sap?tab=Overview) |
+    |  **Unlock a SAP user that was locked by an automatic attack disruption** (Preview) <br>Requires you to integrate with the Microsoft Defender portal and [deploy automated attack disruption for SAP](sap/deployment-attack-disrupt.md#deploy-automatic-attack-disruption-for-sap)| [microsoft-internal-attack-disruption-SAP-unlock-access](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks) <!--tbd actual address--> | [Microsoft Sentinel solution for SAP® applications](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sentinel4sap.sentinel4sap?tab=Overview) |
 
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
 
