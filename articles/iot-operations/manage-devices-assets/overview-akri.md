@@ -1,5 +1,5 @@
 ---
-title: Detect assets with Azure IoT Akri
+title: Detect assets with Azure IoT Akri Preview
 description: Understand how Azure IoT Akri Preview enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: timlt
 ms.author: timlt
@@ -31,7 +31,7 @@ IoT leaf devices present the following challenges:
 - Have intermittent downtime and availability
 - Require different methods of authentication and storing secrets
 
-## What Azure IoT Akri does
+## What Azure IoT Akri Preview does
 To address the challenge of integrating non-Kubernetes IoT leaf devices, Azure IoT Akri provides several core capabilities.
 
 ### Device discovery
@@ -50,7 +50,7 @@ With Azure IoT Akri, you can dynamically provision devices like the following ex
 ### Compatibility with Kubernetes
 Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes primitives lets users apply their expertise creating applications or managing infrastructure. Small devices connected in an Akri-configured site can appear as Kubernetes resources, just like memory or CPUs. The Azure IoT Akri controller enables the cluster operator to start brokers, jobs or other workloads for individual connected devices or groups of devices. These Azure IoT Akri device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
 
-## Using Azure IoT Akri to discover OPC UA assets
+## Using Azure IoT Akri Preview to discover OPC UA assets
 Azure IoT Akri is a turnkey solution that enables you to discover and create assets connected to an OPC UA server at the edge. Azure IoT Akri discovers devices at the edge and maps them to assets. The assets send telemetry to upstream connectors. By using Azure IoT Akri, you eliminate the painstaking process of manually configuring from the cloud and onboarding the assets to your cluster.  
 
 The Azure IoT Operations Preview - enabled by Azure Arc documentation provides guidance for detecting assets at the edge, by using the Azure IoT Operations OPC UA discovery handler and broker. You can use these components to process your OPC UA data and telemetry. 
