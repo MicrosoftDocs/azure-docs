@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Import FHIR data
 
-The `import` operation allows you to ingest FHIR&reg; data into the FHIR server with high throughput.
+You can use the `import` operation to ingest FHIR data into the FHIR server with high throughput.
 
 ## Import operation modes
 
@@ -33,7 +33,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 
   - If import files have resources with duplicate `version` and `lastUpdated` field values, only one resource is randomly ingested in the FHIR service.
 
-- Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from the Azure API for FHIR to the FHIR service in Azure Health Data Services.
+- Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from Azure API for FHIR to the FHIR service in Azure Health Data Services.
 
 > [!IMPORTANT]
 > The `import` operation doesn't support conditional references in resources.
@@ -54,19 +54,19 @@ To achieve the best performance with the `import` operation, consider these fact
 
 ### Prerequisites
 
-- You need the **FHIR Data Importer** role on the FHIR server to use the `import` operation.
+- To use the `import` operation, you need the **FHIR Data Importer** role on the FHIR server.
 
 - Configure the FHIR server. The FHIR data must be stored in resource-specific files in FHIR NDJSON format on the Azure blob store. For more information, see [Configure import settings](configure-import-data.md).
 
-- All the resources in a file must be the same type. You can have multiple files per resource type.
+- All the resources in a file must be the same type. You can have multiple files for each resource type.
 
 - The data must be in the same tenant as the FHIR service.
 
-- The maximum number of files allowed per `import` operation is 10,000.
+- The maximum number of files allowed for each `import` operation is 10,000.
 
-### Call $import
+### Make a call
 
-Make a `POST` call to `<<FHIR service base URL>>/$import` with the request header and body shown.
+Make a `POST` call to `<<FHIR service base URL>>/$import` with the following request header and body.
 
 #### Request header
 
@@ -80,7 +80,7 @@ Content-Type:application/fhir+json
 | Parameter name      | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
 | `inputFormat`      | String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
-| `mode`      | Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If no mode value is provided, the `IncrementalLoad` mode value is used by default. |
+| `mode`      | Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
 | `input`   | Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
 
 | Input part name   | Description | Cardinality |  Accepted values |
@@ -139,9 +139,9 @@ Content-Type:application/fhir+json
 
 After you start an `import` operation, an empty response body with a `callback` link is returned in the `Content-location` header of the response, together with an `202 Accepted` status code. Store the callback link to check the import status.
 
-Regration of the `import` operation is implemented as an idempotent call. The same registration payload yields the same registration, which affects the ability to reprocess files with the same name. Refrain from updating files in place. Instead, we suggest that you use a different file name for updated data. Or, if an in-place update with same file name is unavoidable, add ETags in the registration payload.
+Registration of the `import` operation is implemented as an idempotent call. The same registration payload yields the same registration, which affects the ability to reprocess files with the same name. Refrain from updating files in place. Instead, we suggest that you use a different file name for updated data. Or, if an in-place update with same file name is unavoidable, add ETags in the registration payload.
 
-To check import status, make the REST call with the `GET` method to the `callback` link returned in the previous step.
+To check the import status, make the REST call with the `GET` method to the `callback` link returned in the previous step.
 
 Interpret the response by using this table:
 
@@ -212,7 +212,7 @@ If you don't know the ID of the resource, do a history search on the resource ty
 
 ## Troubleshoot the import operation
 
-Here are the error messages that occur if the `import` operation fails, along with recommended actions to take to resolve the problem.
+Here are the error messages that occur if the `import` operation fails, along with recommended actions to resolve the problems.
 
 #### 200 OK, but there's an error with the URL in the response
 
@@ -225,7 +225,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
         {
             "severity": "error",
             "details": {
-                "text": "Given conditional reference '{0}' does'nt resolve to a resource."
+                "text": "Given conditional reference '{0}' doesn't resolve to a resource."
             },
             "diagnostics": "Failed to process resource at line: {0} with stream start offset: {1}"
         }
@@ -239,7 +239,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 #### 400 Bad Request
 
-**Behavior:** The import operation failed and `400 Bad Request` is returned. The response body includes this content:
+**Behavior:** The `import` operation fails and returns `400 Bad Request`. The response body includes this content:
 
 ```json
 {
@@ -259,7 +259,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 #### 403 Forbidden
 
-**Behavior:** The import operation failed and `403 Forbidden` is returned. The response body contains this content:
+**Behavior:** The `import` operation fails and returns `403 Forbidden`. The response body contains this content:
 
 ```json
 {
@@ -281,7 +281,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 #### 500 Internal Server Error
 
-**Behavior:** The `import` operation failed and `500 Internal Server Error` is returned. The response body contains this content:
+**Behavior:** The `import` operation fails and returns `500 Internal Server Error`. The response body contains this content:
 
 ```json
 {
