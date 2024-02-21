@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 02/21/2024
 ms.author: cherylmc
 ---
 
@@ -32,8 +32,8 @@ In this article, we start with generating VPN client configuration files and cli
 1. [Generate certificates for the VPN client](#2-generate-client-certificates).
 1. [Configure the VPN client](#3-configure-the-vpn-client). The steps you use to configure your VPN client depend on the tunnel type for your P2S VPN gateway, and the VPN client on the client computer.
 
-   * **IKEv2 and SSTP - native VPN client steps** -  If your P2S VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you can connect to your VNet using the native VPN client that's part of your Windows operating system. This configuration doesn't require additional client software. For steps, see [IKEv2 and SSTP - native VPN client](point-to-site-vpn-client-certificate-windows-native.md).
-   * **OpenVPN** - If your P2S VPN gateway is configured to use an OpenVPN tunnel and certificate authentication, you have the option of using either the [Azure VPN Client](#openvpn), or the [OpenVPN client](#azurevpn) steps in this article.
+   * **IKEv2 and SSTP - native VPN client** -  If your P2S VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you connect to your VNet using the native VPN client that's part of your Windows operating system. This configuration doesn't require additional client software. For steps, see [IKEv2 and SSTP - native VPN client](point-to-site-vpn-client-certificate-windows-native.md).
+   * **OpenVPN - Azure VPN Client and OpenVPN client** - If your P2S VPN gateway is configured to use an OpenVPN tunnel and certificate authentication, you have the option to connect using either the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md), or the [OpenVPN client](point-to-site-vpn-client-certificate-windows-openvpn-client.md).
 
 ## 1. Generate VPN client configuration files
 
@@ -62,81 +62,12 @@ In many cases, you can install the client certificate directly on the client com
 
 Next, configure the VPN client. Select from the following instructions:
 
-* [IKEv2 and SSTP - native VPN client steps](point-to-site-vpn-client-certificate-windows-native.md)
-* [OpenVPN - OpenVPN client steps](#openvpn)
-* [OpenVPN - Azure VPN Client steps](#azurevpn)
+|Tunnel | VPN client |
+|---|---|
+| IKEv2 and SSTP | [Native VPN client steps](point-to-site-vpn-client-certificate-windows-native.md)|
+| OpenVPN | [Azure VPN Client steps](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)|
+| OpenVPN | [OpenVPN Client steps](point-to-site-vpn-client-certificate-windows-openvpn-client.md) |
 
-## <a name="azurevpn"></a>Azure VPN Client steps - OpenVPN
-
-If your P2S VPN gateway is configured to use an OpenVPN tunnel type and certificate authentication, you can connect using the Azure VPN Client.
-
-The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Note that these steps apply to certificate authentication. If you're using OpenVPN with Microsoft Entra authentication, see the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
-
-To connect, each client computer requires the following items:
-
-* The Azure VPN Client software must be installed on each client computer that you want to connect.
-* The Azure VPN Client profile must be configured using the downloaded **azurevpnconfig.xml** configuration file.
-* The client computer must have a client certificate that's installed locally.
-
-### <a name="view-azurevpn"></a>View configuration files
-
-When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile.
-
-If you don't see the file, verify the following items:
-
-* Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra authentication, you might not have an AzureVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
-
-### Download the Azure VPN Client
-
-[!INCLUDE [Download the Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
-
-### Configure the VPN client profile
-
-1. Open the Azure VPN Client.
-
-1. Click **+** on the bottom left of the page, then select **Import**.
-
-1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
-
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. You can also (optionally) select a [Secondary Profile](#secondary-profile).
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
-
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel and fix the issue before proceeding. It's possible that one of the following things is true:
-
-   * The client certificate isn't installed locally on the client computer.
-   * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
-   * The child certificate is corrupt.
-
-1. After the import validates (imports with no errors), click **Save**.
-
-1. In the left pane, locate the **VPN connection**, then click **Connect**.
-
-### Optional settings for the Azure VPN Client
-
-The following sections discuss additional optional configuration settings that are available for the Azure VPN Client.
-
-#### Secondary Profile
-
-[!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
-
-#### Custom settings: DNS and routing
-
-You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
-
-## <a name="openvpn"></a>OpenVPN Client steps - OpenVPN
-
-If your P2S VPN gateway is configured to use an OpenVPN tunnel type and certificate authentication, you can connect using an OpenVPN client. The following steps help you configure the **OpenVPN &reg; Protocol** client and connect to your VNet.
-
-### <a name="view-openvpn"></a>View configuration files
-
-When you open the VPN client configuration package zip file, you should see an OpenVPN folder. If you don't see the folder, verify the following items:
-
-* Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
-
-[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-windows.md)]
 
 ## Next steps
 
