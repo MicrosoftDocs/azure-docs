@@ -27,7 +27,7 @@ For example, [Azure VM CLI Delete](/cli/azure/vm?view=azure-cli-latest#az-vm-del
   
 In these cases, the autoscale service isn't aware of the individual VM operations.  
   
-To avoid this scenario, use the same operation, but at Virtual Machine Scale Set level. For example, [Azure VMSS CLI Delete instance](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete-instances), or [Azure VMSS Rest API Delete Instance](/en-us/rest/api/compute/virtual-machine-scale-sets/delete-instances?view=rest-compute-2023-10-02&tabs=HTTP). Autoscale detects the instance count change in Virtual Machine Scale Set and performs the appropriate scaling actions.
+To avoid this scenario, use the same operation, but at Virtual Machine Scale Set level. For example, [Azure VMSS CLI Delete instance](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete-instances), or [Azure VMSS Rest API Delete Instance](/en-us/rest/api/compute/virtual-machine-scale-sets/delete-instances?view=rest-compute-2023-10-02&tabs=HTTP). Autoscale detects the instance count change in the Virtual Machine Scale Set and performs the appropriate scaling actions.
   
 ## Autoscale metrics
 
