@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: training
-ms.date: 10/21/2021
+ms.date: 02/21/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5,sdkv1
 ---
@@ -26,11 +26,12 @@ All you need to do is define the environment for each compute target within a **
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
+* The [Azure Machine Learning SDK for Python (v1)](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * An [Azure Machine Learning workspace](../how-to-manage-workspace.md), `ws`
 * A compute target, `my_compute_target`.  [Create a compute target](../how-to-create-attach-compute-studio.md) 
 
 ## What's a script run configuration?
+
 A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is used to configure the information necessary for submitting a training job as part of an experiment.
 
 You submit your training experiment with a ScriptRunConfig object.  This object includes the:
@@ -60,6 +61,8 @@ Or you can:
 
 Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize job submissions and keep track of code.
 
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Experiment
 
@@ -84,6 +87,8 @@ You can either define your own environment, or use an Azure Machine Learning cur
 
 For a remote compute target, you can use one of these popular curated environments to start with:
 
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Workspace, Environment
 
@@ -96,6 +101,8 @@ For more information and details about environments, see [Create & use software 
 ### Local compute target
 
 If your compute target is your **local machine**, you are responsible for ensuring that all the necessary packages are available in the Python environment where the script runs.  Use `python.user_managed_dependencies` to use your current Python environment (or the Python on the path you specify).
+
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -111,6 +118,8 @@ myenv.python.user_managed_dependencies = True
 
 Now that you have a compute target (`my_compute_target`, see [Prerequisites](#prerequisites) and environment (`myenv`, see [Create an environment](#create-an-environment)), create a script job configuration that runs your training script (`train.py`) located in your `project_folder` directory:
 
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import ScriptRunConfig
 
@@ -119,9 +128,6 @@ src = ScriptRunConfig(source_directory=project_folder,
                       compute_target=my_compute_target,
                       environment=myenv)
 
-# Set compute target
-# Skip this if you are running on your local computer
-script_run_config.run_config.target = my_compute_target
 ```
 
 If you do not specify an environment, a default environment will be created for you.
@@ -131,6 +137,7 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the job, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the job if it takes longer than this value.
 
 ### Specify a distributed job configuration
+
 If you want to run a [distributed training](../how-to-train-distributed-gpu.md) job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
@@ -138,6 +145,8 @@ For more information and examples on running distributed Horovod, TensorFlow and
 * [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 
 ## Submit the experiment
+
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 run = experiment.submit(config=src)
