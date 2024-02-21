@@ -46,7 +46,7 @@ See [Monitor Azure Virtual Machines](monitor-vm.md) for details on the data you 
 >[!IMPORTANT]
 >Metrics for the guest operating system (guest OS) that runs in a virtual machine (VM) aren't listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
 >
->Host OS metrics are available and listed in the tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
+>Host OS metrics are available and listed in the following tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
 
 ### Supported metrics for Microsoft.Compute/virtualMachines
 The following table lists the metrics available for the Microsoft.Compute/virtualMachines resource type.
@@ -84,8 +84,6 @@ The VM availability metric is currently in public preview. This metric value ind
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
-
-### Dimensions associated with Virtual Machines and Virtual Machine Scale Sets metrics
 
 | Dimension name | Description |
 | ------------------- | ----------------- |

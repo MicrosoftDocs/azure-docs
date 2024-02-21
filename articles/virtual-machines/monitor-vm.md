@@ -37,7 +37,7 @@ At a minimum your service should have the following two articles:
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 >[!NOTE]
->This article provides basic information to help you get started with monitoring Azure Virtual Machines and Virtual Machine Scale Sets. For a complete guide to monitoring your entire environment of Azure and hybrid virtual machines (VMs), see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
+>This article provides basic information to help you get started with monitoring Azure Virtual Machines and Virtual Machine Scale Sets. For a complete guide to monitoring your entire environment of Azure and hybrid virtual machines, see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
 
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
@@ -46,7 +46,7 @@ At a minimum your service should have the following two articles:
 
 VM insights monitors your Azure and hybrid virtual machines in a single interface. VM insights provides the following benefits beyond other features for monitoring VMs in Azure Monitor:
 
-- Simplified onboarding of the Azure Monitor agent and the Dependency agent, so that you can monitor a virtual machine guest operating system and workloads.
+- Simplified onboarding of the Azure Monitor agent and the Dependency agent, so that you can monitor a virtual machine (VM) guest operating system and workloads.
 - Predefined data collection rules that collect the most common set of performance data.
 - Predefined trending performance charts and workbooks, so that you can analyze core performance metrics from the virtual machine's guest operating system.
 - The Dependency map, which displays processes that run on each virtual machine and the interconnected components with other machines and external sources.
@@ -57,7 +57,7 @@ VM insights monitors your Azure and hybrid virtual machines in a single interfac
 
 For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights). For general information about enabling insights and a variety of methods for onboarding VMs, see [Enable VM insights overview](/azure/azure-monitor/vm/vminsights-enable-overview).
 
-If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create more data collection rules (DCRs) to collect events and other performance data. To learn how to install the Azure Monitor agent and create a DCR that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
+If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create other data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule (DCR) that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -89,7 +89,14 @@ Azure Monitor starts automatically collecting metric data for your virtual machi
 
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
 
-To see how to retrieve the CPU usage for a Linux VM by using the Azure REST API, sees [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
+You can send custom VM metrics to Azure Monitor via several methods:
+
+- Install the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your Windows or Linux Azure virtual machine or virtual machine scale set and use a [data collection rule](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) to send performance counters to Azure Monitor metrics.
+- Install the Azure Diagnostics extension on your [Azure VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm), [Virtual Machine Scale Set](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vmss), or [classic VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-vm-classic). Then send performance counters to Azure Monitor.
+- Install the [InfluxData Telegraf agent](/azure/monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
+- Send custom metrics [directly to the Azure Monitor REST API](/azure/monitor/essentials/metrics-store-custom-rest-api).
+
+For more information about custom metrics, see [Custom metrics in Azure Monitor (preview)](/azure/azure-monitor/essentials/metrics-custom-overview). To retrieve metrics like CPU usage for a Linux VM by using the Azure REST API, see [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
 
 <!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information.
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
@@ -170,9 +177,9 @@ Ask your PMs if you don't know. This information is the BIGGEST request we get i
 
 ### Common alert rules
 
-To see common log alert rules in the Azure portal, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
+To see common VM log alert rules in the Azure portal, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
 
-For a list and discussion of common alert rules for Virtual Machines, see [Common alert rules](/azure/azure-monitor/vm/monitor-virtual-machine-alerts#common-alert-rules).
+For a list and discussion of common Virtual Machines alert rules, see [Common alert rules](/azure/azure-monitor/vm/monitor-virtual-machine-alerts#common-alert-rules).
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
@@ -183,9 +190,9 @@ For a list and discussion of common alert rules for Virtual Machines, see [Commo
 ## Related content
 <!-- You can change the wording and add more links if useful. -->
 
-- See [Virtual Machines monitoring data reference](monitor-vm-reference.md) for a reference of the metrics, logs, and other important values for Virtual Machines.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
-- Read about [Best practices for monitoring virtual machines in Azure Monitor](/azure/azure-monitor/best-practices-vm).
-- See [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview) to get started with VM insights.
-- Learn how to collect and analyze VM host and client metrics and logs with the training course [Monitor your Azure virtual machines with Azure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data).
+- For a reference of the metrics, logs, and other important values for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md).
+- For general details about monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
+- For guidance based on the five pillars of the Azure Well-Architected Framework, see [Best practices for monitoring virtual machines in Azure Monitor](/azure/azure-monitor/best-practices-vm).
+- To get started with VM insights, see [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview).
+- To learn how to collect and analyze VM host and client metrics and logs, see the training course [Monitor your Azure virtual machines with Azure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data).
 - For a complete guide to monitoring Azure and hybrid VMs, see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
