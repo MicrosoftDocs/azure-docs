@@ -7,12 +7,12 @@ ms.date: 02/20/2024
 
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases).
 
-| Release     | Latest version   | Download |
-|-------------|------------------|----------|
-| Public      | 1.2.5112         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider     | 1.2.5248         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+| Release | Latest version | Download |
+|--|--|--|
+| Public | 1.2.5112 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5248 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
 ## Updates for version 1.2.5248 (Insider)
 
@@ -89,7 +89,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](../uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.

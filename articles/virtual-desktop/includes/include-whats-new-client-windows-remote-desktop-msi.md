@@ -7,7 +7,7 @@ ms.date: 02/14/2024
 
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows.md#enable-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases).
 
 | Release | Latest version | Download |
 |--|--|--|
@@ -95,7 +95,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](../uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -248,10 +248,10 @@ In this release, we've made the following changes:
    - Bug fix for Background Effects persistence between Teams sessions.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Various bug fixes for multimedia redirection (MMR) video playback redirection.
-   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available.
+   - [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
->This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
+>This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](../users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
 
 ## Updates for version 1.2.3770
 
@@ -311,8 +311,8 @@ In this release, we've made the following changes:
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
+   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](../multimedia-redirection-intro.md).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
 
@@ -416,7 +416,7 @@ In this release, we've made the following changes:
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
+- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
 - Improved connection reliability for Teams on Azure Virtual Desktop.
 
 ## Updates for version 1.2.2927
@@ -557,7 +557,7 @@ In this release, we've made the following changes:
 - Added updates to Teams on Azure Virtual Desktop, including:
   - Fixed an issue that caused the screen to turn black when Direct X wasn't available for hardware decoding.
   - Fixed a software decoding and camera preview issue that happened when falling back to software decode.
-- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) is now in public preview.
+- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in public preview.
 
 ## Updates for version 1.2.2223
 
@@ -660,7 +660,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](./security-guide.md#session-host-security-best-practices).
+- Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](../security-guide.md#session-host-security-best-practices).
 - Added support for proxies that require authentication for feed subscription.
 - The client now shows a notification with an option to retry if an update didn't successfully download.
 - Addressed some accessibility issues with keyboard focus and high-contrast mode.

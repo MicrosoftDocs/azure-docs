@@ -33,13 +33,13 @@ You can find a list of all the Remote Desktop clients at [Remote Desktop clients
 > Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
 
 ::: zone pivot="remote-desktop-msi"
-[!INCLUDE [Remote Desktop (MSI)](./includes/include-client-features-windows-remote-desktop-msi.md)]
+[!INCLUDE [Remote Desktop (MSI)](../includes/include-client-features-windows-remote-desktop-msi.md)]
 ::: zone-end
 
 ::: zone pivot="avd-store"
-[!INCLUDE [Azure Virtual Desktop Store app](./includes/include-client-features-windows-avd-store.md)]
+[!INCLUDE [Azure Virtual Desktop Store app](../includes/include-client-features-windows-avd-store.md)]
 ::: zone-end
 
 ::: zone pivot="rd-store"
-[!INCLUDE [Remote Desktop Store app](./includes/include-client-features-windows-remote-desktop-store.md)]
+[!INCLUDE [Remote Desktop Store app](../includes/include-client-features-windows-remote-desktop-store.md)]
 ::: zone-end
