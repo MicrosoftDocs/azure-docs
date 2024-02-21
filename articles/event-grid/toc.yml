@@ -125,6 +125,8 @@ items:
             items:
             - name: Azure CLI
               href: publish-events-using-namespace-topics.md
+            - name: Azure portal
+              href: publish-events-using-namespace-topics-portal.md
           - name: Send and pull messages
             items:
             - name: .NET

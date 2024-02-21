@@ -8,7 +8,9 @@ ms.date: 02/20/2024
 ---
 
 # Publish to namespace topics and consume events in Azure Event Grid - Azure portal
+This quickstart provides you with step-by-step instructions to use Azure portal to create an Azure Event Grid namespace, a topic in a namespace, and a subscription to the topic using **Queue** as the delivery mode. Then, you use Curl to send a test event, receive the event, and then acknowledge the event. 
 
+The quickstart is for a quick test of the pull delivery functionality of Event Grid. For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
 
 In this quickstart, you use the Azure portal to do the following tasks.
 
@@ -21,7 +23,6 @@ Then, you use Curl to do the following tasks to test the setup.
 1. Send a test event to the topic.
 1. Receive the event from the subscription. 
 1. Acknowledge the event in the subscription.  
-
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
