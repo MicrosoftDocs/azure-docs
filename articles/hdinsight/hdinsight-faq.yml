@@ -228,7 +228,7 @@ sections:
           
           - [Enable Microsoft Entra Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
           
-          - [Tutorial: Configure secure LDAP for an Microsoft Entra Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
+          - [Tutorial: Configure secure LDAP for Microsoft Entra Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
       
       - question: |
           Can I install Data Analytics Studio (DAS) as an ESP cluster?
@@ -370,6 +370,7 @@ sections:
           If you call the Curl command in the same virtual network or a peered virtual network, the command is:
           
           ```curl
+          
           curl -u <cluster login username> -sS -G
           http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
           ```
@@ -379,6 +380,7 @@ sections:
           - For a non-ESP cluster:
             
             ```curl
+            
             curl -u <cluster login username> -sS -G 
             https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
             ```
@@ -386,6 +388,7 @@ sections:
           - For an ESP cluster:
             
             ```curl
+            
             curl -u <cluster login username>-sS -G 
             https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
             ```
