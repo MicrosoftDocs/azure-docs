@@ -263,7 +263,7 @@ No. Azure Monitor is a scalable cloud service that processes and stores large am
 
 You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solutions to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md). 
 
-Microsoft also offers System Center Operations Manager Managed Instance (SCOM MI) as an option to migrate a traditional SCOM setup into the cloud with minimal changes. For more information see [About Azure Monitor SCOM Managed Instance][/system-center/scom/operations-manager-managed-instance-overview]. 
+Microsoft also offers System Center Operations Manager Managed Instance (SCOM MI) as an option to migrate a traditional SCOM setup into the cloud with minimal changes. For more information see [About Azure Monitor SCOM Managed Instance](/system-center/scom/operations-manager-managed-instance-overview). 
           
 
 ## Next steps
