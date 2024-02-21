@@ -17,7 +17,7 @@ There are three different ways you can connect your existing Windows and Linux m
 - Azure Arc-enabled VM Sphere
 - Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 
-Each of these services extends the Azure control plane to your existing infrastructure and enables the use of Azure security, governance, and management capabilities. These services all use Azure Arc Resource Bridge, a part of the core Azure Arc platform that provides self-servicing and additional management capabilities for VMs hosted on these services.
+Each of these services extends the Azure control plane to your existing infrastructure and enables the use of [Azure security, governance, and management capabilities](/azure/azure-arc/servers/overview). These services all use Azure Arc Resource Bridge, a part of the core Azure Arc platform that provides self-servicing and additional management capabilities for VMs hosted on these services.
 
 General recommendations about the right service to use are as follows:
 
@@ -38,17 +38,19 @@ Where your machine runs determines the best Azure Arc service to use. Organizati
 
 ### Azure Stack HCI—fully integrated OS
 
-In addition to the "Arc-enabled" services, Azure Stack HCI is another service for managing virtual machines through Azure Arc. Unlike the "Arc-enable" services, Azure Stack HCI is a fully integrated OS that runs on validated hardware purchased by the customer. It comes with Azure Resource Bridge installed and uses the Azure Arc control plane for infrastructure and workload management, allowing you to monitor, update, and secure your HCI infrastructure from the Azure portal.
+In addition to the "Arc-enabled" services, Azure Stack HCI is another service for managing virtual machines through Azure Arc. Unlike the "Arc-enable" services, Azure Stack HCI is a fully integrated OS that runs on validated hardware purchased by the customer. It comes with Azure Resource Bridge installed and uses the Azure Arc control plane for infrastructure and workload management, allowing you to monitor, update, and secure your HCI infrastructure from the Azure portal. See [Azure Stack HCI](#azure-stack-hci) to learn more.
 
 ## Azure Arc-enabled servers
 
-[Azure Arc-enabled servers](servers/overview.md) lets you manage Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. When connecting your machine to Azure Arc-enabled servers, you can perform various operational functions similar to native Azure virtual machines. Here are some key actions:
+[Azure Arc-enabled servers](servers/overview.md) lets you manage Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. When connecting your machine to Azure Arc-enabled servers, you can perform various operational functions similar to native Azure virtual machines.
+
+### Capabilities
 
 - Govern: Assign Azure Automanage machine configurations to audit settings within the machine. Utilize Azure Policy pricing guide for cost understanding.
 
 - Protect: Safeguard non-Azure servers with Microsoft Defender for Endpoint, integrated through Microsoft Defender for Cloud. This includes threat detection, vulnerability management, and proactive security monitoring. Utilize Microsoft Sentinel for collecting security events and correlating them with other data sources.
 
-- Configure: Employ Azure Automation for managing tasks using PowerShell and Python runbooks. Use Change Tracking and Inventory for assessing configuration changes. Utilize Update Management for handling OS updates and Azure Automanage (preview) for automating service onboarding and configuration. Perform post-deployment configuration and automation tasks using supported Arc-enabled servers VM extensions.
+- Configure: Employ Azure Automation for managing tasks using PowerShell and Python runbooks. Use Change Tracking and Inventory for assessing configuration changes. Utilize Update Management for handling OS updates and Azure Automanage for automating service onboarding and configuration. Perform post-deployment configuration and automation tasks using supported Arc-enabled servers VM extensions.
 
 - Monitor: Utilize VM insights for monitoring OS performance and discovering application components. Collect log data, such as performance data and events, through the Log Analytics agent, storing it in a Log Analytics workspace.
 
@@ -63,9 +65,9 @@ In addition to the "Arc-enabled" services, Azure Stack HCI is another service fo
 
 Running software in Azure VMware Solution, as a private cloud in Azure, offers some benefits not realized by operating your environment outside of Azure. For software running in a VM, such as SQL Server and Windows Server, running in Azure VMware Solution provides additional value such as free Extended Security Updates (ESUs). 
 
-To take advantage of these benefits if you're running in an Azure VMware Solution, it's important to follow respective onboarding processes to fully integrate the experience with the AVS private cloud. 
+To take advantage of these benefits if you're running in an Azure VMware Solution, it's important to follow respective [onboarding](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) processes to fully integrate the experience with the AVS private cloud. 
 
-Additionally, when a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in the AVS public document, the steps are provided in the document to refresh the integration between the Arc-enabled VMs and Azure VMware Solution.
+Additionally, when a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in the AVS public document, the steps are provided in the [document](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to refresh the integration between the Arc-enabled VMs and Azure VMware Solution.
 
 ### Capabilities
 
@@ -87,15 +89,42 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 ### Capabilities
 
+- Discover and onboard existing SCVMM managed VMs to Azure.
+
 - Perform various VM lifecycle operations such as start, stop, pause, and delete VMs on SCVMM managed VMs directly from Azure.
 
 - Empower developers and application teams to self-serve VM operations on demand using Azure role-based access control (RBAC).
 
 - Browse your VMM resources (VMs, templates, VM networks, and storage) in Azure, providing you with a single pane view for your infrastructure across both environments.
 
-- Discover and onboard existing SCVMM managed VMs to Azure.
-
 - Install the Arc-connected machine agents at scale on SCVMM VMs to govern, protect, configure, and monitor them.
+
+## Capabilities at a glance
+
+The following table provides a quick way to see the major capabilities of the three Arc services that connect your existing Windows and Linux machines to Azure Arc.
+
+|  |Arc-enabled servers  |Arc-enabled VMware vSphere  |Arc-enabled SCVMM  |
+|---------|---------|---------|---------|
+|Azure Automanage     |✓    |✓   |✓     |
+|Microsoft Defender for Endpoint     |✓         |✓         |✓         |
+|Microsoft Sentinel     | ✓        |✓         |✓         |
+|Azure Automation     |✓         |✓         |✓         |
+|Update Management     |✓         |✓         |✓         |
+|VM extentions     |✓         |✓         |✓         |
+|VM insights     |✓         |✓         |✓         |
+|Log Analytics     |✓         |✓         |✓         |
+|Extended Security Updates for Windows Server 2012/2012R2     |✓         |✓         |✓         |
+|Discover & onboard VMs to Azure     |         |✓         |✓         |
+|Lifecycle operations (start/stop VMs, etc.)     |         |✓         |✓         |
+|Self-serve VMs through RBAC     |         |✓         |✓         |
+
+## Switching from Arc-enabled servers to another service
+
+If you currently use Arc-enabled servers, you can get the additional capabilities that come with Arc-enabled VMware vSphere or Arc-enabled SCVMM:
+
+- [Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed](/azure/azure-arc/vmware-vsphere/enable-virtual-hardware)
+
+- [Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed](/azure/azure-arc/system-center-virtual-machine-manager/enable-virtual-hardware-scvmm)
 
 ## Azure Stack HCI
 
