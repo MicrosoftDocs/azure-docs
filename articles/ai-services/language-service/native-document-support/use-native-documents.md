@@ -199,7 +199,7 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
 * For source `location`, the value is the SAS URL for the **source document (blob)**, not the source container SAS URL.
 
-* For `redactionPolicy` possible values are `UseRedactionCharacterWithRefId` (default) or `UseEntityTypeName`. For more information, *see* [**PiiTask Parameters**](/rest/api/language/text-analysis-runtime/analyze-text?view=rest-language-2023-11-15-preview&tabs=HTTP#piitaskparameters).
+* For `redactionPolicy` possible values are `UseRedactionCharacterWithRefId` (default) or `UseEntityTypeName`. For more information, *see* [**PiiTask Parameters**](/rest/api/language/text-analysis-runtime/analyze-text?view=rest-language-2023-11-15-preview&tabs=HTTP#piitaskparameters&preserve-view=true).
 
 ### Run the POST request
 
