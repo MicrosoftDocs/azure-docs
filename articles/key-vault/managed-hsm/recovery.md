@@ -5,8 +5,8 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.author: msmbaldwin
-author: mbaldwin
+ms.author: mbaldwin
+author: msmbaldwin
 ms.date: 02/20/2024
 ---
 
@@ -29,8 +29,6 @@ For more information, see [Managed HSM overview](overview.md).
   |[Managed HSM Contributor](../../role-based-access-control/built-in-roles.md#managed-hsm-contributor)|List, recover, and purge soft-deleted HSMs|
   |[Managed HSM Crypto User](./built-in-roles.md)|List soft-deleted keys|
   |[Managed HSM Crypto Officer](./built-in-roles.md)|Purge and recover soft-deleted keys|
-
-
 
 ## What are soft-delete and purge protection?
 
