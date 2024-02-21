@@ -1,7 +1,7 @@
 ---
 title: Run Language Detection container in Kubernetes Service
 titleSuffix: Azure AI services
-description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
+description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser.
 #services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 01/10/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 

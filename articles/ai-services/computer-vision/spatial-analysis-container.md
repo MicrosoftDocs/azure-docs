@@ -1,35 +1,35 @@
 ---
 title: How to install and run the Spatial Analysis container - Azure AI Vision
 titleSuffix: Azure AI services
-description: The Spatial Analysis container lets you can detect people and distances.
+description: The Spatial Analysis container lets you detect people and distances in a video feed.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
-# Install and run the Spatial Analysis container (Preview)
+# Install and run the Spatial Analysis container (preview)
 
-The Spatial Analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. Containers are great for specific security and data governance requirements.
+The Spatial Analysis container enables you to analyze real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. Containers help you meet specific security and data governance requirements.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
 ### Spatial Analysis container requirements
 
-To run the Spatial Analysis container, you need a compute device with an NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We'll refer to this device as the host computer.
+To run the Spatial Analysis container, you need a compute device with an NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We refer to this device as the host computer.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
+Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### [Desktop machine](#tab/desktop-machine)
 
@@ -57,7 +57,7 @@ In this article, you'll download and install the following software packages. Th
 * [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we'll utilize an [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
+In our example, we utilize an [NCv3 series VM](../../virtual-machines/ncv3-series.md) that has one v100 GPU.
 
 ---
 
@@ -80,7 +80,7 @@ Spatial Analysis uses the compute features of the Azure Stack Edge to run an AI 
 * You have a Windows client system running PowerShell 5.0 or later, to access the device.  
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via the **Local UI** on the [Azure portal](https://portal.azure.com/): 
   1. Enable the compute feature on your Azure Stack Edge device. To enable compute, go to the **Compute** page in the web interface for your device. 
-  2. Select a network interface that you want to enable for compute, then select **Enable**. This will create a virtual switch on your device, on that network interface.
+  2. Select a network interface that you want to enable for compute, then select **Enable**. This creates a virtual switch on your device, on that network interface.
   3. Leave the Kubernetes test node IP addresses and the Kubernetes external services IP addresses blank.
   4. Select **Apply**. This operation may take about two minutes. 
 
@@ -137,7 +137,7 @@ Follow these steps to remotely connect from a Windows client.
 
     If you see an error related to trust relationship, then check if the signing chain of the node certificate uploaded to your device is also installed on the client accessing your device.
 
-6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is `Password1`. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
 
     ```
     Windows PowerShell
@@ -268,7 +268,7 @@ sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-You'll need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
+You need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -341,7 +341,7 @@ To locate the VM size, select "See all sizes" and then view the list for "N-Seri
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Select on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, select create, and complete the wizard.
 
-Once the extension is successfully applied, navigate to the VM main page in the Azure portal and select `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure portal and select `Connect`. The VM can be accessed either through SSH or RDP. RDP is helpful as it enables viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 
@@ -430,7 +430,7 @@ sudo az iot hub create --name "<iothub-name>" --sku S1 --resource-group "<resour
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-You'll need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
+You need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -501,7 +501,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 | APIKEY | your API Key| Collect this value from Azure portal from your Vision resource. You can find it in the **Key and endpoint** section for your resource. |
 | BILLING | your Endpoint URI| Collect this value from Azure portal from your Vision resource. You can find it in the **Key and endpoint** section for your resource.|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
-| DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
+| DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices don't have a display. This setting is not applicable|
 | KEY_ENV | ASE Encryption key | Add this environment variable if Video_URL is an obfuscated string |
 | IV_ENV | Initialization vector | Add this environment variable if Video_URL is an obfuscated string|
 
@@ -531,18 +531,18 @@ There are several ways to validate that the container is running. Locate the *Ru
 
 ![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
-Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the `.debug` version of the operations, you'll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
+Once the deployment is complete and the container is running, the **host computer** starts sending events to the Azure IoT Hub. If you used the `.debug` version of the operations, you'll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 
 ## Configure the operations performed by Spatial Analysis
 
-You'll need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, configure the operations, and more. For each camera device you configure, the operations for Spatial Analysis will generate an output stream of JSON messages, sent to your instance of Azure IoT Hub.
+You need to use [Spatial Analysis operations](spatial-analysis-operations.md) to configure the container to use connected cameras, configure the operations, and more. For each camera device you configure, the operations for Spatial Analysis generates an output stream of JSON messages, sent to your instance of Azure IoT Hub.
 
 ## Use the output generated by the container
 
 If you want to start consuming the output generated by the container, see the following articles:
 
 *    Use the Azure Event Hubs SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. For more information, see [Read device-to-cloud messages from the built-in endpoint](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
-*    Set up Message Routing on your Azure IoT Hub to send the events to other endpoints or save the events to Azure Blob Storage, etc. See [IoT Hub Message Routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) for more information. 
+*    Set up Message Routing on your Azure IoT Hub to send the events to other endpoints or save the events to Azure Blob Storage, etc.  
 
 ## Troubleshooting
 

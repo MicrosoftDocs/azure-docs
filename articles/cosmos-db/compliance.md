@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB compliance 
+title: Azure Cosmos DB compliance
 description: This article describes compliance coverage for Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/11/2021
 ms.reviewer: mjbrown

@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/31/2022
+ ms.date: 01/18/2024
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -16,9 +16,6 @@ You must grant your consent to the partner to create partner topics in a resourc
 
 > [!IMPORTANT]
 > For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
-
-> [!NOTE]
-> Event Grid started enforcing authorization checks to create partner topics around June 30th, 2022. 
 
 Following example shows the way to create a partner configuration resource that contains the partner authorization. You must identify the partner by providing either its **partner registration ID** or the **partner name**. Both can be obtained from your partner, but only one of them is required. For your convenience, the following examples leave a sample expiration time in the UTC format.
 

@@ -4,10 +4,9 @@ description: Learn how to configure Google authentication as an identity provide
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
-
 ---
 
 # Configure your App Service or Azure Functions app to use Google login
@@ -63,4 +62,3 @@ You are now ready to use Google for authentication in your app. The provider wil
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure portal]: https://portal.azure.com/
-

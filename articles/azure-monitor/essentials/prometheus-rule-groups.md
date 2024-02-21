@@ -4,7 +4,6 @@ description: Description of rule groups in Azure Monitor managed service for Pro
 author: EdB-MSFT
 ms-author: edbaynash
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 11/09/2023
 ---
 
@@ -322,4 +321,3 @@ To enable or disable a rule, select the rule in the Azure portal. Select either 
 - [Learn more about the Azure alerts](../alerts/alerts-types.md).
 - [Prometheus documentation for recording rules](https://aka.ms/azureprometheus-promio-recrules).
 - [Prometheus documentation for alerting rules](https://aka.ms/azureprometheus-promio-alertrules).
-

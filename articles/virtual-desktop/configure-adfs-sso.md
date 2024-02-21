@@ -18,7 +18,7 @@ This article will walk you through the process of configuring Active Directory F
 > [!NOTE]
 > Azure Virtual Desktop (Classic) doesn't support this feature.
 
-## Requirements
+## Prerequisites
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 

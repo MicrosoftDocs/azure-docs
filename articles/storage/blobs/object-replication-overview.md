@@ -224,15 +224,14 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 ||Storage cost of the blob and each blob version<sup>1</sup>|
 ||Cost of network egress<sup>3</sup>|
 
-
-
-<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
+<sup>1</sup>    On the source account, if you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you're billed for all of the blocks of a version whether or not those blocks are unique.
 
 <sup>2</sup>    This includes only blob versions created since the last replication completed.
 
-<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+<sup>3</sup>    Object replication copies the whole version to destination (not just the unique blocks of the version). This transfer incurs the cost of network egress. See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-
+> [!TIP]
+> To reduce the risk of an unexpected bill, enable object replication in an account that contains only a small number of objects. Then, measure the impact on cost before you enable the feature in a production setting.
 
 ## Next steps
 

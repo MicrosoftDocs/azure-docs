@@ -68,12 +68,16 @@ A storage account gives access to the Azure Storage services. The storage accoun
     :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the caching, WAF and private link settings for an endpoint.":::
 
     > [!NOTE]
-    > * With Standard tier, you can only use custom rules with WAF.To deploy managed rules and bot protection, choose Premium tier. For detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).
+    > * With Standard tier, you can only use custom rules with WAF. To deploy managed rules and bot protection, choose Premium tier. For detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).
     > * Private Link feature is **only** available with Premium tier.
 
 1. Select **Create** to create the new endpoint. After the endpoint is created, it appears in the endpoint list.
 
     :::image type="content" source="./media/integrate-storage-account/endpoint-created.png" alt-text="Screenshot of new Front Door endpoint created from Storage account.":::
+
+> [!NOTE]
+> * The endpoint list will only show Front Door and CDN profiles within the same subscription. 
+
 
 ## Extra features
 

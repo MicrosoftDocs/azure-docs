@@ -302,8 +302,7 @@ The following deployment uses the ARM template `azurelinuxaksarm.json`.
             "count": "[parameters('agentCount')]",
             "vmSize": "[parameters('agentVMSize')]",
             "osType": "[parameters('osType')]",
-            "osSKU": "[parameters('osSKU')]",
-            "storageProfile": "ManagedDisks"
+            "osSKU": "[parameters('osSKU')]"
           }
         ],
         "linuxProfile": {

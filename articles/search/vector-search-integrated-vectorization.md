@@ -65,7 +65,7 @@ Data chunking (Text Split skill) is free and available on all Azure AI services 
 
 + Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks for chat-style search.
 
-+ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
++ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector store to retrieve document IDs, and then send the document's vector fields to another model.
 
 + Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-scenarios-can-vector-search-support).
 

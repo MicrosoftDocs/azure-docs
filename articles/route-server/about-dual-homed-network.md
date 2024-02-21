@@ -1,13 +1,12 @@
 ---
 title: About dual-homed network with Azure Route Server
-description: Learn how Azure Route Server works in a dual-homed network.
-services: route-server
+description: Learn how to utilize Azure Route Server in a dual-homed network where you can connect a spoke virtual network (VNet) to more than one hub VNet.
 author: halkazwini
-ms.service: route-server
-ms.topic: conceptual
-ms.date: 01/27/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.service: route-server
+ms.topic: concept-article
+ms.date: 01/30/2024
+#CustomerIntent: As an Azure administrator, I want to peer spoke virtual networks (VNets) to more than one hub VNet so that the resources in the spoke VNets can communicated through either of the hub VNets.
 ---
 
 # About dual-homed network with Azure Route Server
@@ -51,8 +50,7 @@ In the control plane, the NVA in the hub VNet will learn about on-premises route
 
 In the data plane, the virtual machines in the spoke VNet will send all traffic destined for the on-premises network to the NVA in the hub VNet first. Then the NVA will forward the traffic to the on-premises network through ExpressRoute. Traffic from on-premises will traverse the same data path in the reverse direction. You'll notice none of the route servers are in the data path.
 
-## Next steps
+## Related content
 
 * Learn about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
 * Learn how to [configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md)
-

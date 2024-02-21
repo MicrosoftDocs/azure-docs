@@ -7,10 +7,7 @@ ms.service: service-connector
 ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom:
-- ignite-fall-2021
-- kr2b-contr-experiment
-- event-tier1-build-2022
-
+  - kr2b-contr-experiment
 #Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a storage account in the Azure portal.
 ---
 
@@ -24,7 +21,7 @@ This quickstart shows you how to connect Azure Spring Apps to other Cloud resour
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-- An app deployed to [Azure Spring Apps](../spring-apps/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
+- An app deployed to [Azure Spring Apps](../spring-apps/enterprise/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [storage account](../storage/common/storage-account-create.md).
 
 ## Sign in to Azure

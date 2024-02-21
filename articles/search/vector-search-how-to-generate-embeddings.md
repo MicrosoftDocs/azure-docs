@@ -14,7 +14,7 @@ ms.date: 10/30/2023
 
 # Generate embeddings for search queries and documents
 
-Azure AI Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/cognitive-search-vector-pr/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
+Azure AI Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/azure-search-vector-samples/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
 
 Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per vector field.
 

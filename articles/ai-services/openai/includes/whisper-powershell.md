@@ -1,16 +1,17 @@
 ---
-services: ai-services
-manager: nitinme
-author: mgreenegit
-ms.author: migreene
-ms.service: openai
 ms.topic: include
-ms.date: 11/22/2023
+manager: nitinme
+ms.service: azure-ai-openai
+ms.topic: include
+ms.date: 2/1/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 ## PowerShell
 
-Run the following command. You need to replace `YOUR-DEPLOYMENT-NAME-HERE` with the deployment name you chose when you deployed the Whisper model. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
+Run the following command. You need to replace `YourDeploymentName` with the deployment name you chose when you deployed the Whisper model. The deployment name isn't necessarily the same as the model name. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```powershell-interactive
 # Azure OpenAI metadata variables
@@ -18,7 +19,7 @@ $openai = @{
     api_key     = $Env:AZURE_OPENAI_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-09-01-preview' # this may change in the future
-    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+    name        = 'YourDeploymentName' #This will correspond to the custom name you chose for your deployment when you deployed a model.
 }
 
 # Header for authentication
