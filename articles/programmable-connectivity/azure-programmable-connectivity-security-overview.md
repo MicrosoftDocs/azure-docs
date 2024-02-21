@@ -15,9 +15,9 @@ This article provides an overview of how encryption is used in Azure Programmabl
 
 ## Encryption at rest
 
-Azure Programmable Connectivity stores all data at rest securely, including any temporary customer data. Azure Programmable Connectivity uses standard Azure infrastructure, with platform-managed encryption keys, to provide server-side encryption compliant with a range of security standards. For more information, see [encryption of data at rest.](../security/fundamentals/encryption-overview.md)
+Azure Programmable Connectivity (APC) stores all data at rest securely, including any temporary customer data. Azure Programmable Connectivity uses standard Azure infrastructure, with platform-managed encryption keys, to provide server-side encryption compliant with a range of security standards. For more information, see [encryption of data at rest.](../security/fundamentals/encryption-overview.md)
 
-Azure Programmable Connectivity doesn't store any Customer Data or EUII.
+Azure Programmable Connectivity doesn't store any Customer Data or End-User Identifiable Information.
 
 ## Encryption in transit
 
@@ -33,9 +33,9 @@ Currently Azure Programmable Connectivity doesn't offer the ability to call APC 
 
 There are two types of logs that are available to customers to audit their Azure Programmable Connectivity instances:
 - Management logs
-- Dataplane logs
+- Data plane logs
 
 Management logs are the logs of management operations performed on Azure resources such as creation or deletion of APC gateway instances, adding new Operator API Connections and other.
-To review actions performed on these resources go to the corresponding resource page in Azure and select 'Activity log' in the left menu.
+To review actions performed on these resources, go to the corresponding resource page in Azure and select 'Activity log' in the left menu.
 
-Dataplane logs are the logs of actions that happen when any calls are made to the APC Gateway API, such as sim-swap:verify. To request these logs a support request needs to be raised. Follow the standard Azure support flow selecting the gateway which has the logs of interest. Choose 'Using Network APIs' for problem type, and 'Calling APIs' for problem sub-type. In the problem description indicate that you'd like to request Dataplane audit logs.
+Data plane logs are the logs of actions that happen when any calls are made to the APC Gateway API, such as 'sim-swap:verify'. To request these logs a support request needs to be raised. Follow the standard Azure support flow selecting the gateway, which has the logs of interest. Choose 'Using Network APIs' for problem type, and 'Calling APIs' for problem sub-type. In the problem description, indicate that you'd like to request data plane audit logs.
