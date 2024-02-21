@@ -249,7 +249,6 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
     | Name           | `processed OPC UA data`                          |
-    | URL            | `https://msit-onelake.pbidedicated.windows.net`  |
     | Authentication | `Service principal`     |
     | Tenant ID      | The tenant ID you made a note of previously when you created the service principal.     |
     | Client ID      | The client ID is the app ID you made a note of previously when you created the service principal.     |

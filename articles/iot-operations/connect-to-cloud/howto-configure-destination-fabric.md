@@ -102,7 +102,6 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | --- | --- | --- | --- | --- | --- |
 | Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
-| URL | String | The Microsoft Fabric URL | Yes | - | |
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
 | LakehouseId | String | The lakehouse Lakehouse ID.  | Yes | - |  |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
@@ -162,7 +161,6 @@ The following JSON example shows a complete Microsoft Fabric lakehouse destinati
             "y": 784
         }
     },
-    "url": "https://msit-onelake.pbidedicated.windows.net",
     "workspace": "workspaceId",
     "lakehouse": "lakehouseId",
     "table": "quickstart",
