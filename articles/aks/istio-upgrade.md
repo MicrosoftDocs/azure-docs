@@ -126,9 +126,9 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 
 ### Minor version upgrades with the ingress gateway
 
-If you're currently using [Istio ingress gateways](./istio-deploy-ingress.md) and are performing a [minor version upgrade](#minor-version-upgrade), keep in mind that Istio ingress gateway Pods / Deployments are deployed per-revision. However, we provide a single LoadBalancer Service across all ingress gateway Pods over multiple revisions, so the external/internal IP address of the ingress gateways will not change throughout the course of an upgrade. 
+If you're currently using [Istio ingress gateways](./istio-deploy-ingress.md) and are performing a minor version upgrade, keep in mind that Istio ingress gateway pods / deployments are deployed per-revision. However, we provide a single LoadBalancer service across all ingress gateway pods over multiple revisions, so the external/internal IP address of the ingress gateways will not change throughout the course of an upgrade. 
 
-Thus, if multiple control plane revisions are installed in their cluster, keep in mind that you may need to troubleshoot multiple ingress gateway Pods across both revisions.
+Thus, if multiple control plane revisions are installed in your cluster, keep in mind that you may need to troubleshoot multiple ingress gateway pods across both revisions.
 
 ## Patch version upgrade
 

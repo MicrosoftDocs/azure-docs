@@ -222,7 +222,7 @@ Confirm that the sample application's product page is accessible. The expected o
 
 ## Minor version upgrades with the ingress gateway
 
-See the [following section](./istio-upgrade.md#minor-version-upgrades-with-the-ingress-gateway) for guidance on managing ingress gateways during the course of a minor version upgrade for the add-on.
+See the [Istio add-on upgrade page](./istio-upgrade.md#minor-version-upgrades-with-the-ingress-gateway) for guidance on managing ingress gateways during the course of a minor version upgrade for the add-on.
 
 ## Delete resources
 
