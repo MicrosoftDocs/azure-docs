@@ -6,12 +6,10 @@ metadata:
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
   ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
   ms.topic: faq #Required
-  ms.date: 02/15/2024 #Required; mm/dd/yyyy format.
+  ms.date: 02/20/2024 #Required; mm/dd/yyyy format.
 title: Trusted Signing #Required. This appears as the headline in the article as displayed.
 summary: |
   This article includes FAQ about Trusted Signing. 
-
-# Remove all the comments in this template before you sign-off or merge to the main branch.
 
 # Remember that indentation is significant in YAML files.
 # If there is any disallowed spacing, the build will fail.
@@ -45,13 +43,20 @@ sections:
       - question: What do I do if I don’t see Microsoft.CodeSigning in my resource provider? 
         answer: | 
           Register the app Microsoft.CodeSigning in the subscription resource provider page. The screenshot below outlines how to do so in the Azure Portal: ![Screenshot of registering Microsoft.CodeSigning resource provider](articles\trusted-signing\media\trusted-signing-resource-provider.png)
-
-  - name: Certificate Profiles
-    questions:
       - question: What is Azure Code Signing’s compliance level?
         answer: |
           FIPS 140-2 level 3 (mHSMs)
-
+  - name: Certificate Profiles
+    questions:
+      - question: What do I do if my Trusted Signing subject name is different than my old cert and my MSIX’s package name now is different? 
+        answer: |
+          Please follow this guide for persistent identity in [MSIX: MSIX Persistent Identity - MSIX | Microsoft Learn](https://learn.microsoft.com/en-us/windows/msix/package/persistent-identity).
+      - question: Does deleting certificate profile revoke the certificates? 
+        answer: |
+          Certificate profile deletion does NOT revoke any certificates previously issued or used under that profile.
+      - question: Does Trusted Signing allow you to use a custom CN? 
+        answer: |
+          Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN value must be the legal entities validated name (e.g. Microsoft Corporation) so the is no flexibility really in CN values, but O value allows for verified legal names, tradenames, and DBAs (doing business as). For individuals, there are already requirements for verification of individuals in the baseline requirements that we will meet or exceed.  
   - name: Signing
     questions:
       - question: What is Trusted Signing’s compliance level?
@@ -75,7 +80,6 @@ sections:
       - question: How do we get the Authenticode certificate?  
         answer: |
           The Authenticode certificate used for signing with the profile is never given to you. All certificates are securely stored within the service and are only accessible at the time of signing. The public certificate will always be included in any signed binary by the service. 
-
       - question: What are the common things I should check when I get a SignTool error (e.g. unexpected internal error has occurred)? 
         answer: |
          *Double check: dlib and dll are in the correct path 
@@ -83,6 +87,21 @@ sections:
          *Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170 
          *Search the specific issue on Bing or visit [SignTool - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/seccrypto/signtool) 
          *Also, we recommend using the SignTool version here: https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/ as opposed to directly from NuGet. The link above is what we have tested to work with our dlib (version 10.0.22621 recommended currently). 
+      - question: What do I do if I get 403 Forbidden or an admin approval to access this resource error? 
+        answer: |
+        This is likely due to the ACS application not being allowed to run. First check to make sure that you have the “Codesigning Certificate Profile Signer” role: ({assignee} is your email)  az role assignment list --assignee {assignee}  
+      - question: How do I check that the timestamper service is healthy? 
+        answer: |
+          Run the following command curl http://timestamp.acs.microsoft.com. If you get that the StatusCode is 200 it means the timestamper service is healthy and running. 
+      - question: What if I get a 400 error with SharedTokenCacheCredential authentication failed? 
+        answer: |
+          This error is due to caching of certificates. Add to your JSON "ExcludeCredentials": ["SharedTokenCacheCredential"]. To learn more go to [DefaultAzureCredential Class (Azure.Identity) - Azure for .NET Developers | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+      - question: I’m getting errors when doing Private Trust signing, what do I do? 
+        answer: |
+          If you get an internal error check that the CN name you used matches with the cert name. The package name will be checked so ensure to copy the entire Subject name that appears in the Azure Portal to the manifest file when signing is submitted. 
+      - question: I get command succeeded for SignTool but the file doesn’t appear to be signed when I check the digital signature? 
+        answer: |
+          If the signature doesn’t appear in the digitial signature property, run this command: .\signtool.exe verify /v /debug /pa fileName. Not all file types have the signature tab in properties.
 
-additionalContent: |
+##additionalContent: |
     ## Next steps
