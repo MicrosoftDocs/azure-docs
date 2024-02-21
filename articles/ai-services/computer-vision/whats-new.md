@@ -22,7 +22,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 #### Multimodal embeddings GA: new multi-language model
 
-The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
+The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors aren't compatible with multi-lingual text and image vectors.
 
 
 See the [language support](/azure/ai-services/computer-vision/language-support#multimodal-embeddings) page for the list of supported languages.
@@ -86,10 +86,10 @@ Image Analysis 4.0 is now available through client library SDKs in C#, C++, and 
 
 ### Image Analysis V4.0 Captioning and Dense Captioning (public preview):
 
-"Caption" replaces "Describe" in V4.0 as the significantly improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
+"Caption" replaces "Describe" in V4.0 as the improved image captioning feature rich with details and semantic understanding. Dense Captions provides more detail by generating one-sentence descriptions of up to 10 regions of the image in addition to describing the whole image. Dense Captions also returns bounding box coordinates of the described image regions. There's also a new gender-neutral parameter to allow customers to choose whether to enable probabilistic gender inference for alt-text and Seeing AI applications. Automatically deliver rich captions, accessible alt-text, SEO optimization, and intelligent photo curation to support digital content. [Image captions](./concept-describe-images-40.md).
 
 ### Video summary and frame locator (public preview): 
-Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for additional metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
+Search and interact with video content in the same intuitive way you think and write. Locate relevant content without the need for extra metadata. Available only in [Vision Studio](https://aka.ms/VisionStudio).
 
 
 ### Image Analysis 4.0 model customization (public preview)
@@ -107,7 +107,7 @@ As part of the Image Analysis 4.0 API, the [Background removal API](./concept-ba
 ### Azure AI Vision 3.0 & 3.1 previews deprecation
 
 The preview versions of the Azure AI Vision 3.0 and 3.1 APIs are scheduled to be retired on September 30, 2023. Customers won't be able to make any calls to these APIs past this date. Customers are encouraged to migrate their workloads to the generally available (GA) 3.2 API instead. Mind the following changes when migrating from the preview versions to the 3.2 API:
-- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they use the latest model.
 - The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
 - Azure AI Vision 3.2 API uses a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
 
@@ -115,7 +115,7 @@ The preview versions of the Azure AI Vision 3.0 and 3.1 APIs are scheduled to be
 
 ### Azure AI Vision Image Analysis 4.0 (public preview)
 
-Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
+Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
 
 ## September 2022
 
