@@ -153,11 +153,12 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 
 7. Keep this `authorization-code` handy for future use.
 
-|Parameter| Description|
-| --- | --- |
-|code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
-|state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
-|session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
+   |Parameter| Description|
+   | --- | --- |
+   |code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short 
+lived. Typically, they expire after about 10 minutes.|
+   |state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
+   |session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
 
 > [!WARNING]
 > Running the URL in Postman won't work because it requires extra configuration for token retrieval.
