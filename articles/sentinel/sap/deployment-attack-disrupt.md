@@ -1,5 +1,5 @@
 ---
-title: Deploy automatic attack disruption for SAP | Microsoft Sentinel
+title: Deploy automatic attack disruption for SAP (Preview)| Microsoft Sentinel
 description: This article describes how to deploy automatic attack disruption in the Microsoft Defender portal for SAP.
 author: batamig
 ms.author: bagol
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/21/2024
 ---
 
-# Deploy automatic attack disruption for SAP
+# Deploy automatic attack disruption for SAP (Preview)
 
 Microsoft Defender XDR correlates millions of individual signals to identify active ransomware campaigns or other sophisticated attacks in the environment with high confidence. While an attack is in progress, Defender XDR disrupts the attack by automatically containing compromised assets that the attacker is using through automatic attack disruption.
 
@@ -16,6 +16,10 @@ Automatic attack disruption limits lateral movement early on and reduces the ove
 This article describes how to deploy automatic attack disruption in the Microsoft Defender portal for SAP, together with Microsoft Sentinel integrated into the Microsoft Defender portal and the Microsoft Sentinel solution for SAP applications. Deployment includes steps in both Microsoft Sentinel in the Azure portal, and in your SAP environment.
 
 For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
+
+> [!IMPORTANT]
+>
+> Automatic attack disruption for SAP and the Microsoft Sentinel integration with the Microsoft Defender portal are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
