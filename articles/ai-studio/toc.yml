@@ -107,6 +107,8 @@
         href: how-to/flow-develop.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
+      - name: Process images in a flow
+        href: how-to/flow-process-image.md
     - name: Use prompt flow tools
       items:
       - name: Overview of prompt flow tools

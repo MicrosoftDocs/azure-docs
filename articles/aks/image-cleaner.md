@@ -1,6 +1,6 @@
 ---
 title: Use Image Cleaner on Azure Kubernetes Service (AKS)
-description: Learn how to use Image Cleaner to clean up stale images on Azure Kubernetes Service (AKS)
+description: Learn how to use Image Cleaner to clean up vulnerable stale images on Azure Kubernetes Service (AKS)
 ms.author: nickoman
 author: nickomang
 ms.topic: article
@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/22/2024
 ---
 
-# Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
+# Use Image Cleaner to clean up vulnerable stale images on your Azure Kubernetes Service (AKS) cluster
 
 It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images might contain vulnerabilities, which might create security issues. To remove security risks in your clusters, you can clean these unreferenced images. Manually cleaning images can be time intensive. Image Cleaner performs automatic image identification and removal, which mitigates the risk of stale images and reduces the time required to clean them up.
 
