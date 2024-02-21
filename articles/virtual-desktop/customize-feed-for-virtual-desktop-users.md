@@ -16,15 +16,19 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 
 ## Prerequisites
 
-This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
-## Customize the display name for a RemoteApp or Remote Desktop
+- An Azure account assigned the [Desktop Virtualization Session Host Operator](rbac.md#desktop-virtualization-session-host-operator) and [Desktop Virtualization Application Group Contributor](rbac.md##desktop-virtualization-application-group-contributor) roles.
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-You can change the display name for a published RemoteApp or Remote Desktop by setting the friendly name. 
 
-#### [Portal](#tab/portal)
+## Customize the display name for a RemoteApp or desktop 
 
-Here's how to customize the display name for a published RemoteApp or Remote Desktop using the Azure portal.
+You can change the display name for a published RemoteApp or desktop to make it easier for users to identify what to connect to. 
+
+#### [Azure portal](#tab/portal)
+
+Here's how to customize the display name for a published RemoteApp or desktop using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -32,7 +36,7 @@ Here's how to customize the display name for a published RemoteApp or Remote Des
 
 3. Under Services, select **Azure Virtual Desktop**.
 
-4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit. (For example, if you want to edit the display name of the desktop application group, select the application group named **Desktop**.)
+4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit.
 
 5. Select **Applications** in the menu on the left side of the screen.
 
