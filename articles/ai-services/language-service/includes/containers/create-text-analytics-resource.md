@@ -7,9 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 ## Create an Azure AI Language resource

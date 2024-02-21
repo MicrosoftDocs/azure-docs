@@ -224,6 +224,12 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
     ```console
     $TOKEN = ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret demo-user-secret -o jsonpath='{$.data.token}'))))
     ```
+    
+1. Get the token to output to console.
+  
+     ```console
+     echo $TOKEN
+     ```
 
 ---
 

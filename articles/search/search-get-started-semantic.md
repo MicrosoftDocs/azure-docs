@@ -11,14 +11,14 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/05/2023
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Semantic ranking with .NET or Python
 
-In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can [significantly improve search relevance](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167), with minimal work for the developer.
+In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses natural language understanding from Microsoft to rescore search results, promoting results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can [significantly improve search relevance](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167), with minimal work for the developer.
 
-This quickstart walks you through the query modifications that invoke semantic ranking.
+This quickstart walks you through the index and query modifications that invoke semantic ranking.
 
 > [!NOTE]
 > Looking for an Azure AI Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) or [this accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) for details.

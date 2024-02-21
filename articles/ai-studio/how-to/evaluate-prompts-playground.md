@@ -2,14 +2,15 @@
 title: How to manually evaluate prompts in Azure AI Studio playground 
 titleSuffix: Azure AI Studio
 description: Quickly test and evaluate prompts in Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Manually evaluate prompts in Azure AI Studio playground 

@@ -9,8 +9,8 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.date: 01/19/2024
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Get an answer with the GenerateAnswer API

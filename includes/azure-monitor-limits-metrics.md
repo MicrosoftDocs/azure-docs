@@ -3,7 +3,6 @@ title: "include file"
 description: "include file" 
 services: azure-monitor
 author: rboucher
-tags: azure-service-management
 ms.prod: devops
 ms.topic: "include"
 ms.date: 07/22/2019
@@ -106,8 +105,8 @@ Prometheus alert rules and recording rules are defined in PromQL. They're perfor
 | Limit | Value |
 |:---|:---|
 | Rule groups per Azure Monitor workspace, in an Azure subscription  | 500<br>You can request an increase. |
-| Rules per rule group | 20<br> This limit can't be increased. |
-| Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
+| Rules per rule group | 20<br>This limit can't be increased. |
+| Rule group evaluation interval | Between 1 minute - 24 hours.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |
 
 #### Remote write

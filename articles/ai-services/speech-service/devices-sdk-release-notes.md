@@ -2,12 +2,11 @@
 title: Speech Devices SDK release notes
 titleSuffix: Azure AI services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 02/12/2022
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -49,7 +48,7 @@ The following sections list changes in the most recent releases.
 - Linux ARM is now supported.
 - Initial binaries for [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) are provided (Linux ARM64).
 - Windows users can use `AudioConfig.fromDefaultMicrophoneInput()` or `AudioConfig.fromMicrophoneInput(deviceName)` to specify the microphone to be used.
-- The library size has been optimized.
+- The library size is optimized.
 - Support for multi-turn recognition using the same speech/intent recognizer object.
 - Fix occasional issue where the process would stop responding while stopping recognition.
 - Sample apps now contain a sample participants.properties file to demonstrate the format of the file.
@@ -74,7 +73,7 @@ The following sections list changes in the most recent releases.
 
 **Breaking changes**
 
-- Due to the new keyword technology all keywords must be re-created at our improved keyword portal. To fully remove old keywords from the device uninstall the old app.
+- Due to the new keyword technology, all keywords must be re-created at our improved keyword portal. To completely remove old keywords from the device, uninstall the old app.
   - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## Speech Devices SDK 1.4.0: 2019-Apr release
@@ -89,8 +88,8 @@ The following sections list changes in the most recent releases.
 
 **Breaking changes**
 
-- [Installing a keyword](./custom-keyword-basics.md) has been simplified, it is now part of the app and does not need separate installation on the device.
-- The keyword recognition has changed, and two events are supported.
+- [Installing a keyword](./custom-keyword-basics.md) has been simplified, it's now part of the app and doesn't need separate installation on the device.
+- The keyword recognition is changed, and two events are supported.
   - `RecognizingKeyword,` indicates the speech result contains (unverified) keyword text.
   - `RecognizedKeyword`, indicates that keyword recognition completed recognizing the given keyword.
 
@@ -103,13 +102,13 @@ The following sections list changes in the most recent releases.
 ## Speech Devices SDK 1.0.1: 2018-Oct release
 
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.0.1. For more information, see its [release notes](./releasenotes.md).
-- Speech recognition accuracy will be improved with our improved audio processing algorithm
+- Speech recognition accuracy is improved with our improved audio processing algorithm
 - One continuous recognition audio session bug is fixed.
 
 **Breaking changes**
 
-- With this release a number of breaking changes are introduced. Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details relating to the APIs.
-- The keyword recognition model files are not compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
+- With this release many breaking changes are introduced. Check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details relating to the APIs.
+- The keyword recognition model files aren't compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
 
 ## Speech Devices SDK 0.5.0: 2018-Aug release
 

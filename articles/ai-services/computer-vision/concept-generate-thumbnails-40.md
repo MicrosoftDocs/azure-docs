@@ -8,14 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Smart-cropped thumbnails (version 4.0 preview)
 
-A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Azure AI Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
+A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Azure AI Vision 4.0 API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
 
 The Azure AI Vision smart-cropping utility takes one or more aspect ratios in the range [0.75, 1.80] and returns the bounding box coordinates (in pixels) of the region(s) identified. Your app can then crop and return the image using those coordinates.
 
@@ -36,7 +35,7 @@ The generated bounding box can vary widely depending on what you specify for asp
 
 ## Use the API
 
-The smart cropping feature is available through the [Analyze Image API](https://aka.ms/vision-4-0-ref). Include `SmartCrops` in the **features** query parameter. Also include a **smartcrops-aspect-ratios** query parameter, and set it to a decimal value for the aspect ratio you want (defined as width / height) in the range [0.75, 1.80]. Multiple aspect ratio values should be comma-separated. If no aspect ratio value is provided the API will return a crop with an aspect ratio that best preserves the image’s most important region.  
+The smart cropping feature is available through the [Analyze Image 4.0 API](https://aka.ms/vision-4-0-ref). Include `SmartCrops` in the **features** query parameter. Also include a **smartcrops-aspect-ratios** query parameter, and set it to a decimal value for the aspect ratio you want (defined as width / height) in the range [0.75, 1.80]. Multiple aspect ratio values should be comma-separated. If no aspect ratio value is provided the API will return a crop with an aspect ratio that best preserves the image’s most important region.  
 
 ## Next steps
 

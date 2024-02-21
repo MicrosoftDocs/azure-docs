@@ -1,9 +1,9 @@
 ---
-title: Create a Windows VM with Azure VM Image Builder by using an existing virtual network 
+title: Create a Windows VM with Azure VM Image Builder by using an existing virtual network
 description: Use Azure VM Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 03/27/2023
 ms.topic: how-to
 ms.service: virtual-machines

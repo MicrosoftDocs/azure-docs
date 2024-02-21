@@ -7,9 +7,8 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 01/18/2024
 ms.author: mbullwin
-ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algorithms
 ---
 

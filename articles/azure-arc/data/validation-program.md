@@ -32,12 +32,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### Dell
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-| [Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.24.3|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
-| [PowerStore T](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance.htm) |1.24.3|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
-| [PowerFlex](https://www.dell.com/en-us/dt/storage/powerflex.htm) |1.25.0 | 1.21.0_2023-07-11 | 16.0.5100.7242 | 14.5 (Ubuntu 20.04) |
-| [PowerStore X](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance/powerstore-x-series.htm)|1.20.6|1.0.0_2021-07-30|15.0.2148.140 | 12.3 (Ubuntu 12.3-1) |
+|[PowerStore](https://www.dell.com/en-us/shop/powerstore/sf/power-store)|1.25.15|1.25.0_2023-11-14|16.0.5100.7246|Not validated|
+|[Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.24.3|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+|[PowerFlex](https://www.dell.com/en-us/dt/storage/powerflex.htm) |1.25.0 |1.21.0_2023-07-11 |16.0.5100.7242 |14.5 (Ubuntu 20.04) |
 
 ### Hitachi
 |Solution and version |Kubernetes version |Azure Arc-enabled data services version |SQL engine version |PostgreSQL server version|
@@ -105,7 +104,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| [Wind River Cloud Platform 22.12](https://www.windriver.com/studio/operator/cloud-platform) | 1.24.4 | 1.21.0_2023-07-11 | 16.0.5100.7242 | Not validated |
+|[Wind River Cloud Platform 22.12](https://www.windriver.com/studio/operator/cloud-platform)|1.24.4|1.26.0_2023-12-12|16.0.5100.7246|Not validated|
 |Wind River Cloud Platform 22.06 | 1.23.1|1.9.0_2022-07-12 |16.0.312.4243| 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process

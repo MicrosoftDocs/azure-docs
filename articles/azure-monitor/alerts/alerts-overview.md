@@ -4,7 +4,7 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 09/12/2023
+ms.date: 01/14/2024
 ms.custom: template-overview 
 ms.reviewer: harelbr
 ---
@@ -50,7 +50,7 @@ This table provides a brief description of each alert type. For more information
 |Alert type|Description|
 |:---------|:---------|
 |[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics, or Application Insights metrics. Metric alerts can also apply multiple conditions and dynamic thresholds.|
-|[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
+|[Log search alerts](alerts-types.md#log-alerts)|Log search alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 |[Prometheus alerts](alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
@@ -77,20 +77,18 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-Stateful log alerts have these limitations:
-- they can trigger up to 300 alerts per evaluation.
-- you can have a maximum of 5000 alerts with the `fired` alert condition.
+Stateful log search alerts have limitations - details [here](/azure/azure-monitor/service-limits#alerts).
 
 This table describes when a stateful alert is considered resolved:
 
 |Alert type |The alert is resolved when |
 |---------|---------|
 |Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
+|Log search alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 ## Recommended alert rules
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
+You can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
 The system compiles a list of recommended alert rules based on:
 
@@ -114,19 +112,19 @@ For metric alert rules for Azure services that don't support multiple resources,
 
 Each metric alert rule is charged based on the number of time series that are monitored.
 
-### Log alerts
+### Log search alerts
 
-Use [log alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log alerts rule. 
+Use [log search alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log search alert rule. 
 
 You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
 
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an Log Analytics workspace, there is no additional cost. 
+Log search alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
 
 If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
 
 ### Using Azure policies for alerting at scale
 
-You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implementated with [Azure Monitor baseline alerts](https://aka.ms/amba).
+You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implemented with [Azure Monitor baseline alerts](https://aka.ms/amba).
 
 Keep in mind that if you use policies to create alert rules, you may have the increased overhead of maintaining a large alert rule set.
 

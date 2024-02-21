@@ -7,10 +7,11 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 02/17/2023
+ms.date: 01/16/2024
 ms.author: jboback
-ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-language-detection, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-language-detection, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, language detection
 zone_pivot_groups: programming-languages-text-analytics
 ---

@@ -10,33 +10,35 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 02/08/2024
 ---
 
 # Semantic ranking in Azure AI Search
 
-In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#semantic-capabilities-and-limitations) describes the technology, and the section at the end covers availability and pricing.
+In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction. The section at the end covers [availability and pricing](#availability-and-pricing).
 
-Semantic ranking is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
+Semantic ranker is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search).
-> * [Enable semantic ranking](semantic-how-to-enable-disable.md) on your search service.
-> * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
-> * Add a few more query properties to also [return semantic answers](semantic-answers.md).
+> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
+> * [Sign in to Azure portal](https://portal.azure.com) to verify your search service is Basic or higher
+> * [Enable semantic ranking and choose a pricing plan](semantic-how-to-enable-disable.md)
+> * [Set up a semantic configuration in a search index](semantic-how-to-configure.md)
+> * [Set up queries to return semantic captions and highlights](semantic-how-to-query-request.md)
+> * [Optionally, return semantic answers](semantic-answers.md)
 
 > [!NOTE]
-> Looking for vector support and similarity search? See [Vector search in Azure AI Search](vector-search-overview.md) for details.
+> Semantic ranking doesn't use generative AI or vectors. If you're looking for vector support and similarity search? See [Vector search in Azure AI Search](vector-search-overview.md) for details.
 
 ## What is semantic ranking?
 
-Semantic ranking is a collection of query-related capabilities that improve the quality of an initial [BM25-ranked](index-similarity-and-scoring.md) or [RRF-ranked](hybrid-search-ranking.md) search result for text-based queries. When you enable it on your search service, semantic ranking extends the query execution pipeline in two ways: 
+Semantic ranker is a collection of query-related capabilities that improve the quality of an initial [BM25-ranked](index-similarity-and-scoring.md) or [RRF-ranked](hybrid-search-ranking.md) search result for text-based queries. When you enable it on your search service, semantic ranking extends the query execution pipeline in two ways: 
 
 * First, it adds secondary ranking over an initial result set that was scored using BM25 or RRF. This secondary ranking uses multi-lingual, deep learning models adapted from Microsoft Bing to promote the most semantically relevant results. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Here are the features of semantic ranking.
+Here are the capabilities of the semantic reranker.
 
 | Feature | Description |
 |---------|-------------|
@@ -44,9 +46,9 @@ Here are the features of semantic ranking.
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
-## How semantic ranking works
+## How semantic ranker works
 
-Semantic ranking looks for context and relatedness among terms, elevating matches that make more sense for the query. 
+Semantic ranking feeds a query and results to language understanding models hosted by Microsoft and scans for better matches. 
 
 The following illustration explains the concept. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic ranker can detect context and promote results that fit query intent.
 
@@ -62,7 +64,7 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
 1. Semantic ranking starts with a [BM25-ranked result](index-ranking-similarity.md) from a text query or an [RRF-ranked result](hybrid-search-ranking.md) from a hybrid query. Only text fields are used in the reranking exercise, and only the top 50 results progress to semantic ranking, even if results include more than 50. Typically, fields used in semantic ranking are informational and descriptive.
 
-1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). 
+1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-configure.md). 
 
 1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step. This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
@@ -76,7 +78,7 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
    The maximum length of each generated summary string passed to the semantic ranker is 256 tokens. 
 
-### Outputs of semantic ranking
+### Outputs of semantic ranker
 
 From each summary string, the machine reading comprehension models find passages that are the most representative.
 
@@ -103,7 +105,7 @@ Scoring is done over the caption, and any other content from the summary string 
 
 ## Semantic capabilities and limitations
 
-Semantic ranking is a newer technology so it's important to set expectations about what it can and can't do. What it *can* do:
+Semantic ranker is a newer technology so it's important to set expectations about what it can and can't do. What it *can* do:
 
 * Promote matches that are semantically closer to the intent of original query.
 
@@ -121,9 +123,9 @@ The following video provides an overview of the capabilities.
 
 ## Availability and pricing
 
-Semantic ranking is available on search services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
+Semantic ranker is available on search services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-When you enable semantic ranking, choose a pricing plan for the feature:
+When you enable semantic ranker, choose a pricing plan for the feature:
 
 * At lower query volumes (under 1000 monthly), semantic ranking is free.
 * At higher query volumes, choose the standard pricing plan.

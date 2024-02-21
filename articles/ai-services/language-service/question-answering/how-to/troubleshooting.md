@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ---
 
 # Troubleshooting for question answering

@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 07/20/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to enable multifactor authentication using the TOTP method, so that end users can use an authenticator app to generate TOTP codes for enrollment and verification.
+
 ---
 
 # TOTP display control

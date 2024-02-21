@@ -24,20 +24,20 @@ The following tables show gap analyses for the log types that currently rely on 
 
 ### Windows logs
 
-|Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
-|---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md)   |  [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md)   |     -     |
-|**Filtering by event ID**     | Collection only        |   -       |
+| Log type / Support | Azure Monitor agent support | Log Analytics agent support |
+| --------- | --------- | --------- |
+| **Security Events** | [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md) | [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md) |
+| **Filtering by security event ID** | [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md) | - |
+| **Filtering by event ID** | Collection only | - |
 |**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)   |     -     |
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
-|**Windows Event Logs**     |  Collection only       | Collection only        |
+| **Windows (System) Event Logs** | Collection only | Collection only |
 |**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
-|**Application and service logs**     |    -      |    Collection only     |
-|**Sysmon**     |    Collection only      |      Collection only   |
+| **Application and service logs** | Collection only | Collection only |
+| **Sysmon** | Collection only | Collection only |
 |**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/dns.md) (Public preview)        |
 
 > [!IMPORTANT]

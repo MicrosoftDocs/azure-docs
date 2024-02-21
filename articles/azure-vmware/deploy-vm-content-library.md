@@ -3,14 +3,15 @@ title: Create a content library to deploy VMs in Azure VMware Solution
 description: Create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 12/11/2023
+ms.custom: engagement-fy23
 ---
 
 # Create a content library to deploy VMs in Azure VMware Solution
 
 A content library stores and manages content in the form of library items. A single library item consists of files you use to deploy virtual machines (VMs).
 
-In this article, you'll create a content library in the vSphere Client and then deploy a VM using an ISO image from the content library.
+In this article, learn how to create a content library in the vSphere Client and deploy a VM using an ISO image from the content library.
 
 ## Prerequisites
 
@@ -44,7 +45,7 @@ An NSX-T Data Center segment and a managed DHCP service are required to complete
 
 ## Upload an ISO image to the content library
 
-Now that you've created the content library, you can add an ISO image to deploy a VM to a private cloud cluster. 
+Now that you created the content library, you can add an ISO image to deploy a VM to a private cloud cluster. 
 
 1. From the vSphere Client, select **Menu** > **Content Libraries**.
 
@@ -88,7 +89,7 @@ Now that you've created the content library, you can add an ISO image to deploy 
 
 ## Next steps
 
-Now that you've created a content library to deploy VMs in Azure VMware Solution, you may want to learn about:
+Now that you created a content library to deploy VMs in Azure VMware Solution, learn more about:
 
 - [Migrating VM workloads to your private cloud](configure-vmware-hcx.md)
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)

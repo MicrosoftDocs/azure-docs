@@ -3,7 +3,7 @@ title: Azure Monitor customer-managed key
 description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 06/01/2023 
+ms.date: 01/06/2024 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -20,11 +20,11 @@ Review [limitations and constraints](#limitationsandconstraints) before configur
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). You can encrypt data using your own key in [Azure Key Vault](../../key-vault/general/overview.md), for control over the key lifecycle, and ability to revoke access to your data. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) operates.
 
-Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data is encrypted twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different encryption algorithms and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. Dedicated cluster also let's you protect data with [Lockbox](#customer-lockbox).
+Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data is encrypted in storage twice, once at the service level using Microsoft-managed keys or Customer-managed keys, and once at the infrastructure level, using two different [encryption algorithms](../../storage/common/storage-service-encryption.md#about-azure-storage-service-side-encryption) and two different keys. [double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. Dedicated cluster also lets you protect data with [Lockbox](#customer-lockbox).
 
 Data ingested in the last 14 days or recently used in queries is kept in hot-cache (SSD-backed) for query efficiency. SSD data is encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD access adheres to [key revocation](#key-revocation)
 
-Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 500 GB per day, and can have values of 500, 1000, 2000 or 5000 GB per day.
+Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 100 GB per day.
 
 ## How Customer-managed key works in Azure Monitor
 
@@ -187,7 +187,7 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 500
+    "capacity": 100
   }
 }
 ```
@@ -207,7 +207,7 @@ Response to GET request when key update is completed:
   },
   "sku": {
     "name": "capacityreservation",
-    "capacity": 500
+    "capacity": 100
   },
   "properties": {
     "keyVaultProperties": {
@@ -224,7 +224,7 @@ Response to GET request when key update is completed:
     "isAvailabilityZonesEnabled": false,
     "capacityReservationProperties": {
       "lastSkuUpdate": "last-sku-modified-date",
-      "minCapacity": 500
+      "minCapacity": 100
     }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
@@ -256,25 +256,26 @@ The cluster storage always respect changes in key permissions within an hour or 
 ## Key rotation
 
 Key rotation has two modes: 
-- Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage automatically use the latest key version.
+
+- Autorotation—update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```. Storage automatically uses the latest key version.
 - Explicit key version update—update your cluster with key version in ```"keyVersion"``` property. Rotation of keys requires an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the cluster storage keeps using your previous key. If you disable or delete the old key before updating a new one in the cluster, you get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
-## Customer-managed key for saved queries and log alerts
+## Customer-managed key for saved queries and log search alerts
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store saved queries and log alerts encrypted with your key in your own Storage Account when linked to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store saved queries and log search alerts encrypted with your key in your own Storage Account when linked to your workspace. 
 
 ## Customer-managed key for Workbooks
 
-With the considerations mentioned for [Customer-managed key for saved queries and log alerts](#customer-managed-key-for-saved-queries-and-log-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
+With the considerations mentioned for [Customer-managed key for saved queries and log search alerts](#customer-managed-key-for-saved-queries-and-log-search-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
 <!-- convertborder later -->
 :::image type="content" source="media/customer-managed-keys/cmk-workbook.png" lightbox="media/customer-managed-keys/cmk-workbook.png" alt-text="Screenshot of Workbook save." border="false":::
 
 > [!NOTE]
 > Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When linking your Storage Account for saved queries, the service stores saved-queries and log alerts queries in your Storage Account. Having control on your Storage Account [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect saved queries and log alerts with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
+When linking your Storage Account for saved queries, the service stores saved queries and log search alert queries in your Storage Account. Having control on your Storage Account [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect saved queries and log search alerts with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have "write" permissions on your workspace and Storage Account.
@@ -283,9 +284,9 @@ When linking your Storage Account for saved queries, the service stores saved-qu
 * Saves queries in storage are considered service artifacts and their format may change.
 * Linking a Storage Account for queries removes existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
-* You can link a single Storage Account to a workspace for both saved queries and log alerts queries.
-* Log alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
-* Fired log alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
+* You can link a single Storage Account to a workspace for both saved queries and log search alert queries.
+* Log search alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
+* Fired log search alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to get context in the fired alerts.
 
 **Configure BYOS for saved queries**
 
@@ -341,9 +342,9 @@ Content-type: application/json
 
 After the configuration, any new *saved search* query will be saved in your storage.
 
-**Configure BYOS for log alerts queries**
+**Configure BYOS for log search alert queries**
 
-Link a Storage Account for *Alerts* to keep *log alerts* queries in your Storage Account. 
+Link a Storage Account for *Alerts* to keep *log search alert* queries in your Storage Account. 
 
 # [Azure portal](#tab/portal)
 
@@ -425,15 +426,15 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - Moving a cluster to another resource group or subscription isn't currently supported.
 
-- Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
+- Cluster update shouldn't include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
-  - Double encryption settings cannot be changed after cluster is created.
+  - Double encryption settings cannot be changed after the cluster is created.
 
-Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
+Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) the workspace during the [soft-delete](./delete-workspace.md#delete-a-workspace-into-a-soft-delete-state) period, it returns to previous state and remains linked to cluster.
 
 - Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 

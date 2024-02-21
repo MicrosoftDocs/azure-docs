@@ -19,7 +19,7 @@ ms.date: 12/02/2023
 
 A *vectorizer* is a component of a [search index](search-what-is-an-index.md) that specifies a vectorization agent, such as a deployed embedding model on Azure OpenAI that converts text to vectors. You can define a vectorizer once, and then reference it in the vector profile assigned to a vector field.
 
-A vectorizer is used for queries queries. It allows the search service to vectorize a text query on your behalf.
+A vectorizer is used for queries. It allows the search service to vectorize a text query on your behalf.
 
 If you need to vectorize data as part of the indexing process refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md).
 
@@ -35,7 +35,7 @@ You can use the [**Import and vectorize data wizard**](search-get-started-portal
 
 + A skillset that performs data chunking and vectorization of those chunks. You can omit a skillset if you only want integrated vectorization at query time, or if you don't need chunking or [index projections](index-projections-concept-intro.md) during indexing. This article assumes you already know how to [create a skillset](cognitive-search-defining-skillset.md).
 
-+ An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector index](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
++ An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector store](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
 
 + An [indexer](search-howto-create-indexers.md) that drives the pipeline.
 

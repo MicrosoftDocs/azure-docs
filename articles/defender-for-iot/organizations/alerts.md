@@ -50,6 +50,16 @@ For more information, see:
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
+## Focused alerts in OT/IT environments
+
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance. To address these challenges, Defender for IoT's detection policy steers its different [alert engines](alert-engine-messages.md#supported-alert-types) to focus on alerts with business impact and relevance to an OT network, and reduce low-value IT related alerts. For example, the **Unauthorized internet connectivity** alert is highly relevant in an OT network, but has relatively low value in an IT network.
+
+To focus the alerts triggered in these environments, all alert engines, except for the *Malware* engine, trigger alerts only if they detect a related OT subnet or protocol. 
+However, to maintain triggering of alerts that indicate critical scenarios: 
+
+- The *Malware* engine triggers malware alerts regardless of whether the alerts are related to OT or IT devices.
+- The other engines include exceptions for critical scenarios. For example, the *Operational* engine triggers alerts related to sensor traffic, regardless of whether the alert is related to OT or IT traffic.
+
 ## Managing OT alerts in a hybrid environment
 
 Users working in hybrid environments might be managing OT alerts in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
@@ -150,4 +160,4 @@ Review alert types and messages to help you understand and plan remediation acti
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [View and manage alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+> [View and manage alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)

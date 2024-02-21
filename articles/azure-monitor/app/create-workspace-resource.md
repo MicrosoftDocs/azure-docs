@@ -2,7 +2,7 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/15/2023
 ms.reviewer: cogoodson
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---

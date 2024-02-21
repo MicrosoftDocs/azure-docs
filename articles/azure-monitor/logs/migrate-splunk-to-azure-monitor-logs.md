@@ -7,7 +7,7 @@ ms.reviewer: MeirMen
 ms.topic: how-to 
 ms.date: 01/27/2023
 
-#customer-intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
+# Customer intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
 
 ---
 

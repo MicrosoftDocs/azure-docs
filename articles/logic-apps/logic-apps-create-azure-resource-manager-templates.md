@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Create Azure Resource Manager templates to automate Consumption logic app deployment for Azure Logic Apps

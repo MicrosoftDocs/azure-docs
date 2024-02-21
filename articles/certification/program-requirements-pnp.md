@@ -9,7 +9,11 @@ ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
 ---
 
+
+
 # IoT Plug and Play Certification Requirements
+> [!Note]
+> The Azure Certified Device program has met its goals and will conclude on February 23, 2024. This means that the Azure Certified Device catalog, along with certifications for Azure Certified Device, Edge Managed, and IoT Plug and Play will no longer be available after this date. However, the Edge Secured-core program will remain active and will be relocated to a new home at [aka.ms/EdgeSecuredCoreHome](https://aka.ms/EdgeSecuredCoreHome).
 
 This document outlines the device specific capabilities that will be represented in the Azure IoT Device catalog. A capability is singular device attribute that may be software implementation or combination of software and hardware implementations.
 
@@ -20,7 +24,7 @@ IoT Plug and Play enables solution builders to integrate smart devices with thei
 Promise of IoT Plug and Play certification are:
 
 1.	Defined device models and interfaces are compliant with the [Digital Twin Definition Language](https://github.com/Azure/opendigitaltwins-dtdl)
-1.	Easy integration with Azure IoT based solutions using the [Digital Twin APIs](../iot-develop/concepts-digital-twin.md)  : Azure IoT Hub and Azure IoT Central
+1.	Easy integration with Azure IoT based solutions using the [Digital Twin APIs](../iot/concepts-digital-twin.md)  : Azure IoT Hub and Azure IoT Central
 1.	Product truth validated through testing telemetry from end point to cloud using DTDL 
 
 > [!Note]
@@ -59,7 +63,7 @@ Promise of IoT Plug and Play certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | The [portal workflow](https://certify.azure.com) validates: **1.** Model ID announcement and ensure the device is connected using either the MQTT or MQTT over WebSockets protocol **2.** Models are compliant with the DTDL v2 **3.** Telemetry, properties, and commands are properly implemented and interact between IoT Hub Digital Twin and Device Twin on the device |
-| **Resources**           | [Public Preview Refresh updates](../iot-develop/overview-iot-plug-and-play.md) |
+| **Resources**           | [Public Preview Refresh updates](../iot/overview-iot-plug-and-play.md) |
 
 **[Required] Device models are published in public model repository**
 
@@ -70,7 +74,7 @@ Promise of IoT Plug and Play certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | All device models are required to be published in public repository. Device models are resolved via models available in public repository **1.** User must manually publish the models to the public repository before submitting for the certification. **2.** Note that once the models are published, it is immutable. We strongly recommend publishing only when the models and embedded device code are finalized.*1  *1 User must contact Microsoft support to revoke the models once published to the model repository **3.** [Portal workflow](https://certify.azure.com) checks the existence of the models in the public repository when the device is connected to the certification service |
-| **Resources**           | [Model repository](../iot-develop/overview-iot-plug-and-play.md) |
+| **Resources**           | [Model repository](../iot/overview-iot-plug-and-play.md) |
 
 
 **[If implemented] Device info Interface:  The purpose of test is to validate device info interface is implemented properly in the device code**
@@ -82,7 +86,7 @@ Promise of IoT Plug and Play certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | [Portal workflow](https://certify.azure.com) validates the device code implements device info interface **1.** Checks the values are emitted by the device code to IoT Hub **2.** Checks the interface is implemented in the DCM (this implementation will change in DTDL v2) **3.** Checks properties are not write-able (read only) **4.** Checks the schema type is string and/or long and not null |
-| **Resources**           | [Microsoft defined interface](../iot-develop/overview-iot-plug-and-play.md) |
+| **Resources**           | [Microsoft defined interface](../iot/overview-iot-plug-and-play.md) |
 | **Azure Recommended**  | N/A                                                          |
 
 **[If implemented] Cloud to device:  The purpose of test is to make sure messages can be sent from cloud to devices**

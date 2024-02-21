@@ -3,7 +3,7 @@ title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 12/21/2023
 ms.custom: engagement-fy23
 ---
 
@@ -32,7 +32,7 @@ By default, Azure Backup Server communicates with VMware vCenter Server over HTT
 
 1. On the VMware vSphere Client **Getting Started** page, select **Download trusted root CA certificates**.
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Web Client Getting Started window to access vSphere remotely.":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Client Getting Started window to access vSphere remotely.":::
 
 1. Save the **download.zip** file to the Azure Backup Server machine, and then extract its contents to the **certs** folder, which contains the:
 

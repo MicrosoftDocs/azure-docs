@@ -5,12 +5,10 @@ description: Learn about model versions in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 10/30/2023
-ms.custom:
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Azure OpenAI Service model versions

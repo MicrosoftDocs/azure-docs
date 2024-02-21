@@ -101,7 +101,7 @@ Enable scraping of Prometheus metrics by Azure Monitor managed service for Prome
 
 - Select the option **Enable Prometheus metrics** when you [create an AKS cluster](../../aks/learn/quick-kubernetes-deploy-portal.md).
 - Select the option **Enable Prometheus metrics** when you enable Container insights on an existing [AKS cluster](container-insights-enable-aks.md) or [Azure Arc-enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md).
-- Enable for an existing [AKS cluster](../essentials/prometheus-metrics-enable.md) or [Arc-enabled Kubernetes cluster (preview)](../essentials/prometheus-metrics-from-arc-enabled-cluster.md).
+- Enable for an existing [AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) or [Arc-enabled Kubernetes cluster (preview)](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 
 
 If you already have a Prometheus environment that you want to use for your AKS clusters, then enable Azure Monitor managed service for Prometheus and then use remote-write to send data to your existing Prometheus environment. You can also [use remote-write to send data from your existing self-managed Prometheus environment to Azure Monitor managed service for Prometheus](../essentials/prometheus-remote-write.md). 
@@ -127,7 +127,7 @@ Once Container insights is enabled for a cluster, perform the following actions 
 
 - Container insights collects many of the same metric values as [Prometheus](#enable-scraping-of-prometheus-metrics). You can disable collection of these metrics by configuring Container insights to only collect **Logs and events** as described in [Enable cost optimization settings in Container insights](../containers/container-insights-cost-config.md#enable-cost-settings). This configuration disables the Container insights experience in the Azure portal, but you can use Grafana to visualize Prometheus metrics and Log Analytics to analyze log data collected by Container insights.
 - Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. 
-- To improve your query experience with data collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster. If you only use logs for occasional troubleshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
+- To improve your query experience with data collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logs-schema.md) for each cluster. If you only use logs for occasional troubleshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
 
 If you have an existing solution for collection of logs, then follow the guidance for that tool or enable Container insights and use the [data export feature of Log Analytics workspace](../logs/logs-data-export.md) to send data to [Azure Event Hubs](../../event-hubs/event-hubs-about.md) to forward to alternate system.
 
@@ -268,7 +268,7 @@ The following table describes the different types of custom alert rules that you
 |:---|:---|
 | Prometheus alerts | [Prometheus alerts](../alerts/prometheus-alerts.md) are written in Prometheus Query Language (Prom QL) and applied on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Recommended alerts already include the most common Prometheus alerts, and you can [create addition alert rules](../essentials/prometheus-rule-groups.md) as required. |
 | Metric alert rules | Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the metrics explorer with the data you're currently analyzing. Metric alert rules can be useful to alert on AKS performance using any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics). |
-| Log alert rules | Use log alert rules to generate an alert from the results of a log query. For more information, see [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
+| Log search alert rules | Use log search alert rules to generate an alert from the results of a log query. For more information, see [How to create log search alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
 
 #### Recommended alerts
 Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. You can add more alert rules later as you identify additional alerting conditions.
@@ -309,7 +309,7 @@ Following are common scenarios for monitoring your application.
 - Use the **Performance** view in Application insights to view the performance of different operations in your application.
 - Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
 - Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
-- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
+- Enable [distributed tracing](../app/distributed-trace-data.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
 
 **Application failures**<br>
 - Use the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.

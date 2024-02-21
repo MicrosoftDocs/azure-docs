@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eur
- ms.author: eric-urban
- ms.service: azure-ai-services
- ms.topic: include
- ms.date: 12/1/2023
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 12/1/2023
+ms.custom: include
 ---
 
 Content for [Custom neural voice](https://aka.ms/customvoice) like data, models, tests, and endpoints are organized into projects in Speech Studio. Each project is specific to a country/region and language, and the gender of the voice you want to create. For example, you might create a project for a female voice for your call center's chat bots that use English in the United States.

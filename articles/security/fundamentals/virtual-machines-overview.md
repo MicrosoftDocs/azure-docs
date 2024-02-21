@@ -3,7 +3,6 @@ title: Security features used with Azure VMs
 titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -11,8 +10,6 @@ ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/05/2022
 ms.author: terrylan
 

@@ -3,7 +3,6 @@ title: "include file"
 description: "include file" 
 services: azure-monitor
 author: rboucher
-tags: azure-service-management
 ms.topic: "include"
 ms.date: 02/07/2019
 ms.author: robb
@@ -71,13 +70,14 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
+| Maximum number of custom log tables | 500 | |
 | Maximum characters for column name | 45 | |
 
 <b id="data-ingestion-volume-rate">Data ingestion volume rate</b>
 
 Azure Monitor is a high-scale data service that serves thousands of customers sending Terabytes of data each daily and at a growing pace. A soft volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in a multitenancy environment. The default ingestion volume rate threshold in workspaces is 500 MB (compressed), which is translated to approximately 6 GB/min uncompressed.
 
-The volume rate limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md). When the volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if operation fails. The limit doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md), [Data Collector API](../articles/azure-monitor/logs/data-collector-api.md), or DCR.
+The volume rate limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md) and [Data Collector API](../articles/azure-monitor/logs/data-collector-api.md). When the volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if operation fails. The limit doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md), or via DCR.
 
 When data sent to your workspace is at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold continues to be exceeded. When the ingested volume rate is higher than the threshold, some data is dropped, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold continues to be exceeded. 
 

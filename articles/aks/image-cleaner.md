@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 10/22/2023
+ms.date: 01/22/2024
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -42,18 +42,19 @@ With Image Cleaner, you can choose between manual and automatic mode and the fol
 |`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner uses to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
 
 ### Automatic mode
-Once `eraser-controller-manager` is deployed,
 
-  - it will start first time's clean up immediately and create worker pods per node named like `eraser-aks-xxxxx`
-  - inside each worker pod, there are 3 containers:
-    - collector: collect unused images
-    - trivy-scanner: leverage [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities
-    - remover: remove unused images with vulnerabilities 
-  - after clean up, worker pod will be deleted and its next schedule up is after the `--image-cleaner-interval-hours` you have set
+Once `eraser-controller-manager` is deployed, the following steps will be taken automatically:
+
+* It immediately starts the cleanup process and creates `eraser-aks-xxxxx` worker pods for each node.
+* There are three containers in each worker pod:
+  * A **collector**, which collects unused images
+  * A **trivy-scanner**, which leverages [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities.
+  * A **remover**, which removes unused images with vulnerabilities.
+* After the cleanup process completes, the worker pod is deleted and the next scheduled cleanup happens according to the `--image-cleaner-interval-hours` you define.
 
 ### Manual mode
 
-You can also manually trigger the clean up by defining a CRD object `ImageList`. Then `eraser-contoller-manager` will create worker pod per node as well to finish manual removal.
+You can manually trigger the cleanup by defining a CRD object,`ImageList`. This triggers the `eraser-contoller-manager` to create `eraser-aks-xxxxx` worker pods for each node and complete the manual removal process.
 
 > [!NOTE]
 > After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
@@ -104,7 +105,10 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
 
 ## Manually remove images using Image Cleaner
 
-* Example to manually remove image `docker.io/library/alpine:3.7.3` if it is unused.
+> [!IMPORTANT]
+> The `name` must be set to `imagelist`.
+
+* Manually remove an image using the following `kubectl apply` command. This example removes the `docker.io/library/alpine:3.7.3` image if it's unused.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -117,6 +121,51 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
         - docker.io/library/alpine:3.7.3
     EOF
     ```
+
+The manual cleanup is a one-time operation and is only triggered when a new `imagelist` is created or changes are made to the existing `imagelist`. After the image is deleted, the `imagelist` won't be deleted automatically.
+
+If you need to trigger another manual cleanup, you have to create a new `imagelist` or make changes to an existing one. If you want to remove the same image again, you need to create a new `imagelist`.
+
+### Delete an existing ImageList and create a new one
+
+1. Delete the old `imagelist` using the `kubectl delete` command.
+
+    ```bash
+    kubectl delete ImageList imagelist
+    ```
+
+2. Create a new `imagelist` with the same image name. The following example uses the same image as the [previous example](#manually-remove-images-using-image-cleaner).
+
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: eraser.sh/v1
+    kind: ImageList
+    metadata:
+      name: imagelist
+    spec:
+      images:
+        - docker.io/library/alpine:3.7.3
+    EOF
+    ```
+
+### Modify an existing ImageList
+
+* Modify the existing `imagelist` using the `kubectl edit` command.
+
+    ```bash
+    kubectl edit ImageList imagelist
+
+    # Add a new image to the list
+    apiVersion: eraser.sh/v1
+    kind: ImageList
+    metadata:
+      name: imagelist
+    spec:
+      images:
+          docker.io/library/python:alpine3.18
+    ```
+
+When using manual mode, the `eraser-aks-xxxxx` pod deletes within 10 minutes after work completion.
 
 ## Image exclusion list
 
@@ -160,44 +209,48 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 ## FAQ
 
-### How to check eraser version is using?
-```
-kubectl get configmap -n kube-system eraser-manager-config | grep tag -C 3
+### How can I check which version Image Cleaner is using?
+
+```bash
+kubectl describe configmap -n kube-system eraser-manager-config | grep tag -C 3
 ```
 
 ### Does Image Cleaner support other vulnerability scanners besides trivy-scanner?
+
 No.
 
 ### Can I specify vulnerability levels for images to clean?
-Currently no. The default settings for vulnerablity levels are:
-- `LOW`
-- `MEDIUM`
-- `HIGH`
-- `CRITICAL`
 
-And they cannot be customized.
+No. The default settings for vulnerability levels include:
+
+* `LOW`,
+* `MEDIUM`,
+* `HIGH`, and
+* `CRITICAL`
+
+You can't customize the default settings.
 
 ### How to review images were cleaned up by Image Cleaner?
 
-Image logs are stored in worker pod - `eraser-aks-xxxxx` and
+Image logs are stored in the `eraser-aks-xxxxx` worker pod. When `eraser-aks-xxxxx` is alive, you can run the following commands to view deletion logs:
 
-- when `eraser-aks-xxxxx` is alive, you can run below commands to view deletion logs.
 ```bash
 kubectl logs -n kube-system <worker-pod-name> -c collector
 kubectl logs -n kube-system <worker-pod-name> -c trivy-scanner
 kubectl logs -n kube-system <worker-pod-name> -c remover
 ```
 
-- when `eraser-aks-xxxxx` was deleted, you can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table to view historical pod logs.
-  1. Ensure Azure Monitoring is enabled on your cluster. For detailed steps, see [Enable Container Insights on AKS clusters](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
+The `eraser-aks-xxxxx` pod deletes within 10 minutes after work completion. You can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table. After that, historical logs will be stored and you can review them even `eraser-aks-xxxxx` is deleted.
+  
+1. Ensure Azure Monitoring is enabled on your cluster. For detailed steps, see [Enable Container Insights on AKS clusters](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
 
-  2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.
+2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.
 
-     ```azurecli
-     az aks show -g myResourceGroup -n myManagedCluster
-     ```
+    ```azurecli-interactive
+      az aks show -g myResourceGroup -n myManagedCluster
+    ```
 
-     After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID.
+     After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:
 
      ```json
      "addonProfiles": {
@@ -210,9 +263,9 @@ kubectl logs -n kube-system <worker-pod-name> -c remover
      }
      ```
 
-  3. In the Azure portal, search for the workspace resource ID, then select **Logs**.
+3. In the Azure portal, search for the workspace resource ID, then select **Logs**.
 
-  4. Copy this query into the table, replacing `name` with `eraser-aks-xxxxx` (worker pod name).
+4. Copy the following query into the table, replacing `name` with `eraser-aks-xxxxx` (worker pod name):
 
      ```kusto
      let startTimestamp = ago(1h);
@@ -234,7 +287,7 @@ kubectl logs -n kube-system <worker-pod-name> -c remover
      | order by TimeGenerated desc
      ```
 
-  5. Select **Run**. Any deleted image logs appear in the **Results** area.
+5. Select **Run**. Any deleted image logs appear in the **Results** area.
 
      :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
 

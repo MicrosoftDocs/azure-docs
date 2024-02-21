@@ -1,10 +1,9 @@
 ---
-title: Back up SAP HANA System Replication databases on Azure VMs    
+title: Back up SAP HANA System Replication databases on Azure VMs
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
 ms.date: 07/14/2023
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

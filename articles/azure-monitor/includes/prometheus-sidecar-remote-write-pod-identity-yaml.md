@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 11/12/2023
 ---
 
-```yml
+```yaml
 prometheus: 
   prometheusSpec: 
     podMetadata: 

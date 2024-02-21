@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 10/26/2023
+ms.date: 12/21/2023
 ---
 
 #	Azure OpenAI Embedding skill
@@ -87,7 +87,7 @@ Then your skill definition might look like this:
 
 ## Sample output
 
-For the given input text, a vectorized embedding output is produced. The output resides in memory. To send this output to a field in the search index, [define an outputFieldMapping](cognitive-search-output-field-mapping.md).
+For the given input text, a vectorized embedding output is produced.
 
 ```json
 {
@@ -98,6 +98,17 @@ For the given input text, a vectorized embedding output is produced. The output 
         0.021276434883475304,
       ]
 }
+```
+
+The output resides in memory. To send this output to a field in the search index, you must define an [outputFieldMapping](cognitive-search-output-field-mapping.md) that maps the vectorized embedding output (which is an array) to the single index field which is of Collection(Edm.Single) type. Following the example above and assuming the index field in which you want to store the results of the vectorized embedding output is called **embeddingindexfield**, the outputFieldMapping to include in the definition of the indexer would look like the following:
+
+```json
+  "outputFieldMappings": [
+    {
+      "sourceFieldName": "/document/embedding/*",
+      "targetFieldName": "embeddingindexfield"
+    }
+  ]
 ```
 
 ## Errors and warnings

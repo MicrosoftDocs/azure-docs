@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/28/2023
+ms.date: 02/16/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -147,6 +147,9 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ---
 
     Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
+
+    > [!NOTE]
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 1. Add a new empty Razor page named **Beta** under the *Pages* directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
 

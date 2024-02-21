@@ -7,9 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 # Migrate to the latest version of Azure AI Language

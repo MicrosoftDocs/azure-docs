@@ -3,7 +3,6 @@ title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
 ms.date: 12/06/2023
-ms.custom: seodec18
 ---
 
 # Create an Azure Batch pool in a virtual network
@@ -24,6 +23,9 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 - **An Azure Virtual Network**. To prepare a Virtual Network with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Microsoft Azure CLI (CLI), or other methods.
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
+
+    > [!IMPORTANT]
+    > Avoid using 172.17.0.0/16 for Azure Batch pool VNet. It is the default for Docker bridge network and may conflict with other networks that you want to connect to the VNet. Creating a virtual network for Azure Batch pool requires careful planning of your network infrastructure.
 
 ## General virtual network requirements
 
