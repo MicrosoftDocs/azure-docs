@@ -58,7 +58,7 @@ The limits in this table apply per Speech resource when you create a custom spee
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-| REST API limit | 300 requests per minute | 300 requests per minute |
+| REST API limit | 300 requests per minute | 100 requests per 10 seconds (600 requests per minute) |
 | Max number of speech datasets | 2 | 500 |
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
