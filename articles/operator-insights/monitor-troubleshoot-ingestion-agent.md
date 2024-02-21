@@ -11,17 +11,6 @@ ms.date: 02/29/2024
 #CustomerIntent: As a someone managing an agent that has already been set up, I want to monitor and troubleshoot it so that data products in Azure Operator Insights receive the correct data.
 ---
 
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
 
 # Monitor and troubleshoot Azure Operator Insights ingestion agents
 
@@ -29,11 +18,11 @@ For an overview of ingestion agents, see [Ingestion agent overview](ingestion-ag
 
 If you notice problems with data collection from your ingestion agents, use the information in this section to fix common problems or create a diagnostics package. You can upload the diagnostics package to support tickets that you create in the Azure portal.
 
-The ingestion bus agent is a software package, so their diagnostics are limited to the functioning of the application. Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data, logs, and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
+The ingestion bus agent is a software package, so the diagnostics are limited to the functioning of the application. We don't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or other tools to send OS-level data, logs, and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
 
-The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
+The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the *stdout.log* file contains human-readable logs explaining the issue.
 
-Metrics are reported in a simple human-friendly form.  They're provided primarily to help Microsoft Support debug unexpected issues.
+Metrics are reported in a simple human-friendly form. They're provided primarily to help Microsoft Support debug unexpected issues.
 
 ## Prerequisites
 
@@ -61,7 +50,10 @@ Problems broadly fall into four categories.
 
 Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in failed state.
 
-- Ensure the service is running: `sudo systemctl start az-aoi-ingestion`.
+- Ensure the service is running.
+    ```
+    sudo systemctl start az-aoi-ingestion
+    ```
 - Look at the */var/log/az-aoi-ingestion/stdout.log* file and check for any reported errors. Fix any issues with the configuration file and start the agent again.
  
 ### No data appearing in AOI
@@ -148,7 +140,7 @@ Symptoms: Duplicate data appears in Azure Operator Insights.
 
 - Check whether the ingestion agent encountered a retryable error on a previous upload and then retried that upload more than 24 hours after the last successful upload. In that case, the agent might upload duplicate data during the retry attempt. The duplication of data should affect only the retry attempt.
 - Check that the file sources defined in the config file refer to nonoverlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
-- If you're running multiple instances of the SFTP ingestion agent, check that the file sources configured for each agent don't overlap with file sources on any other agent. In particular, look out for file source config that has been accidentally copied from another agent's config.
+- If you're running multiple instances of the SFTP ingestion agent, check that the file sources configured for each agent don't overlap with file sources on any other agent. In particular, look out for file source config that was accidentally copied from another agent's config.
 - If you recently changed the pipeline `id` for a configured file source, use the `exclude_before_time` field to avoid files being reuploaded with the new pipeline `id`. For instructions, see [Change configuration for ingestion agents for Azure Operator Insights](change-ingestion-agent-configuration.md).
 
 ## Related content
@@ -158,8 +150,3 @@ Learn how to:
 - [Change configuration for ingestion agents](change-ingestion-agent-configuration.md).
 - [Upgrade ingestion agents](upgrade-ingestion-agent.md).
 - [Rotate secrets for ingestion agents](rotate-secrets-for-ingestion-agent.md).
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-

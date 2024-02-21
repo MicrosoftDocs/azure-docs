@@ -183,7 +183,7 @@ The configuration you need is specific to the type of source and your Data Produ
 - [Quality of Experience - Affirmed MCC Data Product - required agent configuration](concept-mcc-data-product.md#required-agent-configuration)
 - [Monitoring - Affirmed MCC Data Product - required agent configuration](concept-monitoring-mcc-data-product.md#required-agent-configuration)
 
-1. Log in to the VM.
+1. Connect to the VM over SSH.
 1. Change to the configuration directory.
     ```
     cd /etc/az-aoi-ingestion

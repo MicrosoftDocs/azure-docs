@@ -18,7 +18,7 @@ Configuration comprises three parts:
 - Secrets providers.
 - A list of one or more pipelines, where each pipeline defines an ID, a source, and a sink.
 
-This reference shows two pipelines - one with an MCC EDR source and one with an SFTP pull source.
+This reference shows two pipelines: one with an MCC EDR source and one with an SFTP pull source.
 
 ```
 # A unique identifier for this agent instance. Reserved URL characters must be percent-encoded. It's included in the upload path to the Data Product's input storage account.

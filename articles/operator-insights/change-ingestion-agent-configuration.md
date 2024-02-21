@@ -19,28 +19,35 @@ In this article, you'll change your ingestion agent configuration and roll back 
 
 ## Prerequisites
 
-- From the documentation for your data product, obtain the sample configuration for the ingestion agent.
+- Using the documentation for your data product, check for required or recommended configuration for the ingestion agent.
+- See [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md) for full details of the configuration options.
 
 ## Update agent configuration
 
 > [!WARNING]
-> Changing the configuration requires restarting the agent. For the MCC EDR source, a small number of EDRs being handled may be dropped.  It is not possible to gracefully restart without dropping any data. For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
+> Changing the configuration requires restarting the agent. For the MCC EDR source, a small number of EDRs being handled might be dropped.  It is not possible to gracefully restart without dropping any data. For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
 
 > [!WARNING]
 > If you change the pipeline ID for an SFTP pull source, the agent treats it as a new source and might upload duplicate files with the new pipeline ID. To avoid this, add the `exclude_before_time` parameter to the file source configuration. For example, if you configure `exclude_before_time: "2024-01-01T00:00:00-00:00"` then any files last modified before midnight on January 1, 2024 UTC will be ignored by the agent.
 
-If you need to change the agent's configuration, perform the following steps:
+If you need to change the agent's configuration, carry out the following steps.
 
 1. Save a copy of the existing */etc/az-aoi-ingestion/config.yaml* configuration file.
 1. Edit the configuration file to change the config values.
-1. Restart the agent: `sudo systemctl restart az-aoi-ingestion.service`.
+1. Restart the agent.
+    ```
+    sudo systemctl restart az-aoi-ingestion.service`
+    ```
 
 ## Roll back configuration changes
 
 If a configuration change fails:
 
 1. Copy the backed-up configuration file from before the change to the */etc/az-aoi-ingestion/config.yaml* file.
-1. Restart the agent: `sudo systemctl restart az-aoi-ingestion.service`.
+1. Restart the agent.
+    ```
+    sudo systemctl restart az-aoi-ingestion.service
+    ```
 
 ## Related content
 
