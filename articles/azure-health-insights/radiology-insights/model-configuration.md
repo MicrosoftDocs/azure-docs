@@ -66,11 +66,13 @@ false  | No Evidence is returned
     - type: boolean
     - description: Provide a single focused sentence as evidence for the recommendation, default is false.
 
-When includeEvidence is false, no evidence is returned. 
 
-This configuration overrules includeRecommendationsWithNoSpecifiedModality and provideFocusedSentenceEvidence and no evidence is shown. 
+IncludeEvidence
+- IncludeEvidence
+- type: boolean
+- Provide evidence for the inference, default is false, no evidence is returned.
+ 
 
-When includeEvidence is true, it depends on the value set on the two other configurations whether the evidence of the inference or a single focused sentence is given as evidence. 
 
 ## Examples 
 
