@@ -152,12 +152,6 @@
       items:
         - name: The Defender for Cloud multicloud solution
           href: multicloud.yml
-        - name: Defender for Cloud's GCP connector
-          displayName: GCP, connector, project, organizations
-          href: concept-gcp-connector.md
-        - name: Defender for Cloud's AWS connector
-          displayName: AWS, connector
-          href: concept-aws-connector.md
         - name: Zero Trust infrastructure and integrations
           displayName: zero trust, zero, trust
           href: zero-trust.md

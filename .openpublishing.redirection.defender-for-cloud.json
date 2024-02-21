@@ -921,6 +921,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-aws-connector.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-gcp-connector.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-gcp",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic.md",
             "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-aws",
             "redirect_document_id": true
