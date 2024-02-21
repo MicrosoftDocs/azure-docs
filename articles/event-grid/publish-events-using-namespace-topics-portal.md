@@ -68,7 +68,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-delivery-overview.md). For more information on all configuration options,see the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 1. On the **Topics** page, select the topic you created in the previous step.
-1. Select **+ Event subscription** on the command bar. 
+1. Select **+ Subscription** on the command bar. 
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-subscription-button.png" alt-text="Screenshot that shows the Topic page with Create subscription button selected." lightbox="./media/publish-events-using-namespace-topics-portal/create-subscription-button.png":::       
 1. On the **Create Event Subscription** page, follow these steps:
     1. In the **Basic** tab, enter a **name** for the event subscription, and then select **Additional features** tab at the top.

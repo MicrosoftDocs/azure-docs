@@ -213,7 +213,9 @@ Now, send a sample event to the namespace topic by following steps in this secti
     curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $publish_operation_uri
     ```
 
-    Navigate to the Event Hubs namespace page in the Azure portal and verify that incoming messages counter in the chart indicates that an event has been received. 
+    Navigate to the **Event Hubs Namespace page** in the Azure portal, refresh the page and verify that incoming messages counter in the chart indicates that an event has been received. 
+
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/event-hub-received-event.png" alt-text="Screenshot that shows the Event hub page with chart showing an event has been received." lightbox="./media/publish-events-using-namespace-topics-portal/event-hub-received-event.png":::
 
 ## Next steps
 
