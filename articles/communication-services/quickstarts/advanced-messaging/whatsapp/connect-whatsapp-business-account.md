@@ -63,6 +63,18 @@ You see the account and status listed in the Azure portal along with the other W
 
 When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but doesn't delete the account and the account can be reconnected later.
 
+### WhatsApp account status
+The status of your WhatsApp Business account is displayed in the Azure portal. Accounts possessing varying statuses shall be subjected to distinct limitations regarding messaging functionalities. An account can have the following types of status:
+
+ - `Active` - when a WhatsApp account is ready to use.
+ - `Revoked` - when a WhatsApp account has been unshared or deleted from WhatsApp side. If you no longer want to use the WhatsApp Business account, you can disconnect the account. If an error be made inadvertently resulting in the account in such a status, you can fix it by disconnecting and registering the same account again.
+ - `Disconnected` - when a WhatsApp account has been disconnected from Azure Portal side. You will need to go to WhatsApp manager portal to unshare the WhatsApp Business Account or delete the phone number or delete the WhatsApp Business Account for a complete disconnection. If an error be made inadvertently resulting in the account in such a status, you can fix it by unsharing the account from WhatsApp side and registering the same account again.
+ - `Phone number deleted` - when a WhatsApp business phone number has been deleted from WhatsApp side. If you no longer want to use the WhatsApp Business account, you can disconnect the account. If an error be made inadvertently resulting in the account in such a status, you can fix it by disconnecting and registering the same account again with adding the same phone number.
+ - `Business account review rejected` - when a WhatsApp account has been disabled by WhatsApp because it does not comply with WhatsApp Business's Commerce Policy. Please check details on WhatsApp manager portal and request a review if you believe that this is incorrect.
+ - `Display name review not started` - when WhatsApp has not started WhatsApp Business display name review for your business phone number. Typically, this is because of your Meta business account has not yet finish Meta Business Verification. [See this link for details about Meta Business Verification.](https://www.facebook.com/business/help/2058515294227817) WhatsApp Business display name review is not required to get started. You can immediately start sending messages to customers. You will have limited number of messages and recipients per day until WhatsApp Business display name review is approved. 
+ - `Display name review pending` - when the WhatsApp business phone number display name is under review by WhatsApp. WhatsApp Business display name review is not required to get started. You can immediately start sending messages to customers. You will have limited number of messages and recipients per day until WhatsApp Business display name review is approved.
+ - `Display name review rejected` - when the WhatsApp business phone number display name is rejected by WhatsApp. Please check details and submit a new phone number display name on WhatsApp manager portal. WhatsApp Business display name review is not required to get started. You can immediately start sending messages to customers. You will have limited number of messages and recipients per day until WhatsApp Business display name review is approved.
+
 ## Create new Meta business account
 
 Provide the company details to be used in your Meta Business Account then click the **Next** button.
