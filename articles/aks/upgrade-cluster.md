@@ -18,6 +18,7 @@ You can perform manual upgrades to control when your cluster upgrades to a new K
 To perform manual upgrades, see the following articles:
 
 * [Upgrade an AKS cluster](./upgrade-aks-cluster.md)
+* [Upgrade multiple AKS clusters via Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-orchestration)
 * [Upgrade the node image](./node-image-upgrade.md)
 * [Customize node surge upgrade](./upgrade-aks-cluster.md#customize-node-surge-upgrade)
 * [Process node OS updates](./node-updates-kured.md)
