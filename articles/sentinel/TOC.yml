@@ -1181,7 +1181,7 @@
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md#all
+        href: ../role-based-access-control/built-in-roles.md
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
   - name: Advanced Security Information Model (ASIM)
