@@ -69,11 +69,6 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):
 
-<!-- what else needs to be here? is this correct? I think there needs to be a proper intro? does this apply to other systems? I think so. 
-## SolarWinds automatic discovery
-
-If you're configuring *Solorwinds* or *Sanofi* to discover and monitor the OT sensor, the following fields need to be added to SNMP Mib-2.-->
-
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
 | **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
@@ -134,8 +129,6 @@ Note that:
 
 - Nonexisting keys respond with null, HTTP 200.
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
-
-<!-- where is the public MiB file that needs to be updated? -->
 
 ## Next steps
 
