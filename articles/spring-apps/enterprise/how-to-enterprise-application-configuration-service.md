@@ -78,7 +78,7 @@ The following table describes the properties for each repository entry.
 Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
 - *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
-- *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- *{profile}* - Optional. The name of a profile whose properties you could retrieve. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -159,8 +159,8 @@ When you modify and commit your configurations in a Git repository, several step
 This process, though automated, involves the following distinct stages and components, each with its own timing and behavior.
 
 - **Polling by Application Configuration Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
-- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the Kubelet refreshes its cache to recognize changes in ConfigMaps.
-- **Application Reads Updated Configuration**: Your application running in the Azure Spring Apps environment can access the updated configuration values. Note that the existing beans in the Spring Context aren't refreshed to use the updated configurations automatically.
+- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the Kubelet refreshes its cache to recognize changes in ConfigMap.
+- **Application Reads Updated Configuration**: Application running in the Azure Spring Apps environment can access the updated configuration values. The existing beans in the Spring Context aren't refreshed to use the updated configurations automatically.
 
 You can adjust the polling refresh interval of the Application Configuration Service to align with your specific needs. To apply the updated configurations in your application, a restart or refresh action is necessary.
 
@@ -277,7 +277,7 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. Open the **App binding** tab.
 
-1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
+1. Select **Bind app** and choose one app from the dropdown. Select **Apply** to bind.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png":::
 
