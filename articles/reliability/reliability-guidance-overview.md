@@ -3,7 +3,7 @@ title: Reliability guidance overview for Microsoft Azure products and services
 description: Reliability guidance overview for Microsoft Azure products and services. View Azure service specific reliability guides and Azure Service Manager Retirement guides.
 author: anaharris-ms
 ms.service: reliability
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.date: 03/31/2023
 ms.author: anaharris
 ms.custom: subject-reliability
