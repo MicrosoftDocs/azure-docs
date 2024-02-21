@@ -42,7 +42,7 @@ Deploying automatic attack disruption for SAP deploys the following Azure resour
 |Resource  | Description |
 |---------|---------|
 |An Azure storage account     |  Used to hold SAP agent queue messages, which are used by the disrupt API and playbooks to orchestrate disrupt operations in the SAP environment.       |
-|The *microsoft-internal-attack-disruption-SAP-lock-access* logic app and playbook    | The *disrupt* playbook, responsible for queueing messages needed to lock SAP users, verify success of the lock command with hte agent, and update the Microsoft Sentinel incident with comments on actions taken. <br><br>This playbook is for internal use only and must not be deleted or modified.        |
+|The *microsoft-internal-attack-disruption-SAP-lock-access* logic app and playbook    | The *disrupt* playbook, responsible for queueing messages needed to lock SAP users, verify success of the lock command with the agent, and update the Microsoft Sentinel incident with comments on actions taken. <br><br>This playbook is for internal use only and must not be deleted or modified.        |
 |The *microsoft-internal-attack-disruption-SAP-unlock-access* logic app and playbook     | Available for Microsoft Sentinel operators to run after an incident has been resolved. Run this playbook from the Microsoft Sentinel alert originally used to lock the SAP user to unlock the user in the SAP system.|
 
 ## Deployment steps in Microsoft Sentinel
