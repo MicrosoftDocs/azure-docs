@@ -25,6 +25,13 @@ Azure NetApp Files only supports file and directory names that are encoded with 
 
 If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by C.UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
 
+For more information, see [Understand volume languages](understand-volume-languages.md).
+
+## Does Azure Databricks support mounting Azure NetApp Files NFS volumes?
+
+No, [Azure Databricks](/databricks/) does not support mounting any NFS volumes including those provided by Azure NetApp Files. Please contact the Azure Databricks team for more details. 
+
+
 ## Next steps  
 
 - [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
