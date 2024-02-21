@@ -4,7 +4,7 @@ description: Learn how to deploy the Microsoft Defender for Endpoint integration
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 02/14/2024
 ---
 
 # Enable the Microsoft Defender for Endpoint integration
@@ -197,7 +197,7 @@ After you select **Enable** in the insight panel, Defender for Cloud:
 - Automatically onboards your Linux machines to Defender for Endpoint in the selected subscriptions.
 - Detects any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud.
 
-Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to verify installation and deployment status of Defender for Endpoint on a Linux machine.
+Use the [Defender for Endpoint status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Servers%20Deployment%20Status) to verify installation and deployment status of Defender for Endpoint on a Linux machine.
 
 #### Enable on multiple subscriptions with a PowerShell script
 
@@ -233,7 +233,7 @@ URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Micr
 
 ## Track MDE deployment status
 
-You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Endpoint%20Deployment%20Status) to track the Defender for Endpoint deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
+You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Servers%20Deployment%20Status) to track the Defender for Endpoint deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
 
 ## Access the Microsoft Defender for Endpoint portal
 
