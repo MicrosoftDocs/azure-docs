@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
@@ -62,7 +62,7 @@ When regionalization of a service is first introduced, baseline price protection
 
 ### Enterprise Dev/Test
 
-Enterprise administrators can enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise administrators can create subscriptions. They can also enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## Next steps
 
