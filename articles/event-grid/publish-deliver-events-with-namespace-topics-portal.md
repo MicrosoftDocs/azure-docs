@@ -11,7 +11,7 @@ ms.date: 02/20/2024
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. 
 
-To be specific, you use Azure protal and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
+To be specific, you use Azure portal and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
 > [!NOTE]
 > - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North.
