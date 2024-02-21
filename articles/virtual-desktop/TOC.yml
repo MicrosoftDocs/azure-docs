@@ -44,26 +44,20 @@
     - name: MSIXMGR tool
       displayName: what's new, msix app attach
       href: whats-new-msixmgr.md
-    - name: Remote Desktop clients
+    - name: Remote Desktop client
       items:
-      - name: Windows Desktop client
+      - name: Windows
         displayName: what's new, apps, remote desktop, rdp
         href: whats-new-client-windows.md
-      - name: Azure Virtual Desktop Store app
-        displayName: what's new, apps, clients, remote desktop, rdp
-        href: whats-new-client-windows-azure-virtual-desktop-app.md
-      - name: macOS client
+      - name: macOS
         displayName: what's new, apps, clients, remote desktop, rdp
         href: whats-new-client-macos.md
-      - name: iOS/iPadOS client
+      - name: iOS/iPadOS
         displayName: what's new, apps, clients, remote desktop, rdp
         href: whats-new-client-ios-ipados.md
-      - name: Android/Chrome OS client
+      - name: Android/Chrome OS
         displayName: what's new, apps, clients, remote desktop, rdp
         href: whats-new-client-android-chrome-os.md
-      - name: Remote Desktop app for Windows
-        displayName: what's new, apps, clients, remote desktop, rdp
-        href: whats-new-client-microsoft-store.md
     - name: Documentation
       displayName: what's new, docs
       href: whats-new-documentation.md
@@ -219,12 +213,12 @@
         href: /windows-app/overview
       - name: Compare Windows App features
         href: /windows-app/compare-platforms-features
-    - name: Remote Desktop clients
+    - name: Remote Desktop client
       items:
-      - name: Clients overview
+      - name: Client overview
         displayName: apps, remote desktop, rdp
         href: ./users/remote-desktop-clients-overview.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
-      - name: Compare the clients
+      - name: Compare the Remote Desktop client across platforms
         displayName: apps, remote desktop, rdp
         href: compare-remote-desktop-clients.md
       - name: Supported RDP properties

@@ -16,13 +16,13 @@ items:
       href: remote-desktop-clients-overview.md
     - name: What's new for Remote Desktop clients
       items:
-      - name: Windows Desktop client
+      - name: Windows
         href: ../whats-new-client-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-      - name: macOS client
+      - name: macOS
         href: ../whats-new-client-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-      - name: iOS/iPadOS client
+      - name: iOS/iPadOS
         href: ../whats-new-client-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-      - name: Android/Chrome OS client
+      - name: Android/Chrome OS
         href: ../whats-new-client-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
 - name: Concepts
   items:
