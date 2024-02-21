@@ -135,7 +135,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Status|Required|
 |Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
-|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
+|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script.md)|
 
 ---
 </br>
