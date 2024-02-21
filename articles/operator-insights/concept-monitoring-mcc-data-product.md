@@ -32,7 +32,7 @@ The Monitoring - Affirmed MCC Data Product supports all of the MCC variants desc
 
 The following data type is provided as part of the Monitoring - Affirmed MCC Data Product.
 
-- *pmstats* contains performance management data reported by the MCC management node, giving insight into the performance characteristics of the MCC network elements.
+- `pmstats` contains performance management data reported by the MCC management node, giving insight into the performance characteristics of the MCC network elements.
 
 ## Setup
 
@@ -54,7 +54,8 @@ Use the VM requirements to set up a suitable VM for the ingestion agent. Use the
 
 An ingestion agent collects files from _ingestion pipelines_ that you configure on it. Ingestion pipelines include the details of the SFTP server, the files to collect from it and how to manage those files.
 
-You must choose how to set up your agents, pipelines, and VMs using the following rules:
+You must choose how to set up your agents, pipelines, and VMs using the following rules.
+
 - Pipelines must not overlap, meaning that they must not collect the same files from the same servers.
 - You must configure each pipeline on exactly one agent. If you configure a pipeline on multiple agents, Azure Operator Insights receives duplicate data.
 - Each agent can have multiple file sources.
@@ -100,7 +101,7 @@ Use the information in this section when [setting up the agent and configuring t
 |Information | Configuration setting for Azure Operator Ingestion agent  | Value  |
 |---------|---------|---------|
 |Container in the Data Product input storage account |`sink.container_name` | `pmstats` |
-| [Settling time](ingestion-agent-overview.md#processing-files) | `source.sftp_pull.filtering.settling_time` | `60s` (upload files that have not been modified in the last 60 seconds) |
+| [Settling time](ingestion-agent-overview.md#processing-files) | `source.sftp_pull.filtering.settling_time` | `60s` (upload files that haven't been modified in the last 60 seconds) |
 | Schedule for checking for new files | `source.sftp_pull.scheduling.cron` | `0 */5 * * * * *` (every 5 minutes) |
 
 > [!IMPORTANT]
