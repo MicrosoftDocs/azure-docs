@@ -201,7 +201,7 @@ In Spring applications, properties are hold or refrenced as the beans within the
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
-- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file chagnes, or you use some other utils with equivalent function. The previous options require users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates.
+- Use `FileSystemWatcher` to watch the file change and refresh the context on demand. `FileSystemWatcher` is a class shipped with `spring-boot-devtools` that watches specific directories for file chagnes, or you use some other utils with equivalent function. The previous options require users to initiate the refresh actively, while the latter can monitor for file changes and automatically invoke the refresh upon detecting updates. The file path, as methioned in the [Polyglot support](#polyglot-support) section, can be retrieved via the environment variable `AZURE_SPRING_APPS_CONFIG_FILE_PATH`.
 
 ## Configure Application Configuration Service settings
 
@@ -429,16 +429,16 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 
 If the latest changes don't reflect on the applications, there are several things to check based on the [Refresh Strategies](#refresh-strategies) section.
 
-1. First check wether the Git repo has been updated correctly and the application is bound to the application configuration service:
+1. Check wether the Git repo has been updated correctly and the application is bound to the application configuration service:
    - Check the branch of the desired config file changes is updated.
    - Check the pattern configured in application configuration service matches the updated config files.
    - Check the application is bound to the application configuration service.
-2. Secondly, check whether the configMap is updated:
+2. Check whether the configMap is updated:
    - Check related configMap of the app to see if it's updated. If still not updated, raise a ticket.  
-3. Thirdly, we can check whether the configMap is mouted to the application as a file:
+3. Check whether the configMap is mouted to the application as a file:
    - Check the mounted file using `web shell`. If the file is not updated, wait for the K8S refresh interval (1 minute).
    - Or you can force a refresh by restarting the application.
-4. Then the updated configurations should be able to read by the applications.   
+4. Then the updated configurations should be able to read by the applications. If still not updated, please raise a ticket.
    
 
 ## Next steps
