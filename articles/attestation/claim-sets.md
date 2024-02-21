@@ -203,7 +203,7 @@ $maa-attestationcollateral | x-ms-sgx-collateral
 The following claims are also supported by the SevSnpVm attestation type:
 
 - **x-ms-sevsnpvm-authorkeydigest**: SHA384 hash of the author signing key.
-- **x-ms-sevsnpvm-bootloader-svn** :AMD boot loader security version number (SVN).
+- **x-ms-sevsnpvm-bootloader-svn**: AMD boot loader security version number (SVN).
 - **x-ms-sevsnpvm-familyId**: Host Compatibility Layer (HCL) family identification string.
 - **x-ms-sevsnpvm-guestsvn**: HCL security version number (SVN).
 - **x-ms-sevsnpvm-hostdata**: Arbitrary data defined by the host at VM launch time.
@@ -232,7 +232,7 @@ The following claims are also supported by the SevSnpVm attestation type:
 - **report_validity_in_minutes**: An integer claim to signify for how long the token is valid.
   - **Default value(time)**: One day in minutes.
   - **Maximum value(time)**: One year in minutes.
-- **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t is added to the attestation token. If false(default), x5c is to the attestation token.
+- **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t is added to the attestation token. If false(default), x5c is added to the attestation token.
 
 ## Next steps
 - [How to author and sign an attestation policy](author-sign-policy.md)

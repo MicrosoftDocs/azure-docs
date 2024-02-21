@@ -73,7 +73,7 @@ sections:
           Multiple certificates exposed in the OpenID metadata endpoint correspond to different use cases (for example, SGX attestation) supported by Azure Attestation. As per the standards specified by [RFC 7515](https://tools.ietf.org/html/rfc7515), the certificate with key ID (kid) matching the *kid* parameter in the attestation token header is to be used for signature verification. If no matching **kid** is found, then it is expected to try all the certificates exposed by OpenID metadata endpoint.
           
       - question: |
-          Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)
+          Is it possible for the relying party to share secrets with the validated Trusted Execution Environments (TEEs)?
         answer: |
           At the time of TEE evidence creation, code running inside the TEE can include arbitrary information in the evidence. For e.g. the TEE can create one or more asymmetric key pairs, serialize the public key components of these key pairs as JWKS JSON string and include the JWKS JSON string in the TEE evidence as RunTimeData { quote, JWKS JSON string }. Azure Attestation checks if SHA256 hash of the RuntimeData matches the lower 32 bytes of the quote's "report data" attribute. Post evaluating the TEE evidence, Azure Attestation generates JWT with the JWKS available as a claim named "keys" under the "x-ms-runtime" claim. The RunTimeData can be further used by relying party to establish secure channel and securely transmit data to the TEE.
 

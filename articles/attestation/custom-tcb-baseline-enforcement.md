@@ -82,7 +82,7 @@ Minimum PSW Windows version: "2.7.101.2"
 
 2. Go to overview page and view the current default policy of the attestation provider. [Details here](./quickstart-portal.md#view-an-attestation-policy).
 
-3. Select **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and select Cancel  
+3. Select **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and select Cancel.
 
 4. Select Configure, set **x-ms-sgx-tcbidentifier** claim value in the policy to the desired value and select Save.
 
@@ -132,7 +132,8 @@ c:[type=="x-ms-attestation-type"] => issue(type="tee", value=c.value);
 };  
 ```
 
-## Key considerations:
+## Key considerations
+
 - If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail.
 - If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass.
 - For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline.

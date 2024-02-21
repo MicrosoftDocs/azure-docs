@@ -30,7 +30,7 @@ Service endpoint setup is the first step for any attestation to be performed. Se
 
 Here's how you can set up an attestation endpoint using Portal
 
-1. Prerequisite: Access to the Microsoft Entra tenant and subscription under which you want to create the attestation endpoint. For more information , see [Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+1. Prerequisite: Access to the Microsoft Entra tenant and subscription under which you want to create the attestation endpoint. For more information, see [Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 1. Create an endpoint under the desired resource group, with the desired name.
     > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5azcU]
 1. Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
