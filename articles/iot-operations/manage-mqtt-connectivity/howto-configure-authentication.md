@@ -1,6 +1,6 @@
 ---
 title: Configure Azure IoT MQ authentication
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka
@@ -13,15 +13,15 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
 
-# Configure Azure IoT MQ authentication
+# Configure Azure IoT MQ Preview authentication
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
+Azure IoT MQ Preview supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview - enabled by Azure Arc deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml

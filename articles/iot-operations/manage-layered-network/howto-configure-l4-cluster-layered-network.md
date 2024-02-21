@@ -1,6 +1,6 @@
 ---
 title: Configure Azure IoT Layered Network Management on level 4 cluster
-titleSuffix: Azure IoT Layered Network Management
+titleSuffix: Azure IoT Layered Network Management Preview
 description: Deploy and configure Azure IoT Layered Network Management on a level 4 cluster.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -12,11 +12,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure Azure IoT Layered Network Management on level 4 cluster
+# Configure Azure IoT Layered Network Management Preview on level 4 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Layered Network Management is one of the Azure IoT Operations components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
+Azure IoT Layered Network Management Preview is one of the Azure IoT Operations Preview - enabled by Azure Arc components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.

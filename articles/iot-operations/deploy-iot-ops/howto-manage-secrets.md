@@ -1,5 +1,5 @@
 ---
-title: Manage secrets - Azure IoT Operations
+title: Manage secrets - Azure IoT Operations Preview
 description: Create, update, and manage secrets that are required to give your Arc-connected cluster access to Azure resources.
 author: kgremban
 ms.author: kgremban
@@ -11,9 +11,9 @@ ms.custom: ignite-2023, devx-track-azurecli
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster with Key Vault secrets so that I can deploy Azure IoT Operations to it.
 ---
 
-# Manage secrets for your Azure IoT Operations deployment
+# Manage secrets for your Azure IoT Operations Preview deployment
 
-Secrets management in Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
+Secrets management in Azure IoT Operations Preview - enabled by Azure Arc uses Azure Key Vault as the managed vault solution on the cloud and uses the secrets store CSI driver to pull secrets down from the cloud and store them on the edge.
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ Secrets management in Azure IoT Operations uses Azure Key Vault as the managed v
 
 Azure IoT Operations supports Azure Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to create a key vault, set up a service principal to give access to the key vault, and configure the secrets that you need for running Azure IoT Operations.
 
-For more information, see [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
 
 ## Configure service principal and Azure Key Vault upfront
 
-If the Azure account executing the `az iot ops init` command does not have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+If the Azure account executing the `az iot ops init` command does not have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
 
 ### Configure service principal for interacting with Azure Key Vault via Microsoft Entra ID
 
@@ -113,7 +113,7 @@ az keyvault set-policy --name "<your unique key vault name>" --resource-group "<
 
 ### Pass service principal and Key Vault arguments to Azure IoT Operations deployment
 
-When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
+When following the guide [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
 
 The following example shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 

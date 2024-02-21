@@ -1,6 +1,6 @@
 ---
 title: Create sample network environment for Azure IoT Layered Network Management
-titleSuffix: Azure IoT Layered Network Management
+titleSuffix: Azure IoT Layered Network Management Preview
 description: Set up a test or sample network environment for Azure IoT Layered Network Management.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -13,7 +13,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Create sample network environment for Azure IoT Layered Network Management
+# Create sample network environment for Azure IoT Layered Network Management Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -61,7 +61,7 @@ An extra custom DNS needs to be set up in the local network to provide domain na
 ### Example of logical segmentation in Azure
 In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
-> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations.
+> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations Preview - enabled by Azure Arc.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 :::image type="content" source="./media/howto-configure-layered-network/vnet-subnet.png" alt-text="Screenshot for virtual network in Azure." lightbox="./media/howto-configure-layered-network/vnet-subnet.png":::

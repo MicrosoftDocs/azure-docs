@@ -1,5 +1,5 @@
 ---
-title: Deploy extensions - Azure IoT Orchestrator
+title: Deploy extensions - Azure IoT Orchestrator Preview
 description: Use the Azure portal, Azure CLI, or GitHub Actions to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
@@ -11,9 +11,11 @@ ms.date: 01/31/2024
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations extensions to a Kubernetes cluster
+# Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster
 
-Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Orchestrator service to manage and deploy additional workloads to your cluster.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Deploy Azure IoT Operations Preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy additional workloads to your cluster.
 
 ## Prerequisites
 
@@ -294,4 +296,4 @@ If you want to delete the Azure IoT Operations deployment on your cluster so tha
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md).

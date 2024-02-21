@@ -20,9 +20,9 @@ Industrial assets generate data in many different formats and use various commun
 
 To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor (preview) is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
 
-## What is Azure IoT Data Processor?
+## What is Azure IoT Data Processor Preview?
 
-Azure IoT Data Processor (preview) is a component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
+Azure IoT Data Processor Preview is a component of Azure IoT Operations Preview - enabled by Azure Arc. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
 :::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
 

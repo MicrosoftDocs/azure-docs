@@ -1,6 +1,6 @@
 ---
 title: Configure observability
-titleSuffix: Azure IoT Operations
+titleSuffix: Azure IoT Operations Preview
 description: Configure observability features in Azure IoT Operations to monitor the health of your solution.
 author: timlt
 ms.author: timlt
@@ -17,11 +17,11 @@ ms.date: 11/7/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Observability provides visibility into every layer of your Azure IoT Operations Preview configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability of your solution. 
+Observability provides visibility into every layer of your Azure IoT Operations Preview - enabled by Azure Arc configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability of your solution. 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Install Azure Monitor managed service for Prometheus
 Azure Monitor managed service for Prometheus is a component of Azure Monitor Metrics. This managed service provides flexibility in the types of metric data that you can collect and analyze with Azure Monitor. Prometheus metrics share some features with platform and custom metrics.  Prometheus metrics also use some different features to better support open source tools such as PromQL and Grafana.

@@ -1,6 +1,6 @@
 ---
 title: Configure level 3 cluster in an Azure IoT Layered Network Management isolated network
-titleSuffix: Azure IoT Layered Network Management
+titleSuffix: Azure IoT Layered Network Management Preview
 description: Prepare a level 3 cluster and connect it to the IoT Layered Network Management service
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -16,7 +16,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations Preview - enabled by Azure Arc. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -67,7 +67,7 @@ You should complete this step in an *internet facing environment outside of the 
     sudo sysctl -p
     ```
 
-1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
+1. Install the following optional software if you plan to try Azure IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
@@ -136,7 +136,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version.
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the installer you downloaded in the previous step and not the most recent version.
 1. **Certificates:** For level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
-1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
+1. Install the following optional software if you plan to try Azure IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 1. Install Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az* related commands from the developer machine for the rest of the steps in this article.

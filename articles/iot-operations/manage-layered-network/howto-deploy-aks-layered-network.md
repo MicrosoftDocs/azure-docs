@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment"
-titleSuffix: Azure IoT Layered Network Management
+titleSuffix: Azure IoT Layered Network Management Preview
 description: Deploy Azure IoT Layered Network Management to an AKS cluster and Arc-enable a cluster on an Ubuntu VM.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -33,7 +33,7 @@ These prerequisites are only for deploying the Layered Network Management indepe
 
 ## Deploy Layered Network Management to the AKS cluster
 
-These steps deploy Layered Network Management to the AKS cluster. The cluster is the top layer in the ISA-95 model. At the end of this section, you have an instance of Layered Network Management that's ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations service.
+These steps deploy Layered Network Management to the AKS cluster. The cluster is the top layer in the ISA-95 model. At the end of this section, you have an instance of Layered Network Management that's ready to accept traffic from the Azure Arc-enabled cluster below and support the deployment of the Azure IoT Operations Preview - enabled by Azure Arc service.
 
 1. Configure `kubectl` to manage your **AKS cluster** from your jumpbox by following the steps in [Connect to the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).
 
@@ -231,6 +231,6 @@ With the following steps, you Arc-enable the level 3 cluster using the Layered N
 
 ## Next steps
 
-- To understand how to set up a cluster in isolated network for Azure IoT Operations to be deployed, see [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md)
+- To understand how to set up a cluster in isolated network for Azure IoT Operations to be deployed, see [Configure Layered Network Management service to enable Azure IoT Operations Preview in an isolated network](howto-configure-aks-edge-essentials-layered-network.md)
 - To get more detail about setting up comprehensive network environments for Azure IoT Operations related scenarios, see [Create sample network environment](./howto-configure-layered-network.md)
 

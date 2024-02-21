@@ -1,5 +1,5 @@
 ---
-title: "Known issues: Azure IoT Operations"
+title: "Known issues: Azure IoT Operations Preview"
 description: A list of known issues for Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
@@ -9,13 +9,13 @@ ms.custom:
 ms.date: 12/06/2023
 ---
 
-# Known issues: Azure IoT Operations
+# Known issues: Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article contains known issues for Azure IoT Operations Preview.
+This article contains known issues for Azure IoT Operations Preview - enabled by Azure Arc.
 
-## Azure IoT Operations
+## Azure IoT Operations Preview
 
 - You must use the Azure CLI interactive login `az login`. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
 

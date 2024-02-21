@@ -1,6 +1,6 @@
 ---
 title: Configure OPC UA authentication options
-titleSuffix: Azure IoT OPC UA Broker
+titleSuffix: Azure IoT OPC UA Broker Preview
 description: How to configure OPC UA authentication options to use with Azure IoT OPC UA Broker
 author: timlt
 ms.author: timlt
@@ -25,7 +25,7 @@ You can configure OPC UA authentication for the following areas:
 
 ## Prerequisites
 
-Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
+Azure IoT Operations Preview - enabled by Azure Arc installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
 
 ## Features supported
 The following table shows the feature support level for authentication in the current version of OPC UA Broker: 
@@ -44,7 +44,7 @@ OPC UA transport authentication requires you to configure the following items:
 - The OPC UA X.509 client transport certificate to be used for transport authentication and encryption.  Currently, this certificate is an application certificate used for all transport in OPC UA Broker.
 - The private key to be used for the authentication and encryption.  Currently, password protected private key files aren't supported.
 
-In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der* and private key file *./secret/cert.pem*.
+In Azure IoT Operations Experience Preview, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der* and private key file *./secret/cert.pem*.
 
 To create a sample self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files, see [Create a self-signed certificate for transport authorization](#create-a-self-signed-certificate-for-transport-authorization).
 

@@ -1,6 +1,6 @@
 ---
 title: Configure TLS with automatic certificate management to secure MQTT communication
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Configure TLS with automatic certificate management to secure MQTT communication between the MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
@@ -21,7 +21,7 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 ## Verify cert-manager installation
 
-With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
+With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview - enabled by Azure Arc in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
@@ -261,7 +261,7 @@ Replace `$HOST` with the appropriate host:
 
 Remember to specify authentication methods if needed. For example, username and password.
 
-## Default root CA and issuer with Azure IoT Operations
+## Default root CA and issuer with Azure IoT Operations Preview
 
 To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
 

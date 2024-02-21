@@ -1,6 +1,6 @@
 ---
 title: Upload MQTT data to Microsoft Fabric lakehouse
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Learn how to upload MQTT data from the edge to a Fabric lakehouse
 author: PatAltimore
 ms.subservice: mq
@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 In this walkthrough, you send MQTT data from Azure IoT MQ directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
-Azure IoT Operations can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
+Azure IoT Operations Peview - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
 ## Prepare your Kubernetes cluster
 

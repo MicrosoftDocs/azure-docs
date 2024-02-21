@@ -62,7 +62,7 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 ## Configure the destination stage
 

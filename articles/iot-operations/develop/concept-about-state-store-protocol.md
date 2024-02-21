@@ -1,6 +1,6 @@
 ---
 title: Learn about the Azure IoT MQ state store protocol
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Learn how to implement an Azure IoT MQ state store protocol client
 author: timlt
 ms.author: timlt
@@ -14,11 +14,11 @@ ms.date: 12/5/2023
 # that I can implement a client to interact with the MQ state store.
 ---
 
-# Azure IoT MQ state store protocol
+# Azure IoT MQ Preview state store protocol
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in Azure IoT MQ. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
+The MQ state store is a distributed storage system within the Azure IoT Operations Preview - enabled by Azure Arc cluster. The state store offers the same high availability guarantees as MQTT messages in Azure IoT MQ. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
 
 ## State store protocol overview
 The MQ state store supports the following commands:

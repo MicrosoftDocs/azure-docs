@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy Azure IoT Operations"
+title: "Quickstart: Deploy Azure IoT Operations Preview"
 description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
 author: kgremban
 ms.author: kgremban
@@ -11,24 +11,24 @@ ms.date: 01/31/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
+# Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview is a digital operations suite of services that includes Azure IoT Orchestrator. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that's generating sample data to use in the following quickstarts.
+In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview - enabled by Azure Arc is a digital operations suite of services that includes Azure IoT Orchestrator. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that's generating sample data to use in the following quickstarts.
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator](../deploy-custom/overview-orchestrator.md)
-* [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
-* [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
-* [Azure IoT Akri](../manage-devices-assets/overview-akri.md)
-* [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
-* [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
+* [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
+* [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
+* [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
+* [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
+* [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md)
+* [Azure Device Registry Preview](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
+* [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
-The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Prerequisites
 
@@ -214,7 +214,7 @@ az iot ops verify-host
 
 This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
 
-## Configure cluster and deploy Azure IoT Operations
+## Configure cluster and deploy Azure IoT Operations Preview
 
 Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
 
@@ -230,7 +230,7 @@ To create a new key vault, use the following command:
 az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group that contains your Kubernetes cluster>"
 ```
 
-### Deploy Azure IoT Operations
+### Deploy Azure IoT Operations Preview
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
@@ -330,4 +330,4 @@ If you want to delete all of the resources you created for this quickstart, dele
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)

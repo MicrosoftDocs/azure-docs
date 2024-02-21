@@ -25,7 +25,7 @@ To achieve these goals, Contoso needs to:
 
 ## Prerequisites
 
-- Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster.
 
 - A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
@@ -236,7 +236,7 @@ To make the production data available to the enrichment stage in the process pip
 
 To create the _production-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) (preview) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 

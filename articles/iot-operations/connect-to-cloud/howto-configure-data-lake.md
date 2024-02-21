@@ -1,6 +1,6 @@
 ---
 title: Send data from Azure IoT MQ to Data Lake Storage
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Learn how to send data from Azure IoT MQ to Data Lake Storage.
 author: PatAltimore
 ms.subservice: mq
@@ -44,7 +44,7 @@ You can use the data lake connector to send data from Azure IoT MQ broker to a d
     - Azure Data Lake Storage Gen2 quickstart:
         - [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
 
-- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Configure the data lake connector to send data to Microsoft Fabric OneLake using managed identity
 
@@ -349,4 +349,4 @@ Like MQTT bridge, the data lake connector acts as a client to the IoT MQ MQTT br
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)

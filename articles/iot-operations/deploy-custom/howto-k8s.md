@@ -1,5 +1,5 @@
 ---
-title: Deploy K8s workloads - Azure IoT Orchestrator
+title: Deploy K8s workloads - Azure IoT Orchestrator Preview
 description: Use K8s to deploy custom workloads to Azure IoT Operations clusters with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
@@ -14,11 +14,13 @@ ms.date: 11/01/2023
 
 # Deploy a K8s resource to a Kubernetes cluster
 
-Once you have Azure IoT Operations deployed to a connected cluster, you can use Azure IoT Orchestrator to deploy custom workloads including K8s custom resources.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Once you have Azure IoT Operations Preview - enabled by Azure Arc deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including K8s custom resources.
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Deploy a K8s resource
 

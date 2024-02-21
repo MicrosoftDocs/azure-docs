@@ -1,5 +1,5 @@
 ---
-title: Manifests - Azure IoT Orchestrator
+title: Manifests - Azure IoT Orchestrator Preview
 description: Understand how Azure IoT Orchestrator uses manifests to define resources and deployments for Azure IoT Operations
 author: kgremban
 ms.author: kgremban
@@ -12,9 +12,11 @@ ms.date: 10/25/2023
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Orchestrator manifests
+# Azure IoT Orchestrator Preview manifests
 
-The Azure IoT Orchestrator service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+The Azure IoT Orchestrator Preview service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
 
 ## Target
 

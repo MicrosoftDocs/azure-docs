@@ -1,7 +1,6 @@
 ---
-title: How does Azure IoT Operations work in layered network?
-titleSuffix: Azure IoT Layered Network Management
-
+title: How does Azure IoT Operations Preview work in layered network?
+titleSuffix: Azure IoT Layered Network Management Preview
 description: Use the Layered Network Management service to enable Azure IoT Operations in industrial network environment.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -12,13 +11,13 @@ ms.date: 11/29/2023
 #CustomerIntent: As an operator, I want to learn about the architecture of Azure IoT Operations in a Purdue Network environment and how does Layered Network Managment support this scenario.
 ---
 
-# How does Azure IoT Operations work in layered network?
+# How does Azure IoT Operations Preview work in layered network?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-## Industrial scenario for the Azure IoT Operations
+## Industrial scenario for the Azure IoT Operations Preview
 
-In the basic architecture described in [Azure IoT Operations Architecture Overview](../get-started/overview-iot-operations.md#architecture-overview), all the Azure IoT Operations components are deployed to a single internet-connected cluster. In this type of environment, component-to-component and component-to-Azure connections are enabled by default.
+In the basic architecture described in [Azure IoT Operations Preview Architecture Overview](../get-started/overview-iot-operations.md#architecture-overview), all the Azure IoT Operations Preview - enabled by Azure Arc components are deployed to a single internet-connected cluster. In this type of environment, component-to-component and component-to-Azure connections are enabled by default.
 
 However, in many industrial scenarios, computing units for different purposes are located in separate networks. For example:
 - Assets and servers on the factory floor
@@ -45,7 +44,7 @@ The following diagram describes the mechanism to redirect traffic from an isolat
 
 ![Diagram of Layered Network Management redirecting traffic.](./media/concept-iot-operations-in-layered-network/how-does-layered-network-management-work.png)
 
-## Example of Azure IoT Operations in layered network
+## Example of Azure IoT Operations Preview in layered network
 
 The following diagram is an example of Azure IoT Operations being deployed to multiple clusters in multiple network layers. Based on the Purdue Network paradigm, level 4 is the enterprise network, level 3 is the operation and control layer, and level 2 is the controller system layer. Moreover, in our prototypical network, only level 4 has direct internet access.
 
@@ -61,5 +60,5 @@ In a multi-layer network, the Azure IoT Operations components can be deployed ac
 
 ## Next steps
 
-- To understand how to set up a cluster in an isolated environment for Azure IoT Operations scenarios, see [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md).
+- To understand how to set up a cluster in an isolated environment for Azure IoT Operations scenarios, see [Configure Layered Network Management service to enable Azure IoT Operations Preview in an isolated network](howto-configure-aks-edge-essentials-layered-network.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Publish and subscribe MQTT messages using Azure IoT MQ
-titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ Preview
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
@@ -13,9 +13,9 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.
 ---
 
-# Publish and subscribe MQTT messages using Azure IoT MQ
+# Publish and subscribe MQTT messages using Azure IoT MQ Preview
 
-Azure IoT MQ features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+Azure IoT MQ Preview features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview - enabled by Azure Arc, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
@@ -83,4 +83,4 @@ The goals of the architecture are:
 
 ## Next steps
 
-[Deploy a solution in Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)

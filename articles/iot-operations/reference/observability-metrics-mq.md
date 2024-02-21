@@ -1,6 +1,6 @@
 ---
-title: Metrics for Azure IoT MQ
-titleSuffix: Azure IoT Operations
+title: Metrics for Azure IoT MQ Preview
+titleSuffix: Azure IoT Operations Preview
 description: Available observability metrics for Azure IoT MQ to monitor the health and performance of your solution.
 author: timlt
 ms.author: timlt

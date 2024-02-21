@@ -1,6 +1,6 @@
 ---
-title: Discover OPC UA data sources using Azure IoT Akri
-description: How to discover OPC UA data sources by using Azure IoT Akri Preview
+title: Discover OPC UA data sources using Azure IoT Akri Preview
+description: How to discover OPC UA data sources by using Azure IoT Akri
 author: timlt
 ms.author: timlt
 ms.subservice: akri
@@ -15,13 +15,13 @@ ms.date: 11/14/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations, you configure Azure IoT Akri to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
+In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations Preview - enabled by Azure Arc, you configure Azure IoT Akri Preview to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
 
 Azure IoT Akri enables you to detect and create `Assets` in the address space of an OPC UA Server. The OPC UA asset detection generates `AssetType` and `Asset` Kubernetes custom resources (CRs) for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant `Assets`.  
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 - Ensure that Azure IoT Akri agent pod is properly configured by running the following code:
 
     ```bash
