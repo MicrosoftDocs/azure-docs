@@ -19,7 +19,7 @@ Yes, you can use Azure NetApp Files to expand your AVS private cloud storage via
 
 Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and Azure NetApp Files enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
-## Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
+## Which Unicode Character Encoding does Azure NetApp Files support for the creation and display of file and directory names?   
 
 Azure NetApp Files only supports file and directory names that are encoded with the [UTF-8 Unicode Character Encoding](https://en.wikipedia.org/wiki/UTF-8), *C locale* (or _C.UTF-8_) format for both NFS and SMB volumes. Only strict ASCII characters are valid.
 
@@ -29,7 +29,7 @@ For more information, see [Understand volume languages](understand-volume-langua
 
 ## Does Azure Databricks support mounting Azure NetApp Files NFS volumes?
 
-No, [Azure Databricks](/azure/databricks/) does not support mounting any NFS volumes including those provided by Azure NetApp Files. Contact the Azure Databricks team for more details. 
+No, [Azure Databricks](/azure/databricks/) does not support mounting any NFS volumes including Azure NetApp Files NFS volumes. Contact the Azure Databricks team for more details. 
 
 
 ## Next steps  
