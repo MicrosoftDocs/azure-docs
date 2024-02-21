@@ -80,7 +80,7 @@ This procedure describes how to send a software version update to OT sensors at 
     If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need.
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**.
-    :::image type="content" source="media/update-ot-software/sensor-updates-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
+    :::image type="content" source="media/update-ot-software/sensor-updates-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensor-updates-1.png":::
 
     For one or more individual sensors, select **Step one: Send package to sensor**. This option is also available from the **...** options menu to the right of the sensor row.
 
