@@ -2045,7 +2045,7 @@ Import the module at the beginning of your query in one of two ways:
 - `import" "time" as time;`
 - `include "time"`
 
-The first method places all functions in the module under a namespace, for example `time::totime`. The second method simply places all the binary functions at the top level, for example `totime`. Both syntaxes are valid and functionally equivalent.
+The first method places all functions in the module under a namespace, for example `time::totime`. The second method simply places all the time functions at the top level, for example `totime`. Both syntaxes are valid and functionally equivalent.
 
 ### Formats and conversion
 
@@ -2074,6 +2074,23 @@ The time module provides various time-specific operations that operate on all of
 
 > [!NOTE]
 > The three timezone functions have no meaningful effect on Unix timestamps.
+
+## Miscellaneous utilities
+
+The `util` module is a collection of utilities that expands the capabilities of the jq runtime.
+
+### The `util` module
+
+All of the miscellaneous utilities are specified in a `util` module that you can import into a query.
+
+Import the module at the beginning of your query in one of two ways:
+
+- `import" "util" as util;`
+- `include "util"`
+
+The first method places all functions in the module under a namespace, for example `util::uuid`. The second method simply places all the miscellaneous functions at the top level, for example `uuid`. Both syntaxes are valid and functionally equivalent.
+
+The `util` module currently includes the `uuid` function that returns a new, random UUID in the standard string format.
 
 ## Binary manipulation
 
