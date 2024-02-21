@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 05/17/2023
+ms.date: 02/14/2024
 ---
 
 # View and download your Azure usage and charges
@@ -37,13 +37,6 @@ If you want to get cost and usage data using the Azure CLI, see [Get usage data 
 ## Download usage for EA customers
 
 To view and download usage data as a EA customer, you must be an Enterprise Administrator, Account Owner, or Department Admin with the view charges policy enabled.
-
-> [!NOTE]
-> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../manage/ea-direct-portal-get-started.md).
->
-> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
-> 
-> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
