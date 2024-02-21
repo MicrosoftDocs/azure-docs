@@ -22,7 +22,7 @@ To add user consent to the personal voice project, you provide the prerecorded c
 
 You need an audio recording of the user speaking the consent statement.
 
-You can get the consent statement text for each locale from the text to speech GitHub repository. See [SpeakerAuthorization.txt](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/English%20(United%20States)_en-US/SpeakerAuthorization.txt) for the consent statement for the `en-US` locale:
+You can get the consent statement text for each locale from the text to speech GitHub repository. See [verbal-statement-all-locales.txt](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt) for the consent statement. Below is a sample for the `en-US` locale:
 
 ```
 "I  [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."

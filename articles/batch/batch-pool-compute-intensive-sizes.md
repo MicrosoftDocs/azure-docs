@@ -7,6 +7,9 @@ ms.date: 05/01/2023
 ---
 # Use RDMA or GPU instances in Batch pools
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 
 * To run multi-instance [MPI workloads](batch-mpi.md), choose H-series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.

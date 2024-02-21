@@ -158,6 +158,8 @@
       href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
+    - name: Azure Bot Service 
+      href: reliability-bot.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
@@ -223,11 +225,9 @@
     - name: Azure Image Builder
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)
-      items:
-      - name: Availability zones
-        href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../aks/operator-best-practices-multi-region.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Load Balancer
+      href: reliability-load-balancer.md
     - name: Azure Logic Apps
       items:
       - name: Availability zones
@@ -280,6 +280,8 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure Application Gateway for Containers
+      href: reliability-app-gateway-containers.md
     - name: Azure Chaos Studio
       href: reliability-chaos-studio.md
     - name: Azure Community Training
@@ -300,8 +302,12 @@
       href: reliability-deployment-environments.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DevOps
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Elastic SAN
+      href: reliability-elastic-san.md
     - name: Azure Health Data Services - Azure API for FHIR
       href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Health Insights 
+      href: ../reliability/reliability-health-insights.md?toc=/azure/health-insights/toc.json
     - name: Azure IoT Hub
       href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery
     - name: Azure Machine Learning Service

@@ -14,7 +14,7 @@ Classic alerts are [retired](./monitoring-classic-retirement.md) for public clou
 This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes solutions for some common problems.
 
 > [!IMPORTANT]
-> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](./monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Activity log alerts (including Service health alerts) and log search alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](./monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 > [!NOTE]
 > If your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
@@ -28,7 +28,7 @@ Customers that are interested in manually migrating their remaining alerts can a
 Before you can create new metric alerts on guest metrics, the guest metrics must be sent to the Azure Monitor logs store. Follow these instructions to create alerts:
 
 - [Enabling guest metrics collection to log analytics](../agents/agent-data-sources.md)
-- [Creating log alerts in Azure Monitor](./alerts-log.md)
+- [Creating log search alerts in Azure Monitor](./alerts-log.md)
 
 There are more options to collect guest metrics and alert on them, [learn more](../agents/agents-overview.md).
 

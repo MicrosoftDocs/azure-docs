@@ -940,6 +940,8 @@
       items:
         - name: Java SDK v4
           href: sdk-java-v4.md
+        - name: Sync Java SDK v2 (legacy)
+          href: sdk-java-v2.md
         - name: Async Java SDK v2 (legacy)
           href: sdk-java-async-v2.md
         - name: Spring Data Connector v2 (legacy)

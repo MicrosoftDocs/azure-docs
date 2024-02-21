@@ -6,7 +6,6 @@ description: Manage an Azure AI Search resource using the Azure portal.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
 ms.custom:
   - ignite-2023
 ms.service: cognitive-search

@@ -10641,6 +10641,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
@@ -10875,11 +10880,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
         }
-
         
     ]
 }
