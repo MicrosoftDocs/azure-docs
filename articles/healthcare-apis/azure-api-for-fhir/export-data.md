@@ -31,7 +31,7 @@ The Azure API For FHIR supports $export at the following levels:
 * [Patient](https://www.hl7.org/fhir/uv/bulkdata/): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Group of patients*](https://www.hl7.org/fhir/uv/bulkdata/) - Azure API for FHIR exports all related resources but doesn't export the characteristics of the group: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-With export, data is exported in multiple files each containing resources of only one type. The number of resources in an individual file will be limited. The maximum number of resources is based on system performance. It is currently set to 5,000, but can change. The result is that you might get multiple files for a resource type. The file names will follow the format <resourceName>-<number>-<number>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+With export, data is exported in multiple files each containing resources of only one type. The number of resources in an individual file will be limited. The maximum number of resources is based on system performance. It is currently set to 5,000, but can change. The result is that you might get multiple files for a resource type. The file names will follow the format '<resourceName>-<number>-<number>.ndjson'. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
 
 > [!NOTE] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
