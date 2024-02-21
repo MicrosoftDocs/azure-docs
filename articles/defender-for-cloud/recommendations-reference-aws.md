@@ -30,11 +30,11 @@ You should create patching groups with the appropriate baseline settings and ens
 ### [Amazon EFS should be configured to encrypt file data at rest using AWS KMS](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4e482075-311f-401e-adc7-f8a8affc5635)
 
 **Description**: This control checks whether Amazon Elastic File System is configured to encrypt the file data using AWS KMS. The check fails in the following cases:
- *"Encrypted" is set to "false" in the <a href='https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html'>DescribeFileSystems</a> response.
- The "KmsKeyId" key in the <a href='https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html'>DescribeFileSystems</a> response does not match the KmsKeyId parameter for <a href='https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html'>efs-encrypted-check</a>.
- Note that this control does not use the "KmsKeyId" parameter for <a href='https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html'>efs-encrypted-check</a>. It only checks the value of "Encrypted". For an added layer of security for your sensitive data in Amazon EFS, you should create encrypted file systems.
+*"[Encrypted](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html)" is set to "false" in the DescribeFileSystems response.
+ The "[KmsKeyId](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html)" key in the [DescribeFileSystems](https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystems.html) response does not match the KmsKeyId parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html).
+ Note that this control does not use the "KmsKeyId" parameter for [efs-encrypted-check](https://docs.aws.amazon.com/config/latest/developerguide/efs-encrypted-check.html). It only checks the value of "Encrypted". For an added layer of security for your sensitive data in Amazon EFS, you should create encrypted file systems.
  Amazon EFS supports encryption for file systems at-rest. You can enable encryption of data at rest when you create an Amazon EFS file system.
- To learn more about Amazon EFS encryption, see <a href='https://docs.aws.amazon.com/efs/latest/ug/encryption.html'>Data encryption in Amazon EFS</a> in the Amazon Elastic File System User Guide.
+To learn more about Amazon EFS encryption, see [Data encryption in Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/encryption.html) in the Amazon Elastic File System User Guide.
 
 **Severity**: Medium
 
@@ -119,8 +119,8 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 **Description**: This control checks whether the status of the AWS Systems Manager association compliance is COMPLIANT or NON_COMPLIANT after the association is run on an instance. The control passes if the association compliance status is COMPLIANT.
 A State Manager association is a configuration that is assigned to your managed instances. The configuration defines the state that you want to maintain on your instances. For example, an association can specify that antivirus software must be installed and running on your instances, or that certain ports must be closed.
-After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API operations. For associations, "Configuration" Compliance shows statuses of Compliant or Non-compliant and the severity level assigned to the association, such as "Critical" or "Medium". To learn more about State Manager association compliance, see About <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-about-association">About State Manager association compliance</a> in the AWS Systems Manager User Guide.
-You must configure your in-scope EC2 instances for Systems Manager association. You must also configure the patch baseline for the security rating of the vendor of patches, and set the autoapproval date to meet PCI DSS '3.2.1' requirement '6.2'. For additional guidance on how to <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html">Create an association</a>, see Create an association in the AWS Systems Manager User Guide. For additional information on working with patching in Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html"> AWS Systems Manager Patch Manager</a> in the AWS Systems Manager User Guide.
+After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API operations. For associations, "Configuration" Compliance shows statuses of Compliant or Non-compliant and the severity level assigned to the association, such as "Critical" or "Medium". To learn more about State Manager association compliance, see [About State Manager association compliance](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-about-association) in the AWS Systems Manager User Guide.
+You must configure your in-scope EC2 instances for Systems Manager association. You must also configure the patch baseline for the security rating of the vendor of patches, and set the autoapproval date to meet PCI DSS '3.2.1' requirement '6.2'. For additional guidance on how to [Create an association](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html), see Create an association in the AWS Systems Manager User Guide. For additional information on working with patching in Systems Manager, see [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html) in the AWS Systems Manager User Guide.
 
 **Severity**: Low
 
@@ -139,14 +139,14 @@ From a security perspective, it is important to understand why your function fai
 
 **Description**: This control checks that the Lambda function settings for runtimes match the expected values set for the supported runtimes for each language. This control checks for the following runtimes:
  **nodejs14.x**, **nodejs12.x**, **nodejs10.x**, **python3.8**, **python3.7**, **python3.6**, **ruby2.7**, **ruby2.5**, **java11**, **java8**, **java8.al2**, **go1.x**, **dotnetcore3.1**, **dotnetcore2.1**
-<a href='https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html'>Lambda runtimes</a> are built around a combination of operating system, programming language, and software libraries that are subject to maintenance and security updates. When a runtime component is no longer supported for security updates, Lambda deprecates the runtime. Even though you cannot create functions that use the deprecated runtime, the function is still available to process invocation events. Make sure that your Lambda functions are current and do not use out-of-date runtime environments.
-To learn more about the supported runtimes that this control checks for the supported languages, see <a href='https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html'>AWS Lambda runtimes</a> in the AWS Lambda Developer Guide.
+[Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) are built around a combination of operating system, programming language, and software libraries that are subject to maintenance and security updates. When a runtime component is no longer supported for security updates, Lambda deprecates the runtime. Even though you cannot create functions that use the deprecated runtime, the function is still available to process invocation events. Make sure that your Lambda functions are current and do not use out-of-date runtime environments.
+To learn more about the supported runtimes that this control checks for the supported languages, see [AWS Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) in the AWS Lambda Developer Guide.
 
 **Severity**: Medium
 
 ### [Management ports of EC2 instances should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b26b102-ccde-4697-aa30-f0621f865f99)
 
-**Description**: Microsoft Defender for Cloud has identified some overly-permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. <a target="_blank" href="/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Learn more.</a>
+**Description**: Microsoft Defender for Cloud has identified some overly-permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation)
 
 **Severity**: High
 
@@ -194,7 +194,7 @@ All the [Kubernetes data plane security recommendations](kubernetes-workload-pro
 
 **Description**: This control checks whether Amazon Aurora clusters have backtracking enabled.
 Backups help you to recover more quickly from a security incident. They also strengthen the resilience of your systems. Aurora backtracking reduces the time to recover a database to a point in time. It doesn't require a database restore to do so.
-For more information about backtracking in Aurora, see <a href='https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html'>Backtracking an Aurora DB cluster</a> in the Amazon Aurora User Guide.
+For more information about backtracking in Aurora, see [Backtracking an Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html) in the Amazon Aurora User Guide.
 
 **Severity**: Medium
 
@@ -240,7 +240,7 @@ If a task definition has elevated privileges, it is because the customer has spe
 ### [Amazon Redshift clusters should have audit logging enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e2a0ec17-447b-44b6-8646-c0b5584b6b0a)
 
 **Description**: This control checks whether an Amazon Redshift cluster has audit logging enabled.
-Amazon Redshift audit logging provides additional information about connections and user activities in your cluster. This data can be stored and secured in Amazon S3 and can be helpful in security audits and investigations. For more information, see <a href='https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html'>Database audit logging</a> in the *Amazon Redshift Cluster Management Guide*.
+Amazon Redshift audit logging provides additional information about connections and user activities in your cluster. This data can be stored and secured in Amazon S3 and can be helpful in security audits and investigations. For more information, see [Database audit logging](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html) in the *Amazon Redshift Cluster Management Guide*.
 
 **Severity**: Medium
 
