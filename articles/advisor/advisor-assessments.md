@@ -42,7 +42,7 @@ You can manage access to Advisor WAF assessments using built-in roles. The permi
 |Reader|View assessments for a workload and the corresponding recommendations|
 |Contributor|Create assessments for a workload and triage the corresponding recommendations|
 
-## Access Azure Advisor WAF Assessments
+## Access Azure Advisor WAF assessments
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page. The **Advisor** score dashboard page opens.
 
@@ -50,10 +50,10 @@ You can manage access to Advisor WAF assessments using built-in roles. The permi
 
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-main-m.png" alt-text="Screenshot of Azure Advisor WAF assessments main page." lightbox="./media/advisor-assessments/advisor-assessment-main-m.png":::
 
-## Create Azure Advisor WAF Assessments
+## Create Azure Advisor WAF assessments
 
 1. Select **New assessment**. An input area opens.
-:::image type="content" source="./media/advisor-assessments/advisor-assessment-start-new-populated.png" alt-text="Screenshot of Azure Advisor **Start new assessment** main page." lightbox="./media/advisor-assessments/advisor-assessment-start-new-populated.png":::
+:::image type="content" source="./media/advisor-assessments/advisor-assessment-start-new-populated-m.png" alt-text="Screenshot of Azure Advisor **Start new assessment** main page." lightbox="./media/advisor-assessments/advisor-assessment-start-new-populated-m.png":::
 1. Provide the input parameters:
    * **Subscription**: Choose from the list of available subscriptions in the dropdown Advisor. Once chosen, the system looks for workloads configured for that subscription. Not all subscriptions are available for the WAF Assessments preview.
    * **Workload** (optional): If you have workloads configured for that subscription, you can view them in the list and select one.
@@ -109,11 +109,8 @@ There are multiple avenues to access the recommendations, but you must have the 
 To learn more about permissions, see [Permissions in Azure Advisor](/azure/advisor/permissions). To find out what subscriptions you have permissions for, and what level of permissions, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription). If you have Contributor permissions, you can view the recommendations for assessments created by other users and the assessments that you created.
 
 1. Open the **Assessments** main page and then any completed assessment. The recommendations list page for that assessment opens.
-
-:::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list** page." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-m.png":::
-
+:::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-2-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list** page." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-2-m.png":::
 1. You can sort the recommendations based on **Priority**, **Recommendation**, and **Category**. You can also use **Actions** > **Group** to group the recommendations by category or priority.
-
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-filtered-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-filtered-m.png":::
 
 > [!NOTE]
@@ -125,7 +122,7 @@ You can manage WAF assessment recommendations, setting recommendation status for
 
 Managing Advisor WAF assessment recommendations is slightly different than managing regular Advisor recommendations.
 
-:::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-pane-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-pane-m.png":::
+:::image type="content" source="./media/advisor-assessments/advisor-assessment-recommendation-list-pane-2-m.png" alt-text="Screenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-assessments/advisor-assessment-recommendation-list-pane-2-m.png":::
 
 * On the **Not started** tab, with new recommendations, you can set initial status changes. For example, mark a recommendation as *In progress*:  If you accept a recommendation and start working on it, select **Mark as in progress**, which moves it to the **In progress** tab.
 
