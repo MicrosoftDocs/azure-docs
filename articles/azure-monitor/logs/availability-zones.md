@@ -65,7 +65,7 @@ When available in your region, Azure Monitor availability zones enhance your Azu
 |	**Europe**	|		|		|		|
 |	France Central	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Germany West Central	|		|	:white_check_mark:	|		|
-|	Italy North	|		|	:white_check_mark:	|		|
+|	Italy North	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
 |	North Europe	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Norway East	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Poland Central	|		|	:white_check_mark:	|		|
@@ -74,7 +74,7 @@ When available in your region, Azure Monitor availability zones enhance your Azu
 |	UK South	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	West Europe	|		|	:white_check_mark:	|		|
 |	**Middle East**	|		|		|		|
-|	Israel Central	|		|	:white_check_mark:	|		|
+|	Israel Central	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
 |	Qatar Central	|		|	:white_check_mark:	|		|
 |	UAE North	|	:white_check_mark:	|	:white_check_mark:	|		|
 
