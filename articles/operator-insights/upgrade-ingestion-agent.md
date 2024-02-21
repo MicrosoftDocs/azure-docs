@@ -18,7 +18,7 @@ In this article, you'll upgrade your ingestion agent and roll back an upgrade.
 
 ## Prerequisites
 
-Obtain the latest version of the ingestion agent RPM from [download.microsoft.com](https://download.microsoft.com/download/a/4/a/a4ae5f8b-6ccd-477b-8c29-2c22bed915d2/az-sftp-uploader-0.9.0-1.el8.x86_64.rpm).
+Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
 
 ## Upgrade the agent software
 

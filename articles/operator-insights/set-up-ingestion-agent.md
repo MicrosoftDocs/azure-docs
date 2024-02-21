@@ -87,6 +87,24 @@ The ingestion agent only supports certificate-based authentication for service p
 1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
+## Prepare the SFTP server
+
+This section is only required for the SFTP pull source.
+
+On the SFTP server:
+
+1. Ensure port 22/TCP to the VM is open.
+1. Create a new user, or determine an existing user on the SFTP server that the ingestion agent should use to connect to the SFTP server.
+1. Determine the authentication method that the ingestion agent should use to connect to the SFTP server. The agent supports:
+    - Password authentication
+    - SSH key authentication
+1. Configure the SFTP server to remove files after a period of time (a _retention period_). Ensure the retention period is long enough that the agent should process the files before the SFTP server deletes them. The example configuration file contains configuration for checking for new files every five minutes.
+
+> [!IMPORTANT]
+> Your SFTP server must remove files after a suitable retention period so that it does not run out of disk space. The ingestion agent does not remove files automatically.
+>
+> A shorter retention time reduces disk usage, increases the speed of the agent and reduces the risk of duplicate uploads. However, a shorter retention period increases the risk that data is lost if data cannot be retrieved by the agent or uploaded to Azure Operator Insights.
+
 ## Prepare the VMs
 
 Repeat these steps for each VM onto which you want to install the agent.
@@ -103,7 +121,12 @@ Repeat these steps for each VM onto which you want to install the agent.
         - Port 443/TCP outbound to Azure
         - Port 22/TCP outbound to the SFTP server
         These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
-    1. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it's the directory where you'll add secrets for connecting to the SFTP server.
+    1. Create a directory to use for storing secrets for the agent. We call this the _secrets directory_. Note its path.
+    1. Create a file in the secrets directory containing password or private SSH key for the SFTP server.
+       - The file must not have a file extension.
+       - Choose an appropriate name for this file, and note it for later. This name is referenced in the agent configuration.
+       - The file must contain only the secret value (password or SSH key), with no extra whitespace.
+    1. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate file that contains the passphrase.
     1. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
     > [!TIP]
@@ -118,37 +141,13 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     ---
 
-
-## Configure the connection between the SFTP server and VM
-
-This section is only required for the SFTP pull source.
-
-Follow these steps on the SFTP server:
-
-1. Ensure port 22/TCP to the VM is open.
-1. Create a new user, or determine an existing user on the SFTP server that the ingestion agent should use to connect to the SFTP server.
-1. Determine the authentication method that the ingestion agent should use to connect to the SFTP server. The agent supports:
-    - Password authentication
-    - SSH key authentication
-1. Create a file to store the secret value (password or SSH key) in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
-   - The file must not have a file extension.
-   - Choose an appropriate name for the secret file, and note it for later. This name is referenced in the agent configuration.
-   - The secret file must contain only the secret value (password or SSH key), with no extra whitespace.
-1. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
-1. Configure the SFTP server to remove files after a period of time (a _retention period_). Ensure the retention period is long enough that the agent should process the files before the SFTP server deletes them. The example configuration file contains configuration for checking for new files every five minutes.
-
-> [!IMPORTANT]
-> Your SFTP server must remove files after a suitable retention period so that it does not run out of disk space. The ingestion agent does not remove files automatically.
->
-> A shorter retention time reduces disk usage, increases the speed of the agent and reduces the risk of duplicate uploads. However, a shorter retention period increases the risk that data is lost if data cannot be retrieved by the agent or uploaded to Azure Operator Insights.
-
 ## VMs without public DNS: Map Azure host names to IP addresses
 
 **If your agent VMs have access to public DNS, skip this step and continue to [Install the agent software](#install-the-agent-software).**
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
-This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing,  you **cannot** use this workaround and must use public DNS.
+This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing, you **cannot** use this workaround and must use public DNS.
 
 1. Create the following resources from a virtual network that is peered to your ingestion agents.
     - A Service Endpoint to Azure Storage.
