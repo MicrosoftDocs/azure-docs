@@ -248,6 +248,8 @@
   items:
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
+  - name: Azure support
+    href: https://azure.microsoft.com/support/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates
