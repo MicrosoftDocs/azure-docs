@@ -12,11 +12,11 @@ ms.date: 02/15/2024
 
 This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 
-The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user and group management), legal tags, schemas, reference data, and view objects and visualize those on a map.
+The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user and group management), legal tags, schemas, reference data, view, and visualize objects on a map.
 
 ## Prerequisites
 - Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows WSL, we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
-- Provision an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - Add the App Registration permissions to enable Admin UI to function properly:
   - [Application.Read.All](/graph/permissions-reference#applicationreadall)
   - [User.Read](/graph/permissions-reference#applicationreadall)
@@ -28,7 +28,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
-1. Click on Open to clone the repository.
+1. Select `Remote - Containers | Open` to open a Development Container and clone the OSDU Admin UI repository.
 
    [![Open in Remote - Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies)
 
@@ -36,10 +36,10 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    [![Screenshot that shows cloning the repository.](./media/how-to-deploy-osdu-admin-ui/clone-the-repository.png)](./media/how-to-deploy-osdu-admin-ui/clone-the-repository.png#lightbox)
 
-1. When prompted for a container configuration template,
+1. When prompted for a container configuration template.
    1. Select [Ubuntu](https://github.com/devcontainers/templates/tree/main/src/ubuntu).
    2. Accept the default version.
-   3. Do not add any additional features.
+   3. Don't add any extra features.
 
 1. After a few minutes, the devcontainer is running.
 
@@ -49,7 +49,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    [![Screenshot that shows opening terminal.](./media/how-to-deploy-osdu-admin-ui/open-terminal.png)](./media/how-to-deploy-osdu-admin-ui/open-terminal.png#lightbox)
 
-1. Install Angular CLI, Azure CLI, Node.js, NPM and NVM:
+1. Install Angular CLI, Azure CLI, Node.js, npm, and NVM.
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
@@ -62,23 +62,14 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     ```
     [![Screenshot that shows installation](./media/how-to-deploy-osdu-admin-ui/install-screen.png)](./media/how-to-deploy-osdu-admin-ui/install-screen.png#lightbox)
 
-1. Log into Azure CLI by executing the command on the terminal. It takes you to the login screen.
+1. Log into Azure CLI by executing the command on the terminal. It takes you to the sign-in screen.
     ```azurecli-interactive
     az login
     ```
 
-1. It takes you to the login screen. Enter your credentials and upon success, you see a success message.
+1. It takes you to the sign-in screen. Enter your credentials and upon success, you see a success message.
 
    [![Screenshot that shows successful login.](./media/how-to-deploy-osdu-admin-ui/login.png)](./media/how-to-deploy-osdu-admin-ui/login.png#lightbox)
-   
-1. Make sure the correct subscription is selected by running the following command:
-    ```azurecli-interactive
-    az account show
-    ```
-1. If you need to change subscription:
-    ```azurecli-interactive
-    az account set --subscription <subscription-id>
-    ```
     
 ## Configure environment variables
 1. Fetch `client-id` as authAppId, `resource-group`, `subscription-id`, and `location`.
@@ -217,4 +208,4 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## References
 
 For information about OSDU Admin UI, see [OSDU GitLab](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies).<br>
-For other deployment methods (Terraform or Azure DevOps pipeline), see [OSDU Admin UI DevOps](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/-/tree/main/OSDUApp/devops/azure).
+For other deployment methods (Terraform or Azure DevOps CI/CD pipeline), see [OSDU Admin UI DevOps](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/-/tree/main/OSDUApp/devops/azure).
