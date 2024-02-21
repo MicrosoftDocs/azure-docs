@@ -5,12 +5,14 @@ items:
   expanded: true
   items:
   - name: Windows App
+    expanded: true
     items:
     - name: What is Windows App?
       href: /windows-app/overview
     - name: What's new in Windows App
       href: /windows-app/whats-new
   - name: Remote Desktop client
+    expanded: true
     items:
     - name: Remote Desktop clients overview
       href: remote-desktop-clients-overview.md
@@ -41,10 +43,12 @@ items:
     expanded: true
     items:
     - name: Windows App
+      expanded: true
       items:
       - name: Get started with Windows App
         href: /windows-app/get-started-connect-devices-desktops-apps
     - name: Remote Desktop client
+      expanded: true
       items:
       - name: Windows
         href: connect-windows.md
