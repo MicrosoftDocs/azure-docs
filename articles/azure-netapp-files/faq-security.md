@@ -2,7 +2,6 @@
 title: Security FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files security.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -23,17 +22,17 @@ NFSv3 protocol doesn't provide support for encryption, so this data-in-flight ca
 
 All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. Learn [how encryption keys managed](#how-are-encryption-keys-managed).
 
-## Is Azure NetApp Files cross-region replication traffic encrypted?
+## Is Azure NetApp Files cross-region and cross-zone replication traffic encrypted?
 
-Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption to encrypt all data transferred between the source volume and destination volume. This encryption is in addition to the [Azure MACSec encryption](../security/fundamentals/encryption-overview.md) that is on by default for all Azure traffic, including Azure NetApp Files cross-region replication. 
+Azure NetApp Files cross-region and cross-zone replication uses TLS 1.2 AES-256 GCM encryption to encrypt all data transferred between the source volume and destination volume. This encryption is in addition to the [Azure MACSec encryption](../security/fundamentals/encryption-overview.md) that is on by default for all Azure traffic, including Azure NetApp Files cross-region and cross-zone replication. 
 
 ## How are encryption keys managed? 
 
 By default key management for Azure NetApp Files is handled by the service, using [platform-managed keys](../security/fundamentals/key-management.md). A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. When you delete a volume, Azure NetApp Files immediately deletes the volume's encryption keys.
 
-Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
+Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA) in [supported regions](configure-customer-managed-keys.md#supported-regions).
 
-Lastly, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
+Also, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
 ## Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 

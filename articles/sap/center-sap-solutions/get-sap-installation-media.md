@@ -306,8 +306,6 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
 
-        1. [HANA_2_00_067_v0005ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_067_v0005ms/HANA_2_00_067_v0005ms.yaml)
-      
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)
@@ -430,8 +428,6 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
     
-        1. [HANA_2_00_067_v0005ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_067_v0005ms/HANA_2_00_067_v0005ms.yaml)
-      
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)

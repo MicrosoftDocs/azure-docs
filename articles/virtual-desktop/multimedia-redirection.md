@@ -5,7 +5,6 @@ author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: daknappe
-manager: femila
 ---
 # Use multimedia redirection on Azure Virtual Desktop
 

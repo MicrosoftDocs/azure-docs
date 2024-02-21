@@ -2,7 +2,7 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 12/20/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -16,25 +16,15 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.18.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.4.18.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.4.19.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.18.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
-
-```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.18.jar", "-jar", "<myapp.jar>"]
-```
-
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.18.jar"` somewhere before `-jar`, for example:
-
-```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.18.jar" -jar <myapp.jar>
-```
+See the [documentation related to containers](./java-get-started-supplemental.md).
 
 ### Configuration
 
@@ -48,7 +38,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.4.18</version>
+    <version>3.4.19</version>
 </dependency>
 ```
 
@@ -91,7 +81,15 @@ By default, when enabling Application Insights Java programmatically, the config
 will be read from the classpath (`src/main/resources`, `src/test/resources`).
 
 From 3.4.3, you can configure the name of a JSON file in the classpath with the `applicationinsights.runtime-attach.configuration.classpath.file` system property.
-For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration.
+For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration. To programmatically configure another file in the classpath:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.runtime-attach.configuration.classpath.file", "applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
 
 > [!NOTE]
 > Spring's `application.properties` or `application.yaml` files are not supported as
@@ -100,11 +98,43 @@ For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
 
-#### Structure of applicationinsights-dev.json
+To programmatically configure a file outside the classpath:
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+
+#### Programmatically configure the connection string
+
+First, add the `applicationinsights-core` dependency:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-core</artifactId>
+    <version>3.4.19</version>
+</dependency>
+```
+
+Then, call the `ConnectionString.configure` method after `ApplicationInsights.attach()`:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+Alternatively, call the  `ConnectionString.configure` method from a Spring component.
+
+Enable connection string configured at runtime:
 
 ```json
 {
-  "connectionString":"Your-Intrumentation-Key"
+  "connectionStringConfiguredAtRuntime": true
 }
 ```
 

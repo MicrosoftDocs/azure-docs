@@ -301,6 +301,29 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 }
 ```
 
+### Configure audio session
+
+You use an `AVAudioSession` object to configure your app’s audio session. Here is an example of enabling bluetooth audio device for your app:
+
+```Swift
+func configureAudioSession() -> Error? {
+    // Retrieve the audio session.
+    let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
+    // set options to allow bluetooth device
+    let options: AVAudioSession.CategoryOptions = .allowBluetooth
+    var configError: Error?
+    do {
+        // Set the audio session category.
+        try audioSession.setCategory(.playAndRecord, options: options)
+        print("configureAudioSession successfully")
+    } catch {
+        print("configureAudioSession failed")
+        configError = error
+    }
+    return configError
+}
+```
+
 ## Display local video
 
 Before starting a call, you can manage settings related to video. In this quickstart, we introduce the implementation of toggling local video before or during a call.

@@ -7,13 +7,10 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom:
   - language-service-summarization
-  - ignite-fall-2021
-  - event-tier1-build-2022
-  - ignite-2022
   - ignite-2023
 ---
 

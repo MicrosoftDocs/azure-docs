@@ -8,11 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: troubleshooting
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-docs-improvements
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure AD B2C custom policies and user flows, I want to troubleshoot and handle common errors that occur during the authentication process, so that I can ensure a smooth user experience and resolve any issues that may arise.
+
 ---
 
 # Troubleshoot Azure AD B2C custom policies and user flows

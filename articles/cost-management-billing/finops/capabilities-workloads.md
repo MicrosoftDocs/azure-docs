@@ -1,7 +1,6 @@
 ---
 title: Workload management and automation
 description: This article helps you understand the workload management and automation capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/23/2023

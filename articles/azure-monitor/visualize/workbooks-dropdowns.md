@@ -1,9 +1,7 @@
 ---
 title: Azure Monitor workbook dropdown parameters
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks containing dropdown parameters.
+description: Use dropdown parameters to simplify complex reporting with prebuilt and custom parameterized workbooks.
 services: azure-monitor
-manager: carmonm
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023
@@ -189,4 +187,4 @@ Other common examples use '*' as the special marker value when a parameter is re
 
 ## Next steps
 
-[Getting started with Azure Workbooks](workbooks-getting-started.md)
+[Learn about the types of visualizations you can use to create rich visual reports with Azure Workbooks](workbooks-visualizations.md).

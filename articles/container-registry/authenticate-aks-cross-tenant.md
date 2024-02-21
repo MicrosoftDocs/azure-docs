@@ -4,7 +4,8 @@ description: Configure an AKS cluster's service principal with permissions to ac
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 05/31/2023
+ms.service: container-registry
+ms.date: 10/31/2023
 ---
 
 # Pull images from a container registry to an AKS cluster in a different Microsoft Entra tenant

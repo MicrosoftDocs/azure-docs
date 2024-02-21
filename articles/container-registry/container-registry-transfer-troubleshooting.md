@@ -3,8 +3,9 @@ title: ACR Transfer Troubleshooting
 description: Troubleshoot ACR Transfer
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.topic: article
+ms.service: container-registry
 ---
 
 # ACR Transfer troubleshooting

@@ -9,7 +9,6 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.custom:
-    - ignite-2022
     - ignite-2023
   ms.topic: landing-page
   author: stempesta # ananyagarg
@@ -66,7 +65,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About confidential VMs
+          - text: Azure Confidential VM options
             url: confidential-vm-overview.md
           - text: Confidential VM solutions
             url: virtual-machine-solutions.md

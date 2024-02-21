@@ -46,9 +46,10 @@ Infoblox_dnsclient
 To integrate with Infoblox NIOS make sure you have: 
 
 - **Infoblox NIOS**: must be configured to export logs via Syslog
-
+- Update the Watchlist  **Sources_by_SourceType** to ensure the Kusto workspace function parsers **Infoblox_** can properly extract the message information from SyslogMessage for the different DNS and DHCP sources.  
 
 ## Vendor installation instructions
+
 
 
 **NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Infoblox and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Infoblox%20NIOS/Parser/Infoblox.txt), on the second line of the query, enter the hostname(s) of your Infoblox device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
@@ -60,6 +61,7 @@ Typically, you should install the agent on a different computer from the one on 
 >  Syslog logs are collected only from **Linux** agents.
 
 
+
 2. Configure the logs to be collected
 
 Configure the facilities you want to collect and their severities.
@@ -67,10 +69,11 @@ Configure the facilities you want to collect and their severities.
  2. Select **Apply below configuration to my machines** and select the facilities and severities.
  3.  Click **Save**.
 
-
 3. Configure and connect the Infoblox NIOS
 
 [Follow these instructions](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-slog-and-snmp-configuration-for-nios.pdf) to enable syslog forwarding of Infoblox NIOS Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+
+
 
 
 

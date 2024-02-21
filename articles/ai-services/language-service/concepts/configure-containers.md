@@ -6,11 +6,10 @@ description: Language service provides each container with a common configuratio
 author: aahill
 manager: nitinme
 ms.custom:
-  - ignite-fall-2021
   - ignite-2023
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 

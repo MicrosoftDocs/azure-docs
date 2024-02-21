@@ -95,7 +95,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For details and usage examples, see the [API documentation](/rest/api/defenderforcloud/).
+For details and usage examples, see the [API documentation](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2020-01-01&preserve-view=true).
 
 ## Next steps
 

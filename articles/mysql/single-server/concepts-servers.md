@@ -74,4 +74,4 @@ You can manage the creation, deletion, server parameter configuration (my.cnf), 
 
 - For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)
 - For information about specific resource quotas and limitations based on your **pricing tier**, see [Pricing tiers](./concepts-pricing-tiers.md)
-- For information about connecting to the service, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).
+- For information about connecting to the service, see [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md).

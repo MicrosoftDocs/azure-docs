@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 11/22/2023
+  ms.date: 01/01/2024
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -92,13 +92,13 @@ sections:
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
       
       - question: |
-          I asked the model when it's knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
+          I asked the model when its knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
         answer:
           This is expected behavior. The models aren't able to answer questions about themselves. If you want to know when the knowledge cutoff for the model's training data is, consult the [models page](./concepts/models.md).
       - question: |
           I asked the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?
         answer: |
-          This is expected behavior. First there's no guarantee that every recent event that has occurred was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
+          This is expected behavior. First there's no guarantee that every recent event was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
           
           The frequency that a given piece of information appeared in the training data can also impact the likelihood that the model will respond in a certain way. 
 
@@ -215,7 +215,7 @@ sections:
       - question: |
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
-          See the [limitations](./how-to/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision how-to guide.
+          See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
 
   - name: Web app
     questions:
@@ -291,7 +291,7 @@ sections:
       - question: |
           How do I obtain coverage under the Customer Copyright Commitment? 
         answer:
-          The Customer Copyright Commitment is a provision to be included in the December 1, 2023, Microsoft Product Terms that describes Microsoft’s obligation to defend customers against certain third-party intellectual property claims relating to Output Content. If the subject of the claim is Output Content generated from the Azure OpenAI Service (or any other Generative AI Service that allows customers to configure the safety systems), then to receive coverage, customer must have implemented all mitigations required by the Azure OpenAI Service documentation in the offering that delivered the Output Content. The required mitigations are documented [here](/legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context) and updated on an ongoing basis. For new services, features, models, or use cases, new CCC requirements will be posted and take effect at or following the launch of such service, feature, model, or use case. Otherwise, customers will have six months from the time of publication to implement new mitigations to maintain coverage under the CCC. If a customer tenders a claim, the customer will be required to demonstrate compliance with the relevant requirements. These mitigations are required for Generative AI Services that allow customers to configure the safety systems, including Azure OpenAI Service; they do not impact coverage for customers using other Generative AI Services and Copilots.
+          The Customer Copyright Commitment is a provision to be included in the December 1, 2023, Microsoft Product Terms that describes Microsoft’s obligation to defend customers against certain third-party intellectual property claims relating to Output Content. If the subject of the claim is Output Content generated from the Azure OpenAI Service (or any other Covered Product that allows customers to configure the safety systems), then to receive coverage, customer must have implemented all mitigations required by the Azure OpenAI Service documentation in the offering that delivered the Output Content. The required mitigations are documented [here](/legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context) and updated on an ongoing basis. For new services, features, models, or use cases, new CCC requirements will be posted and take effect at or following the launch of such service, feature, model, or use case. Otherwise, customers will have six months from the time of publication to implement new mitigations to maintain coverage under the CCC. If a customer tenders a claim, the customer will be required to demonstrate compliance with the relevant requirements. These mitigations are required for Covered Products that allow customers to configure the safety systems, including Azure OpenAI Service; they do not impact coverage for customers using other Covered Products.
 additionalContent: |
 
   ## Next steps

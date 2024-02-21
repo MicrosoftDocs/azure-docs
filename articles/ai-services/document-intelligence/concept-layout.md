@@ -101,7 +101,7 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
 * For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.

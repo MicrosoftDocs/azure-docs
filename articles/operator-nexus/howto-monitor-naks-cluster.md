@@ -58,8 +58,7 @@ The following resources provide you with support:
 
 ### Prerequisites-VM
 
-- Cluster administrator access to the Nexus Kubernetes cluster. See [documentation](/azure-stack/aks-hci/create-aks-hybrid-preview-cli#connect-to-the-nexus-kubernetes-cluster) on
-  connecting to the Nexus Kubernetes cluster.
+- Cluster administrator access to the Nexus Kubernetes cluster.
 
 - To use Azure Arc-enabled servers, register the following Azure resource providers in your subscription:
   - Microsoft.HybridCompute
@@ -285,7 +284,7 @@ Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extensi
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-agent-config.md).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-data-collection-configmap.md).
 
 ## Extra resources
 

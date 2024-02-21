@@ -33,7 +33,7 @@ Here are a few examples of the kinds of prompts you can use to get help authorin
 
 ## Examples
 
-When creating an API Management policy, you can say "Generate a policy to configure rate limiting with 5 requests per second." Microsoft Copilot for Azure (preview) provides an example and explains how you might want to modify the provided based on your requirements.
+When creating an API Management policy, you can say "**Generate a policy to configure rate limiting with 5 requests per second.**" Microsoft Copilot for Azure (preview) provides an example and explains how you might want to modify the provided based on your requirements.
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-rate-limiting.png" lightbox="media/author-api-management-policies/api-management-policy-rate-limiting.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a policy to configure rate limiting.":::
 

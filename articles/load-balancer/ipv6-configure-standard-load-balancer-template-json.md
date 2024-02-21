@@ -7,7 +7,6 @@ author: mbender-ms
 manager: kumudD
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 12/04/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template

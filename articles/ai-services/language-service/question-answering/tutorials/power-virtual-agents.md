@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 10/11/2022
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 

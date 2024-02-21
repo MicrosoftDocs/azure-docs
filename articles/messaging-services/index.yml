@@ -7,12 +7,11 @@ brand: azure
 metadata:
   title: Azure messaging services documentation
   description: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
-  services: multiple
   ms.service: event-grid 
   ms.topic: hub-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 11/17/2022
+  ms.date: 01/10/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -38,8 +37,35 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Route events
+    - title: Azure Event Grid
       links:
+        - url: ../event-grid/choose-right-tier.md
+          itemType: overview
+          text: Choose the right tier
+        - url: ../event-grid/pull-delivery-overview.md
+          itemType: overview
+          text: Pull delivery overview
+        - url: ../event-grid/namespace-push-delivery-overview.md
+          itemType: overview
+          text: Namespaces - Push delivery overview
+        - url: ../event-grid/mqtt-overview.md
+          itemType: overview
+          text: MQTT broker overview
+        - url: ../event-grid/kubernetes/overview.md
+          itemType: overview
+          text: Event Grid on Kubernetes overview
+        - url: ../event-grid/publish-events-to-namespace-topics-java.md
+          itemType: quickstart
+          text: Publish events to namespace topics using Java
+        - url: ../event-grid/receive-events-from-namespace-topics-java.md
+          itemType: quickstart
+          text: Receive events using pull delivery with Java
+        - url: ../event-grid/event-grid-dotnet-get-started-pull-delivery.md
+          itemType: quickstart
+          text: Send and receive messages from a namespace topic (.NET)
+        - url: ../event-grid/mqtt-publish-and-subscribe-portal.md
+          itemType: quickstart
+          text: Publish and subscribe to MQTT messages
         - url: ../event-grid/blob-event-quickstart-portal.md
           itemType: quickstart
           text: Route Blob storage events to web endpoint with the Azure portal
@@ -53,8 +79,9 @@ conceptualContent:
       footerLink:
         url: ../event-grid/index.yml
         text: See more
+
     # Card
-    - title: Create an event hub
+    - title: Azure Event Hubs
       links:
         - url: ../event-hubs/event-hubs-create.md
           itemType: quickstart
@@ -62,13 +89,27 @@ conceptualContent:
         - url: ../event-hubs/event-hubs-quickstart-cli.md
           itemType: quickstart
           text: Create an event hub using Azure CLI
-      # footerLink
-      footerLink:
-        url: ../event-hubs/index.yml
-        text: See more
-    # Card
-    - title: Integrate with Apache Kafka
-      links:
+        - url: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+          itemType: quickstart
+          text: Send and receive events from Azure Event Hubs using .NET Core
+        - url: ../event-hubs/event-hubs-java-get-started-send.md
+          itemType: quickstart
+          text: Use Java to send events to or receive events from Azure Event Hubs
+        - url: ../event-hubs/event-hubs-python-get-started-send.md
+          itemType: quickstart
+          text: Send events to or receive events from event hubs by using Python
+        - url: ../event-hubs/event-hubs-dedicated-overview.md
+          itemType: overview
+          text: Capture events in Azure Blob Storage or Azure Data Lake Storage
+        - url: ../event-hubs/event-hubs-capture-enable-through-portal.md
+          itemType: quickstart
+          text: Enable capturing of events streaming through Azure Event Hubs
+        - url: ../event-hubs/event-hubs-tutorial-visualize-anomalies.md
+          itemType: tutorial
+          text: Visualize data anomalies in real-time events sent to Azure Event Hubs
+        - url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          itemType: tutorial
+          text: Process Apache Kafka for Event Hubs events using Stream analytics
         - url: ../event-hubs/event-hubs-for-kafka-ecosystem-overview.md
           itemType: overview
           text: What is Event Hubs for Apache Kafka
@@ -80,49 +121,7 @@ conceptualContent:
         url: ../event-hubs/index.yml
         text: See more
     # Card
-    - title: Send and receive events
-      links:
-        - url: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
-          itemType: quickstart
-          text: Send and receive events from Azure Event Hubs using .NET Core
-        - url: ../event-hubs/event-hubs-java-get-started-send.md
-          itemType: quickstart
-          text: Use Java to send events to or receive events from Azure Event Hubs
-        - url: ../event-hubs/event-hubs-python-get-started-send.md
-          itemType: quickstart
-          text: Send events to or receive events from event hubs by using Python
-      # footerLink
-      footerLink:
-        url: ../event-hubs/index.yml
-        text: See more
-    # Card
-    - title: Capture events
-      links:
-        - url: ../event-hubs/event-hubs-dedicated-overview.md
-          itemType: overview
-          text: Capture events in Azure Blob Storage or Azure Data Lake Storage
-        - url: ../event-hubs/event-hubs-capture-enable-through-portal.md
-          itemType: quickstart
-          text: Enable capturing of events streaming through Azure Event Hubs
-      # footerLink
-      footerLink:
-        url: ../event-hubs/index.yml
-        text: See more
-    # Card
-    - title: Process events
-      links:
-        - url: ../event-hubs/event-hubs-tutorial-visualize-anomalies.md
-          itemType: tutorial
-          text: Visualize data anomalies in real-time events sent to Azure Event Hubs
-        - url: ../event-hubs/event-hubs-kafka-stream-analytics.md
-          itemType: tutorial
-          text: Process Apache Kafka for Event Hubs events using Stream analytics
-      # footerLink
-      footerLink:
-        url: ../event-hubs/index.yml
-        text: See more
-    # Card
-    - title: Create a queue
+    - title: Azure Service Bus
       links:
         - url: ../service-bus-messaging/service-bus-quickstart-portal.md
           itemType: quickstart
@@ -130,40 +129,12 @@ conceptualContent:
         - url: ../service-bus-messaging/service-bus-quickstart-cli.md
           itemType: quickstart
           text: Use the Azure CLI to create a Service Bus queue
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Create topics and subscriptions
-      links:
         - url: ../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md
           itemType: quickstart
           text: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
         - url: ../service-bus-messaging/service-bus-resource-manager-namespace-topic.md
           itemType: quickstart
           text: Create a Service Bus namespace with topic and subscription using a template
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Event Grid on Kubernetes with Azure Arc (Preview)
-      links:
-        - url: ../event-grid/kubernetes/overview.md
-          itemType: overview
-          text: What is Event Grid on Kubernetes?
-        - url: ../event-grid/kubernetes/create-topic-subscription.md
-          itemType: quickstart
-          text: Create a topic and a subscription
-      # footerLink
-      footerLink:
-        url: ../event-grid/kubernetes/index.yml
-        text: See more
-
-    # Card
-    - title: Send and receive messages - queues
-      links:
         - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
           itemType: concept
           text: Compare Azure Storage queues and Service Bus queues
@@ -173,13 +144,6 @@ conceptualContent:
         - url: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
           itemType: quickstart
           text: Use Azure Service Bus queues with Java to send and receive messages
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Publish and subscribe for messages
-      links:
         - url: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
           itemType: quickstart
           text: Get started with Service Bus topics
@@ -194,7 +158,7 @@ conceptualContent:
         url: ../service-bus-messaging/index.yml
         text: See more
     # Card
-    - title: Hybrid connections
+    - title: Azure Relay
       links:
         - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
           itemType: tutorial

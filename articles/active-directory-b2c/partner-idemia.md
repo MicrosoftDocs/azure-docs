@@ -2,17 +2,17 @@
 title: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
 titleSuffix: Azure AD B2C
 description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile ID for a relying party to consume Mobile ID, or US state-issued mobile IDs
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.
 ---
 
 # Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 

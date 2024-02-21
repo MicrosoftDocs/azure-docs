@@ -2,13 +2,12 @@
 title: Sovereign Clouds - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Sovereign Clouds
-#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 11/17/2023
+ms.date: 1/21/2024
 ms.author: alexeyo
 ---
 
@@ -65,7 +64,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds, you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You can also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 
@@ -162,7 +161,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You can also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 

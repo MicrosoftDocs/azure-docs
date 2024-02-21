@@ -1,8 +1,6 @@
 ---
 title: "Tutorial: Manage queries in the Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.date: 10/06/2022
 ms.topic: tutorial
 ---
@@ -52,7 +50,7 @@ follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
    **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab
@@ -96,7 +94,7 @@ use it. To create a new Shared query, follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
 1. Select **Save** or **Save as**.
 

@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 01/06/2023
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-health, ignite-fall-2021
+ms.custom: language-service-health
 ---
 
 # What is Text Analytics for health?

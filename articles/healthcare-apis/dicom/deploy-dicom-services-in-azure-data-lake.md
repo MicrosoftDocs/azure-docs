@@ -7,7 +7,7 @@ ms.subservice: dicom
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: mmitrik
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-arm-template
 ---
 
 # Deploy the DICOM service with Data Lake Storage (Preview)

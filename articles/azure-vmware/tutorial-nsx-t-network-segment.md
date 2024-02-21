@@ -2,9 +2,9 @@
 title: Tutorial - Add an NSX-T Data Center network segment in Azure VMware Solution
 description: Learn how to add an NSX-T Data Center network segment to use for virtual machines (VMs) in vCenter Server.
 ms.topic: tutorial
-ms.custom: contperf-fy22q1
+ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 10/17/2022
+ms.date: 12/20/2023
 ---
 
 # Tutorial: Add an NSX-T Data Center network segment in Azure VMware Solution 
@@ -42,11 +42,11 @@ Verify the presence of the new network segment. In this example, **ls01** is the
 
 1. In NSX-T Manager, select **Networking** > **Segments**. 
 
-    :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot showing the confirmation and status of the new network segment is present in NSX-T Data Center.":::
+    :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot shows the confirmation and status of the new network segment is present in NSX-T Data Center.":::
 
 1. In vCenter Server, select **Networking** > **SDDC-Datacenter**.
 
-    :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot showing the confirmation that the new network segment is present in vCenter Server.":::
+    :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot shows the confirmation that the new network segment is present in vCenter Server.":::
 
 ## Next steps
 

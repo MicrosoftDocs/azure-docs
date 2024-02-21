@@ -32,11 +32,11 @@ Here are a few examples of the kinds of prompts you can use to work with your Az
 
 ## Examples
 
-In this example, Microsoft Copilot for Azure responds to the prompt "summarize my HCI clusters" with details about the number of clusters, their status, and any alerts that affect them.
+In this example, Microsoft Copilot for Azure responds to the prompt "**summarize my HCI clusters**" with details about the number of clusters, their status, and any alerts that affect them.
 
 :::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-summarize.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) summarizing Azure Stack HCI clusters.":::
 
-If you follow up by asking "tell me more about the alerts", Microsoft Copilot for Azure (preview) provides more details about the current alerts.
+If you follow up by asking "**tell me more about the alerts**", Microsoft Copilot for Azure (preview) provides more details about the current alerts.
 
 :::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-alerts.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing information about alerts affecting Azure Stack HCI clusters.":::
 

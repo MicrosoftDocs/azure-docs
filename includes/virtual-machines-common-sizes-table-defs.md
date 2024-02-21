@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: jonbeck7
+author: jushiman
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 03/09/2018
- ms.author: azcspmt;jonbeck;cynthn
+ms.author: jushiman
  ms.custom: include file
 ---
 
@@ -21,6 +21,3 @@
 - **Expected network bandwidth** is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
 
   Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](../articles/virtual-network/virtual-network-bandwidth-testing.md).
-
-
-

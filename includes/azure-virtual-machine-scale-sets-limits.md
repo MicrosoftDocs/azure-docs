@@ -1,8 +1,8 @@
 ---
-author: cynthn
+author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: include
-ms.date: 11/09/2018    
+ms.date: 11/09/2018
 ms.author: jushim
 ---
 | Resource | Limit |

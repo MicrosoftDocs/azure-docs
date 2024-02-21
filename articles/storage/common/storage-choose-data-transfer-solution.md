@@ -26,7 +26,7 @@ Data transfer can be offline or over the network connection. Choose your solutio
 
 - **Data size** - Size of the data intended for transfer,
 - **Transfer frequency** - One-time or periodic data ingestion, and
-- **Network** – Bandwidth available for data transfer in your environment.
+- **Network** - Bandwidth available for data transfer in your environment.
 
 The data movement can be of the following types:
 

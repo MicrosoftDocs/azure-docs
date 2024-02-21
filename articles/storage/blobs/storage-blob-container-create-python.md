@@ -43,7 +43,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container from a `BlobServiceClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py" id="Snippet_create_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py" id="Snippet_create_container":::
 
 ## Create the root container
 
@@ -55,7 +55,7 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py" id="Snippet_create_root_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py" id="Snippet_create_root_container":::
 
 ## Create a container asynchronously
 
@@ -75,11 +75,11 @@ Follow these steps to create a container using asynchronous APIs:
 
 1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that creates the container. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container-async.py" id="Snippet_create_client_async":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py" id="Snippet_create_client_async":::
 
 1. Add code to create a container. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `create_container` method.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container-async.py" id="Snippet_create_container":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py" id="Snippet_create_container":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -95,6 +95,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-container-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

@@ -33,7 +33,7 @@ In this article, you'll learn how to use pipeline component in Azure Machine Lea
 
 - Understand how to use Azure Machine Learning pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 - Understand what is [component](concept-component.md) and how to use component in Azure Machine Learning pipeline.
-- Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
+- Understand what is an [Azure Machine Learning pipeline](concept-ml-pipelines.md)
 
 ## The difference between pipeline job and pipeline component
 

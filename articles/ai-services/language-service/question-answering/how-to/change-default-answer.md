@@ -3,10 +3,10 @@ title: Get default answer - custom question answering
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer in custom question answering.
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Change default answer for question answering

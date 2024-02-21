@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 05/08/2023
+ms.date: 1/23/2024
 ---
 
 # What is Azure IoT device development?

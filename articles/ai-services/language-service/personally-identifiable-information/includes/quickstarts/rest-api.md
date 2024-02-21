@@ -4,9 +4,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 10/31/2022
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii
 ---
 
 [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)

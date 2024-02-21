@@ -5,7 +5,6 @@ author: msrsrinivasan
 ms.author: radhsrin
 manager: cnovak
 ms.reviewer: orspodek
-services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020

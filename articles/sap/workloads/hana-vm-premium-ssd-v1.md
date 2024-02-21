@@ -3,12 +3,10 @@ title: SAP HANA Azure virtual machine premium storage configurations | Microsoft
 description: Storage recommendations HANA using premium storage.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 11/15/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
@@ -224,7 +222,7 @@ A less costly alternative for such configurations could look like:
 | E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
 | M64ls | 512 GiB | 1,000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M32(d)ms_v2 | 875 GiB | 500 MB/s | 6 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 5,000<sup>2</sup> |
-| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> ||
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M64ms, M64(d)ms_v2| 1,792 GiB | 1,000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |

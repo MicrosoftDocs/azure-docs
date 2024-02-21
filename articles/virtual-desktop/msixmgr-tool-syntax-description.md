@@ -24,13 +24,13 @@ Before you can follow the instructions in this article, you need:
 Add the package at specified file path.
 
 ```
--AddPackage [Path to the MSIX package]
+-AddPackage <Path to the MSIX package>
 ```
 
 or
 
 ```
--p [Path to the MSIX package]
+-p <Path to the MSIX package>
 ```
 
 Here's an example of using the `-AddPackage` parameter:
@@ -44,13 +44,13 @@ msixmgr.exe -AddPackage "C:\MSIX\myapp.msix"
 Remove the package with specified package full name.
 
 ```
--RemovePackage [Package name]
+-RemovePackage <Package name>
 ```
 
 or
 
 ```
--x [Package name]
+-x <Package name>
 ```
 
 Here's an example of using the `-RemovePackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
@@ -64,7 +64,7 @@ msixmgr.exe -RemovePackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 Find a package with specific package full name.
 
 ```
--FindPackage [Package name]
+-FindPackage <Package name>
 ```
 
 Here's an example of using the `-FindPackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
@@ -82,7 +82,7 @@ Apply ACLs to a package folder (an unpacked package). You also need to specify t
 | `-packagePath` | The path to the package to unpack OR the path to a directory containing multiple packages to unpack |
 
 ```
--ApplyACLs -packagePath [Path to the package folder]
+-ApplyACLs -packagePath <Path to the package folder>
 ```
 
 Here's an example of using the `-ApplyACLs` parameter:
@@ -103,7 +103,7 @@ Unpack a package in one of the file formats `.appx`, `.msix`, `.appxbundle`, or 
 | `-rootDirectory` | Specifies root directory on image to unpack packages to. This parameter is only required when unpacking to new and existing CIM files. |
 
 ```
--Unpack -packagePath [Path to package to unpack OR path to a directory containing multiple packages to unpack] -destination [Directory to place the resulting package folder(s) in] -fileType [VHD | VHDX | CIM] -rootDirectory [Root directory on image to unpack packages to]
+-Unpack -packagePath <Path to package to unpack OR path to a directory containing multiple packages to unpack> -destination <Directory to place the resulting package folder(s) in> -fileType <VHD | VHDX | CIM> -rootDirectory <Root directory on image to unpack packages to>
 ```
 
 Here's some examples of using the `-Unpack` parameter:
@@ -147,7 +147,7 @@ Mount a VHD, VHDX, or CIM image. You also need to specify the following required
 | `-imagePath` | The path to the image file to mount. |
 
 ```
--MountImage -imagePath [Path to the MSIX image] -fileType [VHD | VHDX | CIM]
+-MountImage -imagePath <Path to the MSIX image> -fileType <VHD | VHDX | CIM>
 ```
 
 Here's an example of using the `-MountImage` parameter:
@@ -172,7 +172,7 @@ Unmount a VHD, VHDX, or CIM image. You also need to specify the following requir
 | `-imagePath` | The path to the image file to mount. |
 
 ```
--UnmountImage -imagePath [Path to the MSIX image] -fileType [VHD | VHDX | CIM]
+-UnmountImage -imagePath <Path to the MSIX image> -fileType <VHD | VHDX | CIM>
 ```
 
 Here's an example of using the `-UnmountImage` parameter:

@@ -3,7 +3,7 @@ title: Create a new VM image version from an existing image version by using Azu
 description: In this article, you'll learn how to create a new VM image version from an existing image version by using VM Image Builder in Linux.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: virtual-machines

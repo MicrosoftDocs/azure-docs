@@ -97,6 +97,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - TLS and SSL aren't related to SFTP.
 
+- Only SSH version 2 is supported.
+
 ## Blob Storage features
 
 When you enable SFTP support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.

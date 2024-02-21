@@ -5,7 +5,6 @@ services: machine-learning
 author: sdgilley
 ms.service: machine-learning
 ms.author: sgilley
-manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
 ms.date: 06/18/2021

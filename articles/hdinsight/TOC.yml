@@ -245,8 +245,6 @@ items:
         href: ./hdinsight-use-oozie-linux-mac.md
       - name: Cluster and service ports and URIs
         href: ./hdinsight-hadoop-port-settings-for-services.md
-      - name: Migrate to Resource Manager development tools
-        href: ./hdinsight-hadoop-development-using-azure-resource-manager.md
       - name: Upgrade HDInsight cluster to newer version
         href: ./hdinsight-upgrade-cluster.md
       - name: OS patching for HDInsight cluster
@@ -963,6 +961,8 @@ items:
       href: ./domain-joined/apache-domain-joined-run-kafka.md
     - name: Use Apache Oozie in ESP clusters
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Use Apache Spark-SQL RBAC with Apache Ranger
+      href: ./spark/ranger-policies-for-spark.md
   - name: Concepts
     items:
     - name: Security baseline

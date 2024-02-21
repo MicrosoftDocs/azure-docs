@@ -40,20 +40,29 @@ If the `spec.target.configMapData` property is not set, the generated ConfigMap 
 |---|---|---|---|
 |type|The setting that indicates how the retrieved data is constructed in the generated ConfigMap. The allowed values include `default`, `json`, `yaml` and `properties`.|optional|string|
 |key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the ConfigMap is set up to be consumed as a mounted file.|conditional|string|
+|separator|The delimiter that is used to output the ConfigMap data in hierarchical format when the type is set to `json` or `yaml`. The separator is empty by default and the generated ConfigMap contains key-values in their original form. Configure this setting only if the configuration file loader used in your application can't load key-values without converting them to the hierarchical format.|optional|string|
 
 The `spec.auth` property isn't required if the connection string of your App Configuration store is provided by setting the `spec.connectionStringReference` property. Otherwise, one of the identities, service principal, workload identity, or managed identity, will be used for authentication. The `spec.auth` has the following child properties. Only one of them should be specified. If none of them are set, the system-assigned managed identity of the virtual machine scale set will be used.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal.|false|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal. The secret must be in the same namespace as the Kubernetes provider.|false|string|
 |workloadIdentity|The settings for using workload identity.|false|object|
-|managedIdentityClientId|The Client ID of user-assigned managed identity of virtual machine scale set.|false|string|
+|managedIdentityClientId|The client ID of user-assigned managed identity of virtual machine scale set.|false|string|
 
-The `spec.auth.workloadIdentity` property has the following child property.
+The `spec.auth.workloadIdentity` property has the following child properties. One of them must be specified.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|managedIdentityClientId|The Client ID of the user-assigned managed identity associated with the workload identity.|true|string|
+|managedIdentityClientId|The client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
+|managedIdentityClientIdReference|The client ID of the user-assigned managed identity can be obtained from a ConfigMap. The ConfigMap must be in the same namespace as the Kubernetes provider.|alternative|object|
+
+The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|configMap|The name of the ConfigMap where the client ID of a user-assigned managed identity can be found.|true|string|
+|key|The key name that holds the value for the client ID of a user-assigned managed identity.|true|string|
 
 The `spec.configuration` has the following child properties. 
   

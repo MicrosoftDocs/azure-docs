@@ -2,14 +2,15 @@
 title: Tune prompts using variants
 titleSuffix: Azure AI Studio
 description: Learn how to tune prompts using variants in Prompt flow with Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tune prompts using variants in Azure AI Studio

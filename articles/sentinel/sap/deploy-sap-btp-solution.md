@@ -1,8 +1,8 @@
 ---
 title: Deploy Microsoft Sentinel Solution for SAP® BTP
 description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for SAP® BTP.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 03/30/2023
 ---

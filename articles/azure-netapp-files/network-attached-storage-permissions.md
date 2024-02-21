@@ -1,16 +1,9 @@
 ---
 title: Understand NAS share permissions in Azure NetApp Files
-description: Learn about NAS share permissions options in Azure NetApp Files.   
+description: Learn about NAS share permissions options in Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs
@@ -34,7 +27,7 @@ The initial entry point to be secured in a NAS environment is access to the shar
 
 Since the most restrictive permissions override other permissions, and a share is the main entry point to the volume (with the fewest access controls), share permissions should abide by a funnel logic, where the share allows more access than the underlying files and folders. The funnel logic enacts more granular, restrictive controls. 
 
-:::image type="content" source="../media/azure-netapp-files/shares-pyramid.png" alt-text="Diagram of inverted pyramid of file access hierarchy." lightbox="../media/azure-netapp-files/shares-pyramid.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/shares-pyramid.png" alt-text="Diagram of inverted pyramid of file access hierarchy." lightbox="./media/network-attached-storage-permissions/shares-pyramid.png":::
 
 ## NFS export policies 
 
@@ -42,7 +35,7 @@ Volumes in Azure NetApp Files are shared out to NFS clients by exporting a path 
 
 An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule—either allowing or explicitly denying access—then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rule is applied to a client (for example, by way of a subnet), then it's read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
 
-:::image type="content" source="../media/azure-netapp-files/export-policy-diagram.png" alt-text="Diagram modeling export policy rule hierarchy." lightbox="../media/azure-netapp-files/export-policy-diagram.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/export-policy-diagram.png" alt-text="Diagram modeling export policy rule hierarchy." lightbox="./media/network-attached-storage-permissions/export-policy-diagram.png":::
 
 ### Export policy rule options available in Azure NetApp Files
 
@@ -96,7 +89,7 @@ The order of export policy rules determines how they are applied. The first rule
 
 Consider the following example:
 
-:::image type="content" source="../media/azure-netapp-files/export-policy-rule-sequence.png" alt-text="Screenshot of two export policy rules." lightbox="../media/azure-netapp-files/export-policy-rule-sequence.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/export-policy-rule-sequence.png" alt-text="Screenshot of two export policy rules." lightbox="./media/network-attached-storage-permissions/export-policy-rule-sequence.png":::
 
 - The first rule in the index includes *all clients* in *all subnets* by way of the default policy rule using 0.0.0.0/0 as the **Allowed clients** entry. That rule allows “Read & Write” access to all clients for that Azure NetApp Files NFSv3 volume.
 - The second rule in the index explicitly lists NFS client 10.10.10.10 and is configured to limit access to “Read only,” with no root access (root is squashed).
@@ -112,7 +105,7 @@ To fix this and set access to the desired level, the rules can be re-ordered to 
 
 SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as access-based enumeration and non-browsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
 
-:::image type="content" source="../media/azure-netapp-files/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/share-level-permissions.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="./media/network-attached-storage-permissions/share-level-permissions.png":::
 
 Share-level permission ACLs are managed through a Windows MMC console rather than through Azure NetApp Files.
 
@@ -124,23 +117,23 @@ Azure NetApp Files offers multiple share properties to enhance security for admi
 
 [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) doesn't have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
 
-:::image type="content" source="../media/azure-netapp-files/access-based-enumeration-properties.png" alt-text="Screenshot of access-based enumeration properties." lightbox="../media/azure-netapp-files/access-based-enumeration-properties.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/access-based-enumeration-properties.png" alt-text="Screenshot of access-based enumeration properties." lightbox="./media/network-attached-storage-permissions/access-based-enumeration-properties.png":::
 
 In the below example, access-based enumeration is disabled, so the user has access to the `ABE` directory of `SMBVolume`.
 
-:::image type="content" source="../media/azure-netapp-files/directory-listing-no-access.png" alt-text="Screenshot of directory without access-bassed enumeration." lightbox="../media/azure-netapp-files/directory-listing-no-access.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/directory-listing-no-access.png" alt-text="Screenshot of directory without access-bassed enumeration." lightbox="./media/network-attached-storage-permissions/directory-listing-no-access.png":::
 
 In the next example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` doesn't display for the user.
 
-:::image type="content" source="../media/azure-netapp-files/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-access.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="./media/network-attached-storage-permissions/directory-listing-access.png":::
 
 The permissions also extend to individual files. In the below example, access-based enumeration is disabled and `ABE-file` displays to the user. 
 
-:::image type="content" source="../media/azure-netapp-files/file-with-access.png" alt-text="Screenshot of directory with two-files." lightbox="../media/azure-netapp-files/file-with-access.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/file-with-access.png" alt-text="Screenshot of directory with two-files." lightbox="./media/network-attached-storage-permissions/file-with-access.png":::
 
 With access-based enumeration enabled, `ABE-file` doesn't display to the user. 
 
-:::image type="content" source="../media/azure-netapp-files/file-no-access.png" alt-text="Screenshot of directory with one file." lightbox="../media/azure-netapp-files/file-no-access.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/file-no-access.png" alt-text="Screenshot of directory with one file." lightbox="./media/network-attached-storage-permissions/file-no-access.png":::
 
 #### Non-browsable shares
 
@@ -148,27 +141,27 @@ The non-browsable shares feature in Azure NetApp Files limits clients from brows
 
 In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so the volume displays in the listing of the file server (using `\\servername`).
 
-:::image type="content" source="../media/azure-netapp-files/directory-with-smb-volume.png" alt-text="Screenshot of a directory that includes folder SMBVolume." lightbox="../media/azure-netapp-files/directory-with-smb-volume.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/directory-with-smb-volume.png" alt-text="Screenshot of a directory that includes folder SMBVolume." lightbox="./media/network-attached-storage-permissions/directory-with-smb-volume.png":::
 
 With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same view of the file server excludes `SMBVolume`.
 
 In the next image, the share `SMBVolume` has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
-:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-no-smb-volume.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="./media/network-attached-storage-permissions/directory-no-smb-volume.png":::
 
 Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
 
-:::image type="content" source="../media/azure-netapp-files/smb-volume-file-path.png" alt-text="Screenshot of Windows Explorer with file path highlighted." lightbox="../media/azure-netapp-files/smb-volume-file-path.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/smb-volume-file-path.png" alt-text="Screenshot of Windows Explorer with file path highlighted." lightbox="./media/network-attached-storage-permissions/smb-volume-file-path.png":::
 
 #### SMB3 encryption
 
 SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information—such as file names and file handles—is visible.
 
-:::image type="content" source="../media/azure-netapp-files/packet-capture-encryption.png" alt-text="Screenshot of packet capture with SMB encryption disabled." lightbox="../media/azure-netapp-files/packet-capture-encryption.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/packet-capture-encryption.png" alt-text="Screenshot of packet capture with SMB encryption disabled." lightbox="./media/network-attached-storage-permissions/packet-capture-encryption.png":::
 
 When SMB Encryption is enabled, the packets are marked as encrypted, and no sensitive information can be seen. Instead, it’s shown as "Encrypted SMB3 data."
 
-:::image type="content" source="../media/azure-netapp-files/packet-capture-encryption-enabled.png" alt-text="Screenshot of packet capture with SMB encryption enabled." lightbox="../media/azure-netapp-files/packet-capture-encryption-enabled.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/packet-capture-encryption-enabled.png" alt-text="Screenshot of packet capture with SMB encryption enabled." lightbox="./media/network-attached-storage-permissions/packet-capture-encryption-enabled.png":::
 
 #### SMB share ACLs
 

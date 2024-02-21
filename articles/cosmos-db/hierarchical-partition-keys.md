@@ -8,7 +8,7 @@ ms.reviewer: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/05/2023
-ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Hierarchical partition keys in Azure Cosmos DB
@@ -585,6 +585,7 @@ while (queryIterator.hasMoreResults()) {
 - You can specify hierarchical partition keys only up to three layers in depth.
 - Hierarchical partition keys can currently be enabled only on new containers. You must set partition key paths at the time of container creation, and you can't change them later. To use hierarchical partitions on existing containers, create a new container with the hierarchical partition keys set and move the data by using [container copy jobs](container-copy.md).
 - Hierarchical partition keys are currently supported only for the API for NoSQL accounts. The APIs for MongoDB and Cassandra aren't currently supported.
+- Hierarchical partition keys aren't currently supported with the [Permissions feature](secure-access-to-data.md#permissions). You can't assign a permission to a partial prefix of the hierarchical partition key path. Permissions can only be assigned to the entire logical partition key path. For example, if you have partitioned by ``TenantId`` - > ``UserId``, you can't assign a permission that is for a specific value of ``TenantId``. However, you can assign a permission for a partition key if you specify both the value for ``TenantId`` and ``UserId```.
 
 ## Next steps
 
