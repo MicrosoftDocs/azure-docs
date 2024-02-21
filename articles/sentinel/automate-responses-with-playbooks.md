@@ -367,6 +367,12 @@ The following recommended playbooks, and other similar playbooks are available t
     | **Reset a Microsoft Entra user password** | Reset-AADUserPassword | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
     | **Isolate or unisolate device using<br>Microsoft Defender for Endpoint** | [Isolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Isolate-MDEMachine)<br>[Unisolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Unisolate-MDEMachine) | [Microsoft Defender for Endpoint solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderendpoint?tab=Overview) |
 
+    You can also run playbooks to unlock a previously locked user. For example:
+
+    | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content&nbsp;hub/<br>Azure Marketplace |
+    | -------- | ----------------------------------- | ----------------------------------------- |
+    |  **Unlock a SAP user that was locked by an automatic attack disruption** <br>Requires you to integrate with the Microsoft Defender portal and [deploy automated attack disruption for SAP](sap/deployment-attack-disrupt.md#deploy-automatic-attack-disruption-for-sap)| <!--tbd--> | [Microsoft Sentinel solution for SAP® applications](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sentinel4sap.sentinel4sap?tab=Overview) |
+
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
 
     | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content hub/<br>Azure Marketplace |

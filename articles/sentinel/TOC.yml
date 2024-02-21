@@ -165,6 +165,8 @@
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
             href: sap/deployment-solution-configuration.md
+          - name: Deploy automatic attack disruption
+            href: sap/deployment-attack-disrupt.md
           - name: Update the connector
             href: sap/update-sap-data-connector.md      
           - name: Disable the connector
