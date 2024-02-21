@@ -52,14 +52,14 @@ A [data pipeline](../process-data/overview-data-processor.md) is a sequence of s
 The Operations Experience portal lets users create assets and subscribe to OPC UA tags in a user-friendly interface. Users can create custom assets by providing asset details and configurations. Users can create or import tags, subscribe to them, and assign them to an asset. The portal also lets users create data pipelines by defining the sources, destinations, stages, and rules of the pipeline. Users can configure the parameters and logic of each stage using graphical tools or code editors.
 
 ## Manage assets as Azure resources in a centralized registry
-In an industrial edge environment with many assets, it's useful for IT and operations teams to have a single centralized registry for devices and assets. Azure Device Registry is a service that provides this capability, and projects industrial assets as Azure resources.  Teams that use Device Registry together with the Operations Experience portal, gain a consistent deployment and management experience across cloud and edge environments. 
+In an industrial edge environment with many assets, it's useful for IT and operations teams to have a single centralized registry for devices and assets. Azure Device Registry Preview is a service that provides this capability, and projects industrial assets as Azure resources.  Teams that use Device Registry together with the Operations Experience portal, gain a consistent deployment and management experience across cloud and edge environments. 
 
 Device Registry provides several capabilities that help teams to manage assets:
 - **Unified registry**.  The Device Registry serves as the single source of truth for your asset metadata. Having a single registry can streamline and simplify the process of managing assets.  It gives you a way to access and manage this data across Azure, partner, and customer applications running in the cloud or on the edge. 
 - **Assets as Azure resources**. Because Device Registry projects assets as true Azure resources, you can manage assets using established Azure features and services. Enterprises can use [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure’s native deployment and management service, with industrial assets. Azure Resource Manager provides capabilities such as resource groups, tags, role-based access controls ([RBAC](../../role-based-access-control/overview.md)), policy, logging, and audit.
 - **Cloud management of assets**. You use Device Registry within the Operations Experience portal to remotely manage assets in the cloud. All interactions with the asset resource are also available via Azure API and using management tools such as [Azure Resource Graph](../../governance/resource-graph/overview.md). Regardless which method you use to manage assets, changes made in the cloud are synced to the edge and exposed as Custom Resources (CRs) in the Kubernetes cluster.
 
-The following features are supported in Azure Device Registry: 
+The following features are supported in Azure Device Registry Preview: 
 
 |Feature  |Supported  |Symbol  |
 |---------|---------| :---------: |

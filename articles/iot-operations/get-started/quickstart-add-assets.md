@@ -216,7 +216,7 @@ The sample tags you added in the previous quickstart generate messages from your
 
 ## Discover OPC UA data sources by using Azure IoT Akri Preview
 
-In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri Preview to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry.
+In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri Preview to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry Preview.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
