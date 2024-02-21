@@ -109,7 +109,7 @@ Create an Event Hubs resource that is used as the handler destination for the na
 1. On the **Event Hubs** page, select **+ Event hub** on the command bar.
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/event-hubs-page.png" alt-text="Screenshot that shows Event Hubs page with + Event hub selected." lightbox="./media/publish-events-using-namespace-topics-portal/event-hubs-page.png":::
 1. On the **Create Event hub** page, enter a name for the event hub, and then select **Review + create**.
-    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-event-hub.png" alt-text="Screenshot that shows Event Hubs page with + Event hub selected." lightbox="./media/publish-events-using-namespace-topics-portal/create-event-hub.png":::
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-event-hub.png" alt-text="Screenshot that shows the Create Event Hub page." lightbox="./media/publish-events-using-namespace-topics-portal/create-event-hub.png":::
 1. On the **Review + create** page, select **Create**.
 
 
