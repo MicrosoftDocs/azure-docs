@@ -42,7 +42,7 @@ sections:
           Also, the following link on app permissions may be of help [Review permissions granted to applications - Azure AD | Microsoft Docs](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
       - question: What do I do if I don’t see Microsoft.CodeSigning in my resource provider? 
         answer: | 
-          Register the app Microsoft.CodeSigning in the subscription resource provider page. The screenshot below outlines how to do so in the Azure Portal: ![Screenshot of registering Microsoft.CodeSigning resource provider](.media\trusted-signing-resource-provider.png)
+          Register the app Microsoft.CodeSigning in the subscription resource provider page. The screenshot below outlines how to do so in the Azure Portal: ![Screenshot of registering Microsoft.CodeSigning resource provider](.\media\trusted-signing-resource-provider.png)
       - question: What is Trusted Signing’s compliance level?
         answer: |
           FIPS 140-2 level 3 (mHSMs)
