@@ -151,13 +151,19 @@ AZD does not require a container registry step.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-To deploy your services, run `azd up`
+Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` as an all-in-one command.
+
+When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
+
+You can change this later inside the `.azure/<your-env-name>/.env` file.
 
 ---
 
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+
+### [Azure CLI](#tab/azure-cli)
 
 1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
@@ -182,6 +188,17 @@ When the application runs, a Kubernetes service exposes the application front en
 3. View the application in action by opening a web browser to the external IP address of your service.
 
 If the application doesn't load, it might be an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If you can't pull the container images, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
+
+### [Azure Portal](#tab/azure-azd)
+
+You can navigate to your Azure Portal to find your deployment information.
+
+1. Open your [Resource Group](azure-portal-rg)
+2. Navigate to the Kubernetes service for your cluster
+3. Select `Services and Ingress` under `Kubernetes Resources`
+4. Copy the External IP shown in the column for store-front.
+
+<!-- TODO: ADD IMAGE -->
 
 ## Next steps
 

@@ -53,3 +53,5 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 5. Close the new terminal and open the old terminal
 6. Copy and note down which subscription_id you want to use
 7. Paste in the subscription_ID to the command `az account set -n {sub}`
+
+[install-azure-cli]: /cli/azure/install-azure-cli
