@@ -192,7 +192,7 @@ Configure your Azure Virtual Network where the dev boxes are provisioned as foll
 For more information, see configuring [Azure Virtual Networks settings](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 
-## Connecting to resources on-premises (through) hybrid
+## Connecting to on-premises resources
 
 You can allow dev boxes to connect to on-premises resources through a hybrid connection. Work with your Azure network expert to implement a [hub and spoke networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. Hub and spoke topology can help you manage network traffic and security. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources.
 
