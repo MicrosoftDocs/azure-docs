@@ -66,8 +66,9 @@ Use the following steps to create a dev center so you can manage your dev box re
    | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a name for your dev center. |
    | **Location** | Select the location or region where you want the dev center to be created. |
+   | **Attach a quick start catalog** | Clear both checkboxes. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png":::
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
