@@ -83,6 +83,8 @@ pod-annotation-based-scraping: |-
     podannotationnamespaceregex = ".*"
 ```
 
+> [!WARNING]
+> Scraping the pod annotations from many namespaces can generate a very large volume of metrics depending on the number of pods that have annotations.
 
 ### Customize metrics collected by default targets
 By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, update the keep-lists in the settings configmap under `default-targets-metrics-keep-list`, and set `minimalingestionprofile` to `false`.
