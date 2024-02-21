@@ -17,7 +17,7 @@ author: lgayhardt
 
 The following table provides an index of tools in prompt flow. 
 
-| Tool name | Description | Environment | Package name |
+| Tool (set) name | Description | Environment | Package name |
 |------|-----------|-------------|--------------|
 | [LLM](./llm-tool.md) | Use Azure OpenAI large language models (LLM) for tasks such as text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
