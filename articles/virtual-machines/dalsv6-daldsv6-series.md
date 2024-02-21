@@ -11,18 +11,6 @@ ms.date:     01/29/2024
 
 # Dalsv6 and Daldsv6-series (Preview)
 
-**In this article** 
-
-[Dalsv6-series](/azure/virtual-machines/dasv6-dadsv6-series%22%20/l%20%22dasv6-series) 
-
-[Daldsv6-series](/azure/virtual-machines/dasv6-dadsv6-series) 
-
-[Size table definitions](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Other sizes and information](/azure/virtual-machines/dasv5-dadsv5-series) 
-
-[Next steps](/azure/virtual-machines/dasv5-dadsv5-series) 
-
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 
 > [!IMPORTANT]
