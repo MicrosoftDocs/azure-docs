@@ -19,12 +19,12 @@ sections:
     questions:
       - question: What Windows versions does Trusted Signing support? # Question.
         answer: | 
-          The following [link](https://support.microsoft.com/en-us/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) outlines in detail Windows support for Azure Code Signing,
+          The following [link](https://support.microsoft.com/en-us/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) outlines in detail Windows support for Trusted Signing,
           with the service supported on all currently supported versions of:  
           *Windows 11 (Supported out of the box) 
           *Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
           *Windows Server 2019, Windows Server 2016  
-          Files signed by Azure Code Signing’s Public Trust certificates are trusted on:  
+          Files signed by Trusted Signing’s Public Trust certificates are trusted on:  
           *Windows Server 2012 R2 (Command line only) 
           *Windows 8.1 
           *Windows 7 SP1 ESU - Must install May 2021 update rolls up  
@@ -42,8 +42,8 @@ sections:
           Also, the following link on app permissions may be of help [Review permissions granted to applications - Azure AD | Microsoft Docs](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
       - question: What do I do if I don’t see Microsoft.CodeSigning in my resource provider? 
         answer: | 
-          Register the app Microsoft.CodeSigning in the subscription resource provider page. The screenshot below outlines how to do so in the Azure Portal: ![Screenshot of registering Microsoft.CodeSigning resource provider](articles\trusted-signing\media\trusted-signing-resource-provider.png)
-      - question: What is Azure Code Signing’s compliance level?
+          Register the app Microsoft.CodeSigning in the subscription resource provider page. The screenshot below outlines how to do so in the Azure Portal: ![Screenshot of registering Microsoft.CodeSigning resource provider](.media\trusted-signing-resource-provider.png)
+      - question: What is Trusted Signing’s compliance level?
         answer: |
           FIPS 140-2 level 3 (mHSMs)
   - name: Certificate Profiles
@@ -64,13 +64,13 @@ sections:
           FIPS 140-2 level 3 (mHSMs)
       - question: INTEGRITYCHECK How to include the appropriate EKU for our certificates into the ELAM driver resources? 
         answer: |
-          For those folks looking at their ELAM driver config for Protected Anti-Malware Services, please refer to this guidance "Beginning in 2022, all user mode anti-malware service binaries must be signed by Microsoft's Azure Code Sign signing service. The Azure Code Sign issued Authenticode certificate for signing anti-malware binaries is updated every 30 days for security. To prevent the need to update the ELAM driver every time the certificate is updated, we recommend that anti-malware vendors include the Azure Code Sign PCA certificate TBS hash in the CertHash portion of the ELAM driver resource file info. Additionally, the anti-malware vendor must include their unique ACS EKU identity in the EKU field of the resource file info. The EKU identity will begin with the prefix "1.3.6.1.4.1.311.97."."
-          The Microsoft ID Verified Code Signing PCA 2021 cert is [here](http://www.microsoft.com/pkiops/certs/microsoft id verified code signing pca 2021.crt).
-      - question: INTEGRITYCHECK What happens if we run the binaries which are Trusted Signing signed on a machine which does not have the ACS update, especially binaries which are INTEGRITYCHECK-ed?
+          For those folks looking at their ELAM driver config for Protected Anti-Malware Services, please refer to this guidance "Beginning in 2022, all user mode anti-malware service binaries must be signed by Microsoft's Azure Code Sign signing service. The Trusted Signing issued Authenticode certificate for signing anti-malware binaries is updated every 30 days for security. To prevent the need to update the ELAM driver every time the certificate is updated, we recommend that anti-malware vendors include the Azure Code Sign PCA certificate TBS hash in the CertHash portion of the ELAM driver resource file info. Additionally, the anti-malware vendor must include their unique Trusted Signing EKU identity in the EKU field of the resource file info. The EKU identity will begin with the prefix "1.3.6.1.4.1.311.97."."
+          The Microsoft ID Verified Code Signing PCA 2021 cert is [here](https://www.microsoft.com/pkiops/docs/repository.htm).
+      - question: INTEGRITYCHECK What happens if we run the binaries which are Trusted Signing signed on a machine which does not have the Trusted Signing update, especially binaries which are INTEGRITYCHECK-ed?
         answer: |
           They will not be able to have their signature validated at runtime and not run with INTEGRITYCHECK or user will be prompted with a warning if no INTEGRITYCHECK flag is set. 
-          Each B security release is cumulative, so ideally let's say with April 2022's updates, support for ACS signature should be taken care of. However, to get each specific update for each OS version, we will need some more time to get back since we need to reach out to our extended teams. But assuming if you have any updates after October 2021, you should be good.  
-          To check if ACS update is installed or not: We recommend checking against one of your packaged /IntegrityCheck-linked DLLs, dummy one will work too. That way your check can be done independently of the platform and the availability of our IntegrityCheck-linked binaries. 
+          Each B security release is cumulative, so ideally let's say with April 2022's updates, support for Trusted Signing signature should be taken care of. However, to get each specific update for each OS version, we will need some more time to get back since we need to reach out to our extended teams. But assuming if you have any updates after October 2021, you should be good.  
+          To check if Trusted Signing update is installed or not: We recommend checking against one of your packaged /IntegrityCheck-linked DLLs, dummy one will work too. That way your check can be done independently of the platform and the availability of our IntegrityCheck-linked binaries. 
       - question: INTEGRITYCHECK My Sectigo cert is expiring, can I get a new one or do I have to use Trusted Signing?
         answer: |
           The official guidance is we not extending any cross-signed certificates. If you need /INTEGRITYCHECK you must sign with the Trusted Signing service.
@@ -89,10 +89,10 @@ sections:
          *Also, we recommend using the SignTool version here: https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/ as opposed to directly from NuGet. The link above is what we have tested to work with our dlib (version 10.0.22621 recommended currently). 
       - question: What do I do if I get 403 Forbidden or an admin approval to access this resource error? 
         answer: |
-        This is likely due to the ACS application not being allowed to run. First check to make sure that you have the “Codesigning Certificate Profile Signer” role: ({assignee} is your email)  az role assignment list --assignee {assignee}  
+          This is likely due to the Trusted Signing application not being allowed to run. First check to make sure that you have the “Codesigning Certificate Profile Signer” role: ({assignee} is your email)  az role assignment list --assignee {assignee}  
       - question: How do I check that the timestamper service is healthy? 
         answer: |
-          Run the following command curl http://timestamp.acs.microsoft.com. If you get that the StatusCode is 200 it means the timestamper service is healthy and running. 
+          Run the following command curl http://timestamp.Trusted Signing.microsoft.com. If you get that the StatusCode is 200 it means the timestamper service is healthy and running. 
       - question: What if I get a 400 error with SharedTokenCacheCredential authentication failed? 
         answer: |
           This error is due to caching of certificates. Add to your JSON "ExcludeCredentials": ["SharedTokenCacheCredential"]. To learn more go to [DefaultAzureCredential Class (Azure.Identity) - Azure for .NET Developers | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
@@ -102,6 +102,11 @@ sections:
       - question: I get command succeeded for SignTool but the file doesn’t appear to be signed when I check the digital signature? 
         answer: |
           If the signature doesn’t appear in the digitial signature property, run this command: .\signtool.exe verify /v /debug /pa fileName. Not all file types have the signature tab in properties.
+      - question: How do I fix pop-up credentials in the Azure VM when running the SignTool + Dlib command?
+        answer: |
+          *Create User-assigned Managed identity - [Managed identities for Azure resources | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) 
+          *Add this User Assigned Managed Identity to the VM  
+          *In the Resource Group (or Subscription) which has the role CodeSigning Certificate Profile Signer, add this User Assigned Managed Identity to the role.   
 
 ##additionalContent: |
     ## Next steps
