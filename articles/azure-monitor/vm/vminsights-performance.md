@@ -124,7 +124,7 @@ Selecting the pushpin icon in the upper-right corner of a chart pins it to the l
 
 To install and run the Performance Diagnostics tool, select the **Performance Diagnostics** button from the VM Insights Performance screen > **Install performance diagnostics** and [select an analysis scenario](/troubleshoot/azure/virtual-machines/performance-diagnostics#select-an-analysis-scenario-to-run?toc=/azure/azure-monitor/toc.json)
 
-:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-directvm.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen." border="false":::
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-diagnostics.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen." border="false":::
 
 
 ## View performance directly from an Azure virtual machine scale set
