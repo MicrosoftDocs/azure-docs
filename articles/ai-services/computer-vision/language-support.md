@@ -188,7 +188,7 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 
 ## Multimodal embeddings
 
-The latest [Multimodal embeddings](./overview-image-retrieval.md) model supports vector search in many languages. The original model supports English only. Images that are vectorized in the English-only model are not compatible with text searches in the multi-lingual model.
+The latest [Multimodal embeddings](./concept-image-retrieval.md) model supports vector search in many languages. The original model supports English only. Images that are vectorized in the English-only model are not compatible with text searches in the multi-lingual model.
 
 | Language  | Language code | `2023-04-15` model | `2022-04-11` model|
 |-----------------------|---------------| -- |--  |
