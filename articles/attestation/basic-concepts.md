@@ -63,7 +63,7 @@ See [examples of attestation token](attestation-token-examples.md).
 
 ## Encryption of data at rest
 
-To safeguard customer data, Azure Attestation persists its data in Azure Storage. Azure storage provides encryption of data at rest as the data is written into data centers, and decrypts it for customers to access it. This encryption occurs using a Microsoft managed encryption key. 
+To safeguard customer data, Azure Attestation persists its data in Azure Storage. Azure storage provides encryption of data at rest as the data is written into data centers, and decrypts it for customers to access it. This encryption occurs using a Microsoft managed encryption key.
 
 In addition to protecting data in Azure storage,  Azure Attestation also leverages Azure Disk Encryption (ADE) to encrypt service VMs. For Azure Attestation running in an enclave in Azure confidential computing environments, ADE extension is currently not supported. In such scenarios, to prevent data from being stored in-memory, page file is disabled. 
 
