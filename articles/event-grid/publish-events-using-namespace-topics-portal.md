@@ -111,12 +111,12 @@ You receive events from Event Grid using an endpoint that refers to an event sub
 
 1. Declare a variable to hold the receiving operation URI. Replace `NAMESPACENAME` with the name of your Event Grid namespace, `TOPICNAME` with the name of the topic, and replace `EVENTSUBSCRIPTIONNAME` with the name of the event subscription.
 
-    ```azurecli-interactive
+    ```bash
     receive_operation_uri=https://NAMESPACENAME.eastus-1.eventgrid.azure.net/topics/TOPICNAME/eventsubscriptions/EVENTSUBSCRIPTIONNAME:receive?api-version=2023-06-01-preview
     ```
 2. Run the following Curl command to consume the event:
 
-    ```azurecli-interactive
+    ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" $receive_operation_uri
     ```
 3. Note down the `lockToken` in the `brokerProperties` object of the result.
@@ -127,22 +127,22 @@ After you receive an event, you pass that event to your application for processi
 
 1. Declare a variable to hold the lock token you noted in the previous step. Replace `LOCKTOKEN` with the lock token. 
 
-    ```azurecli-interactive
+    ```bash
     lockToken="LOCKTOKEN"
     ```
 2. Now, build the acknowledge operation payload, which specifies the lock token for the event you want to be acknowledged.
 
-    ```azurecli-interactive
+    ```bash
     acknowledge_request_payload=' { "lockTokens": ["'$lockToken'"]} '
     ```
 3. Proceed with building the string with the acknowledge operation URI:
 
-    ```azurecli-interactive
+    ```bash
     acknowledge_operation_uri=https://NAMESPACENAME.eastus-1.eventgrid.azure.net/topics/TOPICNAME/eventsubscriptions/EVENTSUBSCRIPTIONNAME:acknowledge?api-version=2023-06-01-preview
     ```
 4. Finally, submit a request to acknowledge the event received:
 
-    ```azurecli-interactive
+    ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$acknowledge_request_payload" $acknowledge_operation_uri
     ```
     
