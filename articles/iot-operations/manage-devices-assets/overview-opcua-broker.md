@@ -70,7 +70,7 @@ OPC UA Broker enables the following use cases that are common in industrial edge
 - **Simulate OPC UA data sources for testing**. You can use OPC UA Broker with any OPC simulation server and speed up the process of development applications that require OPC UA data.  
 
 ## Next step
-In this article, you learned what Azure IoT OPC UA Broker is and how it enables you to add OPC UA servers and assets to your Kubernetes cluster.  As a next step, learn how to use the Azure IoT Operations Experience portal with OPC UA Broker, to manage asset configurations remotely. 
+In this article, you learned what Azure IoT OPC UA Broker is and how it enables you to add OPC UA servers and assets to your Kubernetes cluster.  As a next step, learn how to use the Azure IoT Operations Experience Preview portal with OPC UA Broker, to manage asset configurations remotely. 
 
 > [!div class="nextstepaction"]
 > [Manage asset configurations remotely](howto-manage-assets-remotely.md)
