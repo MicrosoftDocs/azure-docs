@@ -5,6 +5,7 @@ services: key-vault
 author: mbaldwin
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 01/30/2024
 ms.author: mbaldwin

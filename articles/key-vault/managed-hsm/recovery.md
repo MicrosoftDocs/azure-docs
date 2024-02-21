@@ -5,9 +5,9 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.author: mbaldwin
+ms.author: msmbaldwin
 author: mbaldwin
-ms.date: 11/14/2022
+ms.date: 02/20/2024
 ---
 
 # Managed HSM soft-delete and purge protection
