@@ -60,7 +60,7 @@ If you receive the following errors, select a different availability zone.
 
 ## SKU Not Available 
 
-If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU isn't supported in the region or temporarily unavailable due to  capacity constraints.
+If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU isn't supported in the region or temporarily unavailable.
 
 `Specified SKU is not supported in this region. Please choose a different SKU.`
 
