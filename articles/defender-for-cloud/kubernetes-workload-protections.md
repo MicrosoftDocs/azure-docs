@@ -288,4 +288,4 @@ In this article, you learned how to configure Kubernetes data plane hardening.
 For related material, see the following pages:
 
 - [Defender for Cloud recommendations for compute](recommendations-reference.md#compute-recommendations)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-for-containers-kubernetes-clusters)

@@ -311,7 +311,7 @@ The following alert is being released for preview:
 |----|----|----|----|
 | **Malicious blob was downloaded from a storage account (Preview)**<br>Storage.Blob_MalwareDownload | The alert indicates that a malicious blob was downloaded from a storage account. Potential causes may include malware that was uploaded to the storage account and not removed or quarantined, thereby enabling a threat actor to download it, or an unintentional download of the malware by legitimate users or applications. <br>Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen2 or premium block blobs) storage accounts with the new Defender for Storage plan with the Malware Scanning feature enabled. | Lateral Movement | High, if Eicar - low |
 
-See the [extension-based alerts in Defender for Storage](alerts-reference.md#alerts-azurestorage).
+See the [extension-based alerts in Defender for Storage](alerts-reference.md#alerts-for-azure-storage).
 
 For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
