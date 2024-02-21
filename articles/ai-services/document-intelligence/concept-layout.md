@@ -55,7 +55,7 @@ Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, ap
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -64,7 +64,7 @@ Document Intelligence v3.1 supports the following tools, applications, and libra
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-layout**|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
@@ -73,7 +73,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-layout**|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -129,7 +129,7 @@ See how data, including text, tables, table headers, selection marks, and struct
     :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
-   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout).
+   > [Try Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/layout).
 
 ::: moniker-end
 
@@ -183,15 +183,22 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
+> [!NOTE]
+> Microsoft Word and HTML file are supported since `2023-10-31-preview`. Compared with PDF and images, below features are not supported:
+> - There are no angle, width/height and unit with each page object.
+> - For each object detected, there is no bounding polygon or bounding region.
+> - Page range (`pages`) is not supported as a parameter.
+> - No `lines` object.
+
 ### Pages
 
-The pages collection is the first object you see in the service response. The page units in the model output are computed as shown:
+The pages collection is a list of pages within the document. For each page, it is represented with the sequential number of the page within the document, the orientation angle, which could indicate if the page has been rotated, the width and height (dimentions in pixels) of the page. The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
 |Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
-|TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the TIFF |
 |Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 |Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
@@ -207,8 +214,7 @@ The pages collection is the first object you see in the service response. The pa
         "unit": "pixel",
         "words": [],
         "lines": [],
-        "spans": [],
-        "kind": "document"
+        "spans": []
     }
 ]
 ```
@@ -216,9 +222,6 @@ The pages collection is the first object you see in the service response. The pa
 ### Extract selected pages from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
-
-> [!NOTE]
-> For the Microsoft Word and HTML file support, the API ignores the pages parameter and extracts all pages by default.
 
 ### Paragraphs
 
@@ -272,7 +275,7 @@ The new machine-learning based page object detection extracts logical roles like
 
 The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Layout model extracts all embedded text as is. For embedded images, it uses OCR technology to extract text from each image and the extraction as an added entry to the `pages` collection. Added entries include the extracted text, lines, and words, their bounding polygons, confidences, and the spans pointing to the associated text.
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Layout model extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images are not supported.
 
 ```json
 "words": [
@@ -291,6 +294,25 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2
     }
 ]
 ```
+
+### Handwritten style for text lines
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. See [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
+
+```json
+"styles": [
+{
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
+}
+```
+If you have turned on [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you will also get the font/style result as part of the `styles` object.
 
 ### Selection marks
 
@@ -340,24 +362,6 @@ Extracting tables is a key requirement for processing documents containing large
     ]
 }
 
-```
-
-### Handwritten style for text lines
-
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *See*, [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
-
-```json
-"styles": [
-{
-    "confidence": 0.95,
-    "spans": [
-    {
-        "offset": 509,
-        "length": 24
-    }
-    "isHandwritten": true
-    ]
-}
 ```
 
 ::: moniker-end
@@ -469,7 +473,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
+* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
