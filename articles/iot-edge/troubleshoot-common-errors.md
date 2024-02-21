@@ -177,15 +177,15 @@ The IoT Edge agent module doesn't have permissions to access a module's image.
 
 Make sure that your container registry credentials are correct your device deployment manifest.
 
-### IoT Edge agent making excessive identity calls
+### IoT Edge agent makes excessive identity calls
 
 #### Symptoms
 
-IoT Edge agent to make excessive identity calls to Azure IoT Hub.
+IoT Edge agent makes excessive identity calls to Azure IoT Hub.
 
 #### Cause
 
-Misconfiguration of the device deployment manifest causes an unsuccessful deployment. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls.
+Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful.
 
 #### Solution
 
