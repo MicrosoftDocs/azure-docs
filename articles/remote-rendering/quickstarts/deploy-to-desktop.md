@@ -30,11 +30,11 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
-# [Standalone](#tab/Unity2020PlusSettingsStandalone)
+# [Standalone](#tab/UnityStandalone)
 
 1. In the standalone build VR support is automatically disabled. No steps are needed here.
 
-# [UWP](#tab/Unity2020PlusSettings)
+# [UWP](#tab/UnityUWP)
 
 1. Open *Edit > Project Settings...*
 1. Select **XR Plugin Management** in the menu to the left.
@@ -44,7 +44,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the sample project
 
-# [Unity 2021 and later - Standalone](#tab/Unity2021PlusBuild)
+# [Standalone](#tab/UnityStandalone)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **PC, Mac & Linux Standalone**
@@ -53,22 +53,11 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
-# [Unity 2021 and later - UWP](#tab/Unity2021PlusBuild)
+# [UWP](#tab/UnityUWP)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
   ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2021 and later.](./media/unity-2021-build-settings-pc.png)
-1. Select **Switch to Platform**.
-1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
-
-# [Unity 2020](#tab/Unity2020Build)
-
-1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**
-1. Set *Target Device* to **PC**.
-1. Set *Architecture* to **x86**.
-1. Set *Build Type* to **D3D Project**.\
-  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Target Device' being 'PC', 'Architecture' being 'x86' and 'Build Type' being 'D3D Project' in Unity 2020.](./media/unity-2020-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
