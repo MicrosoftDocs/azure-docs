@@ -192,5 +192,15 @@ You can create a single multi-resource alert rule that applies to all VMs in a p
 ## Related content
 <!-- You can change the wording and add more links if useful. -->
 
-- See [Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md) for a reference of the metrics, logs, and other important values created for Virtual Machines.
+- See [Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md) for a reference of the metrics, logs, and other important values for Virtual Machines.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- Read about [Best practices for monitoring virtual machines in Azure Monitor](/azure/azure-monitor/best-practices-vm).
+- Get started with VM insights with an [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview).
+
+For a complete guide to monitoring Azure and hybrid VMs, see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
+- [Monitor virtual machines with Azure Monitor](/azure/azure-monitor/vm/monitor-virtual-machine)
+- [Monitor virtual machines with Azure Monitor: Deploy agent](/azure/azure-monitor/vm/monitor-virtual-machine-agent)
+- [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection)
+- [Monitor virtual machines with Azure Monitor: Analyze monitoring data](/azure/azure-monitor/vm/monitor-virtual-machine-analyze)
+- [Monitor virtual machines with Azure Monitor: Alerts](/azure/azure-monitor/vm/monitor-virtual-machine-alerts)
+
