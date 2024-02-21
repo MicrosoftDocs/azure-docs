@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes show to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are sent up to 50 times a second, using UDP over port 161.
 
-Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a pre-defined SNMP MIB file downloaded from the Azure portal.
+Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a predefined SNMP MIB file downloaded from the Azure portal.
 
 SNMP queries are sent up to 50 times a second, using UDP over port 161.
 
@@ -34,7 +34,7 @@ Before you perform the procedures in this article, make sure that you have the f
 
 - **An OT sensor** [installed](ot-deploy/install-software-ot-sensor.md) and [activated](ot-deploy/activate-deploy-sensor.md), with access as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-To download a pre-defined SNMP MIB file from the Azure portal, you'll need access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
+To download a predefined SNMP MIB file from the Azure portal, you need access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
 ## Configure SNMP monitoring settings on your OT sensor
 
@@ -59,7 +59,7 @@ To download a pre-defined SNMP MIB file from the Azure portal, you'll need acces
 
 ## Download Defender for IoT's SNMP MIB file
 
-Defender for IoT in the Azure portal provides a downloadable MIB file for you to load into your SNMP monitoring system to pre-define Defender for IoT sensors.
+Defender for IoT in the Azure portal provides a downloadable MIB file for you to load into your SNMP monitoring system to predefine Defender for IoT sensors.
 
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
@@ -89,7 +89,7 @@ If you're configuring *Solorwinds* or *Sanofi* to discover and monitor the OT se
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 | **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | This returns “Microsoft Defender for IoT”  |
-| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example will always return - 1.3.6.1.4.1.53313.1  ?? not sure about this??returns the network management subsystem ID contained in this entity and is allocated within the SMI enterprise subtree  |
+| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example returns - 1.3.6.1.4.1.53313.1  ?? not sure about this??returns the network management subsystem ID contained in this entity and is allocated within the SMI enterprise subtree  |
 | **sysUpTime** | 1.3.6.1.2.1.1.3  | DISPLAYSTRING  | This returns the sensor uptime in hundredths of a second |
 | **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | This returns the textual name of the admin user for this sensor   |
 | **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | This returns the appliance name  |
@@ -107,7 +107,7 @@ Rearranged in numerical order - is this the correct order??
 |--|--|--|--|
 | **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | This returns “Microsoft Defender for IoT”  |
 | **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
-| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example will always return - 1.3.6.1.4.1.53313.1  ?? not sure about this??returns the network management subsystem ID contained in this entity and is allocated within the SMI enterprise subtree  |
+| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example returns - 1.3.6.1.4.1.53313.1  ?? not sure about this??returns the network management subsystem ID contained in this entity and is allocated within the SMI enterprise subtree  |
 | **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | This returns the sensor uptime in hundredths of a second |
 | **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | This returns the textual name of the admin user for this sensor   |
 | **Vendor** |      1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
