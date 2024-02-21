@@ -47,8 +47,8 @@ At a minimum your service should have the following two articles:
 VM insights monitors your Azure and hybrid virtual machines in a single interface. VM insights provides the following benefits beyond other features for monitoring VMs in Azure Monitor:
 
 - Simplified onboarding of the Azure Monitor agent and the Dependency agent, so that you can monitor a virtual machine guest operating system and workloads.
-- Pre-defined data collection rules that collect the most common set of performance data.
-- Pre-defined trending performance charts and workbooks, so that you can analyze core performance metrics from the virtual machine's guest operating system.
+- Predefined data collection rules that collect the most common set of performance data.
+- Predefined trending performance charts and workbooks, so that you can analyze core performance metrics from the virtual machine's guest operating system.
 - The Dependency map, which displays processes that run on each virtual machine and the interconnected components with other machines and external sources.
 
 :::image type="content" source="media/monitor-vm/vminsights-01.png" lightbox="media/monitor-vm/vminsights-01.png" alt-text="Screenshot of the VM insights 'Logical Disk Performance' view.":::
@@ -154,7 +154,7 @@ Add short information or links to specific articles that outline how to analyze 
 <!-- ## Alerts. Required section. -->
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-You can create a single multi-resource alert rule that applies to all VMs in a particular resource group or subscription within the same region. See [Create availability alert rule for Azure virtual machine (preview)](/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability.md) for a tutorial using the availability metric.
+You can create a single multi-resource alert rule that applies to all VMs in a particular resource group or subscription within the same region. See [Create availability alert rule for Azure virtual machine (preview)](/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability) for a tutorial using the availability metric.
 
 <!-- ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. -->
 [!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
@@ -168,11 +168,11 @@ For more information, see [Tutorial: Enable recommended alert rules for Azure vi
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
-### Virtual Machines alert rules
+### Common alert rules
 
 To see common log alert rules in the Azure portal, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
 
-For a list and description of common alert rules for Virtual Machines, see [Common alert rules](/azure/azure-monitor/vm/monitor-virtual-machine-alerts#common-alert-rules).
+For a list and discussion of common alert rules for Virtual Machines, see [Common alert rules](/azure/azure-monitor/vm/monitor-virtual-machine-alerts#common-alert-rules).
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
@@ -186,12 +186,6 @@ For a list and description of common alert rules for Virtual Machines, see [Comm
 - See [Virtual Machines monitoring data reference](monitor-vm-reference.md) for a reference of the metrics, logs, and other important values for Virtual Machines.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
 - Read about [Best practices for monitoring virtual machines in Azure Monitor](/azure/azure-monitor/best-practices-vm).
-- Get started with VM insights with an [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview).
-
-For a complete guide to monitoring Azure and hybrid VMs, see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).
-- [Monitor virtual machines with Azure Monitor](/azure/azure-monitor/vm/monitor-virtual-machine)
-- [Monitor virtual machines with Azure Monitor: Deploy agent](/azure/azure-monitor/vm/monitor-virtual-machine-agent)
-- [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection)
-- [Monitor virtual machines with Azure Monitor: Analyze monitoring data](/azure/azure-monitor/vm/monitor-virtual-machine-analyze)
-- [Monitor virtual machines with Azure Monitor: Alerts](/azure/azure-monitor/vm/monitor-virtual-machine-alerts)
-
+- See [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview) to get started with VM insights.
+- Learn how to collect and analyze VM host and client metrics and logs with the training course [Monitor your Azure virtual machines with Azure Monitor](/training/modules/monitor-azure-vm-using-diagnostic-data).
+- For a complete guide to monitoring Azure and hybrid VMs, see the [Monitor virtual machines deployment guide](/azure/azure-monitor/vm/monitor-virtual-machine).

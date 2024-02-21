@@ -111,14 +111,14 @@ The VM availability metric is currently in public preview. This metric value ind
 |[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)|[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|
 |[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|
 |[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|
-|[ADAssessmentRecommendation#columns)|[ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|
+|[ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ADAssessmentRecommendation)|[ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|
 |[ADReplicationResult](/azure/azure-monitor/reference/tables/ADReplicationResult#columns)|[Event](/azure/azure-monitor/reference/tables/Event#columns)|
 |[ComputerGroup](/azure/azure-monitor/reference/tables/ComputerGroup#columns)|[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|
 |[ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|[Perf](/azure/azure-monitor/reference/tables/Perf#columns)|
 |[DnsEvents](/azure/azure-monitor/reference/tables/DnsEvents#columns)|[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)|
 |[DnsInventory](/azure/azure-monitor/reference/tables/DnsInventory#columns)|[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)|
 |[SecurityBaselineSummary](/azure/azure-monitor/reference/tables/SecurityBaselineSummary#columns)|[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)|
-|[SQLAssessmentRecommendation#columns)|[SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|
+|[SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/SQLAssessmentRecommendation)|[Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|
 |[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|[Update](/azure/azure-monitor/reference/tables/Update#columns)|
 |[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)|
 |[Event](/azure/azure-monitor/reference/tables/Event#columns)|[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)|
