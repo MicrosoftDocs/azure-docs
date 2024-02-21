@@ -33,9 +33,7 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**
-1. Set *Target Device* to **HoloLens**
-1. Set *Architecture* to **ARM64**
-1. Set *Build Type* to **D3D Project**\
+1. Set *Target Device* to **HoloLens**\
     ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Target Device' being 'HoloLens', 'Architecture' being 'ARM64' and 'Build Type' being 'D3D Project' in Unity 2020.](./media/unity-2020-build-settings-hl.png)
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
@@ -43,9 +41,7 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 # [Unity 2021+](#tab/Unity2021PlusBuild)
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**
-1. Set *Architecture* to **ARM 64-bit**
-1. Set *Build Type* to **D3D Project**\
+1. Change *Platform* to **Universal Windows Platform**\
     ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Architecture' being 'ARM 64-bit' and 'Build Type' being 'D3D Project' in Unity 2021 and later.](./media/unity-2021-build-settings-hl.png)
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
