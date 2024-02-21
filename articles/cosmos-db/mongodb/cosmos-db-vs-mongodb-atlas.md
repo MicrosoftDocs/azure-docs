@@ -32,7 +32,6 @@ ms.date: 06/03/2023
 | True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
 | Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | Yes |
 | Vector Search in Free Tier | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
-| Native Vector Seach with one solution | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No, depends on Atlas search integration. |
 | Integrated text search, geospatial processing | Yes | Yes |
 | Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. Azure Cosmos DB for MognoDB vCore offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
