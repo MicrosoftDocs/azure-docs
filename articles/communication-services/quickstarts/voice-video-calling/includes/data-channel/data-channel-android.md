@@ -25,19 +25,7 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | DataChannelCallFeature | Used to start and manage data channel feature. | 
 | DataChannelSender | Used to manage a data channel as a sender and send data. | 
 | DataChannelReceiver | Used to manage a data channel as a receiver and receive data. |
-| DataChannelSenderCreateOptions | Used for representing options to create a data channel sender. |
-### Events
-| Name | Description |  
-| - | - |
-| DataChannelReceiverCreatedEvent | Describes the event when a receiver is created. A new receiver is created when receiving a data message from another endpoint through a new data channel for the first time. |
-| DataChannelReceiverMessageReceivedEvent | Describes the event when a data message is received and ready to be fetched. |
-| DataChannelReceiverClosedEvent | Describes the event when a data channel receiver is to be closed. |
-### Listeners
-| Name | Description |  
-| - | - |
-| DataChannelReceiverCreatedListener | Used to handle `DataChannelReceiverCreatedEvent`. |
-| DataChannelReceiverMessageReceivedListener | Used to handle `DataChannelReceiverMessageReceivedEvent`. |
-| DataChannelReceiverClosedListener | Used to handle `DataChannelReceiverClosedEvent`. |
+| DataChannelSenderOptions | Used for representing options to create a data channel sender. |
 ### Enums
 | Name | Description |  
 | - | - | 
@@ -56,7 +44,7 @@ DataChannelCallFeature dataChannelCallFeature = call.feature(Features.DATA_CHANN
 ```java
 DataChannelReceiverCreatedListener receiverCreatedListener = new DataChannelReceiverCreatedListener() {
     @Override
-    public void onDataChannelReceiverCreated(DataChannelReceiverCreatedEvent e) {
+    public void onReceiverCreated(DataChannelReceiverCreatedEvent e) {
         DataChannelReceiver receiver = e.getReceiver(); // get the new data channel receiver
         int channelId = receiver.getChannelId(); // get the channel id
         CommunicationIdentifier senderId = receiver.getSenderIdentifier(); // get the message sender id
@@ -68,26 +56,25 @@ DataChannelReceiverCreatedListener receiverCreatedListener = new DataChannelRece
 ```
 2. Register the `receiverCreatedListener`.
 ```java
-dataChannelCallFeature.addOnDataChannelReceiverCreatedListener(receiverCreatedListener);
+dataChannelCallFeature.addOnReceiverCreatedListener(receiverCreatedListener);
  ```
-3. Define the DataChannelReceiverMessageReceivedListener.
+3. Define the MessageReceivedListener.
 ```java
-DataChannelReceiverMessageReceivedListener messageReceivedListener = new DataChannelReceiverMessageReceivedListener() {
+MessageReceivedListener messageReceivedListener = new MessageReceivedListener() {
     @Override
-    public void onMessageReceived(DataChannelReceiverMessageReceivedEvent e) {
-        DataChannelMessage message = e.getReceiver().readMessage(); // read the data message from the receiver
+    public void onMessageReceived(PropertyChangedEvent e) {
+        DataChannelMessage message = e.getReceiver().popMessage(); // read the data message from the receiver
         int sequence = message.getSequenceNumber(); // get the message sequence number
         byte[] data = message.getData(); // get the data content
     }
 };
 ```
-4. Define the DataChannelReceiverClosedListener.
+4. Define the ReceiverClosedListener.
 ```java
-DataChannelReceiverClosedListener receiverClosedListener = new DataChannelReceiverClosedListener() {
+ReceiverClosedListener receiverClosedListener = new ReceiverClosedListener() {
     @Override
-    public void onReceiverClosed(DataChannelReceiverClosedEvent e) {
+    public void onReceiverClosed(PropertyChangedEvent e) {
         DataChannelReceiver receiver = e.getReceiver(); // get the data channel receiver to be closed
-        // clean up resources related to the receiver
     }
 };
 ```
@@ -97,9 +84,9 @@ receiver.addOnMessageReceivedListener(messageReceivedlistener);
 receiver.addOnClosedListener(receiverClosedListener);
 ```
 #### Sending data message
-1. Configure the DataChannelSenderCreateOptions.
+1. Configure the DataChannelSenderOptions.
 ```java
-DataChannelSenderCreateOptions options = new DataChannelSenderCreateOptions();
+DataChannelSenderOptions options = new DataChannelSenderOptions();
 options.setChannelId(1000);
 options.setBitrateInKbps(32);
 options.setPriority(DataChannelPriority.NORMAL);
@@ -108,9 +95,13 @@ options.setReliability(DataChannelReliability.LOSSY);
 List<CommunicationIdentifier> participants = Arrays.asList( /* identifier1, identifier2, ... */ );
 options.setParticipants(participants);
 ```
-2. Define the DataChannelSender and send data message
+2. Get the DataChannelSender and send data message
 ```java
-DataChannelSender dataChannelSender = dataChannelCallFeature.createDataChannelSender(options);
-dataChannelSender.setParticipants(new ArrayList<CommunicationIdentifier>()); // change participants in the channel if needed
-dataChannelSender.sendMessage(msgData); // msgData contains the byte[] data to be sent
+DataChannelSender dataChannelSender = dataChannelCallFeature.getDataChannelSender(options);
+
+// msgData contains the byte[] data to be sent
+dataChannelSender.sendMessage(msgData);
+
+// change participants in the channel if needed
+dataChannelSender.setParticipants(new ArrayList<CommunicationIdentifier>()); 
 ```

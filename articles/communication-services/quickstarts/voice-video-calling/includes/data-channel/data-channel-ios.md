@@ -25,13 +25,7 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 | DataChannelCallFeature | Used to start and manage data channel feature. | 
 | DataChannelSender | Used to manage a data channel as a sender and send data. | 
 | DataChannelReceiver | Used to manage a data channel as a receiver and receive data. |
-| DataChannelSenderCreateOptions | Used for representing options to create a data channel sender. |
-### Delegates
-| Name | Description |  
-| - | - |
-| didCreateDataChannelReceiver | Handles the event when a receiver is created. A new receiver is created when receiving a data message from another endpoint through a new data channel for the first time. |
-| didReceiveMessage | Handles the event when a data message is received and ready to be fetched. |
-| didClose | Handles the event when a data channel receiver is to be closed. |
+| DataChannelSenderOptions | Used for representing options to create a data channel sender. |
 ### Enums
 | Name | Description |  
 | - | - | 
@@ -47,41 +41,36 @@ var dataChannelCallFeature = self.call!.feature(Features.dataChannel)
 ```
 #### Receiving data message
 ```swift
-@State var callObserver:CallObserver?
-self.callObserver = CallObserver(view:self)
+let featureDelegate = new FeatureDelegate()
+let receiverDelegate = new ReceiverDelegate()
+dataChannelCallFeature!.delegate = featureDelegate
 
-extension CallObserver: DataChannelCallFeatureDelegate {
-    init(view:<nameOfView>) {
-        owner = view
-        super.init()
-    }
-    public func dataChannelCallFeature(_ dataChannelCallFeature: DataChannelCallFeature, didCreateDataChannelReceiver args: DataChannelReceiverCreatedEventArgs) {
-        let dataChannelReceiver = e.receiver // get the new data channel receiver
-        let channelId = dataChannelReceiver.channelId // get the channel id
-        let senderId = dataChannelReceiver.senderIdentifier // get the message sender id
-        dataChannelReceiver!.delegate = self;
+class FeatureDelegate: NSObject, DataChannelCallFeatureDelegate {
+    func onReceiverCreated(_ dataChannelCallFeature: DataChannelCallFeature, didCreateReceiver args: DataChannelReceiverCreatedEventArgs) {
+        let receiver = args.receiver // get the new data channel receiver
+        let channelId = receiver.channelId // get the channel id
+        let senderId = receiver.senderIdentifier // get the message sender id
+
+        receiver.delegate = receiverDelegate
     }
 }
 
-extension CallObserver: DataChannelReceiverDelegate {
-    public func dataChannelReceiver(_ dataChannelReceiver: DataChannelReceiver, didReceiveMessage args: DataChannelReceiverMessageReceivedEventArgs) {
-        let message = args.receiver.readMessage() // read the data message from the receiver
-        let sequence = message.sequenceNumber // get the message sequence number
-        let data = message.data // get the data content
+class ReceiverDelegate: NSObject, DataChannelReceiverDelegate {
+    func onMessageReceived(_ dataChannelReceiver: DataChannelReceiver, didReceiveMessage args: PropertyChangedEventArgs) {
+        let message = dataChannelReceiver.popMessage() // read the data message from the receiver
+        let sequence = message?.sequenceNumber // get the message sequence number
+        let data = message?.data // get the data content
     }
     
-    public func dataChannelReceiver(_ dataChannelReceiver: DataChannelReceiver, didClose args: DataChannelReceiverClosedEventArgs) {
-       let receiver = args.receiver // get the data channel receiver to be closed
-        // clean up resources related to the receiver
+    func onClosed(_ dataChannelReceiver: DataChannelReceiver, didClose args: PropertyChangedEventArgs) {
+       let channelId = dataChannelReceiver.channelId // get the data channel id to be closed
     }
 }
-
-dataChannelCallFeature!.delegate = self.callObserver
 ```
 #### Sending data message
-1. Configure the DataChannelSenderCreateOptions.
+1. Configure the DataChannelSenderOptions.
 ```swift
-let options = new DataChannelSenderCreateOptions()
+let options = new DataChannelSenderOptions()
 options.channelId = 1000
 options.bitrateInKbps = 32
 options.priority = DataChannelPriority.normal
@@ -92,8 +81,12 @@ options.participants = communicationIdentifiers
 ```
 2. Define the DataChannelSender and send data message
 ```swift
-DataChannelSender dataChannelSender = dataChannelCallFeature.createDataChannelSender(options)
+DataChannelSender sender = dataChannelCallFeature.getDataChannelSender(options)
+
+// msgData contains the data to be sent
+sender.sendMessage(msgData)
+
+// change participants in the channel if needed
 let participants: [CommunicationIdentifier] = []
-dataChannelSender.setParticipants(participants: participants) // change participants in the channel if needed
-dataChannelSender.sendMessage(msgData) // msgData contains the data to be sent
+dataChannelSender.setParticipants(participants: participants)
 ```
