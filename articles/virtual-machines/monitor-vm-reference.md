@@ -24,12 +24,12 @@ At a minimum your service should have the following two articles:
 1. The primary monitoring article (based on the template monitor-service-template.md)
    - Title: "Monitor Virtual Machines"
    - TOC title: "Monitor"
-   - Filename: "monitor-virtual-machines.md"
+   - Filename: "monitor-vm.md"
 
 2. A reference article that lists all the metrics and logs for your service (based on this template).
    - Title: "Virtual Machines monitoring data reference"
    - TOC title: "Monitoring data reference"
-   - Filename: "monitor-virtual-machines-reference.md".
+   - Filename: "monitor-vm-reference.md".
 -->
 
 # Azure Virtual Machines monitoring data reference
@@ -37,14 +37,14 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure Virtual Machines](monitor-virtual-machines.md) for details on the data you can collect for Azure Virtual Machines and Virtual Machine Scale Sets and how to use it.
+See [Monitor Azure Virtual Machines](monitor-vm.md) for details on the data you can collect for Azure Virtual Machines and Virtual Machine Scale Sets and how to use it.
 
 <!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 <!-- Repeat the following section for each resource type/namespace in your service. -->
 
 >[!IMPORTANT]
->Metrics for the guest operating system (guest OS) that runs in Azure Virtual Machines aren't listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
+>Metrics for the guest operating system (guest OS) that runs in a virtual machine (VM) aren't listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
 >
 >Host OS metrics are available and listed in the tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
 
@@ -76,8 +76,8 @@ The VM availability metric is currently in public preview. This metric value ind
 | Value | Description |
 |:---|:---|
 | 1 | VM is running and available. | 
-| 0 | VM is unavailable. The VM could be stopped or rebooting. If you shutdown a VM from within the VM, it will emit this value. |
-| Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it will immediately stop emitting the availability metric, and you will see null values. |
+| 0 | VM is unavailable. The VM could be stopped or rebooting. If you shut down a VM from within the VM, it emits this value. |
+| Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it immediately stops emitting the availability metric, and you see null values. |
 
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
@@ -106,39 +106,39 @@ Virtual Machines and Virtual Machine Scale Sets have the following dimensions th
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Virtual Machines
 |Microsoft.Compute/VirtualMachines|Microsoft.Compute/virtualMachineScaleSets|
---------------|------------------------|
-[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
-[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)|[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
-[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)
-[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)
-[ADAssessmentRecommendation#columns)|[ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)
-[ADReplicationResult](/azure/azure-monitor/reference/tables/ADReplicationResult#columns)|[Event](/azure/azure-monitor/reference/tables/Event#columns)
-[ComputerGroup](/azure/azure-monitor/reference/tables/ComputerGroup#columns)|[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)
-[ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|[Perf](/azure/azure-monitor/reference/tables/Perf#columns)
-[DnsEvents](/azure/azure-monitor/reference/tables/DnsEvents#columns)|[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)
-[DnsInventory](/azure/azure-monitor/reference/tables/DnsInventory#columns)|[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)
-[SecurityBaselineSummary](/azure/azure-monitor/reference/tables/SecurityBaselineSummary#columns)|[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)
-[SQLAssessmentRecommendation#columns)|[SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)
-[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|[Update](/azure/azure-monitor/reference/tables/Update#columns)
-[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)
-[Event](/azure/azure-monitor/reference/tables/Event#columns)|[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)
-[Perf](/azure/azure-monitor/reference/tables/Perf#columns)|[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)
-[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)|[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)
-[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)|[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)
-[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)|[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)
-[Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)
-[Update](/azure/azure-monitor/reference/tables/Update#columns)|[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)
-[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)|[WireData](/azure/azure-monitor/reference/tables/WireData#columns)
-[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)|[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)
-[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)|[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)
-[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)||
-[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)||
-[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)||
-[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)||
-[WireData](/azure/azure-monitor/reference/tables/WireData#columns)||
-[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)||
-[HealthStateChangeEvent](/azure/azure-monitor/reference/tables/HealthStateChangeEvent#columns)||
-[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)||
+|--------------|------------------------|
+|[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|
+|[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)|[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|
+|[AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)|[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|
+|[AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)|[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|
+|[ADAssessmentRecommendation#columns)|[ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|
+|[ADReplicationResult](/azure/azure-monitor/reference/tables/ADReplicationResult#columns)|[Event](/azure/azure-monitor/reference/tables/Event#columns)|
+|[ComputerGroup](/azure/azure-monitor/reference/tables/ComputerGroup#columns)|[Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat#columns)|
+|[ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog#columns)|[Perf](/azure/azure-monitor/reference/tables/Perf#columns)|
+|[DnsEvents](/azure/azure-monitor/reference/tables/DnsEvents#columns)|[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)|
+|[DnsInventory](/azure/azure-monitor/reference/tables/DnsInventory#columns)|[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)|
+|[SecurityBaselineSummary](/azure/azure-monitor/reference/tables/SecurityBaselineSummary#columns)|[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)|
+|[SQLAssessmentRecommendation#columns)|[SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|
+|[ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange#columns)|[Update](/azure/azure-monitor/reference/tables/Update#columns)|
+|[ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData#columns)|[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)|
+|[Event](/azure/azure-monitor/reference/tables/Event#columns)|[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)|
+|[Perf](/azure/azure-monitor/reference/tables/Perf#columns)|[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)|
+|[ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus#columns)|[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)|
+|[SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline#columns)|[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)|
+|[SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent#columns)|[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)|
+|[Syslog](/azure/azure-monitor/reference/tables/Syslog#columns)|[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog#columns)|
+|[Update](/azure/azure-monitor/reference/tables/Update#columns)|[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)|
+|[UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress#columns)|[WireData](/azure/azure-monitor/reference/tables/WireData#columns)|
+|[UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary#columns)|[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)|
+|[VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort#columns)|[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)|
+|[VMConnection](/azure/azure-monitor/reference/tables/VMConnection#columns)||
+|[VMComputer](/azure/azure-monitor/reference/tables/VMComputer#columns)||
+|[VMProcess](/azure/azure-monitor/reference/tables/VMProcess#columns)||
+|[WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall#columns)||
+|[WireData](/azure/azure-monitor/reference/tables/WireData#columns)||
+|[InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)||
+|[HealthStateChangeEvent](/azure/azure-monitor/reference/tables/HealthStateChangeEvent#columns)||
+|[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog#columns)||
 
 <!-- Example:
 ### Storage Accounts
@@ -174,5 +174,5 @@ List other schemas and their usage here. These can be resource logs, alerts, eve
 
 ## Related content
 
-- See [Monitor Virtual Machines](monitor-virtual-machines.md) for a description of monitoring Virtual Machines.
+- See [Monitor Virtual Machines](monitor-vm.md) for a description of monitoring Virtual Machines.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

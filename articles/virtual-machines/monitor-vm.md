@@ -28,7 +28,7 @@ At a minimum your service should have the following two articles:
 2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
    - Title: "Virtual Machines monitoring data reference"
    - TOC title: "Monitoring data reference"
-   - Filename: "monitor-virtual-machines-reference.md".
+   - Filename: "monitor-vm-reference.md".
 -->
 
 # Monitor Azure Virtual Machines
@@ -56,13 +56,13 @@ VM insights monitors your Azure and hybrid virtual machines in a single interfac
 
 :::image type="content" source="media/monitor-vm/vminsights-02.png" lightbox="media/monitor-vm/vminsights-02.png" alt-text="Screenshot of the VM insights 'Map' view.":::
 
-For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](/monitor/azure-monitor/vm/tutorial-monitor-vm-enable-insights). For general information about enabling insights and a variety of methods for onboarding VMs, see [Enable VM insights overview](/azure/azure-monitor/vm/vminsights-enable-overview).
+For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights). For general information about enabling insights and a variety of methods for onboarding VMs, see [Enable VM insights overview](/azure/azure-monitor/vm/vminsights-enable-overview).
 
-If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create more data collection rules (DCRs) to collect events and other performance data. To learn how to install the Azure Monitor agent and create a DCR that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/monitor/azure-monitor/vm/tutorial-monitor-vm-guest).
+If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create more data collection rules (DCRs) to collect events and other performance data. To learn how to install the Azure Monitor agent and create a DCR that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for Virtual Machines, see [Azure Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md).
+For more information about the resource types for Virtual Machines, see [Azure Virtual Machines monitoring data reference](monitor-vm-reference.md).
 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
@@ -74,7 +74,7 @@ For more information about the resource types for Virtual Machines, see [Azure V
   - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
   - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
-For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md#metrics).
+For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#metrics).
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
@@ -102,7 +102,7 @@ Non-Monitor metrics service-specific information. Add service-specific informati
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md#resource-logs).
+For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#resource-logs).
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
@@ -119,7 +119,7 @@ If your service has other logs that aren't resource logs or in the activity log,
 
 ## Azure Monitor agent
 
-Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. However, to collect logs and performance data from the guest operating system of the VM, you must install the [Azure Monitor agent](/monitor/azure-monitor/agents/azure-monitor-agent-overview). You can install the agent and configure collection by using VM insights or by creating a DCR.
+Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. However, to collect logs and performance data from the guest operating system of the VM, you must install the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview). You can install the agent and configure collection by using VM insights or by creating a DCR.
 
 <!-- LOGS SECTION END ------------------------------------->
 
@@ -192,7 +192,7 @@ You can create a single multi-resource alert rule that applies to all VMs in a p
 ## Related content
 <!-- You can change the wording and add more links if useful. -->
 
-- See [Virtual Machines monitoring data reference](monitor-virtual-machines-reference.md) for a reference of the metrics, logs, and other important values for Virtual Machines.
+- See [Virtual Machines monitoring data reference](monitor-vm-reference.md) for a reference of the metrics, logs, and other important values for Virtual Machines.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
 - Read about [Best practices for monitoring virtual machines in Azure Monitor](/azure/azure-monitor/best-practices-vm).
 - Get started with VM insights with an [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview).
