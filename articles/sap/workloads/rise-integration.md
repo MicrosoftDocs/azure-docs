@@ -4,15 +4,12 @@ description: Describes integrating SAP RISE managed virtual network with custome
 services: virtual-machines-linux,virtual-machines-windows
 author: msftrobiro
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 12/21/2023
 ms.author: robiro
-
 ---
 
 # Integrating Azure with SAP RISE managed workloads
@@ -27,7 +24,7 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 
 It's important to distinguish the responsibility between SAP and customer when enabling certain Azure scenarios. The following diagram illustrates most common situations.
 
-[![Diagram showing the breakdown of responsibility between customer and SAP for different aspects of enablement of integration scenarios.](./media/sap-rise-integration/sap-rise-integration-table.png)](./media/sap-rise-integration/sap-rise-integration-table.png)
+[![Diagram showing the breakdown of responsibility between customer and SAP for different aspects of enablement of integration scenarios.](./media/sap-rise-integration/sap-rise-integration-table.png)](./media/sap-rise-integration/sap-rise-integration-table.png#lightbox)
 
 There might be some circumstances when an initial request needs to be placed with SAP RISE for enablement. However, most Azure scenarios depend on open network communication to available SAP interfaces and activities entirely within customer's responsibility. Diagram shown doesn't replace or extends an existing responsibility matrix between the customer and SAP RISE/ECS.
 

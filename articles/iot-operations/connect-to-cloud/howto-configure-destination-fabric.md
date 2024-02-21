@@ -76,7 +76,7 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
 | LakehouseId | String | The lakehouse Lakehouse ID.  | Yes | - |  |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
-| File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{instanceId}/{pipelineId}/{partitionId}/{YYYY}/{MM}/{DD}/{HH}/{mm}/{fileNumber}` |  |
+| File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
 | Batch<sup>2</sup> | [Batch](../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
 | Authentication<sup>3</sup> | The authentication details to connect to Microsoft Fabric.  | Service principal | Yes | - |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |

@@ -4,7 +4,6 @@ description: Describes filesystem cache and Linux NFS read-ahead best practices 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2022

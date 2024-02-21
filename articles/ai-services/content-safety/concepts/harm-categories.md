@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 

@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 12/19/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers

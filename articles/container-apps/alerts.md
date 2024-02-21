@@ -4,7 +4,6 @@ description: Set up alerts to monitor your container app.
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-wellsjason

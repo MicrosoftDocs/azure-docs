@@ -1076,6 +1076,8 @@
       href: create-manage-use-automation-rules.md
     - name: Add advanced conditions to automation rules
       href: add-advanced-conditions-to-automation-rules.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1090,8 +1092,6 @@
       href: use-playbook-templates.md
     - name: Configure advanced security for playbooks
       href: define-playbook-access-restrictions.md
-    - name: Create incident tasks using automation rules
-      href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
   - name: Bring your own machine learning
@@ -1181,7 +1181,7 @@
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md#all
+        href: ../role-based-access-control/built-in-roles.md
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
   - name: Advanced Security Information Model (ASIM)

@@ -70,6 +70,8 @@
       href: how-to-monitor-diagnostics-logs.md
     - name: Use Azure Private Link
       href: how-to-private-link.md
+    - name: Optimize index creation
+      href: how-to-create-indexes.md
 - name: Reference
   items:
     - name: Troubleshoot common issues

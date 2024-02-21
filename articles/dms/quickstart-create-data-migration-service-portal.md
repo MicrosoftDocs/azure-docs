@@ -9,7 +9,6 @@ ms.date: 01/29/2021
 ms.service: dms
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - mode-ui
   - sql-migration-content
 ---

@@ -13,6 +13,9 @@ ms.custom: engagement-fy23
 
 # Tutorial: Build a business case or assess servers using an imported CSV file
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to build a business case or assess on-premises machines with the Azure Migrate: Discovery and Assessment tool, using an imported comma-separate values (CSV) file. 

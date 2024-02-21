@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-extended-java
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 01/25/2024
 ---
 
 # Java samples for Azure AI Search

@@ -1225,6 +1225,8 @@ optimize: {
 - **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
 - state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
+To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
+
 ## Properties: source
 
 The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images aren't supported at this time.

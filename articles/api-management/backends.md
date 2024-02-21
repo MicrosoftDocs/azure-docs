@@ -103,7 +103,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
   name: 'myAPIM/myBackend'
   properties: {
     url: 'https://mybackend.com'
-    protocol: 'http'
+    protocol: 'https'
     circuitBreaker: {
       rules: [
         {
@@ -140,7 +140,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
   "name": "myAPIM/myBackend",
   "properties": {
     "url": "https://mybackend.com",
-    "protocol": "http",
+    "protocol": "https",
     "circuitBreaker": {
       "rules": [
         {
@@ -197,7 +197,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
     description: 'Load balancer for multiple backends'
     type: 'Pool'
     protocol: 'http'
-    url: 'http://google.com'
+    url: 'https://example.com'
     pool: {
       services: [
         {
@@ -224,7 +224,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
     "description": "Load balancer for multiple backends",
     "type": "Pool",
     "protocol": "http",
-    "url": "http://google.com",
+    "url": "https://example.com",
     "pool": {
       "services": [
         {

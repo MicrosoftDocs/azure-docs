@@ -9,7 +9,7 @@ ms.reviewer: ""
 ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 01/23/2024
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server
@@ -334,7 +334,7 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using Portal](./how-to-manage-server-portal.md)<br/>
+> [Manage Azure Database for PostgreSQL server using Portal](./how-to-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
+> [Manage Azure Database for PostgreSQL server using CLI](./how-to-manage-server-cli.md)
