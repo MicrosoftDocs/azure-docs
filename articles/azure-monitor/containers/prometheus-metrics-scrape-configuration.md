@@ -114,6 +114,10 @@ The new label also shows up in the cluster parameter dropdown in the Grafana das
 > Only alphanumeric characters are allowed. Any other characters are replaced with `_`. This change is to ensure that different components that consume this label adhere to the basic alphanumeric convention.
 
 ### Debug mode
+
+> [!WARNING]
+> This mode can affect performance and should only be enabled for a short time for debugging purposes.
+
 To view every metric that's being scraped for debugging purposes, the metrics add-on agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You can either create this configmap or edit an existing one. For more information, see the [Debug mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode).
 
 ### Scrape interval settings
