@@ -119,7 +119,7 @@ If there are no issues and the intended targets are being scraped, you can view 
 > [!WARNING]
 > This mode can affect performance and should only be enabled for a short time for debugging purposes.
 
-The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](prometheus-metrics-scrape-configuration.md#debug-mode). This mode can affect performance and should only be enabled for a short time for debugging purposes.
+The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](prometheus-metrics-scrape-configuration.md#debug-mode).
 
 When enabled, all Prometheus metrics that are scraped are hosted at port 9091. Run the following command:
 
