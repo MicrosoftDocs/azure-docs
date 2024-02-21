@@ -35,6 +35,8 @@ items:
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
       href: essentials/tutorial-resource-logs.md
+    - name: Create alerts
+      href: alerts/alert-options.md
   - name: Monitor applications with Application Insights
     items:
     - name: Application Insights overview
@@ -354,6 +356,8 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
+      - name: Troubleshoot VM performance issues
+        href: /troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json
     - name: VM insights
       items:
       - name: Overview
@@ -702,6 +706,8 @@ items:
         href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Configure Private Link for Azure Monitor Agent
+      href: agents/azure-monitor-agent-private-link.md
     - name: Migrate from Log Analytics Agent
       items:
       - name: Migration guidance
