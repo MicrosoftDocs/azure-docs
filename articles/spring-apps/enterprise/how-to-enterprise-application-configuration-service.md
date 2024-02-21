@@ -158,8 +158,8 @@ When you modify and commit your configurations in a Git repository, several step
 
 This process, though automated, involves the following distinct stages and components, each with its own timing and behavior.
 
-- **Polling by Application Configuration Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
-- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the Kubelet refreshes its cache to recognize changes in ConfigMap.
+- **Polling by Application Configuration Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes `ConfigMap`.
+- **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this `ConfigMap` is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the Kubelet refreshes its cache to recognize changes in `ConfigMap`.
 - **Application Reads Updated Configuration**: Application running in the Azure Spring Apps environment can access the updated configuration values. The existing beans in the Spring Context aren't refreshed to use the updated configurations automatically.
 
 You can adjust the polling refresh interval of the Application Configuration Service to align with your specific needs. To apply the updated configurations in your application, a restart or refresh action is necessary.
@@ -436,12 +436,12 @@ If the latest changes don't reflect on the applications, check the following ite
   - The branch of the desired config file changes is updated.
   - The pattern configured in the Application Configuration Service matches the updated config files.
   - The application is bound to the Application Configuration Service.
-- Check whether the configMap is updated:
-  - ConfigMap of the app should be updated. If still not updated, raise a ticket.  
-- Check whether the configMap is mounted to the application as a file:
+- Check whether the `ConfigMap` is updated:
+  - `ConfigMap` of the app should be updated. If it's not updated, raise a ticket.  
+- Check whether the `ConfigMap` is mounted to the application as a file:
   - Use `web shell` to check the mounted file. If the file isn't updated, wait for the K8S refresh interval (1 minute). Or, you can force a refresh by restarting the application.
 
-Now, the updated configurations should reflect on the applications. If still not updated, raise a ticket.
+Now, the updated configurations should reflect on the applications. If it's not updated, raise a ticket.
 
 ## Next steps
 
