@@ -12,7 +12,7 @@ ms.date: 02/16/2024
 
 # Enable staged rollout of features for targeted audiences
 
-Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively rollout new features to users in different groups or "rings," and much more.
+Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
 
 In this article, you learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
 
