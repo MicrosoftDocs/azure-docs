@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
+To use Azure IoT Layered Network Management Preview service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
 - *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
@@ -90,7 +90,7 @@ While the DNS setup can be achieved many different ways, this example uses an ex
 > [!IMPORTANT]
 > The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
-### Create configmap from level 4 Layered Network Management
+### Create configmap from level 4 Layered Network Management Preview
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.
 1. Confirm the IP address of Layered Network Management service with the following command:
     ```bash
@@ -283,4 +283,4 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 
 ## Related content
 
-[What is Azure IoT Layered Network Management?](./overview-layered-network.md)
+[What is Azure IoT Layered Network Management Preview?](./overview-layered-network.md)

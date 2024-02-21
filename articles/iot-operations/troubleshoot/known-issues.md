@@ -38,7 +38,7 @@ This article contains known issues for Azure IoT Operations Preview - enabled by
 - You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages. 
 
 
-## Layered Network Management (preview)
+## Azure IoT Layered Network Management Preview
 
 - If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
 
@@ -50,7 +50,7 @@ This article contains known issues for Azure IoT Operations Preview - enabled by
 
 - If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
-## OPC UA Broker Preview
+## Azure IoT OPC UA Broker Preview
 
 - All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations portal.
 

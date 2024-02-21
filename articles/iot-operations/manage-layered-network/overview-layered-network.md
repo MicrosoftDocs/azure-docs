@@ -13,7 +13,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want understand how to use Azure IoT Layered Network Management to secure my devices.
 ---
 
-# What is Azure IoT Layered Network Management?
+# What is Azure IoT Layered Network Management Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -34,7 +34,7 @@ Layered Network Management provides several benefits including:
 
 :::image type="content" source="./media/concept-layered-network/layered-network-management-overview.png" alt-text="Diagram of Layered Network Management." lightbox="./media/concept-layered-network/layered-network-management-overview.png":::
 
-## Isolated network environment for deploying Layered Network Management
+## Isolated network environment for deploying Layered Network Management Preview
 
 There are several ways to configure Layered Network Management to bridge the connection between clusters in the isolated network and services on Azure. The following lists example network environments and cluster scenarios for Layered Network Management.
 

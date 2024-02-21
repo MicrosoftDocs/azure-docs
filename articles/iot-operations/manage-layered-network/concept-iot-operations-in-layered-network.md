@@ -27,11 +27,11 @@ However, in many industrial scenarios, computing units for different purposes ar
 
 In some cases, the network design includes a single isolated network that is located behind the firewall or is physically disconnected from the internet. In other cases, a more complicated layered network topology is configured, such as the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture).
 
-Layered Network Management is designed for facilitating connections between Azure and clusters in different kinds of isolated network environments. Enabling Azure IoT Operations to function in top-level isolated layers and nested isolated layers as needed.
+Azure IoT Layered Network Management Preview is designed for facilitating connections between Azure and clusters in different kinds of isolated network environments. Enabling Azure IoT Operations to function in top-level isolated layers and nested isolated layers as needed.
 
-## How does Layered Network Management work?
+## How does Layered Network Management Preview work?
 
-The following diagram describes the mechanism to redirect traffic from an isolated network to Azure Arc. It explains the underlying logic. For information on specific steps to achieve this mechanism, see [Configure Azure IoT Layered Network Management](howto-configure-l4-cluster-layered-network.md).
+The following diagram describes the mechanism to redirect traffic from an isolated network to Azure Arc. It explains the underlying logic. For information on specific steps to achieve this mechanism, see [Configure Azure IoT Layered Network Management Preview](howto-configure-l4-cluster-layered-network.md).
 
 1. When an Arc agent or extension is attempting to connect to its corresponding cloud side service, it uses the DNS to resolve the domain name of the target service endpoint.
 

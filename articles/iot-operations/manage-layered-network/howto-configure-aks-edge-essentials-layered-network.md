@@ -17,7 +17,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This walkthrough is an example of deploying Azure IoT Operations Preview - enabled by Azure Arc to a special environment that's different than the default [Azure IoT Operations scenario](../get-started/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management service.
+This walkthrough is an example of deploying Azure IoT Operations Preview - enabled by Azure Arc to a special environment that's different than the default [Azure IoT Operations scenario](../get-started/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.
@@ -37,7 +37,7 @@ For more information, see [Example of logical segmentation with minimum hardware
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
 
-### Configure level 4 Kubernetes cluster and Layered Network Management
+### Configure level 4 Kubernetes cluster and Layered Network Management Preview
 
 After you configure the network, you need to configure the level 4 Kubernetes cluster. Complete the steps in [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md). In the article, you:
 

@@ -1,5 +1,5 @@
 ---
-title: Metrics for Azure IoT Layered Network Management
+title: Metrics for Azure IoT Layered Network Management Preview
 titleSuffix: Azure IoT Operations Preview
 description: Available observability metrics for Azure IoT Layered Network Management to monitor the health and performance of your solution.
 author: timlt
@@ -13,7 +13,7 @@ ms.date: 11/1/2023
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT Layered Network Management
+# Metrics for Azure IoT Layered Network Management Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

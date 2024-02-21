@@ -105,11 +105,11 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-## Troubleshoot Layered Network Management
+## Troubleshoot Layered Network Management Preview
 
-The troubleshooting guidance in this section is specific to Azure IoT Operations when using an IoT Layered Network Management. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
+The troubleshooting guidance in this section is specific to Azure IoT Operations when using Azure IoT Layered Network Management Preview component. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 
-### Can't install Layered Network Management on the parent level
+### Can't install Layered Network Management Preview on the parent level
 
 Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance.
 
@@ -118,7 +118,7 @@ Layered Network Management operator install fails or you can't apply the custom 
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
 
-### Can't Arc-enable the cluster through the parent level Layered Network Management
+### Can't Arc-enable the cluster through the parent level Layered Network Management Preview
 
 If you repeatedly remove and onboard a cluster with the same machine, you might get an error while Arc-enabling the cluster on nested layers. For example, the error message might look like:
 
@@ -179,7 +179,7 @@ When installing the IoT Operations components to a cluster, the installation sta
     Warning  Failed  3m14s  kubelet  Failed to pull image "…
     ```
 
-### Check the allowlist of Layered Network Management
+### Check the allowlist of Layered Network Management Preview
 
 Layered Network Management blocks traffic if the destination domain isn't on the allowlist.
 
@@ -199,7 +199,7 @@ Layered Network Management blocks traffic if the destination domain isn't on the
     ```
 1. All the allowed domains are listed in the output.
 
-### Capture Layered Network Management packet trace
+### Capture Layered Network Management Preview packet trace
 
 In some cases, you might suspect that Layered Network Management instance at the parent level isn't forwarding network traffic to a particular endpoint. Connection to a required endpoint is causing an issue for the service running on your node. It's possible that the service you enabled is trying to connect to a new endpoint after an update. Or you're trying to install a new Arc extension or service that requires connection to endpoints that aren't on the default allowlist. Usually there would be information in the error message to notify the connection failure. However, if there's no clear information about the missing endpoint, you can capture the network traffic on the child node for detailed debugging.
 

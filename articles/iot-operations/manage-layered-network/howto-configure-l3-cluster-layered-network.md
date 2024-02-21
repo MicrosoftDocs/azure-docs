@@ -16,7 +16,7 @@ ms.date: 11/15/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure a special isolated network environment for deploying Azure IoT Operations Preview - enabled by Azure Arc. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations Preview - enabled by Azure Arc. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management Preview service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -295,5 +295,5 @@ After you've deployed Azure IoT Operations to your cluster, enable inbound conne
 
 ## Related content
 
-- [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
+- [Configure Azure IoT Layered Network Management Preview on level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
 - [Create sample network environment](./howto-configure-layered-network.md)

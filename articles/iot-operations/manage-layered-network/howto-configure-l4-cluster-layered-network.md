@@ -169,11 +169,11 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
-## Deploy Layered Network Management Service to the cluster
+## Deploy Layered Network Management Preview Service to the cluster
 
 Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network Management service to the cluster.
 
-### Install the Layered Network Management operator
+### Install the Layered Network Management Preview operator
 
 1. Run the following command. Replace the placeholders `<RESOURCE GROUP>` and `<CLUSTER NAME>` with your Arc onboarding information from an earlier step.
 
@@ -194,7 +194,7 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
     azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
     ```
 
-## Configure Layered Network Management Service
+## Configure Layered Network Management Preview Service
 
 Create the Layered Network Management custom resource.
 
