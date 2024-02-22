@@ -20,7 +20,7 @@ The following sections describe the information you need to collect and the deci
 
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 
-if you want to set up a lab deployment, you must have deployed a standard deployment or be about to deploy one. You can't use a lab deployment as a standalone Azure Communications Gateway deployment.
+If you want to set up a lab deployment, you must have deployed a standard deployment or be about to deploy one. You can't use a lab deployment as a standalone Azure Communications Gateway deployment.
 
 ## Arrange onboarding
 
