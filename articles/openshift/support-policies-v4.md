@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 02/22/2024
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -35,6 +35,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
 * To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
 * Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it causes extra resource usage and stability issues that can affect the entire cluster.
+* Running custom workloads (including operators installed from Operator Hub or additional operators provided by Red Hat) in infrastructure nodes is not supported.
 
 ### Logging and monitoring
 
@@ -47,6 +48,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
+* Migrating from OpenShift SDN to OVN is not supported.
 
 ### Cluster management
 
