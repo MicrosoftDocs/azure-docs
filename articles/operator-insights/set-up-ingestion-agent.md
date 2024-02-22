@@ -191,7 +191,7 @@ The configuration you need is specific to the type of source and your Data Produ
     ```
     sudo cp example_config.yaml config.yaml
     ```
-1. Set the `agent_id` field to a unique identifier for the site – for example, the name of the city or state for this site. This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
+1. Set the `agent_id` field to a unique identifier for the agent instance – for example `london-sftp-1`. This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
 1. Configure the `secret_providers` section.
     # [SFTP sources](#tab/sftp)
 
