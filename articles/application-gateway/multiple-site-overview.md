@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 08/23/2023
+ms.date: 02/26/2024
 ms.author: greglin
 ms.topic: conceptual
 ---

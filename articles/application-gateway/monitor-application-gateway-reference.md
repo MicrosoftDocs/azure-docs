@@ -6,7 +6,7 @@ ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 08/17/2023
+ms.date: 02/26/2024
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
