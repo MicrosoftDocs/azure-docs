@@ -42,6 +42,8 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Disable **OpenXR**.\
     ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2020 and later](./media/unity-2020-disable-xr.png)
 
+---
+
 ## Build the sample project
 
 # [Standalone](#tab/UnityStandaloneBuild)
