@@ -128,7 +128,7 @@ The following instructions assume that you already deployed your [Azure virtual 
 
    As you deploy the volumes, be sure to select the NFSv4.1 version. Deploy the volumes in the designated Azure NetApp Files subnet. The IP addresses of the Azure NetApp Files volumes are assigned automatically.
 
-   Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, hanadb1-data-mnt00001, hanadb1-log-mnt00001, and so on are the volume names, and nfs://10.3.1.4/hanadb1-data-mnt00001, nfs://10.3.1.4/hanadb1-log-mnt00001, and so on are the file paths for the Azure NetApp Files volumes.
+   The Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, hanadb1-data-mnt00001, hanadb1-log-mnt00001, and so on are the volume names, and nfs://10.3.1.4/hanadb1-data-mnt00001, nfs://10.3.1.4/hanadb1-log-mnt00001, and so on are the file paths for the Azure NetApp Files volumes.
 
    On **hanadb1**:
    - Volume hanadb1-data-mnt00001 (nfs://10.3.1.4:/hanadb1-data-mnt00001)
