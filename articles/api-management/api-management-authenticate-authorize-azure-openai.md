@@ -25,7 +25,7 @@ For background, see:
 
 ## Prerequisites
 
-Prior to following the steps in this article, you must have:
+Before following the steps in this article, you must have:
 
 - An API Management instance. For example steps, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 - An Azure OpenAI resource and model added to your API Management instance. For example steps, see [Import an Azure OpenAI API from OpenAPI specification](openai-api-from-specification.md).
@@ -35,8 +35,8 @@ Prior to following the steps in this article, you must have:
 
 A default way to authenticate to an Azure OpenAI API is by using an API key. For this type of authentication, all API requests must include a valid API key in the `api-key` HTTP header.
 
-* It's recommended to store the API key in a secure way, such as using a [named value](api-management-howto-properties.md) in your API Management instance. 
-* The named value can then be referenced in an API policy to set the `api-key` header in requests to the Azure OpenAI API. We provide two examples of how to do this: one uses  the other uses the [`set-backend-service`](set-backend-service-policy.md) policy, and the other uses the [`set-header`](set-header-policy.md) policy.
+* API Management can manage the API key in a secure way, by using a [named value](api-management-howto-properties.md). 
+* The named value can then be referenced in an API policy to set the `api-key` header in requests to the Azure OpenAI API. We provide two examples of how to do this: one uses the [`set-backend-service`](set-backend-service-policy.md) policy, and the other uses the [`set-header`](set-header-policy.md) policy.
 
 ### Store the API key in a named value
 
@@ -49,7 +49,7 @@ A default way to authenticate to an Azure OpenAI API is by using an API key. For
 1. Create a [backend](backends.md) that points to the Azure OpenAI API.
     1. In the left menu of your API Management instance, select **Backends**.
     1. Select **+ Add**, and enter a descriptive name for the backend. Example: *openai-backend*.
-    1. Under **Type**, select **Custom**, and enter the URL of the Azure OpenAI endpoint. Example: `"https://contoso.openai.azure.com/openai`.
+    1. Under **Type**, select **Custom**, and enter the URL of the Azure OpenAI endpoint. Example: `https://contoso.openai.azure.com/openai`.
     1. Under **Authorization credentials**, select **Headers**, and enter *api-key* as the header name and the named value as the value.
     1. Select **Create**.
 1. Add the following `inbound` policy snippet to your API Management instance to pass the API key in requests to the Azure OpenAI API. 
@@ -98,7 +98,7 @@ Following are steps to configure your API Management instance to use a managed i
     </set-header> 
     ```
 
-### OAuth 2.0 authorization using identity provider
+## OAuth 2.0 authorization using identity provider
 
 To enable more fine-grained access to OpenAPI APIs by particular users or clients, you can preauthorize access to the Azure OpenAI API using OAuth 2.0 authorization with Microsoft Entra ID or another identity provider. For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
 
@@ -156,9 +156,8 @@ Following are high level steps to restrict API access to users or apps that are 
     
 ## Related content
 
-* Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-* [Manage users and groups assignment to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal)  
-* https://github.com/galiniliev/apim-azure-openai-sample
+* Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).  
 * [Authenticate requests to Azure AI services](../ai-services/authentication.md#authenticate-with-microsoft-entra-id)
 * [Protect Azure OpenAI keys](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
+* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
