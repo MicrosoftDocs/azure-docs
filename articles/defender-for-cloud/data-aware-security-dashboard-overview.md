@@ -1,8 +1,6 @@
 ---
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud.
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: conceptual
 ms.date: 02/11/2024
 ---

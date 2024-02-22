@@ -2861,6 +2861,16 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Dev Box
+- id: azure-virtual-desktop-windows-clients
+  title: Remote Desktop clients for Windows
+  prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
+  pivots:
+  - id: remote-desktop-msi
+    title: Remote Desktop client (MSI)
+  - id: avd-store
+    title: Azure Virtual Desktop Store app
+  - id: rd-store
+    title: Remote Desktop Store app
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
