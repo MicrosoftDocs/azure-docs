@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 06/13/2022
+ms.date: 02/20/2024
 ---
 
 # Control your data in the cloud by using Managed HSM
