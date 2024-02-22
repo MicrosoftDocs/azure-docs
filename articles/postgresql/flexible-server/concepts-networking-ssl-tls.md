@@ -80,7 +80,7 @@ There are many connection parameters for configuring the client for SSL. Few imp
 |disable   | Encryption isn't used|
 |allow     | Encryption is used if f server settings require\enforce it|
 |prefer    | Encryption is used if server settings allow for it|
-|require   | Encryption is used. This ensures that the server is configured to accept SSL connections for this Host/IP address and that the server recognizes the client certificate.|
+|require   | Encryption is used. This ensures that the server is configured to accept SSL connections for this Host IP address and that the server recognizes the client certificate.|
 |verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
 |verify-full| Encryption will be used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
 
