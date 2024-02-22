@@ -3,7 +3,7 @@ author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 02/14/2024
+ms.date: 02/21/2024
 ms.author: rwaller
 ---
 
@@ -12,10 +12,10 @@ ms.author: rwaller
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
 * An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com).
+* [Git](https://git-scm.com).
+* Clone the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) from GitHub.
 
 You can install the following tools as part of the instructions in this guide:
-* [Git](https://git-scm.com)
-* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) and [pip](https://docs.python.org/3/installing/index.html). Starting with Python 3.4, pip is included by default with the Python binary installers.
 * [Flask](https://flask.palletsprojects.com/en/2.3.x/)
 * [Jinja](http://jinja.pocoo.org/docs/2.10/)
@@ -24,7 +24,7 @@ You can install the following tools as part of the instructions in this guide:
 
 ## Configure authentication credentials
 
-Create a new file called *.env*, and paste the following names and values into it. Supply the values given when you created your Immersive Reader resource.
+Create a new file called *.env* in the root directory of your project. Paste the following names and values into it. Supply the values given when you created your Immersive Reader resource.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -38,16 +38,6 @@ Don't commit this file into source control because it contains secrets that shou
 Secure the **getimmersivereadertoken** API endpoint behind some form of authentication, such as [OAuth](https://oauth.net/2/). Authentication prevents unauthorized users from obtaining tokens to use against your Immersive Reader service and billing. That work is beyond the scope of this tutorial.
 
 ## Create a Python web app on Windows
-
-Create a Python web app by using Flask on Windows.
-
-Install [Git](https://git-scm.com).
-
-After Git is installed, open a command prompt and clone the Immersive Reader SDK Git repository to a folder on your computer.
-
-```cmd
-git clone https://github.com/microsoft/immersive-reader-sdk.git
-```
 
 Install [Python](https://www.python.org/downloads/).
 
@@ -157,24 +147,12 @@ Open your browser, and go to `http://localhost:5000`.
 
 ## Create a Python web app on OSX
 
-Create a Python web app by using Flask on OSX.
-
-Install [Git](https://git-scm.com).
-
-After Git is installed, open Terminal and clone the Immersive Reader SDK Git repository to a folder on your computer.
-
-```bash
-git clone https://github.com/microsoft/immersive-reader-sdk.git
-```
-
 Install [Python](https://www.python.org/downloads/).
 
-The Python root folder, for example, `Python312`, should now be in the Applications folder.
-
-After the Python installation is finished, open Terminal and use `cd` into the Python Scripts folder.
+The Python root folder, for example, `Python312`, should now be in the Applications folder. Open Terminal and use `cd` to go into the Python folder.
 
 ```bash
-cd Python312/Scripts
+cd Python312
 ```
 
 Install pip.
@@ -198,7 +176,8 @@ sudo nano /etc/paths
 - Go to the bottom of the file, and enter the path you want to add as the last item of the list, for example, `PATH=$PATH:/usr/local/bin`.
 - Select **CTRL+X** to quit.
 - Enter **Y** to save the modified buffer.
-- That's it! To test it, in a new Terminal window, enter `echo $PATH`.
+
+That's it! To test it, in a new Terminal window, enter `echo $PATH`.
 
 Install Flask.
 
@@ -282,7 +261,7 @@ To reactivate the environment, run `workon quickstart-python` from the sample pr
 workon quickstart-python
 ```
 
-## Start the Immersive Reader with sample content
+### Start the Immersive Reader with sample content
 
 When the environment is active, run the sample project by entering `flask run` from the sample project root folder.
 

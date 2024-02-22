@@ -3,7 +3,7 @@ author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 02/14/2024
+ms.date: 02/21/2024
 ms.author: rwaller
 ---
 
@@ -32,22 +32,28 @@ yarn add request
 yarn add dotenv
 ```
 
+Install the axios and qs libraries with the following command:
+
+```bash
+npm install axios qs
+```
+
 <a name='acquire-an-azure-ad-authentication-token'></a>
 
-## Acquire a Microsoft Entra authentication token
+## Set up authentication
 
 Next, write a backend API to retrieve a Microsoft Entra authentication token.
 
-You need some values from the Microsoft Entra auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the Microsoft Entra auth configuration prerequisite step for this part. Refer back to the text file you saved from that session.
 
 ````text
 TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
+ClientId     => Microsoft Entra ApplicationId
+ClientSecret => Microsoft Entra Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Once you have these values, create a new file called *.env*, and paste the following code into it, supplying your custom property values from above. Do not include quotation marks or the "{" and "}" characters.
+Create a new file called *.env* in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource. Don't include quotation marks or the `{` and `}` characters.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -56,9 +62,9 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Be sure not to commit this file into source control, as it contains secrets that should not be made public.
+Be sure not to commit this file into source control, as it contains secrets that shouldn't be made public.
 
-Next, open *app.js* and add the following to the top of the file. This loads the properties defined in the .env file as environment variables into Node.
+Next, open *app.js* and add the following to the top of the file. This loads the properties defined in the *.env* file as environment variables into Node.
 
 ```javascript
 require('dotenv').config();
@@ -172,7 +178,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
 
 ## Specify the language of your content
 
-The Immersive Reader has support for many different languages. You can specify the language of your content by following the steps below.
+The Immersive Reader has support for many different languages. You can specify the language of your content by following these steps.
 
 1. Open *views\index.pug* and add the following code below the `p(id=content)` tag that you added in the previous step. This code adds some content Spanish content to your page.
 
@@ -180,7 +186,7 @@ The Immersive Reader has support for many different languages. You can specify t
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. In the JavaScript code, add the following above the call to `ImmersiveReader.launchAsync`. This code passes the Spanish content into the Immersive Reader.
+2. In *views\index.pug*, add the following code above the call to `ImmersiveReader.launchAsync`. This code passes the Spanish content into the Immersive Reader.
 
     ```pug
     content.chunks.push({
