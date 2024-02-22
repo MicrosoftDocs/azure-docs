@@ -289,8 +289,6 @@
       href: configure-basic-auth-disable.md
     - name: Security
       items:
-        - name: Security recommendations
-          href: security-recommendations.md
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
         - name: About OS and runtime patching

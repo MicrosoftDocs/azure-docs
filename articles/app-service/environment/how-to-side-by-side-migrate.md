@@ -196,7 +196,7 @@ Run the following command to check the status of your migration:
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
 ```
-After you get a status of `Ready`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment as well as in your old environment.
+After you get a status of `MigrationPendingDnsChange`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment as well as in your old environment.
 
 Get the details of your new environment by running the following command or by going to the [Azure portal](https://portal.azure.com).
 
