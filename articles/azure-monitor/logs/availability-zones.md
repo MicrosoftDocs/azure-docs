@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 ## Prerequisites
 
-- A Log Analytics workspace linked to a [dedicated cluster](logs-dedicated-clusters.md).  
+- A Log Analytics workspace linked to a shared or [dedicated cluster](logs-dedicated-clusters.md).  Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you set up a dedicated cluster for your workspaces.
 
     > [!NOTE]
     > Application Insights resources can use availability zones only if they're workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources can't use availability zones.
@@ -33,8 +33,6 @@ A subset of the availability zones that support data resilience currently also s
 > Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
     
 ## Supported regions
-
-Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you [set up a dedicated cluster](../logs/logs-dedicated-clusters.md) for your workspaces.
 
 |	Region	|	Data resilience - Shared clusters (default)	|	Data resilience - Dedicated clusters	|	Service resilience - Dedicated clusters	|
 |	---	|	---	|	---	|	---	|
