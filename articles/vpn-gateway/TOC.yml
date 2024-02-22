@@ -199,6 +199,10 @@
             href: point-to-site-how-to-vpn-client-install-azure-cert.md
           - name: Configure Windows native VPN client
             href: point-to-site-vpn-client-certificate-windows-native.md
+          - name: Configure OpenVPN client
+            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+          - name: Configure Azure VPN Client
+            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
       - name: RADIUS authentication
         items:
         - name: Certificate authentication clients
