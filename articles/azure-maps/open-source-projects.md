@@ -7,7 +7,6 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: 
 ---
 
 # Azure Maps community - Open-source projects
@@ -124,7 +123,7 @@ Find more open-source Azure Maps projects.
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
 [Code samples]: /samples/browse/?products=azure-maps
-[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0
+[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps

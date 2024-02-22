@@ -269,4 +269,4 @@ Parentheses can be used to change or disambiguate evaluation order.
 
 ## See also
 + [Create a skillset in Azure AI Search](cognitive-search-defining-skillset.md)
-+ [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md)
++ [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md)

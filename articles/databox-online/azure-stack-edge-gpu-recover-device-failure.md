@@ -61,7 +61,7 @@ To prepare for a potential device failure, you may have deployed one the followi
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
 | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault. |
-| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+| Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
 | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 After the replacement device is fully configured, enable the device for local storage. 

@@ -65,6 +65,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image Ubuntu2204 \
+  --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

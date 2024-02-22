@@ -10,7 +10,7 @@ ms.date: 03/20/2023
 ms.custom:
   - template-overview
   - ignite-2023
-# As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
 ---
 
 # Device infrastructure and connectivity
@@ -100,7 +100,7 @@ To learn more about how to choose a protocol for your devices to connect to the 
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 
-Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [What is the OPC Publisher?](../industrial-iot/overview-what-is-opc-publisher.md)
+Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [Microsoft OPC Publisher and Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/readme.md).
 
 ## Connection patterns
 

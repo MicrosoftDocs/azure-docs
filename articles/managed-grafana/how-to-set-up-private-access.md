@@ -1,11 +1,13 @@
 ---
 title: How to set up private access (preview) in Azure Managed Grafana
+titlesuffix: Azure Managed Grafana
 description: How to disable public access to your Azure Managed Grafana workspace and configure private endpoints.
+#CustomerIntent: As a data professional or developer I want to configure private access to an Azure Managed Grafana workspace.
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 10/27/2023
+ms.date: 01/31/2024
 ms.custom: how-to, devx-track-azurecli
 ---
 
@@ -27,7 +29,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 Public access is enabled by default when you create an Azure Grafana workspace. Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
 
 > [!NOTE]
-> When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can’t access a Managed Grafana workspace on a private IP address.
+> When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can’t access an Azure Managed Grafana workspace on a private IP address.
 
 ### [Portal](#tab/azure-portal)
 
@@ -98,7 +100,8 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
    1. A subscription and resource group for your private DNS zone are preselected. You can change them optionally.
 
-    To learn more about DNS configuration, go to [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) and [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration).
+    To learn more about DNS configuration, go to [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) and [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration). Azure Private Endpoint private DNS zone values for Azure Managed Grafana are listed at [Azure services DNS zone](../private-link/private-endpoint-dns.md#management-and-governance).
+
 
       :::image type="content" source="media/private-endpoints/create-endpoint-dns.png" alt-text="Screenshot of the Azure portal filling out DNS tab.":::
 
@@ -210,4 +213,4 @@ If you have issues with a private endpoint, check the following guide: [Troubles
 
 ## Next steps
 
-In this how-to guide, you learned how to set up private access from your users to a Managed Grafana workspace. To learn how to configure private access between a Managed Grafana workspace and a data source, see [Connect to a data source privately](how-to-connect-to-data-source-privately.md).
+In this how-to guide, you learned how to set up private access from your users to an Azure Managed Grafana workspace. To learn how to configure private access between a Managed Grafana workspace and a data source, see [Connect to a data source privately](how-to-connect-to-data-source-privately.md).

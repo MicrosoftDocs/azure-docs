@@ -1,12 +1,11 @@
 ---
 title: SQL Managed Instance enabled by Azure Arc service tiers
-description: Explains the service tiers available for SQL Managed Instance enabled by Azure Arc deployments. 
+description: Explains the service tiers available for SQL Managed Instance enabled by Azure Arc deployments.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/19/2023
 ms.topic: conceptual

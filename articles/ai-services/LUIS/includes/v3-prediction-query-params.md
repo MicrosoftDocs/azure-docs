@@ -3,7 +3,7 @@ title: V3 API query string parameters
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: include
-ms.date: 06/30/2020
+ms.date: 01/19/2024
 ---
 
 V3 API query string parameters include:

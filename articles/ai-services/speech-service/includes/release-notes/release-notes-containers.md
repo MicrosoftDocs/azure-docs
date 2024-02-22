@@ -2,9 +2,20 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 10/2/2023
+ms.date: 2/16/2024
 ms.author: eur
 ---
+
+### 2024-February release
+
+Add support for the latest model versions:
+- Custom speech to text 4.6.0
+- Speech to text 4.6.0
+- Neural text to speech 3.1.0
+
+Upgrade speech to text components to the latest.
+Upgrade all `es` locales models to the latest.
+Increase media transforming buffer for speech to text use cases.
 
 ### 2023-November release
 
@@ -138,7 +149,7 @@ Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
-Custom Speech to text container disconnected mode
+Custom speech to text container disconnected mode
 
 Add CNV Disconnected container support to TTS Frontend
 
@@ -209,7 +220,7 @@ Add support for these locales:
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Custom Speech to text 3.6.0-amd64
+#### Custom speech to text 3.6.0-amd64
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 

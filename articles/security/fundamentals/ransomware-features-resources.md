@@ -7,7 +7,6 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Azure features & resources that help you protect, detect, and respond

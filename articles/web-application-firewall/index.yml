@@ -6,7 +6,6 @@ summary: Web Application Firewall (WAF) provides centralized protection of your 
 metadata:
   title: Web Application Firewall documentation
   description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
-  services: web-application-firewall
   ms.service: web-application-firewall
   ms.topic: landing-page
   author: vhorne

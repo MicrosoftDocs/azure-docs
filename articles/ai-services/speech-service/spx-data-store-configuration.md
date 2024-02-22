@@ -6,16 +6,16 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 05/01/2022
+ms.date: 1/22/2024
 ms.author: eur
 ms.custom: mode-api
 ---
 
 # Configure the Speech CLI datastore
 
-The [Speech CLI](spx-basics.md) can rely on settings in configuration files, which you can refer to using a `@` symbol. The Speech CLI saves a new setting in a new `./spx/data` subdirectory that is created in the current working directory for the Speech CLI. When looking for a configuration value, the Speech CLI searches your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary. 
+The [Speech CLI](spx-basics.md) can rely on settings in configuration files, which you can refer to using a `@` symbol. The Speech CLI saves a new setting in a new `./spx/data` subdirectory that is created in the current working directory for the Speech CLI. The Speech CLI first looks for a configuration value in your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary. 
 
-In the [Speech CLI quickstart](spx-basics.md), you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
+In the [Speech CLI quickstart](spx-basics.md), you used the datastore to save your `@key` and `@region` values, so you didn't need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
 For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
 

@@ -2,11 +2,11 @@
 title: Monitoring Azure Cosmos DB data reference | Microsoft Docs
 description: Important reference material needed when you monitor logs and metrics in Azure Cosmos DB.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/14/2023
-ms.custom: subject-monitoring, ignite-2022
+ms.custom: subject-monitoring
 ---
 
 # Monitoring Azure Cosmos DB data reference

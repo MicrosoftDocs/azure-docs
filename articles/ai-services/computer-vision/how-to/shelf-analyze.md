@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 02/14/2024
 ms.author: pafarley
 ms.custom: references_regions, build-2023, build-2023-dataai
 ---
@@ -36,7 +36,7 @@ To analyze a shelf image, do the following steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/productrecognition/ms-pretrained-product-detection/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
+    curl -X PUT -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/productrecognition/ms-pretrained-product-detection/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
         'url':'<your_url_string>'
     }"
     ```
@@ -155,3 +155,4 @@ In this guide, you learned how to make a basic analysis call using the pretraine
 > [Train a custom model for Product Recognition](../how-to/shelf-model-customization.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
+* [API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/644aba14fb42681ae06f1b0b)

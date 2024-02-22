@@ -7,7 +7,6 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
-ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 11/15/2023
 ms.author: rolyon
@@ -49,11 +48,19 @@ When you try to add a role assignment with a condition, you get an error similar
 
 `The given role assignment condition is invalid.`
 
-**Cause**
+**Cause 1**
+
+The `conditionVersion` property is set to "1.0".
+
+**Solution 1**
+
+Set `conditionVersion` property to "2.0".
+
+**Cause 2**
 
 Your condition is not formatted correctly. 
 
-**Solution**
+**Solution 2**
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
 
