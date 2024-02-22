@@ -82,7 +82,8 @@ There are many connection parameters for configuring the client for SSL. Few imp
 |prefer    | Encryption is used if server settings allow for it|
 |require   | Encryption is used. This ensures that the server is configured to accept SSL connections for this Host/IP address and that the server recognizes the client certificate.|
 |verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
-|verify-full| Encryption will be used. Moreover, verify server certificate signature and host name / IP Address against certificate stored on the client|
+|verify-full| Encryption will be used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
+
 3. **sslcert**, **sslkey** and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
 
 > [!NOTE]  
