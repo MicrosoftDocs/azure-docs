@@ -1,5 +1,5 @@
 ---
-title: Resolve capacity errors - Azure Database for PostgreSQL Flexible Server
+title: Resolve capacity errors 
 description: This article describes how to resolve possible capacity errors when attempting to deploy or scale Azure Database for PostgreSQL Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -60,7 +60,7 @@ If you receive the following errors, select a different availability zone.
 
 ## SKU Not Available 
 
-If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU isn't supported in the region or temporarily unavailable due to  capacity constraints.
+If you encounter the following error, select a different SKU type. Availability of SKU may differ across regions, either the specific SKU isn't supported in the region or temporarily unavailable.
 
 `Specified SKU is not supported in this region. Please choose a different SKU.`
 
@@ -87,7 +87,7 @@ To register your subscription in the Azure portal, follow these steps:
 
 
 
-   :::image type="content" source="./media/how-to-resolve-capacity-errors/register-postgresql-resource-provider.png" alt-text="Register PostgreSQL Resource Provider":::
+   :::image type="content" source="./media/how-to-resolve-capacity-errors/register-postgresql-resource-provider.png" alt-text="Screenshot of Register PostgreSQL Resource Provider.":::
 
 # [Azure CLI](#tab/bash)
 
