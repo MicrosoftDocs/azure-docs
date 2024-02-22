@@ -24,7 +24,9 @@ Before upgrading an Arc resource bridge, the following prerequisites must be met
 
 - The appliance VM must be online, its status is "Running" and the [credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm) must be valid.
 
-- There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images. For VMware, a new template is created.
+- There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images.
+  
+- For Arc-enabled VMware, upgrading the resource bridge requires 200GB of free space on the datastore. A new template is also created.
 
 - The outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443 must be enabled. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
@@ -58,11 +60,11 @@ az arcappliance show --resource-group [REQUIRED] --name [REQUIRED]
 
 ## Manual upgrade
 
-Arc resource bridge can be manually upgraded from the management machine. You must meet all upgrade prerequisites before attempting to upgrade. The management machine must have the kubeconfig and appliance configuration files stored locally.
+Arc resource bridge can be manually upgraded from the management machine. You must meet all upgrade prerequisites before attempting to upgrade. The management machine must have the kubeconfig and [appliance configuration files](system-requirements.md#configuration-files) stored locally or you will not be able to run the upgrade.
 
 Manual upgrade generally takes between 30-90 minutes, depending on network speeds. The upgrade command takes your Arc resource bridge to the next appliance version, which might not be the latest available appliance version. Multiple upgrades could be needed to reach a [supported version](#supported-versions). You can check your appliance version by checking the Azure resource of your Arc resource bridge.
 
-To manually upgrade your Arc resource bridge, make sure you're using the latest `az arcappliance` CLI extension by running the extension upgrade command from the management machine:
+Before upgrading, you'll need the latest Azure CLI extension for `arcappliance`:
 
 ```azurecli
 az extension add --upgrade --name arcappliance 
@@ -76,9 +78,9 @@ az arcappliance upgrade <private cloud> --config-file <file path to ARBname-appl
 
 For example, to upgrade a resource bridge on VMware, run: `az arcappliance upgrade vmware --config-file c:\contosoARB01-appliance.yaml`
 
-To upgrade a resource bridge on System Center Virtual Machine Manager (SCVMM), run: `az arcappliance upgrade scvmm --config-file c:\contosoARB01-appliance.yaml`
+To upgrade a resource bridge on SCVMM, run: `az arcappliance upgrade scvmm --config-file c:\contosoARB01-appliance.yaml`
 
-To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/whats-the-lifecycle-manager-23h2).
+To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/about-updates-23h2).
 
 ## Version releases
 

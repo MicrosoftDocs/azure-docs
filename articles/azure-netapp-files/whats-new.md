@@ -4,7 +4,6 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 11/27/2023
@@ -17,8 +16,24 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Reserved capacity](optimize-costs-reserved-capacity.md)
 
-    If you have a material storage footprint in a region and service level, you can optimize their storage costs by committing to a one-year or three-plan for Azure NetApp Files. Committing to Azure NetApp Files includes a discount on capacity pools for a service level and region. Like other [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity includes a discount for the reserved capacity and is automatically applied to matching Azure NetApp Files capacity pools. Reserved capacity can be used in a single subscription (singe subscription scope), or across multiple subscriptions (shared scope). Azure NetApp Files reserved capacity is available in increments of 100 TiB and 1 PiB for one or three-year term for a particular service level and region. For more detail, see [Azure NetApp Files reserved capacity](optimize-costs-reserved-capacity.md) or purchasing options in the Azure portal.
+    If you have a material storage footprint in a region and service level, you can optimize your TCO by committing to a one-year or three-year term of Azure NetApp Files reserved capacity. Like other [Azure reservations]((../cost-management-billing/reservations/save-compute-costs-reservations.md)), Azure NetApp Files reserved capacity are automatically applied to existing Azure NetApp Files capacity pools in the same region and service level. Reserved capacity is available in increments of 100 TiB and 1 PiB for a one-year or three-year term. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same tenant. For more detail, see [Azure NetApp Files reserved capacity](optimize-costs-reserved-capacity.md) or view purchasing options in the Azure portal.
+        
+## February 2024
+
+
+* [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
+
+    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You still must register the feature before using it for the first time.
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md#requirements-and-considerations) volume size increase beyond 30% default limit
+
+    For capacity and resources planning purposes the Azure NetApp Files large volume feature has a [volume size increase limit of up to 30% of the lowest provisioned size](large-volumes-requirements-considerations.md#requirements-and-considerations). This volume size increase limit is now adjustable beyond this 30% (default) limit via a support ticket. For more information, see [Resource limits](azure-netapp-files-resource-limits.md). 
     
+
 ## January 2024
 
 * [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)

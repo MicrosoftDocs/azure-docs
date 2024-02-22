@@ -4,13 +4,14 @@ titleSuffix: Azure Virtual Network
 description: In this quickstart, you create an Azure Virtual Network and Subnets using Terraform. You use Azure CLI to verify the resources.
 ms.topic: quickstart
 ms.date: 1/19/2024
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 
   - AI-contribution
 # Customer intent: As a Network Administrator, I want to create a virtual network and subnets using Terraform.
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Virtual Network and subnets using Terraform

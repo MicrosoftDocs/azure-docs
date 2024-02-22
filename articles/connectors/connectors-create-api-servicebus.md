@@ -7,7 +7,6 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
-tags: connectors
 ---
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps

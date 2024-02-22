@@ -1,6 +1,6 @@
 ---
-title: Optimize costs for Azure NetApp Files with reserved capacity | Microsoft Docs
-description: Describes the terms for Azure NetApp Files capacity reservation and how to purchase, exchange, and refund for reserved capacity.
+title: Optimize TCO for Azure NetApp Files with reserved capacity | Microsoft Docs
+description: Learn how to optimize TCO with capacity reservations in Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-hchen
@@ -15,9 +15,9 @@ ms.topic: conceptual
 ms.date: 10/26/2022
 ms.author: anfdocs
 ---
-# Optimize costs for Azure NetApp Files with reserved capacity
+# Optimize TCO for Azure NetApp Files with reserved capacity
 
-You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
+You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your TCO. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
 Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
 

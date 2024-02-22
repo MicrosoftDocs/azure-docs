@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-key-phrase, ignite-fall-2021, ignite-2022
+ms.custom: language-service-key-phrase
 ---
 
 # Language support for Key Phrase Extraction

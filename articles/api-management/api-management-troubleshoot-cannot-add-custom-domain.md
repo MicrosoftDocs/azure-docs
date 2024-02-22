@@ -6,7 +6,6 @@ services: api-management
 author: genlin
 manager: dcscontentpm
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr

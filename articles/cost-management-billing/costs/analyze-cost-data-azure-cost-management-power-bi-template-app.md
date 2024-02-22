@@ -68,7 +68,6 @@ The following reports are available in the app.
 - Azure Marketplace charges
 - Overages and total charges
 
-The Billing account overview page might show costs that differ from costs shown in the EA portal. 
 
 >[!NOTE]
 >The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
@@ -84,9 +83,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
- 
-The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
+The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
 
 **Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
 

@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 # Operating systems supported by Update Management
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 
 ## Supported operating systems

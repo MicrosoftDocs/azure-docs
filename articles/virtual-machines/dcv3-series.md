@@ -7,7 +7,6 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.author: raginjup
-ms.custom: ignite-fall-2021
 ---
 
 # DCsv3 and DCdsv3-series

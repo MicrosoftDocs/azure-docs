@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022, references_regions
+ms.custom: references_regions
 ---
 
 # Image captions (version 4.0)
