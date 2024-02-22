@@ -39,7 +39,7 @@ To simplify migration between different versions of the GPT-3.5-Turbo models (in
 
 - Any customers who have increased quota approved will have combined total quota that reflects the previous increases.
 
-- Any customer whose current total usage across model versions is less than the default will just get a new combined total quota by default.
+- Any customer whose current total usage across model versions is less than the default will get a new combined total quota by default.
 
 ### GPT-4-0125-preview model available
 

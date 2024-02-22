@@ -102,7 +102,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting February 20, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -111,7 +111,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
 | `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
-| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
+| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 
 **<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **0125-preview**. 
@@ -147,6 +147,9 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 
 ### GPT-3.5 models
 
+> [!IMPORTANT]
+> The NEW `gpt-35-turbo (0125)`  model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
+
 GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
@@ -158,6 +161,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-3.5-Turbo model availability
 
+
 #### Public cloud regions
 
 |  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
@@ -167,11 +171,9 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4,097 |Sep 2021 |
 | `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-|`gpt-35-turbo`**<sup>2</sup>** (0125) | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
+|`gpt-35-turbo` (0125) **NEW** | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
-
-**<sup>2</sup>** This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
 
 ### Embeddings models
 
