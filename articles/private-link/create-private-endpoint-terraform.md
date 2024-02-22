@@ -106,7 +106,7 @@ $resource_group_name=$(terraform output -raw resource_group_name)
 $sql_server=$(terraform output -raw sql_server_name)
 ```
 
-1. Run [Get-AzPrivateEndpoint](/powershell/module/az.network/get-/get-azprivateendpoint) to display the details about the SQL Server private endpoint.
+1. Run [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) to display the details about the SQL Server private endpoint.
 
 ```azurepowershell
 $sql = @{
