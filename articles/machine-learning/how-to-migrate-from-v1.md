@@ -32,7 +32,7 @@ You should use v2 if you're starting a new machine learning project or workflow.
 * Responsible AI dashboard
 * Registry of assets
 
-A new v2 project can reuse existing resources like workspaces and compute and existing assets like models and environments created using v1. 
+A new v2 project can reuse existing v1 resources like workspaces and compute and existing assets like models and environments created using v1. 
 
 Some feature gaps in v2 include:
 
@@ -211,11 +211,11 @@ A key paradigm with v2 is serializing machine learning entities as YAML files fo
 
 You can obtain a YAML representation of any entity with the CLI via `az ml <entity> show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
 
-## Should I upgrade existing code to v2
+## Should I upgrade existing v1 code to v2
 
-You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
+You can reuse your existing v1 assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
 
-Optionally, if you want to upgrade specific parts of your existing code to v2, please refer to the comparison links provided in the details of each resource or asset in the rest of this document.
+Optionally, if you want to upgrade specific parts of your existing v1 code to v2, please refer to the comparison links provided in this document.
 
 ## Can I use v1 and v2 together?
 
