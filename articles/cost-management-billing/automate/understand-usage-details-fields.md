@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2023
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -22,6 +22,10 @@ If you're using an older cost details solution and want to migrate to Exports or
 - [Migrate from Enterprise Usage Details APIs](migrate-ea-usage-details-api.md)
 - [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
 - [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md)
+
+> [!NOTE]
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
+> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md).
 
 ## List of fields and descriptions
 
