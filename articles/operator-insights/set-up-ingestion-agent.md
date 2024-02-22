@@ -140,29 +140,11 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     ---
 
-## VMs without public DNS: Map Azure host names to IP addresses
+## Ensure that VM can resolve Microsoft hostnames
 
-**If your agent VMs have access to public DNS, skip this step and continue to [Install the agent software](#install-the-agent-software).**
+Check that the VM can resolve public hostnames to IP addresses. For example, open an SSH session and use `dig login.microsoftonline.com` to check that that the VM can find resolve this to an IP address.
 
-If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
-
-This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing, you **cannot** use this workaround and must use public DNS.
-
-1. Create the following resources from a virtual network that is peered to your ingestion agents.
-    - A Service Endpoint to Azure Storage.
-    - A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
-1. Note the IP addresses of these two connections.
-1. Note the ingestion URL for your Data Product. You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
-1. Note the URL of the Data Product Key Vault. The URL appears as *\<vault name\>.vault.azure.net*.
-1. Add a line to */etc/hosts* on the VM linking the two values in the following format, for each of the storage and Key Vault.
-    ```
-    <Storage private IP>   <ingestion URL>
-    <Key Vault private IP>  <Key Vault URL>
-    ````
-1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
-    ```
-    <Public IP>   login.microsoftonline.com
-    ````
+If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [map the required hostnames to IP addresses](map-hostnames-ip-addresses.md). Return to this procedure when you have finished the configuration.
 
 ## Install the agent software
 

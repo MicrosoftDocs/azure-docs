@@ -54,6 +54,8 @@
       href: upgrade-ingestion-agent.md
     - name: Rotate secrets
       href: rotate-secrets-for-ingestion-agent.md
+    - name: Map Microsoft hostnames to IP addresses
+      href: map-hostnames-ip-addresses.md
     - name: Configuration reference
       href: ingestion-agent-configuration-reference.md
   - name: Monitor Azure Operator Insights
