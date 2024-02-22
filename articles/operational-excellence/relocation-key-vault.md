@@ -1,6 +1,6 @@
 ---
-title: Relocation guidance in Azure Key Vault
-description: Learn how to relocate Azure Key Vault to a new region
+title: Relocation guidance in Azure KeyVault
+description: Learn how to relocate Azure KeyVault to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -11,27 +11,57 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure Key Vault to another region
+# Relocate Azure KeyVault to another region
 
-This article shows you how to create a key vault in a new region, by manually coping each individual key, secret, or certificate from your existing key vault to the new key vault.
+This article shows you how to create a KeyVault in a new region, by manually coping each individual key, secret, or certificate from your existing KeyVault to the new KeyVault.
 
 
 ## Prerequisites
 
-- Identify all Key Vault dependant resources.
-- Depending on your Azure Key Vault deployment, the following dependent resources *may* need to be deployed and configured in the target region prior to relocation:
+- Identify all KeyVault dependant resources. Depending on your Azure KeyVault deployment, the following dependent resources *may* need to be deployed and configured in the target region prior to relocation:
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link Service](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
-
-- Before you begin to plan your key vault relocation, keep the following considerations in mind:  
-    - Key vault names are globally unique. You can't reuse a vault name.
-    - You must reconfigure your access policies and network configuration settings in the new key vault.
-    - You must reconfigure soft-delete and purge protection in the new key vault.
+- Before you begin to plan your KeyVault relocation, keep the following considerations in mind:  
+    - KeyVault names are globally unique. You can't reuse a vault name.
+    - You must reconfigure your access policies and network configuration settings in the new KeyVault.
+    - You must reconfigure soft-delete and purge protection in the new KeyVault.
     - The backup and restore operation won't preserve your autorotation settings. You may need to reconfigure the settings.
-    
+
 
 ## Prepare
+
+This section shows you how to prepare your workload for a Key Vault relocation.
+
+### Configure service endpoints
+
+The virtual network service endpoints for Azure KeyVault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the KeyVault from outside those sources is denied access. If you configured service endpoints in the source region for the KeyVault resource, the same needs to be done in the target one. 
+
+
+>[!IMPORTANT]
+> If you are moving the virtual network and subnets with Azure Resource Mover, you'll still need to manually configure the service endpoints.
+
+1. Relocate the virtual network and subnets. For information on how to relocate a virtual network to another region, see [Relocate Azure Virtual Network to another region](./relocation-virtual-network.md).
+
+1. Configure Azure KeyVault network service endpoints in the target region.  To learn how to configure the service endpoints, see [Configure Azure KeyVault networking settings](/key-vault/general/how-to-azure-key-vault-network-security).
+
+
+### Configure Azure Private Endpoint DNS
+
+You'll need to configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string. Existing Microsoft Azure services might already have a DNS configuration for a public endpoint. This configuration must be overridden to connect using your private endpoint. 
+
+The network interface associated with the private endpoint contains the information to configure your DNS. The network interface information includes FQDN and private IP addresses for your private link resource.
+
+You can use the following options to configure your DNS settings for private endpoints:
+
+- **Host file (only recommended for testing).** You can use the host file on a virtual machine to override the DNS.
+
+- **Private DNS zone**. You can use private DNS zones to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
+
+- **DNS forwarder (optional)**. You can use your DNS forwarder to override the DNS resolution for a private link resource. Create a DNS forwarding rule to use a private DNS zone on your DNS server hosted in a virtual
+network
+
+### Export ARM template
 
 To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.
 
@@ -46,15 +76,15 @@ To get started, export a Resource Manager template. This template contains setti
 
 ## Redeploy without data
 
-To relocate a Key Vault instance without that doesn't have any client specific data, you can perform a simple redeployment without data migration. For an example of how to use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
+To relocate a KeyVault instance without that doesn't have any client specific data, you can perform a simple redeployment without data migration. For an example of how to use an ARM template to create a KeyVault instance, see [KeyVault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
 
 >[!TIP]
->You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+>You can also create the new KeyVault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
 ## Redeploy with data
 
-Key Vault supports the following redeployment methods: 
+KeyVault supports the following redeployment methods: 
 
 - **Manual:** Azure Portal, Azure PowerShell or Azure CLI
 - **Automated:** Azure DevOps Pipelines or GitHub actions
@@ -64,30 +94,33 @@ In the diagram below,
 - The amber flow lines show **automated** Azure DevOps Pipeline redeployment method. The automated method includes the redeployment of the target instance and the update of dependent configuration and endpoints.
 - The red flow lines show the **manual** Azure Portal, Azure PowerShell or Azure CLI redeployment method. The manual method includes the redeployment of the target instance along with data movement and update of dependent configuration and endpoints.
 
-:::image type="content" source="media/relocation/keyvault/akv_pattern_design.png" alt-text="Diagram illustrating usage for Azure DevOps pipeline and usage for Azure Portal or scripts for Key Vault.":::
+:::image type="content" source="media/relocation/keyvault/akv_pattern_design.png" alt-text="Diagram illustrating usage for Azure DevOps pipeline and usage for Azure Portal or scripts for KeyVault.":::
 
 
-**To redeploy your Key Vault to another region:**
+**To redeploy your KeyVault to another region:**
 
 1. Back up each individual secret, key, and certificate in your vault by using one of the following two methods:
-    - **Use encrypted backup**. With the backup command, your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure Key Vault backup and restore](../key-vault/general/backup.md).
+    - **Use encrypted backup**. With the backup command, your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure KeyVault backup and restore](../key-vault/general/backup.md).
 
         >[!IMPORTANT]
-        > - You can't back up a key vault in one geography and restore it into another geography. For more information, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+        > - You can't back up a KeyVault in one geography and restore it into another geography. For more information, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
         > - The backup command backs up all versions of each secret. If you have a secret with a large number of previous versions (more than 10), the request size might exceed the allowed maximum and the operation might fail.
 
-    - **Use manual non-encrypted backup**. You can export certain secret types manually. For example, you can expert certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can then upload the PFX files to any key vault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move. To learn how to export certificates from Azure Key Vault see [Export certificates from Azure Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli)
+    - **Use manual non-encrypted backup**. You can export certain secret types manually. For example, you can expert certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can then upload the PFX files to any KeyVault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move. To learn how to export certificates from Azure KeyVault see [Export certificates from Azure KeyVault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli)
+
+1. If you are configuring service endpoints in the target region, you'll need to edit the template. In the `networkAcl` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False` to ensure that the KeyVault fails to deploy when the service endpoint isn’t configured in the target region.
+
 
 1. Redeploy the exported template to the new region by using one of the following methods:
 
-    - Use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
+    - Use an ARM template to create a KeyVault instance, see [KeyVault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
 
     - Use [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
-1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/azure/key-vault/secrets/quick-create-powershell) to import them to your new key vault.
+1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new KeyVault by following the steps in [Azure KeyVault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/azure/key-vault/secrets/quick-create-powershell) to import them to your new KeyVault.
 
-1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
+1. Before deleting your old KeyVault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the KeyVault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
 
 ## Next steps
 
