@@ -38,7 +38,8 @@ Use the following steps to build and deploy the sample applications.
 
 ::: zone pivot="sc-standard"
 
-1. Use the following command to create Azure Spring Apps:
+1. Use the following command to create an Azure Spring Apps service instance:
+
 
    ```azurecli
    az spring create \
@@ -46,7 +47,8 @@ Use the following steps to build and deploy the sample applications.
        --name ${Azure-Spring-Apps-instance-name}
    ```
 
-1. Use the following commands to create applications with endpoints:
+1. Use the following commands to create the applications with endpoints:
+
 
    ```azurecli
    az spring app create \
@@ -61,7 +63,8 @@ Use the following steps to build and deploy the sample applications.
        --assign-endpoint
    ```
 
-1. Use the following commands to deploy applications:
+1. Use the following commands to deploy the applications:
+
 
    ```azurecli
    az spring app deploy \
@@ -82,10 +85,12 @@ Use the following steps to build and deploy the sample applications.
 
 ::: zone pivot="sc-enterprise"
 
-1. Use the following command to create Azure Spring Apps:
+1. Use the following command to create an Azure Spring Apps service instance:
+
 
    > [!NOTE]
-   > If your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps, it's necessary to run the following command:
+   > If your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps, you must run the following command:
+
    >
    > ```azurecli
    > az term accept \
@@ -116,7 +121,8 @@ Use the following steps to build and deploy the sample applications.
        --assign-endpoint
    ```
 
-1. Use the following commands to deploy applications:
+1. Use the following commands to deploy the applications:
+
 
    ```azurecli
    az spring app deploy \
@@ -180,10 +186,11 @@ Use the following steps to build and deploy the sample applications.
 
 1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select **Application Insights** on the page.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Application Insights page with the Application Insights highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Application Insights page with Application Insights highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
+
 
    > [!NOTE]
-   > If there's no default Application Insights available, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
+   > If you don't enable Application Insights, you can enable the Java In-Process agent. For more information, see the [Manage Application Insights using the Azure portal](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal) section of [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
 1. Enable dimension collection for resilience4j metrics. For more information, see the [Custom metrics dimensions and pre-aggregation](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) section of [Log-based and pre-aggregated metrics in Application Insights](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md).
 

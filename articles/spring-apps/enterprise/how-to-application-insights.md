@@ -491,12 +491,14 @@ The Java agent is updated/upgraded when the buildpack is updated.
 
 ## Java agent configuration hot-loading
 
-Azure Spring Apps enables a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+Azure Spring Apps has a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+
 
 > [!NOTE]
 > The hot-loading mechanism has a delay in minutes.
 
-* When the Java agent is previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
+* If the Java agent is already enabled, changes to the Application Insights instance or `SamplingRate` value don't require application restart.
+
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications stop sending all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
 
