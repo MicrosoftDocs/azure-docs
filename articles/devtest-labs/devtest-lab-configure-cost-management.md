@@ -21,14 +21,14 @@ These are the steps needed to use cost management for DevTest Labs. More details
 
 ## Step 1: Enable Tag Inheritance for Tags on Resource Groups 
 
-When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), they are each placed in their own resource group. To ensure that the lab tags flow down (for billing purposes) from the resource group to the resources, tag inheritance must be enabled. 
+When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), they are each placed in their own resource group. For billing purposes, you must enable tag inheritance to ensure that the lab tags flow down from the resource group to the resources. 
 
-Tag inheritance can be enabled either with billing properties OR Azure Policies. The first method (billing properties) is the easiest & fastest if it doesn’t affect billing reporting for other resources in the same subscription. 
+You can enable tag inheritance through billing properties or through Azure Policies. The billing properties method is the easiest and fastest to configure. However, it might affect billing reporting for other resources in the same subscription. 
 
 - [Group and allocate costs using tag inheritance](../cost-management-billing/costs/enable-tag-inheritance.md)
 - [Use the "Inherit a tag from the resource group" Azure Policy](../azure-resource-manager/management/tag-policies.md)
 
-If updated correctly using the first method, you see that Tag Inheritance now shows **Enabled**: 
+If updated correctly using the billing properties method, you see that Tag Inheritance now shows **Enabled**: 
 
 :::image type="content" source="./media/devtest-lab-configure-cost-management/tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is enabled.":::
 
@@ -44,7 +44,7 @@ It’s important to remember that tags are propagated for any resources created 
 
 DevTest Labs users don’t automatically have permission to view costs for their resources via Cost Management. There's one more step to [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data.md#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don’t already have permissions that include Billing Reader access. More information is found here on managing access to billing information: [Manage access to Azure billing - Microsoft Cost Management.](../cost-management-billing/manage/manage-billing-access.md)
 
-## Step 4: Use Azure Cost Management for viewing/filtering costs for DevTest Labs 
+## Step 4: Use Azure Cost Management for viewing and filtering costs for DevTest Labs 
 
 Now that DevTest Labs is configured to provide the lab-specific information for Cost Management, start here on Cost Management Reporting to view costs: Get started with [Cost Management reporting - Azure - Microsoft Cost Management](../cost-management-billing/costs/reporting-get-started.md). You can visualize the costs in the Azure portal, download cost reporting information, or use Power BI to visualize the costs. 
 
@@ -55,7 +55,7 @@ For a quick view of costs per lab, see the following steps:
 
 :::image type="content" source="./media/devtest-lab-configure-cost-management/daily-costs.png" alt-text="Screenshot that shows the daily costs card.":::
 
-3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by. More information on group and filter options in Cost analysis can be found [here](../cost-management-billing/costs/group-filter.md).
+3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by. Refer to the [documentation on group and filter options in Cost Management](../cost-management-billing/costs/group-filter.md) for more details.
 
 The resulting view shows costs in the subscription grouped by the tag (which is grouping by the lab & its resources).
 
