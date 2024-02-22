@@ -1,5 +1,5 @@
 ---
-title: Manage OCI Artifacts and Supply Chain Artifacts using Azure Container Registry
+title: Manage OCI Artifacts and Supply Chain Artifacts with ORAS
 description: A comprehensive guide on how to use Azure Container Registry to store, manage, and retrieve both OCI artifacts and supply chain artifacts using Azure Container Registry.
 author: tejaswikolli-web
 ms.topic: how-to #Don't change
