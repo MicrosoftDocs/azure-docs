@@ -64,6 +64,7 @@ See each of the following articles for a comparison code mapping for SDK v1 vs v
 |---------|---------|
 |Workspace     |  [Workspace management in SDK v1 and SDK v2](migrate-to-v2-resource-workspace.md)  |
 |Datastore     |   [Datastore management in SDK v1 and SDK v2](migrate-to-v2-resource-datastore.md)      |
+|Data     |   [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md)      |
 |Compute     |  [Compute management in SDK v1 and SDK v2](migrate-to-v2-resource-compute.md)       |
 |Training     | [Run a script](migrate-to-v2-command-job.md) |
 |Training     | [Local runs](migrate-to-v2-local-runs.md) |
@@ -71,8 +72,8 @@ See each of the following articles for a comparison code mapping for SDK v1 vs v
 |Training     | [Parallel Run](migrate-to-v2-execution-parallel-run-step.md) |
 |Training     | [Pipelines](migrate-to-v2-execution-pipeline.md) |
 |Training     | [AutoML](migrate-to-v2-execution-automl.md) |
-|Data     |   [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md)      |
 | Models | [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md) |
+| Deployment | [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md) |
 
 
 ## Resources and assets in v1 and v2
@@ -103,26 +104,25 @@ Object storage datastore types created with v1 are fully available for use in v2
 
 For a comparison of SDK v1 and v2 code, see [Datastore management in SDK v1 and SDK v2](migrate-to-v2-resource-datastore.md).
 
+### Data (datasets in v1)
+
+Datasets are renamed to data assets. *Backwards compatibility* is provided, which means you can use V1 Datasets in V2. When you consume a V1 Dataset in a V2 job you will notice they are automatically mapped into V2 types as follows:
+
+* V1 FileDataset = V2 Folder (`uri_folder`)
+* V1 TabularDataset = V2 Table (`mltable`)
+
+It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
+
+This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
+
+For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
+
+
 ### Compute
 
 Compute of type `AmlCompute` and `ComputeInstance` are fully available for use in v2.
 
 For a comparison of SDK v1 and v2 code, see [Compute management in SDK v1 and SDK v2](migrate-to-v2-resource-compute.md).
-
-### Endpoint and deployment (endpoint and web service in v1)
-
-With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now considered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
-
-|Endpoint type in v2|Upgrade from|Notes|
-|-|-|-|
-|Local|ACI|Quick test of model deployment locally; not for production.|
-|Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
-|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
-|Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
-|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
-
-For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
-For migration steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -144,24 +144,27 @@ You can continue to use designer to build pipelines using classic prebuilt compo
 
 You cannot build a pipeline using both existing designer classic prebuilt components and v2 custom components.
 
-### Data (datasets in v1)
-
-Datasets are renamed to data assets. *Backwards compatibility* is provided, which means you can use V1 Datasets in V2. When you consume a V1 Dataset in a V2 job you will notice they are automatically mapped into V2 types as follows:
-
-* V1 FileDataset = V2 Folder (`uri_folder`)
-* V1 TabularDataset = V2 Table (`mltable`)
-
-It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
-
-This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
-
-For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
 
 ### Model
 
 Models created from v1 can be used in v2. 
 
 For a comparison of SDK v1 and v2 code, see [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md)
+
+### Endpoint and deployment (endpoint and web service in v1)
+
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now considered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
+
+|Endpoint type in v2|Upgrade from|Notes|
+|-|-|-|
+|Local|ACI|Quick test of model deployment locally; not for production.|
+|Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
+|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
+|Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
+|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
+
+For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For migration steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Environment
 
