@@ -22,11 +22,11 @@ Combining different types of source in one agent instance isn't recommended in p
 
 ## MCC EDR source overview
 
-An Ingestion Agent configured with an MCC pull source is designed for use with an Affirmed Networks Mobile Content Cloud (MCC). It ingests Event Data Records (EDRs) from MCC network elements, and uploads them to Azure Operator Insights. To learn more, see [Quality of Experience - Affirmed MCC Data Product](concept-mcc-data-product.md).
+An ingestion agent configured with an MCC pull source is designed for use with an Affirmed Networks Mobile Content Cloud (MCC). It ingests Event Data Records (EDRs) from MCC network elements, and uploads them to Azure Operator Insights. To learn more, see [Quality of Experience - Affirmed MCC Data Product](concept-mcc-data-product.md).
 
 ## SFTP pull source overview
 
-An Ingestion Agent configured with an SFTP pull source collects files from one or more SFTP servers, and uploads them to Azure Operator Insights.
+An ingestion agent configured with an SFTP pull source collects files from one or more SFTP servers, and uploads them to Azure Operator Insights.
 
 ### File sources
 

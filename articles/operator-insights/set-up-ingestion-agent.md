@@ -22,9 +22,9 @@ For an overview of ingestion agents, see [Ingestion agent overview](ingestion-ag
 
 ## Prerequisites
 
-- From the documentation for your data product, obtain the:
-    - Specifications for the VM on which you plan to install the VM agent.
-    - Sample configuration for the ingestion agent.
+From the documentation for your data product, obtain the:
+- Specifications for the VM on which you plan to install the VM agent.
+- Sample configuration for the ingestion agent.
 
 ## VM security recommendations
 
@@ -34,7 +34,7 @@ The VM used for the ingestion agent should be set up following best practice for
 - OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
 - Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. We recommend that you restrict the following.
   - Admin access to the VM (for example, to stop/start/install the ingestion agent).
-  - Access to the directory where the logs are stored: `/var/log/az-aoi-ingestion/`.
+  - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
   - Access to the certificate and private key for the service principal that you create during this procedure.
   - Access to the directory for secrets that you create on the VM during this procedure.
 
@@ -84,7 +84,7 @@ The ingestion agent only supports certificate-based authentication for service p
 
 ### Grant permissions for the Data Product Key Vault
 
-1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
+1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *`<data-product-name>-HostedResources-<unique-id>`*.
 1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
@@ -127,10 +127,10 @@ Repeat these steps for each VM onto which you want to install the agent.
        - Choose an appropriate name for this file, and note it for later. This name is referenced in the agent configuration.
        - The file must contain only the secret value (password or SSH key), with no extra whitespace.
     1. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate file that contains the passphrase.
-    1. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
+    1. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at */etc/ssh/ssh_known_hosts*.
 
     > [!TIP]
-    > Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
+    > Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's *known_hosts* file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
     # [MCC EDR sources](#tab/edr)
 
