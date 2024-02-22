@@ -126,7 +126,7 @@ Application Gateway’s Layer 4 proxy provides log data through access logs. The
 
 Application Gateway’s layer 4 proxy provides the capability to monitor the health of individual members of the backend pools through the portal and REST API.
 
-![View of backend health](./media/monitor-application-gateway-reference/backend-health.png) 
+![Screenshot of backend health](./media/monitor-application-gateway-reference/backend-health.png) 
 
 ### REST API
 
@@ -194,7 +194,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Application Gateway v2 metrics](#application-gateway-v2-metrics) for performance data.
 
-For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
+For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log).
 
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU MUST MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->

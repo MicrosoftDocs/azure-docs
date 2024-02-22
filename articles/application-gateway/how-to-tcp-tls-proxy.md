@@ -34,30 +34,30 @@ To try out the layer 4 features of Azure Application Gateway, this article shows
 > [!NOTE]
 > When you join the preview, all new Application Gateways provision with the ability to use layer 4 proxy features. If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
 
-For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
 
 Use the following steps to enroll into the public preview for Application Gateway TCP/TLS proxy using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="A screenshot of Azure portal search.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Screenshot of Azure portal search.":::
 
 3. Select the link for your subscription's name.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="A screenshot selecting the Azure subscription.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Screenshot selecting the Azure subscription.":::
 
 4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="A screenshot of the Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
 
 5. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="A screenshot of Azure portal list of preview features listed.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of Azure portal list of preview features listed.":::
 
 6. From **Preview features** type into the filter box **AllowApplicationGatewayTlsProxy**, select the feature, and then select **Register**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="A screenshot of Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of Azure portal filter preview features.":::
 
 ## Create a SQL server
 
@@ -65,7 +65,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 
 1. From the Azure portal Home page, search for **SQL Virtual Machines** and then select **SQL virtual machines** under **Services**.
 
-    ![A screenshot of selecting SQL virtual machines in the Azure portal.](./media/how-to-tcp-tls-proxy/select-sql-virtual-machines.png)
+    ![Screenshot of selecting SQL virtual machines in the Azure portal.](./media/how-to-tcp-tls-proxy/select-sql-virtual-machines.png)
 
 2. Select **Create** and then on the Select SQL deployment option page, choose a **Free SQL Server License** option from the drop-down menu. For example: **SQL Server 2022 Developer on Windows Server 2022**. You can also select a different Free license version to test.
 
@@ -84,12 +84,12 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Administrator details**: Enter a username and password.
     - **Inbound port rules**: Accept the default settings.
 
-    ![A screenshot displaying virtual machine settings.](./media/how-to-tcp-tls-proxy/create-a-virtual-machine.png)
+    ![Screenshot displaying virtual machine settings.](./media/how-to-tcp-tls-proxy/create-a-virtual-machine.png)
 
 5. Select **Review + create**, and then select **Create**. Deployment of the virtual machine takes a few minutes.
 6. When deployment is complete, select the SQL server resource's overview page and write down the public IP address of the virtual machine.
 
-    ![A screenshot displaying the public IP address.](./media/how-to-tcp-tls-proxy/public-ip-address.png)
+    ![Screenshot displaying the public IP address.](./media/how-to-tcp-tls-proxy/public-ip-address.png)
 
 ## Create an Application Gateway
 
@@ -109,7 +109,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     > [!NOTE]
     > Default address space and subnet settings are adjusted to avoid conflicting with other VNets that you have deployed.
 
-    ![A screenshot displaying basic Application Gateway settings.](./media/how-to-tcp-tls-proxy/create-an-application-gateway-basics.png)
+    ![Screenshot displaying basic Application Gateway settings.](./media/how-to-tcp-tls-proxy/create-an-application-gateway-basics.png)
 
     The following table provides more information about the settings used in this procedure.
 
@@ -129,7 +129,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 4. Select **Next: Frontends**.
 5. Select a **Frontend IP address type** of **Public** and either use an existing IP address or create a new one.
 
-    <br><img src="./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png" alt="A screenshot displaying creation of a new public IP address." width="70%">
+    <br><img src="./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png" alt="Screenshot displaying creation of a new public IP address." width="70%">
 
 6. Select **Next: Backends**.
 7. On the **Backends** tab, select **Add a backend pool**.
@@ -137,7 +137,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Name**: Enter a name for the backend pool, for example **sql-vm**.
     - **Target type**: Select **IP address or FQDN** and enter the public IP address of the SQL server virtual machine that you wrote down previously.
 
-    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="60%">
+    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="Screenshot displaying backend pool creation." width="60%">
  
 9. Select **Add** and then select **Next: Configuration**.
 
@@ -149,7 +149,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Protocol**: TCP
     - **Port**: 1433
 
-        <br><img src="./media/how-to-tcp-tls-proxy/create-routing-rule.png" alt="A screenshot displaying routing rule creation." width="70%">
+        <br><img src="./media/how-to-tcp-tls-proxy/create-routing-rule.png" alt="Screenshot displaying routing rule creation." width="70%">
 
 11. Select the **Backend targets** tab and enter the following settings:
 
@@ -161,11 +161,11 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
         - **Backend port**: 1433
         - **Time-out (seconds)**: 20
 
-            <br><img src="./media/how-to-tcp-tls-proxy/create-backend-settings.png" alt="A screenshot displaying backend settings creation." width="70%">
+            <br><img src="./media/how-to-tcp-tls-proxy/create-backend-settings.png" alt="Screenshot displaying backend settings creation." width="70%">
 
 12. Select **Add** to add the backend settings, and then select **Add** to add the routing rule. 
 
-    <br><img src="./media/how-to-tcp-tls-proxy/add-routing-rule.png" alt="A screenshot adding a routing rule." width="70%">
+    <br><img src="./media/how-to-tcp-tls-proxy/add-routing-rule.png" alt="Screenshot adding a routing rule." width="70%">
 
 13. Select **Next: Tags** and add tags if desired. No tags are required for this demonstration.
 14. Select Next: **Review + Create** and then select **Create**. The deployment process takes a few minutes. 
@@ -179,7 +179,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 
 2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
 
-    <br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
+    <br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="Screenshot displaying the connection to a SQL server." width="60%">
 
 ## Clean up resources
 
