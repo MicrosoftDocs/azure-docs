@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure NAT Gateway using Terraform'
 titleSuffix: Azure NAT Gateway
-description: 'In this article, you create an Azure Virtual Machine with a NAT Gateway using Terraform'
+description: 'In this article, you create an Azure Virtual Machine with a NAT Gateway using Terraform.'
 ms.topic: quickstart
 ms.date: 02/21/2024
 ms.custom: devx-track-terraform
@@ -12,9 +12,9 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Quickstart: Create a Azure NAT Gateway using Terraform
+# Quickstart: Create an Azure NAT Gateway using Terraform
 
-This article shows how to use Terraform to create a resource group, a virtual network with a subnet, a public IP address, a NAT gateway, a network security group with a rule, a network interface, a storage account, and a Linux virtual machine in Azure. 
+Get started with Azure NAT Gateway using Terraform. This Terraform file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
 The script also generates a random SSH public key and associates it with the virtual machine for secure access. The public key is outputted at the end of the script execution. 
 
@@ -30,7 +30,7 @@ As with the public key, the names of the created resource group, virtual network
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
@@ -112,7 +112,7 @@ $resource_group_name=$(terraform output -raw resource_group_name)
 $nat_gateway=$(terraform output -raw nat_gateway)
 ```
 
-1. Run [Get-AzNatGateway](/powershell/module/az.network/get-aznatgateway) to display the the details about the NAT gateway.
+1. Run [Get-AzNatGateway](/powershell/module/az.network/get-aznatgateway) to display the details about the NAT gateway.
 
 ```azurepowershell
 $nat = @{
@@ -130,7 +130,7 @@ Get-AzNatGateway @nat
 
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
+[Troubleshoot common problems when using Terraform on Azure.](/azure/developer/terraform/troubleshoot)
 
 ## Next steps
 
