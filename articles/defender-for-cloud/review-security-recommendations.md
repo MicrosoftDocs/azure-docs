@@ -63,7 +63,7 @@ It's important to review all of the details related to a recommendation before t
     - **Last change date** - The date this recommendation last had a change
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - The assigned date the recommendation must be resolved by.
-    - **Findings by severity** - The total findings by severity.
+    - **Severity** - The severity of the recommendation (High, Medium, or Low). More details below.
     - **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
 
         :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
@@ -104,6 +104,18 @@ You can perform many actions to interact with recommendations. If an option isn'
 1. In **Graph**, you can view and investigate all context that is used for risk prioritization, including [attack paths](how-to-manage-attack-path.md). You can select a node in an attack path to view the details of the selected node.
 
      :::image type="content" source="media/review-security-recommendations/recommendation-graph.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-graph.png":::
+
+## How are recommendations classified?
+
+Every security recommendation from Defender for Cloud is assigned one of three severity ratings:
+ 
+- **High severity**: These recommendations should be addressed immediately, as they indicate a critical security vulnerability that could be exploited by an attacker to gain unauthorized access to your systems or data. Examples of high severity recommendations are when we’ve discovered unprotected secrets on a machine, overly-permissive inbound NSG rules, clusters allowing images to be deployed from untrusted registries, and unrestricted public access to storage accounts or databases.
+
+- **Medium severity**: These recommendations indicate a potential security risk that should be addressed in a timely manner, but may not require immediate attention. Examples of medium severity recommendations might include containers sharing sensitive host namespaces, web apps not using managed identities, Linux machines not requiring SSH keys during authentication, and unused credentials being left in the system after 90 days of inactivity.
+
+- **Low severity**: These recommendations indicate a relatively minor security issue that can be addressed at your convenience. Examples of low severity recommendations might include the need to disable local authentication in favor of Microsoft Entra ID, health issues with your endpoint protection solution, best practices not being followed with network security groups, or misconfigured logging settings that could make it harder to detect and respond to security incidents.
+ 
+Of course, the internal views of an organization might differ with Microsoft’s classification of a specific recommendation. So, it's always a good idea to review each recommendation carefully and consider its potential impact on your security posture before deciding how to address it.
 
 ## Manage recommendations assigned to you
 

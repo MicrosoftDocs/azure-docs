@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 01/24/2024
+ms.date: 02/13/2024
 ms.custom: mvc, engagement-fy24
 ---
 
@@ -14,9 +14,13 @@ ms.custom: mvc, engagement-fy24
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (February 2024)
+
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions to Azure using Azure VM assessments and business case.
+
 ## Update (January 2024)
 
-- Public preview: Using the RVTools XLSX, you can import on-premises servers' configuration into a VMware environment and create quick business case by assessing the cost of Azure and Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview). 
+- Public preview: Using the RVTools XLSX, you can import an on-premises VMware environment's servers' configuration data into Azure Migrate and create a quick business case and also assess the cost of hosting these workloads on Azure and/or Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview). 
 
 ## Update (December 2023)
 

@@ -8,14 +8,14 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/21/2024
 ms.author: lajanuar
 ---
 
 
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD011 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD011 -->
 
 # Document processing models
 
@@ -38,7 +38,7 @@ ms.author: lajanuar
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-2.1.0"
- Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
+ Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries.
 ::: moniker-end
 
 ## Model overview
@@ -88,7 +88,7 @@ Add-On* - Query fields are priced differently than the other add-on features. Se
 | [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
 |**Prebuilt models**||
-| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
+| [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number, and other key information from US health insurance cards.|
 | [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
 | [Contract](#contract) | Extract agreement and party details.|
 | [Invoice](#invoice)  | Automate invoices. |
@@ -97,8 +97,8 @@ Add-On* - Query fields are priced differently than the other add-on features. Se
 | [Business card](#business-card)  | Scan business cards to extract key fields and data into your applications. |
 |**Custom models**||
 | [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
-| [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured and unstructured documents.|
-| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+| [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured, and unstructured documents.|
+| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the documents within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
@@ -109,7 +109,7 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
 * [`languages`](concept-add-on-capabilities.md#language-detection)
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
-* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-10-31-preview). `Not available with the US.Tax models`
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-10-31-preview) `Not available with the US.Tax models`
 
 ## Analysis features
 
@@ -167,7 +167,7 @@ The US tax document models analyze and extract key fields and line items from a 
   |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
   |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
   |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
-  |US Tax 1099|Extract Information from 1099 forms.|**prebuilt-tax.us.1099(variations)**|
+  |US Tax 1099|Extract wage information details.|**prebuilt-tax.us.1099(variations)**|
   
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -193,7 +193,7 @@ The US tax document models analyze and extract key fields and line items from a 
 
 :::image type="icon" source="media/studio/invoice.png":::
 
-The invoice model automates processing of invoices to extracts customer name, billing address, due date, and amount due, line items and other key data. Currently, the model supports English, Spanish, German, French, Italian, Portuguese, and Dutch invoices.
+The invoice model automates processing of invoices to extracts customer name, billing address, due date, and amount due, line items, and other key data. Currently, the model supports English, Spanish, German, French, Italian, Portuguese, and Dutch invoices.
 
 ***Sample invoice processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
@@ -263,7 +263,7 @@ Custom extraction model can be one of two types, **custom template** or **custom
 
 :::image type="icon" source="media/studio/custom-classifier.png":::
 
-The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the `2023-07-31 (GA)` API. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
+The custom classification model enables you to identify the document type before invoking the extraction model. The classification model is available starting with the `2023-07-31 (GA)` API. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
 
 > [!div class="nextstepaction"]
 > [Learn more: custom classification model](concept-custom-classifier.md)
@@ -283,7 +283,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#read-model-data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
@@ -399,7 +399,7 @@ The business card model analyzes and extracts key information from business card
 
 #### Composed custom model
 
-A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
+A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. You can assign up to 100 trained custom models to a single composed model.
 
 ***Composed model dialog window using the [Sample Labeling tool](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
@@ -436,7 +436,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -444,7 +444,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

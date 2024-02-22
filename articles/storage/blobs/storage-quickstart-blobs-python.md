@@ -63,7 +63,7 @@ From the project directory, follow steps to create the basic structure of the ap
 
 1. Open a new text file in your code editor.
 1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below.
-1. Save the new file as *blob-quickstart.py* in the *blob-quickstart* directory.
+1. Save the new file as *blob_quickstart.py* in the *blob-quickstart* directory.
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/app-framework-qs.py":::
 
 ## Object model
@@ -151,6 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
     ```python
     from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
     ```
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.
@@ -279,10 +280,10 @@ To learn more about deleting a container, and to explore more code samples, see 
 
 This app creates a test file in your local folder and uploads it to Azure Blob Storage. The example then lists the blobs in the container, and downloads the file with a new name. You can compare the old and new files.
 
-Navigate to the directory containing the *blob-quickstart.py* file, then execute the following `python` command to run the app:
+Navigate to the directory containing the *blob_quickstart.py* file, then execute the following `python` command to run the app:
 
 ```console
-python blob-quickstart.py
+python blob_quickstart.py
 ```
 
 The output of the app is similar to the following example (UUID values omitted for readability):
