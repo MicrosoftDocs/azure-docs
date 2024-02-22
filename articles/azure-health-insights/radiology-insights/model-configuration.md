@@ -55,12 +55,12 @@ false  | No Evidence is returned
 **FollowupRecommendationOptions**
 - includeRecommendationsWithNoSpecifiedModality
     - type: boolean
-    - description: To include or exclude follow-up recommendations with no specific radiologic modality, default is false.
+    - description: To include or exclude follow up recommendations with no specific radiologic modality, default is false.
 
 
 - includeRecommendationsInReferences
     - type: boolean
-    - description: To include or exclude follow-up recommendations in references to a guideline or article, default is false.
+    - description: To include or exclude follow up recommendations in references to a guideline or article, default is false.
 
 - provideFocusedSentenceEvidence
     - type: boolean
@@ -83,13 +83,13 @@ IncludeEvidence
 CDARecommendation_GuidelineFalseUnspecTrueLimited
 
 - includeRecommendationsWithNoSpecifiedModality is true
-- includeRecommendationsInReferences is false
+- includeRecommendationsInReferences are false
 - provideFocusedSentenceEvidence for recommendations is true
 - includeEvidence is true
 
 As a result, the model includes evidence for all inferences. 
-- The model checks for follow-up recommendations with a specified modality.
-- The model checks for follow-up recommendations with no specific radiologic modality.
+- The model checks for follow up recommendations with a specified modality.
+- The model checks for follow up recommendations with no specific radiologic modality.
 - The model provides a single focused sentence as evidence for the recommendation. 
 
 Examples request/response json:
@@ -106,12 +106,12 @@ Examples request/response json:
 CDARecommendation_GuidelineTrueUnspecFalseLimited
 
 - includeRecommendationsWithNoSpecifiedModality is false
-- includeRecommendationsInReferences is true
+- includeRecommendationsInReferences are true
 - provideFocusedSentenceEvidence for findings is true
 - includeEvidence is true 
 
 As a result, the model includes evidence for all inferences. 
-- The model checks for follow-up recommendations with a specified modality.
+- The model checks for follow up recommendations with a specified modality.
 - The model checks for a recommendation in a guideline.
 - The model provides a single focused sentence as evidence for the finding. 
 
