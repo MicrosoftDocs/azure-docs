@@ -29,6 +29,9 @@ In this release, we've made the following changes:
 
 *Published: January 24, 2024*
 
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
+
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 
