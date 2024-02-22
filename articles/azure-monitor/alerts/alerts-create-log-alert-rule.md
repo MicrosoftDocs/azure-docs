@@ -34,7 +34,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
     > [!NOTE]
-    > Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
