@@ -31,6 +31,16 @@ For information on model regional availability and upgrades refer to the [models
 
 In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the 2nd generation text-embedding-ada-002 model.
 
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### GPT-3.5 Turbo quota consolidation
+
+To simplify migration between different versions of the GPT-3.5-Turbo models (including 16k), we will be consolidating all GPT-3.5-Turbo quota into a single quota value.
+
+- Any customers who have increased quota approved will have combined total quota that reflects the previous increases.
+
+- Any customer whose current total usage across model versions is less than the default will just get a new combined total quota by default.
+
 ### GPT-4-0125-preview model available
 
 The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  

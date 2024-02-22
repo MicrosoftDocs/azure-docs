@@ -51,9 +51,9 @@ To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions 
 
  `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embeddings models is not possible. In order to move from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings. 
 
-`text-embedding-3-large`
-`text-embedding-3-small`
-`text-embedding-ada-002`
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+- `text-embedding-ada-002`
 
 In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb)
 
@@ -102,7 +102,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on February 20, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting February 20, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting February 20, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
