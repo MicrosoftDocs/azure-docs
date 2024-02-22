@@ -1,10 +1,9 @@
 ---
-title: Manage Azure NetApp Files standard storage with cool access 
+title: Manage Azure NetApp Files standard storage with cool access
 description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 01/16/2023
 ms.author: anfdocs
@@ -104,10 +103,10 @@ Standard storage with cool access can be enabled during the creation of a volume
 1. In the **Basics** tab of the **Create a Volume** page, set the following options to enable the volume for cool access: 
 
     * **Enable Cool Access**   
-        This option specifies whether the volume will support cool access. 
+        This option specifies whether the volume supports cool access. 
  
     * **Coolness Period**
-        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 183 days.    
+        This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days.    
 
     * **Cool Access Retrieval Policy**   
 

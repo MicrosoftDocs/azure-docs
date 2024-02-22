@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 01/30/2024
+ms.date: 02/07/2024
 ms.custom: generated
 ---
 
@@ -248,6 +248,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Attestation Contributor](#attestation-contributor) | Can read write or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Attestation Reader](#attestation-reader) | Can read the attestation provider properties | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
 > | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault Certificate User](#key-vault-certificate-user) | Read certificate contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | db79e9a7-68ee-4b58-9aeb-b90e7c24fcba |
 > | [Key Vault Certificates Officer](#key-vault-certificates-officer) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Key Vault Contributor](#key-vault-contributor) | Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Key Vault Crypto Officer](#key-vault-crypto-officer) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
@@ -304,6 +305,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cost Management Contributor](#cost-management-contributor) | Can view costs and manage cost configuration (e.g. budgets, exports) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Cost Management Reader](#cost-management-reader) | Can view cost data and configuration (e.g. budgets, exports) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Hierarchy Settings Administrator](#hierarchy-settings-administrator) | Allows users to edit and delete Hierarchy Settings | 350f8d15-c687-4448-8ae1-157740a3936d |
+> | [Kubernetes Agentless Operator](#kubernetes-agentless-operator) | Grants Microsoft Defender for Cloud access to Azure Kubernetes Services | d5a2ae44-610b-4500-93be-660a0c5f5ca6 |
 > | [Kubernetes Cluster - Azure Arc Onboarding](#kubernetes-cluster---azure-arc-onboarding) | Role definition to authorize any user/service to create connectedClusters resource | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | [Kubernetes Extension Contributor](#kubernetes-extension-contributor) | Can create, update, get, list and delete Kubernetes Extensions, and get extension async operations | 85cb6faf-e071-4c9b-8136-154b5a04f717 |
 > | [Managed Application Contributor Role](#managed-application-contributor-role) | Allows for creating managed application resources. | 641177b8-a67a-45b9-a033-47bc880bb21e |
@@ -12955,6 +12957,53 @@ Perform all data plane operations on a key vault and all objects in it, includin
 }
 ```
 
+### Key Vault Certificate User
+
+Read certificate contents. Only works for key vaults that use the 'Azure role-based access control' permission model.
+
+[Learn more](/azure/key-vault/general/rbac-guide)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificates/read | List certificates in a specified key vault, or get information about a certificate. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/secrets/getSecret/action | Gets the value of a secret. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/secrets/readMetadata/action | List or view the properties of a secret, but not its value. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | List keys in the specified vault, or read properties and public material of a key. For asymmetric keys, this operation exposes public key and includes ability to perform public key algorithms such as encrypt and verify signature. Private keys and symmetric keys are never exposed. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read certificate contents. Only works for key vaults that use the 'Azure role-based access control' permission model.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/db79e9a7-68ee-4b58-9aeb-b90e7c24fcba",
+  "name": "db79e9a7-68ee-4b58-9aeb-b90e7c24fcba",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/certificates/read",
+        "Microsoft.KeyVault/vaults/secrets/getSecret/action",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action",
+        "Microsoft.KeyVault/vaults/keys/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Certificate User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### Key Vault Certificates Officer
 
 Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
@@ -13840,6 +13889,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/automationRules/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/entities/runPlaybook/action | Run playbook on entity |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Append tags to Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/query/action | Query Threat Intelligence Indicators |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/bulkTag/action | Bulk Tags Threat Intelligence |
@@ -13888,6 +13938,7 @@ Microsoft Sentinel Responder
         "Microsoft.SecurityInsights/automationRules/*",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
+        "Microsoft.SecurityInsights/entities/runPlaybook/action",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/query/action",
         "Microsoft.SecurityInsights/threatIntelligence/bulkTag/action",
@@ -16430,6 +16481,61 @@ Allows users to edit and delete Hierarchy Settings
     }
   ],
   "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Kubernetes Agentless Operator
+
+Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
+
+[Learn more](/azure/defender-for-cloud/defender-for-containers-architecture)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/trustedAccessRoleBindings/write | Create or update trusted access role bindings for managed cluster |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/trustedAccessRoleBindings/read | Get trusted access role bindings for managed cluster |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/trustedAccessRoleBindings/delete | Delete trusted access role bindings for managed cluster |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/read | Get a managed cluster |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/providers/features/register/action | Registers the feature for a subscription in a given resource provider. |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/pricings/securityoperators/read | Gets the security operators for the scope |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants Microsoft Defender for Cloud access to Azure Kubernetes Services",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d5a2ae44-610b-4500-93be-660a0c5f5ca6",
+  "name": "d5a2ae44-610b-4500-93be-660a0c5f5ca6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/write",
+        "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/read",
+        "Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/delete",
+        "Microsoft.ContainerService/managedClusters/read",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.Features/providers/features/register/action",
+        "Microsoft.Security/pricings/securityoperators/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Agentless Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

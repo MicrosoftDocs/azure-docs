@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 01/31/2024
 ms.author: lajanuar
 ---
 
@@ -21,7 +21,7 @@ Charges are incurred based on character count, not request frequency. Character 
 
 ### Character and array limits per request
 
-Each translate request is limited to 50,000 characters, across all the target languages. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3,000 &times; 3 = 9,000 characters and meets the request limit. You're charged per character, not by the number of requests, therefore, it's recommended that you send shorter requests.
+Each translate request is limited to 50,000 characters, across all the target languages. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3,000 &times; 3 = 9,000 characters and meets the request limit. You're charged per character, not by the number of requests, therefore, we recommend that you send shorter requests.
 
 The following table lists array element and character limits for each text translation operation.
 
@@ -42,8 +42,8 @@ The hourly quota should be consumed evenly throughout the hour. For example, at 
 
 You're likely to receive an out-of-quota response under the following circumstances:
 
-* You've reached or surpass the quota limit.
-* You've sent a large portion of the quota in too short a period of time.
+* You reached or surpassed the quota limit.
+* You sent a large portion of the quota in too short a period of time.
 
 There are no limits on concurrent requests.
 
@@ -61,11 +61,16 @@ These limits are restricted to Microsoft's standard translation models. Custom t
 
 ### Latency
 
-The Translator has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and may have a higher latency when your request rate is intermittent. Response times vary based on the size of the request and language pair. If you don't receive a translation or an [error response](./reference/v3-0-reference.md#errors) within that time frame, check your code, your network connection, and retry.
+The Translator has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and can have a higher latency when your request rate is intermittent. Response times vary based on the size of the request and language pair. If you don't receive a translation or an [error response](./reference/v3-0-reference.md#errors) within that time frame, check your code, your network connection, and retry.
 
 ## Document Translation
 
-This table lists the content limits for data sent using Document Translation:
+> [!NOTE]
+>
+> * Document Translation doesn't support translating secured documents such as those with an encrypted password or with restricted access to copy content.
+> * When translating documents with content in multiple languages (batch operations only), the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
+
+##### Asynchronous (batch) operation limits
 
 |Attribute | Limit|
 |---|---|
@@ -75,8 +80,15 @@ This table lists the content limits for data sent using Document Translation:
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-> [!NOTE]
-> Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
+##### Synchronous operation limits
+
+|Attribute | Limit|
+|---|---|
+|Document size| ≤ 10 MB |
+|Total number of files.|1 |
+|Total number of target languages | 1|
+|Size of Translation memory file| ≤ 1 MB|
+|Translated character limit|6 million characters per minute (cpm).|
 
 ## Next steps
 

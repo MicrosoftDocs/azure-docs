@@ -4,17 +4,14 @@ description: Learn how to install SAP NetWeaver HA on a Windows failover cluster
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance in Azure

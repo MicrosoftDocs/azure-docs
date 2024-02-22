@@ -63,12 +63,6 @@ Gateway should that become necessary
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *Kubernetes RBAC disabled* AKS cluster
-
-    ```bash
-    helm init
-    ```
-
 2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/

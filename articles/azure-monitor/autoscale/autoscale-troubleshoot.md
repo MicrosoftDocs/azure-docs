@@ -19,6 +19,15 @@ The autoscale service provides metrics and logs to help you understand what scal
 - Why did my service not scale?
 - Why did an autoscale action fail?
 - Why is an autoscale action taking time to scale?
+
+## Flex Virtual Machine Scale Sets
+
+Autoscale scaling actions are delayed up to several hours after a manual scaling action is applied to a [Flex Microsoft.Compute/virtualMachineScaleSets (VMSS)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) resource for a specific set of Virtual Machine operations.   
+For example, [Azure VM CLI Delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete), or [Azure VM Rest API Delete](/rest/api/compute/virtual-machines/delete?view=rest-compute-2023-10-02&tabs=HTTP) where the operation is performed on an individual VM.  
+  
+In these cases, the autoscale service isn't aware of the individual VM operations.  
+  
+To avoid this scenario, use the same operation, but at Virtual Machine Scale Set level. For example, [Azure VMSS CLI Delete instance](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete-instances), or [Azure VMSS Rest API Delete Instance](/en-us/rest/api/compute/virtual-machine-scale-sets/delete-instances?view=rest-compute-2023-10-02&tabs=HTTP). Autoscale detects the instance count change in the Virtual Machine Scale Set and performs the appropriate scaling actions.
   
 ## Autoscale metrics
 
@@ -27,7 +36,7 @@ Autoscale provides you with [four metrics](../essentials/metrics-supported.md#mi
 - **Observed Metric Value**: The value of the metric you chose to take the scale action on, as seen or computed by the autoscale engine. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter by using "metric source" as a dimension.
 - **Metric Threshold**: The threshold you set to take the scale action. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter by using "metric rule" as a dimension.
 - **Observed Capacity**: The active number of instances of the target resource as seen by the autoscale engine.
-- **Scale Actions Initiated**: The number of scale-out and scale-in actions initiated by the autoscale engine. You can filter by scale-out versus scale-in actions.
+- **Scale Actions Initiated**: The number of scale out and scale-in actions initiated by the autoscale engine. You can filter by scale-out versus scale-in actions.
 
 You can use the [metrics explorer](../essentials/metrics-getting-started.md) to chart the preceding metrics all in one place. The chart should show the:
 

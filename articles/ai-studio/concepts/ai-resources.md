@@ -107,22 +107,11 @@ Connections can be set up as shared with all projects in the same Azure AI hub r
 
 Azure AI Studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI Studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI Studio resource types map to the following resource provider kinds:
 
-|Resource type|Resource provider|Kind|
-|---|---|---|
-|Azure AI hub resources|Microsoft.MachineLearningServices/workspace|hub|
-|Azure AI project|Microsoft.MachineLearningServices/workspace|project|
-|Azure AI services|Microsoft.CognitiveServices/account|AIServices|
-|Azure AI OpenAI Service|Microsoft.CognitiveServices/account|OpenAI|
+[!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
-When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI Studio. If not provided by you, these resources are automatically created.
+When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI studio. If not provided by you, and required, these resources are automatically created.
 
-|Dependent Azure resource|Note|
-|---|---|
-|Azure AI services|Either Azure AI services multi-service provider, or Azure OpenAI Service. Provides API endpoints and keys for prebuilt AI services.|
-|Azure Storage account|Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
-|Azure Key Vault| Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
-|Azure Container Registry| Stores docker images created when using custom runtime for prompt flow. For data isolation, docker images are prefixed using the project GUID.|
-|Azure Application Insights| Used as log storage when you opt in for application-level logging for your deployed prompt flows.|
+[!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
 
 ## Managing cost
 

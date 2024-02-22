@@ -14,7 +14,7 @@ ms.date: 02/07/2024
 
 The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine (VM). Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
-In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](packet-capture-vm-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
+In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](packet-capture-vm-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](packet-capture-vm-cli.md).
 
 ## Prerequisites
 
