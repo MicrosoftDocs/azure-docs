@@ -3,7 +3,7 @@ title: Reliability in Azure HDInsight
 description: Find out about reliability in Azure HDInsight
 author: apurbasroy
 ms.service: azure
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.date: 02/27/2023
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability

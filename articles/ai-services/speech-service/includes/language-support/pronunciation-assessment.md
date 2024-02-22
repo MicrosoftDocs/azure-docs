@@ -8,6 +8,7 @@ ms.author: eur
 
 | Language | Locale (BCP-47) | 
 |--|--|
+|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
 |Arabic (Saudi Arabia)|`ar-SA` |
 |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|

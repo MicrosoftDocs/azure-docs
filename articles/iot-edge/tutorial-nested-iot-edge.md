@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices

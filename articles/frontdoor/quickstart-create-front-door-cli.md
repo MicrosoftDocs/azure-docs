@@ -6,10 +6,9 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 3/28/2023
 ms.author: duau
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

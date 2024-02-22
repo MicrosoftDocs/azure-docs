@@ -7,7 +7,6 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/03/2022
 ms.author: pafarley

@@ -1,7 +1,6 @@
 ---
 author: jianleishen
 ms.service: data-factory
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 11/21/2023
 ms.author: jianleishen

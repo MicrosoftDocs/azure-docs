@@ -161,8 +161,8 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 
 After migrating to the built-in Defender Vulnerability Management solution in Defender for Cloud, you need to offboard each VM from their old vulnerability assessment solution using either of the following methods:
 
-- [Delete the VM extension with PowerShell](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
-- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
+- [Delete the VM extension with PowerShell](/powershell/module/az.compute/remove-azvmextension).
+- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP).
 
 ## Next steps
 

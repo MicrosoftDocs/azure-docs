@@ -4,7 +4,6 @@ description: Find installed software and software vulnerabilities on your Azure 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 01/16/2024
 ---
 
@@ -168,51 +167,36 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 1. Execute the following script.
 
-    ```powershell
-    # virus test string 
 
-    $TEST_STRING = '$$89-barbados-dublin-damascus-notice-pulled-natural-31$$' 
-    
-     
-    
-    # File to be created 
-    
-    $FILE_PATH = "C:\temp\virus_test_file.txt" 
-    
-     
-    
-    # Write the test string to the file without a trailing newline 
-    
-    [IO.File]::WriteAllText($FILE_PATH, $TEST_STRING) 
-    
-     
-    
-    # Check if the file was created and contains the correct string 
-    
-    if (Test-Path -Path $FILE_PATH) { 
-    
-        $content = [IO.File]::ReadAllText($FILE_PATH) 
-    
-        if ($content -eq $TEST_STRING) { 
-    
-            Write-Host "Test file created and validated successfully." 
-    
-        } 
-    
-        else { 
-    
-            Write-Host "Test file does not contain the correct string." 
-    
-        } 
-    
-    } 
-    
-    else { 
-    
-        Write-Host "Failed to create test file." 
-    
-    }
-    ```
+```powershell
+# Virus test string
+$TEST_STRING = '$$89-barbados-dublin-damascus-notice-pulled-natural-31$$'
+ 
+# File to be created
+$FILE_PATH = "C:\temp\virus_test_file.txt"
+ 
+# Create "temp" directory if it does not exist
+$DIR_PATH = "C:\temp"
+if (!(Test-Path -Path $DIR_PATH)) {
+    New-Item -ItemType Directory -Path $DIR_PATH
+}
+ 
+# Write the test string to the file without a trailing newline
+[IO.File]::WriteAllText($FILE_PATH, $TEST_STRING)
+ 
+# Check if the file was created and contains the correct string
+if (Test-Path -Path $FILE_PATH) {
+    $content = [IO.File]::ReadAllText($FILE_PATH)
+    if ($content -eq $TEST_STRING) {
+        Write-Host "Test file created and validated successfully."
+    } else {
+        Write-Host "Test file does not contain the correct string."
+    }
+} else {
+    Write-Host "Failed to create test file."
+}
+```
+
 
 The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 

@@ -14,6 +14,9 @@ zone_pivot_groups: programming-languages-set-three
 
 # Configure OpenSSL for Linux
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 With the Speech SDK, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. 
 
 > [!NOTE]

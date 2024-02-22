@@ -1,11 +1,13 @@
 ---
 title: Azure Monitor action groups
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure functions.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
 ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
 ---
+
 # Action groups
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
@@ -345,7 +347,7 @@ A notification email is sent only to the primary email address.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
-1. In the Azure portal, go to **Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you want to review.
 

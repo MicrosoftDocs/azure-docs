@@ -9,7 +9,7 @@ ms.author: jboback
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Confidence score
@@ -70,4 +70,3 @@ If you have a project in different regions, each region uses its own Azure AI Se
 When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is returned. You can change the [default response](../how-to/change-default-answer.md).
 
 ## Next steps
-
