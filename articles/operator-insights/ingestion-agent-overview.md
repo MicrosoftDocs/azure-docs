@@ -18,6 +18,8 @@ An _ingestion agent_ uploads data to an Azure Operator Insights data product. We
 - Affirmed Mobile Content Cloud (MCC) Event Data Record (EDR) data streams.
 - Files stored on an SFTP server.
 
+Combining different types of source in one agent instance isn't recommended in production, but is supported for lab trials and testing.
+
 ## MCC EDR source overview
 
 An Ingestion Agent configured with an MCC pull source is designed for use with an Affirmed Networks Mobile Content Cloud (MCC). It ingests Event Data Records (EDRs) from MCC network elements, and uploads them to Azure Operator Insights. To learn more, see [Quality of Experience - Affirmed MCC Data Product](concept-mcc-data-product.md).

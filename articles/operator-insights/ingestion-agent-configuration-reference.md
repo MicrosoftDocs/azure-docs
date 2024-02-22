@@ -91,7 +91,7 @@ sink:
 
 All pipelines require source config, which covers how the ingestion agent ingests files and where from. There are two supported source types: MCC EDRs and SFTP pull.
 
-Combining different types of source in one agent instance isn't recommended in production. It's only for lab trials and testing.
+Combining different types of source in one agent instance isn't recommended in production, but is supported for lab trials and testing.
 
 ### MCC EDR source configuration
 
