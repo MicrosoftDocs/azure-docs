@@ -13,7 +13,7 @@ ms.date: 02/22/2024
 In the latest Azure HDInsight release, the conda version was mistakenly downgraded to 4.2.9. This regression is fixed in an upcoming release, but currently it can affect Spark job execution and result in script action failures. Conda 4.3.30 is the expected version in 5.0 and 5.1 clusters, so follow the steps to mitigate the issue.
 
 > [!IMPORTANT]  
-> This issue affects clusters with image version 5.1.3000.0.2308052231. Learn how to [view the image version of an HDInsight cluster](./hdinsight/view-hindsight-cluster-image-version.md). 
+> This issue affects clusters with image version 5.1.3000.0.2308052231. Learn how to [view the image version of an HDInsight cluster](./view-hindsight-cluster-image-version.md). 
 
 ## Recommended steps
 
