@@ -10,13 +10,26 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 02/15/2024
+ms.date: 02/21/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 ## February 2024
+
+### GPT-3.5-turbo-0125 model available
+
+This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### 3rd generation embeddings models available
+
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+
+In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the 2nd generation text-embedding-ada-002 model.
 
 ### GPT-4-0125-preview model available
 

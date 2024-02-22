@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/21/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -49,12 +49,22 @@ To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions 
 
 ## Embeddings
 
-> [!IMPORTANT]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+ `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embeddings models is not possible. In order to move from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings. 
 
-The previous embeddings models have been consolidated into the following new replacement model:
-
+`text-embedding-3-large`
+`text-embedding-3-small`
 `text-embedding-ada-002`
+
+In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb)
+
+|Evaulation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
+|---|---|---|---|
+| MIRACL average | 31.4 | 44.0 | 54.9 |
+| MTEB average | 61.0 | 62.3 | 64.6 |
+
+The 3rd generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance.
+
+OpenAI's MTEB benchmark testing found that even when the 3rd generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1536 dimensions performance remains better.
 
 ## DALL-E (Preview)
 
@@ -157,20 +167,25 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4,097 |Sep 2021 |
 | `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+|`gpt-35-turbo`**<sup>2</sup>** (0125) | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
+
+**<sup>2</sup>** This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
 
 ### Embeddings models
 
 These models can only be used with Embedding API requests.
 
 > [!NOTE]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+> `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
+|  Model ID  |  Model Availability  | Max Request (tokens) | Output Dimensions |Training Data (up-to)
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | Sep 2021 | 1,536 |
-| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1,536 |
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | 1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | 1,536 | Sep 2021 |
+| `text-embedding-3-large` | East US, South Central US, North Central US | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | East US, South Central US, North Central US | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
