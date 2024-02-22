@@ -1,44 +1,60 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Frequently asked questions about the Azure Cosmos DB's API for MongoDB"
-  description: "Get answers to Frequently asked questions about the Azure Cosmos DB's API for MongoDB"
-  author: gahl-levy
-  ms.author: gahllevy
+  title: Frequently asked questions
+  titleSuffix: Azure Cosmos DB for MongoDB vCore
+  description: Get answers to frequently asked questions about Azure Cosmos DB for MongoDB vCore.
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: mjbrown
   ms.service: cosmos-db
-  ms.subservice: mongodb
+  ms.subservice: nosql
   ms.topic: faq
-  ms.date: 04/28/2020
-title: "Frequently asked questions about the Azure Cosmos DB's API for MongoDB"
+  ms.date: 02/22/2024
+title: Frequently asked questions about Azure Cosmos DB for MongoDB vCore
 summary: |
-  [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
-  
-  The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported SDKs and drivers for MongoDB. Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-region write replication, auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
-
+  [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 sections:
   - name: General
     questions:
       - question: |
-          How do I connect to my database?
+          What options does Azure Cosmos DB offer for MongoDB users?
         answer: |
-          The quickest way to connect to an Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quickstart is the best way to get code snippets to connect to your database.
-          
-          Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via TLS, so be sure to use TLSv1.2.
-          
-          For more information, see [Connect to your Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB](connect-account.md).
-          
-      - question: |
-          Error codes while using Azure Cosmos DB's API for MongoDB?
-        answer: |
-          Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes. These can be found in the [Troubleshooting Guide](error-codes-solutions.md).
-  
-      - question: |
-          Is the Simba driver for MongoDB supported for use with Azure Cosmos DB's API for MongoDB?
-        answer: |
-          Yes, you can use Simba's Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
+          Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development.
 
+          Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database. Both options work without the overhead of complex management and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
+      - question: |
+          How do I choose between Azure Cosmos DB for MongoDB RU and Azure Cosmos DB for MongoDB vCore?
+        answer: |
+          Here are a few key factors to help you decide between the two options.
+
+          - Choose RU-based if:
+            - You're building new cloud-native MongoDB apps or refactoring existing apps for cloud-native benefits.
+            - Your workload has more point reads (fetching a single item by its _id and shard key value) and few long-running queries and complex aggregation pipeline operations.
+            - You want limitless horizontal scalability, instantaneous scale up, and granular throughput control.
+            - You're running mission-critical applications requiring industry-leading 99.999% availability.
+          - Choose vCore-based if:
+            - You're migrating (lift & shift) an existing MongoDB workload or building a new MongoDB application.
+            - Your workload has more long-running queries, complex aggregation pipelines, distributed transactions, joins, etc.
+            - You prefer high-capacity vertical and horizontal scaling with familiar vCore-based cluster tiers such as M30, M40, M50, and more.
+            - You're running applications requiring 99.995% availability.
+            - You need native support for storing and searching vector embeddings.
+      - question: |
+          Are there billing differences between Azure Cosmos DB for MongoDB RU and Azure Cosmos DB for MongoDB vCore?
+        answer: |
+          The RU and vCore services have different architectures with important billing differences.
+
+          The RU service variant is a multitenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements. Throughput for this service is based on [request units](../../request-units.md). This service is optimized for users who prefer to pay fixed (standard provisioned throughput) or variable (autoscale) fees corresponding to Request Units (RUs) and consumed storage. Actual RU charges depend on the selected model: provisioned throughput (standard or autoscale) or serverless.
+
+          The vCore service variant creates dedicated instances that utilize preset CPU, memory, and storage resources, which can dynamically scale to suit your needs. This service is optimized for users who prefer to pay a consistent flat fee based on compute (CPU, memory, and the number of nodes) and storage.         
 additionalContent: |
+  ## Related content
 
-  ## Next steps
-  
-  * [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
-  * [Create a console app with Java and the API for MongoDB in Azure Cosmos DB](quickstart-java.md)
+  - Frequently asked questions about Azure Cosmos DB for MongoDB](../faq.yml)
+
+  - [Get started with Azure Cosmos DB for MongoDB vCore using the Azure portal](quickstart-portal.md)
+  - [Get started with Azure Cosmos DB for MongoDB vCore using Bicep](quickstart-bicep.md)
+
+  ## Next step
+
+  > [!div class="nextstepaction"]
+  > [Frequently asked questions about Azure Cosmos DB](../../faq.yml)
