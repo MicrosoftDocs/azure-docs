@@ -429,7 +429,7 @@ You can modify the number of jobs by using the registry key as shown below (not 
 
 **Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs`<BR>
 **Key Type**: DWORD (32-bit) VMware.
-**Data**: <number>
+**Data**: number
 The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
