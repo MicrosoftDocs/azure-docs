@@ -61,9 +61,10 @@
           href: tutorial-create-notebook.md
         - name: Import notebooks from GitHub
           href: tutorial-import-notebooks.md
-    - name: Deploy app on AKS cluster using Bicep
+    - name: Deploy app on Azure Kubernetes Service (AKS) cluster using Bicep
       href: tutorial-deploy-app-bicep-aks.md
-    - name: KQL transformations for workspace data
+    - name: Kusto Query Language (KQL) transformations
+      displayName: KQL, workspace, data
       href: ../tutorial-log-transformation.md
     - name: Connect using Spark
       href: tutorial-spark-connector.md
@@ -88,7 +89,7 @@
       items:
         - name: Overview
           href: cli-samples.md
-        - name: Create account, database and container
+        - name: Create account, database, and container
           href: ../scripts/cli/nosql/create.md
         - name: Create serverless
           href: ../scripts/cli/nosql/serverless.md
@@ -114,7 +115,7 @@
       items:
         - name: Overview
           href: powershell-samples.md
-        - name: Create account, database and container
+        - name: Create account, database, and container
           href: ../scripts/powershell/nosql/create.md
         - name: Create with autoscale
           href: ../scripts/powershell/nosql/autoscale.md
@@ -535,7 +536,7 @@
           href: find-request-unit-charge.md
     - name: Develop with the emulator
       href: ../how-to-develop-emulator.md?pivots=api-nosql
-    - name: Tools, SDKs, and providers
+    - name: Tools, Software Development Kits (SDKs), and providers
       items:
         - name: Kafka Connect
           items:
@@ -547,7 +548,7 @@
               href: kafka-connector-sink.md
         - name: Spark Connector
           items:
-            - name: Spark 3.x OLTP Connector
+            - name: Spark 3.x online transaction processing (OLTP) connector
               href: sdk-java-spark-v3.md
             - name: Throughput control
               href: throughput-control-spark.md
@@ -773,15 +774,15 @@
           items:
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
-            - name: Self-serve minimum TLS version enforcement
+            - name: Self-serve minimum transport-layer security (SSL/TLS) version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
             - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
             - name: Configure customer-managed keys on existing accounts with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys-existing-accounts.md
-            - name: CMK troubleshooting guide
+            - name: customer-managed key (CMK) troubleshooting guide
               href: ../cmk-troubleshooting-guide.md
-            - name: Configure customer-managed keys with Azure managed HSM key vault
+            - name: Configure customer-managed keys with Azure managed hardware security module (HSM) key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
@@ -850,7 +851,7 @@
           href: ../monitoring-solutions.md
     - name: Server-side programming
       items:
-        - name: Stored procedures, triggers, and UDFs
+        - name: Stored procedures, triggers, and user-defined functions (UDFs)
           href: stored-procedures-triggers-udfs.md
         - name: JavaScript query API
           href: javascript-query-api.md
@@ -914,7 +915,7 @@
           href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Spring Data developer guide
           href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: ODBC driver
+        - name: Open Database Connectivity (ODBC) driver
           href: odbc-driver.md
         - name: Vercel
           href: ../vercel-integration.md
@@ -984,7 +985,7 @@
       href: ../whitepapers.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Partners
       href: ../partners-migration.md?toc=/azure/cosmos-db/sql/toc.json
-    - name: Microsoft Q&A question page
+    - name: Microsoft Questions and Answers
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db

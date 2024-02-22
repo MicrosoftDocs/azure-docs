@@ -26,10 +26,7 @@ In this tutorial, you learn how to:
 > * Create environment variables for your resources endpoint and API key.
 > * Use the **text-embedding-ada-002 (Version 2)** model
 > * Use [cosine similarity](../concepts/understand-embeddings.md) to rank search results.
-
-> [!IMPORTANT]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.  
-
+ 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python](../includes/embeddings-python.md)]
 ::: zone-end
