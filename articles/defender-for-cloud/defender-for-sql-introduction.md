@@ -44,7 +44,7 @@ Threat intelligence enriched security alerts are triggered when there's:
 - **Anomalous database access and query patterns** - for example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
 - **Suspicious database activity** - for example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
 
-Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Learn more about the [security alerts for SQL servers](alerts-reference.md#alerts-sql-db-and-warehouse).
+Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Learn more about the [security alerts for SQL servers](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics).
 
 ## Next steps
 

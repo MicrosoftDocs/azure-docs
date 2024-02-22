@@ -2,8 +2,6 @@
 metadata:
   title: Common questions - Defender for APIs
   description: Frequently asked questions about Defender for APIs 
-  author: alizabernstein
-  ms.author: alizabernstein
   ms.service: 
   ms.topic: faq
   ms.date: 06/08/2023
@@ -14,8 +12,8 @@ title: Common questions about Defender for APIs
 sections:
   - name: Availability and onboarding
     questions:      
-      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
-        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](/azure/defender-for-cloud/defender-for-apis-introduction). 
+      - question: I'm getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
+        answer: If you encounter errors like "Access Denied," "Forbidden," "Role Assignment not found," or "Authorization Failed," ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](/azure/defender-for-cloud/defender-for-apis-introduction). 
                 The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
 
       - question: Does onboarding APIs to Defender for APIs affect my Azure API Management service?
@@ -26,11 +24,11 @@ sections:
       
       - question: How does Defender for APIs handle support for API revisions in Azure API Management?
         answer: API revisions in Azure API Management are shown as separate API endpoints within Defender for APIs because each API revision is unique and might have its own security insights. 
-                Offline Azure API Management API revisions aren't shown in the onboarding or security insights blades of Defender for APIs because offline revisions don't allow any traffic to be sent to them and pose no security risk. For Azure API Management API operations, it is advised to always have the current revision of an API operation onboarded when onboarding other non-current revisions for the same operation. 
-                This is to ensure security insights data is accurately reflected in Defender for APIs. After setting a single revision as the current revision, it may take up to 24 hours for Defender for APIs to start receiving HTTP traffic logs for security monitoring of the updated revision, and the previously assigned sensitive information types and sensitivity labels for the current revision will remain present.
+                Offline Azure API Management API revisions aren't shown in the onboarding or security insights blades of Defender for APIs because offline revisions don't allow any traffic to be sent to them and pose no security risk. For Azure API Management API operations, it's advised to always have the current revision of an API operation onboarded when onboarding other noncurrent revisions for the same operation. 
+                This is to ensure security insights data is accurately reflected in Defender for APIs. After setting a single revision as the current revision, it might take up to 24 hours for Defender for APIs to start receiving HTTP traffic logs for security monitoring of the updated revision, and the previously assigned sensitive information types and sensitivity labels for the current revision will remain present.
 
       - question: Does Defender for APIs collect API traffic logs from Azure API Management?
-        answer: Defender for APIs receives a copy of all of the HTTP request and response traffic sent to the API management service for all onboarded APIs. This includes the request URL, the response status code and a subset of HTTP headers for the requests and responses. Also, Defender for APIs receives a copy of some of the HTTP request and response bodies. The request and response bodies received by Defender for APIs are capped at a size of 64KB.
+        answer: Defender for APIs receives a copy of all of the HTTP request and response traffic sent to the API management service for all onboarded APIs. This includes the request URL, the response status code, and a subset of HTTP headers for the requests and responses. Also, Defender for APIs receives a copy of some of the HTTP request and response bodies. The request and response bodies received by Defender for APIs are capped at a size of 64 KB.
               
   - name: Questions related to region/geo 
     questions:
@@ -44,22 +42,22 @@ sections:
         answer: Defender for APIs will take 30 minutes to generate the first security insights after onboarding an API and to move the onboarded APIs from unhealthy to healthy status. Thereafter, security insights are refreshed every 30 minutes.
       
       - question: Why do security insights within the API collection details page show as "Awaiting Data"?
-        answer: API endpoints that have received no traffic since onboarding to Defender for APIs display the message ‘Awaiting data’ under security insights. Until the API endpoint receives traffic, the security insight assessment can't be made.
+        answer: API endpoints that have received no traffic since onboarding to Defender for APIs display the message 'Awaiting data' under security insights. Until the API endpoint receives traffic, the security insight assessment can't be made.
     
       - question: I have a self-hosted Azure API Management gateway. Can I use Defender for APIs for securing my APIs?
         answer: Currently Defender for APIs support is limited to the cloud hosted instances of Azure API Management gateways only.
 
-      - question: My Azure API Management service is in a VNet. Do I need to have additional connectivity configured for Defender for APIs?
-        answer: No, Defender for APIs won't need special configuration for accessing API data from Azure API Management service behind a VNET.
+      - question: My Azure API Management service is in a virtual network. Do I need to have additional connectivity configured for Defender for APIs?
+        answer: No, Defender for APIs won't need special configuration for accessing API data from Azure API Management service behind a virtual network.
 
       - question: What is the IP address shown in Defender for APIs alerts description page if x-forwarded-for is configured within our network? 
         answer: Defender for APIs shows the IP address of the inbound IP address from client IPs. If x-forwarded-for is used, Defender for APIs validates the IP hops as part of the x-forwarded-for used within the request to show the most accurate IP that inbound request is coming from. 
     
       - question: We use a custom domain URL within Azure API Management, will Defender for APIs show this URL as the Endpoint URL?
-        answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint
+        answer: Custom domain URLs aren't shown within the Endpoint URL. The Defender for APIs Endpoint URL shows the base URL of your API Management API endpoint.
 
       - question: Does Defender for APIs support APIs published in multi-region Azure API Management deployments?
-        answer: There is currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions).
+        answer: There's currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions).
                 All security detections and subsequently generated security alerts will work for API traffic sent to both primary and secondary regions.
 
   - name: Questions about alerts in Defender for APIs 
