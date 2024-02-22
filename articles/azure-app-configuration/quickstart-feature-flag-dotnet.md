@@ -53,6 +53,8 @@ You can use Visual Studio to create a new console app project.
     Microsoft.FeatureManagement
     ```
 
+    Make sure that the version of `Microsoft.FeatureManagement` is greater than 3.1.0.
+
 1. Open *Program.cs* and add the following statements.
 
     ```csharp
