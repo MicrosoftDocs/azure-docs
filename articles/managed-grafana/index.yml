@@ -62,10 +62,10 @@ landingContent:
             url: how-to-permissions.md
           - text: Connect to a data source privately
             url: how-to-connect-to-data-source-privately.md
-          - name: "Tutorial: Connect to self-hosted Prometheus on an AKS Cluster through managed private endpoint"
-            href: tutorial-mpe-oss-prometheus.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
+          - text: Connect to self-hosted Prometheus via managed private endpoint
+            url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 
