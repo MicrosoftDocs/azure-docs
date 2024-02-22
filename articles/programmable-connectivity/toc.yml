@@ -32,13 +32,9 @@
     href: azure-programmable-connectivity-using-network-apis.md
 - name: Resources
   items:
-  - name: Azure Programmable Connectivity product page
-    href: https://go.microsoft.com/fwlink/?linkid=2186926
   - name: Azure Marketplace
     href: https://azuremarketplace.microsoft.com/marketplace/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
-    href: https://aka.ms/apcblog
-  - name: Pricing
-    href: azure-programmable-connectivity-pricing.md
+    href: https://aka.ms/AzureProgrammableConnectivity
