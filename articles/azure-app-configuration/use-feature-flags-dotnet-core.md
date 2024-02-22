@@ -30,9 +30,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-Follow the documents to create an ASP.NET Core app with feature flags.
-- [Quickstart: Create an ASP.NET Core app with Azure App Configuration](./quickstart-aspnet-core-app.md)
-- [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md)
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 ## Set up feature management
 
