@@ -87,6 +87,10 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
     "CommitmentTier": {
       "type": "int",
       "allowedValues": [
+        100,
+        200,
+        300,
+        400,
         500,
         1000,
         2000,
