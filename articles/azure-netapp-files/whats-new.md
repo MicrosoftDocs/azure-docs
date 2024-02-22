@@ -14,7 +14,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
 <!-- Date TBD -->
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
@@ -27,7 +26,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Application volume group for Oracle is supported in all Azure NetApp Files enabled regions.
 
   
-=======
 ## February 2024
 
 
@@ -44,7 +42,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     For capacity and resources planning purposes the Azure NetApp Files large volume feature has a [volume size increase limit of up to 30% of the lowest provisioned size](large-volumes-requirements-considerations.md#requirements-and-considerations). This volume size increase limit is now adjustable beyond this 30% (default) limit via a support ticket. For more information, see [Resource limits](azure-netapp-files-resource-limits.md). 
     
 
->>>>>>> bc836152f089b6e7c75aa900e60614241190c6d1
 ## January 2024
 
 * [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
