@@ -64,7 +64,8 @@ When the **Application Insights** feature is enabled, you can:
 
 * In the navigation pane, select **Metrics** and select the namespace to see both Spring Boot metrics and custom metrics, if any.
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of xthe Azure portal that shows the Application Insights Metrics page." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
+
 
 * In the navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
