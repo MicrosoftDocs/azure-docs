@@ -3,7 +3,7 @@ title: Manage OCI Artifacts and Supply Chain Artifacts using ORAS
 description: A comprehensive guide on how to use Azure Container Registry to store, manage, and retrieve both OCI artifacts and supply chain artifacts using Azure Container Registry.
 author: tejaswikolli-web
 ms.topic: how-to #Don't change
-ms.date: [01/24/2024]
+ms.date: 01/24/2024
 ms.author: tejaswikolli
 ms.service: container-registry
 ---
@@ -18,8 +18,8 @@ Azure Container Registry (ACR) helps you to manage both the Open Container Initi
 
 This article is divided into two main sections:
 
-* [Push and pull OCI artifacts using an Azure container registry](#push-and-pull-oci-artifacts)
-* [Attach, push, and pull supply chain artifacts using Azure Registry](#attach-push-and-pull-supply-chain-artifacts)
+* [Push and pull OCI artifacts using ORAS](container-registry-manage-artifact.md#push-and-pull-oci-artifacts-using-oras)
+* [Attach, push, and pull supply chain artifacts using ORAS](container-registry-manage-artifact.md#attach-push-and-pull-supply-chain-artifacts-using-oras)
 
 
 ## Prerequisites
@@ -77,7 +77,7 @@ Provide the credentials to `oras login`.
     --password $PASSWORD
   ```
 
-## Push and Pull OCI Artifacts using Azure Container Registry
+## Push and Pull OCI Artifacts using ORAS
 
 You can use an [Azure container registry][acr-landing] to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
@@ -232,7 +232,7 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
  oras manifest delete $REGISTRY/samples/artifact:readme
 ```
 
-## Attach, push, and pull supply chain artifacts using Azure Container Registry (Preview)
+## Attach, push, and pull supply chain artifacts using ORAS
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover` and `pull` a graph of supply chain artifacts to an Azure container registry.
 Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
