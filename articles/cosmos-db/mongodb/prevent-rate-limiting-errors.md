@@ -1,10 +1,10 @@
 ---
 title: Prevent rate-limiting errors for Azure Cosmos DB for MongoDB operations.
-description: Learn how to prevent your Azure Cosmos DB for MongoDB operations from hitting rate limiting errors with the SSR (server-side retry) feature. 
+description: Learn how to prevent your Azure Cosmos DB for MongoDB operations from hitting rate limiting errors with the SSR (server-side retry) feature.
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: gahllevy

@@ -149,7 +149,10 @@ Azure VMware Solution monitors the following conditions on the host:
 
 ## Backup and restore
 
-Azure VMware Solution private cloud vCenter Server, NSX-T Data Center, and HCX Manager (if enabled) configurations are on a daily backup schedule. Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+Azure VMware Solution private cloud vCenter Server, NSX-T Data Center, and HCX Manager (if enabled) configurations are on a daily backup schedule. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+
+> [!NOTE]
+> Restorations are intended for catastrophic situations only.
 
 Azure VMware Solution continuously monitors the health of both the physical underlay and the VMware Solution components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
 

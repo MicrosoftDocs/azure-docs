@@ -13,7 +13,7 @@ The Azure Connected Machine agent for Linux and Windows communicates outbound se
 To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](../private-link-security.md) .
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
+> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent. At the same time, Azure Monitor Agent supports Log Analytics gateway.
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs and Service Tags listed below are not blocked.
 
@@ -58,9 +58,9 @@ The table below lists the URLs that must be available in order to install and us
 |`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
-| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For SQL Server enabled by Azure Arc. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public |
-| `telemetry.<region>.arcdataservices.com` | For Arc SQL Server. Sends service telemetry and performance monitoring to Azure | Always | Public |
-|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | ESUs enabled by Azure Arc | Public |
+| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service <br/><br/> Allows TLS 1.3. | For SQL Server enabled by Azure Arc. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public |
+| `telemetry.<region>.arcdataservices.com` | For Arc SQL Server. Sends service telemetry and performance monitoring to Azure. <br/><br/> Allows TLS 1.3. | Always | Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | If using ESUs enabled by Azure Arc. Required always for automatic updates, or temporarily if downloading certificates manually. | Public |
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder.
@@ -84,7 +84,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
-|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | ESUs enabled by Azure Arc | Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | If using ESUs enabled by Azure Arc. Required always for automatic updates, or temporarily if downloading certificates manually. | Public |
 
 #### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 

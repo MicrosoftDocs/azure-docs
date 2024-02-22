@@ -24,6 +24,9 @@ Create an `internalnetwork` resource for every VLAN or subnet that you need to i
 > [!NOTE]
 > The following example uses the minimal configuration for creating a valid internal network. It doesn't show optional parameters.
 
+> [!WARNING]
+> Using the same CIDRs in multiple L3 isolation domains to create networks leads to IP overlaps and routing issues in Nexus Kubernetes deployments.
+
 ```azurecli
   az networkfabric internalnetwork create \
     --resource-name "<L3IsolationDomainInternalNetworkName>" \

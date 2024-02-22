@@ -48,7 +48,7 @@ Because you're using a Queue storage output binding, you need the Storage bindin
 
     # [Isolated worker model](#tab/isolated-process)
     ```bash
-    Install-Package /dotnet/api/microsoft.azure.webjobs.blobattribute.Queues -IncludePrerelease
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
     ```
     # [In-process model](#tab/in-process) 
     ```bash

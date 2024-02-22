@@ -6,7 +6,7 @@ ms.author: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/31/2023
+ms.date: 01/16/2024
 ---
 
 # Best practices for Query Store - Azure Database for PostgreSQL - Flexible Server

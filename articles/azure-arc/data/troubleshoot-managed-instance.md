@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connection to failover group - SQL Server Managed Instance enabled by Azure Arc
+title: Troubleshoot connection to failover group - SQL Managed Instance enabled by Azure Arc
 description: Describes how to troubleshoot issues with connections to failover group resources in Azure Arc-enabled data services
 author: MikeRayMSFT
 ms.author: mikeray
@@ -7,11 +7,11 @@ ms.topic: troubleshooting-general
 ms.date: 03/15/2023
 ---
 
-# Troubleshoot SQL Server Managed Instance enabled by Azure Arc deployments
+# Troubleshoot SQL Managed Instance enabled by Azure Arc deployments
 
 This article identifies potential issues, and describes how to diagnose root causes for these issues for deployments of Azure Arc-enabled data services. 
 
-## Connection to SQL Server Managed Instance enabled by Azure Arc failover group
+## Connection to SQL Managed Instance enabled by Azure Arc failover group
 
 This section describes how to troubleshoot issues connecting to a failover group.
 
@@ -27,7 +27,7 @@ On each side, there are two replicas for one failover group. Check the value of 
 
 If one of `connectedState` isn't equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
 
-If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to SQL Server Managed Instance enabled by Azure Arc](#cant-connect-to-sql-server-managed-instance-enabled-by-azure-arc).
+If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to SQL Managed Instance enabled by Azure Arc](#cant-connect-to-sql-managed-instance-enabled-by-azure-arc).
 
 ### Check parameters
 
@@ -92,7 +92,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-0 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 If SQL server can use external endpoint TDS, there is a good chance it can reach external mirroring endpoint because they are defined and activated in the same service, specifically `$sqlmiName-external-svc`.
 
-## Can't connect to SQL Server Managed Instance enabled by Azure Arc
+## Can't connect to SQL Managed Instance enabled by Azure Arc
 
 This section identifies specific steps you can take to troubleshoot connections to SQL Managed Instance enabled by Azure Arc.
 

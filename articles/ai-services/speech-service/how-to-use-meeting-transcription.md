@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 1/21/2024
 ms.author: eur
 zone_pivot_groups: acs-js-csharp-python
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: cogserv-non-critical-speech, references_regions, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Real-time meeting transcription

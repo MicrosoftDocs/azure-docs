@@ -35,21 +35,24 @@ The health of an SBC connection now exposed in Azure portal. It takes in account
 ### Possible values of each health indicator
 
 TLS Status - Status of the TLS connections of a Trunk: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't attempted a TLS handshake in the last 15 minutes. 
 - Active - Indicates that TLS connection is established. 
 - CertExpiring - Indicates that SBC certificate is expiring. 
 - CertExpired - Indicates that SBC certificate is expired. 
 
 SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't sent any SIP options. 
 - Active - Indicates that OPTIONS are being sent and received. 
-- Expired - Indicates that status is expired. 
+- Expired - Indicates that SBC was sending SIP OPTIONS, but we haven't received any OPTIONS messages in the last 15 minutes. 
 - Error - Indicates an error in OPTIONS exchange.  
 
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
 - Warning - Indicates TLS or Ping is expired. 
+
+> [!NOTE]
+>If you've just configured a new trunk, it can take up to 15 minutes to update the status.
 
 > [!IMPORTANT]
 > Before placing or receiving calls, make sure that SBC status is *Online*

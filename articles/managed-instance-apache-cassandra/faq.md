@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-ui, ignite-2022
+ms.custom: mode-ui
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -91,6 +91,10 @@ The settings for table metadata such as bloom filter, caching, read repair chanc
 ### Can I deploy a managed instance cluster using Terraform?
 
 Yes. You can find a sample for deploying a cluster with a datacenter [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter).
+
+### How can I add a single public endpoint to my Azure Managed Instance Cassandra Cluster?
+
+To achieve this, you can [create a load balancer](../load-balancer/basic/quickstart-basic-internal-load-balancer-portal.md). When configuring the Backend pools of the load balancer, utilize all the IP addresses from the data center within your Managed Instance cluster. You might see errors in the logs when using java and other Cassandra drivers. Users use this approach to work around network restrictions when administering clusters with cqlsh. This approach might result in extra costs. Also, you should carefully assess how opting for a single endpoint can affect performance.
 
 ## Next steps
 

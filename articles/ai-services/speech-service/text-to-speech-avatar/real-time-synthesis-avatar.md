@@ -76,8 +76,8 @@ The following code snippet shows how to set avatar character and style:
 
 ```JavaScript
 const avatarConfig = new SpeechSDK.AvatarConfig(
-"lisa", // Set avatar character here.
-"casual-sitting", // Set avatar style here.
+    "lisa", // Set avatar character here.
+    "casual-sitting", // Set avatar style here.
 );  
 ```
 
@@ -138,7 +138,7 @@ var avatarSynthesizer = new SpeechSDK.AvatarSynthesizer(speechConfig, avatarConf
 
 // Start avatar and establish WebRTC connection
 avatarSynthesizer.startAvatarAsync(peerConnection).then(
-(r) => { console.log("Avatar started.") }
+    (r) => { console.log("Avatar started.") }
 ).catch(
     (error) => { console.log("Avatar failed to start. Error: " + error) }
 );

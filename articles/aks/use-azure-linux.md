@@ -3,7 +3,7 @@
 title: Use the Azure Linux container host on Azure Kubernetes Service (AKS)
 description: Learn how to use the Azure Linux container host on Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.date: 09/18/2023
 ---
 

@@ -6,7 +6,6 @@ author: an-emma
 ms.author: raan
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.custom: contperf-fy21q2
 ---
 
 # Azure Stream Analytics on IoT Edge

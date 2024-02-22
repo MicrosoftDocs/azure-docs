@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-classification, event-tier1-build-2022
+ms.custom: language-service-custom-classification
 ---
 
 # Back up and recover your custom text classification models

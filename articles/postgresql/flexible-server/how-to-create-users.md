@@ -4,7 +4,7 @@ description: This article describes how you can create new user accounts to inte
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 11/04/2022
+ms.date: 01/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -16,8 +16,6 @@ ms.topic: how-to
 
 This article describes how you can create users within an Azure Database for PostgreSQL flexible server instance.
 
-> [!NOTE]  
-> Microsoft Entra authentication for Azure Database for PostgreSQL flexible server is currently in preview.
 
 Suppose you want to learn how to create and manage Azure subscription users and their privileges. In that case, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
@@ -35,7 +33,7 @@ Your server admin user is a member of the azure_pg_admin role. However, the serv
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL flexible server, the server admin user is granted these privileges:
 
-- Sign in, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
+- Sign in, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE
 
 The server admin user account can be used to create more users and grant those users into the azure_pg_admin role. Also, the server admin account can be used to create less privileged users and roles that have access to individual databases and schemas.
 

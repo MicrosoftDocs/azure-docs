@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
 ms.date: 07/11/2023
 ms.author: malev
-#Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
+#Customer intent: I want to dynamically update my .NET app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET app
 
@@ -35,7 +35,7 @@ Finish the quickstart [Create a .NET app with App Configuration](./quickstart-do
 
 Open the `Program.cs` file and update the code configurations to match the following:
 
-### [ASP.NET Core 6.0+](#tab/core6x)
+### [.NET 6.0+](#tab/core6x)
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -72,7 +72,7 @@ if (_refresher != null)
 }
 ```
 
-### [ASP.NET Core 3.x](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.Extensions.Configuration;

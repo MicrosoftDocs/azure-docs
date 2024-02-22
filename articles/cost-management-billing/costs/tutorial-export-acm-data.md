@@ -4,12 +4,12 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2023
+ms.date: 02/09/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tutorial: Create and manage exported data
@@ -42,11 +42,11 @@ For Azure Storage accounts:
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container when configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
 - To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.  
+  - Owner role on the storage account.
   Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
-- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
+  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
+  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to generate exports to a storage account located behind a firewall, use the API version 2023-08-01 or later version. All newer API versions continue to support exports behind the firewall.
+- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
@@ -249,6 +249,9 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 If you need to export to a storage account behind the firewall for security and compliance requirements, ensure that you have all [prerequisites](#prerequisites) met.
 
+> [!NOTE]
+> If you have an existing scheduled export and your change your storage network configuration, you must update the export and save it to reflect the changes.
+
 Enable **Allow trusted Azure services access** on the storage account. You can turn that on while configuring the firewall of the storage account, from the Networking page. Here's a screenshot showing the page.
 
 :::image type="content" source="./media/tutorial-export-acm-data/allow-trusted-access.png" alt-text="Screenshot showing Allow Azure services on the trusted services list exception option." lightbox="./media/tutorial-export-acm-data/allow-trusted-access.png" :::
@@ -267,7 +270,7 @@ Add exports to the list of trusted services. For more information, see [Trusted 
 
 ### Export schedule
 
-Scheduled exports get affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs during once each UTC day. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
+Scheduled exports get affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, the export runs during once each UTC day for a daily export of month-to-date costs export set at a daily frequency. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
 
 Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
@@ -385,7 +388,7 @@ There are two runs per day for the first five days of each month after you creat
 
 ## Access exported data from other systems
 
-One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from your applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
+One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical. However, you can get started with accessing your data from your applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
 
 ## Exports FAQ
 
@@ -399,10 +402,10 @@ For new versions of Excel:
 
 1. Open Excel.
 1. Select the **Data** tab at the top.
-1. Select the **From Text/CSV** option.  
+1. Select the **From Text/CSV** option.
     :::image type="content" source="./media/tutorial-export-acm-data/new-excel-from-text.png" alt-text="Screenshot showing the Excel From Text/CSV option." lightbox="./media/tutorial-export-acm-data/new-excel-from-text.png" :::
 1. Select the CSV file that you want to import.
-1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.  
+1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.
     :::image type="content" source="./media/tutorial-export-acm-data/new-excel-file-origin.png" alt-text="Screenshot showing the Excel File origin option." lightbox="./media/tutorial-export-acm-data/new-excel-file-origin.png" :::
 1. Select **Load**.
 
