@@ -11,6 +11,7 @@ ms.author: allensu
 content_well_notification: 
   - AI-contribution
 # Customer intent: As a Network Administrator, I want to create a virtual network and subnets using Terraform.
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Virtual Network and subnets using Terraform

@@ -21,7 +21,7 @@ Deployment Environments supports catalogs hosted in Azure Repos (the repository 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
 
-Microsoft offers a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft offers a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that you can add to the dev center, and a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 ## Configure a managed identity for the dev center
 

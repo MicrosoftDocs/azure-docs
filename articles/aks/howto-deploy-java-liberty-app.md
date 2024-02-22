@@ -270,7 +270,7 @@ You can now run the `docker build` command to build the image.
 #### [Bash](#tab/in-bash)
 
 ```bash
-cd $BASE_DIR/java-app
+cd $BASE_DIR/java-app/target
 
 docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
@@ -278,9 +278,9 @@ docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Docke
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd $env:BASE_DIR\java-app
+cd $env:BASE_DIR\java-app\target
 
-docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
 
 ---
