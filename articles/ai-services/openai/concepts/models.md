@@ -55,16 +55,16 @@ To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions 
 - `text-embedding-3-small`
 - `text-embedding-ada-002`
 
-In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb)
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb)
 
-|Evaulation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
+|Evaluation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
 |---|---|---|---|
 | MIRACL average | 31.4 | 44.0 | 54.9 |
 | MTEB average | 61.0 | 62.3 | 64.6 |
 
-The 3rd generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance.
+The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance.
 
-OpenAI's MTEB benchmark testing found that even when the 3rd generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1536 dimensions performance remains better.
+OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
 ## DALL-E (Preview)
 

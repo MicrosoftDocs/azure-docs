@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure OpenAI Service?
 titleSuffix: Azure AI services
-description: Learn about the latest news and features updates for Azure OpenAI
+description: Learn about the latest news and features updates for Azure OpenAI.
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
@@ -24,12 +24,12 @@ This model has various improvements, including higher accuracy at responding in 
 
 For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
 
-### 3rd generation embeddings models available
+### Third generation embeddings models available
 
 - `text-embedding-3-large`
 - `text-embedding-3-small`
 
-In testing, OpenAI reports both the large and small 3rd generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the 2nd generation text-embedding-ada-002 model.
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the second generation text-embedding-ada-002 model.
 
 For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
 
