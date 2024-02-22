@@ -39,7 +39,7 @@ The following diagram shows EFK architecture:
  [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture-expanded.png#lightbox)
 
 > [!NOTE]
-> The linked content is available only to customers with a current Affirmed Networks' support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
+> The linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
 
 The EFK logging framework includes the following components:
 

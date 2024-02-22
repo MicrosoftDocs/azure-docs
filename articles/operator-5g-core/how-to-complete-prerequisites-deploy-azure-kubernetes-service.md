@@ -1,15 +1,15 @@
 ---
-title: Deploy Azure Operator 5G Core on Azure Kubernetes Service
-description: Learn how to deploy Azure Operator 5G Core on the Azure Kubernetes Service
+title: Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/21/2024
+ms.date: 02/22/2024
 
 ---
 
-# Deploy Azure Operator 5G Core on Azure Kubernetes Service
+# Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
 
 This article shows you how to deploy Azure Operator 5G Core on the Azure Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
@@ -119,7 +119,9 @@ Add System and User type node pools to the cluster with custom Linux configurati
 |linuxosconfig |"transparentHugePageEnabled: never". Configure **sysctls** settings as shown in Example ```linuxosconfig.json``` contents. |
 
 The following example command adds the **System** node pool to the cluster:
-```
+
+```azurecli
+
 az aks nodepool add \
    --name system \
    --cluster-name ao5gce2e \
@@ -136,7 +138,9 @@ az aks nodepool add \
    --linux-os-config ./linuxosconfig.json
 ```
 The following example command adds the **User** node pool to the cluster:
-```
+
+```azurecli
+
 az aks nodepool add \
    --name dataplane \
    --cluster-name ao5gce2e \
@@ -229,8 +233,8 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 --group-id "file" --connection-name snet1-cnct
 ```
 
-## Next steps
+## Related content
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core observability](quickstart-deploy-observability.md).
+- [Deploy Azure Operator 5G Core](how-to-deploy-5g-core.md).
 - [Deploy a network function](quickstart-deploy-network-functions.md).
