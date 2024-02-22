@@ -32,6 +32,8 @@
       href: concepts-security.md
     - name: Control Plane Resiliency
       href: concepts-rack-resiliency.md
+    - name: Route Policy
+      href: concepts-nexus-route-policies-overview.md
     - name: Availability
       href: concepts-nexus-availability.md
 - name: Quickstarts
@@ -217,6 +219,15 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Route Policy
+      expanded: false
+      items:
+        - name: Route Policy configuration
+          href: reference-route-policy-configuration.md
+        - name: Route Policy Configuration Examples
+          href: reference-nexus-route-policy-config-examples.md
+        - name: Route Policy operations
+          href: reference-nexus-route-policy-operations.md
     - name: Access Control Lists
       expanded: false
       items:
