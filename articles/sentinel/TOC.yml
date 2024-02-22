@@ -1008,12 +1008,6 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
-    - name: Configure big data analytics settings
-      href: notebooks-with-synapse.md
-    - name: Export and transform historical log data
-      href: notebooks-with-synapse-export-data.md
-    - name: Hunt on large historical datasets
-      href: notebooks-with-synapse-hunt.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -1181,7 +1175,7 @@
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md#all
+        href: ../role-based-access-control/built-in-roles.md
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
   - name: Advanced Security Information Model (ASIM)

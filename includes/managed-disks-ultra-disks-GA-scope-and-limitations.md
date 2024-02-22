@@ -4,12 +4,12 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 01/29/2024
+ms.date: 02/19/2024
 ms.author: rogarana
 ms.custom: include file
 ---
 
-The following list contains Ultra disks's limitations:
+The following list contains Ultra Disks's limitations:
 - Can't be used as OS disks.
 - Doesn't support disk export.
 - Doesn't support VM images.
@@ -21,11 +21,11 @@ The following list contains Ultra disks's limitations:
 - Existing disks currently can't change their type to an Ultra Disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk).
 - Currently only supports Single VM and Availability zone infrastructure options.
 - Snapshots are supported with [additional limitations](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks).
-- Azure Backup supports VMs with Ultra Disks as a [public preview](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support).
+- Azure Backup support for VMs with Ultra Disks is [generally available](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). Azure Backup has limitations when using Ultra Disks, see [VM storage support](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support) for details.
 
-Ultra disks support a 4k physical sector size by default but also supports a 512E sector size. Most applications are compatible with 4k sector sizes, but some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+Ultra disks support a 4k physical sector size by default but also supports a 512E sector size. Most applications are compatible with 4k sector sizes, but some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
 
-The following table outlines the regions ultra disks are available in, as well as their corresponding availability options.
+The following table outlines the regions ultra disks are available in, and their corresponding availability options.
 
 > [!NOTE]
 > If a region in the following list lacks availability zones that support ultra disks, then a VM in that region must be deployed without infrastructure redundancy in order to attach an ultra disk.
@@ -37,7 +37,7 @@ The following table outlines the regions ultra disks are available in, as well a
 | **Two availability zones** | South Africa North <br/> China North 3 <br/>France Central <br/>Qatar Central <br/> Switzerland North |
 | **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 
-Not every VM size is available in every supported region with ultra disks. The following table lists VM series which are compatible with ultra disks.
+Not every VM size is available in every supported region with ultra disks. The following table lists VM series that are compatible with ultra disks.
 
 |VM Type     |Sizes    |Description  |
 |------------|---------|-------------|

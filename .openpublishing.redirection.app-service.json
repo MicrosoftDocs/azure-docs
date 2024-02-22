@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/app-service/security-recommendations.md",
+            "redirect_url": "/security/benchmark/azure/baselines/app-service-security-baseline",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/scenario-secure-app-authentication-app-service-as-user.md",
             "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service",
             "redirect_document_id": false

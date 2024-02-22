@@ -122,7 +122,7 @@ The structure of the JSON is:
     {
       "sourceServerPassword": "<password>",
       "targetServerPassword": "<password>"
-    }
+    },
    "sourceServerUserName": "<username>@<servername>",
    "targetServerUserName": "<username>"
 },
@@ -162,13 +162,13 @@ Note these important points for the command response:
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in France Central, Germany West Central, North Europe, South Africa North, UAE North, all regions across Asia, Australia, UK and public US regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. **Online migrations preview** is currently available in all public clouds and in China regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 #### Setup replication
 
-If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it isn't turned on, the migration tool automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration, using the below command. Note that either approach of turning on logical replication restarts the source Single server.
+If **Online** migration preview is selected, it requires Logical replication to be turned on in the source Single server. If it isn't turned on, the migration tool automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration, using the below command. Note that either approach of turning on logical replication restarts the source Single server.
 
 For example:
 

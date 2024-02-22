@@ -8,7 +8,7 @@ ms.date: 07/28/2023
 ms.author: mahender
 ---
 
-When you migrate your function app, you have the opportunity to choose the target version of .NET. You can upgrade your C# project to one of the following versions of .NET that are supported by Functions version 4.x: 
+When you migrate your function app, you have the opportunity to choose the target version of .NET. You can update your C# project to one of the following versions of .NET that are supported by Functions version 4.x: 
 
 | .NET version | [.NET Official Support Policy] release type |  Functions process model<sup>1</sup> | 
 | --- | --- | --- |
