@@ -1,3 +1,19 @@
+title: Radiology Insights documentation TOC
+summary: Radiology Insights is offered within the context of the broader Azure AI Health Insights. It augments traditional clinical natural language processing tools by adding inferences positively impacting the radiology documentation workflow and enabling analysis and quality follow-up.
+
+metadata:
+  title: Radiology Insights documentation TOC
+  titleSuffix: Azure AI Health Insights
+  description: enable healthcare organizations to ...
+  ms.service: Azure AI Health Insights
+  ms.topic: TOC 
+  author: JanSchietse
+  ms.collection: collection
+  ms.author: JanSchietse
+  ms.date: 12/12/2023
+
+
+
 items: 
 - name: Radiology Insights
   href: index.yml
