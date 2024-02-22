@@ -7,7 +7,7 @@ ms.date: 01/30/2024
 
 Run the following command in PowerShell to add or change a session host's friendly name:
 
-```powershell
+```azurepowershell
 $parameters = @{
    HostPoolName = 'HostPoolName'
    Name = 'SessionHostName'
@@ -24,7 +24,7 @@ Update-AzWvdSessionHost @parameters
 
 To get the session host friendly name, run the following command in PowerShell:
 
-```powershell
+```azurepowershell
 $sessionHostParams = @{
   HostPoolName = 'HostPoolName'
   Name = 'SessionHostName'
