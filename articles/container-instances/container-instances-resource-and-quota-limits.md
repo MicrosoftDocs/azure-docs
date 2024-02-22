@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Resource availability & quota limits for ACI
 
-This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). For product feature availability in Azure regions, see [Region availability](container-instances-region-availability.md).
+This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
 
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
