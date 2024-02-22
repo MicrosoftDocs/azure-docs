@@ -38,7 +38,7 @@ landingContent:
             url: astronomer-troubleshoot.md
       - linkListType: overview
         links:
-          - text: Resources and tools for Apache Airflow on Astro 
+          - text: Astro resources and developer tools 
             url: astronomer-tools.md
   #Card
   - title: SDKs and command-lines
