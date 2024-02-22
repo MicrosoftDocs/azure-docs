@@ -56,7 +56,7 @@ Use the VM requirements to set up a suitable VM for the ingestion agent. Use the
 
 ### VM requirements
 
-Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
+Each agent instance must run on its own Linux VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
 
 Latency on the MCC to agent connection can negatively affect throughput. Latency should usually be low if the MCC and agent are colocated or the agent runs in an Azure region close to the MCC.
 

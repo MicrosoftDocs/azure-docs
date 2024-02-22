@@ -79,7 +79,7 @@ For example, if you need to collect from two file sources, you could:
 
 ### VM requirements
 
-Each VM running the agent must meet the following minimum specifications.
+Each Linux VM running the agent must meet the following minimum specifications.
 
 | Resource | Requirements                                                        |
 |----------|---------------------------------------------------------------------|
