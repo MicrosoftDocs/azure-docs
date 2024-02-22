@@ -24,6 +24,7 @@ For instance, in the scenario as listed in the table below, Node 1 is under node
 |Node 2 |0/100         |                  |                  |                    |
 
 While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the Node 1 capacity violation. The Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1.
+
 |Node   |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
 |:------|:------|:------|:------|:------|
 |Node 1 |120/100       |60                |60                |                  |
