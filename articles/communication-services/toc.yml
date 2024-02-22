@@ -401,8 +401,6 @@ items:
           href: how-tos/ui-library-sdk/one-to-one-calling.md
         - name: Audio Only Mode
           href: how-tos/ui-library-sdk/audio-only-mode.md
-        - name: Collecting User Feedback
-          href: how-tos/ui-library-sdk/collecting-user-feedback.md
         - name: Troubleshoot
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
