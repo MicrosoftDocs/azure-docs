@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 This article describes common tasks for managing and monitoring the Azure File shares that are backed up by [Azure Backup](./backup-overview.md). You'll learn how to do management tasks in **Backup center**.
 
-Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental deletion.
+Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental or malicious deletion.
 
 >[!Note]
 >Vaulted backup for Azure File share is currently in preview.

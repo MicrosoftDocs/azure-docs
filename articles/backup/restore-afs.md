@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 This article describes how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
 
-Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental deletion.
+Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental or malicious deletion.
 
 >[!Note]
 >Vaulted backup for Azure File share is currently in preview.
