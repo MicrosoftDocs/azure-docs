@@ -73,7 +73,7 @@
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Replicate a DNS outage by using the NSG fault
-    href: chaos-studio-dns-outage.md
+    href: chaos-studio-quickstart-dns-outage.md
   - name: Experiment templates
     items: 
     - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
