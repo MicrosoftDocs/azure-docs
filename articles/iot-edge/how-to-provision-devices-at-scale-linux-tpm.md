@@ -325,46 +325,46 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
 
-Apply the configuration changes that you made on the device.
+1. Apply the configuration changes that you made on the device.
 
-# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
-```bash
-sudo iotedge config apply
-```
-
-# [Ubuntu Core snaps](#tab/snaps)
-
-```bash
-sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
-```
-
----
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+    ```bash
+    sudo iotedge config apply
+    ```
+    
+    # [Ubuntu Core snaps](#tab/snaps)
+    
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+    
+    ---
 
 ## Verify successful installation
 
 If you didn't already, apply the configuration changes that you made on the device.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+```bash
+sudo iotedge config apply
+```
 
 Check to see that the IoT Edge runtime is running.
 
    ```bash
-   sudo iotedge system status
-   ```
+sudo iotedge system status
+```
 
 Examine daemon logs.
 
-   ```cmd/sh
-   sudo iotedge system logs
-   ```
+```cmd/sh
+sudo iotedge system logs
+```
 
 If you see provisioning errors, it might be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+```bash
+sudo systemctl daemon-reload
+```
 
 Or, try restarting your VM to see if the changes take effect on a fresh start.
 
