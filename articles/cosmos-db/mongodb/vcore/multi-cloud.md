@@ -16,7 +16,7 @@ Azure Cosmos DB for MongoDB vCore represents a groundbreaking approach to databa
 At the heart of Azure Cosmos DB for MongoDB vCore's success is its compatibility with the MongoDB wire protocol. This compatibility ensures that Azure Cosmos DB seamlessly integrates with MongoDB's ecosystem, including services hosted in other clouds and on-premises environments. It allows for a wide range of MongoDB tools and applications to communicate with Azure Cosmos DB without any modifications, ensuring a smooth and efficient migration or integration process.
 
 ## Multi-Cloud and On-Premises Support
-The support for MongoDB wire protocol extends Azure Cosmos DB for MongoDB vCore's reach beyond Azure, making it an ideal solution for multi-cloud strategies. Organizations can leverage Azure Cosmos DB alongside other MongoDB services across different cloud providers or in on-premises data centers. This flexibility facilitates a hybrid cloud approach, allowing businesses to distribute their workloads across various environments based on their unique requirements and constraints.
+The support for MongoDB wire protocol extends Azure Cosmos DB for MongoDB vCore's reach beyond Azure, making it an ideal solution for multi-cloud strategies. Organizations can use Azure Cosmos DB alongside other MongoDB services across different cloud providers or in on-premises data centers. This flexibility facilitates a hybrid cloud approach, allowing businesses to distribute their workloads across various environments based on their unique requirements and constraints.
 
 ## Familiar Architecture and Easy Migration
 Azure Cosmos DB for MongoDB vCore is designed with a familiar architecture that reduces the learning curve and operational overhead for teams accustomed to MongoDB. This design philosophy makes it straightforward to "lift and shift" existing MongoDB databases to Azure Cosmos DB, or move them back to on-premises or another cloud provider if needed. The ease of migration and interoperability ensures that organizations are not locked into a single vendor, providing the freedom to choose the best environment for their needs.
@@ -29,8 +29,8 @@ Azure Cosmos DB for MongoDB vCore stands out as a flexible, multi-cloud compatib
 
 ## Next steps
 
-- Get started by [creating a cluster](quickstart-portal.md).
-- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](migration-options.md)
+- Get started by [creating a cluster.](quickstart-portal.md).
+- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore.](migration-options.md)
 
 
 
