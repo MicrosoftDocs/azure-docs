@@ -4,8 +4,8 @@ description: This article shows you how to create a new log search alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 11/27/2023
-ms.reviewer: harelbr
+ms.date: 02/22/2024
+ms.reviewer: nolavime
 ---
 
 # Create or edit a log search alert rule
@@ -84,7 +84,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     Select values for these fields:
 
     -  **Resource ID column**: In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
-        - use the ARM **Azure Resource ID** column as a dimension
+        - use the ARM **Azure Resource ID** column as a dimension (notice that by using this option the alert will be fired on the **workspace** with the **Azure Resource ID** column as a dimension.
         - specify it as a dimension in the Azure Resource ID property, which makes the resource returned by your query the target of the alert, so alerts are fired on the resource returned by your query, such as a virtual machine or a storage account, as opposed to in the workspace. When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that is different from the alert rule subscription. 
 
     |Field  |Description  |
