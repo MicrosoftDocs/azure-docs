@@ -25,7 +25,7 @@ In this article, you learn how to create a linked service that links your [Azure
 
 With an Azure Machine Learning workspace, linked with an Azure Synapse workspace, you can attach an Apache Spark pool, powered by Azure Synapse Analytics, as a dedicated compute resource. You can use this resource for data wrangling at scale, or you can conduct model training - all from the same Python notebook.
 
-You can link your ML workspace and Synapse workspace with the [Python SDK](##link-workspaces-with-the-python-sdk) or the [Azure Machine Learning studio](##link-workspaces-via-studio). You can also link workspaces, and attach a Synapse Spark pool, with a single [Azure Resource Manager (ARM) template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json).
+You can link your ML workspace and Synapse workspace with the [Python SDK](#link-workspaces-with-the-python-sdk) or the [Azure Machine Learning studio](#link-workspaces-via-studio). You can also link workspaces, and attach a Synapse Spark pool, with a single [Azure Resource Manager (ARM) template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json).
 
 ## Prerequisites
 
