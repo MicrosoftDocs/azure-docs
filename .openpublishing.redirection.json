@@ -2291,14 +2291,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/automation/automation-solution-vm-management.md",
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
             "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
             "redirect_document_id": false
-        },
-        {
-             "source_path_from_root": "/articles/automation/how-to/region-mappings.md",
-             "redirect_url": "/azure/azure-functions/start-stop-vms/overview",
-             "redirect_document_id": false
         },
         {
              "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
