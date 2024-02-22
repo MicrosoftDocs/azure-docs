@@ -6,6 +6,7 @@ metadata:
   ms.date: 02/16/2024
   content_well_notification: 
     - AI-contribution
+  ai-usage: ai-assisted
 
 title: Frequently asked questions for managing resources with Azure Resource Manager
 summary: |
