@@ -6,9 +6,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+### iOS Support Overview 
+
 To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and support requests, directly within iOS applications and submitting this data to a server for processing. Below, we detail the steps necessary to accomplish this, maintaining consistency in format and tone with the Android section.
 
-### Enabling Support Form Submission in iOS
+In this example, we will be leveraging the [Alamofire](https://github.com/Alamofire/Alamofire) library to handle sending a multi-part form, including log files, to the server.
 
 #### Implementing the Support Form
 
@@ -38,6 +40,22 @@ To integrate user feedback collection within iOS applications using the Azure Co
 
 The Swift code sample below outlines a basic implementation for capturing user-reported issues and submitting them to a server for processing. This example demonstrates how to construct a support event, including user feedback and application diagnostic information, and send it asynchronously to a predefined server endpoint. The code also includes error handling and user notification strategies to ensure a smooth user experience.
 
+The following example is designed to be a hook to be installed within your Event Handler. 
+
+#### Installation
+```swift
+let onUserReportedIssueHandler: (CallCompositeUserReportedIssue) -> Void = { issue in
+    // Add a hook to this method, and provide it the Server endpoint + a result callback
+    sendSupportEventToServer(server: self.issueUrl, event: issue) { success, result in
+        if success {
+            // Success: Convey the result link back to the user
+        } else {
+            // Error: Let the user know something has happened
+        }
+    }
+}
+```
+#### Network Hook
 
 ```swift
 import Foundation
