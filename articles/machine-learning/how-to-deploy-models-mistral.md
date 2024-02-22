@@ -15,7 +15,7 @@ ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-mistral.md
 ---
-
+# How to deploy Mistral models with Azure Machine Learning studio
 Mistral AI offers two categories of models in ML Studio:
 
 1. Premium models: Mistral-large. These models are available with pay-as-you-go token based billing with Models as a Service in the ML Studio model catalog. 
@@ -23,7 +23,7 @@ Mistral AI offers two categories of models in ML Studio:
    
 You can browse the Mistral family of models in the Model Catalog by filtering on the Mistral collection. 
 
-# How to deploy Mistral-large with Azure Machine Learning studio
+## Mistral-large
 
 In this article, you learn how to use Azure AI Studio to deploy the Mistral-large model as a service with pay-as you go billing.
 
@@ -277,8 +277,6 @@ Mistral models deployed as a service are offered by Mistral AI through Azure Mar
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
 For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
-
-:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offerings and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
