@@ -6256,11 +6256,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/mongodb/mongodb-faq.yml",
-      "redirect_url": "/azure/cosmso-db/mongodb/faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/migration-choices.md",
       "redirect_url": "/azure/cosmos-db",
       "redirect_document_id": false
