@@ -824,8 +824,6 @@
       href: connect-dns-ama.md   
     - name: Custom log sources
       href: connect-custom-logs.md
-    - name: GCP audit logs
-      href: connect-google-cloud-platform.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -838,6 +836,8 @@
       href: connect-aws.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.md
+    - name: Google Cloud Platform connectors 
+      href: connect-google-cloud-platform.md
     - name: Azure Active Directory
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
