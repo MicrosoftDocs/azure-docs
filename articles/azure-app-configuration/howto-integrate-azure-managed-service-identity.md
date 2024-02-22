@@ -45,14 +45,16 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/en-us/free/).
+* An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
-* [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/en-us/free/).
+* An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
@@ -78,7 +80,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com), select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
+1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 
 1. Select **Access control (IAM)**.
 

@@ -28,6 +28,12 @@ In this tutorial, you will learn how to:
 > * Add feature flags in key parts of your application to control feature availability.
 > * Integrate with App Configuration when you're using it to manage feature flags.
 
+## Prerequisites
+
+Follow the documents to create an ASP.NET Core app with feature flags.
+- [Quickstart: Create an ASP.NET Core app with Azure App Configuration](./quickstart-aspnet-core-app.md)
+- [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md)
+
 ## Set up feature management
 
 To access the .NET feature manager, your app must have references to the `Microsoft.Azure.AppConfiguration.AspNetCore` and `Microsoft.FeatureManagement.AspNetCore` NuGet packages.

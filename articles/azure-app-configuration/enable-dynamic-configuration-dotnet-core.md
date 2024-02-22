@@ -33,7 +33,7 @@ Finish the quickstart [Create a .NET app with App Configuration](./quickstart-do
 
 ## Activity-driven configuration refresh
 
-Open the `Program.cs` file and update the code configurations to match the following:
+Open *Program.cs* and update the file with the following code.
 
 ```csharp
 using Microsoft.Extensions.Configuration;

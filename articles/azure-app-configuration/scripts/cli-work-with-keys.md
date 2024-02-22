@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script Sample - Work with key-values in App Configuration Store
 titleSuffix: Azure App Configuration
-description: Use Azure CLI script to create, view, update and delete key values from App Configuration store
+description: Use Azure CLI script to create, view, update and delete key-values from App Configuration store
 services: azure-app-configuration
 author: maud-lv
 
