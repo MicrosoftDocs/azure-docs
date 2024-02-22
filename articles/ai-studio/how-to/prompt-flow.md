@@ -108,4 +108,5 @@ If the prompt flow tools in Azure AI Studio don't meet your requirements, you ca
 ## Next steps
 
 - [Build with prompt flow in Azure AI Studio](flow-develop.md)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Get started with prompt flow in VS Code](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html)
