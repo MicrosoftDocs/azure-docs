@@ -111,7 +111,10 @@ On the SFTP server:
 Repeat these steps for each VM onto which you want to install the agent.
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
-1. Install systemd, logrotate, and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
+1. Install systemd, logrotate, and zip on the VM, if not already present. For example:
+    ```
+    sudo dnf install systemd logrotate zip
+    ```
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
@@ -121,7 +124,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     1. Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
         - Port 443/TCP outbound to Azure
         - Port 22/TCP outbound to the SFTP server
-    1. Create a directory to use for storing secrets for the agent. We call this the _secrets directory_. Note its path.
+    1. Create a directory to use for storing secrets for the agent. We call this directory the _secrets directory_. Note its path.
     1. Create a file in the secrets directory containing password or private SSH key for the SFTP server.
        - The file must not have a file extension.
        - Choose an appropriate name for this file, and note it for later. This name is referenced in the agent configuration.
@@ -142,7 +145,7 @@ Repeat these steps for each VM onto which you want to install the agent.
 
 ## Ensure that VM can resolve Microsoft hostnames
 
-Check that the VM can resolve public hostnames to IP addresses. For example, open an SSH session and use `dig login.microsoftonline.com` to check that that the VM can find resolve this to an IP address.
+Check that the VM can resolve public hostnames to IP addresses. For example, open an SSH session and use `dig login.microsoftonline.com` to check that the VM can resolve `login.microsoftonline.com` to an IP address.
 
 If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [map the required hostnames to IP addresses](map-hostnames-ip-addresses.md). Return to this procedure when you have finished the configuration.
 

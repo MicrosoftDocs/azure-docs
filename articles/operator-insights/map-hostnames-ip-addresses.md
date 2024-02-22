@@ -20,14 +20,14 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 ## Prerequisites
 
 - Peer an Azure virtual network to your ingestion agent.
-- [Create the Data Product that you want to use with this ingestion agent](data-product-create.md)
+- [Create the Data Product that you want to use with this ingestion agent](data-product-create.md).
 - [Set up authentication to Azure](set-up-ingestion-agent.md#set-up-authentication-to-azure) and [Prepare the VMs](set-up-ingestion-agent.md#prepare-the-vms) for the ingestion agent.
 
 ## Create service endpoints and private links
 
 1. Create the following resources from a virtual network that is peered to your ingestion agents.
     - A Service Endpoint to Azure Storage.
-    - A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](set-up-ingestion-agent.md#grant-permissions-for-the-data-product-key-vault) when you started setting up the ingestion agent.
+    - A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one that you found in [Grant permissions for the Data Product Key Vault](set-up-ingestion-agent.md#grant-permissions-for-the-data-product-key-vault) when you started setting up the ingestion agent.
 1. Note the IP addresses of these two connections.
 
 ## Find URLs for your Data Product
