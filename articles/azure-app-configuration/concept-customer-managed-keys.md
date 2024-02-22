@@ -40,7 +40,7 @@ After these resources are configured, use the following steps so that the Azure 
 
 ## Enable customer-managed key encryption for your App Configuration store
 
-1. [Create an App Configuration store](quickstart-azure-app-configuration-create) if you don't have one.
+1. [Create an App Configuration store](./quickstart-azure-app-configuration-create) if you don't have one.
 1. Create an Azure Key Vault by using the Azure CLI.
 
 
