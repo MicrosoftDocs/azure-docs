@@ -79,9 +79,9 @@ language and use a unordered list format.
 -->
 
 ## Prerequisites
-[!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
+[!INCLUDE [communications-gateway-tsp-restriction](../communications-gateway/includes/communications-gateway-tsp-restriction.md)]
 
-[!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
+[!INCLUDE [communications-gateway-deployment-prerequisites](../communications-gateway/includes/communications-gateway-deployment-prerequisites.md)]
 
 <!-- 4. H2s (Article body)
 --------------------------------------------------------------------
