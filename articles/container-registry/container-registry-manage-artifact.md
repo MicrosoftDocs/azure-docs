@@ -238,7 +238,7 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
  oras manifest delete $REGISTRY/samples/artifact:readme
 ```
 
-## Attach, push, and pull supply chain artifacts using Azure Container Registry (Preview)
+## Attach, push, and pull supply chain artifacts using Azure Container Registry
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover` and `pull` a graph of supply chain artifacts to an Azure container registry.
 Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
