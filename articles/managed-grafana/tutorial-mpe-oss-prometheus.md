@@ -1,6 +1,26 @@
-# Tutorial: Connect to self-hosted Prometheus on an AKS Cluster through managed private endpoint
+---
+title: Connect to self-hosted Prometheus on an AKS cluster via managed private endpoint
+titleSuffix: Azure Managed Grafana
+description: In this tutorial, learn how to connect to self-hosted Prometheus on an AKS Cluster using a managed private endpoint.
+services: managed-grafana
+author: maud-lv
+ms.topic: tutorial
+ms.date: 02/21/2024
+ms.author: malev
+---
 
-This guide will walk you through the steps to install Prometheus, an open-source monitoring and alerting toolkit, on an Azure Kubernetes Service (AKS) cluster. Then use an Azure Managed Grafana (AMG) feature called managed private endpoint (MPE) to connect to this Prometheus server.
+# Tutorial: connect to a self-hosted Prometheus service on an AKS cluster using a managed private endpoint
+
+This guide walks you through the steps of installing Prometheus, an open-source monitoring and alerting toolkit, on an Azure Kubernetes Service (AKS) cluster. Then you use Azure Managed Grafana's managed private endpoint to connect to this Prometheus server and display the Prometheus data in a Grafana dashboard.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Kubernetes Service Cluster
+> * Install Prometheus
+> * Add a private link service to the Prometheus server
+> * Connect with managed private endpoint
+> * Display Prometheus data in a Grafana dashboard
 
 ## Prerequisites
 
@@ -11,89 +31,97 @@ Before you begin, make sure you have the following:
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
 
-## Create an Azure Kubernetes Service (AKS) Cluster
+## Create an Azure Kubernetes Service Cluster
 
-Sign into the Azure CLI by running the login command.
-```
-az login
-```
+1. Sign into the Azure CLI by running the `az login` command.
 
-If you have multiple Azure subscriptions, you can select your Azure subscription with this command.
-```
-az account set -s <your-azure-subscription-id>
-```
+    ```azurecli
+    az login
+    ```
 
-Install or update kubectl.
-```
-az aks install-cli
-```
+  If you have multiple Azure subscriptions, select your Azure subscription with the command `az account set -s <your-azure-subscription-id>`.
 
-Create two bash/zsh variables which we will use in subsequent commands. You may change the syntax below if you are using another shell.
-```
-RESOURCE_GROUP=amg-mpe-sample-rg
-AKS_NAME=mpe-target-aks
-```
+1. Install or update kubectl.
 
-Create a resource group. We have chosen to create this in the westcentralus Azure region.
-```
-az group create --name $RESOURCE_GROUP --location westcentralus
-```
+    ```azurecli
+    az aks install-cli
+    ```
 
-Create a new AKS cluster using the az aks create command. Here we create a 3 node cluster using the B-series Burstable VM type which is cost-effective and suitable for small test/dev workloads such as this.
-```
-az aks create --resource-group $RESOURCE_GROUP \
-  --name $AKS_NAME \
-  --node-count 3 \
-  --node-vm-size Standard_B2s \
-  --generate-ssh-keys
-```
-This may take a few minutes to complete.
+1. Create two bash/zsh variables, which we'll use in subsequent commands. Change the syntax below if you're using another shell.
 
-Authenticate to the cluster we have just created.
-```
-az aks get-credentials \
-  --resource-group $RESOURCE_GROUP \
-  --name $AKS_NAME
-```
-We can now access our Kubernetes cluster with kubectl. Use kubectl to see the nodes we have just created.
+    ```bash
+    RESOURCE_GROUP=myResourceGroup 
+    AKS_NAME=myaks
+    ```
 
-```
-kubectl get nodes
-```
+1. Create a resource group. In this example, we create the resource group in the  West Central US Azure region.
 
+    ```azurecli
+    az group create --name $RESOURCE_GROUP --location westcentralus
+    ```
 
-# Install Prometheus
- 
+1. Create a new AKS cluster using the [az aks create](/cli/azure/aks#az-aks-create) command. Here we create a three-node cluster using the B-series Burstable virtual machine type, which is cost-effective and suitable for small test/dev workloads such as this.
 
-One really popular way of installing Prometheus is through the [prometheus-operator](https://prometheus-operator.dev/), which provides Kubernetes native deployment and management of [Prometheus](https://prometheus.io/) and related monitoring components. We are going to use the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart to deploy the prometheus-operator.
+    ```azurecli
+    az aks create --resource-group $RESOURCE_GROUP \
+      --name $AKS_NAME \
+      --node-count 3 \
+      --node-vm-size Standard_B2s \
+      --generate-ssh-keys
+    ```
 
- 
+    This operation may take a few minutes to complete.
 
-Add its repository to our repository list and update it.
-```
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-```
+1. Authenticate to the cluster you've created.
 
-Install the Helm chart into a namespace called monitoring, which will be created automatically.
-```
-helm install prometheus \
-  prometheus-community/kube-prometheus-stack \
-  --namespace monitoring \
-  --create-namespace
-```
+    ```azurecli
+    az aks get-credentials \
+      --resource-group $RESOURCE_GROUP \
+      --name $AKS_NAME
+    ```
 
-The helm command will prompt you to check on the status of the deployed pods.
-```
-kubectl --namespace monitoring get pods
-```
+    You can now access your Kubernetes cluster with kubectl.
 
-Make sure the pods all "Running" before you continue. If in the unlikely circumstance they do not reach the running state, you may want to troubleshoot them.
+1. Use kubectl to see the nodes you've created.
 
-# Add a private link service to the Prometheus server
-Azure [Private Link service](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview) allows consuming your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) that you can easily annotate a Kubernets service object to create a corresponding private link service azure resource.
+    ```console
+    kubectl get nodes
+    ```
+
+## Install Prometheus
+
+A popular way of installing Prometheus is through the [prometheus-operator](https://prometheus-operator.dev/), which provides Kubernetes native deployment and management of [Prometheus](https://prometheus.io/) and related monitoring components. In this tutorial, we use [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) Helm charts to deploy the prometheus-operator.
+
+1. Add the helm-charts repository and then update your repository list.
+
+    ```console
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    helm repo update
+    ```
+
+1. Install the Helm chart into a namespace called monitoring. This namespace is created automatically.
+
+    ```console
+    helm install prometheus \
+      prometheus-community/kube-prometheus-stack \
+      --namespace monitoring \
+      --create-namespace
+    ```
+
+1. The helm command prompts you to check the status of the deployed pods. Run the following command.
+
+    ```console
+    kubectl --namespace monitoring get pods
+    ```
+
+1. Make sure the pods all "Running" before you continue. If in the unlikely circumstance they don't reach the running state, you may want to troubleshoot them.
+
+## Add a private link service to the Prometheus server
+
+Azure [Private Link service](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
 
 pls-prometheus-svc.yaml content:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -118,24 +146,46 @@ spec:
       targetPort: 9090
 ```
 
-```
+1. Run the following command to add the private link service to the Prometheus server.
+
+```console
 kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
 ```
 
-After a few minutes, you will be able to see the private link service with name `promManagedPls` being created in the AKS managed resource group.
-![AKS created Private Link Service](media/managed-private-endpoint/pls-prometheus.png)
+1. The private link service with name `promManagedPls` is created in the AKS managed resource group. This process takes a few minutes.
 
-# Connect with managed private endpoint
-You can use [Azure portal to create an Azure Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/quickstart-managed-grafana-portal) easily. After this, we can create a [managed private endpoint](https://learn.microsoft.com/en-us/azure/managed-grafana/how-to-connect-to-data-source-privately) to connect to the private link service.
-1. Create a new managed private endpoint by clicking 'Network' -> 'Managed Private Endpoint' -> 'Create'.
-![Create mpe](media/managed-private-endpoint/create-mpe.png)
-2. After select 'Private link services' in the target resource type, you can select the private link service with name `promManagedPls` created in the above step. Each managed private endpoint will get a private IP address. You can also provide a domain name for this managed private endpoint. The AMG service will ensure that this domain will be resolved to the managed private endpoint's private IP inside the AMG environment. e.g. I am setting the domain as `*.prom.my-own-domain.com`.
-![Prometheus mpe info](media/managed-private-endpoint/pls-mpe-create-info.png)
-3. Approve the private endpoint connection inside the private link service Azure portal UI.
-![Approve pls connection](media/managed-private-endpoint/pls-approve-connection.png)
-4. After the private endpoint connection is approved, please click the 'Refresh' button to synchronize the `Connection state`. It should show as 'Approved' in the `Connection state`.
-![Sync mpe status](media/managed-private-endpoint/mpe-sync.png)
-5. Add Prometheus data source in Grafana UI. The URL can be `http://prom-service.prom.my-own-domain.com:9090`.
-![mpe Prometheus data source](media/managed-private-endpoint/mpe-prom-datasource.png)
-6. Try the data source using sample '[Node Explorter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)' dashboard. You can import the dashboard with Id `1860` to leverage the self-hosted Promethues.
-![Sample Prometheus dashboard](media/managed-private-endpoint/prom-sample-dashboard-1860.png)
+    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-prometheus.png" alt-text="Screenshot of the Azure platform: showing the created Private Link Service resource.":::
+
+## Connect with a managed private endpoint
+
+1. If you don't have an Azure Managed Grafana workspace yet, create one by [following this quickstart](./quickstart-managed-grafana-portal).
+1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Create**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/create-managed-private-endpoint.png" alt-text="Screenshot of the Azure platform showing the managed private endpoints page within an Azure Managed Grafana resource.":::
+
+1. Enter a name for your managed private endpoint and select your Azure subscription.
+1. For **Resource type** select **Microsoft.Network/privateLinkServices (Private link services)**, and for **Target resource**, select the `promManagedPls` private link service created in the above step. Each managed private endpoint gets a private IP address. You can also provide a domain name for this managed private endpoint. The Azure Managed Grafana service ensures that this domain is resolved to the managed private endpoint's private IP inside the Azure Managed Grafana environment. For example, set the domain to `*.prom.my-own-domain.com`.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-managed-private-endpoint-create-info.png" alt-text="Screenshot of the Azure platform showing Prometheus information entered for the new managed private endpoint.":::
+
+1. Approve the private endpoint connection by going to the promManagedPls resource. Under **Settings**, go **Private endpoint connections**, select your connection using the checkbox and **Approve**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-approve-connection.png" alt-text="Screenshot of the Azure platform showing the Approve connection action.":::
+
+1. After the private endpoint connection is approved, go back to your Azure Managed Grafana resource and select the **Refresh** button in the Managed Private Endpoint tab to synchronize the `Connection state`. It should now show as **Approved**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-sync.png" alt-text="Screenshot of the Azure platform showing the Refresh button.":::
+
+## Display Prometheus data in a Grafana dashboard
+
+1. Add the Prometheus data source to Grafana from your Grafana portal. For more information, go to [Add a data source](./how-to-data-source-plugins-managed-identity.md#add-a-data-source). Our Prometheus URL is `http://prom-service.prom.my-own-domain.com:9090`.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-prom-datasource.png" alt-text="Screenshot of the Azure platform showing the Refresh button.":::
+
+1. To leverage your self-hosted Prometheus data source, try using the [Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) dashboard, ID `1860`. For more guidelines, go to [Import a dashboard from Grafana Labs](./how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs).
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/prom-sample-dashboard-1860.png" alt-text="Screenshot of the Azure Grafana platform showing the sample Prometheus dashboard.":::
+
+## Next step
+
+Learn how to [Use service accounts](./how-to-service-accounts.md).
