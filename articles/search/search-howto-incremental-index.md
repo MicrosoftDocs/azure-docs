@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/22/2024
 ---
 
 # Enable caching for incremental enrichment in Azure AI Search
