@@ -1,9 +1,9 @@
 ---
-author: tamram
+author: stevenmatthew
 ms.service: azure-storage
 ms.topic: include
 ms.date: 02/12/2024
-ms.author: tamram
+ms.author: shaas
 ---
 
 GZRS is available for a subset of Azure regions:

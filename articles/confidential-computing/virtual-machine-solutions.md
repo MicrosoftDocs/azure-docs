@@ -1,5 +1,5 @@
 ---
-title: Confidential VM solutions
+title: Azure Confidential VM options
 description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
 author: ju-shim
 ms.author: jushiman
@@ -31,8 +31,6 @@ You can create confidential VMs in the following size families:
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
 | **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
-| **ECiesv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk.                      |
-| **ECiedsv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk. |
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
@@ -89,12 +87,13 @@ Confidential VMs run on specialized hardware, so you can only [resize confidenti
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
-### Disk encryption
+### Guest Operating System Support
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
 - Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
 - Ubuntu 22.04 LTS
+- Red Hat Enterprise Linux 9.3 (AMD SEV-SNP supported only)
 - Windows Server 2019 Datacenter - x64 Gen 2 (AMD SEV-SNP supported only)
 - Windows Server 2019 Datacenter Server Core - x64 Gen 2 (AMD SEV-SNP supported only)
 - Windows Server 2022 Datacenter - x64 Gen 2
@@ -107,6 +106,12 @@ OS images for confidential VMs have to meet certain security and compatibility r
 - Windows 11 Pro N, version 22H2 -x64 Gen 2
 - Windows 11 Enterprise, version 22H2 -x64 Gen 2
 - Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
+
+As we work to onboard more OS images with confidential OS disk encryption, there are various images available in early preview that can be tested. You can sign up below:
+
+- [Red Hat Enterprise Linux 9.3 (Support for Intel TDX)](https://aka.ms/tdx-rhel-93-preview)
+- [SUSE Enterprise Linux 15 SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
+- [SUSE Enterprise Linux 15 SAP SP5 (Support for Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
 
@@ -125,7 +130,7 @@ Azure Resource Manager is the deployment and management service for Azure. You c
 Make sure to specify the following properties for your VM in the parameters section (`parameters`): 
 
 - VM size (`vmSize`). Choose from the different [confidential VM families and sizes](#sizes).
-- OS image name (`osImageName`). Choose from the [qualified OS images](#disk-encryption).
+- OS image name (`osImageName`). Choose from the qualified OS images. 
 - Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times. For Intel TDX instances only we also support another security type (`NonPersistedTPM`) which has no VMGS or OS disk encryption.
 
 ## Next steps 

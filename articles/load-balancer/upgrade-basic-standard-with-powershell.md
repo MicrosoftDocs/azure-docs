@@ -50,6 +50,7 @@ The PowerShell module performs the following functions:
 ### Unsupported Scenarios
 
 - Basic Load Balancers with IPv6 frontend IP configurations
+- Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](../aks/load-balancer-standard.md#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 

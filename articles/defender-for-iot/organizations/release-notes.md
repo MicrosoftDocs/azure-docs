@@ -37,8 +37,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
-| **23.2** | | | |
-| 23.2.0 | 12/2023 | Major | 11/2024 |
+| **24.1** | | | |
+| 24.1.0  |02/2024 | Major |01/2025 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
@@ -101,9 +101,29 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
+## Versions 24.1.x
+
+### Version 24.1.0
+
+**Release date**: 02/2024
+
+**Supported until**: 03/2025
+
+This version includes the following updates and enhancements:
+
+- [Alert suppression rules from the Azure portal](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts)
+- [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments)
+- [Alert ID (ID field) is now aligned on the Azure portal and sensor console](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal)
+- [Newly supported protocols](concept-supported-protocols.md)
+- [L60 hardware profile is no longer supported](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments)
+
 ## Versions 23.2.x
 
 ### Version 23.2.0
+
+**Release date**: 12/2023
+
+**Supported until**: 11/2024
 
 This version includes the following updates and enhancements:
 
@@ -455,5 +475,5 @@ This version includes the following new updates and fixes:
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
