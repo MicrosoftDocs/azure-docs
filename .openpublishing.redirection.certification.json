@@ -2,7 +2,7 @@
     "redirections": [
         {
             "redirect_url": "/azure/certification/overview",
-            "source_path_from_root": "/articles/certification/index.md",
+            "source_path_from_root": "/articles/certification/resources-glossary.md",
             "redirect_document_id": false
         }
     ]
