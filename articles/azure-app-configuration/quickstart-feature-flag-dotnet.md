@@ -36,8 +36,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Create a console app
 
-### [.NET](#tab/dotnet)
-
 You can use Visual Studio to create a new console app project.
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
@@ -67,54 +65,54 @@ You can use Visual Studio to create a new console app project.
 
     ### [.NET](#tab/dotnet)
 
-        ```csharp
-            IConfiguration configuration = new ConfigurationBuilder()
-                .AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                        .UseFeatureFlags();
-                }).Build();
+    ```csharp
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
+        {
+            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                .UseFeatureFlags();
+        }).Build();
 
-            IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+    IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
 
-            IFeatureManager featureManager = new FeatureManager(
-                featureDefinitionProvider, 
-                new FeatureManagementOptions());
+    IFeatureManager featureManager = new FeatureManager(
+        featureDefinitionProvider, 
+        new FeatureManagementOptions());
 
-            if (await featureManager.IsEnabledAsync("Beta"))
-            {
-                Console.WriteLine("Welcome to the beta!");
-            }
+    if (await featureManager.IsEnabledAsync("Beta"))
+    {
+        Console.WriteLine("Welcome to the beta!");
+    }
 
-            Console.WriteLine("Hello World!");
-        ```
+    Console.WriteLine("Hello World!");
+    ```
 
     ### [.NET Framework](#tab/dotnet-framework)
 
-        ```csharp
-            public static async Task Main(string[] args)
-            {         
-                IConfiguration configuration = new ConfigurationBuilder()
-                    .AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                            .UseFeatureFlags();
-                    }).Build();
+    ```csharp
+    public static async Task Main(string[] args)
+    {         
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddAzureAppConfiguration(options =>
+            {
+                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                    .UseFeatureFlags();
+            }).Build();
 
-                IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
 
-                IFeatureManager featureManager = new FeatureManager(
-                    featureDefinitionProvider, 
-                    new FeatureManagementOptions());
+        IFeatureManager featureManager = new FeatureManager(
+            featureDefinitionProvider, 
+            new FeatureManagementOptions());
 
-                if (await featureManager.IsEnabledAsync("Beta"))
-                {
-                    Console.WriteLine("Welcome to the beta!");
-                }
+        if (await featureManager.IsEnabledAsync("Beta"))
+        {
+            Console.WriteLine("Welcome to the beta!");
+        }
 
-                Console.WriteLine("Hello World!");
-            }
-        ```
+        Console.WriteLine("Hello World!");
+    }
+    ```
 
     ---
 
