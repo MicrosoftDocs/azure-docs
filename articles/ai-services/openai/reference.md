@@ -367,7 +367,7 @@ The definition of a caller-specified function that chat completions can invoke i
 Extensions for chat completions, for example Azure OpenAI On Your Data.
 
 > [!IMPORTANT]
-> The following information is for version `2023-12-01-preview` of the API. This **is not** the current version of the API. To find the latest reference documentation, see [Azure OpenAI On Your Data reference](./references/on-your-data.md) 
+> The following information is for version `2023-12-01-preview` of the API. This **is not** the current version of the API. To find the latest reference documentation, see [Azure OpenAI On Your Data reference](./references/on-your-data.md).
 
 **Use chat completions extensions**
 
