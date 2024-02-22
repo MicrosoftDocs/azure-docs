@@ -81,7 +81,7 @@ resource_group_name=$(terraform output -raw resource_group_name)
 1. Get the SQL Server name.
 
 ```console
-    sql_server=$(terraform output -raw sql_server)
+sql_server=$(terraform output -raw sql_server)
 ```
 
 1. Run [az sql server show](/cli/azure/sql/server#az-sql-server-show) to display the details about the SQL Server private endpoint.
