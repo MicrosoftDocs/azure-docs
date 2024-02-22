@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a private endpoint - Terraform'
-description: In this quickstart, you'll learn how to create a private endpoint using Terraform.
+description: In this quickstart, you learn how to create a private endpoint using Terraform.
 ms.topic: quickstart
 ms.date: 02/22/2024
 ms.custom: devx-track-terraform
@@ -14,7 +14,7 @@ content_well_notification:
 
 # Quickstart: Create a private endpoint by using Terraform
 
-In this quickstart, you'll use Terraform to create a private endpoint. The private endpoint connects to an Azure SQL Database. The private endpoint is associated with a virtual network and a private DNS zone. The private DNS zone resolves the private endpoint IP address. The virtual network contains a virtual machine that you use to test the connection of the private endpoint to the instance of the SQL Database.
+In this quickstart, you use Terraform to create a private endpoint. The private endpoint connects to an Azure SQL Database. The private endpoint is associated with a virtual network and a private Domain Name System (DNS) zone. The private DNS zone resolves the private endpoint IP address. The virtual network contains a virtual machine that you use to test the connection of the private endpoint to the instance of the SQL Database.
 
 The script generates a random password for the SQL server and a random SSH key for the virtual machine. The names of the created resources are output when the script is run. 
 
@@ -24,7 +24,7 @@ The script generates a random password for the SQL server and a random SSH key f
 
 - You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
@@ -123,7 +123,7 @@ Get-AzPrivateEndpoint @sql
 
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
+[Troubleshoot common problems when using Terraform on Azure.](/azure/developer/terraform/troubleshoot)
 
 ## Next steps
 
