@@ -74,7 +74,10 @@ Set-AzVmssRollingUpgradePolicy `
    -PrioritizeUnhealthyInstance True `
    -MaxSurge True
 
-Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Rolling" -VirtualMachineScaleSet $vmss
+Update-Azvmss -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -UpgradePolicyMode "Rolling" `
+    -VirtualMachineScaleSet $vmss
 ```
 
 ### [ARM Template](#tab/template1)
