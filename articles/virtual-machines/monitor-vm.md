@@ -73,11 +73,13 @@ For more information about the resource types for Virtual Machines, see [Azure V
   - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
   - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+Platform metrics for Azure VMs include important *host metrics* such as CPU, network, and disk utilization. Host OS metrics relate to the Hyper-V session that's hosting a guest operating system (guest OS) session.
+
+Metrics for the *guest OS* that runs in a VM must be collected through one or more agents, such as the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview), that run on or as part of the guest OS. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
+
+For detailed information about how the Azure Monitor agent collects VM monitoring data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
+
 For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#metrics).
-
-Platform metrics for Azure VMs include important host metrics such as CPU, network, and disk utilization. Host OS metrics relate to the Hyper-V session that's hosting a guest operating system (guest OS) session.
-
-Metrics for the guest OS that runs in a VM must be collected through one or more agents that run on or as part of the guest OS. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
@@ -96,14 +98,13 @@ Azure Monitor starts automatically collecting metric data for your virtual machi
 
 You can send custom VM metrics to Azure Monitor via several methods:
 
-- Install the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) on your Windows or Linux Azure virtual machine or virtual machine scale set and use a [data collection rule](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) to send performance counters to Azure Monitor metrics.
-- Install the Azure Diagnostics extension on your [Azure VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm), [Virtual Machine Scale Set](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vmss), or [classic VM](/azure/azure-monitor/essentials/collect-custom-metrics-guestos-vm-classic). Then send performance counters to Azure Monitor.
-- Install the [InfluxData Telegraf agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM. Send metrics by using the Azure Monitor output plug-in.
+- Install the Azure Monitor agent on your Windows or Linux Azure VM and use a DCR to send performance counters to Azure Monitor metrics.
+- Install the Azure Diagnostics extension on your Azure VM, and then send performance counters to Azure Monitor.
+- Install the [InfluxData Telegraf agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM, and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](/azure/azure-monitor/essentials/metrics-store-custom-rest-api).
 
 For more information about custom metrics, see [Custom metrics in Azure Monitor (preview)](/azure/azure-monitor/essentials/metrics-custom-overview). To retrieve metrics like CPU usage for a Linux VM by using the Azure REST API, see [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
 
-For detailed information about how the Azure Monitor agent collects VM monitoring data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vms/monitor-virtual-machine-data-collection).
 
 <!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information. -->
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
@@ -123,7 +124,7 @@ Boot diagnostics is a debugging feature for Azure VMs that allows diagnosis of V
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
-- For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vms/monitor-virtual-machine-data-collection).
+- For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
 
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
@@ -142,7 +143,7 @@ If your service has other logs that aren't resource logs or in the activity log,
 
 ### VM insights DCR
 
-VM insights creates a DCR that collects common performance counters for the client operating system and sends them to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. For a list of performance counters collected, see [How to query logs from VM insights](/azure/azure-monitor/vm/insights-log-query#performance-records). You can use this DCR with other VMs instead of creating a new DCR for each VM.
+VM insights creates a DCR that collects common performance counters for the client operating system and sends them to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. For a list of performance counters collected, see [How to query logs from VM insights](/azure/azure-monitor/vm/vminsights-log-query#performance-records). You can use this DCR with other VMs instead of creating a new DCR for each VM.
 
 You can also optionally enable collection of processes and dependencies, which populates the following tables and enables the VM insights Map feature.
 
