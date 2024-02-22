@@ -83,7 +83,7 @@ Symptoms: MCC reports alarms about MSFs being unavailable.
 
 Symptoms: no data appears in Azure Data Explorer.
 
-- Check that the MCC is healthy and ingestion bus agents are running.
+- Check that the MCC is healthy and ingestion agents are running.
 - Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
 - Check the network connectivity and firewall configuration on the storage account.
 
