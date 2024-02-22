@@ -136,7 +136,7 @@ Managing Advisor WAF assessment recommendations is slightly different than manag
 
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-mark-multiple-m.png" alt-text="Screenshot of Azure Advisor **Multiple marked recommendations list**." lightbox="./media/advisor-assessments/advisor-assessment-mark-multiple-m.png":::
 
-* You can reset a recommendations status. If you reset the status, it returns to the previous status that was set for it.
+* You can reset a recommendations status. If you reset the status, it returns to the **Not started** status.
 
 :::image type="content" source="./media/advisor-assessments/advisor-assessment-mark-reset-m.png" alt-text="Screenshot of Azure Advisor **Recommendations reset**." lightbox="./media/advisor-assessments/advisor-assessment-mark-reset-m.png":::
 
