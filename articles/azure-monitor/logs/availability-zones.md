@@ -14,12 +14,14 @@ ms.custom: references_regions
 
 [Azure availability zones](../../reliability/availability-zones-overview.md) protect applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resilience benefits Azure Monitor availability zones provide in supported regions.
 
+> [!NOTE]
+> Application Insights resources can use availability zones only if they're workspace-based. Classic Application Insights resources can't use availability zones.
+
 ## Prerequisites
 
 - A Log Analytics workspace linked to a shared or [dedicated cluster](logs-dedicated-clusters.md).  Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you set up a dedicated cluster for your workspaces.
 
-    > [!NOTE]
-    > Application Insights resources can use availability zones only if they're workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources can't use availability zones.
+
 
 ## How availability zones enhance data and service resilience in Azure Monitor Logs
 
