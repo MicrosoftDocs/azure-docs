@@ -108,8 +108,9 @@ After creating a policy file, to upload a policy in JSON Web Signature (JWS) for
     JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
     ```
 1. Sign the policy (optional). Azure Attestation supports the following algorithms:
-  - **None**: Don't sign the policy payload.
-  - **RS256**: Supported algorithm to sign the policy payload.
+     - **None**: Don't sign the policy payload.
+     - **RS256**: Supported algorithm to sign the policy payload.
+
 1. Upload the JWS and validate the policy.
     - If the policy file is free of syntax errors, the service accepts the policy file.
     - If the policy file contains syntax errors, the service rejects the policy file.
