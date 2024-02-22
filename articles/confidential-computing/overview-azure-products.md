@@ -63,7 +63,7 @@ Technologies such as [AMD SEV-SNP](https://www.amd.com/en/processors/amd-secure-
 
 - Confidential VMs based on [AMD SEV-SNP technology](https://azure.microsoft.com/blog/azure-and-amd-enable-lift-and-shift-confidential-computing/) enable lift-and-shift of existing workloads and protect data from the cloud operator with VM-level confidentiality.
 
-- Confidential VMs based on [Intel TDX technology](https://azure.microsoft.com/en-us/blog/azure-confidential-computing-on-4th-gen-intel-xeon-scalable-processors-with-intel-tdx/) enable lift-and-shift of existing workloads and protect data from the cloud operator with VM-level confidentiality.
+- Confidential VMs based on [Intel TDX technology](https://azure.microsoft.com/blog/azure-confidential-computing-on-4th-gen-intel-xeon-scalable-processors-with-intel-tdx/) enable lift-and-shift of existing workloads and protect data from the cloud operator with VM-level confidentiality.
 
 - [Confidential Inference ONNX Runtime](https://github.com/microsoft/onnx-server-openenclave), a Machine Learning (ML) inference server that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
 
