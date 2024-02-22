@@ -80,44 +80,47 @@ As with the public key, the names of the created resource group, virtual network
 
 1. Get the Azure resource group name.
 
-    ```console
-    resource_group_name=$(terraform output -raw resource_group_name)
-    ```
+```console
+resource_group_name=$(terraform output -raw resource_group_name)
+```
 
 1. Get the NAT gateway ID.
 
-    ```console
+```console
     nat_gateway=$(terraform output -raw nat_gateway)
-    ```
+```
 
 1. Run [az network nat gateway show](/cli/azure/network/nat/gateway#az-network-nat-gateway-show) to display the details about the NAT gateway.
 
-    ```azurecli
-    az network nat gateway show --resource-group $resource_group_name \
-                                --ids $nat_gateway
-        
-    ```
+```azurecli
+az network nat gateway show \
+    --resource-group $resource_group_name \
+    --ids $nat_gateway
+```
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the Azure resource group name.
 
-    ```console
-    $resource_group_name=$(terraform output -raw resource_group_name)
-    ```
+```console
+$resource_group_name=$(terraform output -raw resource_group_name)
+```
 
 1. Get the NAT gateway ID.
 
-    ```console
-    $nat_gateway=$(terraform output -raw nat_gateway)
-    ```
+```console
+$nat_gateway=$(terraform output -raw nat_gateway)
+```
 
 1. Run [Get-AzNatGateway](/powershell/module/az.network/get-aznatgateway) to display the the details about the NAT gateway.
 
-    ```azurepowershell
-    Get-AzNatGateway -ResourceGroupName $resource_group_name `
-                     -Name $nat_gateway
-    ```
+```azurepowershell
+$nat = @{
+    Name = $nat_gateway
+    ResourceGroupName = $resource_group_name
+}
+Get-AzNatGateway @nat
+```
 
 ---
 
