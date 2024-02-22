@@ -65,9 +65,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Confidential VM options
+          - text: About Azure confidential VMs
             url: confidential-vm-overview.md
-          - text: Confidential VM solutions
+          - text: Azure Confidential VM options
             url: virtual-machine-solutions.md
       - linkListType: concept
         links:
