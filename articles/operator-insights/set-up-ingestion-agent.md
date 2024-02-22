@@ -113,7 +113,7 @@ Repeat these steps for each VM onto which you want to install the agent.
 1. Install systemd, logrotate, and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
-1. Configure the agent based on the type of ingestion source.
+1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)
 
