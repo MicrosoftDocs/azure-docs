@@ -77,4 +77,4 @@ To add the namespace to fed-prometheus:
 ## Related content
 
 - [Monitor the  status of your Azure Operator 5G Core deployment](how-to-monitor-deployment-status.md)
-- [Observability analytics in Azure Operator 5G Core](concept-observability-analytics.md)
+- [Observability and analytics in Azure Operator 5G Core](concept-observability-analytics.md)

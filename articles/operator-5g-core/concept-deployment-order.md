@@ -36,4 +36,5 @@ Use the following Azure CLI commands to deploy resources.
 ## Related content
 
 - [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
+- [Complete the prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service](how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
 

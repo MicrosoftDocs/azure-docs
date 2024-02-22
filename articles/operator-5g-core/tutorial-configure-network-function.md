@@ -5,36 +5,39 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: tutorial #required; leave this attribute/value as-is
-ms.date: 02/21/2024
+ms.date: 02/22/2024
 
 ---
 
 # Tutorial: Configure Network Functions
 
-This article describes how to configure a network function following deployment. It contains links to content available only to customers with a current Affirmed Networks' support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance,  speak to the Affirmed Networks Support Team.
+This article describes how to configure a network function following deployment. It contains links to configuration procedures for each network function type.
+
+> [!NOTE]
+> The linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
 
 
 ## Configure a Session Management Function (SMF)
 
-[SMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
-[Interface Manager Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/SMF_Specific/Config/interface_mgr-cna-interface-mgr_config.html)
+Use the procedures described in:
+- [SMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
+- [Interface Manager Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/SMF_Specific/Config/interface_mgr-cna-interface-mgr_config.html)
 
 ## Configure a User Plane Function (UPF)
 
-[UPF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/UPF/Configuration.htm)
+Use the procedure described in [UPF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/UPF/Configuration.htm)
 
 ## Configure an Access and Mobility Management Function (AMF)
 
-[AMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/AMF/AMF_Configuration_Overview.htm )
+Use the procedure described in [AMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/AMF/AMF_Configuration_Overview.htm ).
 
 ## Configure a Network Repository Function (NRF)
 
-[NRF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/NRF/NRF_Functional_Overview.htm )
-Refer to the section "Configuration Management."
+Use the procedure described in [NRF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/NRF/NRF_Functional_Overview.htm ). Refer to the section "Configuration Management."
 
 ## Configure a Network Slice Selection Function (NSSF)
 
-[NSSF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/NSSF/NSSF_Configuration_Overview.htm)
+Use the procedure described in [NSSF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/NSSF/NSSF_Configuration_Overview.htm).
 
 
 ## Related content
