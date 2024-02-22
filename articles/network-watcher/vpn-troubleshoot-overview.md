@@ -224,4 +224,5 @@ Elapsed Time            330 sec
 
 ## Next step
 
-To learn how to diagnose a problem with a virtual network gateway or gateway connection, see [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md).
+> [!div class="nextstepaction"]
+> [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md)
