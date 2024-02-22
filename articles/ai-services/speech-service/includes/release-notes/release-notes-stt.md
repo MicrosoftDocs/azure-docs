@@ -6,6 +6,12 @@ ms.date: 09/29/2023
 ms.author: eur
 ---
 
+### February 2024 release
+
+#### Phrase list
+
+Added phrase list support for the following locales: ar-SA, de-CH, en-IE, en-ZA, es-US, id-ID, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE, th-TH, vi-VN, zh-HK, zh-TW.
+
 ### November 2023 release
 
 #### Introducing Bilingual Speech Modeling!

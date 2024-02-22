@@ -26,12 +26,10 @@ Some features are only available with certain clients, so it's important to chec
 
 Here's a list of the Remote Desktop client apps and our documentation for connecting to Azure Virtual Desktop, where you can find download links, what's new, and learn how to install and use each client.
 
-| Remote Desktop client | Documentation and download links | Version information |
+| Platform | Documentation and download links | Version information |
 |--|--|--|
-| Windows Desktop | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-windows.md) | [What's new](../whats-new-client-windows.md) |
-| Azure Virtual Desktop Store app for Windows | [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](connect-windows-azure-virtual-desktop-app.md) | [What's new](../whats-new-client-windows-azure-virtual-desktop-app.md) |
+| Windows<br /><ul><li>Remote Desktop client (MSI)</li><li>Azure Virtual Desktop Store app</li><li>Remote Desktop Store app</li></ul> | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-windows.md) | [What's new](../whats-new-client-windows.md) |
 | Web | [Connect to Azure Virtual Desktop with the Remote Desktop client for Web](connect-web.md) | [What's new](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?context=/azure/virtual-desktop/context/context) |
 | macOS | [Connect to Azure Virtual Desktop with the Remote Desktop client for macOS](connect-macos.md) | [What's new](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew?context=/azure/virtual-desktop/context/context) |
 | iOS/iPadOS | [Connect to Azure Virtual Desktop with the Remote Desktop client for iOS and iPadOS](connect-ios-ipados.md) | [What's new](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew?context=/azure/virtual-desktop/context/context) |
 | Android/Chrome OS | [Connect to Azure Virtual Desktop with the Remote Desktop client for Android and Chrome OS](connect-android-chrome-os.md) | [What's new](/windows-server/remote/remote-desktop-services/clients/android-whatsnew?context=/azure/virtual-desktop/context/context) |
-| Remote Desktop app for Windows | [Connect to Azure Virtual Desktop with the Remote Desktop app for Windows](connect-microsoft-store.md) | [What's new](../whats-new-client-microsoft-store.md) |
