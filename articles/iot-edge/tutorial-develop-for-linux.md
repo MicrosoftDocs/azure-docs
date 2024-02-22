@@ -11,6 +11,7 @@ services: iot-edge
 zone_pivot_groups: iotedge-dev
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Tutorial: Develop IoT Edge modules using Visual Studio Code
