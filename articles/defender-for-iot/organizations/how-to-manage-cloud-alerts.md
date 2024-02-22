@@ -33,9 +33,6 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
-> [!NOTE]
-> While the sensor console displays an alert's detection information in real-time, Defender for IoT in the Azure portal may take up to one hour to display the latest detection information. 
-
 1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description
@@ -44,7 +41,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
     | **Name** |  The alert title. |
     | **Site** |  The site associated with the sensor that detected the alert, as listed on the [Sites and sensors](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) page.|
     | **Engine** |  The [Defender for IoT detection engine](architecture.md#defender-for-iot-analytics-engines) that detected the activity and triggered the alert. <br><br>**Note**: A value of **Micro-agent** indicates that the event was triggered by the Defender for IoT [Device Builder](../device-builders/index.yml) platform. |
-    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
+    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.<br><br>**Note**: While the sensor console displays an alert's **Last detection** field in real-time, Defender for IoT in the Azure portal may take up to one hour to display the updated time. This explains a scenario where the last detection time in the sensor console isn't the same as the last detection time on the Azure portal.  |
     | **Status** | The alert status: *New*, *Active*, *Closed* <br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source device** |The IP address, MAC address, or the name of the device where the traffic that triggered the alert originated.  |
     | **Tactics** | The [MITRE ATT&CK stage](https://attack.mitre.org/tactics/ics/). |
