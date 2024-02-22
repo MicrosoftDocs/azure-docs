@@ -79,10 +79,9 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
             // Load all keys that start with `TestApp:`.
             .Select("TestApp:*")
             // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
-            .ConfigureRefresh(refresh =>
+            .ConfigureRefresh(refreshOptions =>
             {
-                refresh.Register("TestApp:Settings:Message")
-                       .SetCacheExpiration(TimeSpan.FromSeconds(5));
+                refreshOptions.Register("TestApp:Settings:Message");
             });
 
         // Register the refresher so that the Worker service can consume it through DI
@@ -92,7 +91,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     builder.Services.AddFeatureManagement();
     ```
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 5 seconds instead for demonstration purposes.
+    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
 
 1. Open *Worker.cs*. Inject `IConfiguration` and `IConfigurationRefresher` to the `Worker` service and log the configuration data from App Configuration.
 
@@ -116,7 +115,8 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
             {
                 if (_refresher != null)
                 {
-                    await _refresher.TryRefreshAsync(stoppingToken);
+                    // Intentionally not await TryRefreshAsync to avoid blocking the execution.
+                    _refresher.TryRefreshAsync(stoppingToken);
                 }
 
                 if (_logger.IsEnabled(LogLevel.Information))
@@ -129,7 +129,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     }
     ```
 
-    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` when you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time the background service is executed. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
 
 ## Build and run the app locally
 
@@ -193,7 +193,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     |----------------------------|-----------------------------------------------|
     | *TestApp:Settings:Message* | *Data from Azure App Configuration - Updated* |
 
-1. Wait for about 5 seconds. You should see the console outputs changed.
+1. Wait for about 30 seconds. You should see the console outputs changed.
 
     ![Background service refresh](./media/dotnet-background-service-refresh.png)
 
