@@ -1,5 +1,5 @@
 ---
-title: Confidential VM solutions
+title: Azure Confidential VM options
 description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
 author: ju-shim
 ms.author: jushiman
