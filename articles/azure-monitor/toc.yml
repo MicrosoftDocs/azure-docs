@@ -356,6 +356,8 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
+      - name: Troubleshoot VM performance issues
+        href: /troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json
     - name: VM insights
       items:
       - name: Overview
@@ -585,13 +587,10 @@ items:
     - name: Network Insights
       items:
       - name: Overview
-        displayName: Network Insights, Network
         href: ../network-watcher/network-insights-overview.md
-      - name: Topology
-        displayName: Network Insights, Network
+      - name: View network topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
-      - name: Troubleshooting
-        displayName: Network Insights, Network
+      - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
