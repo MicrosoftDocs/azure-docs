@@ -72,7 +72,7 @@ For more information, see the following documentation:
 
 - An existing [Git repository in Azure DevOps](/azure/devops/repos/git/create-new-repo#create-a-repo-using-the-web-portal) where you can store your logic app project.
 
-- An [Azure Resource Manager service connection with an existing service principal](/azure/devops/pipelines/library/connect-to-azure).
+- An [Azure Resource Manager service connection with an existing service principal](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
 ## Create a logic app workspace, project, and workflow
 
@@ -233,9 +233,9 @@ Before you set up the CD pipeline, open the **CD-pipeline.yml** file, and rename
 
    :::image type="content" source="media/automate-build-deployment-standard/configure-pipeline.png" alt-text="Screenshot shows Configure page for selecting a pipeline type." lightbox="media/automate-build-deployment-standard/configure-pipeline.png":::
 
-1. On the **Select an existing YAML file** pane, select your **Infrastructure-pipeline.yml** file
+1. On the **Select an existing YAML file** pane, follow these steps to select your **Infrastructure-pipeline.yml** file:
 
-   1. For **Branch**, select any branch.
+   1. For **Branch**, select the branch where you commited your changes, for example, **main** or your release branch.
 
    1. For **Path**, select the path to use for your pipeline. The following path is the default value:
 
@@ -243,11 +243,17 @@ Before you set up the CD pipeline, open the **CD-pipeline.yml** file, and rename
 
    1. When you're ready, select **Continue**.
 
+      :::image type="content" source="media/automate-build-deployment-standard/select-infrastructure-pipeline.png" alt-text="Screenshot shows pane for Select an existing YAML file." lightbox="media/automate-build-deployment-standard/select-infrastructure-pipeline.png":::
+
+1. On the **Configure your pipeline** pane, select **Review pipeline**.
+
 1. On the **Review your governed pipeline** pane, provide the following information:
 
    - **Pipeline Name**: Enter a name for the pipeline.
-   - **Pipeline folder**: ?
+   - **Pipeline folder**: Select the folder for where to save your pipeline, which is named **./deployment/{*logic-app-name*}/pipelines**.
 
 1. When you're done, select **Save**.
+
+   :::image type="content" source="media/automate-build-deployment-standard/review-pipeline.png" alt-text="Screenshot shows pane named Review governed pipeline." lightbox="media/automate-build-deployment-standard/review-pipeline.png":::
 
 ## Next steps
