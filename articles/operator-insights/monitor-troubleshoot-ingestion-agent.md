@@ -22,7 +22,7 @@ The ingestion agent is a software package, so the diagnostics are limited to the
 
 The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the *stdout.log* file contains human-readable logs explaining the issue.
 
-Metrics are reported in a simple human-friendly form. They're provided primarily to help Microsoft Support debug unexpected issues.
+Metrics are reported in a simple human-friendly form.
 
 ## Prerequisites
 
