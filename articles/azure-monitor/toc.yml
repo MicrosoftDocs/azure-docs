@@ -588,7 +588,7 @@ items:
       items:
       - name: Overview
         href: ../network-watcher/network-insights-overview.md
-      - name: View Topology
+      - name: View network topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md
