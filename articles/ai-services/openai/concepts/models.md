@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/21/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -49,12 +49,22 @@ To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions 
 
 ## Embeddings
 
-> [!IMPORTANT]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+ `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embeddings models is not possible. In order to move from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings. 
 
-The previous embeddings models have been consolidated into the following new replacement model:
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+- `text-embedding-ada-002`
 
-`text-embedding-ada-002`
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark.
+
+|Evaluation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
+|---|---|---|---|
+| MIRACL average | 31.4 | 44.0 | 54.9 |
+| MTEB average | 61.0 | 62.3 | 64.6 |
+
+The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. Official support for the dimensions parameter was added to the OpenAI Python library in version `1.10.0`. If you are running an earlier version of the 1.x library you will need to upgrade `pip install openai --upgrade`.
+
+OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
 ## DALL-E (Preview)
 
@@ -92,7 +102,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on February 20, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting February 20, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -101,7 +111,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
 | `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
-| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
+| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 
 **<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **0125-preview**. 
@@ -137,6 +147,9 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 
 ### GPT-3.5 models
 
+> [!IMPORTANT]
+> The NEW `gpt-35-turbo (0125)`  model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
+
 GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
@@ -148,6 +161,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-3.5-Turbo model availability
 
+
 #### Public cloud regions
 
 |  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
@@ -157,6 +171,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4,097 |Sep 2021 |
 | `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+|`gpt-35-turbo` (0125) **NEW** | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
@@ -165,12 +180,14 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 These models can only be used with Embedding API requests.
 
 > [!NOTE]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+> `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
+|  Model ID  |  Model Availability  | Max Request (tokens) | Output Dimensions |Training Data (up-to)
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | Sep 2021 | 1,536 |
-| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1,536 |
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | 1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | 1,536 | Sep 2021 |
+| `text-embedding-3-large` | Canada East, East US, East US 2 | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | Canada East, East US, East US 2 | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
