@@ -11,7 +11,9 @@ ms.topic: reference
 
 # Configuration examples for creating an isolation domain
 
-## Create an L2 Isolation Domain
+This article gives examples of how to configure isolation domains in various scenarios.
+
+## Create an L2 isolation domain
 
 In this example, we create a layer 2 isolation domain with the following properties:
 

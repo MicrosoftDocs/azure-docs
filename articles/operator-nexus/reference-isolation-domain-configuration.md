@@ -11,6 +11,8 @@ ms.topic: reference
 
 # Isolation Domain Configuration
 
+This article describes the configuration options available for isolation domains.
+
 ## Layer 3 isolation domain restricted within the fabric instance (E-W only traffic flows)
 
 Creating a Layer-3 isolation domain with internal networks (so only on the ToR) enables communication between workloads deployed across racks by exchanging routes with the fabric. A single isolation domain can have multiple BGP peerings, each on a separate VLAN. BGP peering IP addresses can be a single IPv4 or IPv6 address, or a subnet to facilitate peering from multiple dynamic workload instances. BFD parameters can also be configured for each BGP peering. Import and export route policies can be defined to enforce policies on exchanged routes.
@@ -21,7 +23,7 @@ Creating a Layer-3 isolation domain with an external network enables inter-rack 
 
 You can deploy workloads that advertise external service IP addresses to PE devices via BGP, and load-balance traffic across multiple instances. You can also insert workload services (Firewalls, DNS, IPs) between north-south layers as explained in the next section.
 
-## Tenant Networking use cases
+## Tenant networking use cases
 
 Azure Operator Nexus is a platform that enables different types of communication between workloads:
 
@@ -85,7 +87,7 @@ Both options support both IPv4 and IPv6 addresses. The operator can apply route 
 
 For more information on configurable parameters, see the How to Guides, or consult the help option in `azcli`.
 
-## BGP Configuration
+## BGP configuration
 
 | **Name** | **Description** | **Example** | **Required** |
 |--|--|--|--|
@@ -101,7 +103,7 @@ For more information on configurable parameters, see the How to Guides, or consu
 | ipv6NeighborAddress | List of IPv6 neighbor addresses. | 2fff:: |  |
 | peerASN  | ASN of workload. | 65047  | yes  |
 
-## Static Configuration
+## Static configuration
 
 | **Name** | **Description** | **Example** | **Required** |
 |--|--|--|--|
@@ -110,7 +112,7 @@ For more information on configurable parameters, see the How to Guides, or consu
 | nextHop      | List of next hop addresses.                      | 10.20.0.0, 10.20.0.2 | Yes.          |
 | prefix       | Prefix of the route.                             | 10.20.0.1/19         | Yes.          |
 
-## Isolation Domain Administrative state
+## Isolation Domain administrative state
 
 Isolation domains have an administrative state that helps operators o manage them. The table below provide information on the available actions, and how they affect the isolation domain.
 
