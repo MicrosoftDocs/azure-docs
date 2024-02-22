@@ -17,7 +17,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Prerequisites
 - Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows Subsystem for Linux (WSL), we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- An [Microsoft Entra ID App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance.
+- An [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance.
 
   > [!IMPORTANT]
   > The following API permissions are required on the App Registration for the Admin UI to function properly.
@@ -25,7 +25,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
   >   - [User.Read](/graph/permissions-reference#applicationreadall)
   >   - [User.Read.All](/graph/permissions-reference#userreadall)
   > 
-  > Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
+  > Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
