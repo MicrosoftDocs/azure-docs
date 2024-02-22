@@ -35,7 +35,7 @@ The most popular open source third-party models curated by Azure Machine Learnin
 'Curated by Azure AI' and collections from partners such as Meta, NVIDIA, Mistral AI are all curated collections on the Catalog. 
 
 **Azure OpenAI models, exclusively available on Azure**:
-Fine-tune and deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
+Fine-tune and deploy Azure OpenAI models via the 'Azure OpenAI' collection in the Model Catalog.
 
 **Transformers models from the HuggingFace hub**: 
 Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. 
