@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Authenticate and authorize access to Azure OpenAI APIs using Azure API Management 
 
-In this article, you'll learn about ways to authenticate and authorize to Azure OpenAI API endpoints that are managed using Azure API Management. This article shows the following common methods:
+In this article, you learn about ways to authenticate and authorize to Azure OpenAI API endpoints that are managed using Azure API Management. This article shows the following common methods:
 
 * **Authentication** - Authenticate to an Azure OpenAI API using policies that authenticate using either an API key or a Microsoft Entra ID managed identity.
 
@@ -28,8 +28,8 @@ For background, see:
 Before following the steps in this article, you must have:
 
 - An API Management instance. For example steps, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-- An Azure OpenAI resource and model added to your API Management instance. For example steps, see [Import an Azure OpenAI API from OpenAPI specification](openai-api-from-specification.md).
-- Permissions to create an app registration in an identity provider such as a Microsoft Entra tenant associated with your Azure subscription (for OAuth 2.0 authorization using Microsoft Entra ID).
+- An Azure OpenAI resource and model added to your API Management instance. For example steps, see [Import an Azure OpenAI API as a REST API](azure-openai-api-from-specification.md).
+- Permissions to create an app registration in an identity provider such as a Microsoft Entra tenant associated with your Azure subscription (for OAuth 2.0 authorization).
 
 ## Authenticate with API key
 
@@ -52,7 +52,7 @@ A default way to authenticate to an Azure OpenAI API is by using an API key. For
     1. Under **Type**, select **Custom**, and enter the URL of the Azure OpenAI endpoint. Example: `https://contoso.openai.azure.com/openai`.
     1. Under **Authorization credentials**, select **Headers**, and enter *api-key* as the header name and the named value as the value.
     1. Select **Create**.
-1. Add the following `inbound` policy snippet to your API Management instance to pass the API key in requests to the Azure OpenAI API. 
+1. Add the following `set-backend-service` policy snippet in the `inbound` policy section to pass the API key in requests to the Azure OpenAI API. 
 
     In this example, the backend resource is *openai-backend*.
 
@@ -62,15 +62,15 @@ A default way to authenticate to an Azure OpenAI API is by using an API key. For
 
 ### Pass the API key in API requests - set-header policy
 
-Alternatively, add the following `inbound` policy snippet to your API Management instance to pass the API key in requests to the Azure OpenAI API. This policy snippet sets the `api-key` header with the named value that you set up. 
+Alternatively, add the following `set-header` policy snippet in the `inbound` policy section to pass the API key in requests to the Azure OpenAI API. This policy snippet sets the `api-key` header with the named value that you set up. 
 
-    In this example, the named value in API Management is *openai-api-key*.
+In this example, the named value in API Management is *openai-api-key*.
 
-    ```xml
-    <set-header name="api-key" exists-action="override">
-        <value>{{openai-api-key}}</value>
-    </set-header>
-    ```
+```xml
+<set-header name="api-key" exists-action="override">
+    <value>{{openai-api-key}}</value>
+</set-header>
+```
 
 
 ## Authenticate with managed identity
@@ -82,9 +82,9 @@ Following are steps to configure your API Management instance to use a managed i
 
 1. [Enable](api-management-howto-use-managed-service-identity.md) a system-assigned or user-assigned managed identity for your API Management instance. The following example assumes that you've enabled the instance's system-assigned managed identity.
 
-1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the system-assigned managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For details, see [Role-based access control for Azure OpenAI service](../ai-services/openai/how-to/role-based-access-control.md).
+1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the system-assigned managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For detailed steps, see [Role-based access control for Azure OpenAI service](../ai-services/openai/how-to/role-based-access-control.md).
 
-1. Add the following `inbound` policy snippet in your API Management instance to authenticate requests to the Azure OpenAI API using the managed identity. 
+1. Add the following policy snippet in the `inbound` policy section to authenticate requests to the Azure OpenAI API using the managed identity. 
 
     In this example:
     
@@ -114,9 +114,9 @@ Following are high level steps to restrict API access to users or apps that are 
 1. Add an `inbound` policy snippet in your API Management instance to validate requests that present a JSON web token (JWT) in the `Authorization` header. Place this snippet *before* other `inbound` policies that you set to authenticate to the Azure OpenAI API. 
 
     > [!NOTE]
-    > The following examples show the general structure of the policies to validate a JWT, but you must customize them to your identity provider and the requirements of your application and API.
+    > The following examples show the general structure of the policies to validate a JWT. Customize them to your identity provider and the requirements of your application and API.
 
-    * **validate-azure-ad-token** - If you use Microsoft Entra ID, configure the `validate-azure-ad-token` policy to validate the audience and claims in the JWT. For details, see the policy [reference](validate-azure-ad-token-policy.md).
+    * **validate-azure-ad-token** - If you use Microsoft Entra ID, configure the `validate-azure-ad-token` policy to validate the audience and claims in the JWT. For details, see the [policy reference](validate-azure-ad-token-policy.md).
 
         ```xml
         <validate-azure-ad-token tenant-id={{TENANT_ID}} header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -135,7 +135,7 @@ Following are high level steps to restrict API access to users or apps that are 
         ```
 
 
-    * **validate-jwt** - If you use another identity provider, configure the `validate-jwt` policy to validate the audience and claims in the JWT. For details, see the policy [reference](validate-jwt-policy.md).
+    * **validate-jwt** - If you use another identity provider, configure the `validate-jwt` policy to validate the audience and claims in the JWT. For details, see the [policy reference](validate-jwt-policy.md).
 
         ```xml
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -157,7 +157,5 @@ Following are high level steps to restrict API access to users or apps that are 
 ## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).  
-* [Authenticate requests to Azure AI services](../ai-services/authentication.md#authenticate-with-microsoft-entra-id)
-* [Protect Azure OpenAI keys](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
-* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
+* [Authenticate requests to Azure AI services](../ai-services/authentication.md)
+* [Protect Azure OpenAI keys with API Management](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
