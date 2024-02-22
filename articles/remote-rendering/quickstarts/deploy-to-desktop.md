@@ -30,11 +30,11 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
-# [Standalone](#tab/UnityStandalone)
+# [Standalone](#tab/UnityStandaloneDisableVRSupport)
 
 1. In the standalone build VR support is automatically disabled. No steps are needed here.
 
-# [UWP](#tab/UnityUWP)
+# [UWP](#tab/UnityUWPDisableVRSupport)
 
 1. Open *Edit > Project Settings...*
 1. Select **XR Plugin Management** in the menu to the left.
@@ -44,7 +44,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the sample project
 
-# [Standalone](#tab/UnityStandalone)
+# [Standalone](#tab/UnityStandaloneBuild)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **PC, Mac & Linux Standalone**
@@ -53,7 +53,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the exe should be stored.
 
-# [UWP](#tab/UnityUWP)
+# [UWP](#tab/UnityUWPBuild)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
@@ -65,11 +65,11 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the Visual Studio solution
 
-# [Standalone](#tab/UnityStandalone)
+# [Standalone](#tab/UnityStandaloneBuildVSSln)
 
 Building in standalone mode does not produce a Visual Studio solution, but instead a simple .exe file. So no building is necessary here.
 
-# [UWP](#tab/UnityUWP)
+# [UWP](#tab/UnityUWPBuildVSSln)
 
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
@@ -81,11 +81,11 @@ Building in standalone mode does not produce a Visual Studio solution, but inste
 
 ## Launch the sample project
 
-# [Standalone](#tab/UnityStandalone)
+# [Standalone](#tab/UnityStandaloneLaunch)
 
 Simply run the .exe file which was produced in the build step.
 
-# [UWP](#tab/UnityUWP)
+# [UWP](#tab/UnityUWPLaunch)
 
 Start the Debugger in Visual Studio (F5). It automatically deploys the app to the PC.
 
