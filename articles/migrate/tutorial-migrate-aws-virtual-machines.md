@@ -181,7 +181,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
-1. Extract the contents of the installer tarball to a local folder (for example, /tmp/MobSvcInstaller) on the GCP VM, as follows:
+1. Extract the contents of the installer tarball to a local folder (for example, /tmp/MobSvcInstaller) on the AWS VM, as follows:
 
     ```
     mkdir /tmp/MobSvcInstaller
