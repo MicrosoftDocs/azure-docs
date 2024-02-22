@@ -22,6 +22,8 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
+        - name: Access Control Lists
+          href: concepts-access-control-lists.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
@@ -215,3 +217,10 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Access Control Lists
+      expanded: false
+      items:
+        - name: Access Control List configuration
+          href: reference-acl-configuration.md
+        - name: Access Control List configuration examples
+          href: reference-acl-examples.md
