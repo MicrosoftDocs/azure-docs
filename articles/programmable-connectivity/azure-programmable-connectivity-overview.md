@@ -19,4 +19,6 @@ APC ensures a smooth Azure experience by offering a single interface across diff
 
 The APC Gateway handles API calls and credentials, ensuring they're directed to the right mobile operator. Its user-friendly interface lets developers easily select and subscribe to network APIs from various operators and regions. This makes APC a convenient marketplace that streamlines procurement without sacrificing user experience.
   
-APC is currently in public preview, offering various APIs such as number verification, SIM swap, and location services. Azure is working closely with global operators to incorporate their network APIs into APC, creating a robust partner network. Presently, this ecosystem includes AT&T, BT, Claro, Deutsche Telekom, Etisalat, Orange, Rogers, SingTel, Telefonica, T-Mobile, TIM Brasil, Verizon, and Vivo. APC is dedicated to expanding its global presence by partnering with more operators in the future.
+APC is currently in public preview, offering various APIs such as number verification, SIM swap, and location services. Azure is working closely with global operators to incorporate their network APIs into APC, creating a robust partner network. Presently, this ecosystem includes AT&T, BT, Claro, Deutsche Telekom, Orange, Rogers, SingTel, Telefonica, T-Mobile, TIM Brasil, Verizon, and Vivo. APC is dedicated to expanding its global presence by partnering with more operators in the future.  
+  
+To sign up for the preview, please visit https://aka.ms/apcpublicpreview.
