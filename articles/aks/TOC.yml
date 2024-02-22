@@ -258,58 +258,6 @@
                   href: cluster-extensions.md
                 - name: Use the Azure CLI
                   href: deploy-extensions-az-cli.md
-            - name: Open source integration
-              items:
-                 - name: Istio service mesh AKS add-on
-                   items:
-                     - name: About Istio
-                       href: istio-about.md
-                     - name: Deploy Istio service mesh add-on
-                       href: istio-deploy-addon.md
-                     - name: Configure Istio service mesh add-on
-                       href: istio-meshconfig.md
-                     - name: Deploy external or internal Istio Ingress
-                       href: istio-deploy-ingress.md
-                     - name: Plug-in CA certificates for Istio
-                       href: istio-plugin-ca.md
-                     - name: Upgrade Istio service mesh add-on
-                       href: istio-upgrade.md
-                 - name: Open Service Mesh AKS add-on
-                   items:
-                     - name: About Open Service Mesh
-                       href: open-service-mesh-about.md
-                     - name: Migration Guidance to Istio AKS add-on
-                       href: open-service-mesh-istio-migration-guidance.md
-                     - name: Use the Azure CLI
-                       href: open-service-mesh-deploy-addon-az-cli.md
-                     - name: Use Bicep template
-                       href: open-service-mesh-deploy-addon-bicep.md
-                     - name: Install the OSM CLI
-                       href: open-service-mesh-binary.md
-                     - name: Open Service Mesh integrations
-                       href: open-service-mesh-integrations.md
-                     - name: Troubleshoot Open Service Mesh
-                       href: open-service-mesh-troubleshoot.md
-                     - name: Uninstall the Open Service Mesh AKS add-on
-                       href: open-service-mesh-uninstall-add-on.md
-                 - name: Kubernetes Event-driven Autoscaler (KEDA) add-on
-                   items:
-                      - name: About Kubernetes Event-driven Autoscaler (KEDA)
-                        href: keda-about.md
-                      - name: Use ARM template
-                        href: keda-deploy-add-on-arm.md
-                      - name: Use Azure CLI
-                        href: keda-deploy-add-on-cli.md
-                      - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
-                        href: keda-integrations.md
-                      - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
-                        href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: Containers
-      items:
-        - name: Confidential Containers overview
-          href: confidential-containers-overview.md
-        - name: Deploy Confidential Containers with default policy
-          href: deploy-confidential-containers-default-policy.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -352,27 +300,13 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:       
-        - name: Vertical Pod Autoscaler
-          items:
-            - name: About Vertical Pod Autoscaler 
-              href: vertical-pod-autoscaler.md
-            - name: Vertical Pod Autoscaler API reference
-              href: vertical-pod-autoscaler-api-reference.md
-        - name: Configure Metrics Server VPA
-          href: use-metrics-server-vertical-pod-autoscaler.md
-        - name: Proximity placement groups
-          href: reduce-latency-ppg.md
-        - name: Cluster autoscaler
-          items:
-            - name: Cluster autoscaler overview
-              href: cluster-autoscaler-overview.md
-            - name: Use the cluster autoscaler on AKS
-              href: cluster-autoscaler.md
+      items:
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
           href: availability-zones.md
+        - name: Propagate Kubernetes resources across multiple clusters
+          href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
       items:
         - name: Azure portal Kubernetes resource view
@@ -381,7 +315,7 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
-    - name: Security and authentication
+    - name: Security
       items:
         - name: Container security
           items:
@@ -389,6 +323,10 @@
               href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Enable Defender for Containers
               href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Confidential Containers overview
+              href: confidential-containers-overview.md
+            - name: Deploy Confidential Containers with default policy
+              href: deploy-confidential-containers-default-policy.md
         - name: Image security
           items:
             - name: Validate signed images with Image Integrity
@@ -437,7 +375,7 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-        - name: Role-based access control and authorization
+        - name: Authentication and authorization
           items: 
             - name: Use managed identities
               href: use-managed-identity.md
@@ -672,34 +610,98 @@
               href: network-observability-byo-cli.md
             - name: Azure managed Prometheus and Grafana
               href: network-observability-managed-cli.md
+    - name: Service Mesh
+      items:
+        - name: Istio service mesh AKS add-on
+          items:
+            - name: About Istio
+              href: istio-about.md
+            - name: Deploy Istio service mesh add-on
+              href: istio-deploy-addon.md
+            - name: Configure Istio service mesh add-on
+              href: istio-meshconfig.md
+            - name: Deploy external or internal Istio Ingress
+              href: istio-deploy-ingress.md
+            - name: Plug-in CA certificates for Istio
+              href: istio-plugin-ca.md
+            - name: Upgrade Istio service mesh add-on
+              href: istio-upgrade.md
+        - name: Open Service Mesh AKS add-on
+          items:
+            - name: About Open Service Mesh
+              href: open-service-mesh-about.md
+            - name: Migration Guidance to Istio AKS add-on
+              href: open-service-mesh-istio-migration-guidance.md
+            - name: Use the Azure CLI
+              href: open-service-mesh-deploy-addon-az-cli.md
+            - name: Use Bicep template
+              href: open-service-mesh-deploy-addon-bicep.md
+            - name: Install the OSM CLI
+              href: open-service-mesh-binary.md
+            - name: Open Service Mesh integrations
+              href: open-service-mesh-integrations.md
+            - name: Troubleshoot Open Service Mesh
+              href: open-service-mesh-troubleshoot.md
+            - name: Uninstall the Open Service Mesh AKS add-on
+              href: open-service-mesh-uninstall-add-on.md
+    - name: Scaling
+      items:
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
+        - name: Configure Metrics Server VPA
+          href: use-metrics-server-vertical-pod-autoscaler.md
+        - name: Proximity placement groups
+          href: reduce-latency-ppg.md
+        - name: Cluster autoscaler
+          items:
+            - name: Cluster autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the cluster autoscaler on AKS
+              href: cluster-autoscaler.md
+        - name: Kubernetes Event-driven Autoscaler (KEDA) add-on
+          items:
+            - name: About Kubernetes Event-driven Autoscaler (KEDA)
+              href: keda-about.md
+            - name: Use ARM template
+              href: keda-deploy-add-on-arm.md
+            - name: Use Azure CLI
+              href: keda-deploy-add-on-cli.md
+            - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
+              href: keda-integrations.md
+            - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
+              href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Upgrade
       items:
         - name: Upgrade options
+          href: upgrade-cluster.md
+        - name: Stop cluster upgrades automatically on API breaking changes
+          href: stop-cluster-upgrade-api-breaking-changes.md
+        - name: Perform manual upgrades
           items:
-          - name: Upgrade options
-            href: upgrade-cluster.md
-          - name: Stop cluster upgrades automatically on API breaking changes
-            href: stop-cluster-upgrade-api-breaking-changes.md
-          - name: Perform manual upgrades
-            items:
-            - name: Upgrade an AKS cluster
-              href: upgrade-aks-cluster.md
-            - name: Upgrade node OS images
-              href: node-image-upgrade.md
-            - name: Customize node surge upgrade
-              href: upgrade-aks-cluster.md#customize-node-surge-upgrade
-            - name: Process node OS updates
-              href: node-updates-kured.md
-          - name: Configure automatic upgrades
-            items:
-              - name: Automatically upgrade an AKS cluster
-                href: auto-upgrade-cluster.md
-              - name: Use Planned Maintenance to schedule and control upgrades
-                href: planned-maintenance.md
-              - name: Automatically upgrade AKS cluster node OS images
-                href: auto-upgrade-node-os-image.md
-              - name: Upgrade node OS images automatically with GitHub Actions
-                href: node-upgrade-github-actions.md
+          - name: Upgrade an AKS cluster
+            href: upgrade-aks-cluster.md
+          - name: Orchestrate upgrade across multiple clusters
+            href: ../kubernetes-fleet/update-orchestration.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+          - name: Upgrade node OS images
+            href: node-image-upgrade.md
+          - name: Customize node surge upgrade
+            href: upgrade-aks-cluster.md#customize-node-surge-upgrade
+          - name: Process node OS updates
+            href: node-updates-kured.md
+        - name: Configure automatic upgrades
+          items:
+            - name: Automatically upgrade an AKS cluster
+              href: auto-upgrade-cluster.md
+            - name: Use Planned Maintenance to schedule and control upgrades
+              href: planned-maintenance.md
+            - name: Automatically upgrade AKS cluster node OS images
+              href: auto-upgrade-node-os-image.md
+            - name: Upgrade node OS images automatically with GitHub Actions
+              href: node-upgrade-github-actions.md
 
     - name: Azure Linux container host for AKS
       items:

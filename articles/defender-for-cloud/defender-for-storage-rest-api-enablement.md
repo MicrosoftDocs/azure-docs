@@ -2,8 +2,6 @@
 title: Enable and configure the Microsoft Defender for Storage plan at scale using REST API
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud using REST API.
 ms.topic: install-set-up-deploy
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.date: 08/08/2023
 ---
 
@@ -18,14 +16,15 @@ We recommend that you enable Defender for Storage on the subscription level. Doi
 
 To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint (replace the `subscriptionId` in the endpoint URL with your own Azure subscription ID):
 
-```
+```rest
 PUT
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
 
 ```
+
 And add the following request body:
 
-```
+```json
 {
     "properties": {
         "extensions": [
@@ -46,6 +45,7 @@ And add the following request body:
     }
 }
 ```
+
 To modify the monthly threshold for malware scanning in your storage accounts, adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
 If you want to turn off the on-upload malware scanning or Sensitive data threat detection features, you can change the isEnabled value to **False** under Sensitive data discovery.
@@ -58,14 +58,15 @@ Learn more about [updating Defender plans with the REST API](/rest/api/defenderf
 
 To enable and configure Microsoft Defender for Storage at the storage account level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId`, `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
-```
+```rest
 PUT
 https://management.azure.com/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
 
 ```
+
 And add the following request body:
 
-```
+```json
 {
    "properties": {
         "isEnabled": true,
@@ -74,7 +75,7 @@ And add the following request body:
                 "isEnabled": true,
                 "capGBPerMonth": 5000
             },
-			"scanResultsEventGridTopicResourceId": "/subscriptions/<Subscription>/resourceGroups/<resourceGroup>/providers/Microsoft.EventGrid/topics/<topicName>"
+   "scanResultsEventGridTopicResourceId": "/subscriptions/<Subscription>/resourceGroups/<resourceGroup>/providers/Microsoft.EventGrid/topics/<topicName>"
         },
         "sensitiveDataDiscovery": {
             "isEnabled": true
@@ -103,5 +104,3 @@ Learn more on how to [set up response for malware scanning](defender-for-storage
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
-
-
