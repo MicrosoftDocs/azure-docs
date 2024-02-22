@@ -3,7 +3,7 @@ title: Deployment and cluster reliability best practices for Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads.
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 02/22/2024
 ---
 
 # Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)
@@ -15,7 +15,7 @@ The best practices in this article are organized into the following categories:
 | Category | Best practices |
 | -------- | -------------- |
 | [Deployment level best practices](#deployment-level-best-practices) | • [Pod Disruption Budgets (PDBs)](#pod-disruption-budgets-pdbs) <br/> • [Pod CPU and memory limits](#pod-cpu-and-memory-limits) <br/> • [Pre-stop hooks](#pre-stop-hooks) <br/> • [maxUnavailable](#maxunavailable) <br/> • [Pod anti-affinity](#pod-anti-affinity) <br/> • [Readiness and liveness probes](#readiness-and-liveness-probes) <br/> • [Multi-replica applications](#multi-replica-applications) |
-| [Cluster and node pool level best practices](#cluster-and-node-pool-level-best-practices) | • [Availability zones](#availability-zones) <br/> • [Cluster autoscaling](#cluster-autoscaling) <br/> • [Scale-down mode](#scale-down-mode) <br/> • [Standard Load Balancer](#standard-load-balancer) <br/> • [System node pools](#system-node-pools) <br/> • [Accelerated Networking](#accelerated-networking) <br/> • [Image versions](#image-versions) <br/> • [Azure CNI for dynamic IP allocation](#azure-cni-for-dynamic-ip-allocation) <br/> • [v5 SKU VMs](#v5-sku-vms) <br/> • [Do *not* use B series VMs](#do-not-use-b-series-vms) <br/> • [Premium Disks](#premium-disks) <br/> • [Container Insights](#container-insights) <br/> • [Azure Policy](#azure-policy) |
+| [Cluster and node pool level best practices](#cluster-and-node-pool-level-best-practices) | • [Availability zones](#availability-zones) <br/> • [Cluster autoscaling](#cluster-autoscaling) <br/> • [Standard Load Balancer](#standard-load-balancer) <br/> • [System node pools](#system-node-pools) <br/> • [Accelerated Networking](#accelerated-networking) <br/> • [Image versions](#image-versions) <br/> • [Azure CNI for dynamic IP allocation](#azure-cni-for-dynamic-ip-allocation) <br/> • [v5 SKU VMs](#v5-sku-vms) <br/> • [Do *not* use B series VMs](#do-not-use-b-series-vms) <br/> • [Premium Disks](#premium-disks) <br/> • [Container Insights](#container-insights) <br/> • [Azure Policy](#azure-policy) |
 
 ## Deployment level best practices
 
@@ -109,11 +109,11 @@ For more information, see [Assign CPU Resources to Containers and Pods](https://
 
 > **Best practice guidance**
 >
-> Use pre-stop hooks to ensure graceful termination during SIGTERM.
+> Use pre-stop hooks to ensure graceful termination of a container.
 
-A `PreStop` hook is called immediately before a container is terminated due to an API request or management event, such as a liveness probe failure. The pod's termination grace period countdown begins before the `PreStop` hook is executed, so the container eventually terminates within the termination grace period.
+A `PreStop` hook is called immediately before a container is terminated due to an API request or management event, such as preemption, resource contention, or a liveness/startup probe failure. A call to the `PreStop` hook fails if the container is already in a terminated or completed state, and the hook must complete before the TERM signal to stop the container is sent. The pod's termination grace period countdown begins before the `PreStop` hook is executed, so the container eventually terminates within the termination grace period.
 
-The following example pod definition file shows how to use a `PreStop` hook to ensure graceful termination during SIGTERM:
+The following example pod definition file shows how to use a `PreStop` hook to ensure graceful termination of a container:
 
 ```yaml
 apiVersion: v1
@@ -219,7 +219,11 @@ For more information, see [Affinity and anti-affinity in Kubernetes](https://kub
 > [!TIP]
 > Use pod anti-affinity across availability zones to ensure that pods are spread across availability zones for zone-down scenarios.
 >
-> When you deploy your application across multiple availability zones, you can use pod anti-affinity to ensure that pods are spread across availability zones. This practice helps ensure that your application remains available in the event of a zone-down scenario. For more information, see [Best practices for multiple zones](https://kubernetes.io/docs/setup/best-practices/multiple-zones/) and [Overview of availability zones for AKS clusters](./availability-zones.md#overview-of-availability-zones-for-aks-clusters).
+> You can think of availability zones as backups for your application. If one zone goes down, your application can continue to run in another zone. You use affinity and anti-affinity rules to schedule specific pods on specific nodes. For example, let's say you have a memory/CPU-intensive pod, you might want to schedule it on a larger VM SKU to give the pod the capacity it needs to run.
+>
+> When you deploy your application across multiple availability zones, you can use pod anti-affinity to ensure that pods are spread across availability zones. This practice helps ensure that your application remains available in the event of a zone-down scenario.
+>
+> For more information, see [Best practices for multiple zones](https://kubernetes.io/docs/setup/best-practices/multiple-zones/) and [Overview of availability zones for AKS clusters](./availability-zones.md#overview-of-availability-zones-for-aks-clusters).
 
 ### Readiness and liveness probes
 
@@ -332,26 +336,6 @@ You can also enable the cluster autoscaler on an existing node pool and configur
 
 For more information, see [Use the cluster autoscaler in AKS](./cluster-autoscaler.md).
 
-### Scale-down mode
-
-> **Best practice guidance**
->
-> Use scale-down mode to control the delete and deallocate behavior of nodes in your AKS cluster upon scaling down.
-
-By default, scale up operations performed manually or by the cluster autoscaler require the allocation and provisioning of new nodes, and scale down operations delete nodes. Scale-down mode allows you to decide whether you want to delete or deallocate the nodes in your AKS clusters upon scaling down.
-
-You can use the `--scale-down-mode` parameter to set the scale-down mode to `Deallocate` or `Delete`, as shown in the following examples:
-
-```azurecli-interactive
-# Set the scale-down mode to Deallocate
-az aks nodepool add --node-count 20 --scale-down-mode Deallocate --node-osdisk-type Managed --max-pods 10 --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
-
-# Set the scale-down mode to Delete
-az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --max-pods 10 --node-osdisk-type Managed --scale-down-mode Delete --name nodepool3 --cluster-name myAKSCluster --resource-group myResourceGroup
-```
-
-For more information, see [Use scale-down mode to delete or deallocate nodes in AKS](./scale-down-mode.md).
-
 ### Standard Load Balancer
 
 > **Best practice guidance**
@@ -359,6 +343,9 @@ For more information, see [Use scale-down mode to delete or deallocate nodes in 
 > Use the Standard Load Balancer to provide greater reliability and resources, support for multiple availability zones, HTTP probes, and functionality across multiple data centers.
 
 In Azure, the [Standard Load Balancer](../load-balancer/skus.md) SKU is designed to be equipped for load balancing network layer traffic when high performance and low latency are needed. The Standard Load Balancer routes traffic within and across regions and to availability zones for high resiliency. The Standard SKU is the recommended and default SKU to use when creating an AKS cluster.
+
+> [!IMPORTANT]
+> On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). We recommend that you use the Standard Load Balancer for new deployments and upgrade existing deployments to the Standard Load Balancer. For more information, see [Upgrading from Basic Load Balancer](../load-balancer/load-balancer-basic-upgrade-guidance.md).
 
 The following example shows a `LoadBalancer` service manifest that uses the Standard Load Balancer:
 
@@ -437,7 +424,7 @@ AKS provides multiple auto-upgrade channels for node OS image upgrades. You can 
 >
 > Use the standard tier for product workloads for greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default.
 
-The standard tier for Azure Kubernetes Service (AKS) provides a financially backed 99.9% uptime service-level agreement (SLA) for your production workloads. The standard tier also provides greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default. For more information, see [Standard pricing tier for AKS cluster management](./free-standard-pricing-tiers.md).
+The standard tier for Azure Kubernetes Service (AKS) provides a financially backed 99.9% uptime [service-level agreement (SLA)](https://www.azure.cn/en-us/support/sla/kubernetes-service/) for your production workloads. The standard tier also provides greater cluster reliability and resources, support for up to 5,000 nodes in a cluster, and Uptime SLA enabled by default. For more information, see [Standard pricing tier for AKS cluster management](./free-standard-pricing-tiers.md).
 
 ### Azure CNI for dynamic IP allocation
 
@@ -461,7 +448,7 @@ For more information, see [Configure Azure CNI networking for dynamic allocation
 >
 > Use v5 VM SKUs for improved performance during and after updates, less overall impact, and a more reliable connection for your applications.
 
-For system node pools in AKS, use v5 SKU VMs or an equivalent core/memory VM SKU with ephemeral OS disks to provide sufficient compute resources for kube-system pods. For more information, see [Best practices for creating and running AKS clusters at scale](./operator-best-practices-run-at-scale.md) and [Best practices for performance and scaling for large workloads in AKS](./best-practices-performance-scale-large.md).
+For node pools in AKS, use v5 SKU VMs with ephemeral OS disks to provide sufficient compute resources for kube-system pods. For more information, see [Best practices for creating and running AKS clusters at scale](./operator-best-practices-run-at-scale.md) and [Best practices for performance and scaling for large workloads in AKS](./best-practices-performance-scale-large.md).
 
 ### Do *not* use B series VMs
 
