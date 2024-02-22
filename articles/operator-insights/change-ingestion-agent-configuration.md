@@ -36,7 +36,7 @@ If you need to change the agent's configuration, carry out the following steps.
 1. Edit the configuration file to change the config values.
 1. Restart the agent.
     ```
-    sudo systemctl restart az-aoi-ingestion.service`
+    sudo systemctl restart az-aoi-ingestion.service
     ```
 
 ## Roll back configuration changes
