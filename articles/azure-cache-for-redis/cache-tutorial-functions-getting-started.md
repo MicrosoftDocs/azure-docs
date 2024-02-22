@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis'
+title: 'Tutorial: Get started with Azure Functions triggers and bindings in Azure Cache for Redis'
 description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis.
 author: flang-msft
 
@@ -11,7 +11,7 @@ ms.date: 08/24/2023
 
 ---
 
-# Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis
+# Tutorial: Get started with Azure Functions triggers and bindings in Azure Cache for Redis
 
 This tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
 
@@ -58,10 +58,14 @@ Creating the cache can take a few minutes. You can move to the next section whil
 1. Select the folder that you created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
 
    - **C#** as the language.
-   - **.NET 6.0 LTS** as the .NET runtime.
+   - **.NET 8.0 Isolated LTS** as the .NET runtime.
    - **Skip for now** as the project template.
 
    If you don't have the .NET Core SDK installed, you're prompted to do so.
+
+> [!IMPORTANT]
+> For .NET functions, using the _isolated worker model_ is recommended over the _in-process_ model. For a comparsion of the in-process and isolated worker models, see [differences between the isolated worker model and the in-process model for .NET on Azure Functions](../azure-functions/dotnet-isolated-in-process-differences.md). This sample will use the _isolated worker model_. 
+> 
 
 1. Confirm that the new project appears on the **EXPLORER** pane.
 
@@ -74,8 +78,12 @@ You need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet packag
 Install this package by going to the **Terminal** tab in VS Code and entering the following command:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prerelease
 ```
+
+> [!NOTE]
+> The `Microsoft.Azure.Functions.Worker.Extensions.Redis` package is used for .NET isolated worker process functions. .NET in-process functions and all other languages will use the `Microsoft.Azure.WebJobs.Extensions.Redis` package instead.
+>
 
 ## Configure the cache
 
@@ -97,64 +105,85 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
 
-## Set up the example code
+## Set up the example code for Redis triggers
 
-1. Go back to VS Code and add a file called _RedisFunctions.cs_ to the project.
+1. Go back to VS Code and add a file calle _Common.cs_ to the project. This class will be used to help parse the JSON serialized response for the PubSubTrigger.
+
+1. Copy and paste the following code into the _Common.cs_ file:
+
+```csharp
+public class Common
+{
+    public const string connectionString = "redisConnectionString";
+
+    public class ChannelMessage
+    {
+        public string SubscriptionChannel { get; set; }
+        public string Channel { get; set; }
+        public string Message { get; set; }
+    }
+}
+```
+
+1. Add a file called _RedisTriggers.cs_ to the project.
 
 1. Copy and paste the following code sample into the new file:
 
-    ```csharp
-    using Microsoft.Extensions.Logging;
-    using StackExchange.Redis;
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Redis;
 
-    namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
+public class RedisTriggers
+{
+    private readonly ILogger<RedisTriggers> logger;
+
+    public RedisTriggers(ILogger<RedisTriggers> logger)
     {
-        public static class RedisSamples
-        {
-            public const string connectionString = "redisConnectionString";
-
-            [FunctionName(nameof(PubSubTrigger))]
-            public static void PubSubTrigger(
-                [RedisPubSubTrigger(connectionString, "pubsubTest")] string message,
-                ILogger logger)
-            {
-                logger.LogInformation(message);
-            }
-
-            [FunctionName(nameof(KeyspaceTrigger))]
-            public static void KeyspaceTrigger(
-                [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
-                ILogger logger)
-            {
-                logger.LogInformation(message);
-            }
-
-            [FunctionName(nameof(KeyeventTrigger))]
-            public static void KeyeventTrigger(
-                [RedisPubSubTrigger(connectionString, "__keyevent@0__:del")] string message,
-                ILogger logger)
-            {
-                logger.LogInformation(message);
-            }
-
-            [FunctionName(nameof(ListTrigger))]
-            public static void ListTrigger(
-                [RedisListTrigger(connectionString, "listTest")] string entry,
-                ILogger logger)
-            {
-                logger.LogInformation(entry);
-            }
-
-            [FunctionName(nameof(StreamTrigger))]
-            public static void StreamTrigger(
-                [RedisStreamTrigger(connectionString, "streamTest")] string entry,
-                ILogger logger)
-            {
-                logger.LogInformation(entry);
-            }
-        }
+        this.logger = logger;
     }
-    ```
+
+    // PubSubTrigger function listens to messages from the 'pubsubTest' channel.
+    [Function("PubSubTrigger")]
+    public void PubSub(
+    [RedisPubSubTrigger(Common.connectionString, "pubsubTest")] Common.ChannelMessage channelMessage)
+    {
+    logger.LogInformation($"Function triggered on pub/sub message '{channelMessage.Message}' from channel '{channelMessage.Channel}'.");
+    }
+
+    // KeyeventTrigger function listens to key events from the 'del' operation.
+    [Function("KeyeventTrigger")]
+    public void Keyevent(
+        [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:del")] Common.ChannelMessage channelMessage)
+    {
+        logger.LogInformation($"Key '{channelMessage.Message}' deleted.");
+    }
+
+    // KeyspaceTrigger function listens to key events on the 'keyspaceTest' key.
+    [Function("KeyspaceTrigger")]
+    public void Keyspace(
+        [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:keyspaceTest")] Common.ChannelMessage channelMessage)
+    {
+        logger.LogInformation($"Key 'keyspaceTest' was updated with operation '{channelMessage.Message}'");
+    }
+
+    // ListTrigger function listens to changes to the 'listTest' list.
+    [Function("ListTrigger")]
+    public void List(
+        [RedisListTrigger(Common.connectionString, "listTest")] string response)
+    {
+        logger.LogInformation(response);
+    }
+
+    // StreamTrigger function listens to changes to the 'streamTest' stream.
+    [Function("StreamTrigger")]
+    public void Stream(
+        [RedisStreamTrigger(Common.connectionString, "streamTest")] string response)
+    {
+        logger.LogInformation(response);
+    }
+}
+```
 
 1. This tutorial shows multiple ways to trigger on Redis activity:
 
@@ -175,13 +204,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
       "IsEncrypted": false,
       "Values": {
         "AzureWebJobsStorage": "",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
         "redisConnectionString": "<your-connection-string>"
       }
     }
     ```
 
-    The code in _RedisConnection.cs_ looks to this value when it's running locally:
+    The code in _Common.cs_ looks to this value when it's running locally:
 
       ```csharp
       public const string connectionString = "redisConnectionString";
@@ -216,6 +245,48 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 1. Confirm that the triggers are being activated in the terminal.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
+
+## Add Redis bindings
+Bindings add a streamlined way to read or write data stored on your Redis instance. Bindings add a lot of value when used with triggers. 
+
+1. Add a file called _RedisBindings.cs_ to the project.
+
+1. Copy and paste the following code sample into the new file:
+
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Redis;
+
+public class RedisBindings
+{
+    private readonly ILogger<RedisBindings> logger;
+
+    public RedisBindings(ILogger<RedisBindings> logger)
+    {
+        this.logger = logger;
+    }
+    
+    //This example uses the PubSub trigger to listen to key events on the 'set' operation. A Redis Input binding is used to get the value of the key being set.
+    [Function("SetGetter")]
+    public void SetGetter(
+        [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] Common.ChannelMessage channelMessage,
+        [RedisInput(Common.connectionString, "GET {Message}")] string value)
+    {
+        logger.LogInformation($"Key '{channelMessage.Message}' was set to value '{value}'");
+    }
+
+    //This example uses the PubSub trigger to listen to key events to the key 'key1'. When key1 is modified, a Redis Output binding is used to set the value of the 'key1modified' key to 'true'.
+    [Function("SetSetter")]
+    [RedisOutput(Common.connectionString, "SET")]
+    public string SetSetter(
+        [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:key1")] Common.ChannelMessage channelMessage)
+    {
+        logger.LogInformation($"Key '{channelMessage.Message}' was updated. Setting the value of 'key1modified' to 'true'");
+        return $"key1modified true";
+    }
+}
+```
 
 ## Deploy code to an Azure function
 
