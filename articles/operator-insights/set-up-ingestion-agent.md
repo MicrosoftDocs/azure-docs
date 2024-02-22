@@ -117,10 +117,9 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     # [SFTP sources](#tab/sftp)
 
-    1. Verify that the VM has the following ports open.
+    1. Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
         - Port 443/TCP outbound to Azure
         - Port 22/TCP outbound to the SFTP server
-        These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
     1. Create a directory to use for storing secrets for the agent. We call this the _secrets directory_. Note its path.
     1. Create a file in the secrets directory containing password or private SSH key for the SFTP server.
        - The file must not have a file extension.
@@ -134,10 +133,9 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     # [MCC EDR sources](#tab/edr)
 
-    Verify that the VM has the following ports open.
+    Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
-    These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 
     ---
 
