@@ -233,6 +233,7 @@ Patching your virtual machine operating system can be automated using [Azure Aut
 - Consider using ultra disks when available or premium disks for your Oracle database.
 - Consider setting up a standby Oracle database in another Azure region using Oracle Data Guard.
 - Consider using [proximity placement groups](../../co-location.md#proximity-placement-groups) to reduce the latency between your application and database tier.
+- Azure VMs throttle network bandwidth at higher throughput levels than managed disk. You can achieve higher throughput on the same VM SKU or use a smaller VM SKU for the same throughput using networked storage for the database such as [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
 - Set up [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) for management, monitoring, and logging.
 - Consider using Oracle Automatic Storage Management for streamlined storage management for your database.
 - Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to manage patching and updates to your database without any downtime.

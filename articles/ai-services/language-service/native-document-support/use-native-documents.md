@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/21/2024
 ms.author: lajanuar
 ---
 
@@ -197,6 +197,10 @@ For this quickstart, you need a **source document** uploaded to your **source co
 }
 ```
 
+* The source `location` value is the SAS URL for the **source document (blob)**, not the source container SAS URL.
+
+* The `redactionPolicy` possible values are `UseRedactionCharacterWithRefId` (default) or `UseEntityTypeName`. For more information, *see* [**PiiTask Parameters**](/rest/api/language/text-analysis-runtime/analyze-text?view=rest-language-2023-11-15-preview&tabs=HTTP#piitaskparameters&preserve-view=true).
+
 ### Run the POST request
 
 1. Here's the preliminary structure of the POST request:
@@ -332,7 +336,7 @@ For this project, you need a **source document** uploaded to your **source conta
 
 1. Copy and paste the Document Summarization **request sample** into your `document-summarization.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
 
-  `**Request sample**`
+  ***Request sample***
 
   ```json
   {
