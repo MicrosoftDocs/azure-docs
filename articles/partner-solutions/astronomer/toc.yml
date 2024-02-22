@@ -19,3 +19,19 @@ items:
   - name: Troubleshoot Astro
     href: astronomer-troubleshoot.md
 
+- name: SDKs and command-lines
+  items:
+#  - name: Python
+#    href: /python/api/overview/azure/astronomer
+#  - name: JavaScript
+#    href: /javascript/api/overview/azure/astronomer
+#  - name: .NET
+#    href: /dotnet/api/overview/azure/astronomer
+#  - name: Java
+#    href: /java/api/overview/azure/astronomer
+#  - name: CLI
+#    href: /cli/azure/service-page/astronomer
+#  - name: Azure PowerShell
+#    href: /powershell/module/az.astronomer
+  - name: Astro developer tools 
+    href: astronomer-tools.md#developer-tools 
