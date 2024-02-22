@@ -166,16 +166,11 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 ## Accessing Support Files in the Calling SDK
 
-[!INCLUDE [Public Preview](../includes/public-preview-include.md)]
-
 Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
 
-[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
-[Log File Access Tutorials](../tutorials/log-file-retrieval-tutorial.md)
+## Enable and Access Call Logs
 
-## Enable and access call logs
-
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
 Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the CallClient constructor:
@@ -198,35 +193,24 @@ AzureLogger.log = (...args) => {
 };
 ```
 
-# [iOS](#tab/ios)
+### Azure Communication Services Calling SDK (Android, iOS, Windows)
 
-In an iOS Application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+For Android, iOS and Windows the Azure Communication Services Calling SDK Offers access to log files and support information the the SDK's functionality.
 
-These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".
+For Calling Native SDK's please refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
-This process gives you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
+### Azure Communication Services Calling UI SDK (Android, iOS)
 
-# [Android](#tab/android)
+If you are using the Azure Communication Services UI Libraries for Android or iOS, UI controls are integrated to support user feedback loops.
 
-In an Android application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+For more information on how to leverage the support functionality of the 
 
-On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file is located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
+# Building support flows in your app
+
+
+[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
 
 ---
-
-## Enable and access call logs (Windows)
-
-In a Windows application, logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
-
-These are accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
-1. Open a Windows Command Prompt (Windows Key + R)
-2. Type `cmd.exe`
-3. Type `where /r %USERPROFILE%\AppData acs*.blog`
-4. Please check if the app ID of your application matches with the one returned by the previous command.
-5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
-6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
-
-
 <a name='finding-azure-active-directory-information'></a>
 
 ## Finding Microsoft Entra information

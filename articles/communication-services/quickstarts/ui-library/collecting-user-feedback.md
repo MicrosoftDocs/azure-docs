@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: Collecting User Feedback in the ACS UI Library
 description: Enabling the Support Form and tooling, and handling support requests
 author:      ahammer # GitHub alias
@@ -11,21 +7,7 @@ ms.service: azure-communication-services
 ms.topic: conceptual
 ms.date:     01/08/2024
 ms.subservice: calling
----
-
----
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-title: Collecting User Feedback
-description: How to engage with customers in regards to call support
-author:      ahammer # GitHub alias
-ms.author:   adamhammer # Microsoft alias
-ms.service: azure-communication-services
-ms.topic: how-to
-ms.date:     01/08/2024
-ms.subservice: calling
+zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
 # Collecting User Feedback
@@ -248,8 +230,8 @@ app.listen(port, () => {
 });
 ```
 
-
-## Client-Side Steps #Android
+::: zone pivot="programming-language-kotlin"
+## Client-Side Steps - Android
 
 Integrating user feedback within an Android application, particularly through the Azure Communication Services (ACS) UI Library, involves specific steps to ensure a seamless experience for both developers and users. By incorporating an `onUserReportedIssueEventHandler`, developers can enable a support form within their application, allowing users to report issues directly. This section will guide you through setting up the client-side feedback capture mechanism, maintaining consistency with the document's structure and focus.
 
@@ -519,56 +501,130 @@ Once you have a Handler for your event, you can register it when creating your c
 ```
             callComposite.addOnUserReportedEventHandler(userReportedIssueEventHandler)
 ```
+::: zone-end
 
-#### iOS Code Sample (WIP)
+::: zone pivot="programming-language-swift"
+## Client-Side Steps - iOS
+
+To integrate user feedback collection within iOS applications using the Azure Communication Services (ACS) UI Library, developers need to follow a structured approach. This process involves capturing user feedback, including error logs and support requests, directly within iOS applications and submitting this data to a server for processing. Below, we detail the steps necessary to accomplish this, maintaining consistency in format and tone with the Android section.
+
+### Enabling Support Form Submission in iOS
+
+#### Implementing the Support Form
+
+1. **Event Handler Registration**: Begin by registering an event handler that listens for user-reported issues. This handler is crucial for capturing feedback directly from your iOS application's interface, leveraging the ACS UI Library's capabilities.
+
+2. **Visibility and Accessibility of the Form**: Ensure that the support form is readily accessible and visible to users within the application. The activation of the form is directly linked to the implementation of the event handler, which triggers its appearance within the UI, allowing users to report issues.
+
+#### Capturing and Processing Support Requests
+
+1. **Event Emission on User Action**: When a user reports an issue through the support form, the event handler captures this action, including all relevant information such as the user's description of the problem, error logs, and any screenshots or additional inputs provided.
+
+2. **Data Structuring for Submission**: Organize the captured information into a structured format suitable for transmission. This involves preparing the data in a way that aligns with the expected format of the server endpoint that will receive and process the support request.
+
+#### Submitting Data to the Server
+
+1. **Asynchronous Submission**: Utilize asynchronous network calls to send the structured data to the server. This approach ensures that the application remains responsive, providing a seamless experience for the user while the data is transmitted in the background.
+
+2. **Handling Server Responses**: Upon submission, efficiently process server responses. This includes parsing the response to confirm successful receipt of the data and extracting any references or ticket numbers provided by the server, which can be communicated back to the user for follow-up.
+
+#### Feedback and Notifications to Users
+
+1. **Immediate Acknowledgment**: Immediately acknowledge the submission of a support request within the application, providing users with confirmation that their report has been received.
+
+2. **Notification Strategy**: Implement a strategy for delivering notifications to users, especially on devices running iOS versions that support specific notification frameworks. This could involve the use of local notifications to inform users about the status of their report or providing updates as their issue is addressed.
+
+### iOS Code Sample
+
+The Swift code sample below outlines a basic implementation for capturing user-reported issues and submitting them to a server for processing. This example demonstrates how to construct a support event, including user feedback and application diagnostic information, and send it asynchronously to a predefined server endpoint. The code also includes error handling and user notification strategies to ensure a smooth user experience.
+
+
 ```swift
-let SERVER_URL = "https://yourwebservice"
+import Foundation
+import UIKit
+import Combine
+import AzureCommunicationUICalling
+import Alamofire
 
-func onUserReportedIssueHandler(userIssue: CallCompositeUserReportedIssue) {
-    guard let screenshotURL = userIssue.screenshot else { return }
-    var request = URLRequest(url: URL(string: SERVER_URL)!)
-    request.httpMethod = "POST"
+/// Sends a support event to a server with details from a `CallCompositeUserReportedIssue`.
+/// - Parameters:
+///   - server: The URL of the server where the event will be sent.
+///   - event: The `CallCompositeUserReportedIssue` containing details about the issue reported by the user.
+///   - callback: A closure that is called when the operation is complete.
+///               It provides a `Bool` indicating success or failure, and a `String`
+///               containing the server's response or an error message.
+func sendSupportEventToServer(server: String,
+                              event: CallCompositeUserReportedIssue,
+                              callback: @escaping (Bool, String) -> Void) {
+    // Construct the URL for the endpoint.
+    let url = "\(server)/receiveEvent" // Ensure this is replaced with the actual server URL.
 
-    let boundary = "Boundary-\(UUID().uuidString)"
-    request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+    // Extract debugging information from the event.
+    let debugInfo = event.debugInfo
 
-    var data = Data()
-    
-    // User Message
-    if let userMessageData = "--\(boundary)\r\nContent-Disposition: form-data; name=\"user_message\"\r\n\r\n\(userIssue.userMessage)\r\n".data(using: .utf8) {
-        data.append(userMessageData)
-    }
+    // Prepare the data to be sent as key-value pairs.
+    let parameters: [String: String] = [
+        "user_message": event.userMessage, // User's message about the issue.
+        "ui_version": debugInfo.versions.callingUIVersion, // Version of the calling UI.
+        "call_history": debugInfo.callHistoryRecords
+            .map { $0.callIds.joined(separator: ",") }
+            .joined(separator: "\n") // Call history, formatted.
+    ]
 
-    // Screenshot
-    do {
-        let screenshotData = try Data(contentsOf: screenshotURL)
-        data.append("--\(boundary)\r\nContent-Disposition: form-data; name=\"screenshot\"; filename=\"screenshot.png\"\r\nContent-Type: image/png\r\n\r\n".data(using: .utf8)!)
-        data.append(screenshotData)
-        data.append("\r\n".data(using: .utf8)!)
-    } catch {
-        print("Error: Could not load screenshot data")
-        return
-    }
+    // Define the headers for the HTTP request.
+    let headers: HTTPHeaders = [
+        .contentType("multipart/form-data")
+    ]
 
-    // Call History Records and Log Files (you will need to implement the logic to append these based on your app's needs)
-
-    data.append("--\(boundary)--\r\n".data(using: .utf8)!)
-
-    let task = URLSession.shared.uploadTask(with: request, from: data) { data, response, error in
-        guard let data = data, error == nil else {
-            print("Error: \(error?.localizedDescription ?? "Unknown error")")
-            return
+    // Perform the multipart/form-data upload.
+    AF.upload(multipartFormData: { multipartFormData in
+        // Append each parameter as a part of the form data.
+        for (key, value) in parameters {
+            if let data = value.data(using: .utf8) {
+                multipartFormData.append(data, withName: key)
+            }
         }
-        if let responseString = String(data: data, encoding: .utf8) {
-            // Handle the response here
-            print("Response: \(responseString)")
+
+        // Append log files.
+        debugInfo.logFiles.forEach { fileURL in
+            do {
+                let fileData = try Data(contentsOf: fileURL)
+                multipartFormData.append(fileData,
+                                         withName: "log_files",
+                                         fileName: fileURL.lastPathComponent,
+                                         mimeType: "application/octet-stream")
+            } catch {
+                print("Error reading file data: \(error)")
+            }
+        }
+    }, to: url, method: .post, headers: headers).response { response in
+        // Handle the response from the server.
+        switch response.result {
+        case .success(let responseData):
+            // Attempt to decode the response.
+            if let data = responseData, let responseString = String(data: data, encoding: .utf8) {
+                callback(true, responseString) // Success case.
+            } else {
+                callback(false, "Failed to decode response.") // Failed to decode.
+            }
+        case .failure(let error):
+            // Handle any errors that occurred during the request.
+            print("Error sending support event: \(error)")
+            callback(false, "Error sending support event: \(error.localizedDescription)")
         }
     }
-    task.resume()
 }
 ```
+
+This Swift code demonstrates the process of submitting user-reported issues from an iOS application using Azure Communication Services. It handles the collection of user feedback, packaging of diagnostic information, and asynchronous submission to a server endpoint. Additionally, it provides the foundation for implementing feedback mechanisms, ensuring users are informed about the status of their reports and enhancing overall application reliability and user satisfaction.
+::: zone-end
 
 
 ## Conclusion
 
-The guide provides a thorough roadmap for integrating user feedback mechanisms into applications using Azure Communication Services (ACS), emphasizing the significance of direct user engagement and efficient backend data management. It outlines a structured approach for both server-side processing using Node.js and client-side feedback capture for Android applications, with insights into extending these functionalities to iOS platforms. By following this guide, developers are equipped with the tools and knowledge necessary to enhance application reliability and user satisfaction. This integration not only streamlines the feedback process but also leverages Azure's robust cloud services for secure and organized data storage, ensuring a seamless and effective feedback loop between users and developers.
+
+Integrating user feedback mechanisms into applications using Azure Communication Services (ACS) is crucial for developing responsive and user-focused apps. This guide has provided a clear pathway for setting up both server-side processing with Node.js and client-side feedback capture for Android and iOS applications. Through such integration, developers can enhance application reliability and user satisfaction while leveraging Azure's cloud services for efficient data management.
+
+The guide outlines practical steps for capturing user feedback, error logs, and support requests directly from applications and processing this data with Azure backend services. This approach ensures a secure and organized way to handle feedback, allowing developers to quickly address and resolve user issues, leading to an improved overall user experience.
+
+By following the instructions detailed in this guide, developers can improve the responsiveness of their applications and better meet user needs. This not only helps in understanding user feedback more effectively but also utilizes cloud services to ensure a smooth and effective feedback collection and processing mechanism. Ultimately, integrating user feedback mechanisms is essential for creating engaging and reliable applications that prioritize user satisfaction.

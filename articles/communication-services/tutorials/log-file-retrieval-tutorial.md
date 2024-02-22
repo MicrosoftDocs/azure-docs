@@ -38,17 +38,7 @@ In this tutorial, you learn how to access the Log Files stored on the device.
 
 ## Next steps
 
-To add enhanced log collection capabilities to your app, consider the following points.
-
-1. Explore support features: 
-   - "Report an Issue" prompts
-   - End-of-call surveys
-   - Shake-to-report
-   - Proactive autodetection
-2. Always obtain user consent before submitting data.
-3. Customize strategies based on your users.
-
-Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md) for more in-depth guidance.
+Refer to the [integrating support document](../concepts/voice-video-calling/retrieve-support-files.md) for more in depth look at how to structure an end to end support flow
 
 ## You may also like
 

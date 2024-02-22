@@ -2671,6 +2671,14 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+- id: acs-programming-languages-support-kotlin-swift
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-kotlin
+    title: Android  
 # Owner: jorgegarc
 - id: acs-maui-xamarin-react
   title: Cross-platform pivots
