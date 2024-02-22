@@ -24,8 +24,12 @@ Azure Operator 5G Core is deployed using the Azure Operator 5G Core Resource Pro
 ## Prerequisites
 
 Before you can successfully deploy Azure Operator 5G Core, you must:
-- [register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
-- [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
+- [Register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
+
+Based on your deployment environments, complete one of the following:
+- [Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
+- [Prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service](how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
+
 
 ## Post cluster creation 
 
