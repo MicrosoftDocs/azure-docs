@@ -1,13 +1,13 @@
 ---
 title: Connect Raspberry Pi to Azure IoT Hub
 titleSuffix: Azure IoT Hub
-description: Connect a Raspberry Pi to Azure IoT Hub to test sample scenarios that send data to the Azure cloud.
+description: Connect a Raspberry Pi to Azure IoT Hub and test sample scenarios that send data to the Azure cloud.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 02/20/2024
+ms.date: 02/22/2024
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub
@@ -19,7 +19,7 @@ This article provides basic steps for getting starting with connecting a Raspber
 Have the following prerequisites prepared before starting this article:
 
 * An Azure subscription.
-* An IoT hub with a device registered to it.
+* An IoT hub with a device registered to it. If you don't have a hub with a registered device already, see [Create an IoT hub using the Azure portal](./iot-hub-create-through-portal.md).
 
 ## Use the online simulator
 
@@ -30,7 +30,7 @@ Select the following button to start Raspberry Pi online simulator.
 
 There are three areas in the web simulator.
 
-![Screenshot that shows an overview of Pi online simulator.](media/raspberry-pi-get-started/overview.png)
+![Screenshot that shows an overview of Pi online simulator.](media/raspberry-pi-get-started/simulator-overview.png)
 
 1. Assembly area - A graphic depiction of the Pi simulator, including connections between the Pi and two devices:
 
@@ -58,7 +58,7 @@ There are three areas in the web simulator.
 
 2. Select **Run** or type `npm start` in the integrated console window to run the application.
 
-You should see the following output that shows the sensor data and the messages that are sent to your IoT hub
+You should see the following output that shows the sensor data and the messages that are sent to your IoT hub:
 
 ![Screenshot that shows output sensor data sent from Raspberry Pi to your IoT hub.](media/raspberry-pi-get-started/simulator-run-application.png)
 
@@ -77,7 +77,7 @@ The following sections walk through setting up a Raspberry Pi solution, includin
 
 * An internet connection.
 
-* A 16 GB or above microSD card.
+* A 16 GB or larger microSD card.
 
 * A USB-SD adapter or microSD card to burn the operating system image onto the microSD card.
 
@@ -99,7 +99,7 @@ Prepare the microSD card for installation of the Raspberry Pi OS image.
 
    b. Run Etcher and select the Raspberry Pi OS with desktop image that you extracted in step 1.
 
-   c. Select the microSD card drive. Etcher may have already selected the correct drive.
+   c. Select the microSD card drive if it isn't selected already.
 
    d. Select Flash to install Raspberry Pi OS with desktop to the microSD card.
 
@@ -121,7 +121,7 @@ Prepare the microSD card for installation of the Raspberry Pi OS image.
 
     | Interface | Description |
     | --------- | ----------- |
-    | *SSH* | Secure Shell (SSH) is used to remote into the Raspberry Pi with a remote command-line. This is the preferred method for issuing the commands to your Raspberry Pi remotely in this document. |
+    | *SSH* | Secure Shell (SSH) is used to remote into the Raspberry Pi with a remote command-line. SSH is the preferred method for issuing the commands to your Raspberry Pi remotely in this document. |
     | *I2C* | Inter-integrated Circuit (I2C) is a communications protocol used to interface with hardware such as sensors. This interface is required for interfacing with physical sensors in this article.|
 
     If you don't have physical sensors and want to use simulated sensor data from your Raspberry Pi device, you can leave **I2C** disabled.
@@ -133,7 +133,7 @@ Prepare the microSD card for installation of the Raspberry Pi OS image.
 
 ### Connect Pi to the network
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi is connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 > [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
