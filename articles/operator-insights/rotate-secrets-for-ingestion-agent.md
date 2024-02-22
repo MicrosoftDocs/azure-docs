@@ -12,7 +12,9 @@ ms.date: 02/29/2024
 ---
 # Rotate secrets for Azure Operator Insights ingestion agents
 
-The ingestion agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. 
+The ingestion agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you.
+
+It uses a service principal to obtain, from the Data Product's Azure Key Vault, the credentials needed to upload data to the Data Product's input storage account.
 
 You must refresh your service principal credentials before they expire. In this article, you'll rotate the service principal certificates on the ingestion agent.
 

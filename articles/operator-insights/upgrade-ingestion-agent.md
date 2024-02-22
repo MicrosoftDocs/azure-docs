@@ -24,7 +24,8 @@ Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
 
-1. Copy the RPM to the VM.
+1. Ensure you have a copy of the currently running version of the RPM, in case you need to roll back the upgrade.
+1. Copy the new RPM to the VM.
 1. Connect to the VM over SSH, and change to the directory where the RPM was copied.
 1. Save a copy of the existing */etc/az-aoi-ingestion/config.yaml* configuration file.
 1. Upgrade the RPM.
