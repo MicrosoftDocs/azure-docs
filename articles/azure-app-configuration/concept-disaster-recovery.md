@@ -5,7 +5,7 @@ author: avanigupta
 ms.author: avgupta
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 02/16/2024
 ---
 
 # Resiliency and disaster recovery
@@ -13,6 +13,9 @@ ms.date: 04/20/2023
 Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
 
 This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
+
+> [!TIP]
+> See [best practices](./howto-best-practices.md#building-applications-with-high-resiliency) for building applications with high resiliency.
 
 ## High-availability architecture
 
