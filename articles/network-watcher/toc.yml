@@ -93,6 +93,8 @@
       href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Update to latest version
       href: ../virtual-machines/extensions/network-watcher-update.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+  - name: View network topology
+    href: network-insights-topology.md
   - name: Create a connection monitor
     items:
     - name: Portal
@@ -217,8 +219,6 @@
         href: network-watcher-security-group-view-cli.md
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
-  - name: View network topology
-    href: view-network-topology.md
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
   - name: Monitor network performance
