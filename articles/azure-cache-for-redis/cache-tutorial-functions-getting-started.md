@@ -327,17 +327,15 @@ public class RedisBindings
 
 ## Add connection string information
 
-1. In the Azure portal, go to your new function app and select **Configuration** from the resource menu.
+1. In the Azure portal, go to your new function app and select **Environment variables** from the resource menu.
 
-1. On the working pane, go to **Application settings**. In the **Connection strings** section, select **New connection string**.
+1. On the working pane, go to **App settings**.
 
 1. For **Name**, enter **redisConnectionString**.
 
 1. For **Value**, enter your connection string.
 
-1. Set **Type** to **Custom**, and then select **Ok** to close the menu.
-
-1. Select **Save** on the configuration page to confirm. The function app restarts with the new connection string information.
+1. Select **Apply** on the page to confirm. The function app restarts with the new connection string information.
 
 ## Test your triggers and bindings
 
