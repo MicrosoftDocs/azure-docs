@@ -8,7 +8,7 @@ ms.author: tejaswikolli
 ms.service: container-registry
 ---
 
-# Manage OCI Artifacts and Supply Chain Artifacts using ORAS
+# Manage OCI Artifacts and Supply Chain Artifacts with ORAS
 
 Azure Container Registry (ACR) helps you to manage both the Open Container Initiative (OCI) artifacts and supply chain artifacts. This article is a comprehensive guide on how to use Azure Container Registry (ACR) to store, manage, and retrieve both OCI artifacts and a graph of supply chain artifacts, including signatures, software bill of materials (SBOM), security scan results and other types.
 
@@ -18,15 +18,15 @@ Azure Container Registry (ACR) helps you to manage both the Open Container Initi
 
 This article is divided into two main sections:
 
-* [Push and pull OCI artifacts using ORAS](container-registry-manage-artifact.md#push-and-pull-oci-artifacts-using-oras)
-* [Attach, push, and pull supply chain artifacts using ORAS](container-registry-manage-artifact.md#attach-push-and-pull-supply-chain-artifacts-using-oras)
+* [Push and pull OCI artifacts with ORAS](container-registry-manage-artifact.md#push-and-pull-oci-artifacts-with-oras)
+* [Attach, push, and pull supply chain artifacts with ORAS](container-registry-manage-artifact.md#attach-push-and-pull-supply-chain-artifacts-with-oras)
 
 
 ## Prerequisites
 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI][az-acr-create].  
 * **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
-* **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
+* **ORAS CLI** - Version `v1.1.0` or later version is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - To complete the walkthrough, a container image is referenced.
 You can use [Docker installed locally][docker-install] to build and push a container image, or use [`acr build`][az-acr-build] to build remotely in Azure.  
 While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.  
@@ -77,7 +77,7 @@ Provide the credentials to `oras login`.
     --password $PASSWORD
   ```
 
-## Push and Pull OCI Artifacts using ORAS
+## Push and Pull OCI Artifacts with ORAS
 
 You can use an [Azure container registry][acr-landing] to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
@@ -232,10 +232,12 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
  oras manifest delete $REGISTRY/samples/artifact:readme
 ```
 
-## Attach, push, and pull supply chain artifacts using ORAS
+## Attach, push, and pull supply chain artifacts with ORAS
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover` and `pull` a graph of supply chain artifacts to an Azure container registry.
 Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
+
+To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI image manifest][oci-image-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec].
 
 ### Push a container image
 
@@ -516,7 +518,7 @@ The output of `tree`:
 
 ### View the repository and tag listing
 
-The OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. Artifact manifests enable a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
+ORAS enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. It also enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
 
 #### View a list of tags
 
@@ -593,7 +595,7 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 
 <!-- LINKS - external -->
 [docker-install]:           https://www.docker.com/get-started/
-[oci-artifact-manifest]:    https://github.com/opencontainers/image-spec/blob/main/manifest.md
+[oci-image-manifest]:    https://github.com/opencontainers/image-spec/blob/main/manifest.md
 [oci-artifact-referrers]:   https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
 [oci-spec]:                 https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
