@@ -62,7 +62,7 @@ A default way to authenticate to an Azure OpenAI API is by using an API key. For
 
 ### Pass the API key in API requests - set-header policy
 
-1. Add the following `inbound` policy snippet to your API Management instance to pass the API key in requests to the Azure OpenAI API. This policy snippet sets the `api-key` header with the named value that you set up. 
+Add the following `inbound` policy snippet to your API Management instance to pass the API key in requests to the Azure OpenAI API. This policy snippet sets the `api-key` header with the named value that you set up. 
 
     In this example, the named value in API Management is *openai-api-key*.
 
