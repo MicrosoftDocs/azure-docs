@@ -14,6 +14,7 @@ ms.custom: [references_regions]
 
 ---
 # How to deploy Mistral models with Azure AI Studio
+
 Mistral AI offers two categories of models in AI Studio:
 * Premium models: Mistral-large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
 * Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01 and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
