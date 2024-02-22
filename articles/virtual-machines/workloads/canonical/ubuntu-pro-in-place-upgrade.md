@@ -99,7 +99,7 @@ You can create a new VM using the Ubuntu Server images and apply Ubuntu Pro at t
 The following command enables Ubuntu Pro on a virtual machine in Azure:
 
 ```Azure CLI
-az vm create -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
+az vm create -g myResourceGroup -n myVmName --license-type UBUNTU_PRO --image ubuntu2204
 ```
 
 Execute these commands inside the VM:

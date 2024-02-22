@@ -126,6 +126,6 @@ Telemetry data helps the SDK team understand how the SDK is used so it can be im
 
 ## Next steps
 
-- [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Get started with the Azure AI SDK](./sdk-install.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

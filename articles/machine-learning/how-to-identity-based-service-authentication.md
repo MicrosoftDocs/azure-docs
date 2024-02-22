@@ -262,7 +262,7 @@ The identity-based access allows you to use [role-based access controls (RBAC)](
 
 ### Accessing storage services
 
-You can connect to storage services via identity-based data access with[Azure Machine Learning datastores](how-to-datastore.md). 
+You can connect to storage services via identity-based data access with [Azure Machine Learning datastores](how-to-datastore.md). 
 
 When you use identity-based data access, Azure Machine Learning prompts you for your Microsoft Entra token for data access authentication instead of keeping your credentials in the datastore. That approach allows for data access management at the storage level and keeps credentials confidential. 
 
