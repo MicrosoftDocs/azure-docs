@@ -41,13 +41,6 @@ After these resources are configured, use the following steps so that the Azure 
 ## Enable customer-managed key encryption for your App Configuration store
 
 1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) if you don't have one.
-1. Create an Azure Key Vault by using the Azure CLI.
-
-
-> [!TIP]
-> The Azure Cloud Shell is a free interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
-
-### Create and configure an Azure Key Vault
 
 1. Create an Azure Key Vault by using the Azure CLI. Both `vault-name` and `resource-group-name` are user-provided and must be unique. We use `contoso-vault` and `contoso-resource-group` in these examples.
 
