@@ -44,7 +44,7 @@ In the Azure portal:
   1. In the left menu, under **Settings** select **Configuration**.
   1. Review the Grafana version listed under **Grafana Version (Preview)**. If version 9 is selected in the dropdown menu, your workspace is on the Grafana version that is reaching end of life and is scheduled for retirement. We recommend that you upgrade your workspace to Grafana 10 by following the steps below. If your Grafana version is Grafana 10 or more, no further action is necessary.
 
-      :::image type="content" source="media/grafana-10-upgrade/check-grafana-version.png" alt-text="Screenshot of the Grafana interface showing the unified alerting menu.":::
+      :::image type="content" source="media/grafana-10-upgrade/check-grafana-version.png" alt-text="Screenshot of the Azure platform showing Grafana Version 9.":::
   
 ### [Azure CLI](#tab/azure-cli)
 
@@ -88,7 +88,7 @@ In the Azure portal:
 1. The Azure portal displays a warning message. Read the message carefully and check the box to acknowledge that you're aware of the risks.
 1. Select **Save** on top to save the new settings and trigger the upgrade to Grafana version 10.
 
-    :::image type="content" source="media/grafana-10-upgrade/save-upgrade.png" alt-text="Screenshot of the Grafana interface showing the unified alerting menu.":::
+    :::image type="content" source="media/grafana-10-upgrade/save-upgrade.png" alt-text="Screenshot of the Azure portal showing Grafana version 10 selected in the dropdown menu, the warning checkbox checked and the Save button highlighted.":::
 
 1. A notification appears, indicating that the upgrade is in progress. In the **Overview** page, Grafana’s **Provisioning State** is **Provisioning** until the upgrade is complete. After a few minutes, a notification appears, and the provisioning state becomes **Succeeded**.
 
@@ -102,7 +102,7 @@ In the Azure CLI:
     az grafana update --name <azure-managed-grafana-workspace> --major-version 10
     ```
 
-1. The CLI displays a warning indicating that upgrading to Grafana version 10 is a permanent an irreversible operation. Grafana alerting has been deprecated and any migrated legacy alert may require manual adjustments to function properly under the new alerting system. To acknowledge this information and proceed to the upgrade, enter `Y`. Otherwise, enter `N`to cancel the upgrade.
+1. The CLI displays a warning indicating that upgrading to Grafana version 10 is a permanent an irreversible operation. Grafana alerting has been deprecated and any migrated legacy alert may require manual adjustments to function properly under the new alerting system. To acknowledge this information and proceed to the upgrade, enter `Y`. Otherwise, cancel the upgrade with `N`.
 
 ---
 
