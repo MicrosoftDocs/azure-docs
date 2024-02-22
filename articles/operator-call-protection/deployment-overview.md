@@ -65,17 +65,23 @@ Required. Lead with a light intro that describes what the article covers. Answer
 -->
 
 [Introductory paragraph]
-TODO: Add your introductory paragraph
+* AOCP adds AI Voice features to your ACG deployment
+* You must have an ACG to use AI Voice features.
+* The AI settings are managed through the Azure Communications Gateway resource
+* This article explains the different ways you can enable AOCP.
+
 
 <!-- 3. Prerequisites --------------------------------------------------------------------
 
 Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+language and use a unordered list format.
 
 -->
 
 ## Prerequisites
-TODO: [List the prerequisites if appropriate]
+[!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
+
+[!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 
 <!-- 4. H2s (Article body)
 --------------------------------------------------------------------
@@ -92,16 +98,29 @@ Required: In a series of H2 sections, the article body should discuss the ideas 
 
 -->
 
-## [Section 1 heading]
-TODO: add your content
+## AOCP is available in the Portal Marketplace
 
-## [Section 2 heading]
-TODO: add your content
+* AOCP can be deployed by searching for it in the Marketplace.
+* Creating AOCP will require filling out an ACG create request.
+* See the following docs for how to fill out the ACG create request.
+* You may need to manually enable "AOCP" on the "Communication Services" tab
+
+TODO: Replace this picture with the actual one.
+![Azure Operator Call Protection in the Azure Portal Marketplace](media/portal1.png)
+
+## AOCP is available on your existing ACG
+
+* Existing ACGs have a setting to add/configure AOCP
+* Submitting this request will update your ACG deployment to support ACG
+* You must wait for Provisioning to complete.
+
+TODO: Replace this picture with the actual one.
+![Enabling Azure Operator Call Protection on an Azure Communications Gateway](media/portal2.png)
 
 ## [Section n heading]
 TODO: add your content
 
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
+<!-- 5. Next step/Related content ------------------------------------------------------------------------
 
 Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
   - For Next step, provide one link to the next step in a sequence. Use the blue box format
@@ -123,11 +142,11 @@ Optional: You have two options for manually curated links in this pattern: Next 
 TODO: Add your next step link(s)
 
 - [Write concepts](article-concept.md)
-- 
+-
 --->
 
 <!--
-Remove all the comments in this template before you sign-off or merge to the 
+Remove all the comments in this template before you sign-off or merge to the
 main branch.
 
 -->

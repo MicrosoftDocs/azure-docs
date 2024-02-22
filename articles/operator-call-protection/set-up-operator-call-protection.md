@@ -55,13 +55,17 @@ Example: In this article, you will migrate your user databases from IBM Db2 to S
 
 TODO: Add your introductory paragraph
 
+* This article explains how you manage your AOCP deployment going forward.
+* That includes things like checking to see if it's healthy, what logs/metrics are available.
+* Should note how you make support/change requests?
+
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
 -->
 
 <!-- 3. Prerequisites --------------------------------------------------------------------
 
-Required: Make Prerequisites the first H2 after the H1. 
+Required: Make Prerequisites the first H2 after the H1.
 
 * Provide a bulleted list of items that the user needs.
 * Omit any preliminary text to the list.
