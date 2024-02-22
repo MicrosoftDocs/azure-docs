@@ -1,7 +1,9 @@
 {
     "redirections": [
         {
-            "source_path": "articles/certification/index.md",
-            "redirect_url": "/certification/overview",
-            "redirect_document_id": true
-        },
+            "redirect_url": "/azure/certification/overview",
+            "source_path_from_root": "/articles/certification/index.md",
+            "redirect_document_id": false
+        }
+    ]
+}
