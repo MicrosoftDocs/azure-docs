@@ -25,6 +25,8 @@ zone_pivot_groups: b2c-policy-type
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+1. Approved Weixin Open Platform account ([https://kf.qq.com](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html))
+1. Approved application on Weixin Open Platform
 
 ## Create a WeChat application
 
@@ -35,18 +37,9 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. Sign in to [https://open.weixin.qq.com/](https://open.weixin.qq.com/) with your WeChat credentials.
 1. Select **管理中心** (management center).
 1. Follow the steps to register a new application.
-1. Ensure the application status is "Approved".
-
-    - <img src="media/identity-provider-azure-ad-b2c/ApprovedApp.png" alt="ApprovedApp" width="1200"/>
-
-1. For the **Development information** (authorization callback domain), enter `your-tenant-name.b2clogin.com`.
-    - Mooncake callback URL: `your-tenant-name.b2clogin.cn`
-
-    - <img src="media/identity-provider-azure-ad-b2c/CallbackDomain.png" alt="CallbackDomain" width="1200"/>
-
-1. Copy the **APP ID** and **APP KEY**. You need both of them to configure the identity provider to your tenant.
-
-    - <img src="media/identity-provider-azure-ad-b2c/AppInfo.png" alt="AppInfo" width="1200"/>
+1. Under the **Development information** section, set the "Authorization callback domain" to `your-tenant-name.b2clogin.com`.
+1. Ensure that the application status is "Approved".
+1. At the top of **Application details**, copy the **APP ID** and **APP KEY**. You need both of them to configure the identity provider to your tenant.
 
 ::: zone pivot="b2c-user-flow"
 
