@@ -243,7 +243,7 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover` and `pull` a graph of supply chain artifacts to an Azure container registry.
 Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
 
-To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI Artifact Manifest][oci-artifact-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec].
+To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI image manifest][oci-image-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec].
 OCI 1.1 Artifact Manifest support is an ACR preview feature and subject to [limitations](#preview-limitations). 
 
 
