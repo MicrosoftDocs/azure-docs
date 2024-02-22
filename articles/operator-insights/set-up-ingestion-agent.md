@@ -34,7 +34,7 @@ The VM used for the ingestion agent should be set up following best practice for
 - OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
 - Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. We recommend that you restrict the following.
   - Admin access to the VM (for example, to stop/start/install the ingestion agent).
-  - Access to the directory where the logs are stored *(/var/log/az-aoi-ingestion/)*.
+  - Access to the directory where the logs are stored: `/var/log/az-aoi-ingestion/`.
   - Access to the certificate and private key for the service principal that you create during this procedure.
   - Access to the directory for secrets that you create on the VM during this procedure.
 
@@ -203,7 +203,7 @@ The configuration you need is specific to the type of source and your Data Produ
         - `provider.auth`, containing:
             - `tenant_id`: your Microsoft Entra ID tenant.
             - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-            - `cert_path`: the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+            - `cert_path`: the file path of the base64-encoded pcks12 certificate for the service principal to authenticate with. This can be any path on the agent VM.
 
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields.
         - `provider.auth.secrets_directory`: the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
@@ -218,7 +218,7 @@ The configuration you need is specific to the type of source and your Data Produ
     1. `provider.auth`, containing:
         - `tenant_id`: your Microsoft Entra ID tenant.
         - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-        - `cert_path`: the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
+        - `cert_path`: the file path of the base64-encoded pcks12 certificate for the service principal to authenticate with. This can be any path on the agent VM.
 
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
 
