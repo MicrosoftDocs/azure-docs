@@ -18,14 +18,14 @@ CRM introduced sensitivity feature starting from Service Fabric version 10.1. Cu
 
 For instance, in the scenario as listed in the table below, Node 1 is under node capacity violation when three replicas (each has a load of 50) coexist on this node while Node 2 is completely empty. In this case, both the two MRSs are immovable as the Non-MSR will be moved to Node 2 to fix the violation.  
 
-|       |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
-|:------|:------|:------|:------|:------|:------|
+|Node   |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|:------|:------|:------|:------|:------|
 |Node 1 |150/100       |50                |50                |50                  |
 |Node 2 |0/100         |                  |                  |                    |
 
 While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the Node 1 capacity violation. The Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1.
-|       |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
-|:------|:------|:------|:------|:------|:------|
+|Node   |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|:------|:------|:------|:------|:------|
 |Node 1 |120/100       |60                |60                |                  |
 |Node 2 |20/100         |                  |                 |20                |
 
@@ -40,7 +40,7 @@ The table below shows a few examples regarding the collocation of maximum sensit
 
 
 |Scenario # |ACU Load |IDSU Load|IsMaximumSensitivity |ACU MaxLoad |IDSU MaxLoad |Can another MSR be placed on this node?|
-|:---|:---|:---|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|:---|:---|:---|
 |1 |50 |2 | true |50 |2 |Yes |
 |2 |100 |2 | true |100 |4 |No |
 |3 |50 |2 | true |50 |4 |No |
