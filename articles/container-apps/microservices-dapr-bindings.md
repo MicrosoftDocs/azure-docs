@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Event-driven work using Microservices Bindings API"
 titleSuffix: "Azure Container Apps"
-description: Deploy a sample Bindings application to Azure Container Apps, powered by Dapr.
+description: Deploy a sample application that leverages the Microservices Bindings API, powered by Dapr.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 02/22/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
