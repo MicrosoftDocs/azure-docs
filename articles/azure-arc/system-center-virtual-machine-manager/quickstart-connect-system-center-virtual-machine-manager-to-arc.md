@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 2/07/2024
+ms.date: 2/22/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -103,7 +103,8 @@ The script execution will take up to half an hour and you'll be prompted for var
 | **SCVMM management server FQDN/Address** | FQDN for the VMM server (or an IP address). </br> Provide role name if it’s a Highly Available VMM deployment. </br> For example: nyc-scvmm.contoso.com or 10.160.0.1 |
 | **SCVMM Username**</br> (domain\username) | Username for the SCVMM administrator account. The required permissions for the account are listed in the prerequisites above.</br> Example: contoso\contosouser |
 | **SCVMM password** | Password for the SCVMM admin account |
-| **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
+| **Deployment location selection** | Select if you want to deploy the Arc resource bridge VM in an SCVMM Cloud or an SCVMM Host Group. |
+| **Private cloud/Host group selection** | Select the name of the private cloud or the host group where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
 | **Static IP pool** | Select the VMM static IP pool that will be used to allot the IP address. |
 | **Control Plane IP** | Provide a reserved IP address in the same subnet as the static IP pool used for Resource Bridge deployment. This IP address should be outside of the range of static IP pool used for Resource Bridge deployment and shouldn't be assigned to any other machine on the network. |
