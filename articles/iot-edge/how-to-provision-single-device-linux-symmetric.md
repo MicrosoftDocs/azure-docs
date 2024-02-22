@@ -21,7 +21,6 @@ ms.reviewer: mattmcinnes
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
 Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
