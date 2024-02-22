@@ -106,9 +106,9 @@ You can also try the [Troubleshoot virtual network peering issues](virtual-netwo
 
 **The following constraints apply only when virtual networks are globally peered:**
 
-    * Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
+* Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
 
-    * Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+* Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 
 **You can't perform virtual network peerings as part of the `PUT` virtual network operation.**
 
