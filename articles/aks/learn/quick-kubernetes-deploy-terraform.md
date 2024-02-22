@@ -7,6 +7,7 @@ ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform

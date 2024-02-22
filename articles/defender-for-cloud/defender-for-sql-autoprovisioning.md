@@ -37,7 +37,7 @@ Customers who are using the current **Log Analytics agent/Azure Monitor agent** 
 Once the SQL server-targeted AMA autoprovisioning process has been enabled, you should disable the **Log Analytics agent/Azure Monitor agent** autoprovisioning process.
 
 > [!NOTE]
-> If you have the Defender for Server plan enabled, you will need to [review the Defender for Servers Log Analytics deprecation plan](upcoming-changes.md#defender-for-servers) for Log Analytics agent/Azure Monitor agent dependency before disabling the process. 
+> If you have the Defender for Server plan enabled, you will need to [review the Defender for Servers Log Analytics deprecation plan](upcoming-changes.md#defender-for-servers) for Log Analytics agent/Azure Monitor agent dependency before disabling the process.
 
 ## Disable the Log Analytics agent/Azure Monitor agent
 
@@ -62,9 +62,9 @@ Once the SQL server-targeted AMA autoprovisioning process has been enabled, you 
 ## Next steps
 
 For related information, see these resources:
+
 - [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
-- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.
-

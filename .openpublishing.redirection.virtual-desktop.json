@@ -63,7 +63,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/user-documentation/connect-windows-7-10.md",
             "redirect_url": "/azure/virtual-desktop/users/connect-windows",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/user-documentation/index.yml",
@@ -374,6 +374,36 @@
             "source_path_from_root": "/articles/virtual-desktop/autoscale-new-existing-host-pool.md",
             "redirect_url": "/azure/virtual-desktop/autoscale-scaling-plan",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-microsoft-store.md",
+            "redirect_url": "/azure/virtual-desktop/users/connect-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/azure/virtual-desktop/users/client-features-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-microsoft-store.md",
+            "redirect_url": "/azure/virtual-desktop/users/client-features-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/azure/virtual-desktop/whats-new-client-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-microsoft-store.md",
+            "redirect_url": "/azure/virtual-desktop/whats-new-client-windows",
+            "redirect_document_id": false
         }
     ]
 }
