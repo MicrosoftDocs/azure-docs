@@ -41,10 +41,10 @@ A good place to begin is the quickstart to [Create an Azure Database for Postgre
 
 To get an idea of the downtime required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required downtime. Additionally, if Read replicas (RR) or High Availability (HA) is used, they should be enabled or provisioned **after** the migration is complete. When the migration starts, there's a lot of data copied to the target. If HA or RR is enabled, every transaction has to be acknowledged and it increases the lag between the primary and the backups. The lag in turn impacts cost in terms of extra storage and time required to complete the migration and hence should be avoided. This precaution ensures that the migration process completes seamlessly.
 
-## Set up Online migration parameters
+## Set up Online migration (preview) parameters
 
-> [!NOTE]  
-> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. Support for **Online** migrations is currently available in France Central, Germany West Central, North Europe, South Africa North, UAE North, all regions across Asia, Australia, UK and public US regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+> [!NOTE]
+> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. **Online migrations preview** is currently available in all public clouds and in China regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 

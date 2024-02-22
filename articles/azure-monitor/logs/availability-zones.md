@@ -39,10 +39,11 @@ All shared clusters in the following regions use availability zones. If your wor
 |	Americas	|	Europe	|	Middle East	|	Asia Pacific	|
 |	---	|	---	|	---	|	---	|
 |	Canada Central	|	France Central	|	UAE North	|	Australia East	|
-|	South Central US	|	North Europe	|		|	Central India	|
+|	South Central US	|	North Europe	|	Israel Central	|	Central India	|
 |	West US 3	|	Norway East	|		|	Southeast Asia	|
 |		|	UK South	|		|		|
 |		|	Sweden Central	|		|		|
+|		|	Italy North	|		|		|
 
 
 ### Dedicated clusters
@@ -73,6 +74,8 @@ Azure Monitor currently supports service resilience for availability-zone-enable
 - East US 2
 - West US 2
 - North Europe
+- Italy North
+- Israel Central
 
 ## Next steps
 
