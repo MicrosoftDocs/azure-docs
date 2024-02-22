@@ -327,7 +327,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
 1. In the **Configuration** area, select **Add new collector**. 
 
-    :::image type="content" source="media/connect-google-cloud-platform/add-new-collector.png" alt-text="Screenshot of GCP connector configuration" lightbox="media/connect-google-cloud-platform/add-new-collector.png":::
+    :::image type="content" source="media/connect-google-cloud-platform/add-new-collector.png" alt-text="Screenshot of GCP connector configuration." lightbox="media/connect-google-cloud-platform/add-new-collector.png":::
 
 1. In the **Connect a new collector** panel, type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). 
 
