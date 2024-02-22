@@ -1,10 +1,10 @@
 ---
 title: Geographical availability and data residency in Microsoft Sentinel
 description: In this article, you learn about geographical availability and data residency in Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 02/22/2024
 ms.custom: references_regions
 #Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
 ---
