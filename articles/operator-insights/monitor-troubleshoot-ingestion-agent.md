@@ -18,7 +18,7 @@ For an overview of ingestion agents, see [Ingestion agent overview](ingestion-ag
 
 If you notice problems with data collection from your ingestion agents, use the information in this section to fix common problems or create a diagnostics package. You can upload the diagnostics package to support tickets that you create in the Azure portal.
 
-The ingestion bus agent is a software package, so the diagnostics are limited to the functioning of the application. We don't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or other tools to send OS-level data, logs, and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
+The ingestion agent is a software package, so the diagnostics are limited to the functioning of the application. We don't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or other tools to send OS-level data, logs, and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
 
 The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the *stdout.log* file contains human-readable logs explaining the issue.
 
