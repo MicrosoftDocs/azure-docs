@@ -9,35 +9,35 @@ ms.author: jinghuafeng
 ---
 
 # 1. Service sensitivity
-Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements are conducted for balancing, defragmentation, or other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Move cost does not function when CRM conducts swaps as all replicas share the same swap cost, which results in the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to failover.
+Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements are conducted for balancing, defragmentation, or other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Move cost does not function when CRM conducts swaps. This is because all replicas share the same swap cost, leading to the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to be failed over.
 
-CRM introduced sensitivity feature starting from Service Fabric version 10.1. Currently, this feature associates a service with a boolean variable `IsMaximumSensitivity`, denoting if the service replica is the most sensitive replica or not. CRM provides the maximum protection against failover for these types of replicas.  In other words, when `IsMaximumSensitivity` is set to true for a service, the Max Sensitivity Replica (MSR) of this service can only be moved or swapped in the following unavoidable cases:
+CRM introduced sensitivity feature starting from Service Fabric version 10.1. Currently, this feature associates a service with a boolean variable `IsMaximumSensitivity`, denoting if the service replica is the most sensitive replica or not. CRM provides the maximum protection against failover for these types of replicas. In other words, when `IsMaximumSensitivity` is set to true for a service, the Max Sensitivity Replica (MSR) of this service can only be moved or swapped in the following unavoidable cases:
 * FD/UD constraint violation only if FD/UD is set to hard constraint
 * replica swap during upgrade
-* Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR is not movable.)
+* Node capacity violation with only MSRs on the node (i.e., if any other non-MSR is present on the node, the MSR is not movable.)
 
-For instance, in the scenario as listed in the table below, Node 1 is under node capacity violation when three replicas (each has a load of 50) coexist on this node while Node 2 is completely empty. In this case, both the two MRSs are immovable as the Non-MSR will be moved to Node 2 to fix the violation.  
+For instance, in the scenario as listed in the table, Node 1 is under node capacity violation as the node load of 150 is over the node capacity of 100.  On the other hand, Node 2 is completely empty. In this case, both the two MSRs are immovable as the Non-MSR is moved to Node 2 to fix the violation.  
 
-|Node   |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|Node   |Node Load/Capacity |MSR Service 1 Load |MSR Service 2 Load|Non-MSR Service Load | 
 |:------|:------|:------|:------|:------|
 |Node 1 |150/100       |50                |50                |50                  |
 |Node 2 |0/100         |                  |                  |                    |
 
 While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the Node 1 capacity violation. The Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1.
 
-|Node   |Node Load/Capacity |MSR Service1 Load |MSR Service2 Load|Non-MSR Service Load | 
+|Node   |Node Load/Capacity |MSR Service 1 Load |MSR Service 2 Load|Non-MSR Service Load | 
 |:------|:------|:------|:------|:------|
 |Node 1 |120/100       |60                |60                |                  |
 |Node 2 |20/100         |                  |                 |20                |
 
-The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, along with `IsMaximumSensitivity`, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric. With this upper bound set, CRM can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
+The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, along with `IsMaximumSensitivity`, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is smaller than or equal to the node capacity of that metric. With this upper bound set, CRM can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
 
 Let's say that two customer metrics are defined for cluster node: ACU (Application CPU Usage) and IDSU (Instance Disk Usage). The node capacities for ACU and IDSU are **100 vCores** and **4 TB** respectively.
 
-The table below shows a few examples regarding the collocation of maximum sensitivity replicas. For the three scenarios listed in the table, assume there already exists one max sensitivity replica on a node. Whether more MSR(s) can be placed on this node depends on space left on the node and resources needed for new MSR(s).
-1. More MSR(s) can be placed on this node as long as it does not cause node load or MaxLoad capacity violation. (i.e., `ACU (Max)Load <= 50 vCores && IDSU (Max)Load <= 2 TB`).
-2. No other MSR can be placed on this node as the MaxLoads for both ACU and IDSU have reached to their node MaxLoad capacities.  
-3. No other MSR can be placed on this node as the MaxLoad for IDSU has reached to its node MaxLoad capacity though there exists room from the perspective of ACU. 
+The table here shows a few examples regarding the collocation of maximum sensitivity replicas. For the three scenarios listed in the table, assume there already exists one max sensitivity replica on a node. Whether more MSRs can be placed on this node depends on space left on the node and resources needed for new MSRs.
+1. More MSRs can be placed on this node as long as it does not cause node load or MaxLoad capacity violation. (that is, `ACU (Max)Load <= 50 vCores && IDSU (Max)Load <= 2 TB`).
+2. No other MSR can be placed on this node as the MaxLoads for both ACU and IDSU reach to their node MaxLoad capacities.  
+3. No other MSR can be placed on this node as the MaxLoad for IDSU reaches to its node MaxLoad capacity though there exists room from the perspective of ACU. 
 
 
 |Scenario # |ACU Load |IDSU Load|IsMaximumSensitivity |ACU MaxLoad |IDSU MaxLoad |Can another MSR be placed on this node?|
@@ -62,7 +62,7 @@ In ClusterManifest.xml:
 </Section>
 ```
 
-via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
+Via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
 
 ```json
 "fabricSettings": [
