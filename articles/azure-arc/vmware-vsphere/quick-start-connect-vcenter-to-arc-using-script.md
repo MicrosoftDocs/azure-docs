@@ -3,7 +3,7 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 02/22/20234
+ms.date: 02/22/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -85,7 +85,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 7. Select a subscription and resource group where the resource bridge will be created.
 
-8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US**, **West Europe**, **Australia East** and **Canada Central**.
+8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, the supported regions are **East US**, **West Europe**, **Australia East**, and **Canada Central**.
 
 9. Provide a name for **Custom location**. You'll see this name when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
 
@@ -148,7 +148,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **vCenter password** | Enter the password for the vSphere account. |
 | **Data center selection** | Select the name of the datacenter (as shown in the vSphere client) where the Azure Arc resource bridge VM should be deployed. |
 | **Network selection** | Select the name of the virtual network or segment to which the Azure Arc resource bridge VM must be connected. This network should allow the appliance to communicate with vCenter Server and the Azure endpoints (or internet). |
-| **Static IP** | Arc Resource Bridge requires static IP address assignment and DHCP is not supported. </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: IP address(es) of DNS server(s) used by Azure Arc resource bridge VM for DNS resolution. Azure Arc resource bridge VM must be able to resolve external sites, like mcr.microsoft.com and the vCenter server. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the Azure Arc resource bridge VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. Ensure the Start range IP has internet access. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. Ensure the End range IP has internet access. </br>|
+| **Static IP** | Arc Resource Bridge requires static IP address assignment and DHCP isn't supported. </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: IP address(es) of DNS server(s) used by Azure Arc resource bridge VM for DNS resolution. Azure Arc resource bridge VM must be able to resolve external sites, like mcr.microsoft.com and the vCenter server. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the Azure Arc resource bridge VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. Ensure the Start range IP has internet access. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. Ensure the End range IP has internet access. </br>|
 | **Control Plane IP address** | Azure Arc resource bridge runs a Kubernetes cluster, and its control plane always requires a static IP address. Provide an IP address that meets the following requirements:  <br> - The IP address must have internet access. <br> - The IP address must be within the subnet defined by IP address prefix. <br> - If you're using static IP address option for resource bridge VM IP address, the control plane IP address must be outside of the IP address range provided for the VM (Start range IP - End range IP). |
 | **Resource pool** | Select the name of the resource pool to which the Azure Arc resource bridge VM will be deployed. |
 | **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge VM. |
