@@ -71,10 +71,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-            .UseFeatureFlags(featureFlagOptions => {
-                // Set the feature flag refresh expiration time to 5 seconds
-                featureFlagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(5);
-            });
+            .UseFeatureFlags();
 
         // Register the refresher so that the Worker service can consume it through DI
         builder.Services.AddSingleton(options.GetRefresher());
@@ -82,6 +79,17 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
     builder.Services.AddFeatureManagement();
     ```
+
+    > [!TIP]
+    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
+    >
+    > ```csharp
+    > options.UseFeatureFlags(featureFlagOptions =>
+    > {
+    >     featureFlagOptions.Select("TestApp:*", "dev");
+    >     featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
+    > });
+    > ```
 
 1. Open *Worker.cs* and add a reference to the .NET Feature Management library.
 
@@ -111,7 +119,8 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
             {
                 if (_refresher != null)
                 {
-                    await _refresher.TryRefreshAsync(stoppingToken);
+                    // Intentionally not await TryRefreshAsync to avoid blocking the execution.
+                    _refresher.TryRefreshAsync(stoppingToken);
                 }
 
                 if (_logger.IsEnabled(LogLevel.Information))
@@ -191,7 +200,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. Wait for about 5 seconds. You should see the service mode has changed.
+1. Wait for about 30 seconds. You should see the service mode has changed.
 
     ![Background service with feature flag enabled](./media/quickstarts/dotnet-background-service-feature-flag.png)
 
