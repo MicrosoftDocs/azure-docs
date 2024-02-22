@@ -258,6 +258,16 @@ The following is an example response:
 }
 ```
 
+#### Additional inference examples
+
+| **Sample Type**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| Curl           | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
+| OpenAI SDK(experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
+| Mistral AI     | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
+| LiteLLM        | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) 
+
 ## Cost and quotas
 
 ### Cost and quota considerations for Mistral-large deployed as a service
