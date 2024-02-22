@@ -1,6 +1,6 @@
 ---
-title: Operator Nexus Route Policy Configuration
-description: Configuration details for Route Policies
+title: Azure Operator Nexus Route Policy Configuration
+description: Configuration details for Route Policies in Azure Operator Nexus
 ms.topic: article
 ms.date: 02/14/2024
 author: joemarshallmsft
