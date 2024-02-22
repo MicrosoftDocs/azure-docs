@@ -27,6 +27,8 @@ landingContent:
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
+          - text: Upgrade multiple AKS clusters using Azure Kubernetes Fleet Manager
+            url: /azure/kubernetes-fleet/update-orchestration
           - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
             url: artifact-streaming.md
           - text: Secure your cluster using pod security policies (Deprecated)
@@ -41,8 +43,6 @@ landingContent:
             url: use-cvm.md
           - text: AKS GitHub Actions
             url: kubernetes-action.md
-          - text: Enable Azure resources to access AKS clusters using Trusted Access (Preview)
-            url: trusted-access-feature.md
 
   # Card (optional)
   - title: Evaluate Linux-based AKS cluster

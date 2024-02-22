@@ -7,7 +7,7 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 11/04/2022
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 # Configure key auto-rotation in Azure Managed HSM
