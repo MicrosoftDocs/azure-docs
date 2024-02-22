@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.date: 02/16/2024
+ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---

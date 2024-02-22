@@ -1054,6 +1054,21 @@
             "source_path_from_root": "/articles/sentinel/process-events-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-process-event",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/notebooks-with-synapse.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/notebooks-with-synapse-export-data.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/notebooks-with-synapse-hunt.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": false
         }
     ]
 }

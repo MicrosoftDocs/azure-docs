@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
 ms.date: 02/20/2024
 ms.author: malev
-#Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
+#Customer intent: I want to dynamically update my .NET app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET app
 
