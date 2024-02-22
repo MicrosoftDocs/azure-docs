@@ -46,7 +46,7 @@ Click on the diagram to see a more detailed expanded version showing a larger br
 
 The diagram depicts the Azure Monitor system components:
 
-- The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. 
+- **[Data sources](data-sources.md)** are the types of resources being monitored. 
 - The data is **collected and routed** to the data platform. Clicking on the diagram shows these options, which are also called out in detail later in this article. 
 - The **[data platform](data-platform.md)** stores the collected monitoring data. Azure Monitor's core data platform has stores for metrics, logs, traces, and changes. System Center Operations Manager MI uses its own database hosted in SQL Managed Instance.
 - The **consumption** section shows the components that use data from the data platform. 
@@ -61,7 +61,7 @@ The diagram depicts the Azure Monitor system components:
 
 Azure Monitor can collect [data from multiple sources](data-sources.md). 
 
-The diagram below shows an expanded version of the data source types gathered by Azure Monitor. 
+The diagram below shows an expanded version of the data source types that Azure Monitor can gather monitoring data from. 
 
 :::image type="content" source="media/overview/data-sources-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2-opt.svg":::
 
@@ -84,7 +84,7 @@ SCOM MI (like on premises SCOM) collects only IaaS Workload and Operating System
 
 ## Data collection and routing
 
-Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
+Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system improved over the years, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
 :::image type="content" source="media/overview/data-collection-box-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type-2-opt.svg":::
 
@@ -108,7 +108,7 @@ For detailed information about data collection, see [data collection](./best-pra
 ## Data platform
 
 Azure Monitor stores data in data stores for each of the three pillars of observability, plus an additional one:
- - metrics 
+- metrics 
  - logs 
  - distributed traces  
  - changes 
@@ -263,7 +263,7 @@ No. Azure Monitor is a scalable cloud service that processes and stores large am
 
 You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solutions to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md). 
 
-Microsoft also offers System Center Operations Manager Managed Instance (SCOM MI) as an option to migrate a traditional SCOM setup into the cloud with minimal changes. For more information see [About Azure Monitor SCOM Managed Instance][/system-center/scom/operations-manager-managed-instance-overview]. 
+Microsoft also offers System Center Operations Manager Managed Instance (SCOM MI) as an option to migrate a traditional SCOM setup into the cloud with minimal changes. For more information see [About Azure Monitor SCOM Managed Instance](/system-center/scom/operations-manager-managed-instance-overview). 
           
 
 ## Next steps

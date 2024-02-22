@@ -1008,12 +1008,6 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
-    - name: Configure big data analytics settings
-      href: notebooks-with-synapse.md
-    - name: Export and transform historical log data
-      href: notebooks-with-synapse-export-data.md
-    - name: Hunt on large historical datasets
-      href: notebooks-with-synapse-hunt.md
 - name: Investigate incidents
   items:
   - name: Overview
