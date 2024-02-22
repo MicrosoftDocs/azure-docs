@@ -58,7 +58,6 @@ You must choose how to set up your agents, pipelines, and VMs using the followin
 
 - Pipelines must not overlap, meaning that they must not collect the same files from the same servers.
 - You must configure each pipeline on exactly one agent. If you configure a pipeline on multiple agents, Azure Operator Insights receives duplicate data.
-- Each agent can have multiple file sources.
 - Each agent must run on a separate VM.
 - The number of agents and therefore VMs also depends on:
     - The scale and redundancy characteristics of your deployment.
