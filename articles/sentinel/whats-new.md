@@ -34,7 +34,7 @@ You can now ingest logs from Google Security Command Center, using the new Googl
 
 The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, detection of vulnerabilities and threats, and risk mitigation and remediation. These capabilities help you gain insights into and control over your organization's security posture and data attack surface, and enhance your ability to efficiently handle tasks related to findings and assets.
 
-The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a single "pane of glass."
+The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
 
 - Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
 
