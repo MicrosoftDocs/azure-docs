@@ -12,7 +12,7 @@ ms.author: memontic
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
 ## Setting up
@@ -236,7 +236,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 
 ### Send a text message to a WhatsApp user
- To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-whatsapp-user).
+ To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-a-whatsapp-user).
 
 In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
 
@@ -250,7 +250,7 @@ Response<SendMessageResult> sendTextMessageResult =
 ```
 
 ### Send a media message to a WhatsApp user
-To send a media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-whatsapp-user).
+To send a media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-a-whatsapp-user).
 
 To send a media message, provide a URI to an image.
 As an example, create a URI:

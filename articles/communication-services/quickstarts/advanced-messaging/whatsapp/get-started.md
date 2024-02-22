@@ -30,7 +30,7 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 
 ## Next steps
 
-In this quickstart, you have tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
+In this quickstart, you tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
 
 - [Handle Advanced Messaging Events](./handle-advanced-messaging-events.md)
 - [Send WhatsApp Template Messages](../../../concepts/advanced-messaging/whatsapp/template-messages.md)

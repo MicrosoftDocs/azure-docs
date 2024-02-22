@@ -12,12 +12,12 @@ ms.author: armohamed
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
-- In a terminal or command window, run `mvn -v` to check that Maven is installed.
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
-- [Apache Maven](https://maven.apache.org/download.cgi).
+- In a terminal or command window, run `mvn -v` to check that Maven is installed
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Setting up
 
@@ -304,7 +304,7 @@ TODO - Move this to Templates page
    mvn package
    ```
 
-1. Run the following `mvn` command to execute the app.
+1. Run the app by executing the following `mvn` command.
 
    ```console
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"

@@ -12,11 +12,11 @@ ms.author: armohamed
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
-- In a terminal or command window, run `node --version` to check that Node.js is installed.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+- In a terminal or command window, run `node --version` to check that Node.js is installed
 
 ## Setting up
 
@@ -24,7 +24,7 @@ To set up an environment for sending messages, take the steps in the following s
 
 ### Create a new Node.js application
 
-1. Open your terminal or command window, and then run the following command to create a new directory for your app and navigate to it.
+1. Create a new directory for your app and navigate to it by opening your terminal or command window, then run the following command.
 
    ```console
    mkdir advance-messages-quickstart && cd advance-messages-quickstart
@@ -37,7 +37,7 @@ To set up an environment for sending messages, take the steps in the following s
    ```
 
 1. Use a text editor to create a file called **send-messages.js** in the project root directory.
-1. Add below code snippet to the file **send-messages.js**
+1. Add the following code snippet to the file **send-messages.js**.
    ```typescript
    async function main() {
        // Quickstart code goes here.
@@ -50,7 +50,7 @@ To set up an environment for sending messages, take the steps in the following s
    ```
    
 
-In the following sections, you'll add all the source code for this quickstart to the **send-messages.js** file that you just created.
+In the following sections, you added all the source code for this quickstart to the **send-messages.js** file that you created.
 
 ### Install the package
 
@@ -109,7 +109,7 @@ npm install @azure/identity
 ```
 
 The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. The README for `@azure/identity` provides more details and samples to get you started.
-`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
@@ -290,5 +290,5 @@ node ./send-messages.js
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev)
+You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
 
