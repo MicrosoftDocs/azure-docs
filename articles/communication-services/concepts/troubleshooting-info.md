@@ -205,10 +205,11 @@ If you are using the Azure Communication Services UI Libraries for Android or iO
 
 For more information on how to leverage the support functionality of the 
 
-# Building support flows in your app
+## Building end to end Support Flows in your ACS Integrations
 
+Whether you are using Calling SDK or Calling UI SDK, providing support to end users is a key component of any robust integration. The following document highlights the key considerations at each point of the Support feedback loop, and provides jumping off points to learn more.
 
-[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieve-support-files.md)
+[Providing User Support](../concepts/voice-video-calling/retrieve-support-files.md)
 
 ---
 <a name='finding-azure-active-directory-information'></a>

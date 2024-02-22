@@ -1,5 +1,5 @@
 ---
-title: Retrieving support files from calling SDK applications
+title: Implementing Support Data Collection and Feedback in Calling SDK Applications
 description: Understand how to access Log Files for the creation of effective support tools
 author:      ahammer
 ms.author:   adamhammer
@@ -8,55 +8,60 @@ ms.topic:    conceptual
 ms.date:     07/17/2023
 ---
 
-# Overview of Log File Access
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+# Streamlining Support Data Collection and User Feedback in Calling SDK Applications
 
-Modern sandboxed applications can sometimes face challenges that hinder user experience. Key among these challenges is the difficulty for an end-user to access the applications internal files such as log files. The Log File Access API offers a solution, helping facilitate access to support files, and eventual export from the device into the support process.
+## Introduction
 
-### For Third-party Application Developers:
-Log file access eliminates the process of manually finding logs or requiring a development environment to extract them. Instead, it paves the way for a direct method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues can be diagnosed and rectified more efficiently.
+In the realm of modern, sandboxed applications, ensuring a smooth user experience is paramount, especially when issues arise. A critical aspect of this is the efficient collection of support data, such as log files, and enabling easy feedback mechanisms for users. This document outlines a structured approach to collecting support data from the system, enabling feedback from customers, and sending this crucial information to the server or ticketing system for swift resolution.
 
-### From Microsoft's Perspective:
-For Microsoft, the primary aim is to ensure that any issues arising from our platforms are addressed swiftly and effectively. Seamless log handoffs between your support team and ours enable our engineering teams to get a clear picture of the challenge at hand, diagnose it accurately, and set about resolving it. 
+## 1. Collecting Support Data from the System
 
-## Integrating Log Collection in Third-Party Applications
+### Key Developer Actions for Effective Log Collection
 
-**Developer Considerations:**  
-As a developer, it's crucial to understand how and when to capture logs. When issues arise, timely delivery of log files aids in faster diagnostics and resolutions. 
+- **Timely Collection**: Automate the collection of logs immediately after an issue occurs to ensure data relevance and usefulness.
+- **Minimize User Effort**: Design the application to require minimal user interaction for log collection, enhancing the likelihood of issue reporting.
+- **Privacy and Security**: Ensure that the collection and handling of logs prioritize user privacy and data security, adhering to best practices and regulations.
 
-1. **Timeliness**: Always prioritize the immediate retrieval of logs. The closer to the time of the incident, the more relevant and insightful the data will be.
-2. **User Interaction**: Determine the most intuitive way for your users to report problems. A seamless user experience can encourage more accurate and timely reporting.
-3. **Support Integration**: Consider how your support teams access these logs. Integration should be straightforward, ensuring efficient troubleshooting.
-4. **Collaboration with Azure**: Ensure easy accessibility for Azure's teams, perhaps through a direct link or a streamlined request mechanism.
+### Implementing Log Collection
 
-By addressing these elements, you can craft a system that not only serves the immediate needs of your users but also sets the stage for effective collaboration with Microsoft's support infrastructure.
+Utilize the Calling SDK's APIs to automate the retrieval of logs and other support-related information. This includes capturing call IDs, error logs, and performance metrics. For applications using the Azure Communication Services Calling SDK, integrating direct log file access through the API facilitates this process, eliminating the need for users to manually locate and send logs.
 
-## Implementing Log Collection in Your Application
+## 2. Enabling Feedback from the Customer
 
-When you are incorporating log collection strategies into your application, the responsibility to ensure the privacy and security of these logs lies with the developers. However, we're here to provide some suggestions to enhance your implementation process.
+### Integrating User Feedback Mechanisms
 
-### "Report an Issue" Dialog
+- **"Report an Issue" Feature**: Implement an intuitive interface within the application that prompts users to report issues. This can automatically attach the collected logs and send them to the support team.
+- **End-of-Call Feedback**: Leverage moments immediately following calls to solicit feedback about call quality and any issues experienced, offering an option to submit logs.
+- **Shake-to-Report**: Introduce a shake-to-report feature, enabling users to easily initiate an issue report by shaking their device.
 
-A simple yet effective method is the "Report an Issue" feature. Think of it as a direct line between the user and support. After a user encounters an issue, a prompt can ask users if they wish to report the problem. If they agree, logs can be automatically attached and sent to the relevant support channels.
+### Designing for User Consent and Awareness
 
-### Feedback After the Call
+It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
 
-Right after a call might be an opportune time to gather feedback. Using an end-of-call survey can be beneficial. Here, users can provide feedback on the call quality and, if needed, attach logs of any issues faced. This feedback ensures timely and relevant data collection.
+## 3. Sending Support and Customer Feedback to the Server or Ticket System
 
-### Shake-to-Report Feature
+### Structuring the Data Submission Process
 
-Taking inspiration from Microsoft Teams, consider integrating a shake-to-report feature. The user can shake their device and initiate the process to report an issue. It's a user-friendly method, but remember to inform users about this feature to ensure its effective use.
+Once support data and user feedback are collected, the next step is to efficiently transmit this information to a server or ticketing system. This can be achieved by:
 
-### Proactive Auto-Detection
+- **Automating Data Submission**: Develop the application to automatically send collected data to the designated support system upon user consent.
+- **Ensuring Data Integrity and Security**: Implement secure data transmission methods to protect the confidentiality and integrity of the support data.
 
-For a more advanced approach, consider having the system automatically detect potential call issues. Upon detection, users can be prompted to share logs. It's a proactive measure, ensuring issues are caught early, but it's crucial to strike a balance to avoid unnecessary prompts.
+### Implementing in Calling SDK and UI Library Applications
 
-## Choosing the Best Strategy
+For developers utilizing the Calling SDK or the ACS UI Library, consider the following:
 
-User consent is paramount. Always inform and ensure users are aware of what they're sharing and why. Each application and its user base are unique. Reflect on past interactions, and consider the resources at hand. These considerations guide you to select the best strategy for your application, ensuring a smooth user experience and efficient troubleshooting.
+- **Calling SDK**: Use the SDK's capabilities to observe call IDs, retrieve logs, and gather other relevant support information programmatically.
+- **Calling UI Library**: Leverage the library's built-in support form feature to expose users to a straightforward method of submitting feedback and logs.
+- **Demo Code and Tutorials**: Refer to tutorials and demo code provided by Azure Communication Services for examples of implementing these features in real-world applications.
+
+## Conclusion
+
+By implementing a structured approach to collecting support data, enabling user feedback, and efficiently sending this information to the support system, developers can significantly enhance the troubleshooting process and overall user experience in Calling SDK applications. This not only facilitates quicker issue resolution but also strengthens the feedback loop between users and developers, leading to more robust and user-friendly applications.
 
 ## Further Reading
 
-- [End of Call Survey Conceptual Document](../voice-video-calling/end-of-call-survey-concept.md)
-- [Troubleshooting Info](../troubleshooting-info.md)
-- [Log Sharing Tutorial](../../tutorials/log-file-retrieval-tutorial.md)
+- [Calling SDK Documentation](https://docs.microsoft.com/azure/communication-services/)
+- [Azure Communication Services UI Library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
+- [Implementing End-of-Call Surveys](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept)
+- [Secure Data Handling Best Practices](https://docs.microsoft.com/azure/communication-services/overview/security-framework)
