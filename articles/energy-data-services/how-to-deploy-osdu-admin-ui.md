@@ -15,11 +15,9 @@ This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data M
 The OSDU Admin UI enables platform administrators to manage the Azure Data Manager for Energy data partition you connect it to. The management tasks include entitlements (user and group management), legal tags, schemas, reference data, view, and visualize objects on a map.
 
 ## Prerequisites
-- Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial).
-  - It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows Subsystem for Linux (WSL), we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
+- Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows Subsystem for Linux (WSL), we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- An [Microsoft Entra ID App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
-  - This App Registration can be the same as the one used for the Azure Data Manager for Energy instance.
+- An [Microsoft Entra ID App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance.
 
   > [!IMPORTANT]
   > The following API permissions are required on the App Registration for the Admin UI to function properly.
@@ -79,7 +77,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     az account show
     ```
 
-1. If needed, use the code below to change subscription.
+1. If needed, use this code to change subscription.
     ```azurecli
     az account set --subscription <subscription-id>
     ```
