@@ -53,7 +53,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Set *Target Platform* to **Windows**.\
   ![A screenshot showing the Build Menu, highlighting the chosen platform of 'PC, Mac & Linux Standalone', and the setting 'Target Platform' being 'Windows' in Unity 2021 and later.](./media/unity-2021-build-settings-pc-standalone.png)
 1. Select **Switch Platform**.
-1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the exe should be stored.
+1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the *.exe* should be stored.
 
 # [UWP](#tab/UnityUWP)
 
@@ -69,7 +69,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 # [Standalone](#tab/UnityStandalone)
 
-Building in standalone mode does not produce a Visual Studio solution, but instead a simple .exe file. So no additional building is necessary here.
+Building in standalone mode does not produce a Visual Studio solution, but instead a simple *.exe* file. So no additional building is necessary here.
 
 # [UWP](#tab/UnityUWP)
 
@@ -85,7 +85,7 @@ Building in standalone mode does not produce a Visual Studio solution, but inste
 
 # [Standalone](#tab/UnityStandalone)
 
-Simply run the .exe file which was produced in the build step.
+Simply run the *.exe* file which was produced in the build step.
 
 # [UWP](#tab/UnityUWP)
 
