@@ -15,6 +15,8 @@ This article helps you find the full list of the solutions available in Microsof
 
 When you deploy a solution, the security content included with the solution, such as data connectors, playbooks, or workbooks, are available in the relevant views for the content. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## All solutions for Microsoft Sentinel
 
 To get the full list of all solutions available in Microsoft Sentinel, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel). Search for a specific product solution or provider. Filter by **Product Type** = **Solution Templates** to see solutions for Microsoft Sentinel.

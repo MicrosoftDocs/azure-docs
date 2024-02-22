@@ -11,11 +11,14 @@ ms.author: cwatson
 
 If you've installed a Microsoft Sentinel out-of-the-box solution, you can remove content items from the solution or delete the installed solution. If you later need to restore deleted content items, select **Reinstall** on the solution. Similarly, you can restore the solution by re-installing the solution.
  
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Delete content items
 
 Delete content items for an installed solution deployed by the content hub.
 
-1. In the content hub, select an installed solution where the version is 2.0.0 or higher.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. Select an installed solution where the version is 2.0.0 or higher.
 1. On the solutions details page, select **Manage**.
 1. Select the content item or items you want to delete.
 1. Select **Delete items**.

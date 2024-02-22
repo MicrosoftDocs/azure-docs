@@ -26,6 +26,8 @@ Microsoft Sentinel offers these content types as *solutions* and *standalone* it
 
 You can either customize out-of-the-box (OOTB) content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions' authoring and publishing.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Discover and manage Microsoft Sentinel content
 
 Use the Microsoft Sentinel **Content hub** to centrally discover and install out-of-the-box (OOTB) content.

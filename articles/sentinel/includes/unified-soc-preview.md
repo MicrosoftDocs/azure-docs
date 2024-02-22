@@ -10,4 +10,4 @@ ms.custom: "include file"
 ---
 
 > [!IMPORTANT]
-> Microsoft Sentinel is now available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see (release announcement). This article applies to Microsoft Sentinel in both the Azure portal and the Defender portal.
+> Microsoft Sentinel is now available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. For more information, see (release announcement). This article applies to Microsoft Sentinel in both the Azure portal and the Microsoft Defender portal.
