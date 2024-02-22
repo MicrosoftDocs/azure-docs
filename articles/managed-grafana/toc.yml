@@ -17,6 +17,8 @@ items:
 - name: Tutorial
   expanded: true
   items:
+  - name: Connect to self-hosted Prometheus through managed private endpoint
+    href: tutorial-mpe-oss-prometheus.md
   - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
 - name: Concepts
@@ -78,8 +80,6 @@ items:
       href: how-to-deterministic-ip.md
     - name: Connect to a data source privately
       href: how-to-connect-to-data-source-privately.md
-    - name: Connect to self-hosted Prometheus through managed private endpoint
-      href: tutorial-mpe-oss-prometheus.md
   - name: Availability
     expanded: false
     items:
