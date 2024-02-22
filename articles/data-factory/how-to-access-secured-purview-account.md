@@ -65,7 +65,7 @@ If you have permission to approve the Microsoft Purview private endpoint connect
 1. Go to **Manage** -> **Microsoft Purview** -> **Edit**
 2. In the private endpoint list, click the **Edit** (pencil) button next to each private endpoint name
 3. Click **Manage approvals in Azure portal** which will bring you to the resource.
-4. On the given resource, go to **Networking** -> **Private endpoint connection** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+4. On the given resource, go to **Networking** -> **Private endpoint connection** or **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
 5. Repeat this operation for all private endpoints.
 
 If you don't have permission to approve the Microsoft Purview private endpoint connection, ask the Microsoft Purview account owner to do as follows.
