@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 12/25/2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/22/2023
+author: anshulahuja98
+ms.author: anshulahuja
 ---
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup
@@ -25,7 +25,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Backup Extension is installed in its own namespace *dataprotection-microsoft* by default. It's installed with cluster wide scope that allows the extension to access all the cluster resources. During the extension installation, it also creates a User-assigned Managed Identity (Extension Identity) in the Node Pool resource group. 
 
-- Backup Extension uses a blob container (provided in input during installation) as a default location for backup storage. To access this blob container, the Extension Identity requires *Storage Account Contributor* role on the storage account that has the container.
+- Backup Extension uses a blob container (provided in input during installation) as a default location for backup storage. To access this blob container, the Extension Identity requires *Storage Blob Data Contributor* role on the storage account that has the container.
 
 - You need to install Backup Extension on both the source cluster to be backed up and the target cluster where the restore will happen.
 
@@ -99,7 +99,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Reader                         | Backup vault       | AKS cluster             | Allows the Backup vault to perform _List_ and _Read_ operations on AKS cluster.             |
 | Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
 | Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
-| Storage Account Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
+| Storage Blob Data Contributor  | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
 | Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
 | Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
 | Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
