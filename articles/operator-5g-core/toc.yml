@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   expanded: false
   items:
-  - name: Get an Azure Operator 5G Core subscription
+  - name: Get access to Azure Operator 5G 
     href: quickstart-subscription.md
   - name: Configure a network function
     href: quickstart-configure-network-function.md

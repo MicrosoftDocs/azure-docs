@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/21/2024
+ms.date: 02/22/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -460,9 +460,8 @@ az customlocation create -n <CUSTOM-LOCATION-NAME> \
 --cluster-extension-ids <CLUSTER-EXTENSION-ID>
 ```
 
-## Next steps
-
+## Related content
 
 - Learn about the [Deployment order](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core observability](quickstart-deploy-observability.md).
+- [Deploy Azure Operator 5G Core](how-to-deploy-5g-core.md).
 - [Deploy a network function](quickstart-deploy-network-functions.md).

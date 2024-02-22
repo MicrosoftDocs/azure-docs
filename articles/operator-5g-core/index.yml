@@ -32,7 +32,7 @@ landingContent:
            url: concept-security.md
       - linkListType: quickstart
         links:
-          - text: Get an Azure Operator 5G Core subscription
+          - text: Get access to Azure Operator 5G Core
             url: quickstart-subscription.md
       - linkListType: how-to-guide
         links:
