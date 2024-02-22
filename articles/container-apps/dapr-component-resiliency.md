@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 02/22/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -34,6 +34,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 - [Timeouts](#timeouts)
 - [Retries (HTTP)](#retries)
+- [Circuit breakers](#circuit-breakers)
 
 ## Configure resiliency policies
 
@@ -204,6 +205,9 @@ In the resiliency policy pane, select **Outbound** or **Inbound** to set policie
 :::image type="content" source="media/dapr-component-resiliency/outbound-dapr-resiliency.png" alt-text="Screenshot demonstrating how to set timeout or retry policies for an outbound operation.":::
 
 Click **Save** to save the resiliency policies.
+
+> [!NOTE]
+> Currently, you can only set timeout and retry policies via the Azure portal.
 
 You can edit or remove the resiliency policies by selecting **Edit resiliency**. 
 
