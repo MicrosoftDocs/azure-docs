@@ -95,13 +95,13 @@ Update your application following the tutorial [Migrate a Java application to us
     database = os.getenv('AZURE_SQL_DATABASE')
     authentication = os.getenv('AZURE_SQL_AUTHENTICATION')
     
-    # Uncomment the following lines according to the authentication type. Customize the driver version as you want.
+    # Uncomment the following lines according to the authentication type.
     # For system-assigned managed identity.
     # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For user-assigned managed identity.
-    # user = os.getenv('AZURE_SQL_USER')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};UID={user};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # clientID = os.getenv('AZURE_SQL_USER')
+    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};UID={clientID};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For service principal.
     # user = os.getenv('AZURE_SQL_USER')
@@ -110,6 +110,7 @@ Update your application following the tutorial [Migrate a Java application to us
     
     conn = pyodbc.connect(connString)
     ```
+    Refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
 
 ### [NodeJS](#tab/sql-me-id-nodejs)
 

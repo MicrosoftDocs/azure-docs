@@ -97,7 +97,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     
     conn = pyodbc.connect(connString)
     ```
-
+    Refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
 
 ### [NodeJS](#tab/nodejs)
 
