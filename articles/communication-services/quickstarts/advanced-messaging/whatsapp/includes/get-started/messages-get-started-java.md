@@ -92,7 +92,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Creating the Message client with authentication
 
-There are a few different options available for authenticating an Message client:
+There are a few different options available for authenticating a Message client:
 
 #### [Connection String](#tab/connection-string)
 

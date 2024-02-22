@@ -8,17 +8,35 @@ ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
-zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 ---
 
 ## Setting up
-::: zone pivot="development-environment-vs"
-[!INCLUDE [Setup project with Visual Studio](./messages-get-started-net-vs-setup.md)]
-::: zone-end
 
-::: zone pivot="development-environment-vscode"
-[!INCLUDE [Setup project with VS Code](./messages-get-started-net-vscode-setup.md)]
-::: zone-end
+### Create project and install NuGet package
+
+# [Visual Studio](#tab/visual-studio)
+
+In Visual Studio, create new project, then select `Console App (.NET Framework) for C#`.
+ 
+Install the Azure.Communication.Messages NuGet package to your C# project:    
+1. Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
+2. Search for the package `Azure.Communication.Messages`.   
+3. Install the latest release.
+
+# [VS Code](#tab/vs-code)
+
+To create your project, follow the steps at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0).
+ 
+Install the Azure.Communication.Messages NuGet package to your C# project:
+1. Open the VS Code terminal ( `View` > `Terminal` )
+2. Install the package by running the following command:
+```console
+dotnet add package Azure.Communication.Messages
+```
+
+---
+
+### Modify Program.cs
 
 Open the *Program.cs* file in a text editor.   
 
@@ -45,25 +63,24 @@ namespace AdvancedMessagingQuickstart
 }
 ```
 
-To use the Advanced Messaging features, we've added a `using` directive to include the `Azure.Communication.Messages` namespace.
+To use the Advanced Messaging features, we add a `using` directive to include the `Azure.Communication.Messages` namespace.
 
 ```csharp
 using Azure.Communication.Messages;
 ```
 
-
 ### Configure environment variables
 
-In this section, you set up an Environment Variable for Azure Communication Service Resource Connection.
+In this section, you set up an Environment Variable for Azure Communication Service Resource Connection.    
 Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
 Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../../create-communication-resource.md).   
-To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).   
 
-::: zone pivot="client-operating-system-windows"
+# [Windows](#tab/windows)
+
 Open a console window and enter the following command:
 
 ```console
@@ -71,19 +88,9 @@ setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-::: zone-end
 
-::: zone pivot="client-operating-system-macos"
-Edit your **`.zshrc`**, and add the environment variable:
+# [Linux](#tab/linux)
 
-```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
-```
-
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-::: zone-end
-
-::: zone pivot="client-operating-system-linux"
 Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
@@ -91,23 +98,27 @@ export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
-::: zone-end
 
-**Using ConnectionString Environment Variable**
+# [macOS](#tab/macOS)
+Edit your **`.zshrc`**, and add the environment variable:
 
-Add the following code to retrieve the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
-
-```csharp
-string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+```bash
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
-## Create NotificationMessagesClient   
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
-Initialize `NotificationMessagesClient` with your connection string. 
+---
 
-Using connectionString, create a NotificationMessagesClient.
+## Create and authenticate the NotificationMessagesClient   
+
 ```csharp
-NotificationMessagesClient notificationMessagesClient = new NotificationMessagesClient(connectionString);
+// Retrieve connection string from environment variable
+string connectionString = 
+    Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+
+// Instantiate the client
+var notificationMessagesClient = new NotificationMessagesClient(connectionString);
 ```
 
 ## Set channel registration ID   
