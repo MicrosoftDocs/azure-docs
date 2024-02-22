@@ -118,7 +118,7 @@ A popular way of installing Prometheus is through the [prometheus-operator](http
 
 ## Add a private link service to the Prometheus server
 
-Azure [Private Link service](../private-link/private-link-service-overview) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
+Azure [Private Link service](../private-link/private-link-service-overview.md) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
 
 pls-prometheus-svc.yaml content:
 
