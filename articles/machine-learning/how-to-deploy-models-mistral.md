@@ -89,7 +89,7 @@ To create a deployment:
 
 1. On the model's overview page in the model catalog, select **Deploy** and then **Pay-as-you-go**.
 
-    :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go.png":::
 
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. 
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
@@ -98,15 +98,15 @@ To create a deployment:
     > [!NOTE]
     > Subscribing a workspace to a particular Azure Marketplace offering (in this case, Mistral-large) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
-    :::image type="content" source="media/how-to-deploy-models-llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-llama/deploy-marketplace-terms.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png":::
 
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, you will see a **Continue to deploy** option to select.
 
-    :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png":::
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
-    :::image type="content" source="media/how-to-deploy-models-llama/deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="media/how-to-deploy-models-llama/deployment-name.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="media/how-to-deploy-models-mistral/mistral-deployment-name.png":::
 
 1. Select **Deploy**. Wait until the deployment is finished and you're redirected to the serverless endpoints page.
 1. Select the endpoint to open its Details page.
