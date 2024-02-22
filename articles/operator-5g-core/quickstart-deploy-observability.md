@@ -12,7 +12,7 @@ ms.date: 02/22/2024
 
 # Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS) or Nexus Azure Kubernetes Services (NAKS)
 
-Use the following Azure CLI commands to deploy observability resources for Azure Operator 5G Core
+Use the following Azure CLI commands to deploy observability resources for Azure Operator 5G Core.
 
 ## Deploy observability
 

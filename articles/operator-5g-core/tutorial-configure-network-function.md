@@ -25,7 +25,7 @@ Use the procedures described in:
 
 ## Configure a User Plane Function (UPF)
 
-Use the procedure described in [UPF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/UPF/Configuration.htm)
+Use the procedure described in [UPF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/UPF/Configuration.htm).
 
 ## Configure an Access and Mobility Management Function (AMF)
 
