@@ -4,7 +4,7 @@ description: How to configure, implement, and manage file uploads from your devi
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/25/2022
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.service: iot-central
 

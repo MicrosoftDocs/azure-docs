@@ -5,7 +5,6 @@ author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 6/09/2023
 ms.author: corsini
 ms.custom: devx-track-azurecli
@@ -115,4 +114,4 @@ az group create --name $resourceGroupName --location eastus
     ```
 ## Next Steps
 > [!div class="nextstepaction"]
-> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-azure-cli-amd.md)
+> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-azure-cli.md)

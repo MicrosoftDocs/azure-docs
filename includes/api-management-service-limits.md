@@ -14,7 +14,7 @@ ms.custom: Include file
 
 | Resource | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Maximum number of scale units | 12 per region<sup>1</sup> |
+| Maximum number of scale units | 31 per region<sup>1</sup> |
 | Cache size | 5 GiB per unit<sup>2</sup> |
 | Concurrent back-end connections<sup>3</sup> per HTTP authority | 2,048 per unit<sup>4</sup> |
 | Maximum cached response size | 2 MiB |
@@ -38,10 +38,10 @@ ms.custom: Include file
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 | Maximum number of active WebSocket connections per unit | 5,000<sup>12</sup> |
 | Maximum number of tags supported by an API Management resource|15|
-| Maximum number of authorization providers per service instance| 1,000 |
-| Maximum number of authorizations per authorization provider| 10,000 |
-| Maximum number of access policies per authorization | 100 |
-| Maximum number of authorization requests per minute per authorization | 250 |
+| Maximum number of credential providers per service instance| 1,000 |
+| Maximum number of connections per credential provider| 10,000 |
+| Maximum number of access policies per connection | 100 |
+| Maximum number of authorization requests per minute per connection | 250 |
 | Maximum number of [workspaces](../articles/api-management/workspaces-overview.md) per service instance<sup>10</sup> | 100 |
 
 <sup>1</sup> Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

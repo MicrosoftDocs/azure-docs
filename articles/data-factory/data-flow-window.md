@@ -47,6 +47,6 @@ Lastly, use the Expression Builder to define the aggregations you wish to use wi
 
 The full list of aggregation and analytical functions available for you to use in the Data Flow Expression Language via the Expression Builder are listed in [Data transformation expressions in mapping data flow](data-transformation-functions.md).
 
-## Next steps
+## Related content
 
 If you are looking for a simple group-by aggregation, use the [Aggregate transformation](data-flow-aggregate.md)

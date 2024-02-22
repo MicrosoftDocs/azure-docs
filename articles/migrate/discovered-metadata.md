@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/24/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-extended-java
 ---
 
 # Metadata discovered by Azure Migrate appliance 

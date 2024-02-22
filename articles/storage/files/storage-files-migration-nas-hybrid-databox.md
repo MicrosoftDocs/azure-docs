@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/5/2021
+ms.date: 11/21/2023
 ms.author: kendownie
 ---
 
@@ -97,7 +97,7 @@ The resource configuration (compute and RAM) of the Windows Server instance you 
 
 ## Phase 5: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up in the line of sight to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, you need to set it up with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).

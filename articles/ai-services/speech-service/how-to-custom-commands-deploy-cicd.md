@@ -1,13 +1,12 @@
 ---
-title: 'Continuous Deployment with Azure DevOps (Preview)'
+title: 'Continuous Deployment with Azure DevOps'
 titleSuffix: Azure AI services
 description: In this article, you learn how to set up continuous deployment for your Custom Commands applications. You create the scripts to support the continuous deployment workflows.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -30,11 +29,11 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
 
 ### Set up a pipeline 
 
-1. Go to **Azure DevOps - Pipelines** and click "New Pipeline"
+1. Go to **Azure DevOps - Pipelines** and select "New Pipeline"
 1. In **Connect** section, select the location of your repository where these scripts are located
 1. In **Select** section, select your repository
 1. In **Configure** section, select "Starter pipeline"
-1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
+1. Next you get an editor with a YAML file, replace the "steps" section with this script.
 
     ```yaml
     steps:
@@ -66,12 +65,12 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
         failOnStderr: true
     ```
     
-1. Note that these scripts assume that you are using the region `westus2`, if that's not the case update the arguments of the tasks accordingly
+1. These scripts assume that you're using the region `westus2`, if that's not the case update the arguments of the tasks accordingly
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot that highlights the region value in the arguments.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
-1. In the "Save and run" button, open the dropdown and click "Save"
+1. In the "Save and run" button, open the dropdown and select "Save"
 
 ### Hook up the pipeline with your application
 
@@ -96,14 +95,14 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
 
 ## Deploy from source code
 
-In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. Since the scripts are in bash, If you are using Windows you'll need to install the [Linux subsystem](/windows/wsl/install-win10).
+In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. Since the scripts are in bash, If you're using Windows you need to install the [Linux subsystem](/windows/wsl/install-win10).
 
 The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
 
 ### Prepare your repository
 
 1. Create a directory for your application, in our example create one called "apps".
-1. Update the arguments of the bash script below, and run. It will import the dialog model of your application to the file myapp.json
+1. Update the arguments of the bash script below, and run. It imports the dialog model of your application to the file myapp.json
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
@@ -117,11 +116,11 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
 
 ### Set up a pipeline 
 
-1. Go to **Azure DevOps - Pipelines** and click "New Pipeline"
+1. Go to **Azure DevOps - Pipelines** and select "New Pipeline"
 1. In **Connect** section, select the location of your repository where these scripts are located
 1. In **Select** section, select your repository
 1. In **Configure** section, select "Starter pipeline"
-1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
+1. Next you get an editor with a YAML file, replace the "steps" section with this script.
 
     ```yaml
     steps:
@@ -147,7 +146,7 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
     > [!NOTE]
     > these scripts assume that you are using the region westus2, if that's not the case update the arguments of the tasks accordingly
 
-1. In the "Save and run" button, open the dropdown and click "Save"
+1. In the "Save and run" button, open the dropdown and select "Save"
 
 ### Hook up the pipeline with your target applications
 

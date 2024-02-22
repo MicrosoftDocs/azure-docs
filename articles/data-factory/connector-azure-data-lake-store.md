@@ -13,11 +13,6 @@ ms.date: 08/10/2023
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
->
-> * [Version 1](v1/data-factory-azure-datalake-connector.md)
-> * [Current version](connector-azure-data-lake-store.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
@@ -34,7 +29,7 @@ This Azure Data Lake Storage Gen1 connector is supported for the following capab
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 Specifically, with this connector you can:
 
@@ -666,6 +661,6 @@ When you debug the pipeline, the **Enable change data capture (Preview)** works 
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you're doing so, the changes are always gotten from the checkpoint record in your selected pipeline run.   
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

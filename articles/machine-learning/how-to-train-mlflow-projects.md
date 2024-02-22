@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, sdkv2, event-tier1-build-2022
+ms.custom: how-to, sdkv2
 ---
 
 # Train with MLflow Projects in Azure Machine Learning (preview)
 
 In this article, learn how to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) that use Azure Machine Learning workspaces for tracking. You can submit jobs and only track them with Azure Machine Learning or migrate your runs to the cloud to run completely on [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-mlflow-projects-deprecation](includes/machine-learning-mlflow-projects-deprecation.md)]
 
 [MLflow Projects](https://mlflow.org/docs/latest/projects.html) allow for you to organize and describe your code to let other data scientists (or automated tools) run it. MLflow Projects with Azure Machine Learning enable you to track and manage your training runs in your workspace.
 
-[!INCLUDE [machine-learning-mlflow-projects-deprecation](includes/machine-learning-mlflow-projects-deprecation.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 [Learn more about the MLflow and Azure Machine Learning integration.](concept-mlflow.md)
 

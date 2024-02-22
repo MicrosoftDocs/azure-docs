@@ -18,9 +18,9 @@ You have the ability to enable the **Defender CSPM** plan, which offers extra pr
 > [!NOTE]
 > Agentless scanning requires the **Subscription Owner** to enable the Defender CSPM plan. Anyone with a lower level of authorization can enable the Defender CSPM plan, but the agentless scanner won't be enabled by default due a lack of required permissions that are only available to the Subscription Owner. In addition, attack path analysis and security explorer won't populate with vulnerabilities because the agentless scanner is disabled.
 
-For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
-You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You can learn more about Defender CSPM's pricing on [the pricing page](https://a
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS accounts](quickstart-onboard-aws.md) or [GCP projects](quickstart-onboard-gcp.md). 
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS accounts](quickstart-onboard-aws.md) or [GCP projects](quickstart-onboard-gcp.md).
 
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
 
@@ -56,7 +56,7 @@ Once the Defender CSPM plan is enabled on your subscription, you have the abilit
 
 - **Agentless scanning for machines**: Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. You can disable the agentless scanner or add exclusion tags to your subscription.
 
-- **Agentless discovery for Kubernetes**: API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, risk hunting as part of the cloud security explorer. This extension is required for attack path analysis (DCSPM only).
+- **Agentless discovery for Kubernetes**: API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, risk hunting as part of the cloud security explorer. This extension is required for attack path analysis (Defender CSPM only).
 
 - **Container registries vulnerability assessments**: Provides vulnerability management for images stored in your container registries.
 
@@ -70,15 +70,17 @@ Once the Defender CSPM plan is enabled on your subscription, you have the abilit
 
 1. Select **On** for each component to enable it.
 
-1. (Optional) For agentless scanning for machine select **Edit configuration**.
+1. (Optional) For agentless scanning, select **Edit configuration**.
 
     :::image type="content" source="media/tutorial-enable-cspm-plan/cspm-configuration.png" alt-text="Screenshot that shows where to select edit configuration." lightbox="media/tutorial-enable-cspm-plan/cspm-configuration.png":::
 
     1. Enter a tag name and tag value for any machines to be excluded from scans.
 
-    1. Select **Apply**. 
+    1. Select **Apply**.
 
 1. Select **Continue**.
+
+For code to cloud contextualization capabilities and automated developer remediation workflows that come with your Defender CSPM plan at no additional cost, [connect your DevOps environments](defender-for-devops-introduction.md) to Defender for Cloud.
 
 ## Next steps
 

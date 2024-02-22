@@ -91,6 +91,6 @@ The **Diagnose and solve problems** tab on the left, launches the PostgreSQL tro
 
 For Azure support, select the **New support request** tab. This launches the Azure portal in context to the server group. Create an Azure support request from there.
 
-## Next steps
+## Related content
 
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

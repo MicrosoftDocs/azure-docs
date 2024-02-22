@@ -3,7 +3,7 @@ title: "Delinea Secret Server connector for Microsoft Sentinel"
 description: "Learn how to install the connector Delinea Secret Server to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -62,7 +62,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 

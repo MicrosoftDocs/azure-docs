@@ -1,13 +1,12 @@
 ---
 title: Configure Speech containers
 titleSuffix: Azure AI services
-description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
-services: cognitive-services
+description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging, and security settings for your containers.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -15,7 +14,7 @@ ms.author: eur
 
 Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. 
 
-The Speech container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. The container-specific settings are the billing settings.
+The Speech container runtime environment is configured using the `docker run` command arguments. This container has some required and optional settings. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
@@ -42,7 +41,7 @@ The `Billing` setting specifies the endpoint URI of the _Speech_ resource on Azu
 
 This setting can be found in the following place:
 
-- Azure portal: **Speech** Overview, labeled `Endpoint`
+- Azure portal: Labeled `Endpoint` on the **Speech** overview page
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
@@ -70,11 +69,11 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Standard Speech containers don't use input or output mounts to store training or service data. However, custom speech containers rely on volume mounts.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#host-computer-requirements-and-recommendations)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#host-computer-requirements-and-recommendations)'s mount location might not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 
 | Optional | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Not allowed | `Input` | String | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings).                                                                                    |
+| Not allowed | `Input` | String | Standard Speech containers don't use this. Custom speech containers use [volume mounts](#volume-mount-settings).                                                                                    |
 | Optional | `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## Volume mount settings
@@ -82,15 +81,15 @@ The exact syntax of the host mount location varies depending on the host operati
 The custom speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
 > [!NOTE]
-> The volume mount settings are only applicable for [Custom Speech to text](speech-container-cstt.md) containers. 
+> The volume mount settings are only applicable for [custom speech to text](speech-container-cstt.md) containers. 
 
-Custom models are downloaded the first time that a new model is ingested as part of the custom speech container docker run command. Sequential runs of the same `ModelId` for a custom speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
+Custom models are downloaded the first time that a new model is ingested as part of the custom speech container `docker run` command. Sequential runs of the same `ModelId` for a custom speech container uses the previously downloaded model. If the volume mount isn't provided, custom models can't be persisted.
 
 The volume mount setting consists of three color `:` separated fields:
 
 1. The first field is the name of the volume on the host machine, for example _C:\input_.
 2. The second field is the directory in the container, for example _/usr/local/models_.
-3. The third field (optional) is a comma-separated list of options, for more information see [use volumes](https://docs.docker.com/storage/volumes/).
+3. The third field (optional) is a comma-separated list of options, for more information, see [use volumes](https://docs.docker.com/storage/volumes/).
 
 Here's a volume mount example that mounts the host machine _C:\input_ directory to the containers _/usr/local/models_ directory.
 

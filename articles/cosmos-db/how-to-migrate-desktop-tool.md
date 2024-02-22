@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/01/2023
+# CustomerIntent: As a database owner, I want to use a tool to perform migration to Azure Cosmos DB so that I can streamline large and complex migrations.
 ---
 
 # Migrate data to Azure Cosmos DB using the desktop data migration tool
@@ -255,7 +256,3 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     Using JSON Source
     Using Cosmos-nosql Sink
     ```
-
-## Next steps
-
-- Review [options for migrating data to Azure Cosmos DB](migration-choices.md).

@@ -116,7 +116,7 @@ After the blob index updates, you can use the native query and discovery capabil
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 
 > [!IMPORTANT]
-> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
+> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to find blobs by tags (the `f` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permission can perform this operation.
 
@@ -315,7 +315,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blob Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 <a id="regional-availability-and-storage-account-support"></a>
 

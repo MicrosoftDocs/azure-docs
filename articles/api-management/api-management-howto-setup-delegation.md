@@ -127,10 +127,10 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
    | Parameter | Description |
    | --------- | ----------- |
-   | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product.</li><li>**Renew**: a request to renew a subscription (for example, that may be expiring)</li></ul> |
+   | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product</li></ul> |
    | **productId** | On *Subscribe*, the product ID that the user requested subscription. |
    | **userId** | On *Subscribe*, the requesting user's ID. |
-   | **subscriptionId** | On *Unsubscribe* and *Renew*, the product subscription ID. |
+   | **subscriptionId** | On *Unsubscribe*, the product subscription ID. |
    | **salt** | A special salt string used for computing a security hash. |
    | **sig** | A computed security hash used for comparison to your own computed hash. |
 
@@ -143,7 +143,7 @@ Recommended steps for creating a new delegation endpoint to implement on your si
      HMAC(salt + '\n' + productId + '\n' + userId)
      ```
 
-     For *Unsubscribe* or *Renew*: 
+     For *Unsubscribe*: 
      ```
      HMAC(salt + '\n' + subscriptionId)
      ```

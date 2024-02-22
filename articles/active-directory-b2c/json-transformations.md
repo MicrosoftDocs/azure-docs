@@ -2,16 +2,20 @@
 title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/14/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer working with Azure AD B2C, I want to understand how to use JSON claims transformations, so that I can manipulate and generate JSON data for my authentication and authorization processes.
+
 ---
 
 # JSON claims transformations

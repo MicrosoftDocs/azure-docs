@@ -167,6 +167,10 @@ AzureDiagnostics
 | project ['user']
 ```
 
+> [!NOTE]
+> For some of these queries, the usernames may be obfuscated due to privacy reasons. 
+>
+
 ### EAP (Extensible Authentication Protocol) authentication succeeded
 
 ```kusto

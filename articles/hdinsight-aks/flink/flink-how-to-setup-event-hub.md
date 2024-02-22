@@ -1,18 +1,18 @@
 ---
-title: How to connect HDInsight on AKS Flink with Azure Event Hubs for Apache Kafka®
-description: Learn how to connect HDInsight on AKS Flink with Azure Event Hubs for Apache Kafka®
+title: How to connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
+description: Learn how to connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Connect HDInsight on AKS Flink with Azure Event Hubs for Apache Kafka®
+# Connect Apache Flink® on HDInsight on AKS with Azure Event Hubs for Apache Kafka®
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs. Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol.
 
-In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/event-hubs-about) with [HDInsight on AKS Flink](./flink-overview.md) and cover the following
+In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/event-hubs-about) with [Apache Flink on HDInsight on AKS](./flink-overview.md) and cover the following
 
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
@@ -109,3 +109,8 @@ In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/
 1. Once the code is executed, the events are stored in the topic **“TEST”**
 
    :::image type="content" source="./media/flink-eventhub/events-stored-in-topic.png" alt-text="Screenshot showing Event Hubs stored in topic." border="true" lightbox="./media/flink-eventhub/events-stored-in-topic.png":::
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

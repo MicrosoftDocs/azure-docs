@@ -230,7 +230,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
@@ -654,7 +654,7 @@ In the meeting join scenario, `JoinCallOptions` is made available to customize t
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)

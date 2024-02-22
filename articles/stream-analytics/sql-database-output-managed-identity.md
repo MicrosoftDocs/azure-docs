@@ -5,7 +5,7 @@ author: an-emma
 ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 11/10/2023
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job
@@ -183,6 +183,10 @@ WHERE dbprin.name = '<ASA_JOB_NAME>'
 
 #### [Azure SQL Database](#tab/azure-sql)
 
+> [!NOTE]
+> When using SQL Managed Instance (MI) as a reference input, you must configure a public endpoint in your SQL Managed Instance.  You must specify the fully qualified domain name with the port when configuring the **database** property. For example: sampleserver.public.database.windows.net,3342.
+>
+
 Now that your managed identity is configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your SQL Database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the SQL Database output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so.
@@ -197,7 +201,7 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 #### [Azure Synapse Analytics](#tab/azure-synapse)
 
-Now that your managed identity and storage account are configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
+Now that your managed identity and storage account are configured, you can add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
 
 Ensure you have created a table in your Azure Synapse database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the Azure Synapse output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so.
 
@@ -210,6 +214,25 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you are now ready to proceed with using Managed Identity for your Azure Synapse Analytics resource with Stream Analytics.
 
 ---
+## Additional Steps for SQL Reference Data
+
+Azure Stream Analytics requires you to configure your job's storage account when using SQL Reference data.
+This storage account is used for storing content related to your Stream Analytics job, such as SQL reference data snapshots.
+
+Follow the following steps to set up an associated storage account:  
+
+1. On the **Stream Analytics job** page, select **Storage account settings** under **Configure** on the left menu.
+1. On the **Storage account settings** page, select **Add storage account**.
+1. Follow the instructions to configure your storage account settings.
+
+    :::image type="content" source="./media/run-job-in-virtual-network/storage-account-settings.png" alt-text="Screenshot of the Storage account settings page of a Stream Analytics job." :::
+
+    
+> [!IMPORTANT]
+> - To authenticate with connection string, you must disable the storage account firewall settings. 
+> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list for Storage Blob Data Contributor role and 
+Storage Table Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
+
 
 ## Additional Steps with User-Assigned Managed Identity
 

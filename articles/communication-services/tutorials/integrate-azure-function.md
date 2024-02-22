@@ -52,7 +52,7 @@ Before you get started, make sure to:
         };
     }
 ```
-**Explanation to code above**: The first line import the interface for the `CommunicationIdentityClient`. The connection string in the second line can be found in your Azure Communication Services resource in the Azure portal. The `ACSEndpoint` is the URL of the ACS resource that was created. 
+**Explanation to code above**: The first line import the interface for the `CommunicationIdentityClient`. The connection string in the second line can be found in your Azure Communication Services resource in the Azure portal. The `ACSEndpoint` is the URL of the Azure Communication Services resource that was created. 
 
 5. Open the local Azure Function folder in Visual Studio Code. Open the `index.js` and run the local Azure Function. A local Azure Function endpoint will be created and printed in the terminal. The printed message looks similar to:
 

@@ -84,7 +84,7 @@ Invoking AzureDTExec offers similar options as invoking dtexec. For more informa
 > [!NOTE]
 > Invoking AzureDTExec with new values for its options generates a new pipeline except for the option **/De[cript]**.
 
-## Next steps
+## Related content
 
 After unique pipelines with the Execute SSIS Package activity in them are generated and run when you invoke AzureDTExec, they can be monitored on the Data Factory portal. You can also assign Data Factory triggers to them if you want to orchestrate/schedule them using Data Factory. For more information, see [Run SSIS packages as Data Factory activities](./how-to-invoke-ssis-package-ssis-activity.md).
 

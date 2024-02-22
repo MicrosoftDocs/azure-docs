@@ -33,7 +33,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**: For transient failures, set retries for the activity. For permanent failures, check your configuration and contact support.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -1,6 +1,5 @@
 ---
 ms.service: defender-for-cloud
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
 ms.author: dacurwin
@@ -42,7 +41,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
     az k8s-extension delete --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes --yes
     ```
 
-    Removing the extension may take a few minutes. We recommend you wait before you try to verify that it was successful.
+    Removing the extension might take a few minutes. We recommend you wait before you try to verify that it was successful.
 
 1. To verify that the extension was successfully removed, run the following commands:
 
@@ -80,6 +79,6 @@ For **Authentication**, your header must have a Bearer token (as with other Azur
 az account get-access-token --subscription <your-subscription-id>
 ```
 
-The request may take several minutes to complete.
+The request might take several minutes to complete.
 
 ---

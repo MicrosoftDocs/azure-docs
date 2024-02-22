@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2023
+ms.date: 12/07/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -56,7 +56,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CustomerName | MPA | Name of the Microsoft Entra tenant for the customer's subscription. |
 | CustomerTenantId | MPA | Identifier of the Microsoft Entra tenant of the customer's subscription. |
 | Date¹ | All | The usage or purchase date of the charge. |
-| EffectivePrice² | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
+| EffectivePrice² ³ | All | The price for a given product or service that represents the actual rate that you end up paying per unit. |
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
 | ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency. |
 | Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**). |
@@ -66,14 +66,14 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
 | Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
-| MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
+| MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
 | MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | OfferId¹ | All | Name of the offer purchased. |
-| pay-as-you-goPrice² | All | Retail price for the resource. |
-| PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
+| pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. |
+| PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit was applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
 | PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
 | PartnerTenantId | MPA | Identifier for the partner's Microsoft Entra tenant. |
@@ -90,7 +90,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | Publisher for Marketplace services. |
 | PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
-| Quantity | All | The number of units purchased or consumed. |
+| Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
 | ReservationId¹ | EA, MCA | Unique identifier for the purchased reservation instance. |
@@ -111,11 +111,13 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice² | EA, pay-as-you-go | The price per unit for the charge. |
+| UnitPrice² ³| EA, pay-as-you-go | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (pay-as-you-go price) for your contract. |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
 ² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
+
+³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 

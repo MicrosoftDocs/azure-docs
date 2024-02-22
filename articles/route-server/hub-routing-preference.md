@@ -1,17 +1,17 @@
 ---
-title: Routing preference (preview)
+title: Routing preference (Preview)
 titleSuffix: Azure Route Server
-description: Learn about Azure Route Server routing preference (preview) feature to change how it can learn routes.
+description: Learn about Azure Route Server routing preference feature to change how the Route Server can learn routes.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: concept-article
-ms.date: 10/16/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an Azure administrator, I want learn about routing preference feature so that I know how to influence route selection in Azure Route Server.
 ---
 
-# Routing preference (preview)
+# Routing preference (Preview)
 
 Azure Route Server enables dynamic routing between network virtual appliances (NVAs) and virtual networks (VNets). In addition to supporting third-party NVAs, Route Server also seamlessly integrates with ExpressRoute and VPN gateways. Route Server uses built-in route selection algorithms to make routing decisions to set connection preferences.
 
@@ -36,4 +36,3 @@ When Route Server has multiple routes to an on-premises destination prefix, Rout
 
 > [!div class="nextstepaction"]
 > [Configure routing preference](hub-routing-preference-portal.md)
-

@@ -35,7 +35,7 @@ items:
     href: key-rotation.md
   - name: Import HSM-protected keys to Managed HSM
     href: hsm-protected-keys-byok.md
-  - name: Backup and restore
+  - name: Backup and restore and selective key restore
     href: backup-restore.md
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md

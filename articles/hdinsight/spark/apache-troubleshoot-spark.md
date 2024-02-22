@@ -4,7 +4,6 @@ description: Get answers to common questions about working with Apache Spark and
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 03/20/2023
-ms.custom: seodec18
 ---
 
 # Troubleshoot Apache Spark by using Azure HDInsight

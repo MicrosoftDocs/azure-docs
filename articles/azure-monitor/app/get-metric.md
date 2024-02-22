@@ -3,7 +3,7 @@ title: Get-Metric in Azure Monitor Application Insights
 description: Learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications with Azure Monitor Application Insights.
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: mmcc
@@ -12,6 +12,8 @@ ms.reviewer: mmcc
 # Custom metric collection in .NET and .NET Core
 
 The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics: `TrackMetric()` and `GetMetric()`. The key difference between these two methods is local aggregation. The `TrackMetric()` method lacks pre-aggregation. The `GetMetric()` method has pre-aggregation. We recommend that you use aggregation, so `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article walks you through using the `GetMetric()` method and some of the rationale behind how it works.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## Pre-aggregating vs. non-pre-aggregating API
 
@@ -311,6 +313,6 @@ SeverityLevel.Error);
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
 * Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* Get started with [metrics explorer](../essentials/metrics-getting-started.md).
+* Analyze metrics with [metrics explorer](../essentials/analyze-metrics.md).
 * Learn how to enable Application Insights for [ASP.NET Core applications](asp-net-core.md).
 * Learn how to enable Application Insights for [ASP.NET applications](asp-net.md).

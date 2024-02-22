@@ -1,12 +1,12 @@
 ---
-title: Enrich the events from Kafka with the attributes from FileSystem with Apache Flink
-description: Learn how to join stream from Kafka with table from fileSystem using DataStream API
+title: Enrich the events from Apache Kafka® with the attributes from FileSystem with Apache Flink®
+description: Learn how to join stream from Kafka with table from fileSystem using Apache Flink® DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Enrich the events from Kafka with attributes from ADLS Gen2 with Apache Flink
+# Enrich the events from Apache Kafka® with attributes from ADLS Gen2 with Apache Flink®
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -14,9 +14,9 @@ In this article, you can learn how you can enrich the real time events by joinin
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-    *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+* [Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
+* [Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+    *  You're required to ensure the network settings are taken care as described on [Using Kafka on HDInsight](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop environment in the same VNet as HDInsight on AKS  
 
 ## Kafka topic preparation
@@ -283,4 +283,6 @@ We continue to produce and consume the user activity and item attributes in the 
 
 ## Reference
 
-[Flink Examples](https://github.com/flink-extended/)
+- [Flink Examples](https://github.com/flink-extended/)
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

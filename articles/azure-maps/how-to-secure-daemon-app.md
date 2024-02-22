@@ -91,7 +91,7 @@ To create a new application registration:
 
 4. Select the **+ New registration** tab.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/app-registration.png" alt-text="View app registrations.":::
+      :::image type="content" border="false" source="./media/how-to-manage-authentication/app-registration.png" lightbox="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID.":::
 
 5. Enter a **Name**, and then select a **Support account type**.
 
@@ -215,7 +215,7 @@ This article uses the [Postman](https://www.postman.com/) application to create 
 5. Enter the following URL to address bar (replace `{Tenant-ID}` with the Directory (Tenant) ID, the `{Client-ID}` with the Application (Client) ID, and `{Client-Secret}` with your client secret:
 
     ```http
-    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=https://atlas.microsoft.com/.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}&scope=https://atlas.microsoft.com/.default
     ```
 
 6. Select **Send**

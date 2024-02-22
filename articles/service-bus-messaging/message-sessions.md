@@ -112,6 +112,9 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
     - [Continually read through all available sessions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionRoundRobin.js)
     - [Use session state](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/samples/v7/javascript/advanced/sessionState.js)
 
+## Additional Resources
+
+- [A blog post describing techniques for re-ordering messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery)
  
 [1]: ./media/message-sessions/sessions.png
 

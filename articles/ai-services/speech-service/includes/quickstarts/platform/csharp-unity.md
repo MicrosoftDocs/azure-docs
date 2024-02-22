@@ -2,14 +2,13 @@
 title: "Speech SDK for C# Unity platform setup - Speech service"
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# Unity with the Speech SDK.'
-services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for [Unity](https://unity3d.com/).
@@ -32,10 +31,8 @@ This guide requires:
 
 To install the Speech SDK for Unity, follow these steps:
 
-1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage). It's packaged as a Unity asset package (*.unitypackage*) and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears. You might need to create and open an empty project for this step to work.
+1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage). The SDK is packaged as a Unity asset package (*.unitypackage*) and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears. You might need to create and open an empty project for this step to work.
 
 1. Ensure that all files are selected, and then select **Import**. After a few moments, the Unity asset package is imported into your project.
-
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png" alt-text="Screenshot of the Import Unity Package dialog box in the Unity Editor." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-unity-01-import.png":::
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).

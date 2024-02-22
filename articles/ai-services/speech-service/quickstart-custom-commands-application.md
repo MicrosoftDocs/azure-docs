@@ -1,8 +1,7 @@
 ---
-title: 'Quickstart: Create a voice assistant using Custom Commands - Speech service'
+title: 'Quickstart: Create a voice assistant using custom commands - Speech service'
 titleSuffix: Azure AI services
-description: In this quickstart, you create and test a basic Custom Commands application in Speech Studio. 
-services: cognitive-services
+description: In this quickstart, you create and test a basic custom commands application in Speech Studio. 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -12,24 +11,24 @@ ms.author: eur
 ms.custom: cogserv-non-critical-speech, references_regions
 ---
 
-# Quickstart: Create a voice assistant with Custom Commands
+# Quickstart: Create a voice assistant with custom commands
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
+In this quickstart, you create and test a basic custom commands application using Speech Studio. You can also access this application from a Windows client app.
 
 ## Region Availability
-At this time, Custom Commands supports speech resources created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
+At this time, custom commands support speech resources created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech resource in a region that supports Custom Commands.</a> Refer to the **Region Availability** section above for list of supported regions.
+> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech resource in a region that supports custom commands.</a> Refer to the **Region Availability** section above for list of supported regions.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
-## Go to the Speech Studio for Custom Commands
+## Go to the Speech Studio for custom commands
 
 1. In a web browser, go to [Speech Studio](https://aka.ms/speechstudio/customcommands).
 1. Enter your credentials to sign in to the portal.
@@ -39,11 +38,11 @@ At this time, Custom Commands supports speech resources created in regions that 
    > If you don't see the select resource page, you can navigate there by choosing "Resource" from the settings menu on the top bar.
 
 1. Select your Speech resource, and then select **Go to Studio**.
-1. Select **Custom Commands**.
+1. Select **Custom commands**.
 
-   The default view is a list of the Custom Commands applications you have under your selected resource.
+   The default view is a list of the custom commands applications you have under your selected resource.
 
-## Import an existing application as a new Custom Commands project
+## Import an existing application as a new custom commands project
 
 1. Select **New project** to create a project.
 
@@ -68,7 +67,7 @@ At this time, Custom Commands supports speech resources created in regions that 
 
 1. Next, select **Create** to create your project.
 1. After the project is created, select your project.
-You should now see overview of your new Custom Commands application.
+You should now see overview of your new custom commands application.
 
 ## Try out some voice commands
 1. Select **Train** at the top of the right pane.
@@ -79,8 +78,8 @@ You should now see overview of your new Custom Commands application.
     - The tv
     - Set an alarm for 5 PM
 
-## Integrate Custom Commands application in an assistant
-Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you will need to configure prediction LUIS resource.  
+## Integrate custom commands application in an assistant
+Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you need to configure prediction LUIS resource.  
 
 ### Update prediction LUIS resource
 
@@ -93,19 +92,19 @@ Before you can access this application from outside Speech Studio, you need to p
     > ![Set LUIS Resources](media/custom-commands/set-luis-resources.png)
 
 > [!NOTE]
-> Because the authoring resource supports only 1,000 prediction endpoint requests per month, you will mandatorily need to set a LUIS prediction resource before publishing your Custom Commands application.
+> Because the authoring resource supports only 1,000 prediction endpoint requests per month, you will mandatorily need to set a LUIS prediction resource before publishing your custom commands application.
 
 ### Publish the application
 
-Select  **Publish** on top of the right pane. Once publish completes, a new window will appear. Note down the **Application ID** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
+Select  **Publish** on top of the right pane. Once publish completes, a new window appears. Note down the **Application ID** and **Speech resource key** value from it. You need these two values to be able to access the application from outside Speech Studio.
 
 Alternatively, you can also get these values by selecting **Settings** > **General** section.
 
 ### Access application from client
 
-In the scope of this article, we will be using the Windows Voice Assistant client you downloaded as part of the pre-requisites. Unzip the folder.
+In the scope of this article, we're using the Windows Voice Assistant client you downloaded as part of the prerequisites. Unzip the folder.
 1. Launch **VoiceAssistantClient.exe**.
-1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key** (this is same as the **Speech resource key** value you saved when publishing the application), **Subscription key region** and **Custom commands app ID**.
+1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key** (this is same as the **Speech resource key** value you saved when publishing the application), **Subscription key region** and **custom commands app ID**.
     > [!div class="mx-imgBorder"]
     > ![Screenshot that highlights the General Settings section for creating a WVAC profile.](media/custom-commands/create-profile.png)
 1. Select **Save and Apply Profile**.
@@ -115,8 +114,8 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 
 > [!TIP]
-> You can select entries in **Activity Log** to inspect the raw responses being sent from the Custom Commands service.
+> You can select entries in **Activity Log** to inspect the raw responses being sent from the custom commands service.
 
 ## Next steps
 
-In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a custom commands application from scratch.

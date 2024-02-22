@@ -2,11 +2,10 @@
 title: Manage tenants in your Microsoft Customer Agreement billing account - Azure
 description: The article helps you understand and manage tenants associated with your Microsoft Customer Agreement billing account.
 author: bandersmsft
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 10/19/2023
 ms.author: banders
 ms.reviewer: baolcsva
 ---

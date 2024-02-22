@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB for Table from Node.js
 [!INCLUDE[Table](../includes/appliesto-table.md)]
@@ -257,7 +257,7 @@ const entities = tableClient.listEntities({
 });
 
 let topEntities = [];
-const iterator = listResults.byPage({ maxPageSize: topN });
+const iterator = entities.byPage({ maxPageSize: topN });
 
 for await (const page of iterator) {
   topEntities = page;

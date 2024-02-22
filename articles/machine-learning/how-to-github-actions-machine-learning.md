@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
 ms.reviewer: larryfr
-ms.date: 09/13/2022
+ms.date: 12/06/2023
 ms.topic: how-to
 ms.custom: github-actions-azure
 ---

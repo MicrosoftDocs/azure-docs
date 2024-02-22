@@ -1,11 +1,10 @@
 ---
 title: Develop and run Azure Functions locally
 description: Learn how to code and test Azure Functions on your local computer before you run them on Azure Functions.
-
 ms.topic: conceptual
-ms.date: 09/22/2022
-
+ms.date: 11/29/2023
 ---
+
 # Code and test Azure Functions locally
 
 While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. When you use Functions, using your favorite code editor and development tools to create and test functions on your local computer becomes easier. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
@@ -100,7 +99,13 @@ When you develop your functions locally, any local settings required by your app
 
 ## Triggers and bindings
 
-When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production. You can also use a local storage emulator.
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. For HTTP triggers, you can simply call the HTTP endpoint on the local computer, using `http://localhost/`. For non-HTTP triggered functions, there are several options to run locally:
+
++ The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production.
++ For storage-based triggers, you can use a [local storage emulator](#local-storage-emulator).
++ You can manually run non-HTTP trigger functions by using special administrator endpoints. For more information, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). 
+
+During local testing, you must be running the host provided by Core Tools (func.exe) locally. For more information, see [Azure Functions Core Tools](functions-run-local.md).
 
 ## Local storage emulator
 
@@ -112,7 +117,11 @@ The following setting in the `Values` collection of the local.settings.json file
   "AzureWebJobsStorage": "UseDevelopmentStorage=true"
   ```
 
-With this setting in place, any Azure Storage trigger or binding that uses `AzureWebJobsStorage` as its connection connects to Azurite when running locally. During local execution, you must have Azurite installed and running. The emulator is useful during development, but you should test with an actual storage connection before deployment. When you publish your project, don't publish this setting. You need to instead use an Azure Storage connection string in the same settings in your function app in Azure.
+With this setting value, any Azure Storage trigger or binding that uses `AzureWebJobsStorage` as its connection connects to Azurite when running locally. Keep these considerations in mind when using storage emulation during local execution:
+
++ You must have Azurite installed and running.
++ You should test with an actual storage connection to Azure services before publishing to Azure.
++ When you publish your project, don't publish the `AzureWebJobsStorage` setting as `UseDevelopmentStorage=true`. In Azure, the `AzureWebJobsStorage` setting must always be the connection string of the storage account used by your function app. For more information, see [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage).
 
 ## Next steps
 

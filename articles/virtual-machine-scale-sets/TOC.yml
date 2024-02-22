@@ -99,6 +99,8 @@
   - name: vCPU quotas
     href: ../virtual-machines/linux/quotas.md
     maintainContext: true
+  - name: Availability Zones
+    href: virtual-machine-scale-sets-use-availability-zones.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
   - name: Automatic instance repairs
@@ -198,6 +200,8 @@
     maintainContext: true
   - name: Terminate notifications
     href: virtual-machine-scale-sets-terminate-notification.md
+  - name: Monitor automatic repairs service state
+    href: alert-rules-automatic-repairs-service-state.md
   - name: Instance Metadata service
     items:
     - name: CLI

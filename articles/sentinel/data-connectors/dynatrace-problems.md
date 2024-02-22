@@ -3,14 +3,14 @@ title: "Dynatrace Problems connector for Microsoft Sentinel"
 description: "Learn how to install the connector Dynatrace Problems to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Dynatrace Problems connector for Microsoft Sentinel
 
-This connector uses the [Dynatrace Problem REST API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/problems-v2) to ingest problem events into Microsoft Sentinel Log Analytics
+This connector uses the [Dynatrace Problem REST API](https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2) to ingest problem events into Microsoft Sentinel Log Analytics
 
 ## Connector attributes
 
@@ -111,7 +111,7 @@ To integrate with Dynatrace Problems make sure you have:
 
 Dynatrace Problem Events to Microsoft Sentinel
 
-Follow [these instructions](https://www.dynatrace.com/support/help/get-started/access-tokens#create-api-token) to generate an access token.
+Follow [these instructions](https://docs.dynatrace.com/docs/shortlink/token#create-api-token) to generate an access token.
 
 
 

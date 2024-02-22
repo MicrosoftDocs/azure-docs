@@ -2,17 +2,12 @@
 title: Introduction to Azure security | Microsoft Docs
 description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/26/2022
+ms.date: 10/22/2023
 ms.author: terrylan
 
 ---
@@ -204,6 +199,18 @@ Azure networking supports various secure remote access scenarios. Some of these 
 
 - [Connect Azure Virtual Networks to each other](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+### Azure Virtual Network Manager
+
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md)  provides a centralized solution for protecting your virtual networks at scale. It uses [security admin rules](../../virtual-network-manager/concept-security-admins.md) to centrally define and enforce security policies for your virtual networks across your entire organization. Security admin rules takes precedence over network security group(NSGs) rules and are applied on the virtual network. This allows organizations to enforce core policies with security admin rules, while still enabling downstream teams to tailor NSGs according to their specific needs at the subnet and NIC levels. Depending on the needs of your organization, you can use **Allow**, **Deny**, or **Always Allow** rule actions to enforce security policies. 
+
+| Rule Action | Description |
+|-------------|-------------|
+| **Allow**       | Allows the specified traffic by default. Downstream NSGs still receive this traffic and may deny it.|
+| **Always Allow** | Always allow the specified traffic, regardless of other rules with lower priority or NSGs. This can be used to ensure that monitoring agent, domain controller, or management traffic is not blocked. |
+| **Deny**          | Block the specified traffic. Downstream NSGs will not evaluate this traffic after being denied by a security admin rule, ensuring your high-risk ports for existing and new virtual networks are protected by default. |
+
+In Azure Virtual Network Manager, [network groups](../../virtual-network-manager/concept-network-groups.md) allow you to group virtual networks together for centralized management and enforcement of security policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually update the virtual network membership of your network groups or you can [define conditional statements with Azure Policy](../../virtual-network-manager/concept-azure-policy-integration.md) to dynamically update network groups to automatically update your network group membership.
+
 ### Azure Private Link
 
 [Azure Private Link](https://azure.microsoft.com/services/private-link/) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services privately in your virtual network over a [private endpoint](../../private-link/private-endpoint-overview.md). Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
@@ -298,7 +305,7 @@ You can enable the following diagnostic log categories for NSGs:
 The section provides additional information regarding key features in this area and summary information about these capabilities.
 
 ### Azure confidential computing
-[Azure confidential computing](../../confidential-computing/TOC.yml) provides the final, missing piece, of the data protection protection puzzle. It allows you to keep your data encrypted at all times.  While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestion](../../attestation/overview.md) possible, it allows you to cryptographically verify that the VM you provision has booted securely and is configured correctly, prior to unlocking your data.
+[Azure confidential computing](../../confidential-computing/overview-azure-products.md) provides the final, missing piece, of the data protection protection puzzle. It allows you to keep your data encrypted at all times.  While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestion](../../attestation/overview.md) possible, it allows you to cryptographically verify that the VM you provision has booted securely and is configured correctly, prior to unlocking your data.
 
 The spectrum of option ranges from enabling "lift and shift" scenarios of existing applications, to a full control of security features. For Infrastructure as a Service (IaaS), you can use [confidential virtual machines powered by AMD SEV-SNP](../../confidential-computing/confidential-vm-overview.md) or confidential application enclaves for virtual machines that run [Intel Software Guard Extensions (SGX)](../../confidential-computing/application-development.md). For Platform as a Service, we have multiple [container based](../../confidential-computing/choose-confidential-containers-offerings.md) options, including integrations with [Azure Kubernetes Service (AKS)](../../confidential-computing/confidential-nodes-aks-overview.md).
 

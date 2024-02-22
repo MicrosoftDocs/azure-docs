@@ -4,9 +4,11 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 09/18/2023
+ms.date: 11/16/2023
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023-container-storage
 ---
 
 # What is Azure Container Storage? Preview
@@ -35,11 +37,11 @@ We'd like input on how you plan to use Azure Container Storage. Please complete 
 
 Azure Container Storage utilizes existing Azure Storage offerings for actual data storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
-Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks, and Azure Elastic SAN Preview. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
+Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks, and Azure Elastic SAN. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
 
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
-| **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN Preview | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
+| **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
 | **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD, Premium SSD v2, Standard SSD, Ultra Disk | Provisioned per target container storage pool size and maximum volume size. |
 | **Ephemeral Disk** | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe only (available on [storage optimized VM SKUs](../../virtual-machines/sizes-storage.md)) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
 
@@ -49,10 +51,14 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 
 ## What's new in Azure Container Storage
 
-Based on feedback from customers, we've included the following capabilities in the Azure Container Storage Preview update:
+Based on feedback from customers, we've included the following capabilities with the latest preview update:
 
-- Scale up by [resizing volumes](resize-volume.md) backed by Azure Disks and NVMe storage pools without downtime
-- [Clone persistent volumes](clone-volume.md) within a storage pool
+- Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
+- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#enable-server-side-encryption-with-customer-managed-keys) (Azure Disks only).
+- Scale up by dynamically [resizing volumes](resize-volume.md) backed by Azure Disks and NVMe storage pools without downtime.
+- [Clone persistent volumes](clone-volume.md) within a storage pool.
+- Optimize applications with Azure Linux Container Host.
+- Increase resiliency for applications using local NVMe volumes with replication. [Sign up here](https://aka.ms/NVMeReplication). 
 
 For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
 
@@ -63,7 +69,7 @@ Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-
 
 You can use Azure Container Storage to:
 
-* **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This includes ephemeral disk that provides extremely low latency for workloads like Cassandra, as well as Azure Elastic SAN Preview that provides native iSCSI and shared provisioned targets.
+* **Accelerate VM-to-container initiatives:** Azure Container Storage surfaces the full spectrum of Azure block storage offerings that were previously only available for VMs and makes them available for containers. This includes ephemeral disk that provides extremely low latency for workloads like Cassandra, as well as Azure Elastic SAN that provides native iSCSI and shared provisioned targets.
 
 * **Simplify volume management with Kubernetes:** By providing volume orchestration via the Kubernetes control plane, Azure Container Storage makes it easy to deploy and manage volumes within Kubernetes - without the need to move back and forth between different control planes.
 

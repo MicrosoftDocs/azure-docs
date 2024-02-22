@@ -2,11 +2,11 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 1/23/2023
+ms.date: 10/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.service: backup
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Azure Backup offline backup by using Azure Data Box
@@ -34,6 +34,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows 8 64 bit                      | Enterprise, Pro                                             |
 | Windows 7 64 bit                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | **Server**                             |                                                              |
+| Windows Server 2022 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2019 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 64 bit         | Standard, Datacenter, Foundation                            |

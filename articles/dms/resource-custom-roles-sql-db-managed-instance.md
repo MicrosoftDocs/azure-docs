@@ -2,14 +2,13 @@
 title: "Custom roles: Online SQL Server to SQL Managed Instance migrations"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance online migrations.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 02/08/2021
 ms.service: dms
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 

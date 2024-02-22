@@ -1,8 +1,8 @@
 ---
 title: Remote Rendering Sessions
 description: Describes what a Remote Rendering session is
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp

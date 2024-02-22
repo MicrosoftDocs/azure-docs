@@ -2,7 +2,6 @@
 ms.custom: devx-track-azurecli
 ---
 ```bash
-
 #!/bin/bash
 set -e
 
@@ -22,6 +21,8 @@ stringData:
   LOCATION: "${LOCATION}"
   PROXY_URL: "${PROXY_URL}"
   INSTALL_AZURE_MONITOR_AGENT: "${INSTALL_AZURE_MONITOR_AGENT}"
+  VERSION: "${AZURE_MONITOR_AGENT_VERSION}"
+  CONNECTEDMACHINE_AZCLI_VERSION: "${CONNECTEDMACHINE_AZCLI_VERSION}"
 EOF
 }
 
@@ -88,6 +89,16 @@ spec:
                 secretKeyRef:
                   name: naks-vm-telemetry
                   key: INSTALL_AZURE_MONITOR_AGENT
+            - name: VERSION
+              valueFrom:
+                secretKeyRef:
+                  name: naks-vm-telemetry
+                  key: VERSION
+            - name: CONNECTEDMACHINE_AZCLI_VERSION
+              valueFrom:
+                secretKeyRef:
+                  name: naks-vm-telemetry
+                  key: CONNECTEDMACHINE_AZCLI_VERSION
           securityContext:
             privileged: true
           command:
@@ -141,7 +152,10 @@ spec:
                   if proxy_url is not None:
                       os.environ["HTTP_PROXY"] = proxy_url
                       os.environ["HTTPS_PROXY"] = proxy_url
-                  run_cmd(logger, "/usr/bin/az extension add --name connectedmachine --version 0.6.0 --yes")
+                  cm_azcli_version = config.get("CONNECTEDMACHINE_AZCLI_VERSION")
+                  logger.info("Install az CLI connectedmachine extension: {cm_azcli_version}")
+                  ext_cmd = f'/usr/bin/az extension add --name connectedmachine --version "{cm_azcli_version}" --yes'
+                  run_cmd(logger, ext_cmd)
 
 
               def get_cm_properties(logger, config):
@@ -527,7 +541,7 @@ spec:
               #!/bin/bash
               set -e
 
-              echo "{\"SUBSCRIPTION_ID\": \"\${SUBSCRIPTION_ID}\", \"SERVICE_PRINCIPAL_ID\": \"\${SERVICE_PRINCIPAL_ID}\", \"SERVICE_PRINCIPAL_SECRET\": \"\${SERVICE_PRINCIPAL_SECRET}\", \"RESOURCE_GROUP\": \"\${RESOURCE_GROUP}\", \"TENANT_ID\": \"\${TENANT_ID}\", \"LOCATION\": \"\${LOCATION}\", \"PROXY_URL\": \"\${PROXY_URL}\", \"CONNECTEDMACHINE_AZCLI_VERSION\": \"0.6.0\"}" > "\${WORKDIR}"/telemetry/arc-connect.json
+              echo "{\"VERSION\": \"\${VERSION}\", \"SUBSCRIPTION_ID\": \"\${SUBSCRIPTION_ID}\", \"SERVICE_PRINCIPAL_ID\": \"\${SERVICE_PRINCIPAL_ID}\", \"SERVICE_PRINCIPAL_SECRET\": \"\${SERVICE_PRINCIPAL_SECRET}\", \"RESOURCE_GROUP\": \"\${RESOURCE_GROUP}\", \"TENANT_ID\": \"\${TENANT_ID}\", \"LOCATION\": \"\${LOCATION}\", \"PROXY_URL\": \"\${PROXY_URL}\", \"CONNECTEDMACHINE_AZCLI_VERSION\": \"\${CONNECTEDMACHINE_AZCLI_VERSION}\"}" > "\${WORKDIR}"/telemetry/arc-connect.json
 
               echo "Connecting machine to Azure Arc..."
               /usr/bin/python3 "\${WORKDIR}"/telemetry/setup_arc_for_servers.py > "\${WORKDIR}"/setup_arc_for_servers.out
@@ -623,6 +637,8 @@ LOCATION="${LOCATION:?LOCATION must be set}"
 PROXY_URL="${PROXY_URL:?PROXY_URL must be set}"
 INSTALL_AZURE_MONITOR_AGENT="${INSTALL_AZURE_MONITOR_AGENT:?INSTALL_AZURE_MONITOR_AGENT must be true/false}"
 NAMESPACE="${NAMESPACE:?NAMESPACE must be set}"
+AZURE_MONITOR_AGENT_VERSION="${AZURE_MONITOR_AGENT_VERSION:-"1.24.2"}"
+CONNECTEDMACHINE_AZCLI_VERSION="${CONNECTEDMACHINE_AZCLI_VERSION:-"0.6.0"}"
 
 create_secret
 create_daemonset

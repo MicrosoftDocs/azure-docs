@@ -6,7 +6,7 @@ ms.author: mmitrik
 ms.date: 10/09/2023
 ms.topic: how-to
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ---
 
 # Configure cross-origin resource sharing

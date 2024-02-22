@@ -63,6 +63,7 @@ clusterServersConfig:
   timeout: 5000
   retryAttempts: 3
   retryInterval: 3000
+  checkLockSyncedSlaves: false
   failedSlaveReconnectionInterval: 15000
   failedSlaveCheckInterval: 60000
   subscriptionsPerConnection: 5

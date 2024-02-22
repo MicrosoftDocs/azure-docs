@@ -7,7 +7,6 @@ ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: 
 ---
 
 # Tutorial: Migrate from Google Maps to Azure Maps
@@ -133,7 +132,7 @@ Learn the details of how to migrate your Google Maps application with these arti
 [Azure Maps product page]: https://azure.com/maps
 [Azure Maps Q&A]: https://aka.ms/AzureMapsFeedback
 [Azure Maps term of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46
-[Azure Maps Web SDK code samples]: https://aka.ms/AzureMapsSamples
+[Azure Maps Web SDK code samples]: https://samples.azuremaps.com/
 [Azure portal]: https://portal.azure.com/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
 [Azure subscription]: https://azure.com

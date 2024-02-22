@@ -481,8 +481,8 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
 1. Trigger the remediation task:
 
     ```
-    az policy assignment update -n $POLICY_ASSIGNMENT
-    	--params param-values.json
+    az policy remediation create --resource-group $MANAGED_RESOURCE_GROUP --name myRemediation --policy-assignment $POLICY_ASSIGNMENT
+
     ```
 
 1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. 

@@ -8,7 +8,6 @@ metadata:
   description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
   ms.service: digital-twins
   ms.topic: landing-page
-  ms.collection: collection
   author: baanders
   ms.author: baanders
   ms.date: 03/10/2022

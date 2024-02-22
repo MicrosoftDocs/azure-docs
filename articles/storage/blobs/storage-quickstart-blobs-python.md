@@ -3,13 +3,13 @@ title: "Quickstart: Azure Blob Storage client library for Python"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
-
 ms.author: pauljewell
 ms.date: 10/24/2022
 ms.topic: quickstart
 ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python
+ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
@@ -18,11 +18,16 @@ Get started with the Azure Blob Storage client library for Python to manage blob
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
+This video shows you how to start using the Azure Blob Storage client library for Python.
+> [!VIDEO f663a554-96ca-4bc3-b3b1-48376a7efbdf]
+
+The steps in the video are also described in the following sections.
+
 ## Prerequisites
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.7+
+- [Python](https://www.python.org/downloads/) 3.8+
 
 ## Setting up
 
@@ -58,7 +63,7 @@ From the project directory, follow steps to create the basic structure of the ap
 
 1. Open a new text file in your code editor.
 1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below.
-1. Save the new file as *blob-quickstart.py* in the *blob-quickstart* directory.
+1. Save the new file as *blob_quickstart.py* in the *blob-quickstart* directory.
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/app-framework-qs.py":::
 
 ## Object model
@@ -146,6 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
     ```python
     from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
     ```
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.
@@ -274,10 +280,10 @@ To learn more about deleting a container, and to explore more code samples, see 
 
 This app creates a test file in your local folder and uploads it to Azure Blob Storage. The example then lists the blobs in the container, and downloads the file with a new name. You can compare the old and new files.
 
-Navigate to the directory containing the *blob-quickstart.py* file, then execute the following `python` command to run the app:
+Navigate to the directory containing the *blob_quickstart.py* file, then execute the following `python` command to run the app:
 
 ```console
-python blob-quickstart.py
+python blob_quickstart.py
 ```
 
 The output of the app is similar to the following example (UUID values omitted for readability):

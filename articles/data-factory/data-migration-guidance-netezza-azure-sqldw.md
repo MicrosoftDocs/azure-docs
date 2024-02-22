@@ -6,7 +6,6 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 07/17/2023
 ---
 
@@ -197,6 +196,6 @@ For more information, see the following articles and guides:
 - [Copy data incrementally from multiple tables](./tutorial-incremental-copy-multiple-tables-portal.md)
 - [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers by using Azure Data Factory](solution-template-copy-files-multiple-containers.md)

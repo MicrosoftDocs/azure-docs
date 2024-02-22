@@ -33,6 +33,10 @@ There are some other restrictions while using Capacity Reservation. For the comp
 
 ## Associate a new Virtual Machine Scale Set to a Capacity Reservation group
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 
 ### [API](#tab/api1)  
 
@@ -86,6 +90,7 @@ az vmss create
 --resource-group myResourceGroup 
 --name myVMSS 
 --location eastus 
+--orchestration-mode Uniform
 --vm-sku Standard_Ds1_v2 
 --image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
@@ -105,6 +110,7 @@ New-AzVmss
 -VMScaleSetName $vmssName
 -ResourceGroupName "myResourceGroup"
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
+-OrchestrationMode "Uniform"
 -PlatformFaultDomainCount 2
 ```
 

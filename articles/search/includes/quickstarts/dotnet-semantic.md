@@ -2,13 +2,15 @@
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 06/09/2023
+ms.date: 01/02/2024
 ---
 
-Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic ranking to an existing index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
+Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic ranking to an existing search index. 
 
-Semantic ranking is in public preview and available in beta versions of the Azure SDK for .NET (`11.5.0-beta.2`).
+Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
 
 #### Set up your environment
 
@@ -18,7 +20,7 @@ Semantic ranking is in public preview and available in beta versions of the Azur
 
 1. Select **Browse**.
 
-1. Search for [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and select version `11.5.0-beta.2`.
+1. Search for [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and select the latest stable version.
 
 1. Select **Install** to add the assembly to your project and solution.
 
@@ -59,9 +61,10 @@ Semantic ranking is in public preview and available in beta versions of the Azur
 
 #### Create an index
 
-Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
+Create or update an index schema to include a `SemanticConfiguration`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
 
 ```csharp
+// Create hotels-quickstart index
 private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
 
@@ -69,29 +72,28 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
     var definition = new SearchIndex(indexName, searchFields);
-
     var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
-
-    SemanticSettings semanticSettings = new SemanticSettings();
-    semanticSettings.Configurations.Add(new SemanticConfiguration
-        (
-            "my-semantic-config",
-            new PrioritizedFields()
+    definition.SemanticSearch = new SemanticSearch
+    {
+        Configurations =
+        {
+            new SemanticConfiguration("my-semantic-config", new()
             {
-                TitleField = new SemanticField { FieldName = "HotelName" },
-                ContentFields = {
-                new SemanticField { FieldName = "Description" },
-                new SemanticField { FieldName = "Description_fr" }
+                TitleField = new SemanticField("HotelName"),
+                ContentFields =
+                {
+                    new SemanticField("Description"),
+                    new SemanticField("Description_fr")
                 },
-                KeywordFields = {
-                new SemanticField { FieldName = "Tags" },
-                new SemanticField { FieldName = "Category" }
+                KeywordsFields =
+                {
+                    new SemanticField("Tags"),
+                    new SemanticField("Category")
                 }
             })
-        );
-
-    definition.SemanticSettings = semanticSettings;
+        }
+    };
 
     adminClient.CreateOrUpdateIndex(definition);
 }
@@ -109,23 +111,23 @@ SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
 
 #### Load documents
 
-Azure Cognitive Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](../../search-get-started-text.md) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
+Azure AI Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](/azure/search/search-get-started-text) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
 
 #### Search an index
 
 Here's a query that invokes semantic ranking, with search options for specifying parameters:
 
 ```csharp
-// Query 4
 Console.WriteLine("Query #3: Invoke semantic ranking");
 
 options = new SearchOptions()
 {
     QueryType = Azure.Search.Documents.Models.SearchQueryType.Semantic,
-    QueryLanguage = QueryLanguage.EnUs,
-    SemanticConfigurationName = "my-semantic-config",
-    QueryCaption = QueryCaptionType.Extractive,
-    QueryCaptionHighlightEnabled = true
+    SemanticSearch = new()
+    {
+        SemanticConfigurationName = "my-semantic-config",
+        QueryCaption = new(QueryCaptionType.Extractive)
+    }
 };
 options.Select.Add("HotelName");
 options.Select.Add("Category");

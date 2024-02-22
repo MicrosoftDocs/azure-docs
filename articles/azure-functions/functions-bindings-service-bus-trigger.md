@@ -4,7 +4,8 @@ description: Learn to run an Azure Function when as Azure Service Bus messages a
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/04/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -55,6 +56,10 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages in a single batch and writes each to the logs:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages, writes it to the logs, and then settles the message as completed:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_message_actions":::
 
 # [In-process model](#tab/in-process)
 

@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Following caveats apply to data as it moves into Azure.

@@ -2,12 +2,12 @@
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure CLI
 services: private-link
-author: asudbring
+author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
-ms.author: allensu
+ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites

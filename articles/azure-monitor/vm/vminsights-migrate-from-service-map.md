@@ -16,7 +16,7 @@ ms.reviewer: xpathak
 > [!NOTE]
 > Service Map will be retired on 30 September 2025. Be sure to migrate to VM insights before this date to continue monitoring processes and dependencies for your virtual machines.
 
-The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency, or ports across any TCP-connected architecture over a specified time range. For more information about the benefits of the VM insights map feature over Service Map, see [How is VM insights Map feature different from Service Map?](/azure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
+The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency, or ports across any TCP-connected architecture over a specified time range.
 
 ## Enable VM insights using Azure Monitor Agent
 

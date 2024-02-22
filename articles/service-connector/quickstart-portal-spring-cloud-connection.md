@@ -5,12 +5,9 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 08/10/2022
+ms.date: 10/04/2023
 ms.custom:
-- ignite-fall-2021
-- kr2b-contr-experiment
-- event-tier1-build-2022
-
+  - kr2b-contr-experiment
 #Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a storage account in the Azure portal.
 ---
 
@@ -24,7 +21,7 @@ This quickstart shows you how to connect Azure Spring Apps to other Cloud resour
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-- An app deployed to [Azure Spring Apps](../spring-apps/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
+- An app deployed to [Azure Spring Apps](../spring-apps/enterprise/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [storage account](../storage/common/storage-account-create.md).
 
 ## Sign in to Azure
@@ -53,12 +50,10 @@ You'll use Service Connector to create a new service connection in Azure Spring 
     | Setting             | Example              | Description                                                                                                                                                                         |
     |---------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Service type**    | *Storage - Blob*     | The type of service you're going to connect to your app.                                                                                                                            |
-    | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
     | **Connection name** | *storageblob_17d38*  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.   |
+    | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
     | **Storage account** | *my-storage-account* | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance.                                        |
     | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Besides SpringBoot and Java, other stacks are also supported.                                                |
-
-    :::image type="content" source="./media/azure-spring-apps-quickstart/basics.png" alt-text="Screenshot of the Azure portal, filling out the Basics tab.":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use an access key to connect your storage account.
     :::image type="content" source="./media/azure-spring-apps-quickstart/authentication.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
@@ -69,9 +64,7 @@ You'll use Service Connector to create a new service connection in Azure Spring 
 
 1. Select **Next: Review + Create** to review the provided information. Wait a few seconds for Service Connector to validate the information and select **Create** to create the service connection.
 
-    :::image type="content" source="./media/azure-spring-apps-quickstart/validation.png" alt-text="Screenshot of the Azure portal, validation tab.":::
-
-## View service connection
+## View service connections
 
 Azure Spring Apps connections are displayed under **Settings > Service Connector**.
 

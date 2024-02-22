@@ -57,6 +57,8 @@
     href: concept-service-mode.md
   - name: Connection string
     href: concept-connection-string.md
+  - name: Client negotiation
+    href: signalr-concept-client-negotiation.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -99,6 +101,14 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
+  - name: Develop
+    items:
+    - name: Use the Azure SignalR SDK
+      href: signalr-howto-use.md
+    - name: Use the Management SDK
+      href: signalr-howto-use-management-sdk.md
+    - name: Local emulator for serverless development
+      href: signalr-howto-emulator.md
   - name: Scale and geo-replicate
     items:
     - name: Single instance

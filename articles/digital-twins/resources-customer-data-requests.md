@@ -8,7 +8,7 @@ ms.date: 6/20/2023
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.custom: contperf-fy23q1
+ms.custom: engagement-fy23
 ---
 
 # Customer personal data requests in Azure Digital Twins

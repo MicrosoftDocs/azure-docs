@@ -73,11 +73,11 @@ Consider the following when working with multiple regions:
 - Bandwidth costs vary depending on the source and destination region and collection method. For more information, see:
 
   - [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)
-  - [Data transfers charges using Log Analytics ](../azure-monitor/usage-estimated-costs.md#data-transfer-charges).
+  - [Data transfers charges using Log Analytics ](../azure-monitor/cost-usage.md#data-transfer-charges).
 
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
 
-- Connectors that are based on diagnostics settings don't incur in-bandwidth costs. For more information, see [Data transfers charges using Log Analytics](../azure-monitor/usage-estimated-costs.md#data-transfer-charges).
+- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Data transfers charges using Log Analytics](../azure-monitor/cost-usage.md#data-transfer-charges).
 
 For example, if you decide to collect logs from Virtual Machines in East US and send them to a Microsoft Sentinel workspace in West US, you'll be charged ingress costs for the data transfer. Since the Log Analytics agent compresses the data in transit, the size charged for the bandwidth might be lower than the size of the logs in Microsoft Sentinel.
 

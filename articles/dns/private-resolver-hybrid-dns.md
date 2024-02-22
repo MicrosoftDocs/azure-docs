@@ -4,7 +4,6 @@ description: Configure Azure and on-premises DNS to resolve private DNS zones an
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/05/2023
 ms.author: greglin
@@ -56,7 +55,7 @@ In this article, the private zone **azure.contoso.com** and the resource record 
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
-**Requirement**: You must create a virtual network link in the zone to the virtual network where you deploy your Azure DNS Private Resolver.  In the following example, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
+**Requirement**: You must create a virtual network link in the zone to the virtual network where you deploy your Azure DNS Private Resolver.  In the following example, the private zone is linked to two VNets: **myeastvnet** and **mywestvnet**. At least one link is required.
 
 [ ![View zone links](./media/private-resolver-hybrid-dns/private-zone-links-small.png) ](./media/private-resolver-hybrid-dns/private-zone-links.png#lightbox)
 

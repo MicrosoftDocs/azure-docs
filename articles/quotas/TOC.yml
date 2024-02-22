@@ -6,7 +6,7 @@
     href: quotas-overview.md
   - name: View quotas
     href: view-quotas.md
-  - name: Monitoring & Alerts for Quotas
+  - name: Monitoring and alerts
     href: monitoring-alerting.md
 - name: Quickstarts
   items:
@@ -28,7 +28,7 @@
         href: networking-quota-requests.md
       - name: Increase storage account quotas
         href: storage-account-quota-requests.md
-    - name: How-to-Guide - Monitoring & Alerting
+    - name: Create and manage alerts
       href: how-to-guide-monitoring-alerting.md
 - name: Reference
   items:

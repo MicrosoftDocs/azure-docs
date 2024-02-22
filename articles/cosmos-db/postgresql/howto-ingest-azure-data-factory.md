@@ -1,13 +1,12 @@
 ---
-title: Azure Data Factory
+title: Using Azure Data Factory for data ingestion - Azure Cosmos DB for PostgreSQL
 description: See a step-by-step guide for using Azure Data Factory for ingestion on Azure Cosmos DB for PostgreSQL.
 ms.author: suvishod
 author: suvishodcitus
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 12/13/2023
 ---
 
 # How to ingest data by using Azure Data Factory in Azure Cosmos DB for PostgreSQL
@@ -15,8 +14,7 @@ ms.date: 01/30/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 [Azure Data Factory](../../data-factory/introduction.md) is a cloud-based
-ETL and data integration service. It allows you to create data-driven workflows
-to move and transform data at scale.
+[ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) and data integration service. It allows you to create data-driven workflows to move and transform data at scale.
 
 Using Data Factory, you can create and schedule data-driven workflows
 (called pipelines) that ingest data from disparate data stores. Pipelines can
@@ -28,6 +26,9 @@ your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreS
 for storage, processing, and reporting.
 
 :::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factory." border="false":::
+
+> [!IMPORTANT]
+> Data Factory doesn't support private endpoints for Azure Cosmos DB for PostgreSQL at this time.
 
 ## Data Factory for real-time ingestion
 
@@ -52,14 +53,13 @@ In Data Factory, you can use the **Copy** activity to copy data among
 data stores located on-premises and in the cloud to Azure Cosmos DB for PostgreSQL. If you're
 new to Data Factory, here's a quick guide on how to get started:
 
-1. Once Data Factory is provisioned, go to your data factory. You see the Data
-   Factory home page as shown in the following image:
+1. Once Data Factory is provisioned, go to your data factory and launch Azure Data Factory Studio. You see the Data Factory home page as shown in the following image:
 
    :::image type="content" source="media/howto-ingestion/azure-data-factory-home.png" alt-text="Screenshot showing the landing page of Azure Data Factory.":::
 
-2. On the home page, select **Orchestrate**.
+2. On the Azure Data Factory Studio home page, select **Orchestrate**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the Orchestrate page of Azure Data Factory.":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the 'Orchestrate' page of Azure Data Factory.":::
 
 3. Under **Properties**, enter a name for the pipeline.
 
@@ -72,7 +72,7 @@ new to Data Factory, here's a quick guide on how to get started:
 5. Configure **Source**.
 
    1. On the **Activities** page, select the **Source** tab. Select **New** to create a source dataset.
-   2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
+   2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**.
    3. Choose the format type of your data, and then select **Continue**.
    4. On the **Set properties** page, under **Linked service**, select **New**.
    5. On the **New linked service** page, enter a name for the linked service, and select your storage account from the **Storage account name** list.
@@ -88,24 +88,24 @@ new to Data Factory, here's a quick guide on how to get started:
    1. On the **Activities** page, select the **Sink** tab. Select **New** to create a sink dataset.
    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
    3. On the **Set properties** page, under **Linked service**, select **New**.
-   4. On the **New linked service** page, enter a name for the linked service, and select your cluster from the **Server name** list. Add connection details and test the connection.
-
-      > [!NOTE]
-      >
-      > If your cluster isn't present in the drop down, use the **Enter manually** option to add server details.
-
+   4. On the **New linked service** page, enter a name for the linked service, and select **Enter manually** in the **Account selection method**.
+   5. Enter your cluster's coordinator name in the **Fully qualified domain name** field. You can copy the coordinator's name from the *Overview* page of your Azure Cosmos DB for PostgreSQL cluster. 
+   6. Leave default port 5432 in the **Port** field for direct connection to the coordinator or replace it with port 6432 to connect to [the managed PgBouncer](./concepts-connection-pool.md) port.
+   7. Enter database name on your cluster and provide credentials to connect to it.
+   8. Select **SSL** in the **Encryption method** drop-down list.
+  
       :::image type="content" source="media/howto-ingestion/azure-data-factory-configure-sink.png" alt-text="Screenshot that shows configuring Sink in Azure Data Factory.":::
 
-   5. Select **Create** to save the configuration.
-   6. On the **Set properties** screen, select **OK**.
-   5. In the **Sink** tab on the **Activities** page, select the table name where you want to ingest the data.
-   6. Under **Write method**, select **Copy command**.
+   9. Select **Test connection** at the bottom of the panel to validate sink configuration.
+   10. Select **Create** to save the configuration.
+   11. On the **Set properties** screen, select **OK**.
+   12. In the **Sink** tab on the **Activities** page, select **Open** next to the *Sink dataset* drop-down list and select the table name on destination cluster where you want to ingest the data.
+   13. Under **Write method**, select **Copy command**.
 
       :::image type="content" source="media/howto-ingestion/azure-data-factory-copy-command.png" alt-text="Screenshot that shows selecting the table and Copy command.":::
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline
-   settings. Fix any errors, revalidate, and ensure that the pipeline has
-   been successfully validated.
+   settings. Fix any errors, revalidate, and ensure that the pipeline is successfully validated.
 
 8. Select **Debug** from the toolbar to execute the pipeline.
 
@@ -125,5 +125,5 @@ as shown below:
 
 ## Next steps
 
-Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to [move your workload to Azure Cosmos DB for PostgreSQL](./quickstart-build-scalable-apps-overview.md)

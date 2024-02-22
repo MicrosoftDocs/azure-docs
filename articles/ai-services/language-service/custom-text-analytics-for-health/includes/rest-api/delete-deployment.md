@@ -1,11 +1,10 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/14/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 
@@ -35,5 +34,3 @@ Use the following header to authenticate your request.
 
 
 Once you send your API request, you will receive a `202` response indicating success, which means your deployment has been deleted. A successful call results with an `Operation-Location` header used to check the status of the job.
-
-

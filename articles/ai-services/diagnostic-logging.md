@@ -1,19 +1,19 @@
 ---
-title: Diagnostic logging
+title: Enable diagnostic logging
 titleSuffix: Azure AI services
 description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 
 # Enable diagnostic logging for Azure AI services
 
-This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Azure AI service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
+This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Azure AI service, such as [Speech Services](./speech-service/overview.md).
 
 ## Prerequisites
 
@@ -109,7 +109,7 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## Next steps
 
-* To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics](../azure-monitor/data-platform.md) in Microsoft Azure and [Overview of Azure Diagnostic Logs](../azure-monitor/essentials/platform-logs-overview.md) articles.
+* To understand how to enable logging, as well as the metrics and log categories that are supported by the various Azure services, read the [Overview of metrics](../azure-monitor/data-platform.md) in Microsoft Azure and the [Overview of Azure Diagnostic Logs](../azure-monitor/essentials/platform-logs-overview.md).
 * Read these articles to learn about event hubs:
   * [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md)
   * [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

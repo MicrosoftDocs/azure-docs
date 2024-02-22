@@ -3,7 +3,7 @@ title: Configure role-based access control in Azure Cosmos DB for MongoDB databa
 description: Learn how to configure native role-based access control in Azure Cosmos DB for MongoDB
 author: gahl-levy
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-js
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: gahllevy
@@ -31,7 +31,7 @@ Privileges are actions that can be performed on a specific resource. For example
 A role has one or more privileges. Roles are assigned to users (zero or more) to enable them to perform the actions defined in those privileges. Roles are stored within a single database.
 
 ### Diagnostic log auditing
-An another column called `userId` has been added to the `MongoRequests` table in the Azure Portal Diagnostics feature. This column identifies which user performed which data plan operation. The value in this column is empty when RBAC isn't enabled. 
+Another column called `userId` has been added to the `MongoRequests` table in the Azure Portal Diagnostics feature. This column identifies which user performed which data plan operation. The value in this column is empty when RBAC isn't enabled. 
 
 ## Available Privileges
 #### Query and Write

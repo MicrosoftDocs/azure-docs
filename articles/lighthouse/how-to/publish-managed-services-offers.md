@@ -68,6 +68,5 @@ If you publish an updated version of your offer, the customer can [review the ch
 ## Next steps
 
 - Learn about the [commercial marketplace](/partner-center/marketplace/overview).
-- [Link your partner ID](partner-earned-credit.md) to track your impact across customer engagements.
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

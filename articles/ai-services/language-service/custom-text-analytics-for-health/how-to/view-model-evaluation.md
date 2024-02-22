@@ -2,12 +2,12 @@
 title: Evaluate a Custom Text Analytics for health model
 titleSuffix: Azure AI services
 description: Learn how to evaluate and score your Custom Text Analytics for health model
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-ta4h
 ---

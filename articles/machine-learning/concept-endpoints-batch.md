@@ -9,7 +9,9 @@ ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ms.date: 04/01/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
@@ -17,11 +19,6 @@ ms.date: 04/01/2023
 # Batch endpoints
 
 After you train a machine learning model, you need to deploy it so that others can consume its predictions. Such execution mode of a model is called *inference*. Azure Machine Learning uses the concept of [endpoints and deployments](concept-endpoints.md) for machine learning models inference.
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over in asynchronous way.  Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
@@ -44,7 +41,7 @@ A deployment is a set of resources and computes required to implement the functi
 There are two types of deployments in batch endpoints: 
 
 * [Model deployments](#model-deployments)
-* [Pipeline component deployment (preview)](#pipeline-component-deployment-preview)
+* [Pipeline component deployment](#pipeline-component-deployment)
 
 ### Model deployments
 
@@ -70,9 +67,7 @@ To create a model deployment in a batch endpoint, you need to specify the follow
 > [!div class="nextstepaction"]
 > [Create your first model deployment](how-to-use-batch-model-deployments.md)
 
-### Pipeline component deployment (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+### Pipeline component deployment
 
 Pipeline component deployment allows operationalizing entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
 
@@ -93,7 +88,7 @@ To create a pipeline component deployment in a batch endpoint, you need to speci
 > [!div class="nextstepaction"]
 > [Create your first pipeline component deployment](how-to-use-batch-pipeline-deployments.md)
 
-Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job (preview)](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kinds of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
+Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kinds of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
 
 ## Cost management
 
@@ -128,7 +123,7 @@ Batch endpoints provide all the capabilities required to operate production leve
 ## Next steps
 
 - [Deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [Deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
+- [Deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
 - [Deploy MLFlow models in batch deployments](how-to-mlflow-batch.md)
 - [Create jobs and input data to batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
 - [Network isolation for Batch Endpoints](how-to-secure-batch-endpoint.md)

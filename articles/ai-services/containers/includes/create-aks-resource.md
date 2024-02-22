@@ -2,7 +2,7 @@
 title: Create an Azure Kubernetes Service cluster resource
 titleSuffix: Azure AI services
 description: Learn how to create an Azure Kubernetes Service (AKS) resource.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services

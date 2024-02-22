@@ -3,7 +3,6 @@ title: Azure API Management - v2 tiers (preview)
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. The v2 tiers are in preview.
 services: api-management
 author: dlepow
-editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
@@ -100,6 +99,9 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Client certificate renegotiation
 * Requests to the gateway over localhost
 
+  > [!NOTE]
+  > Currently the policy document size limit in the v2 tiers is 16 KiB.
+
 ## Deployment
 
 Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager or Bicep template.
@@ -126,6 +128,12 @@ A: A Standard v2 service instance can be integrated with a VNet to provide secur
 
 A: No, such a deployment is only supported in the Premium tier. 
 
+### Q: Is a Premium v2 tier planned?
+
+A: Yes, a Premium v2 preview is planned and will be announced separately.
+
 ## Related content
 
 * Learn more about the API Management [tiers](api-management-features.md).
+
+

@@ -7,7 +7,6 @@ ms.author: ulrichchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 07/20/2023
 ---
 
@@ -261,7 +260,7 @@ To set the status of the delta DTP to **Fetched**, you can use the following opt
 
 *No Data Transfer; Delta Status in Source: Fetched*
 
-## Next steps
+## Related content
 
 Learn about SAP BW Open Hub connector support:
 

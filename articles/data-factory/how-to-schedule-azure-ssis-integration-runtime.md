@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
 ms.custom: subject-rbac-steps, devx-track-azurepowershell
@@ -398,7 +398,7 @@ In the previous section, you created an Azure Automation runbook that can either
 
 6. When you finish testing, disable your schedules by editing them. Select **Schedules** on the left menu, select **Start IR daily/Stop IR daily**, and then select **No** for **Enabled**.
 
-## Next steps
+## Related content
 
 See the following blog post:
 

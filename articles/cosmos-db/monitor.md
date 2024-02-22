@@ -2,12 +2,12 @@
 title: Monitor Azure Cosmos DB
 description: Learn how to monitor the performance and availability of Azure Cosmos DB. You can monitor your data with client-side and server-side metrics.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/08/2023
-ms.custom: subject-monitoring, ignite-2022
+ms.custom: subject-monitoring
 ---
 
 # Monitor Azure Cosmos DB
@@ -78,7 +78,7 @@ The following sections discuss the metrics and logs you can collect.
 
 ## Analyzing metrics
 
-Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. For more information about this tool, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
+Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. For more information about this tool, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 You can also monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
 

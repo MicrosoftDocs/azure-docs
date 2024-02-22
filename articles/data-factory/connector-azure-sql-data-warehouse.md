@@ -8,15 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
-
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> - [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> - [Current version](connector-azure-sql-data-warehouse.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -35,7 +30,7 @@ This Azure Synapse Analytics connector is supported for the following capabiliti
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
@@ -474,7 +469,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
-| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
+| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables), if it does not exist, based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
@@ -728,7 +723,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ## Use PolyBase to load data into Azure Synapse Analytics
 
-Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
+Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. 
 
 - If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure Synapse Analytics pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.
@@ -1062,6 +1057,6 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy Activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

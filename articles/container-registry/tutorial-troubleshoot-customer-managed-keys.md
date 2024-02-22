@@ -3,8 +3,9 @@ title: Troubleshoot a customer-managed key
 description: Learn how to troubleshoot the most common problems for a registry that's enabled with a customer-managed key.
 author: tejaswikolli-web
 ms.topic: tutorial
-ms.date: 08/5/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Troubleshoot a customer-managed key 

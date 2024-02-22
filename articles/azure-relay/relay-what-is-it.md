@@ -1,9 +1,8 @@
 ---
 title: What is Azure Relay? | Microsoft Docs
-description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
+description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.
 ms.topic: overview
-ms.date: 12/08/2022
-ms.custom: contperf-fy22q1
+ms.date: 01/04/2024
 ---
 
 # What is Azure Relay?
@@ -47,6 +46,7 @@ To get started with using Hybrid Connections in Azure Relay, see the following q
 - [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
 - [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 - [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
+- [Hybrid Connections - Java HTTP](relay-hybrid-connections-java-get-started.md)
 
 For more samples, see [Azure Relay - Hybrid Connections samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections).
 
@@ -101,5 +101,4 @@ Follow one or more of the following quick starts, or see [Azure Relay samples on
     - [Expose an on-premises WCF service to a WCF client outside your network](service-bus-relay-tutorial.md)
     - [Expose an on-premises WCF REST service to a client outside your network](service-bus-relay-rest-tutorial.md)
 
-For a list of frequently asked questions and their answers, see [Relay FAQ](relay-faq.yml)
-
+For a list of frequently asked questions and their answers, see [Relay FAQ](relay-faq.yml).

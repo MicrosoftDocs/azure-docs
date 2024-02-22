@@ -5,8 +5,6 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.custom: ignite-2022
 ms.date: 06/26/2020
 ms.author: allensu
 ---
@@ -130,7 +128,7 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 ### Can I deploy a DHCP server in a virtual network?
 
-Azure virtual networks provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a virtual network.
+Azure virtual networks provide DHCP service and DNS to VMs. Client/server DHCP traffic (source port UDP/68, destination port UDP/67) is not supported in a virtual network.
 
 You can't deploy your own DHCP service to receive and provide unicast or broadcast client/server DHCP traffic for endpoints inside a virtual network. Deploying a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) traffic is also an *unsupported* scenario.
 
@@ -502,6 +500,9 @@ We recommend that you turn on service endpoints for your virtual network before 
 Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the preceding sequence through the `IgnoreMissingVnetServiceEndpoint` flag. After you set the flag to `True`, you can set up virtual network ACLs on the Azure service side before turning on the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services.
 
 Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
+
+>[!NOTE]
+> If you enable Service Endpoint on certain services likes "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connections.
 
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 

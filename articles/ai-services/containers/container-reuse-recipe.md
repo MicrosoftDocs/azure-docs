@@ -2,10 +2,9 @@
 title: Recipes for Docker containers
 titleSuffix: Azure AI services
 description: Learn how to build, test, and store containers with some or all of your configuration settings for deployment and reuse.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 10/28/2021

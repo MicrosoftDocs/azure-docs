@@ -21,11 +21,9 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 ## Fix common errors
 
-### Purchase fails
+### Marketplace purchase errors
 
-A purchase can fail because a valid credit card isn't connected to the Azure subscription, or because a payment method isn't associated with the subscription. To solve this problem, use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-A purchase can also fail because an Enterprise Agreement (EA) subscription doesn't allow Azure Marketplace purchases. Try to use a different subscription. Or, check if your EA subscription is enabled for Azure Marketplace purchases. For more information, see [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### You can't create a New Relic resource
 
@@ -51,6 +49,10 @@ Resource monitoring in New Relic is enabled through the *ingest API key*, which 
 If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 New Relic manages the APIs for creating and managing resources, and for the storage and processing of customer telemetry data. The New Relic APIs might be on or outside Azure. If your Azure subscription and resource are working correctly but the New Relic portal shows problems with monitoring data, contact New Relic support.
+
+### Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
+
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 ## Next steps
 

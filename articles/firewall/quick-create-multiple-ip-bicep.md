@@ -7,12 +7,15 @@ ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
-ms.date: 08/11/2022
+ms.date: 10/19/2023
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep
 
 In this quickstart, you use a Bicep file to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+
+:::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart.":::
+
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -25,6 +28,7 @@ For more information about Azure Firewall with multiple public IP addresses, see
 ## Review the Bicep file
 
 This Bicep file creates an Azure Firewall with two public IP addresses, along with the necessary resources to support the Azure Firewall.
+
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 

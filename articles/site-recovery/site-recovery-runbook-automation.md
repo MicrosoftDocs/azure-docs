@@ -81,6 +81,10 @@ If you want to access all VMs in VMMap in a loop, you can use the following code
 
 
 ```powershell
+param (
+    [parameter(Mandatory=$false)]
+    [Object]$RecoveryPlanContext
+)
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
     foreach($VMID in $VMinfo)

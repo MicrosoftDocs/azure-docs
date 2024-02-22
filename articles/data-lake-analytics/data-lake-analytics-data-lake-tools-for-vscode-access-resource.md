@@ -4,7 +4,7 @@ description: Learn how to use Azure Data Lake Tools for accessing Azure Data Lak
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 12/20/2023
 ---
 
 # Accessing resources with Azure Data Lake Tools

@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher modes
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description:  This article explains the different modes of Trial Matcher
 services: azure-health-insights
 author: iBoonZ
@@ -17,7 +17,7 @@ Trial Matcher provides two main modes of operation to users of the service: a **
 
 On the diagram, you can see how patients' or clinical trials can be found through the two different modes.
 ![Diagram that shows the Trial Matcher operation modes.](../media/trial-matcher/overview.png) 
-
+[ ![Diagram that shows the Trial Matcher operation modes.](../media/trial-matcher/overview.png)](../media/trial-matcher/overview.png#lightbox)
 
 ## Patient centric
 

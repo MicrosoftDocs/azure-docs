@@ -5,12 +5,10 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 08/15/2023
 ms.author: saraic
-ms.reviewer: cynthn, mattmcinnes 
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-
 ---
 # Create a VM from a generalized image version
 
@@ -848,7 +846,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ### [Portal](#tab/portal4)
 
 > [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+> **Known issue**: In the Azure portal, if you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
 > You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus` to see what images are shared with you in the West US region.
 

@@ -2,13 +2,12 @@
 title: Sovereign Clouds - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Sovereign Clouds
-services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/10/2022
+ms.date: 1/21/2024
 ms.author: alexeyo
 ---
 
@@ -34,8 +33,10 @@ Available to US government entities and their partners only. See more informatio
     - Neural voice
   - Speech translation
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
@@ -63,7 +64,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds, you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You can also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 
@@ -128,8 +129,10 @@ Available to organizations with a business presence in China. See more informati
     - Neural voice
   - Speech translator
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
@@ -158,7 +161,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 
 #### Speech SDK
 
-For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You may also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
+For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host / with host" instantiation of `SpeechConfig` class or `--host` option of [Speech CLI](spx-overview.md). (You can also use "from endpoint / with endpoint" instantiation and `--endpoint` Speech CLI option).
 
 `SpeechConfig` class should be instantiated like this:
 

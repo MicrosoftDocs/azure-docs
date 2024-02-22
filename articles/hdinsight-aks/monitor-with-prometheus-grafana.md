@@ -3,7 +3,7 @@ title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 11/07/2023
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana
@@ -20,11 +20,11 @@ This article covers the details of enabling the monitoring feature in HDInsight 
 
 ## Prerequisites
 
-* An Azure Managed Prometheus workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Azure Managed Prometheus workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
-* Azure Managed Grafana workspace. For the instructions, see [Create a Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
+* An Azure Managed Prometheus workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create an Azure Managed Prometheus workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
+* Azure Managed Grafana workspace. For the instructions, see [Create an Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
 * An [HDInsight on AKS cluster](./quickstart-create-cluster.md). Currently, you can use Azure Managed Prometheus with the following HDInsight on AKS cluster types:
-    * Apache Spark
-    * Apache Flink
+    * Apache Spark™
+    * Apache Flink®
     * Trino
 
 For the instructions on how to create an HDInsight on AKS cluster, see [Get started with Azure HDInsight on AKS](./overview.md).
@@ -142,25 +142,29 @@ User permission: For viewing Azure Managed Grafana, “Grafana Viewer” role is
    > For viewing other roles for Grafana users see  [here](../managed-grafana/how-to-share-grafana-workspace.md).
        
 ## View metrics
-You can use the Grafana dashboard to view the service and system. Trino cluster as an example, assuming few jobs are executed in the cluster.  
 
-1. Open the Grafana link in the cluster overview page.
+We are using an Apache Spark™ cluster as an example in this case, assuming few jobs are executed in the cluster, in order to have the metrics.  
 
-    :::image type="content" source="./media/monitor-with-prometheus-grafana/view-metrics.png" alt-text="Screenshot showing how to view-metrics." border="true" lightbox="./media/monitor-with-prometheus-grafana/view-metrics.png":::
+Review the following steps to use the Grafana sample templates:
 
-1. The default value on the Explore tab is **Grafana**.
-1. Select on the dropdown and click on the `Managed Prometheus.…. <workspace name>` option and select the parameters of the time frame required.
+1. Download the sample template from [here](https://github.com/Azure-Samples/hdinsight-aks/tree/main/sample-grafana-template) for the respective workloads (download the Apache Spark template in this case). 
 
-    :::image type="content" source="./media/monitor-with-prometheus-grafana/set-time-frame.png" alt-text="Screenshot showing how to set time frame." border="true" lightbox="./media/monitor-with-prometheus-grafana/set-time-frame.png":::
+1. Login to the Grafana Dashboard from your cluster.
 
-1.  Next Select the metric you want to see.
+   :::image type="content" source="./media/monitor-with-prometheus-grafana/login-to-grafana-dashboard.png" alt-text="Screenshot showing how to set time frame." border="true" lightbox="./media/monitor-with-prometheus-grafana/login-to-grafana-dashboard.png":::
 
-    :::image type="content" source="./media/monitor-with-prometheus-grafana/metric-type.png" alt-text="Screenshot showing how to metric type." border="true" lightbox="./media/monitor-with-prometheus-grafana/metric-type.png":::
+1.  Once the Grafana Dashboard page is opened, click on New > Import
 
-1. Click on **Run Query** and select the timeframe on how often the query should be run.
+    :::image type="content" source="./media/monitor-with-prometheus-grafana/grafana-dashboard.png" alt-text="Screenshot showing how to metric type." border="true" lightbox="./media/monitor-with-prometheus-grafana/grafana-dashboard.png":::
 
-    :::image type="content" source="./media/monitor-with-prometheus-grafana/run-query.png" alt-text="Screenshot showing how to run query." border="true" lightbox="./media/monitor-with-prometheus-grafana/run-query.png":::
+1. Click on the Upload Dashboard JSON file and upload the Apache Spark Grafana template that you have downloaded and click on **Import**. 
 
-1. View the metric as per selection.
+    :::image type="content" source="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png" alt-text="Screenshot showing how to run query." border="true" lightbox="./media/monitor-with-prometheus-grafana/upload-dashboard-json-file.png":::
 
-    :::image type="content" source="./media/monitor-with-prometheus-grafana/view-output.png" alt-text="Screenshot showing how to view the output." border="true" lightbox="./media/monitor-with-prometheus-grafana/view-output.png":::
+1. After the upload is complete, you can click on the dashboard to view the metrics. 
+
+    :::image type="content" source="./media/monitor-with-prometheus-grafana/matrix-view.png" alt-text="Screenshot showing how to view the output." border="true" lightbox="./media/monitor-with-prometheus-grafana/matrix-view.png":::
+   
+## Reference
+
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](./trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

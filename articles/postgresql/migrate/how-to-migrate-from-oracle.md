@@ -259,7 +259,7 @@ ora2pg -p -t VIEW -o views.sql -b %namespace%/schema/views -c %namespace%/config
 To extract the data, use the following command.
 
 ```
-ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
+ora2pg -t COPY -o data.sql -b %namespace%/data -c %namespace/config/ora2pg.conf
 ```
 
 #### Compile files

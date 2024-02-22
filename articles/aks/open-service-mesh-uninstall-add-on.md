@@ -10,6 +10,9 @@ ms.date: 06/19/2023
 
 This article shows you how to uninstall the OMS add-on and related resources from your AKS cluster.
 
+> [!NOTE]
+> With the retirement of [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) by the Cloud Native Computing Foundation (CNCF), we recommend identifying your OSM configurations and migrating them to an equivalent Istio configuration. For information about migrating from OSM to Istio, see [Migration guidance for Open Service Mesh (OSM) configurations to Istio](open-service-mesh-istio-migration-guidance.md).
+
 ## Disable the OSM add-on from your cluster
 
 * Disable the OSM add-on from your cluster using the [`az aks disable-addon`][az-aks-disable-addon] command and the `--addons` parameter.

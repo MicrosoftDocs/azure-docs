@@ -4,16 +4,16 @@ description: Learn how to recover your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/28/2023
+ms.date: 10/23/2023
 ms.author: kendownie
 ---
 
 # Disaster recovery and failover for Azure Files
 
-Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur, and you should have a disaster recovery (DR) plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable. This article describes the concepts and processes involved with disaster recovery (DR) and storage account failover.
+Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occur, and you should have a disaster recovery (DR) plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint in the event that the primary endpoint becomes unavailable. This article describes the concepts and processes involved with disaster recovery (DR) and storage account failover.
 
 > [!IMPORTANT]
-> Azure File Sync doesn't support storage account failover. If you attempt to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, the sync will stop working and might also cause unexpected data loss in the case of newly tiered files. See [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
+> Azure File Sync only supports storage account failover if the Storage Sync Service is also failed over. This is because Azure File Sync requires the storage account and Storage Sync Service to be in the same Azure region. If only the storage account is failed over, sync and cloud tiering operations will fail until the Storage Sync Service is failed over to the secondary region. If you want to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, see [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
 
 ## Recovery metrics and costs
 To formulate an effective DR strategy, an organization must understand:
@@ -70,7 +70,7 @@ The customer initiates the account failover to the secondary endpoint. The failo
 Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints remain the same after the failover. File handles and leases aren't retained on failover, so clients must unmount and remount the file shares.
 
 > [!IMPORTANT]
-> After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region (we say this later too). To resume replication to the new secondary, configure the account for geo-redundancy again.
+> After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
 > Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](../common/storage-initiate-account-failover.md#important-implications-of-account-failover).
 
@@ -87,7 +87,7 @@ All data already copied to the secondary is maintained when the failover happens
 
 ### Check the Last Sync Time property
 
-The **Last Sync Time (LST)** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time is available on the secondary, while data written after the last sync time may not have been written to the secondary and might be lost. Use this property in the event of an outage to estimate the amount of data loss you might incur by initiating an account failover.
+The **Last Sync Time (LST)** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time is available on the secondary, while data written after the last sync time might not have been written to the secondary and might be lost. Use this property in the event of an outage to estimate the amount of data loss you might incur by initiating an account failover.
 
 To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state will be based on the latest system snapshot in the secondary region. If a failure happens in the primary region, the secondary region is likely behind the primary region, as all writes to the primary won't yet have been replicated to the secondary. Due to geo-lag or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
 
@@ -97,7 +97,7 @@ You can query the value of the **Last Sync Time** property using Azure PowerShel
 
 ### Use caution when failing back to the original primary
 
-As previously mentioned, after you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account in the new primary region for geo-redundancy. When the account is configured for geo-redundancy after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the new primary is fully copied to the new secondary.
+As previously mentioned, after you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account in the new primary region for geo-redundancy. When the account is configured for geo-redundancy after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it might take some time before existing data in the new primary is fully copied to the new secondary.
 
 After the storage account is reconfigured for geo-redundancy, it's possible to initiate a failback from the new primary to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS or GZRS. All data in the post-failover primary region (the original secondary) is lost during the failback. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
 

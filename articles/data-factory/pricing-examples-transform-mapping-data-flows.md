@@ -44,7 +44,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 :::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

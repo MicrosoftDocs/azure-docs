@@ -3,12 +3,12 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -88,7 +88,7 @@ StorageBlobLogs
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Storage, make sure that that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
+> If you are using a service that connects to Azure Storage, make sure that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
 
 ### Configure the minimum TLS version for a storage account
 

@@ -37,7 +37,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value.
+- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
 
 When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
@@ -106,6 +106,8 @@ The below table shows some examples of how you might structure your exclusion fo
 | Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
 | Cookie | RequestCookieValues | EqualsAny | N/A | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
 
+> [!NOTE]
+> If you create an exclusion using the selectorMatchOperator `EqualsAny`, anything you put in the selector field gets converted to "*" by the backend when the exclusion is created.
 
 ## Exclusion scopes
 

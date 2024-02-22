@@ -3,12 +3,12 @@ title: Configure encryption with customer-managed keys stored in Azure Key Vault
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys stored in Azure Key Vault Managed HSM by using Azure CLI.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/05/2022
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli

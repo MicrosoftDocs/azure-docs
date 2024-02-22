@@ -10,7 +10,7 @@ ms.date: 01/19/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: javascript
-ms.custom: devx-track-javascript, engagement-fy23, devx-track-js
+ms.custom: devx-track-javascript, engagement-fy23, devx-track-js, devguide-js
 ---
 
 # Create a service SAS for a container or blob with JavaScript

@@ -5,11 +5,14 @@ services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
 ms.date: 09/27/2023
-ms.author: nikhilkaul
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
+
 # How-to: Configure your experiment to emit Experiment Fault Events to App Insights
+
 In this guide, we'll show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. App Insights is the primary recommended logging solution for **Agent-based** experiments in Chaos Studio.
 
 ## Prerequisites
@@ -27,7 +30,8 @@ Once you have met all the prerequisite steps, copy the **Instrumentation Key** f
 [![Screenshot that shows Instrumentation Key in App Insights.](images/step-1a-app-insights.png)](images/step-1a-app-insights.png#lightbox)
 
 ## Step 2: Enable the Target Platform for your Agent-Based Fault with Application Insights
-Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform, ensure it's enabled for agent-based faults, and select "Manage Actions" in the right-most column. See screenshot below for an example:
+Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform. If it is already enabled as a target for agent-based experiments, you will need to disable it as a target and then "enable for agent-based targets" to bring up the Chaos Studio agent target configuration pane.
+See screenshot below for an example:
 <br/>
 
 <br/>
@@ -35,7 +39,7 @@ Navigate to the Chaos Studio overview page and click on the **Targets** blade un
 [![Screenshot that shows the Chaos Targets Page.](images/step-2a-app-insights.png)](images/step-2a-app-insights.png#lightbox)
 
 ## Step 3: Add your Application Insights account and Instrumentation key
-At this point, the resource configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
+At this point, the Agent target configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
 
 <br/>
 

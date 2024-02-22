@@ -229,7 +229,7 @@ Again, the instructions change slightly depending on your scenario. Follow the i
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -278,7 +278,7 @@ Again, the instructions change slightly depending on your scenario. Follow the i
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-two
     ```
@@ -334,7 +334,7 @@ Again, the instructions change slightly depending on your scenario. Follow the i
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -372,7 +372,7 @@ Again, the instructions change slightly depending on your scenario. Follow the i
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-two
     ```
@@ -400,11 +400,11 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - demo.azure.com
         secretName: ingress-tls-csi
       rules:
-     - host: demo.azure.com
+      - host: demo.azure.com
         http:
           paths:
           - path: /hello-world-one(/|$)(.*)
@@ -504,7 +504,7 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 [aks-cluster-secrets-csi]: ./csi-secrets-store-driver.md
 [aks-akv-instance]: ./csi-secrets-store-driver.md#create-or-use-an-existing-azure-key-vault
 [az-key-vault-certificate-import]: /cli/azure/keyvault/certificate#az-keyvault-certificate-import
-[az-keyvault-mirror-as-secret]: ./csi-secrets-store-driver.md#sync-mounted-content-with-a-kubernetes-secret
+[az-keyvault-mirror-as-secret]: ./csi-secrets-store-configuration-options.md#sync-mounted-content-with-a-kubernetes-secret
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

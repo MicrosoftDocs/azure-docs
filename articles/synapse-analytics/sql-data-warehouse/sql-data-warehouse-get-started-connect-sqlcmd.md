@@ -9,7 +9,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 
@@ -55,7 +54,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Microsoft Entra authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> You need to [enable Microsoft Entra authentication](sql-data-warehouse-authentication.md) to authenticate using Microsoft Entra ID.
 
 ## 2. Query
 

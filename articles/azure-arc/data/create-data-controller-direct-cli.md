@@ -2,8 +2,8 @@
 
 title: Create Azure Arc data controller | Direct connect mode
 description: Explains how to create the data controller in direct connect mode. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
@@ -116,8 +116,8 @@ The deployment status of the Arc data controller on the cluster can be monitored
 kubectl get datacontrollers --namespace arc
 ```
 
-## Next steps
+## Related content
 
 [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
-[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

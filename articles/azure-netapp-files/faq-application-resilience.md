@@ -2,7 +2,6 @@
 title: Application resilience FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files application resilience.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -26,6 +25,8 @@ Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transp
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
 * FSLogix ODFC containers
 * Microsoft SQL Server (not Linux SQL Server)
+* [MSIX app attach](../virtual-desktop/create-netapp-files.md)
+
 
 >[!CAUTION]
 >Custom applications are not supported with SMB Continuous Availability and cannot be used with SMB Continuous Availability enabled volumes.

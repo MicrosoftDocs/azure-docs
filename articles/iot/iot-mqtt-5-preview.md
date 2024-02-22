@@ -1,12 +1,14 @@
 ---
- title: Azure IoT Hub MQTT 5 support (preview)
- description: Learn about MQTT 5 support in IoT Hub
- services: iot
- ms.service: iot
- author: kgremban
- ms.author: kgremban
- ms.topic: conceptual
- ms.date: 04/24/2023
+title: Azure IoT Hub MQTT 5 support (preview)
+description: Learn about MQTT 5 support in IoT Hub
+services: iot
+ms.service: iot
+ms.custom:
+  - ignite-2023
+author: kgremban
+ms.author: kgremban
+ms.topic: conceptual
+ms.date: 04/24/2023
 ---
 
 # IoT Hub MQTT 5 support (preview)
@@ -17,7 +19,7 @@
 This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-mqtt-5-preview-reference.md) for complete definitions in this API.
 
 > [!NOTE]
-> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 ## Prerequisites
 

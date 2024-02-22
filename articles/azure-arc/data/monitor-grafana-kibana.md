@@ -20,7 +20,7 @@ Kibana and Grafana web dashboards are provided to bring insight and clarity to t
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
-To access the logs and monitoring dashboards for Azure Arc-enabled SQL Managed Instance, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for SQL Managed Instance enabled by Azure Arc, run the following `azdata` CLI command
 
 ```azurecli
 az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
@@ -79,7 +79,7 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
 ```
 
 
-## Next steps
+## Related content
 - Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md)
 - Read about Grafana:
    - [Getting started](https://grafana.com/docs/grafana/latest/getting-started/getting-started)

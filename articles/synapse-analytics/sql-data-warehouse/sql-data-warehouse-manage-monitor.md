@@ -71,7 +71,7 @@ OPTION (LABEL = 'My Query')
 ;
 
 -- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
+-- Use brackets when querying the label column, as it is a key word
 SELECT  *
 FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';

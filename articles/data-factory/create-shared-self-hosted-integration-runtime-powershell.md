@@ -6,7 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 08/10/2023
 ---
 
@@ -249,7 +249,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
   > This feature is available only in Data Factory V2.
 
 
-### Next steps
+### Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 

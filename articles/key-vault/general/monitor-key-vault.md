@@ -3,12 +3,11 @@ title: Monitoring Azure Key Vault
 description: Start here to learn how to monitor Azure Key Vault
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: subject-monitoring
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
@@ -60,7 +59,7 @@ To create a diagnostic setting for you key vault, see [Enable Key Vault logging]
 
 ## Analyzing metrics
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 

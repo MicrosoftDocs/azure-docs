@@ -3,19 +3,18 @@ title: Azure Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
 
 # Managed HSM logging 
 
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMss are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
+After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
 
 You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
 
@@ -79,6 +78,7 @@ What's logged:
   * Creating, modifying, or deleting the keys.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
   * Key backup, restore, purge
+  * Key release
 * Invalid paths that result in a 404 response. 
 
 ## Access your logs

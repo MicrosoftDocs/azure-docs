@@ -170,7 +170,7 @@ Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview. Current support does not yet include message settlement scenarios for triggers.
+The isolated worker process supports parameter types according to the tables below.
 
 **Service Bus trigger**
 
@@ -208,8 +208,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 
 [Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
@@ -271,7 +269,7 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|
 |**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
 |**minMessageBatchSize**<sup>1</sup>|`1`|The minimum number of messages desired in a batch. The minimum applies only when the function is receiving multiple messages and must be less than `maxMessageBatchSize`. <br/> The minimum size isn't strictly guaranteed. A partial batch is dispatched when a full batch can't be prepared before the `maxBatchWaitTime` has elapsed.|
-|**maxBatchWaitTime**<sup>1</sup>|`00:00:30`|The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minMessageBatchSize` is larger than 1 and is ignored otherwise. If less than `minMessageBatchSize` messages were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 50% of the entity message lock duration, meaning the maximum allowed is 2 minutes and 30 seconds. Otherwise, you may get lock exceptions. <br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.|
+|**maxBatchWaitTime**<sup>1</sup>|`00:00:30`|The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minMessageBatchSize` is larger than 1 and is ignored otherwise. If less than `minMessageBatchSize` messages were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 50% of the entity message lock duration, meaning the maximum allowed is 2 minutes and 30 seconds. Otherwise, you may get lock exceptions. <br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small margin of error due to timer precision.|
 |**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the session will be closed and the function will attempt to process another session. 
 |**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 

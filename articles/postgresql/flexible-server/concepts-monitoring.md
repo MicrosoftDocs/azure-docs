@@ -1,34 +1,34 @@
 ---
-title: Monitoring and metrics - Azure Database for PostgreSQL - Flexible Server
+title: Monitoring and metrics
 description: Review the monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 9/15/2023
+ms.date: 1/17/2024
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into how your server is performing.
+Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL flexible server provides various monitoring options to provide insight into how your server is performing.
 
 ## Metrics
 
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources that support the Azure Database for PostgreSQL server. Each metric is emitted at a 1-minute interval and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving the history. For more information, see the [Azure Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
+Azure Database for PostgreSQL flexible server provides various metrics that give insight into the behavior of the resources that support the Azure Database for PostgreSQL flexible server instance. Each metric is emitted at a 1-minute interval and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving the history. For more information, see the [Azure Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 > [!NOTE]
 > While metrics are stored for 93 days, you can only query (in the Metrics tile) for a maximum of 30 days' worth of data on any single chart. If you see a blank chart or your chart displays only part of metric data, verify that the difference between start and end dates in the time picker doesn't exceed the 30-day interval. After you've selected a 30-day interval, you can pan the chart to view the full retention window. 
 
 ### Default Metrics
 
-The following metrics are available for a flexible server instance of Azure Database for PostgreSQL:
+The following metrics are available for an Azure Database for PostgreSQL flexible server instance:
 
 |Display name                    |Metric ID                    |Unit      |Description                                                                                                                                                                                                                                                                                                                                                                                 |Default enabled|
 |--------------------------------|-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-|**Active Connections**          |`active_connections`         |Count     |Number of connections to your server.                                                                                                                                                                                                                                                                                                                                                       |Yes            |
+|**Active Connections**          |`active_connections`         |Count     |Total number of connections to the database server, including all connection states such as active, idle, and others, as seen in `pg_stat_activity` view. This figure represents the overall sum of connections across all states, without distinguishing between specific states. For an in-depth analysis on a specific state, such as active connections, refer to the 'Sessions By State' metric.                                                                                                                                       |Yes            |
 |**Backup Storage Used**         |`backup_storage_used`        |Bytes     |Amount of backup storage used. This metric represents the sum of storage that's consumed by all the full backups, differential backups, and log backups that are retained based on the backup retention period that's set for the server. The frequency of the backups is service managed. For geo-redundant storage, backup storage usage is twice the usage for locally redundant storage.|Yes            |
 |**Failed Connections**          |`connections_failed`         |Count     |Number of failed connections.                                                                                                                                                                                                                                                                                                                                                               |Yes            |
 |**Succeeded Connections**       |`connections_succeeded`      |Count     |Number of succeeded connections.                                                                                                                                                                                                                                                                                                                                                            |Yes            |
@@ -53,12 +53,12 @@ The following metrics are available for a flexible server instance of Azure Data
 
 ### Enhanced metrics
 
-You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics. Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
+You can use enhanced metrics for Azure Database for PostgreSQL flexible server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics. Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
 
 #### Enabling enhanced metrics
 
-- Most of these new metrics are *disabled* by default. A few exceptions are described in the next table.
-- To enable these metrics, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
+- Most of these new metrics are *disabled* by default. There are a few exceptions though, which are enabled by default. Rightmost column in the following tables indicates whether each metric is enabled by default or not.
+- To enable those metrics which are not enabled by default, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
 ##### List of enhanced metrics
 
@@ -75,9 +75,9 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Sessions By State** |`sessions_by_state` |Count|Overall state of the back ends. |State|No|
-|**Sessions By WaitEventType** |`sessions_by_wait_event_type` |Count|Sessions by the type of event for which the back end is waiting.|Wait Event Type|No|
-|**Oldest Backend** |`oldest_backend_time_sec` |Seconds|Age in seconds of the oldest back end (irrespective of the state).|Doesn't apply|No|
+|**Sessions By State** |`sessions_by_state` |Count|Sessions by state as shown in `pg_stat_activity` view. It categorizes client backends into various states, such as active or idle. |State|No|
+|**Sessions By WaitEventType** |`sessions_by_wait_event_type` |Count|Sessions by the type of event for which the client backend is waiting.|Wait Event Type|No|
+|**Oldest Backend** |`oldest_backend_time_sec` |Seconds|Age in seconds of the oldest backend (irrespective of the state).|Doesn't apply|No|
 |**Oldest Query** |`longest_query_time_sec`|Seconds|Age in seconds of the longest query that's currently running. |Doesn't apply|No|
 |**Oldest Transaction** |`longest_transaction_time_sec`|Seconds|Age in seconds of the longest transaction (including idle transactions).|Doesn't apply|No|
 |**Oldest xmin** |`oldest_backend_xmin`|Count|The actual value of the oldest `xmin`. If `xmin` isn't increasing, it indicates that there are some long-running transactions that can potentially hold dead tuples from being removed. |Doesn't apply|No|
@@ -87,7 +87,7 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name                     |Metric ID    |Unit |Description                                                                                         |Dimension   |Default enabled|
 |---------------------------------|-------------|-----|----------------------------------------------------------------------------------------------------|------------|---------------|
-|**Backends**                         |`numbackends`  |Count|Number of back ends that are connected to this database.                                            |DatabaseName|No             |
+|**Backends**                         |`numbackends`  |Count|Number of backends that are connected to this database.                                            |DatabaseName|No             |
 |**Deadlocks**                        |`deadlocks`    |Count|Number of deadlocks that are detected in this database.                                             |DatabaseName|No             |
 |**Disk Blocks Hit**                  |`blks_hit`     |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No             |
 |**Disk Blocks Read**                 |`blks_read`    |Count|Number of disk blocks that were read in this database.                                              |DatabaseName|No             |
@@ -129,18 +129,18 @@ You can choose from the following categories of enhanced metrics:
 |---|---|---|---|---|---|
 |**Max Connections** ^|`max_connections`|Count|Number of maximum connections. |Doesn't apply|Yes |
 
-^ **Max Connections** represents the configured value for the `_max_connections_ server` parameter. This metric is pooled every 30 minutes.
+^ **Max Connections** represents the configured value for the `max_connections` server parameter. This metric is polled every 30 minutes.
 
 ##### Considerations for using enhanced metrics
 
 - Enhanced metrics that use the DatabaseName dimension have a *50-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
-- The DatabaseName dimension limit is applied on the object identifier (OID) column, which reflects the order of creation for the database.
-- The DatabaseName in the metrics dimension is *case insensitive*. The metrics for database names that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
+- The DatabaseName dimension limit is applied on the database identifier (datid) column of the pg_stat_database system view, which reflects the order of creation for the database.
+- The `DatabaseName` in the metrics dimension is *case insensitive*. That means that after querying `pg_stat_database` view, filtering out rows in which `datname` is either `template1` or `template0`, ordering by `datid`, and limiting the returned rows to the first 50 (or 10 in the case of *Burstable* SKU), the metrics for database names in that result set, that are the same except for case (for example, `contoso_database` and `Contoso_database`) will be merged and might not show accurate data.
 
 ### Autovacuum metrics
 
-Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
+Autovacuum metrics can be used to monitor and tune autovacuum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the `DatabaseName` dimension.
 
 #### How to enable autovacuum metrics
 
@@ -174,7 +174,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 ### PgBouncer metrics
 
-You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *30-minute* interval and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name.
+You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *1-minute* interval and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name.
 
 #### How to enable PgBouncer metrics
 
@@ -186,10 +186,10 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Active client connections** |`client_connections_active` |Count|Connections from clients that are associated with an Azure Database for PostgreSQL connection. |DatabaseName|No |
-|**Waiting client connections** |`client_connections_waiting`|Count|Connections from clients that are waiting for an Azure Database for PostgreSQL connection to service them.|DatabaseName|No |
-|**Active server connections** |`server_connections_active` |Count|Connections to Azure Database for PostgreSQL that are in use by a client connection. |DatabaseName|No |
-|**Idle server connections** |`server_connections_idle` |Count|Connections to Azure Database for PostgreSQL that are idle and ready to service a new client connection. |DatabaseName|No |
+|**Active client connections** |`client_connections_active` |Count|Connections from clients that are associated with an Azure Database for PostgreSQL - Flexible Server connection. |DatabaseName|No |
+|**Waiting client connections** |`client_connections_waiting`|Count|Connections from clients that are waiting for an Azure Database for PostgreSQL - Flexible Server connection to service them.|DatabaseName|No |
+|**Active server connections** |`server_connections_active` |Count|Connections to Azure Database for PostgreSQL - Flexible Server that are in use by a client connection. |DatabaseName|No |
+|**Idle server connections** |`server_connections_idle` |Count|Connections to Azure Database for PostgreSQL - Flexible Server that are idle and ready to service a new client connection. |DatabaseName|No |
 |**Total pooled connections** |`total_pooled_connections`|Count|Current number of pooled connections. |DatabaseName|No |
 |**Number of connection pools** |`num_pools` |Count|Total number of connection pools. |DatabaseName|No |
 
@@ -201,17 +201,17 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 ### Database availability metric
 
-Is-db-alive is an database server availability metric for Azure Postgres Flexible Server, that returns `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
+Is-db-alive is a database server availability metric for Azure Database for PostgreSQL flexible server that returns `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
 
 |Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|
-|**Database Is Alive**                  |`is_db_alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
+|**Database Is Alive**                  |`is_db_alive`                  |Count  |Indicates if the database is up or not.				                                                   |N/a		    |Yes            |
 
 #### Considerations when using the Database availability metrics
 
 - Aggregating this metric with `MAX()` will allow customers to determine whether the server has been up or down in the last minute.
 - Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
-- Other possible aggregations are `AVG()` and `MIN()`
+- Other possible aggregations are `AVG()` and `MIN()`.
 
 ### Filter and split on dimension metrics
 
@@ -228,18 +228,18 @@ For more information about setting up charts for dimensional metrics, see [Metri
 
 ### Metrics visualization
 
-There are several options to visualize Azure Monitor metrics
+There are several options to visualize Azure Monitor metrics.
 
 |Component  |Description | Required training and/or configuration|
 |---------|---------|--------|
 |Overview page|Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required.         |
 |[Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured.         |
-| [Grafana](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) | You can use Grafana for visualizing and alerting on metrics. All versions of Grafana include the [Azure Monitor datasource plug-in](../../azure-monitor/visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.                                                     | Some training is required for you to become familiar with Grafana dashboards,  although you can download prebuilt [Azure PostgreSQL grafana monitoring dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) to easily all Auzre PostgreSQL srevers in your organzation.                                                                                                                                              |
+| [Grafana](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) | You can use Grafana for visualizing and alerting on metrics. All versions of Grafana include the [Azure Monitor datasource plug-in](../../azure-monitor/visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.                                                     | To become familiar with Grafana dashboards, some training is required. However, you can simplify the process by downloading a prebuilt [Azure Database for PostgreSQL flexible server grafana monitoring dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/), which allows for easy monitoring of all Azure Database for PostgreSQL flexible server instances within your organization.                                                                                                                                              |
 
 
 ## Logs
 
-In addition to the metrics, you can use Azure Database for PostgreSQL to configure and access Azure Database for PostgreSQL standard logs. For more information, see [Logging concepts](concepts-logging.md).
+In addition to the metrics, you can use Azure Database for PostgreSQL flexible server to configure and access Azure Database for PostgreSQL standard logs. For more information, see [Logging concepts](concepts-logging.md).
 
 ### Logs visualization
 
@@ -250,6 +250,6 @@ In addition to the metrics, you can use Azure Database for PostgreSQL to configu
 
 ## Next steps
 
-- Learn more about how to [configure and access logs](howto-configure-and-access-logs.md).
+- Learn more about how to [configure and access logs](how-to-configure-and-access-logs.md).
 - Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 - Learn more about [audit logs](concepts-audit.md).

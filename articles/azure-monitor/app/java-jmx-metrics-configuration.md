@@ -2,7 +2,7 @@
 title: How to configure JMX metrics - Azure Monitor application insights for Java
 description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent
 ms.topic: conceptual
-ms.date: 05/13/2023
+ms.date: 12/15/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -36,6 +36,7 @@ Log file output looks similar to these examples. In some cases, it can be extens
 
 > :::image type="content" source="media/java-ipa/jmx/available-mbeans.png" lightbox="media/java-ipa/jmx/available-mbeans.png" alt-text="Screenshot of available JMX metrics in the log file.":::
 
+You can also use a [command line tool](https://github.com/microsoft/ApplicationInsights-Java/wiki/Troubleshoot-JMX-metrics) to check the available JMX metrics.
 
 ## Configuration example
 

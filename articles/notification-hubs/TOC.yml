@@ -100,6 +100,8 @@
     href: change-pricing-tier.md
   - name: Send cross-platform notifications
     href: notification-hubs-aspnet-cross-platform-notification.md
+  - name: Use Private Link
+    href: private-link.md
   - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: Send browser push notifications

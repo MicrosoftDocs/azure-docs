@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 
 ---
@@ -24,6 +24,7 @@ Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
 - Key Vault Certificates Officer
+- Key Vault Certificate User
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
@@ -65,7 +66,7 @@ Access policy predefined permission templates:
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
 > [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts for 'Microsoft Azure App Service' global indentity.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 ## Assignment scopes mapping  
 

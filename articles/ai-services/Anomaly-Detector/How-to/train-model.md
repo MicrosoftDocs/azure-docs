@@ -2,12 +2,12 @@
 title: Train a Multivariate Anomaly Detection model
 titleSuffix: Azure AI services
 description: Train a Multivariate Anomaly Detection model
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

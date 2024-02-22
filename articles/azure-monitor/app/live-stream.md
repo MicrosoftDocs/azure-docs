@@ -235,7 +235,7 @@ The preceding sample is for a console app, but the same code can be used in any 
 | Capabilities |Live Stream | Metrics explorer and Log Analytics |
 |---|---|---|
 |Latency|Data displayed within one second.|Aggregated over minutes.|
-|No retention|Data persists while it's on the chart and is then discarded.|[Data retained for 90 days.](./data-retention-privacy.md#how-long-is-the-data-kept)|
+|No retention|Data persists while it's on the chart and is then discarded.|[Data retained for 90 days.](/previous-versions/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept)|
 |On demand|Data is only streamed while the Live Metrics pane is open. |Data is sent whenever the SDK is installed and enabled.|
 |Free|There's no charge for Live Stream data.|Subject to [pricing](../logs/cost-logs.md#application-insights-billing).
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events can be [sampled](./api-filtering-sampling.md).|
@@ -407,7 +407,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 ## Troubleshooting
 
-Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check that [outgoing ports for Live Metrics](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
+Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../ip-addresses.md) are open in your firewall. Also check that [outgoing ports for Live Metrics](../ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you're using an older version of TLS, Live Metrics doesn't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
 
@@ -450,6 +450,6 @@ If you open the Live Metrics pane, the SDKs switch to a higher frequency mode an
 ## Next steps
 
 * [Monitor usage with Application Insights](./usage-overview.md)
-* [Use Diagnostic Search](./search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Use Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

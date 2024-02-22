@@ -5,7 +5,7 @@ description: How to create and manage workspaces
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 01/08/2024
 ms.author: lajanuar
 ms.topic: how-to
 
@@ -14,6 +14,11 @@ ms.topic: how-to
 # Create and manage a workspace 
 
  Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently, or share it with teammates to divide up the work.
+
+  > [!NOTE]
+  >
+  > * [Custom Translator Portal](https://portal.customtranslator.azure.ai/) access can only be enabled through a public network.
+  > * For information on how to use selected networks and private endpoints, see [Enable Custom Translator through Azure Virtual Network](enable-vnet-service-endpoint.md).
 
 ## Create workspace
 

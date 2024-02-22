@@ -23,6 +23,11 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## November 2023
+
+### Compliant with M18 OSDU&trade; release
+Azure Data Manager for Energy is now compliant with the M18 OSDU&trade; milestone release. With this release, you can take advantage of the latest features and capabilities available in the [OSDU&trade; M18](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M18-Release-Notes).
+
 ## September 2023
 
 ### Azure Data Manager for Energy in Brazil South Region

@@ -76,6 +76,17 @@ Use [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-a
 
 To save the configuration to the load balancer, use [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 
+Use [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/get-azloadbalancerinboundnatruleconfig) to place the newly created inbound NAT rule information into a variable. 
+
+Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to place the network interface information into a variable.
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to add the newly created inbound NAT rule to the IP configuration of the network interface. 
+
+To save the configuration to the network interface, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface).
+
+
+
+
 ```azurepowershell
 ## Place the load balancer information into a variable for later use. ##
 $slb = @{
@@ -95,6 +106,31 @@ $rule = @{
 $lb | Add-AzLoadBalancerInboundNatRuleConfig @rule
 
 $lb | Set-AzLoadBalancer
+
+## Add the inbound NAT rule to a virtual machine 
+
+$NatRule = @{                                                                                       
+    Name = 'MyInboundNATrule'
+    LoadBalancer = $lb
+}
+
+$NatRuleConfig = Get-AzLoadBalancerInboundNatRuleConfig @NatRule 
+
+$NetworkInterface = @{                                                                                           
+     ResourceGroupName = 'myResourceGroup'
+     Name = 'MyNIC'
+ }
+
+ $NIC = Get-AzNetworkInterface @NetworkInterface
+ 
+ $IPconfig = @{                                                                                       
+    Name = 'Ipconfig'
+    LoadBalancerInboundNatRule = $NatRuleConfig
+}
+
+$NIC | Set-AzNetworkInterfaceIpConfig @IPconfig
+
+$NIC | Set-AzNetworkInterface  
 
 ```
 

@@ -2,12 +2,12 @@
 title: conversational language understanding data formats
 titleSuffix: Azure AI services
 description: Learn about the data formats accepted by conversational language understanding.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-clu
 ---

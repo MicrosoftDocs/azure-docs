@@ -6,13 +6,12 @@ summary: Learn how to use your Visual Studio subscription benefits to develop & 
 metadata:
   title: Azure Dev/Test offer documentation
   description: Learn how to use your Visual Studio subscription benefits to develop & test on Azure at no extra charge. Tutorials, how-tos, and more.
- 
   ms.topic: hub-page
-  ms.collection: collection
-  ms.prod: visual-studio-windows
-  ms.author: nicktrog
-  author: ntrogh
-  ms.date: 10/06/2021
+  ms.service: visual-studio-family
+  ms.subservice: subscriptions
+  ms.author: amast
+  author: rigel512
+  ms.date: 10/18/2023
   ms.custom: devtestoffer
   adobe-target: true
 

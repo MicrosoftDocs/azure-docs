@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze image content with JavaScript"
-description: In this quickstart, get started using the Content Safety JavaScript SDK to analyze image content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety JavaScript SDK to analyze image content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -11,7 +11,7 @@ ms.date: 10/10/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest/samples) |
+[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0) |
 
 
 ## Prerequisites
@@ -91,11 +91,14 @@ async function main() {
     if (isUnexpected(result)) {
         throw result;
     }
-    
-    console.log("Hate severity: ", result.body.hateResult?.severity);
-    console.log("SelfHarm severity: ", result.body.selfHarmResult?.severity);
-    console.log("Sexual severity: ", result.body.sexualResult?.severity);
-    console.log("Violence severity: ", result.body.violenceResult?.severity);
+    for (let i = 0; i < result.body.categoriesAnalysis.length; i++) {
+    const imageCategoriesAnalysisOutput = result.body.categoriesAnalysis[i];
+    console.log(
+      imageCategoriesAnalysisOutput.category,
+      " severity: ",
+      imageCategoriesAnalysisOutput.severity
+    );
+  }
 }
 
 main().catch((err) => {

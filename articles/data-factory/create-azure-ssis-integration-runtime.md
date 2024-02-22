@@ -4,7 +4,7 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom:
@@ -84,7 +84,7 @@ The following table compares certain features of an Azure SQL Database server an
 | | | |
 
 
-## Next steps
+## Related content
 
 - [Learn how to provision an Azure-SSIS IR using the Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Learn how to provision an Azure-SSIS IR using Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).

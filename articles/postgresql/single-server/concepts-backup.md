@@ -68,7 +68,7 @@ There are two types of restore available:
 - **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server.
 - **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region.
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time varies depending on the the last data backup and the amount of recovery needs to be performed. It is usually less than 12 hours.
+The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time varies depending on the last data backup and the amount of recovery needs to be performed. It is usually less than 12 hours.
 
 > [!NOTE] 
 > If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
@@ -114,6 +114,21 @@ After a restore from either recovery mechanism, you should perform the following
 - Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
+- 
+
+ ### Long-term retention
+
+ Azure Backup and Azure Database for PostgreSQL  server services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL single server instances that retains backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure Database for PostgreSQL single server, which offers retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
+
+Customer-controlled scheduled and on-demand backups at the individual database level.
+Central monitoring of all operations and jobs.
+Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
+Using pg_dump allows greater flexibility in restoring data across different database versions.
+Azure backup vaults support immutability and soft delete (preview) features, protecting your data.
+
+
+- For more information about performing a long term backup, visit the [how-to guide](../../backup/backup-azure-database-postgresql.md).
+- Known [[LTR issues]](../../backup/backup-azure-database-postgresql-troubleshoot.md).
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 12/15/2023
 ---
 
 # Application Insights overview
@@ -19,10 +19,10 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
 - [Application map](app-map.md): A visual overview of application architecture and components' interactions.
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
-- Performance view: Review application performance metrics and potential bottlenecks.
-- Failures view: Identify and analyze failures in your application to minimize downtime.
+- [Failures view](failures-and-performance-views.md?tabs=failures-view): Identify and analyze failures in your application to minimize downtime.
+- [Performance view](failures-and-performance-views.md?tabs=performance-view): Review application performance metrics and potential bottlenecks.
 
 ### Monitoring
 - [Alerts](../alerts/alerts-overview.md): Monitor a wide range of aspects of your application and trigger various actions.
@@ -49,7 +49,7 @@ The logic model diagram visualizes components of Application Insights and how th
 :::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
 > [!Note]
-> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
+> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](../ip-addresses.md).
 
 ---------------------------
 ## Supported languages
@@ -65,11 +65,11 @@ For detailed information about instrumenting applications to enable Application 
 
 #### OpenTelemetry Distro
 
+* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
 * [ASP.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
-* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore) (preview)
 
 #### Application Insights SDK (Classic API)
 
@@ -94,7 +94,7 @@ This section lists all supported platforms and frameworks.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Spring Apps](../../spring-apps/enterprise/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Logging frameworks
@@ -162,7 +162,7 @@ From [client webpages](./javascript-sdk.md):
   > [!Note]
   > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
 
-    For more information, see [Data collection, retention, and storage in Application Insights](./data-retention-privacy.md).
+    For more information, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
           
 From other sources, if you configure them:
           
@@ -199,6 +199,22 @@ We recommend that you use our SDKs and use the [SDK API](./api-custom-events-met
 
 Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).    
           
+### How does Application Insights handle data collection, retention, storage, and privacy?
+
+#### Collection
+
+Application Insights collects telemetry about your app, including web server telemetry, web page telemetry, and performance counters. This data can be used to monitor your app's performance, health, and usage. You can select the location when you [create a new Application Insights resource](./create-workspace-resource.md).
+
+#### Retention and Storage
+
+Data is sent to an Application Insights [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). You can choose the retention period for raw data, from 30 to 730 days. Aggregated data is retained for 90 days, and debug snapshots are retained for 15 days.
+
+#### Privacy
+
+Application Insights doesn't handle sensitive data by default, as long as you don't put sensitive data in URLs as plain text and ensure your custom code doesn't collect personal or other sensitive details. During development and testing, check the sent data in your IDE and browser's debugging output windows.
+
+For archived information on this topic, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
+
 ## Help and support
 
 ### Azure technical support
@@ -229,6 +245,6 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
 - [Live metrics](live-stream.md)
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
 - [Users, sessions, and events](usage-segmentation.md)

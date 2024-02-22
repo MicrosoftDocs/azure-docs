@@ -152,7 +152,7 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
-          - text: Monitor AP5GC UE usage with Event Hubs (preview)
+          - text: Cloud monitoring of UE usage with Event Hubs
             url: ue-usage-event-hub.md
           - text: Monitor packet cores with alerts
             url: monitor-private-5g-core-alerts.md
@@ -162,7 +162,7 @@ landingContent:
             url: gather-diagnostics.md
           - text: Export, upload and share traces for diagnostics
             url: distributed-tracing-share-traces.md
-          - text: Perform data plane packet capture on a packet core instance
+          - text: Perform packet capture on a packet core instance
             url: data-plane-packet-capture.md
           - text: Use ping and traceroute on a packet core instance
             url: ping-traceroute.md
