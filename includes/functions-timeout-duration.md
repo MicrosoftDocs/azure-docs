@@ -7,7 +7,7 @@ ms.author: glenga
 ---
 ## <a name="timeout"></a>Function app timeout duration 
 
-The timeout duration for functions in a function app is defined by the `functionTimeout` property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. This property applies specifically to function executions. After the trigger starts function execution, the function needs to return/respond within the timeout duration. For more information, see [Improve Azure Functions performance and reliability](../articles/azure-functions/performance-reliability.md#make-sure-background-tasks-complete). 
+The timeout duration for functions in a function app is defined by the `functionTimeout` property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. This property applies specifically to function executions. After the trigger starts function execution, the function needs to return/respond within the timeout duration. If a single execution exceeds this duration, a timeout error will occur, leading to a process restart. In out-of-process languages (such as Node.js, Python, Java, PowerShell, or .NET isolated), the respective language worker process is restarted, thereby terminating any running invocations handled by the process. Similarly, for .NET in-process functions, the host process restarts, also terminating any active invocations. For more information, see [Improve Azure Functions performance and reliability](../articles/azure-functions/performance-reliability.md#make-sure-background-tasks-complete). 
 
 The following table shows the default and maximum values (in minutes) for specific plans:
 
