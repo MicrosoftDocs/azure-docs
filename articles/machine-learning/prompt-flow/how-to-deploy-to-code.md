@@ -338,7 +338,7 @@ ENDPOINT_URI=<your-endpoint-uri>
 curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
 ```
 
-Note that you can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
+You can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
 ## Advanced configurations
 
@@ -409,7 +409,7 @@ This section will show you how to use a docker build context to specify the envi
 
 ### Configure concurrency for deployment
 
-When deploying your flow to online deployment, there are two environment variables which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
+When deploying your flow to online deployment, there are two environment variables, which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
 
 Below is an example of how to configure in the `deployment.yaml` file.
 
@@ -448,9 +448,9 @@ You can monitor general metrics of online deployment (request numbers, request l
 
 ## Common errors
 
-### Upstream request timeout issue when consumingt the endpoint
+### Upstream request timeout issue when consuming the endpoint
 
-Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
 
 ```yaml
 request_settings:
@@ -463,4 +463,4 @@ request_settings:
 - Learn more about how to [test the endpoint in UI](./how-to-deploy-for-real-time-inference.md#test-the-endpoint-with-sample-data) and [monitor the endpoint](./how-to-deploy-for-real-time-inference.md#view-managed-online-endpoints-common-metrics-using-azure-monitor-optional).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
-- Learn more about [deploy flows to other platforms, such as a local development service, Docker container, Azure APP service, etc](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+- Learn more about [deploy flows to other platforms, such as a local development service, Docker container, Azure APP service, etc.](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html)
