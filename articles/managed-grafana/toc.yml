@@ -78,7 +78,7 @@ items:
       href: how-to-deterministic-ip.md
     - name: Connect to a data source privately
       href: how-to-connect-to-data-source-privately.md
-    - name: "Tutorial: Connect to self-hosted Prometheus on an AKS Cluster through managed private endpoint"
+    - name: Connect to self-hosted Prometheus through managed private endpoint
       href: tutorial-mpe-oss-prometheus.md
   - name: Availability
     expanded: false

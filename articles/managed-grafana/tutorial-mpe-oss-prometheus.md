@@ -26,8 +26,8 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure you have the following:
 
-- [Azure account](https://azure.microsoft.com/en-us/free)
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- An [Azure account](https://azure.microsoft.com/free)
+- The [Azure CLI](/cli/azure/install-azure-cli).
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
 
@@ -118,7 +118,7 @@ A popular way of installing Prometheus is through the [prometheus-operator](http
 
 ## Add a private link service to the Prometheus server
 
-Azure [Private Link service](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
+Azure [Private Link service](../private-link/private-link-service-overview) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
 
 pls-prometheus-svc.yaml content:
 
@@ -158,7 +158,7 @@ kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
 
 ## Connect with a managed private endpoint
 
-1. If you don't have an Azure Managed Grafana workspace yet, create one by [following this quickstart](./quickstart-managed-grafana-portal).
+1. If you don't have an Azure Managed Grafana workspace yet, create one by following the [Azure Managed Grafana quickstart](./quickstart-managed-grafana-portal.md).
 1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Create**.
 
     :::image type="content" source="media/tutorial-managed-private-endpoint/create-managed-private-endpoint.png" alt-text="Screenshot of the Azure platform showing the managed private endpoints page within an Azure Managed Grafana resource.":::
@@ -180,7 +180,7 @@ kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
 
 1. Add the Prometheus data source to Grafana from your Grafana portal. For more information, go to [Add a data source](./how-to-data-source-plugins-managed-identity.md#add-a-data-source). Our Prometheus URL is `http://prom-service.prom.my-own-domain.com:9090`.
 
-    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-prom-datasource.png" alt-text="Screenshot of the Azure platform showing the Refresh button.":::
+    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-prom-datasource.png" alt-text="Screenshot of the Grafana platform showing adding Prometheus as a data source.":::
 
 1. To leverage your self-hosted Prometheus data source, try using the [Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) dashboard, ID `1860`. For more guidelines, go to [Import a dashboard from Grafana Labs](./how-to-create-dashboard.md#import-a-dashboard-from-grafana-labs).
 
