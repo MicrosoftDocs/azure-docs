@@ -2291,6 +2291,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
+        {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
