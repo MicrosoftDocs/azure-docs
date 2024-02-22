@@ -5,7 +5,7 @@ description: Use this article to build and deploy a question and answer copilot 
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
