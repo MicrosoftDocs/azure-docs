@@ -105,7 +105,7 @@ Updates in June include:
 |Date |Update  |
 |---------|---------|
 | June 26 | [Streamlined multicloud account onboarding with enhanced settings](#streamlined-multicloud-account-onboarding-with-enhanced-settings) |
-| June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage)
+| June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage) |
 | June 15 | [Control updates were made to the NIST 800-53 standards in regulatory compliance](#control-updates-were-made-to-the-nist-800-53-standards-in-regulatory-compliance) |
 |June 11 | [Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud](#planning-of-cloud-migration-with-an-azure-migrate-business-case-now-includes-defender-for-cloud) |
 |June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
@@ -150,7 +150,7 @@ June 21, 2023
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
-| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)(Preview) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)(Preview) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
 
 This new recommendation replaces the current recommendation of the same name, powered by Qualys, only in Defender CSPM (replacing assessment key 41503391-efa5-47ee-9282-4eff6131462c).
 
@@ -234,7 +234,7 @@ Updates in might include:
 |---|---|:-:|---|
 | **Unusual access to the key vault from a suspicious IP (Non-Microsoft or External)**<br>(KV_UnusualAccessSuspiciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern might be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
 
-For all of the available alerts, see [Alerts for Azure Key Vault](alerts-reference.md#alerts-azurekv).
+For all of the available alerts, see [Alerts for Azure Key Vault](alerts-reference.md#alerts-for-azure-key-vault).
 
 ### Agentless scanning now supports encrypted disks in AWS
 
@@ -264,10 +264,10 @@ The changes are listed as follows:
 
 | Description | Old Name |New Name  |
 |---|---|---|
-| JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule
+| JIT rule names (allow and deny) in NSG (Network Security Group) | SecurityCenter-JITRule | MicrosoftDefenderForCloud-JITRule |
 | JIT rule descriptions in NSG | ASC JIT Network Access rule | MDC JIT Network Access rule |
 |JIT firewall rule collection names | ASC-JIT | MDC-JIT |
-|JIT firewall rules names | ASC-JIT | MDC-JIT
+|JIT firewall rules names | ASC-JIT | MDC-JIT |
 
 Learn how to [secure your management ports with Just-In-Time access](just-in-time-access-usage.md).
 
@@ -364,7 +364,7 @@ The existing recommendation `Container registry images should have vulnerability
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
-| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5 |
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
@@ -483,7 +483,7 @@ Defender for Resource Manager has the following new alert:
 |---|---|:-:|---|
 | **PREVIEW - Suspicious creation of compute resources detected**<br>(ARM_SuspiciousComputeCreation) | Microsoft Defender for Resource Manager identified a suspicious creation of compute resources in your subscription utilizing Virtual Machines/Azure Scale Set. The identified operations are designed to allow administrators to efficiently manage their environments by deploying new resources when needed. While this activity might be legitimate, a threat actor might utilize such operations to conduct crypto mining.<br> The activity is deemed suspicious as the compute resources scale is higher than previously observed in the subscription. <br> This can indicate that the principal is compromised and is being used with malicious intent. | Impact | Medium  |
 
-You can see a list of all of the [alerts available for Resource Manager](alerts-reference.md#alerts-resourcemanager).
+You can see a list of all of the [alerts available for Resource Manager](alerts-reference.md#alerts-for-resource-manager).
 
 ### Three alerts in the Defender for Resource Manager plan have been deprecated
 
@@ -564,7 +564,6 @@ Defender for APIs offers full lifecycle protection, detection, and response cove
 Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
 Learn more about [Defender for APIs](defender-for-apis-introduction.md).
-
 
 ## March 2023
 
@@ -1176,7 +1175,7 @@ With this announcement, the runtime protection - threat detection (workload) is 
 
 Learn more about the Defender for Container's [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
-You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
+You can also review [all available alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 Note, if you're using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
@@ -1532,7 +1531,7 @@ The following preview alert is deprecated:
 
 A new alert was created that provides this information and adds to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
 
-See more alerts for [Resource Manager](alerts-reference.md#alerts-resourcemanager).
+See more alerts for [Resource Manager](alerts-reference.md#alerts-for-resource-manager).
 
 ### Moved the recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices
 
@@ -1709,8 +1708,8 @@ The two recommendations, which both offer automated remediation (the 'Fix' actio
 
 |Recommendation |Description |Severity |
 |---|---|---|
-|[Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Overview of Microsoft Defender for Servers</a>.<br />(No related policy) |Medium |
-|[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Overview of Microsoft Defender for Servers</a>.<br />(No related policy) |Medium |
+|[Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) | Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation).<br />(No related policy) | Medium |
+|[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in [Overview of Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction).<br />(No related policy) |Medium |
 
 ### Autoprovision Log Analytics agent to Azure Arc-enabled machines (preview)
 
@@ -1848,7 +1847,7 @@ For more information, see:
 
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
 - [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md)
-- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
+- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-for-azure-storage)
 
 ### Improvements to alerts for Microsoft Defender for Storage
 
@@ -1894,7 +1893,7 @@ For more information, see:
 
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
 - [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
-- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
+- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-for-azure-storage)
 
 ### 'PortSweeping' alert removed from network layer alerts
 
@@ -2218,7 +2217,7 @@ These alerts are generated based on a new machine learning model and Kubernetes 
 | **Anomalous pod deployment (Preview)**<br>(K8S_AnomalousPodDeployment)             | Kubernetes audit log analysis detected pod deployment that is anomalous, based on previous pod deployment activity. This activity is considered an anomaly when taking into account how the different features seen in the deployment operation are in relations to one another. The features monitored by this analytics include the container image registry used, the account performing the deployment, day of the week, how often does this account performs pod deployments, user agent used in the operation, is this a namespace which is pod deployment occur to often, or other feature. Top contributing reasons for raising this alert as anomalous activity are detailed under the alert extended properties. | Execution | Medium |
 | **Excessive role permissions assigned in Kubernetes cluster (Preview)**<br>(K8S_ServiceAcountPermissionAnomaly) | Analysis of the Kubernetes audit logs detected an excessive permissions role assignment to your cluster. From examining role assignments, the listed permissions are uncommon to the specific service account. This detection considers previous role assignments to the same service account across clusters monitored by Azure, volume per permission, and the impact of the specific permission. The anomaly detection model used for this alert takes into account how this permission is used across all clusters monitored by Azure Defender. | Privilege Escalation | Low |
 
-For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-k8scluster).
+For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 ## September 2021
 
@@ -2269,8 +2268,8 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 
 |Recommendation |Description |Severity |
 |---|---|---|
-|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  <br> <a href="/azure/defender-for-cloud/endpoint-protection-recommendations-technical">Learn more about how Endpoint Protection for machines is evaluated.</a><br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
-|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Azure Security Center supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows). Endpoint protection assessment is documented <a href='/azure/defender-for-cloud/endpoint-protection-recommendations-technical'>here</a>.<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
+|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  [Learn more about how Endpoint Protection for machines is evaluated.](/azure/defender-for-cloud/endpoint-protection-recommendations-technical)<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
+|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Azure Security Center supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows). Endpoint protection assessment is documented [here](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
 
 > [!NOTE]
 > The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
@@ -2500,7 +2499,7 @@ For more information, see:
 
 - [Introduction to Azure Defender for Key Vault](defender-for-resource-manager-introduction.md)
 - [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
-- [List of alerts provided by Azure Defender for Key Vault](alerts-reference.md#alerts-azurekv)
+- [List of alerts provided by Azure Defender for Key Vault](alerts-reference.md#alerts-for-azure-key-vault)
 
 ### Recommendations to encrypt with customer-managed keys (CMKs) disabled by default
 
@@ -2530,7 +2529,7 @@ To reflect the fact that the security alerts provided by Azure Defender for Kube
 
 |Alert (alert type)|Description|
 |----|----|
-|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.
+|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
 
 was changed to:
 
@@ -2540,7 +2539,7 @@ was changed to:
 
 Any suppression rules that refer to alerts beginning "AKS_" were automatically converted. If you've setup SIEM exports, or custom automation scripts that refer to Kubernetes alerts by alert type, you'll need to update them with the new alert types.
 
-For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-k8scluster).
+For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 ### Deprecated two recommendations from "Apply system updates" security control
 
@@ -2573,12 +2572,12 @@ These new protections greatly enhance your resiliency against attacks from threa
 - **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
   - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
   - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
-  - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+  - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-for-resource-manager)
 
 - **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
   - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
   - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
-  - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+  - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-for-dns)
 
 To simplify the process of enabling these plans, use the recommendations:
 
@@ -2619,7 +2618,7 @@ For more information, see:
 
 - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
-- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-for-resource-manager)
 
 ### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
 
@@ -3224,7 +3223,7 @@ Azure Defender for App Service now detects dangling DNS entries when an App Serv
 
 Learn more:
 
-- [App Service alert reference table](alerts-reference.md#alerts-azureappserv) - Includes two new Azure Defender alerts that trigger when a dangling DNS entry is detected
+- [App Service alert reference table](alerts-reference.md#alerts-for-azure-app-service) - Includes two new Azure Defender alerts that trigger when a dangling DNS entry is detected
 - [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md) - Learn about the threat of subdomain takeover and the dangling DNS aspect
 - [Introduction to Azure Defender for App Service](defender-for-app-service-introduction.md)
 
@@ -3393,12 +3392,12 @@ These new protections greatly enhance your resiliency against attacks from threa
 - **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
   - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
   - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
-  - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+  - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-for-resource-manager)
 
 - **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
   - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
   - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
-  - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+  - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-for-dns)
 
 ### New security alerts page in the Azure portal (preview)
 
@@ -3681,7 +3680,7 @@ The major difference between Microsoft.Security/securityStatuses and Microsoft.S
 
 For example, Microsoft.Security/securityStatuses would return a result with an array of two policyAssessments:
 
-```
+```json
 {
 id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
 name: "mico-rg-vnet",
@@ -3700,7 +3699,7 @@ properties:  {
 
 Whereas Microsoft.Security/Assessments hold a record for each such policy assessment as follows:
 
-```
+```json
 {
 type: "Microsoft.Security/assessments",
 id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
@@ -4125,8 +4124,8 @@ Learn more about Security Center's container security in the following articles:
 - [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
 - [How-to scan your registries and harden your Docker hosts](defender-for-containers-introduction.md)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
-- [Security recommendations for containers](recommendations-reference.md#recs-compute)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-for-containers---kubernetes-clusters)
+- [Security recommendations for containers](recommendations-reference.md#compute-recommendations)
 
 ### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
 
@@ -4199,7 +4198,7 @@ These new recommendations will appear in the same four security controls as the 
 
 The recommendations also include the Quick fix capability to accelerate the deployment process.
 
-Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-compute) table.
+Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#compute-recommendations) table.
 
 Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](./faq-data-collection-agents.yml#what-is-the-log-analytics-agent-).
 
@@ -4232,7 +4231,7 @@ The "implement security best practices" security control now includes the follow
 
 An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
 
-Learn more in the [Network recommendations](recommendations-reference.md#recs-networking) table.
+Learn more in the [Network recommendations](recommendations-reference.md#networking-recommendations) table.
 
 ### New policies for enabling threat protection and advanced data security
 
@@ -4411,7 +4410,7 @@ Examples of identity and access recommendations include:
 
 If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
 
-Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
+Learn more about [identity and access recommendations](recommendations-reference.md#identity-and-access-recommendations).
 
 Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
@@ -4684,7 +4683,7 @@ Security Center now supports cross-tenant management scenarios as part of Azure 
 
 Azure Security Center (ASC) has launched new networking recommendations and improved some existing ones. Now, using Security Center ensures even greater networking protection for your resources.
 
-[Learn more about network recommendations](recommendations-reference.md#recs-networking).
+[Learn more about network recommendations](recommendations-reference.md#networking-recommendations).
 
 ## June 2019
 
