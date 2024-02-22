@@ -212,7 +212,7 @@ items:
         - name: Data source - Azure Cosmos DB for MongoDB vCore
           href: ./references/cosmos-db.md
         - name: Data source - Azure Machine Learning index
-          href: ./references/azure-ml.md
+          href: ./references/azure-machine-learning.md
         - name: Data source - Elasticsearch
           href: ./references/elasticsearch.md
         - name: Data source - Pinecone

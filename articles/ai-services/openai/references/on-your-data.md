@@ -78,7 +78,7 @@ This list shows the supported data sources.
 
 * [Azure AI Search](./azure-search.md)
 * [Azure Cosmos DB for MongoDB vCore](./cosmos-db.md)
-* [Azure Machine Learning index](./azure-ml.md)
+* [Azure Machine Learning index](./azure-machine-learning.md)
 * [Elasticsearch](./elasticsearch.md)
 * [Pinecone](./pinecone.md)
 
