@@ -47,7 +47,7 @@ When you apply a policy to a container app, the rules are applied to all request
 The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-preview' = {
+resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-preview' = {
   name: 'my-app-resiliency-policies'
   parent: '${appName}'
   properties: {

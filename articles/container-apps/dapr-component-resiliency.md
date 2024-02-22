@@ -45,7 +45,7 @@ You can choose whether to create resiliency policies using Bicep, the CLI, or th
 The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-08-01-preview' = {
+resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-11-02-preview' = {
   name: 'my-component-resiliency-policies'
   parent: '${componentName}'
   properties: {
