@@ -39,7 +39,7 @@ Before you begin, make sure you have the following:
     az login
     ```
 
-  If you have multiple Azure subscriptions, select your Azure subscription with the command `az account set -s <your-azure-subscription-id>`.
+    If you have multiple Azure subscriptions, select your Azure subscription with the command `az account set -s <your-azure-subscription-id>`.
 
 1. Install or update kubectl.
 
@@ -120,7 +120,7 @@ A popular way of installing Prometheus is through the [prometheus-operator](http
 
 Azure [Private Link service](../private-link/private-link-service-overview.md) enables the consumption of your Kubernetes service through private link across different Azure virtual networks. AKS has a [native integration with Azure Private Link Service](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) and helps you annotate a Kubernetes service object to create a corresponding private link service within Azure.
 
-pls-prometheus-svc.yaml content:
+See below the content of the pls-prometheus-svc.yaml file:
 
 ```yaml
 apiVersion: v1
@@ -148,9 +148,9 @@ spec:
 
 1. Run the following command to add the private link service to the Prometheus server.
 
-```console
-kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
-```
+    ```console
+    kubectl --namespace monitoring apply -f pls-prometheus-svc.yaml
+    ```
 
 1. The private link service with name `promManagedPls` is created in the AKS managed resource group. This process takes a few minutes.
 
