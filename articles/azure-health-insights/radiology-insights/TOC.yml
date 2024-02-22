@@ -4,7 +4,7 @@ summary: Radiology Insights is offered within the context of the broader Azure A
 metadata:
   title: Radiology Insights documentation TOC
   titleSuffix: Azure AI Health Insights
-  description: enable healthcare organizations to ...
+  description: Enable healthcare organizations to optimize documentation workflows.
   ms.service: Azure AI Health Insights
   ms.topic: TOC 
   author: JanSchietse
@@ -15,7 +15,7 @@ metadata:
 
 
 items: 
-- name: Radiology Insights
+- name: Radiology  Insights
   href: index.yml
 - name: Overview
   expanded: true

@@ -55,12 +55,12 @@ false  | No Evidence is returned
 **FollowupRecommendationOptions**
 - includeRecommendationsWithNoSpecifiedModality
     - type: boolean
-    - description: Include/Exclude follow-up recommendations with no specific radiologic modality, default is false.
+    - description: To include or exclude follow-up recommendations with no specific radiologic modality, default is false.
 
 
 - includeRecommendationsInReferences
     - type: boolean
-    - description: Include/Exclude follow-up recommendations in references to a guideline or article, default is false.
+    - description: To include or exclude follow-up recommendations in references to a guideline or article, default is false.
 
 - provideFocusedSentenceEvidence
     - type: boolean
@@ -71,7 +71,7 @@ IncludeEvidence
 
 - IncludeEvidence
 - type: boolean
-- Provide evidence for the inference, default is false, no evidence is returned.
+- Provide evidence for the inference, default is false with no evidence returned.
  
 
 
@@ -82,7 +82,10 @@ IncludeEvidence
 
 CDARecommendation_GuidelineFalseUnspecTrueLimited
 
-The includeRecommendationsWithNoSpecifiedModality is true, includeRecommendationsInReferences is false,  provideFocusedSentenceEvidence for recommendations is true and includeEvidence is true. 
+- includeRecommendationsWithNoSpecifiedModality is true
+- includeRecommendationsInReferences is false
+- provideFocusedSentenceEvidence for recommendations is true
+- includeEvidence is true
 
 As a result, the model includes evidence for all inferences. 
 - The model checks for follow-up recommendations with a specified modality.
@@ -102,7 +105,10 @@ Examples request/response json:
 
 CDARecommendation_GuidelineTrueUnspecFalseLimited
 
-The includeRecommendationsWithNoSpecifiedModality is false, includeRecommendationsInReferences is true, provideFocusedSentenceEvidence for findings is true and includeEvidence is true. 
+- includeRecommendationsWithNoSpecifiedModality is false
+- includeRecommendationsInReferences is true
+- provideFocusedSentenceEvidence for findings is true
+- includeEvidence is true 
 
 As a result, the model includes evidence for all inferences. 
 - The model checks for follow-up recommendations with a specified modality.
