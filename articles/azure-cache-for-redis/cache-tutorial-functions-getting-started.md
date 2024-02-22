@@ -247,7 +247,7 @@ public class RedisTriggers
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
 
 ## Add Redis bindings
-Bindings add a streamlined way to read or write data stored on your Redis instance. Bindings add a lot of value when used with triggers. 
+Bindings add a streamlined way to read or write data stored on your Redis instance. To demonstrate the benefit of bindings, we'll add two additional functions. One (called `SetGetter`) will trigger each time a key is set and return the new value of the key using an _input binding_. The other (called `StreamSetter`) will trigger when a new item is added to to the stream `myStream` and use an _output binding_ to write the value `true` to the key `newStreamEntry`. 
 
 1. Add a file called _RedisBindings.cs_ to the project.
 
@@ -287,6 +287,11 @@ public class RedisBindings
     }
 }
 ```
+1. Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. The code should build successfully. You can track its progress in the terminal output. 
+
+1. To test the input binding functionality, try setting a new value for any key, for instance using the command `SET hello world` You will see that the `SetGetter` function triggers and returns the updated value. 
+
+1. 1. To test the output binding functionality, try adding a new item to the stream `myStream` using the command `XADD myStream * item Order1`. You'll notice that the `StreamSetter` function triggered on the new stream entry and set the value `true` to another key called `newStreamEntry`. This set command also triggers the `SetGetter` function as well!
 
 ## Deploy code to an Azure function
 
@@ -301,7 +306,7 @@ public class RedisBindings
 1. You get several prompts for information to configure the new function app:
 
     - Enter a unique name.
-    - Select **.NET 6 (LTS)** as the runtime stack.
+    - Select **.NET 8 Isolated** as the runtime stack.
     - Select either **Linux** or **Windows** (either works).
     - Select an existing or new resource group to hold the function app.
     - Select the same region as your cache instance.
@@ -334,7 +339,7 @@ public class RedisBindings
 
 1. Select **Save** on the configuration page to confirm. The function app restarts with the new connection string information.
 
-## Test your triggers
+## Test your triggers and bindings
 
 1. After deployment is complete and the connection string information is added, open your function app in the Azure portal. Then select **Log Stream** from the resource menu.
 
