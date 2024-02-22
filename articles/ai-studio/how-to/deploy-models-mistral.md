@@ -254,6 +254,15 @@ The following is an example response:
     }
 }
 ```
+#### Additional inference examples
+
+| **Sample Type**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| Curl           | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
+| OpenAI SDK(experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
+| Mistral AI     | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
+| LiteLLM        | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) 
 
 ## Cost and quotas
 
@@ -264,8 +273,6 @@ Mistral models deployed as a service are offered by Mistral AI through the Azure
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
 For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
-
-:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
