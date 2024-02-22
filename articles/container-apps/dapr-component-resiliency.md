@@ -313,7 +313,7 @@ Specifying `consecutiveErrors` (the circuit trip condition as
 `consecutiveFailures > $(consecutiveErrors)-1`) sets the number of errors allowed to occur before the circuit trips and opens halfway. 
 
 The circuit waits half-open for the `timeoutInSeconds` amount of time, during which the `consecutiveErrors` number of requests must consecutively succeed. 
-- _If the requests succeed,_ the circuit fully opens again. 
+- _If the requests succeed,_ the circuit closes. 
 - _If the requests fail,_ the circuit remains in a half-opened state.
 
 If you didn't set any `intervalInSeconds` value, the circuit resets to a closed state after the amount of time you set for `timeoutInSeconds`, regardless of consecutive request success or failure. If you set `intervalInSeconds` to `0`, the circuit never automatically resets, only moving from half-open to closed state by successfully completing `consecutiveErrors` requests in a row.
