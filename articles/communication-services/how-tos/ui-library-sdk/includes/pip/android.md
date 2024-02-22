@@ -42,6 +42,7 @@ When user taps back button Calling UI is hidden and, if configured, Picture-in-P
 
 When multitasking is ON for `CallComposite`, the call activity starts in a dedicated task. In the task history, the user sees two screens: one for the app's activity and one for Communication Services call activity.
 
+
 -----
 
 To enter multitasking programmatically and if configured display Picture-in-Picture, call the `sendToBackground` method.

@@ -32,6 +32,7 @@ The **Back** button appears when `enableMultitasking` is set to `true`.
 
 When user taps back button Calling UI is hidden and, if configured, Picture-in-Picture view is displayed.
 
+
 -----
 
 To enter or exit multitasking programmatically, use `isHidden` property:
