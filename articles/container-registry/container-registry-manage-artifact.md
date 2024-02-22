@@ -29,7 +29,7 @@ This article is divided into two main sections:
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI][az-acr-create].  
 *See [Preview limitations](#preview-limitations) for Azure cloud support.*
 * **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
-* **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
+* **ORAS CLI** - Version `v1.1.0` or later version is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - To complete the walkthrough, a container image is referenced.
 You can use [Docker installed locally][docker-install] to build and push a container image, or use [`acr build`][az-acr-build] to build remotely in Azure.  
 While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.  
