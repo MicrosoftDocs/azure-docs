@@ -1,6 +1,6 @@
 ---
 title: Customize feed for Azure Virtual Desktop users - Azure
-description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
+description: How to customize feed for Azure Virtual Desktop users using the Azure portal and PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/01/2024
@@ -45,7 +45,7 @@ Here's how to customize the display name for a published RemoteApp or desktop us
 7. Select **Save**. The application you edited should now display the updated name.
 
 
-### [PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell)
 
 ### Customize the display name for a RemoteApp
 
@@ -55,7 +55,7 @@ Here's how to customize the friendly name for a RemoteApp using PowerShell. By d
 
 2. To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
-   ```powershell
+   ```azurepowershell
    $parameters = @{
       ResourceGroupName = "<resourcegroupname>"
       ApplicationGroupName = "<appgroupname>"
@@ -66,7 +66,7 @@ Here's how to customize the friendly name for a RemoteApp using PowerShell. By d
 
 3. To assign a friendly name to a RemoteApp, run the following cmdlet with the required parameters:
 
-   ```powershell
+   ```azurepowershell
    $parameters = @{
       ResourceGroupName = "<resourcegroupname>"
       ApplicationGroupName = "<appgroupname>"
@@ -86,7 +86,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 2. To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
-   ```powershell
+   ```azurepowershell
    $parameters = @{
       ResourceGroupName = "<resourcegroupname>"
       ApplicationGroupName = "<appgroupname>"
@@ -99,7 +99,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 3. To retrieve the friendly name for the remote desktop resource, run the following PowerShell cmdlet:
 
-   ```powershell
+   ```azurepowershell
    $parameters = @{
       ResourceGroupName = "<resourcegroupname>"
       ApplicationGroupName = "<appgroupname>"
