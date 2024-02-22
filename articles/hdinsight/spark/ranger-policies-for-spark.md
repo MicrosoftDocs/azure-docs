@@ -66,7 +66,7 @@ In this section, you create two Ranger policies:
 
    :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot that shows sample details for an access policy." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
 
-   Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user isn't automatically populated for **Select User**.
+   If a domain user isn't automatically populated for **Select User**, wait a few moments for Ranger to sync with Microsoft Entra ID.
 
 1. Select **Add** to save the policy.
 
@@ -135,12 +135,12 @@ If you edit the policies, they're applied to both Hive and Spark.
 
 Consider these points:
 
-- If you have two metastore databases with the same name used for both Hive (for example, DB1) and Spark (for example, DB1) catalogs:  
+- If you have two metastore databases with the same name used for both Hive (for example, **DB1**) and Spark (for example, **DB1**) catalogs:  
 
-  - If Spark uses the Spark catalog (`metastore.catalog.default=spark`), the policies are applied to the DB1 database of the Spark catalog.  
-  - If Spark uses the Hive catalog (`metastore.catalog.default=hive`), the policies are applied to the DB1 database of the Hive catalog.
+  - If Spark uses the Spark catalog (`metastore.catalog.default=spark`), the policies are applied to the **DB1** database of the Spark catalog.  
+  - If Spark uses the Hive catalog (`metastore.catalog.default=hive`), the policies are applied to the **DB1** database of the Hive catalog.
 
-  From the perspective of Ranger, there's no way to differentiate between DB1 of the Hive and Spark catalogs.
+  From the perspective of Ranger, there's no way to differentiate between **DB1** of the Hive and Spark catalogs.
 
   In such cases, we recommend that you either:
 
@@ -161,14 +161,14 @@ When you create an HDInsight 5.1 cluster by using an existing Ranger database, a
 
 :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot that shows a new repo with an old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
 
-Let's say you have the policies defined in the Ranger repo already under the name **oldclustername_hive** on the existing Ranger database inside the Hadoop SQL service. You want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this goal, use the following steps.
+Let's say that you have the policies defined in the Ranger repo already under the name **oldclustername_hive** on the existing Ranger database inside the Hadoop SQL service. You want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this goal, use the following steps.
 
 > [!NOTE]
 > A user who has Ambari admin privileges can perform configuration updates.
 
 1. Open the Ambari UI from your new HDInsight 5.1 cluster.
 
-1. Go to the **Spark 3** service, and then go to **Configs**.
+1. Go to the **Spark3** service, and then go to **Configs**.
 
 1. Open the **Advanced ranger-spark-security** configuration.
 
@@ -186,9 +186,9 @@ Let's say you have the policies defined in the Ranger repo already under the nam
 
    :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot that shows a configuration update for service name in XML." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
 
-1. Restart Ranger and Spark services from Ambari.
+1. Restart the Ranger and Spark services from Ambari.
 
-The policies are applied on databases in the Spark catalog. If you want to access the databases under the Hive catalog:
+The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
 
 1. In Ambari, go to **SPARK3** > **CONFIGS**.
 1. Change **metastore.catalog.default** from **spark** to **hive**.
