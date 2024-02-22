@@ -61,7 +61,7 @@ Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in 
 Symptoms: no data appears in Azure Data Explorer.
 
 - Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
-- Check the network connectivity and firewall configuration on the storage account.
+- Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
 - Check that the ingestion agent is receiving data from its source. Check the network connectivity and firewall configuration between your network and the ingestion agent.
 
 ## Problems with the MCC EDR source
@@ -118,7 +118,7 @@ Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
-- Check the network connectivity and firewall configuration between the ingestion agent and Azure Operator Insights.
+- Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
 
 ### Files are missing
 
