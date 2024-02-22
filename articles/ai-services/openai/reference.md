@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's REST API. In this article, you lear
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 02/21/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -365,6 +365,9 @@ The definition of a caller-specified function that chat completions can invoke i
 ## Completions extensions
 
 Extensions for chat completions, for example Azure OpenAI On Your Data.
+
+> [!IMPORTANT]
+> The following information is for version `2023-12-01-preview` of the API. This **is not** the current version of the API. To find the latest reference documentation, see [Azure OpenAI On Your Data reference](./references/on-your-data.md) 
 
 **Use chat completions extensions**
 
