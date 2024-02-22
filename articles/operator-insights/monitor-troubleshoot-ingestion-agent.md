@@ -22,7 +22,7 @@ The ingestion agent is a software package, so the diagnostics are limited to the
 
 The agent writes logs and metrics to files under */var/log/az-aoi-ingestion/*. If the agent is failing to start for any reason, such as misconfiguration, the *stdout.log* file contains human-readable logs explaining the issue.
 
-Metrics are reported in a simple human-friendly form. They're provided primarily to help Microsoft Support debug unexpected issues.
+Metrics are reported in a simple human-friendly form.
 
 ## Prerequisites
 
@@ -60,8 +60,8 @@ Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in 
 
 Symptoms: no data appears in Azure Data Explorer.
 
-- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
 - Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
+- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to authentication issues, check that the agent configuration has the correct sink settings and authentication for your data product. Then restart the agent.
 - Check that the ingestion agent is receiving data from its source. Check the network connectivity and firewall configuration between your network and the ingestion agent.
 
 ## Problems with the MCC EDR source
@@ -83,7 +83,7 @@ Symptoms: MCC reports alarms about MSFs being unavailable.
 
 Symptoms: no data appears in Azure Data Explorer.
 
-- Check that the MCC is healthy and ingestion bus agents are running.
+- Check that the MCC is healthy and ingestion agents are running.
 - Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
 - Check the network connectivity and firewall configuration on the storage account.
 
