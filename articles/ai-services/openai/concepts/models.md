@@ -55,7 +55,7 @@ To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions 
 - `text-embedding-3-small`
 - `text-embedding-ada-002`
 
-In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb)
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark.
 
 |Evaluation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
 |---|---|---|---|
@@ -186,8 +186,8 @@ These models can only be used with Embedding API requests.
 |---|---| :---:|:---:|:---:|
 | `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | 1,536 | Sep 2021 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | 1,536 | Sep 2021 |
-| `text-embedding-3-large` | East US, South Central US, North Central US | 8,191 | 3,072 |Sep 2021 |
-| `text-embedding-3-small` | East US, South Central US, North Central US | 8,191|  1,536 | Sep 2021 |
+| `text-embedding-3-large` | Canada East, East US, East US 2 | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | Canada East, East US, East US 2 | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
