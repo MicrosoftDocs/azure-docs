@@ -54,7 +54,7 @@ Links are provided to more information for each supported scenario.
 
 ## JavaScript (Web) SDK Loader Script injection by configuration
 
-When using supported SDKs, you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
+When using supported Software Development Kits (SDKs), you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
 
 
    | Language   

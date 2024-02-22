@@ -59,7 +59,7 @@ The integration is in public preview. It adds the Python SDK, which is in GA.
 
     :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown." lightbox="./media/azure-web-apps/change-resource.png":::
 
-3. Once you've specified which resource to use, you're all set to go. 
+3. You specify the resource, and it's ready to use.
 
     :::image type="content"source="./media/azure-web-apps-python/app-service-python.png" alt-text="Screenshot of instrument your application." lightbox="./media/azure-web-apps-python/app-service-python.png":::
 
@@ -82,7 +82,7 @@ You can configure with [OpenTelemetry environment variables][ot_env_vars] such a
 | `OTEL_BLRP_SCHEDULE_DELAY` | Specifies the logging export interval in milliseconds. Defaults to 5000. |
 | `OTEL_BSP_SCHEDULE_DELAY` | Specifies the distributed tracing export interval in milliseconds. Defaults to 5000. |
 | `OTEL_TRACES_SAMPLER_ARG` | Specifies the ratio of distributed tracing telemetry to be [sampled][application_insights_sampling]. Accepted values range from 0 to 1. The default is 1.0, meaning no telemetry is sampled out. |
-| `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | Specifies which OpenTelemetry instrumentations to disable. When disabled, instrumentations aren't executed as part of Auto-Instrumentation. However, you can still manually instrument them with `instrument()`. Accepts a comma-separated list of lowercase [library names](#application-monitoring-for-azure-app-service-and-python-preview). For example, set it to `"psycopg2,fastapi"` to disable the Psycopg2 and FastAPI instrumentations. It defaults to an empty list, enabling all supported instrumentations. |
+| `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | Specifies which OpenTelemetry instrumentations to disable. When disabled, instrumentations aren't executed as part of autoinstrumentation. However, you can still manually instrument them with `instrument()`. Accepts a comma-separated list of lowercase [library names](#application-monitoring-for-azure-app-service-and-python-preview). For example, set it to `"psycopg2,fastapi"` to disable the Psycopg2 and FastAPI instrumentations. It defaults to an empty list, enabling all supported instrumentations. |
 
 ### Add a community instrumentation library
 
@@ -90,7 +90,7 @@ You can collect more data automatically when you include instrumentation librari
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-community-library-warning.md)]
 
-To add a community OpenTelemetry Instrumentation Library (not officially supported/included in Azure Monitor distro), install the OpenTelemetry Instrumentation library via your app's `requirements.txt` file. OpenTelemetry Auto-Instrumentation will automatically pick up all installed instrumentaiton libraries and attempt instrumentation. The list of community instrumentation libraries can be found [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation).
+To add the community OpenTelemetry Instrumentation Library, install it via your app's `requirements.txt` file. OpenTelemetry autoinstrumentation automatically picks up and instruments all installed libraries. Find the list of community libraries [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation).
 
 ## Automate monitoring
 
@@ -114,7 +114,7 @@ In order to enable telemetry collection with Application Insights, only the foll
 
 ## Django Instrumentation
 
-In order to use the OpenTelemetry Django Instrumentation, you need to set the `DJANGO_SETTINGS_MODULE` environment variable in the App Service settings to point from your app folder to your settings module. See the [Django documentation][django_settings_module_docs] for more information.
+In order to use the OpenTelemetry Django Instrumentation, you need to set the `DJANGO_SETTINGS_MODULE` environment variable in the App Service settings to point from your app folder to your settings module. For more information, see the [Django documentation][django_settings_module_docs].
 
 ## Frequently asked questions
 
@@ -151,11 +151,11 @@ Here's an example JSON file:
 
 ### Step 3: Avoid duplicate telemetry
 
-You should only use Azure Monitor OpenTelemetry Autoinstrumentaion on App Service if you are not using the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md). Using Autoinsturmentation on top of the Azure Monitor OpenTelemetry Distro's Manual Instrumentation may cause duplicate telemetry. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
+You should only use Azure Monitor OpenTelemetry Autoinstrumentaion on App Service if you aren't using the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md). Using Autoinsturmentation on top of the Azure Monitor OpenTelemetry Distro's Manual Instrumentation could cause duplicate telemetry. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
 
-### Step 4: Confirm Django settings are appropiately configured
+### Step 4: Confirm Django settings are configured
 
-If you app uses Django and is either failing to start or using incorrect settings, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable appropiately. See [Django Instrumentation](#django-instrumentation) section for details.
+If your app uses Django and is either failing to start or using incorrect settings, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable. See [Django Instrumentation](#django-instrumentation) section for details.
 
 ---
 
@@ -168,11 +168,11 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 
 ## Next steps
 
-* [Monitor Azure Functions with Application Insights](monitor-functions.md).
-* [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
-* [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
-* [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
-* Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
+* [Monitor Azure Functions with Application Insights](monitor-functions.md)
+* [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights
+* [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive
+* [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold
+* Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page
 * [Availability overview](availability-overview.md)
 
 [application_insights_sampling]: ./sampling.md
