@@ -92,7 +92,7 @@ procedureSection:
   - title: | 
       View details of a route table
     summary: |
-        
+      Follow the below steps:
     steps: 
       - | 
         Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Route tables**.
