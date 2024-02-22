@@ -2,8 +2,9 @@
 metadata:
   title: "Frequently asked questions about the Azure Cosmos DB's API for MongoDB"
   description: "Get answers to Frequently asked questions about the Azure Cosmos DB's API for MongoDB"
-  author: gahl-levy
-  ms.author: gahllevy
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: gahllevy
   ms.service: cosmos-db
   ms.subservice: mongodb
   ms.topic: faq

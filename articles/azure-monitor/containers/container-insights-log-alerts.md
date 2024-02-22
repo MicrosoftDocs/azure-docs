@@ -81,7 +81,7 @@ KubeNodeInventory
 ) on Computer
 | where TimeGenerated >= CapacityStartTime and TimeGenerated < CapacityEndTime
 | project ClusterName, Computer, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
-| summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
+| summarize AggValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
 Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement):
@@ -116,7 +116,7 @@ KubeNodeInventory
 ) on Computer
 | where TimeGenerated >= CapacityStartTime and TimeGenerated < CapacityEndTime
 | project ClusterName, Computer, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
-| summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
+| summarize AggValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
 >[!IMPORTANT]
@@ -159,7 +159,7 @@ KubePodInventory
 ) on Computer, InstanceName
 | where TimeGenerated >= LimitStartTime and TimeGenerated < LimitEndTime
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
-| summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
+| summarize AggValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
 Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement):
@@ -199,7 +199,7 @@ KubePodInventory
 ) on Computer, InstanceName
 | where TimeGenerated >= LimitStartTime and TimeGenerated < LimitEndTime
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
-| summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
+| summarize AggValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
 ## Resource availability
@@ -265,11 +265,11 @@ KubePodInventory
               SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
               FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
               UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
-| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+| summarize AggValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
 ```
 
 >[!NOTE]
->To alert on certain pod phases, such as `Pending`, `Failed`, or `Unknown`, modify the last line of the query. For example, to alert on `FailedCount`, use `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.
+>To alert on certain pod phases, such as `Pending`, `Failed`, or `Unknown`, modify the last line of the query. For example, to alert on `FailedCount`, use `| summarize AggValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.
 
 The following query returns cluster nodes disks that exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
 
@@ -294,8 +294,8 @@ InsightsMetrics
 | project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
 | where ClusterId =~ clusterId       
 | where DiskMetricName == 'used_percent'
-| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
-| where AggregatedValue >= 90
+| summarize AggValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggValue >= 90
 ```
 
 Individual container restarts (number of results) alert when the individual system container restart count exceeds a threshold for the last 10 minutes:
