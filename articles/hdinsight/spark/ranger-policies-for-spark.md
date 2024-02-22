@@ -127,7 +127,7 @@ The following scenarios explore guidelines for creating an HDInsight 5.1 Spark c
 
 ### Scenario 1: Use a new Ranger database while creating an HDInsight 5.1 Spark cluster
 
-When you use a new Ranger database to create a cluster, the relevant Ranger repo that contains the Ranger policies for Hive and Spark is created under the name **hive_and_spark** in the Hadoop SQL service on the Ranger DB.
+When you use a new Ranger database to create a cluster, the relevant Ranger repo that contains the Ranger policies for Hive and Spark is created under the name **hive_and_spark** in the Hadoop SQL service on the Ranger database.
 
 :::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot that shows the repo that contains the Ranger policies for Hive and Spark." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
 
@@ -149,7 +149,7 @@ Consider these points:
 
 - If you use the Hive catalog for both Hive and Spark, consider the following example.  
 
-  Let's say that you create a table named **table1** through Hive with the current **xyz** user. It creates an HDFS file named **table1.db** whose owner is the **xyz** user.  
+  Let's say that you create a table named **table1** through Hive with the current **xyz** user. It creates a Hadoop Distributed File System (HDFS) file named **table1.db** whose owner is the **xyz** user.  
 
   Now imagine that you use the user **abc** to start the Spark SQL session. In this session of user **abc**, if you try to write anything to **table1**, it's bound to fail because the table owner is **xyz**.  
 
