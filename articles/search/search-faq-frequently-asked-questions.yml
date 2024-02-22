@@ -11,7 +11,7 @@ metadata:
   ms.custom:
     - ignite-2023
   ms.topic: faq
-  ms.date: 12/12/2023
+  ms.date: 02/21/2024
 title: Azure AI Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure AI Search.
 
@@ -36,7 +36,7 @@ sections:
       - question: |
           What languages are supported?
         answer: |
-          The default analyzer used for tokenization is standard Lucene and its language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic ranking](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+          The default analyzer used for tokenization is standard Lucene and it is language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
 
       - question: |
           How do I integrate search into my solution?
@@ -70,14 +70,14 @@ sections:
       - question: |
           What does "indexing" mean in Azure AI Search?
         answer: |
-          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval.
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. It creates vector indexes if the schema includes vector fields.
 
       - question: |
           Can I move, backup, and restore indexes?
         answer: |
-          There's no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
+          There's no native support for porting indexes. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
           
-          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). 
+          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). There's also a [Python version of backup and restore](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-backup-and-restore.ipynb).
                    
       - question: |
           Can I restore my index or service once it's deleted?
@@ -94,7 +94,7 @@ sections:
       - question: |
           What is vector search?
         answer: |
-          Vector search is a technique that finds the most similar documents by comparing their vector representations. Since the goal of a vector representation is to capture the essential characteristics of an item in a numerical format, it can capture abstract concepts and identify matches even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. To improve efficiency on large databases, vector search often provides the approximate nearest neighbors for a query vector. See [Vector search overview](vector-search-overview.md) for the specifics of Azure AI Search's vector search product offering.
+          Vector search is a technique that finds the most similar documents by comparing their vector representations. Since the goal of a vector representation is to capture the essential characteristics of an item in a numerical format, vector queries can identify similar content even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. To improve efficiency on large databases, vector search often provides the approximate nearest neighbors for a query vector. See [Vector search overview](vector-search-overview.md) for the specifics of Azure AI Search's vector offering.
 
       - question: |
           Does Azure AI Search support vector search?
@@ -135,11 +135,11 @@ sections:
         answer: |
           To enable vector search in an index, you should:
 
-          * Add one or more fields of type `Collection(Edm.Single)`, with a "dimensions" property and an "vectorSearchConfiguration" property.
+          * Add one or more vector fields to a field collection.
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use the [**2023-11-01**](/rest/api/searchservice) or an Azure SDK to create or update the index, load documents, and issue queries.
+          * Use [**2023-11-01**](/rest/api/searchservice) or an Azure SDK to create or update the index, load documents, and issue queries.
 
   - name: Queries
     questions:

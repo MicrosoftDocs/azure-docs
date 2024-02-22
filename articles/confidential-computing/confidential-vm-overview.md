@@ -85,7 +85,6 @@ Confidential VMs support the following VM sizes:
 - Memory Optimized without local disk: ECasv5-series, ECesv5-series
 - Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
 
- For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
 ### OS support
 Confidential VMs support the following OS options:
 
