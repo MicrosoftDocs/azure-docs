@@ -43,7 +43,8 @@ While most of the resources used by Azure AI Studio live in your Azure subscript
 - **Managed virtual network**: Provided by Azure Virtual Network resources in the Microsoft subscription. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
 - **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Microsoft subscription. 
 
-    > [!NOTE] If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+    > [!NOTE]
+    > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
 
 Managed compute resources and managed virtual networks exist in the Microsoft subscription, but are managed by you. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
  
