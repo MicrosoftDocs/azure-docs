@@ -79,7 +79,7 @@ The example shown in this article to describe deployment uses the following syst
   > For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
 * To install more application servers on separate VMs, you can either use NFS shares or a local managed disk for an instance directory file system. If you're installing more application servers for an SAP J2EE system, `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
 * In a traditional SAP ASCS/SCS high-availability configuration, application server instances running on separate VMs aren't affected when there's any effect on SAP ASCS and ERS cluster nodes. But with the cost-optimization configuration, either the PAS or AAS instance restarts when there's an effect on one of the nodes in the cluster.
-* See [NFS on Azure Files consideration](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files consideration](high-availability-guide-rhel-netapp-files.md#important-considerations). The same considerations also apply for this setup.
+* See [NFS on Azure Files considerations](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files considerations](high-availability-guide-rhel-netapp-files.md#important-considerations) because the same considerations apply to this setup.
 
 ## Prerequisites
 
