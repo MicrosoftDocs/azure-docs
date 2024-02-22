@@ -78,18 +78,18 @@ The script generates a random password for the SQL server and a random SSH key f
 resource_group_name=$(terraform output -raw resource_group_name)
 ```
 
-1. Get the NAT gateway ID.
+1. Get the SQL Server name.
 
 ```console
-    nat_gateway=$(terraform output -raw nat_gateway)
+    sql_server=$(terraform output -raw sql_server)
 ```
 
-1. Run [az network nat gateway show](/cli/azure/network/nat/gateway#az-network-nat-gateway-show) to display the details about the NAT gateway.
-
+1. Run [az sql server show](/cli/azure/sql/server#az-sql-server-show) to display the details about the SQL Server private endpoint.
 ```azurecli
-az network nat gateway show \
+az sql server show \
     --resource-group $resource_group_name \
-    --ids $nat_gateway
+    --name $sql_server --query privateEndpointConnections \
+    --output tsv
 ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -100,20 +100,19 @@ az network nat gateway show \
 $resource_group_name=$(terraform output -raw resource_group_name)
 ```
 
-1. Get the NAT gateway ID.
+1. Get the SQL Server name.
 
 ```console
-$nat_gateway=$(terraform output -raw nat_gateway)
+$sql_server=$(terraform output -raw sql_server_name)
 ```
 
-1. Run [Get-AzNatGateway](/powershell/module/az.network/get-aznatgateway) to display the details about the NAT gateway.
+1. Run [Get-AzPrivateEndpoint](/powershell/module/az.network/get-/get-azprivateendpoint) to display the details about the SQL Server private endpoint.
 
 ```azurepowershell
-$nat = @{
-    Name = $nat_gateway
+$sql = @{
     ResourceGroupName = $resource_group_name
 }
-Get-AzNatGateway @nat
+Get-AzPrivateEndpoint @sql
 ```
 
 ---
