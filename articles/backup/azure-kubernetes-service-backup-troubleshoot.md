@@ -2,12 +2,12 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 12/28/2023
+ms.date: 02/22/2023
 ms.service: backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: anshulahuja98
+ms.author: anshulahuja
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore
@@ -192,9 +192,18 @@ These error codes appear due to issues based on the Backup extension installed i
 
 ### UserErrorExtensionMSIMissingPermissionsOnBackupStorageLocation
 
-**Cause**: The Backup extension should have the *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
+**Cause**: The Backup extension should have the *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
 
 **Recommended action**: If this role is missing, then use Azure portal or CLI to reassign this missing permission on the storage account.
+
+Note: Backup extension has recently migrated from using ListKeys to AAD based authentication to Storage Account. To check if your extension is using AAD or ListKeys, run the following command 
+```
+az k8s-extension show --name azure-aks-backup --cluster-name $akscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query configurationSettings
+```
+If the output contains ```"configuration.backupStorageLocation.config.useAAD"``` and the value is set to ```true``` then you are on the AAD setup. 
+
+For AAD setup grant `Storage Blob Data Contributor`
+For non-AAD setup grant `StorageAccountContributor`
 
 ### UserErrorBackupStorageLocationNotReady
 
