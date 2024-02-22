@@ -10,22 +10,15 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-In this quick start, you learn about how to send messages using our Advance Messaging SDKs.
+## Prerequisites
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
-
-### Prerequisite check
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
+- Active WhatsApp phone number to receive messages
 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
 - In a terminal or command window, run `node --version` to check that Node.js is installed.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../../create-communication-resource.md).
-- A setup managed identity for a development environment, [see Authorize access with managed identity](../../../../identity/service-principal.md?pivot="programming-language-java").
-- To view the channels that are associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/) and locate your Communication Services resource. In the navigation pane on the left, select **Advanced Messaging -> Channels**.
 
-## Set up the application environment
+## Setting up
 
 To set up an environment for sending messages, take the steps in the following sections.
 
@@ -46,14 +39,14 @@ To set up an environment for sending messages, take the steps in the following s
 1. Use a text editor to create a file called **send-messages.js** in the project root directory.
 1. Add below code snippet to the file **send-messages.js**
    ```typescript
-        async function main() {
-            // Quickstart code goes here.
-        }
+   async function main() {
+       // Quickstart code goes here.
+   }
 
-        main().catch((error) => {
-            console.error("Encountered an error while sending message: ", error);
-            process.exit(1);
-        });
+   main().catch((error) => {
+       console.error("Encountered an error while sending message: ", error);
+       process.exit(1);
+   });
    ```
    
 
@@ -69,7 +62,24 @@ npm install @azure-rest/communication-messages --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Authenticate the client
+## Object model
+The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
+
+TODO:
+| Name                                        | Description                                                                                           |
+| --------------------------------------------|------------------------------------------------------------------------------------------------------ |
+|                                         |                                                                                            |
+
+## Code examples
+
+- [Authenticate the client](#authenticate-the-client)
+- [Set channel registration ID](#set-channel-registration-id)
+- [Set recipient list](#set-recipient-list)
+- [Send a template message to a WhatsApp user](#send-a-template-message-to-a-whatsapp-user)
+- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
+- [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
+
+### Authenticate the client
 
 #### [Connection String](#tab/connection-string)
 
@@ -129,9 +139,15 @@ const client:MessagesServiceClient = MessageClient(endpoint, credential);
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
-## Send Message
+### Set channel registration ID  
 
-### Send a Template Message
+TODO
+
+### Set recipient list
+
+TODO
+
+### Send a template message to a WhatsApp user
 
 Template definition:
 ```json
@@ -152,135 +168,127 @@ Template definition:
 ```
 
 ```typescript
-    // Quickstart code
-    const dayValue:MessageTemplateValue = {
-        kind: "text",
-        name: "Days",
-        text: "5"
-    };
+// Quickstart code
+const dayValue:MessageTemplateValue = {
+    kind: "text",
+    name: "Days",
+    text: "5"
+};
 
-    const templateBindings:MessageTemplateBindings = {
-        kind: "whatsApp",
-        body: [
-            {
-                refValue: "Days"
-            }
-        ]
-    };
-
-    const template:MessageTemplate = {
-        name: "sample_shipping_confirmation",
-        language: "en_US",
-        bindings: templateBindings,
-        values: [dayValue]
-    };
-
-    const  result = await client.path("/messages/notifications:send").post({
-        contentType: "application/json",
-        body: {
-            channelRegistrationId: "<CHANNEl_ID>",
-            to: ["<to-phone-number-1>"],
-            kind: "template",
-            template: template
+const templateBindings:MessageTemplateBindings = {
+    kind: "whatsApp",
+    body: [
+        {
+            refValue: "Days"
         }
-    });
-    if (result.status === "202") {
-        const response:Send202Response = result as Send202Response;
-        response.body.receipts.forEach((receipt) => {
-            console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
-        });
-    } else {
-        throw new Error("Failed to send message");
+    ]
+};
+
+const template:MessageTemplate = {
+    name: "sample_shipping_confirmation",
+    language: "en_US",
+    bindings: templateBindings,
+    values: [dayValue]
+};
+
+const  result = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: "<CHANNEl_ID>",
+        to: ["<to-phone-number-1>"],
+        kind: "template",
+        template: template
     }
+});
+if (result.status === "202") {
+    const response:Send202Response = result as Send202Response;
+    response.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
-### Send a Text Message
+### Send a text message to a WhatsApp user
 
 > [!NOTE]
 > Business can't start a conversation with a text message. It needs to be user initiated.
 
 ```typescript
-    // Quickstart code
-    const  result = await client.path("/messages/notifications:send").post({
-        contentType: "application/json",
-        body: {
-            channelRegistrationId: "<CHANNEl_ID>",
-            to: ["<to-phone-number-1>"],
-            kind: "text",
-            content: "Hello World!!"
-        }
-    });
-
- if (result.status === "202") {
-        const response:Send202Response = result as Send202Response;
-        response.body.receipts.forEach((receipt) => {
-            console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
-        });
-    } else {
-        throw new Error("Failed to send message");
+const  result = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: "<CHANNEl_ID>",
+        to: ["<to-phone-number-1>"],
+        kind: "text",
+        content: "Hello World!!"
     }
+});
+
+if (result.status === "202") {
+    const response:Send202Response = result as Send202Response;
+    response.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
-### Send a Media Message
+### Send a media message to a WhatsApp user
 
 > [!NOTE]
 > Business can't start a conversation with a media message. It needs to be user initiated.
 
 ```typescript
-    // Quickstart code
-    const  result = await client.path("/messages/notifications:send").post({
-        contentType: "application/json",
-        body: {
-            channelRegistrationId: "<CHANNEl_ID>",
-            to: ["<to-phone-number-1>"],
-            kind: "image",
-            mediaUri: "https://wallpapercave.com/wp/wp2163723.jpg"
-        }
-    });
-
- if (result.status === "202") {
-        const response:Send202Response = result as Send202Response;
-        response.body.receipts.forEach((receipt) => {
-            console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
-        });
-    } else {
-        throw new Error("Failed to send message");
+const  result = await client.path("/messages/notifications:send").post({
+    contentType: "application/json",
+    body: {
+        channelRegistrationId: "<CHANNEl_ID>",
+        to: ["<to-phone-number-1>"],
+        kind: "image",
+        mediaUri: "https://wallpapercave.com/wp/wp2163723.jpg"
     }
+});
+
+if (result.status === "202") {
+    const response:Send202Response = result as Send202Response;
+    response.body.receipts.forEach((receipt) => {
+        console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
+    });
+} else {
+    throw new Error("Failed to send message");
+}
 ```
 
-## Get Template List
+TODO - Move this to Templates page
+### Get template list
 
 ```typescript
-    // Quickstart code
-    const response = await client.path("/messages/channels/{channelId}/templates", "<CHANNEl_ID>")
-    .get();
+const response = 
+    await client.path("/messages/channels/{channelId}/templates", "<CHANNEl_ID>").get();
 
-    if (response.status == "200") {
-        // The paginate helper creates a paged async iterator using metadata from the first page.
-        const items = paginate(client, response);
+if (response.status == "200") {
+    // The paginate helper creates a paged async iterator using metadata from the first page.
+    const items = paginate(client, response);
 
-        // We get an PageableAsyncIterator so we need to do `for await`.
-        for await (const item of items) {
-            console.log(JSON.stringify(item, null, 2));
-        }
-    } 
-
+    // We get an PageableAsyncIterator so we need to do `for await`.
+    for await (const item of items) {
+        console.log(JSON.stringify(item, null, 2));
+    }
+} 
 ```
 
-Make these replacements in the code:
+## Run the code
 
-- Replace `<CHANNEl_ID>` with the channel id from your communication services.
-- Replace `<to-phone-number-1>` with phone numbers that you'd like to send a message to.
-
-### Run the code
-
-use the node command to run the code you added to the send-messages.js file.
+Use the node command to run the code you added to the send-messages.js file.
 
 ```console
 node ./send-messages.js
 ```
 
-### Sample code
+## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev)
 

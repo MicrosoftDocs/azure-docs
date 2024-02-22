@@ -10,19 +10,16 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+## Prerequisites
 
-### Prerequisite check
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
+- Active WhatsApp phone number to receive messages
 
 - In a terminal or command window, run `mvn -v` to check that Maven is installed.
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../../../create-communication-resource.md).
-- A setup managed identity for a development environment, [see Authorize access with managed identity](../../../../identity/service-principal.md?pivot="programming-language-java").
-- To view the channels that are associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/) and locate your Communication Services resource. In the navigation pane on the left, select **Advanced Messaging -> Channels**.
 
-## Set up the application environment
+## Setting up
 
 To set up an environment for sending messages, take the steps in the following sections.
 
@@ -79,18 +76,26 @@ public class App
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for Java.
 
-| Name                                        | Description                                                                                           |
-| --------------------------------------------|------------------------------------------------------------------------------------------------------ |
-| NotificationMessagesClientBuilder           | This class creates the Notification Messages Client. You provide it with an endpoint and a credential |
-| NotificationMessagesClient                  | This class is needed to send WhatsApp messages and download media files.                              |
-| NotificationMessagesAsyncClient             | This class is needed to send WhatsApp messages and download media files asynchronously.               |
-| SendMessageResult                           | This class contains the result from the Advance Messaging service for send notification message.      |
-| MessageTemplateClientBuilder                | This class creates the Message Template Client. You provide it with an endpoint and a credential.     |
-| MessageTemplateClient                       | This class is needed to get the list of WhatsApp templates.                                           |
-| MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.                            |
+| Name                                        | Description                                                                                            |
+| --------------------------------------------|------------------------------------------------------------------------------------------------------  |
+| NotificationMessagesClientBuilder           | This class creates the Notification Messages Client. You provide it with an endpoint and a credential. |
+| NotificationMessagesClient                  | This class is needed to send WhatsApp messages and download media files.                               |
+| NotificationMessagesAsyncClient             | This class is needed to send WhatsApp messages and download media files asynchronously.                |
+| SendMessageResult                           | This class contains the result from the Advance Messaging service for send notification message.       |
+| MessageTemplateClientBuilder                | This class creates the Message Template Client. You provide it with an endpoint and a credential.      |
+| MessageTemplateClient                       | This class is needed to get the list of WhatsApp templates.                                            |
+| MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.                             |
 
+## Code examples
 
-## Creating the Message client with authentication
+- [Authenticate the client](#authenticate-the-client)
+- [Set channel registration ID](#set-channel-registration-id)
+- [Set recipient list](#set-recipient-list)
+- [Send a template message to a WhatsApp user](#send-a-template-message-to-a-whatsapp-user)
+- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
+- [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
+
+### Authenticate the client
 
 There are a few different options available for authenticating a Message client:
 
@@ -102,7 +107,7 @@ To instantiate a Notification Message client, add the following code to the `mai
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
-String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
+String connectionString = // TODO - Should fetch from environment variable
 
 NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
     .connectionString(connectionString)
@@ -113,7 +118,7 @@ To instantiate a MessageTemplate Message client, add the following code to the `
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
-String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
+String connectionString = // TODO - Should fetch from environment variable
 
 MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
     .connectionString("<CONNECTION_STRING>")
@@ -172,7 +177,18 @@ MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
-#### Set recipient list
+### Set channel registration ID   
+
+The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
+
+:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
+
+Assign it to a variable called channelRegistrationId.
+```csharp
+TODO
+```
+
+### Set recipient list
 You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
 For this quickstart, this phone number may be your personal phone number.   
 
@@ -185,53 +201,53 @@ The phone number should include the country code. For more information on phone 
 
 Create the recipient list like this:
 ```java
-    List<String> recipients = new ArrayList<>();
-    recipients.add("<Phone_Number e.g. '+14255550199');
+List<String> recipients = new ArrayList<>();
+recipients.add("<Phone_Number e.g. '+14255550199');
 ```
 
-#### Send Template Message
+### Send a template message to a WhatsApp user
 
 Template definition:
 ```json
 { 
-    Name: sample_shipping_confirmation,
-    Language: en_US
-    [
-        {
-        "type": "BODY",
-        "text": "Your package has been shipped. It will be delivered in {{1}} business days."
-        },
-        {
-        "type": "FOOTER",
-        "text": "This message is from an unverified business."
-        }
-    ]
+Name: sample_shipping_confirmation,
+Language: en_US
+[
+    {
+    "type": "BODY",
+    "text": "Your package has been shipped. It will be delivered in {{1}} business days."
+    },
+    {
+    "type": "FOOTER",
+    "text": "This message is from an unverified business."
+    }
+]
 }
 ```
 
 ```java
-       //Update Template Name and language according your template associate to your channel.
-        MessageTemplate template = new MessageTemplate("sample_shipping_confirmation", "en_US");
+//Update Template Name and language according your template associate to your channel.
+MessageTemplate template = new MessageTemplate("sample_shipping_confirmation", "en_US");
 
-        //Update template parameter type and value
-        List<MessageTemplateValue> messageTemplateValues = new ArrayList<>();
-        messageTemplateValues.add(new MessageTemplateText("Days", "5"));
-        template.setValues(messageTemplateValues);
+//Update template parameter type and value
+List<MessageTemplateValue> messageTemplateValues = new ArrayList<>();
+messageTemplateValues.add(new MessageTemplateText("Days", "5"));
+template.setValues(messageTemplateValues);
 
-        //Update template parameter binding
-        List<WhatsAppMessageTemplateBindingsComponent> components = new ArrayList<>();
-        components.add(new WhatsAppMessageTemplateBindingsComponent("Days"));
-        MessageTemplateBindings bindings =new WhatsAppMessageTemplateBindings()
-            .setBody(components);
-        template.setBindings(bindings);
+//Update template parameter binding
+List<WhatsAppMessageTemplateBindingsComponent> components = new ArrayList<>();
+components.add(new WhatsAppMessageTemplateBindingsComponent("Days"));
+MessageTemplateBindings bindings =new WhatsAppMessageTemplateBindings()
+    .setBody(components);
+template.setBindings(bindings);
 
-        SendMessageResult result = notificationClient.send(
-            new TemplateNotificationContent(CHANNEL_ID, recipients, template));
+SendMessageResult result = notificationClient.send(
+    new TemplateNotificationContent(CHANNEL_ID, recipients, template));
 
-        result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
+result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
 ```
 
-#### Send Text Message
+### Send a text message to a WhatsApp user
 
 > [!NOTE]
 > Business can't start a conversation with a text message. It needs to be user initiated.
@@ -244,7 +260,7 @@ Template definition:
 
 ```
 
-#### Send Media Message
+### Send a media message to a WhatsApp user
 
 > [!NOTE]
 > Business can't start a conversation with a media message. It needs to be user initiated.
@@ -258,7 +274,8 @@ Template definition:
 
 ```
 
-#### Get Template List for a channel
+TODO - Move this to Templates page
+### Get template list for a channel
 ```java
         PagedIterable<MessageTemplateItem> response = messageTemplateClient.listTemplates("<CHANNEL_ID>");
 
@@ -273,8 +290,7 @@ Template definition:
         });
 ```
 
-
-### Run the code
+## Run the code
 
 1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
 
@@ -294,6 +310,9 @@ Template definition:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
+## Sample code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
 
 
 
