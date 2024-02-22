@@ -7,11 +7,9 @@ ms.topic: how-to
 
 # Set up SNMP MIB health monitoring on an OT sensor
 
-This article describes show to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are sent up to 50 times a second, using UDP over port 161.
+This article describes how to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are polled up to 50 times a second, using UDP over port 161.
 
 Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a predefined SNMP MIB file downloaded from the Azure portal.
-
-SNMP queries are sent up to 50 times a second, using UDP over port 161.
 
 ## Prerequisites
 
@@ -63,7 +61,7 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+<!--[!INCLUDE [root-of-trust](includes/root-of-trust.md)]-->
 
 ## OT sensor OIDs for manual SNMP configurations
 
@@ -92,7 +90,7 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 | **CPU temperature** | 1.3.6.1.4.1.53313.3.2 | STRING | Celsius indication for zero to 100 based on Linux input. <br><br>  Any machine that has no actual physical temperature sensor (for example VMs) returns "No sensors found" |
 | **Memory usage** | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indication for zero to 100 |
 | **Disk Usage** | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
-| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
+| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components has failed |
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 
