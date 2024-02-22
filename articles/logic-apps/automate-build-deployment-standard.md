@@ -1,12 +1,12 @@
 ---
 title: Automate build and deployment for Standard workflows
-description: Automate build and deployment for Standard logic app workflows across different environments and platforms using Azure DevOps.
+description: Automate build and deployment for Standard logic apps with Azure DevOps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/29/2024
-## Customer intent: As a developer, I want to set up automation for building and deploying my Standard logic app workflows.
+## Customer intent: As a developer, I want to automate builds and deployments for my Standard logic app workflows.
 ---
 
 # Automate build and deployment for Standard logic app workflows with Azure DevOps (preview)
@@ -66,13 +66,13 @@ For more information, see the following documentation:
 
 - Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-- Azure Logic Apps (Standard) Build and Release tasks for Azure DevOps Tasks. You can find these tasks in the Azure DevOps Marketplace (link).
-
-- An existing Azure resource group where you want to deploy your logic app.
+- Azure Logic Apps (Standard) Build and Release tasks for Azure DevOps Tasks. You can find these tasks in the [Azure DevOps Marketplace](https://marketplace.visualstudio.com/search?term=azure%20logic%20apps&target=AzureDevOps&category=Azure%20Pipelines&visibilityQuery=all&sortBy=Relevance).
 
 - An existing [Git repository in Azure DevOps](/azure/devops/repos/git/create-new-repo#create-a-repo-using-the-web-portal) where you can store your logic app project.
 
 - An [Azure Resource Manager service connection with an existing service principal](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+- An existing [Azure resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) where you want to deploy your logic app.
 
 ## Create a logic app workspace, project, and workflow
 
