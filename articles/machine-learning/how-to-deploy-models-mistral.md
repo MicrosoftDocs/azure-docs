@@ -280,7 +280,7 @@ For more information on how to track costs, see [Monitor costs for models offere
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Data and Policy
+## Data and policy
 
 No data from the user using models deployed as a service with pay-as-you-go is sent to the model provider (in this case Mistral AI).
 
