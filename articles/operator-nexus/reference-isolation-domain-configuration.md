@@ -1,5 +1,5 @@
 ---
-title: Azure Operator Nexus Isolation Domains Configuration
+title: Azure Operator Nexus Isolation Domains configuration
 description: Configuration for Isolation Domains for Azure Operator Nexus.
 author: joemarshallmsft
 ms.author: joemarshall
@@ -39,7 +39,7 @@ Azure Operator Nexus is a platform that enables different types of communication
 
 The following diagram shows a typical multi-layer communication setup required for a tenant's network use case.
 
-:::image type="content" source="media/isolation-domain-multidomain-tenant-networking.png" alt-text="Overview of connectivity within and between racks in a multi-Isolation Domain deployment. ":::
+:::image type="content" source="media/isolation-domain-multidomain-tenant-networking.png" alt-text="Diagram of connectivity within and between racks in a multi-Isolation Domain deployment.":::
 
 
 In the scenario shown in the picture, the Operator deploys Worker 1 and Worker 2 workloads using Kubernetes. A layer-2 isolation domain (represented in green) is created to allow communication between these workloads. The NAT FW/OAM FW performs SNAT on the IP addresses of the worker services and advertises the SNAT range to the PE via the network fabric. To provide this connectivity, an L3 isolation domain is created (represented in orange) on links to CEs.

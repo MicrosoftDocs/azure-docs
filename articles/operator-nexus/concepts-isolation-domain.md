@@ -33,15 +33,13 @@ An isolation domain offers:
 
 - The ability to create flexible network topologies by adding or removing workloads to an isolation domain as needed.
 
-## Key capabilities of an Isolation Domain
-
-### Layer 2 Isolation Domains
+## Layer 2 Isolation Domains
 
 A layer 2 isolation domain provides L2 networking capabilities between workloads within across racks. Workloads can use the isolated layer-2 network to establish direct connectivity among themselves.
 
 The NNF enables operators to provision and manage layer 2 isolation domains below resource level. Each layer-2 isolation domain has an associated VLAN ID. If a workload needs connectivity to multiple VLANs, multiple layer-2 isolation domains must be created. A separate NIC resource is required for each layer-2 domain that the workload connects to.
 
-### Layer 3 Isolation Domains
+## Layer 3 Isolation Domains
 
 A layer 3 isolation domain provides workloads with the ability to exchange layer-3 routing information through the Operator Nexus network fabric and with external networks.
 

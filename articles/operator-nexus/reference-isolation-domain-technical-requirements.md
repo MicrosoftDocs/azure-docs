@@ -1,6 +1,6 @@
 ---
-title: Technical Requirements for Azure Operator Nexus Isolation Domains
-description: Overview of Technical Requirements for Operator Nexus Isolation Domains.
+title: Technical requirements for Azure Operator Nexus Isolation Domains
+description: Overview of technical requirements for Operator Nexus Isolation Domains.
 author: joemarshallmsft
 ms.author: joemarshall
 ms.reviewer: jdasari
@@ -47,7 +47,7 @@ When you create an isolation domain resource, the following information must be 
 
 The status of the isolation domain creation or deletion can be monitored using the **Provisioning state**. It can be Succeeded, Failed, or InProgress.
 
-### Additional configuration for internal networks
+## Additional configuration for internal networks
 
 -   **vlan-id**: The VLAN identifier value for the internal network. It must be between 501 and 3000.
 
@@ -84,4 +84,3 @@ The status of the isolation domain creation or deletion can be monitored using t
 -   **l3domain**: The name of the L3 isolation-domain the external network belongs to.
 
 -   **resource-name**: The name of the external network.
-
