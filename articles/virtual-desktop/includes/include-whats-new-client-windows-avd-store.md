@@ -1,28 +1,18 @@
 ---
-title: What's new in the Azure Virtual Desktop Store app for Windows (preview) - Azure Virtual Desktop
-description: Learn about recent changes to the Azure Virtual Desktop Store app for Windows.
-ms.topic: release-notes
+ms.topic: include
 author: heidilohr
 ms.author: helohr
 ms.date: 02/20/2024
 ---
 
-# What's new in the Azure Virtual Desktop Store app for Windows (preview)
-
-> [!IMPORTANT]
-> The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop](users/client-features-windows-azure-virtual-desktop-app.md).
-
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases).
 
-| Release     | Latest version   | Download |
-|-------------|------------------|----------|
-| Public      | 1.2.5112         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider     | 1.2.5248         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+| Release | Latest version | Download |
+|--|--|--|
+| Public | 1.2.5112 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5248 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
 ## Updates for version 1.2.5248 (Insider)
 
@@ -38,9 +28,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.5126
 
 *Published: January 24, 2024*
-
->[!NOTE]
->This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
 
 In this release, we've made the following changes:
 
@@ -102,7 +89,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](../uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
