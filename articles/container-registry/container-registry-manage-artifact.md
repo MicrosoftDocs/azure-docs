@@ -526,7 +526,7 @@ The output of `tree`:
 
 ### View the repository and tag listing
 
-The OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. Artifact manifests enable a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
+ORAS enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. It also enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
 
 #### View a list of tags
 
