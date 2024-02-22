@@ -34,7 +34,12 @@ You can set CORS rules for each Azure Data Manager for Energy instance. When you
 9.	An **Azure Data Manager for Energy** instance is created with CORS policy.
 10.	Next, once the instance is created the CORS policy set can be viewed in instance **overview** page.
 11. You can navigate to **Resource Sharing(CORS)** and see that CORS is enabled with required **Allowed Origins**.
-    [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-3.png)](media/how-to-enable-cors/enable-cors-3.png#lightbox)
+    [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-4.png)](media/how-to-enable-cors/enable-cors-4.png#lightbox)
+12. You can modify the Allowed Origins in CORS page at any time after Azure data manager for Energy instance is provisioned.
+12.a For adding a new origin type on the box below. [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-5.png)](media/how-to-enable-cors/enable-cors-5.png#lightbox)
+12.b For deleting an existing allowed origin use the icon. [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-6.png)](media/how-to-enable-cors/enable-cors-6.png#lightbox)
+12.c If * ( wildcard all) is added in any of the allowed origins then please ensure to delete all the other individual allowed origins.
+13. Once the Allowed origin is added, the state of resource provisioning is in “Accepted” and during this time further modifications of CORS policy will not be possible. It taken 15 mins for CORS policies to be updated before update CORS window is available again for modifications. [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-7.png)](media/how-to-enable-cors/enable-cors-7.png#lightbox)
 
 ## How are CORS rules evaluated?
 CORS rules are evaluated as follows:
@@ -43,15 +48,10 @@ CORS rules are evaluated as follows:
 
 ## Limitations on CORS policy
 The following limitations apply to CORS rules:
-- You can specify up to five CORS rules per instance.
 - The maximum size of all CORS rules settings on the request, excluding XML tags, shouldn't exceed 2 KiB.
 - The length of allowed origin shouldn't exceed 256 characters.
 
-
 ## Next steps
-- CORS policy once set up during provisioning can be modified only through a Support request
-   > [!div class="nextstepaction"]
-   > [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
 - To learn more about CORS 
    > [!div class="nextstepaction"]
    > [CORS overview](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)
