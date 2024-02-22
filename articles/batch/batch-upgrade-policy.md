@@ -123,7 +123,7 @@ Request Body
 ```
 
 ### SDK (C#)
-The following example describes how to create a pool with Auto OS Upgrade via C# codes:
+The following code snippet shows an example of how to use the [Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) client library to create a pool of Auto OS Upgrade via C# codes. For more details about Batch .NET, view the [reference documentation](/dotnet/api/microsoft.azure.batch).
 
 ```csharp
 public async Task CreateUpgradePolicyPool()
