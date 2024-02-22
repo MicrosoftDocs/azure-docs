@@ -347,7 +347,7 @@ A notification email is sent only to the primary email address.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
-1. In the Azure portal, go to **Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you want to review.
 
