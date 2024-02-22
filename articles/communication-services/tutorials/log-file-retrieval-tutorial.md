@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
 ms.custom: devx-track-extended-java
+zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
 # Log File Access tutorial

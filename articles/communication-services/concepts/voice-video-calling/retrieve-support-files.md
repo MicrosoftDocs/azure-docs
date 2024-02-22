@@ -58,10 +58,3 @@ For developers utilizing the Calling SDK or the ACS UI Library, consider the fol
 ## Conclusion
 
 By implementing a structured approach to collecting support data, enabling user feedback, and efficiently sending this information to the support system, developers can significantly enhance the troubleshooting process and overall user experience in Calling SDK applications. This not only facilitates quicker issue resolution but also strengthens the feedback loop between users and developers, leading to more robust and user-friendly applications.
-
-## Further Reading
-
-- [Calling SDK Documentation](https://docs.microsoft.com/azure/communication-services/)
-- [Azure Communication Services UI Library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
-- [Implementing End-of-Call Surveys](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept)
-- [Secure Data Handling Best Practices](https://docs.microsoft.com/azure/communication-services/overview/security-framework)

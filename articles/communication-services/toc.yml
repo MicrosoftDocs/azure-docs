@@ -780,7 +780,7 @@ items:
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Collecting user feedback
-        href: concepts/ui-library/collecting-user-feedback.md
+        href: quickstarts/ui-library/collecting-user-feedback.md
       - name: Audio Only Mode
         href: concepts/ui-library/audio_only_mode.md
       - name: Design with UI Library Design Kit
@@ -905,8 +905,6 @@ items:
     items:
     - name: Overview
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Audio Only Calls
-      href: ./concepts/voice-video-calling/audio-only-calls.md
     - name: Concepts
       href: concepts/email/email-overview.md
     - name: SDK features

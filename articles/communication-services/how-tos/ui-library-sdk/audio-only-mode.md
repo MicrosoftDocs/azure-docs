@@ -11,6 +11,7 @@ ms.service: azure-communication-services
 ms.topic: conceptual
 ms.date:     01/08/2024
 ms.subservice: calling
+zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
 # Enable Audio Only mode in the UI Library
@@ -19,8 +20,6 @@ The UI Library provides the ability to disable all Audio in the call.
 
 In this article, you will learn how to enable Audio only mode, and disable all Call Composite video
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 ## Prerequisites
 
 - An integration of the ACS Calling UI SDK
@@ -28,11 +27,11 @@ In this article, you will learn how to enable Audio only mode, and disable all C
 
 ## Set up the features
 
-::: zone pivot="platform-android"
+::: zone pivot="programming-language-kotlin"
 [!INCLUDE [Audio Only Mode with the Android ACS UI Library](./includes/audio-only/android.md)]
 ::: zone-end
 
-::: zone pivot="platform-ios"
+::: zone pivot="programming-language-swift"
 [!INCLUDE [Audio Only Mode with the iOS ACS UI Library](./includes/audio-only/ios.md)]
 ::: zone-end
 

@@ -20,7 +20,7 @@ This comprehensive guide is designed to assist developers in integrating enhance
 
 Before diving into the integration of user feedback mechanisms within the Azure Communication Services (ACS) UI Library, it's crucial to ensure the following prerequisites are met:
 
-- **Azure Subscription:** You need an active Azure subscription. If you don't have one, you can create a free account at [Azure Free Account](https://azure.microsoft.com/en-us/free/).
+- **Azure Subscription:** You need an active Azure subscription. If you don't have one, you can create a free account at [Azure Free Account](https://azure.microsoft.com/free/).
 - **Azure Communication Services Resource:** An ACS resource is required to leverage calling and chat functionalities. You can create one in the Azure portal.
 - **Development Environment Setup:** Ensure that your development environment is set up for the target platform(s) – Android, iOS, or web. This includes having the necessary SDKs and tools for Android Studio, Xcode, or your preferred web development IDE.
 - **Azure Storage Account:** For storing user feedback and related data securely, an Azure Storage account is necessary. This will be used for blob storage in the server-side implementation.
@@ -230,6 +230,12 @@ app.listen(port, () => {
 });
 ```
 
+## Client Side Setup 
+
+The following section will explain how to take the events generated feedback and consume deploy the issue to your servers.
+
+You will learn how to register for the event, serialize the data over the wire and receive it on your server. The end result is that your ACS Project will be able to c
+
 ::: zone pivot="programming-language-kotlin"
 [!INCLUDE [Android](./includes/collecting-user-feedback/android.md)]
 ::: zone-end
@@ -240,8 +246,6 @@ app.listen(port, () => {
 
 
 ## Conclusion
-
-
 Integrating user feedback mechanisms into applications using Azure Communication Services (ACS) is crucial for developing responsive and user-focused apps. This guide has provided a clear pathway for setting up both server-side processing with Node.js and client-side feedback capture for Android and iOS applications. Through such integration, developers can enhance application reliability and user satisfaction while leveraging Azure's cloud services for efficient data management.
 
 The guide outlines practical steps for capturing user feedback, error logs, and support requests directly from applications and processing this data with Azure backend services. This approach ensures a secure and organized way to handle feedback, allowing developers to quickly address and resolve user issues, leading to an improved overall user experience.

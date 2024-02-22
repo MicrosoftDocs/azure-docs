@@ -170,7 +170,7 @@ Calling SDK provides convenience methods to get access to the Log Files. To acti
 
 ## Enable and Access Call Logs
 
-### [JavaScript](#tab/javascript)
+### [JavaScript]
 
 The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
 Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the CallClient constructor:
@@ -193,17 +193,17 @@ AzureLogger.log = (...args) => {
 };
 ```
 
-### Azure Communication Services Calling SDK (Android, iOS, Windows)
+### Native SDK (Android/iOS/Web)
 
 For Android, iOS and Windows the Azure Communication Services Calling SDK Offers access to log files and support information the the SDK's functionality.
 
 For Calling Native SDK's please refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
-### Azure Communication Services Calling UI SDK (Android, iOS)
+### UI Libraries (Android, iOS)
 
-If you are using the Azure Communication Services UI Libraries for Android or iOS, UI controls are integrated to support user feedback loops.
+If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built in support form.
 
-For more information on how to leverage the support functionality of the 
+For more information on how to leverage the support functionality of the Calling UI Support form, please see [the Support Form integration tutorial](../quickstarts/ui-library/collecting-user-feedback.md). This document will guide you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
 
 ## Building end to end Support Flows in your ACS Integrations
 
