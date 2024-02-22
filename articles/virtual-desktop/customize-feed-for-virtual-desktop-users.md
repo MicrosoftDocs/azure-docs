@@ -18,7 +18,7 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 
 If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
-- An Azure account assigned the [Desktop Virtualization Session Host Operator](rbac.md#desktop-virtualization-session-host-operator) and [Desktop Virtualization Application Group Contributor](rbac.md##desktop-virtualization-application-group-contributor) roles.
+- An Azure account assigned the [Desktop Virtualization Application Group Contributor](rbac.md##desktop-virtualization-application-group-contributor) role.
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 
