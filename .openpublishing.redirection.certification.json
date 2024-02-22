@@ -17,16 +17,6 @@
         },
         {
             "redirect_url": "/azure/certification/overview",
-            "source_path_from_root": "/articles/certification/how-to-test-pnp.md",
-            "redirect_document_id": false
-        },		
-        {
-            "redirect_url": "/azure/certification/overview",
-            "source_path_from_root": "/articles/certification/how-to-troubleshoot-pnp.md",
-            "redirect_document_id": false
-        },
-        {
-            "redirect_url": "/azure/certification/overview",
             "source_path_from_root": "/articles/certification/how-to-using-the-components-feature.md",
             "redirect_document_id": false
         },
@@ -38,11 +28,6 @@
         {
             "redirect_url": "/azure/certification/overview",
             "source_path_from_root": "/articles/certification/program-requirements-edge-managed.md",
-            "redirect_document_id": false
-        },
-        {
-            "redirect_url": "/azure/certification/overview",
-            "source_path_from_root": "/articles/certification/program-requirements-pnp.md",
             "redirect_document_id": false
         },
         {
