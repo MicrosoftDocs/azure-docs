@@ -38,8 +38,8 @@ A policy file has three segments:
     version=MajorVersion.MinorVersion	
     ```
     Currently the only version supported is version 1.0.
-- **authorizationrules**: A collection of claim rules that are checked first, to determine if Azure Attestation should proceed to **issuancerules**. The claim rules apply in the order they are defined.
-- **issuancerules**: A collection of claim rules that are evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
+- **authorizationrules**: A collection of claim rules that are checked first, to determine if Azure Attestation should proceed to **issuancerules**. The claim rules apply in the order they're defined.
+- **issuancerules**: A collection of claim rules that are evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they're defined and are also optional.
 
 For more information, see [Claim and claim rules](claim-rule-grammar.md).
 
