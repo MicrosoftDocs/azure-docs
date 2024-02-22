@@ -151,3 +151,4 @@ Learn more by reading:
 [Create an indoor map]: tutorial-creator-indoor-maps.md
 [WFS API]: /rest/api/maps-creator/wfs
 [Creator for indoor maps]: creator-indoor-maps.md
+[What is Azure Maps Creator?]: about-creator.md
