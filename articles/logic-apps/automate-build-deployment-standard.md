@@ -235,7 +235,7 @@ Before you set up the CD pipeline, open the **CD-pipeline.yml** file, and rename
 
 1. On the **Select an existing YAML file** pane, follow these steps to select your **Infrastructure-pipeline.yml** file:
 
-   1. For **Branch**, select the branch where you commited your changes, for example, **main** or your release branch.
+   1. For **Branch**, select the branch where you committed your changes, for example, **main** or your release branch.
 
    1. For **Path**, select the path to use for your pipeline. The following path is the default value:
 
