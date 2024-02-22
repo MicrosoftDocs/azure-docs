@@ -10,7 +10,7 @@ ms.date: 07/14/2022
 ---
 
 # Introduction to Auto Scaling
-Auto scaling is an another capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of extra instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation time, or at any time by updating the service.
+Auto scaling is another capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of extra instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation time, or at any time by updating the service.
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
 * If all instances of my gateway are using more than two cores on average, then scale out the gateway service by adding one more instance. Do this addition every hour, but never have more than seven instances in total.
