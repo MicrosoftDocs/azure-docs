@@ -13,16 +13,17 @@ ms.date: 02/23/2024
 
 # Packet capture overview
 
-Azure Network Watcher packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine (VM) or a scale set. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, debugging client-server communications and much more.
+Azure Network Watcher packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine (VM) or a scale set. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, debugging client-server communications and more.
 
 Packet capture is an extension that is remotely started through Network Watcher. This capability saves time and eases the burden of running a packet capture manually on the desired virtual machine or virtual machine scale set instances.
 
 You can trigger packet captures through the portal, PowerShell, Azure CLI, or REST API. You can also use virtual machine alerts to trigger packet captures. You can choose to save captured data in the local disk or in Azure storage blob.
 
 > [!IMPORTANT]
-> Packet capture requires the Network Watcher agent `AzureNetworkWatcherExtension`. For more information, see:
-> - [Network Watcher Agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
-> - [Network Watcher Agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
+> Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see:
+> - [Network Watcher Agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json).
+> - [Network Watcher Agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json).
+> - [Update Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json).
 
 ## Capture configuration
 
@@ -53,5 +54,5 @@ There's a limit of 10,000 parallel packet capture sessions per region per subscr
 ## Related content
 
 - To learn how to manage packet captures in virtual machines, see [Manage packet captures for virtual machines using the Azure portal](packet-capture-vm-portal.md), [Manage packet captures for virtual machines using PowerShell](packet-capture-vm-powershell.md), and [Manage packet captures for virtual machines using the Azure CLI](packet-capture-vm-cli.md).
-- To learn how to manage packet captures in scale sets, see [Manage packet captures for Virtual Machine Scale Sets using the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md) and [Manage packet captures for Virtual Machine Scale Sets using PowerShell].(network-watcher-packet-capture-manage-powershell-vmss.md).
+- To learn how to manage packet captures in scale sets, see [Manage packet captures for Virtual Machine Scale Sets using the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md) and [Manage packet captures for Virtual Machine Scale Sets using PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md).
 - To learn how to create proactive packet captures based on virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
