@@ -33,6 +33,7 @@ Our system integrator partners include:
 |[Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-15-5g-cloud-box-quality-inspection?exp=ubp8)||||[Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.private_5g_network?exp=ubp8&tab=Overview) |
 ||||| [Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-6-5g-edge?exp=ubp8) |
 ||||| Avanade |
+||||| BATS Wireless |
 
 Our operator partners include:
 - [BT Group](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/britishtelecommunicationsplc1603355038257.0005_5g_private_network_bt_global-mpn1687281-preview?tab=Overview&flightCodes=bbaba195c14644e4aa5b4c7b6627ac7b)
@@ -75,15 +76,27 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 ### Application ISVs
 Microsoft partners with Application ISVs to make their software available through the Azure Marketplace. Our ISVs partners use a combination of private 5G and edge compute capabilities to create new experiences for customers.
 
-Applications that run on supported platforms can also deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, Azure Stack HCI, and Azure IoT Edge can also run on the Azure private MEC solution.
+Applications that run on supported platforms can also deploy to Azure private MEC with few code changes required. This means that application ISV solutions for Azure Stack Edge, and Azure IoT Edge can also run on the Azure private MEC solution.
 
 Our application ISV partners include:
 - [Cognitiwe](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cognitiweaio1670399502095.cognitiwe_hse_v1?exp=ubp8&tab=Overview)
+-[Fractal Analytics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neal_analytics.stockview-retail?tab=Overview)
+-[Glartek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/glarevisionsa1698227199975.glartek?tab=Overview)
 - [iLink Systems](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ilinksystems.samplemidasvm?exp=ubp8&tab=Overview)
+-[inVia Robotics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/inviaroboticsinc1629911110634.inviarobotics1?tab=Overview)
 - [Ipsotek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atosinternationalsas.ipsotek_vi_suite_bundles?exp=ubp8&tab=Overview)
+-[Nsion](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nsionltd1591969784743.nsc3_saas?tab=Overview)
+-[MEEP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/eepadvancedenterprisecommunicationltd1676190998651.synch-ptt?tab=overview)
 - [Red Viking](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redviking1587070336894.rv_argonaut_on_mec?exp=ubp8&tab=Overview)
+-[Scenera](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scenerainc1695952178961.scenera-maistro-saas-1?tab=Overview)
 - [Sensing Feeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sensingfeelinglimited1671143541932.001?exp=ubp8)
+-[Tampnet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tampnetas1686124551117.azure_tampnet_private_network?tab=Overview)
+- Taqtile
+-[Trend Micro](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trendmicro.mobile-network-security?tab=Overview)
+-[Trilogy Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trilogynetworksinc1688507869081.farmgrid-preview?tab=Overview&flightCodes=dec2dcd1-ef23-41d8-bf58-ce0c9d9b17c1)
+-[Unmanned Life](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unmanned_life.robot-orchestration?tab=Overview)
 - [Weavix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pksolutionsllc1654260389042.smart_radio_36_ms?exp=ubp8&tab=Overview)
+-[Zebra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zebratechnologiescorporation1702409620263.offer_2?tab=Overview)
 
 ## Next steps
 - To partner with Microsoft and deploy Azure private MEC solutions:
