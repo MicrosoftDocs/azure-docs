@@ -5,7 +5,7 @@ description: Learn how to deploy Mistral-large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 02/15/2024
+ms.date: 02/23/2024
 ms.reviewer: shubhiraj
 reviewer: shubhirajMsft
 ms.author: mopeakande
@@ -29,10 +29,10 @@ Mistral-large is Mistral AI's most advanced Large Language Model (LLM). It can b
 
 Additionally, mistral-large is:
 
-1. Straight-to-the-point. Purposely trained to eliminate unnecessary verbosity and generate concise outputs.
-1. Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32 K tokens).
-1. Strong in coding. Code generation, review, and comments. Can output results as JSON and do function calling.
-1. Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
+* Straight-to-the-point. Purposely trained to eliminate unnecessary verbosity and generate concise outputs.
+* Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32 K tokens).
+* Strong in coding. Code generation, review, and comments. Can output results as JSON and do function calling.
+* Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
@@ -277,7 +277,7 @@ For more information on how to track costs, see [monitor costs for models offere
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
-## Data and Policy
+## Data and policy
 
 No data from the user using models deployed as a service with pay-as-you-go is sent to the model provider (in this case Mistral AI).
 
