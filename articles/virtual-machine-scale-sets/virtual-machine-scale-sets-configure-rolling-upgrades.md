@@ -31,7 +31,7 @@ Rolling Upgrade Policy is best suited for production workloads.
 
 - If using a Rolling Upgrade Policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. Virtual Machine Scale Sets using Uniform Orchestration can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration, an Application Health Extension is required.
 
-- If using Rolling Upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you to have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+- If using Rolling Upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 
 ## Concepts
 
@@ -58,21 +58,6 @@ Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure portal.":::
 
 
-### [CLI](#tab/cli1)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
-
-```azurecli-interactive
-az vmss update \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
-    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true \
-    --max-batch-instance-percent 20 \
-    --max-unhealthy-instance-percent 20 \
-    --max-unhealthy-upgraded-instance-percent 20 \
-    --pause-time-between-batches "PT0S"\
-    --prioritize-unhealthy-instances true \
-```
-
 ### [PowerShell](#tab/powershell1)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
 
@@ -89,7 +74,10 @@ Set-AzVmssRollingUpgradePolicy `
    -PrioritizeUnhealthyInstance True `
    -MaxSurge True
 
-Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Rolling" -VirtualMachineScaleSet $vmss
+Update-Azvmss -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -UpgradePolicyMode "Rolling" `
+    -VirtualMachineScaleSet $vmss
 ```
 
 ### [ARM Template](#tab/template1)
@@ -135,7 +123,9 @@ Additionally, you can view exactly what changes are being rolled out in the Acti
 You can get the status of a Rolling Upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
 
 ```azurecli
-az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResourceGroup
+az vmss rolling-upgrade get-latest \
+    --name myScaleSet \
+    --resource-group myResourceGroup
 
 {
   "location": "eastus",
@@ -169,7 +159,9 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
 You can get the status of a Rolling Upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
 
 ```azurepowershell
-Get-AzVMssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+Get-AzVMssRollingUpgrade `
+    -ResourceGroupName myResourceGroup `
+    -VMScaleSetName myScaleSet
 
 Policy                                  : 
   MaxBatchInstancePercent               : 20
@@ -207,14 +199,18 @@ You can cancel a Rolling Upgrade in progress using the Azure portal by selecting
 You can stop a Rolling Upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade). If you don't see any output after running the command, it means the cancel request was successful.
 
 ```azurecli
-az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGroup
+az vmss rolling-upgrade cancel \
+    --name myScaleSet \
+    --resource-group myResourceGroup
 ```
 
 ### [PowerShell](#tab/powershell3)
 You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade).
 
 ```azurepowershell
-Stop-AzVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+Stop-AzVmssRollingUpgrade `
+    -ResourceGroupName myResourceGroup `
+    -VMScaleSetName myScaleSet
 
 Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
 StartTime : 1/12/2024 8:40:46 PM
@@ -226,13 +222,15 @@ Error     :
 
 ## Restart a Rolling Upgrade
 
-If you decide to cancel a Rolling Upgrade or the upgrade has stopped due to any policy breach, any more changes that result in the another scale set model change triggers a new Rolling Upgrade. If you want to restart a Rolling Upgrade, to trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
+If you decide to cancel a Rolling Upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new Rolling Upgrade. If you want to restart a Rolling Upgrade, to trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
 
 ### [CLI](#tab/cli4)
 To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
 
 ```azurecli
-az vmss update --name myScaleSet --resource-group myResourceGroup
+az vmss update \
+    --name myScaleSet \
+    --resource-group myResourceGroup
 ```
 
 ### [PowerShell](#tab/powershell4)
@@ -241,7 +239,10 @@ To restart a Rolling Upgrade after its been canceled, you need to trigger the sc
 ```azurepowershell
 $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
-Update-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet -VirtualMachineScaleSet $VMSS
+Update-AzVmss `
+    -ResourceGroupName myResourceGroup `
+    -Name myScaleSet `
+    -VirtualMachineScaleSet $VMSS
 ```    
 ---
 
