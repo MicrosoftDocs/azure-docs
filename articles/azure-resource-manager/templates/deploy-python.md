@@ -2,7 +2,7 @@
 title: Deploy resources with Python and template
 description: Use Azure Resource Manager and Python to deploy resources to Azure. The resources are defined in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 02/23/2024
 ms.custom: devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ This article explains how to use Python with Azure Resource Manager templates (A
 
 * A template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo.
 
-* Python 3.7 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
+* Python 3.8 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
 
 * The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
   * azure-identity
