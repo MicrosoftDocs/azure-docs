@@ -15,7 +15,7 @@ The Network Packet Broker (NPB) allows operators to monitor service traffic flow
 
 NPB enables packet filtering and forwarding based on user-defined rules. NPB can perform various actions on the matched packets, such as dropping, counting, redirecting, mirroring, and logging. NPB supports both static and dynamic match conditions, which can be based on various L2/L3 parameters, such as VLAN, IP, port, protocol, or encapsulation type. NPB also supports GTPv1 encapsulation for matching packets in mobile networks.
 
-## Key Benefits of the Network Packet Broker
+## Key benefits of the Network Packet Broker
 
 -   **Improved Network Visibility:** NPB provides a centralized management interface for configuring and controlling the flow of network traffic to monitoring tools (vProbes). It provides visibility into network traffic, allowing operators to monitor, analyze, troubleshoot, and identify potential security threats. 
 
@@ -27,7 +27,7 @@ NPB enables packet filtering and forwarding based on user-defined rules. NPB can
 
 -   **Compliance and Regulatory Requirements:** NPB helps organizations meet compliance and regulatory requirements by ensuring proper monitoring of network activities and data traffic. 
 
-## Key Capabilities of the Network Packet Broker
+## Key capabilities of the Network Packet Broker
 
 -   **Mirroring & Aggregation**
 
