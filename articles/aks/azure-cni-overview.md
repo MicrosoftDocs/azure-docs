@@ -122,13 +122,13 @@ Although it's technically possible to specify a service address range within the
 
 * **Can I deploy VMs in my cluster subnet?**
 
-  Yes. But for "Azure CNI for dynamic IP allocation", the VMs cannot be deployed in Pod's subnet. 
+  Yes. But for "Azure CNI for dynamic IP allocation", the VMs cannot be deployed in pod's subnet. 
 
 * **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
   
-  But for "Azure CNI for dynamic IP allocation", no matter the connection is inside the same virtual network or cross virtual network, the pod IP is always the source address.
+  But for "Azure CNI for dynamic IP allocation", no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address.
 
 * **Can I configure per-pod network policies?**
 
