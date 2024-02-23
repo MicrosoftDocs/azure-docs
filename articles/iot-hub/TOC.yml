@@ -397,6 +397,8 @@
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
+        - name: Use Raspberry Pi to run samples
+          href: raspberry-pi-get-started.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
@@ -425,21 +427,7 @@
         - name: Deploy an update
           displayName: device update
           href: ../iot-hub-device-update/deploy-update.md
-    - name: Use real devices
-      items:
-        - name: Use an online simulator
-          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
-          href: iot-hub-raspberry-pi-web-simulator-get-started.md
-        - name: Use a physical device
-          displayName: IoT scenarios, Node.js, C
-          items:
-            - name: Raspberry Pi with Node.js
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-node-get-started.md
-            - name: Raspberry Pi with C
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-c-get-started.md
-    - name: Troubleshoot and problem solution
+    - name: Troubleshoot and resolve problems
       items:
         - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md

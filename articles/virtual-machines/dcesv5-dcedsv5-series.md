@@ -54,7 +54,7 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 
 The DCesv5 offer a balance of memory to vCPU performance that is suitable most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). This series currently supports the confidential tagged images Windows Server 2022, Windows 11, and Ubuntu 22.04 LTS. 
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). 
 
 ### DCesv5-series specifications
 
