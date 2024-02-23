@@ -107,7 +107,7 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 
 # [Service Principal](#tab/service-principal-backed-authentication)
 
-Create a [service principal](authenticate-application.md#register-your-application-with-an-azure-ad-tenant) on Azure, and use this identity to create a `TokenCredential`.
+Create a [service principal](authenticate-application.md#register-your-application-with-a-microsoft-entra-tenant) on Azure, and use this identity to create a `TokenCredential`.
 
 ```java
 TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
