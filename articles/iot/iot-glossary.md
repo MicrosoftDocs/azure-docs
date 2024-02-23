@@ -79,16 +79,6 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub
 
-### Azure Certified Device program
-
-Azure Certified [Device](#device) is a free program that enables you to differentiate, certify, and promote your IoT devices built to run on Azure.
-
-[Learn more](../certification/overview.md)
-
-Casing rules: Always capitalize as *Azure Certified Device*.
-
-Applies to: Iot Hub, IoT Central
-
 ### Azure Digital Twins
 
 A platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences.
@@ -288,7 +278,7 @@ Applies to: Iot Hub
 
 ### Device
 
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The device catalog provides a list of certified devices.
+In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse.
 
 Casing rules: Always lowercase.
 
