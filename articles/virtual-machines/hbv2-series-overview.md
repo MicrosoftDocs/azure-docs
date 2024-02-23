@@ -22,13 +22,23 @@ author: ju-shim
 
 Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We use the term **pNUMA** to refer to a physical NUMA domain, and **vNUMA** to refer to a virtualized NUMA domain.
 
-Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7V12 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS sees a pNUMA/vNUMA boundary. Four adjacent CCXs share access to two channels of physical DRAM.
+Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7V12 CPUs for a total of 128 physical cores. Simultaneous Multithreading (SMT) is disabled on HBv2. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores. Azure HBv2 servers also run the following AMD BIOS settings:
 
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domains 0 and 16 (that is, the first CCX of each CPU socket). All remaining 30 pNUMA domains are assigned to the VM at which point they become vNUMA. Thus, the VM sees:
+```output
+Nodes per Socket (NPS) = 2
+L3 as NUMA = Disabled
+NUMA domains within VM OS = 4
+C-states = Enabled
+```
 
-`(30 vNUMA domains) * (4 cores/vNUMA) = 120` cores per VM
+As a result, the server boots with 4 NUMA domains (2 per socket) each 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
 
-The VM itself has no awareness that pNUMA 0 and 16 are reserved. It enumerates the vNUMA it sees as 0-29, with 15 vNUMA per socket symmetrically, vNUMA 0-14 on vSocket 0, and vNUMA 15-29 on vSocket 1.
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 8 physical cores per server.
+
+## VM topology
+
+We reserve these 8 hypervisor host cores symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) on each NUMA domain, with the remaining cores for the HBv2-series VM.
+The CCD boundary is not equivalent to a NUMA boundary. On HBv2, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv2 VM sizes expose 4 NUMA domains that appear to an OS and application. 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv2 VM size](hbv2-series.md).
 
 Process pinning works on HBv2-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
 
