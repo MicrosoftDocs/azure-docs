@@ -187,7 +187,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you use a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you used a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
