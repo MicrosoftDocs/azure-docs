@@ -157,8 +157,6 @@ You can create a custom model from one of the following available base models:
 
 For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md#fine-tuning-models).
 
-:::image type="content" source="../media/fine-tuning/base-model.png" alt-text="Screenshot that shows how to select the base model in the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/base-model.png":::
-
 ### Choose your training data
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane displays any existing, previously uploaded datasets and also provides options to upload new training data.
