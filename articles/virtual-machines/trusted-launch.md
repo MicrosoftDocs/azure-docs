@@ -83,6 +83,7 @@ Trusted launch does not increase existing VM pricing costs.
 - [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
 - [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
 - Nested Virtualization (most v5 VM size families supported)
+- Adding COM ports require disabling of Secure Boot.  Hence, COM ports are disabled by default in Trusted Launch VMs. 
 
 ## Secure boot
 
