@@ -15,10 +15,10 @@ ms.date: 02/23/2024
 
 Connection monitor stores the data it collects in a Log Analytics workspace. There are two types of logs or data ingested into Log Analytics from connection monitor:
 
-- The test data (`NWConnectionMonitorTestResult` query) is updated based on the monitoring frequency of a particular test group.
-- The path data (`NWConnectionMonitorPathResult` query) is updated when there is a significant change in loss percentage or round-trip time.
+- The test data (`NWConnectionMonitorTestResult` query), which is updated based on the monitoring frequency of a particular test group.
+- The path data (`NWConnectionMonitorPathResult` query), which is updated when there's a significant change in loss percentage or round-trip time.
 
-For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
+For some time durations, test data might keep getting updated while path data isn't frequently updated because both are independent.
 
 In this article, you learn about the available fields in the connection monitor tests data and path data schemas.
 
@@ -59,7 +59,7 @@ The following table lists the fields in the connection monitor tests data schema
 | MaxRoundTripTimeMs | The maximum round-trip time for the test. |
 | AvgRoundTripTimeMs | The average round-trip time for the test. |
 | JitterMs | The mean deviation round-trip time for the test. |
-| AdditionalData | The additional data for the test. |
+| AdditionalData | Other data for the test. |
 
 ## Connection monitor path schema
 
@@ -105,4 +105,4 @@ The following table lists the fields in the connection monitor path data schema 
 | HopResourceIds | The hop resource IDs identified for the test. |
 | Issues | The issues identified for the test. |
 | Hops | The hops identified for the test. |
-| AdditionalData | The additional data for the test. |
+| AdditionalData | Other data for the test. |
