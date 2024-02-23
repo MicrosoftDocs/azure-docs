@@ -210,13 +210,19 @@ You have two App Service Environments at this stage in the migration process. Yo
 
 You can get the new IP addresses for your new App Service Environment v3 by running the following command. It's your responsibility to make any necessary updates.
 
+> [!IMPORTANT]
+> During the preview, the new inbound IP is returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
+> 
+
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01"
 ```
 
 ## 10. Redirect customer traffic and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Once you confirm your apps are working as expected, you can redirect customer traffic to your new environment by running the following command. This command also deletes your old environment.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 frontends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+
+Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 frontends by running the following command. This command also deletes your old environment.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"

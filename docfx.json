@@ -1502,6 +1502,7 @@
           "articles/mysql/howto-troubleshoot-replication-latency.md",
           "articles/postgresql/migrate/migration-service/*.*",
           "articles/role-based-access-control/resource-provider-operations.md",
+          "articles/role-based-access-control/permissions/ai-machine-learning.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",

@@ -580,12 +580,10 @@
           href: ../backup/azure-kubernetes-service-cluster-manage-backups.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
       items:
-        - name: Configure AKS Diagnostics
+        - name: Configure AKS diagnostics
           href: aks-diagnostics.md
-        - name: Enable Container insights
-          href: ../azure-monitor/containers/container-insights-onboard.md
-        - name: Collect Prometheus metrics
-          href: ../azure-monitor/containers/container-insights-prometheus.md
+        - name: Enable monitoring for AKS clusters
+          href: ../azure-monitor/containers/kubernetes-monitoring-enable.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Monitor Kubernetes object events
           href: events.md
         - name: Monitor kube-audit events
