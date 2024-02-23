@@ -51,7 +51,7 @@ The Azure CLI commands use a backslash (`\`) for line continuation to improve re
 
 ## Create policy assignment
 
-Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment.
+Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment. This example uses the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
 
 Run the following commands and replace `<resourceGroupName>` with your resource group name:
 
