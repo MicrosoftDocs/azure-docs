@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 02/22/2024
 ms.author: rolyon
 ---
 
@@ -195,7 +195,10 @@ Here are steps to help find the role assignments before deleting a custom role:
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
 - Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.md).
 - [Remove the role assignments](role-assignments-remove.md) that use the custom role.
+- If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
+
+For information about how to find unused custom roles, see [Symptom - No more role definitions can be created](troubleshoot-limits.md#symptom---no-more-role-definitions-can-be-created).
 
 ## Custom role limits
 
