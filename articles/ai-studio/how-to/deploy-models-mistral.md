@@ -17,7 +17,7 @@ ms.custom: [references_regions]
 
 Mistral AI offers two categories of models in AI Studio:
 * Premium models: Mistral-large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
-* Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01 and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
+* Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
 
 You can browse the Mistral family of models in the Model Catalog by filtering on the Mistral collection.
 
@@ -30,8 +30,8 @@ Mistral-large is Mistral AI's most advanced Large Language Model (LLM). It can b
 Additionally, mistral-large is:
 
 1. Straight-to-the-point. Purposely trained to eliminate unnecessary verbosity and generate concise outputs.
-1. Specialized in RAG. Crucial information is not lost in the middle of long context windows (up to 32K tokens).
-1. Strong in coding. Code generation, review and comments. Can output results as JSON and do function calling.
+1. Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32 K tokens).
+1. Strong in coding. Code generation, review, and comments. Can output results as JSON and do function calling.
 1. Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
@@ -40,7 +40,7 @@ Additionally, mistral-large is:
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Mistral-large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Please note that Mistral AI can change or update the terms of use and pricing of this model.
+Mistral-large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Note that Mistral AI can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
