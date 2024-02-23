@@ -50,7 +50,7 @@ To learn how to set up a new namespace with availability zones, see [Create an A
 
 ### Migrate to availability zone support
 
-To learn how to move an existing Notification Hubs resource to a new region with availability zone support, see [Migrate Notification Hubs to availability zone support](./migrate-notification-hubs.md).
+To learn how to move an existing Notification Hubs resource to a new region with availability zone support, follow the guidance in [Move resources between Azure regions](/azure/notification-hubs/move-registrations).
 
 
 ## Cross-region disaster recovery and business continuity
@@ -87,7 +87,7 @@ Azure Notification Hubs supports two types of device registrations: installation
 1. **A storage solution of your choice**: If a DR event occurs, there will be some downtime for restoration activities.
 1. **Another hub you create in another region**: Use this option to back up your registrations. As a working hub, you can implement code to switch to this copy. To keep a secondary notification hub in sync with the primary notification hub, you can use one of the following options to back up your registrations:
    - **For installations**: Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations enable you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
-   - **For registrations**: Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub. See [Export and import Azure Notification Hubs registrations in bulk](/azure/notification-hubs/export-modify-registrations-bulk.md).
+   - **For registrations**: Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub. See [Export and import Azure Notification Hubs registrations in bulk](/azure/notification-hubs/export-modify-registrations-bulk).
 
 The secondary notification hub might have expired registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated registration record on the primary notification hub, based on the response received from the PNS server. You can clean expired records from the backup solution of your choice by adding custom logic that processes feedback from each send, and removes expired registrations.
 
