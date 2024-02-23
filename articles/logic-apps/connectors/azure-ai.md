@@ -136,7 +136,7 @@ Each step in this pattern not only provides faster performance when run in a sta
 | 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
 | 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview#tokens). |
 | 5 | Convert data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output to a JSON array. |
-| 6 | | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
+| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
 | 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings. |
 | 8 | Select the data and embeddings. | **Select** | A **Data Operations** action that selects the JSON outputs and embeddings. | 
 | 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the selected content. |
