@@ -48,7 +48,7 @@ The following is an example of an advanced query that utilizes container image m
 
 1. Add the container image mapping tool to your MSDO workflow:
 
-    ```yml
+```yml
 name: Build and Map Container Image
 
 on: [push, workflow_dispatch]
@@ -85,6 +85,7 @@ jobs:
       id: msdo
       with:
         include-tools: container-mapping
+```
 
 After building a container image in a GitHub workflow and pushing it to a registry, see the mapping by using the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md):
 
