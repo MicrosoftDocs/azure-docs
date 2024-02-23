@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/01/2023
+ms.date: 02/23/2024
 ---
 
 # Copy and Transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -285,7 +285,7 @@ GO
 
 ### Microsoft Fabric Warehouse as a sink type
 
-Azure Data Factory and Synapse pipelines support [COPY statement](#use-copy-statement) to load data into Microsoft Fabric Warehouse.
+Azure Data Factory and Synapse pipelines support [Use COPY statement](#use-copy-statement) to load data into Microsoft Fabric Warehouse.
 
 To copy data to Microsoft Fabric Warehouse, set the sink type in Copy Activity to **WarehouseSink**. The following properties are supported in the Copy Activity **sink** section:
 
