@@ -9,7 +9,7 @@ ms.date: 02/22/2024
 
 # Drain session hosts for maintenance in Azure Virtual Desktop
 
-Draining a session host enables you to isolate it when you want to do maintenance without disruption to service. When a session host is set to drain, it won't accept new user sessions. Any new connections will be redirected to the next available session host. Existing connections in the session host will keep working until the user signs out or the administrator ends the session. Once there aren't any sessions left of the session host, you can perform the maintenance you need. Administrators can still remotely connect to the server directly without going through the Azure Virtual Desktop service.
+Drain mode enables you to isolate a session host when you want to perform maintenance without disruption to service. When a session host is set to drain, it won't accept new user sessions. Any new connections will be redirected to the next available session host. Existing connections to the session host will remain active until the user signs out or an administrator ends the session. Once there aren't any sessions remaining on the session host, you can perform the maintenance you need. Administrators can still remotely connect to the server directly without going through the Azure Virtual Desktop service.
 
 This article shows you how to drain session hosts using the Azure portal or Azure PowerShell.
 
