@@ -10913,7 +10913,18 @@
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-notification-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/reliability-guidance-overview.md",
+            "redirect_url": "/azure/reliability/overview-reliability-guidance",
+            "redirect_document_id": false
         }
+        
         
     ]
 }
