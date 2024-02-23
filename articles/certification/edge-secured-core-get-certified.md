@@ -25,3 +25,4 @@ Create a [Microsoft Partner Center account.](https://partner.microsoft.com/dashb
 7. If the device didn't meet requirements for Edge Secured-core certification, notification is sent and you can submit new/additional validation data to Microsoft. 
 
 ![Diagram showing flowchart for certification process.](./media/images/certification-flowchart.png)
+(./media/images/certification-flowchart-expanded.png)
