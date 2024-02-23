@@ -9,6 +9,7 @@ ms.author: normesta
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy a static website on Azure Storage using Terraform
