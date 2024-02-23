@@ -9,7 +9,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: apache-gremlin
   ms.topic: faq
-  ms.date: 02/22/2024
+  ms.date: 02/23/2024
 title: Frequently asked questions about Azure Cosmos DB for Table
 summary: |
   [!INCLUDE[Table](../includes/appliesto-table.md)]
@@ -35,11 +35,11 @@ sections:
 
           * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
 
-          * Azure Cosmos DB reserves the entity property names `ID`, `rid`, `etag`, and `ResourceId` and they are currently not supported.
+          * Azure Cosmos DB reserves the entity property names `ID`, `rid`, `etag`, and `ResourceId` and they're currently not supported.
 
           * TableQuery TakeCount isn't limited to 1000.
 
-          * In terms of the REST API the following endpoints/query options are supported by Azure Table storage but NOT supported by Azure Cosmos DB for Table:
+          * In terms of the REST API, Azure Table storage (but not Azure Cosmos DB for Table) supports the following endpoints/query options:
 
             | Rest Methods | Rest Endpoint/Query Option | Doc URLs | Explanation | Supported in Table Storage | Supported in API for Table | 
             | ------------| ------------- | ---------- | ----------- |

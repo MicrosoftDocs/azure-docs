@@ -9,7 +9,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: nosql
   ms.topic: faq
-  ms.date: 02/22/2024
+  ms.date: 02/23/2024
 title: Frequently asked questions about Azure Cosmos DB for MongoDB vCore
 summary: |
   [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]

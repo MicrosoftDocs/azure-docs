@@ -8,7 +8,7 @@ metadata:
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 02/22/2024
+  ms.date: 02/23/2024
 title: Frequently asked questions about Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
