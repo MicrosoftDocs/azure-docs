@@ -145,7 +145,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
         }
     }
   ```
-* If you also choose to enable concurrency on the Service Bus trigger, which can be done through the designer or in code:
+* You can also choose to enable concurrency on the Service Bus trigger, which can be done through the designer or in code:
   ```json
     "runtimeConfiguration": {
         "concurrency": {
@@ -153,7 +153,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
         }
     }
   ```
-When concurrency is set with a batch we recommend to keep the number of concurrent runs larger than the overall batch size so that the messages read do not go in the waiting state and are always picked as soon as they are read. It is also possible in some cases for the trigger to reach up to twice the batch size.
+    When concurrency is set with a batch we recommend to keep the number of concurrent runs larger than the overall batch size so that the messages read do not go in the waiting state and are always picked as soon as they are read. It is also possible in some cases for the trigger to reach up to twice the batch size.
 * When concurrency is enabled, split on limit is reduced to 100 items. This is true for all triggers including the Service Bus trigger. The batch size specified should be less than this value where concurrency is enabled.
 * When concurrency is enabled a 30 second delay occurs between batch reads to optimize performance. This delay is configurable but changes to the default should be tested carefully:
 ```json
