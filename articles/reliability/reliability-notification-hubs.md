@@ -43,7 +43,7 @@ During a zone-wide outage, no action is required during zone recovery. Notificat
 You can only enable availability zones on new namespaces. Because Notification Hubs doesn't support the migration of existing namespaces, you can't disable zone redundancy after enabling it on your namespace.
 
 
-:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshow showing availability zones enabled." lightbox="media/notification-hubs-high-availability/enable-availability-zones.png":::
+:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshow showing availability zones enabled." :::
 
 
 To learn how to set up a new namespace with availability zones, see [Create an Azure notification hub in the Azure portal](/azure/notification-hubs/create-notification-hub-portal).
@@ -110,14 +110,14 @@ To enable or disable disaster recovery for an an existing namespace:
 1. On the **Notification Hub Namespace** page for your namespace, you can see the current disaster recovery setting in the **Essentials** section.
 1. In the following example, a flexible recovery region is enabled. Click the current disaster recovery region selection to display the edit pop-up.
 
-   :::image type="content" source="./media/reliability-notification-hubs/notification-hubs-essentials.png" alt-text="Screenshot showing Notification Hubs metadata essentials." lightbox="media/notification-hubs-high-availability/notification-hubs-essentials.png":::
+   :::image type="content" source="./media/reliability-notification-hubs/notification-hubs-essentials.png" alt-text="Screenshot showing Notification Hubs metadata essentials." :::
 
 1. On the **Edit Disaster** recovery pop-up you can change your selections. Save your changes.
 
    > [!NOTE]
    > With a paired recovery region, the region is displayed but greyed out. You cannot edit the region.
 
-   :::image type="content" source="./media/reliability-notification-hubs/paired-recovery.png" alt-text="Screenshot of edit recovery options screen." lightbox="media/notification-hubs-high-availability/paired-recovery.png":::
+   :::image type="content" source="./media/reliability-notification-hubs/paired-recovery.png" alt-text="Screenshot of edit recovery options screen." :::
 
 
 
