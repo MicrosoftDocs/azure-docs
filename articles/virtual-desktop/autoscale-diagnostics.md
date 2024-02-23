@@ -33,6 +33,9 @@ To enable diagnostics for your scaling plan:
 
 1. Select **Save**.
 
+> [!NOTE]
+> If you select **Archive to a storage account**, you'll need to [Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+
 ## Find Autoscale diagnostic logs in Azure Storage
 
 After you've configured your diagnostic settings, you can find the logs by following these instructions:
