@@ -20,6 +20,8 @@ Connection monitor stores the data it collects in a Log Analytics workspace. The
 
 For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
 
+In this article, you learn about the available fields in the connection monitor tests data and path data schemas.
+
 ## Connection monitor tests schema
 
 The following table lists the fields in the connection monitor tests data schema and what they signify:
