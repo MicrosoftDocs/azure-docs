@@ -74,46 +74,47 @@ The script generates a random password for the SQL server and a random SSH key f
 
 1. Get the Azure resource group name.
 
-```console
-resource_group_name=$(terraform output -raw resource_group_name)
-```
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
 
 1. Get the SQL Server name.
 
-```console
-sql_server=$(terraform output -raw sql_server)
-```
+    ```console
+    sql_server=$(terraform output -raw sql_server)
+    ```
 
 1. Run [az sql server show](/cli/azure/sql/server#az-sql-server-show) to display the details about the SQL Server private endpoint.
-```azurecli
-az sql server show \
-    --resource-group $resource_group_name \
-    --name $sql_server --query privateEndpointConnections \
-    --output tsv
-```
+
+    ```azurecli
+    az sql server show \
+        --resource-group $resource_group_name \
+        --name $sql_server --query privateEndpointConnections \
+        --output tsv
+    ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the Azure resource group name.
 
-```console
-$resource_group_name=$(terraform output -raw resource_group_name)
-```
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
 
 1. Get the SQL Server name.
 
-```console
-$sql_server=$(terraform output -raw sql_server_name)
-```
+    ```console
+    $sql_server=$(terraform output -raw sql_server_name)
+    ```
 
 1. Run [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) to display the details about the SQL Server private endpoint.
 
-```azurepowershell
-$sql = @{
+    ```azurepowershell
+    $sql = @{
     ResourceGroupName = $resource_group_name
-}
-Get-AzPrivateEndpoint @sql
-```
+    }
+    Get-AzPrivateEndpoint @sql
+    ```
 
 ---
 
