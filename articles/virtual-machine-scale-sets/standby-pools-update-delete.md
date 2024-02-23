@@ -83,43 +83,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 	  }
 }
 ```
-### [Terraform](#tab/terraform)
-```terraform
-terraform {
-     required_providers {
-         azapi = {
-             source = "Azure/azapi"
-             version = "=0.1.0"
-             }
-     azurerm = {
-         source = "hashicorp/azurerm"
-         version = "=3.0.2"
-         }
-     }
-}
-provider "azapi" {
-     default_location = "{Location}"
-     skip_provider_registration = false
-    }
-provider "azurerm" {
-     features {}
-    }
-resource "azapi_resource" "standbyVirtualMachinePool" {
-     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-12-01-preview
-     parent_id = "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/"
-     name = "{StandbyPoolName}"
-     location = "{Location}"
-     body = jsonencode({
-     properties = {
-     maxReadyCapacity = 20
-     virtualMachineState = "Deallocated"
-     attachedVirtualMachineScaleSetId = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
-         }
-     })
- schema_validation_enabled = false
- ignore_missing_property = false
-}
-```
 
 ### [Bicep](#tab/bicep)
 ```bicep

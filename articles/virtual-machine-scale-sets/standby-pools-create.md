@@ -30,7 +30,7 @@ Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace 
 
 ### RBAC Permissions
 In order for Standby Pools to successfully create Virtual Machines, you need to assign the appropriate RBAC roles. 
-1) In the Azure Portal, navigate to your subscriptions. 
+1) In the Azure portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
 3) Select **Access Control (IAM)**.
 4) Select Add -> **Add Role Assignment**.
@@ -108,47 +108,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 	  "virtualMachineState":"Deallocated",
 	  "attachedVirtualMachineScaleSetId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
 	  }
-}
-```
-
-
-### [Terraform](#tab/terraform)
-Create a Standby Pool and associate it with an existing Scale Set using Terraform. Include Standby Pool name, Location, Max Ready Capacity, Virtual Machine Running State and the scale set ID you want associated. 
-
-```terraform
-terraform {
-     required_providers {
-         azapi = {
-             source = "Azure/azapi"
-             version = "=0.1.0"
-             }
-     azurerm = {
-         source = "hashicorp/azurerm"
-         version = "=3.0.2"
-         }
-     }
-}
-provider "azapi" {
-     default_location = "{Location}"
-     skip_provider_registration = false
-    }
-provider "azurerm" {
-     features {}
-    }
-resource "azapi_resource" "standbyVirtualMachinePool" {
-     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-12-01-preview
-     parent_id = "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/"
-     name = "{StandbyPoolName}"
-     location = "{Location}"
-     body = jsonencode({
-     properties = {
-     maxReadyCapacity = 20
-     virtualMachineState = "Deallocated"
-     attachedVirtualMachineScaleSetId = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
-         }
-     })
- schema_validation_enabled = false
- ignore_missing_property = false
 }
 ```
 
