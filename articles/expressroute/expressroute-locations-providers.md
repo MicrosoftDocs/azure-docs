@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 02/16/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -86,7 +86,8 @@ The following table shows connectivity locations and the service providers for e
 | **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | Supported | BICS<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Epsilon Global Communications<br/>GTT<br/>Interxion<br/>IX Reach<br/>JISC<br/>Megaport<br/>NTT Global DataCenters EMEA<br/>Ooredoo Cloud Connect<br/>Orange<br/>SES<br/>Sohonet<br/>Telehouse - KDDI<br/>Zayo<br/>Vodafone |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | Supported | AT&T Dynamic Exchange<br/>CoreSite<br/>Cloudflare<br/>Equinix*<br/>Megaport<br/>Neutrona Networks<br/>NTT<br/>Zayo</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
 | **Los Angeles2** | [Equinix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/a | Supported | Equinix<br/>GTT<br/>PacketFabric |
-| **Madrid** | [Interxion MAD1](https://www.interxion.com/es/donde-estamos/europa/madrid) | 1 | West Europe | Supported | DE-CIX<br/>InterCloud<br/>Interxion<br/>Megaport<br/>Telefonica |
+| **Madrid** | [Interxion MAD1](https://www.interxion.com/es/donde-estamos/europa/madrid) | 1 | n/a | Supported | DE-CIX<br/>InterCloud<br/>Interxion<br/>Megaport<br/>Telefonica |
+| **Madrid2** | [Equinix MD2](https://www.equinix.com/data-centers/europe-colocation/spain-colocation/madrid-data-centers/md2) | 1 | n/a | Supported | Equinix |
 | **Marseille** | [Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | France South | n/a | Colt<br/>DE-CIX<br/>GEANT<br/>Interxion<br/>Jaguar Network<br/>Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Southeast | Supported | AARNet<br/>Devoli<br/>Equinix<br/>Megaport<br/>NETSG<br/>NEXTDC<br/>Optus<br/>Orange<br/>Telstra Corporation<br/>TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/a | Supported | AT&T Dynamic Exchange<br/>Claro<br/>C3ntro<br/>Equinix<br/>Megaport<br/>Neutrona Networks<br/>PitChile |
@@ -105,7 +106,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | Supported | Equinix<br/>InterCloud<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/a | Supported | Equinix<br/>Megaport<br/>NextDC |
 | **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/arizona/phx1-phx8-phoenix) | 1 | West US 3 | Supported | Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
-| **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | Supported | n/a |
+| **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | Supported |  |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | Supported |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | Supported | Airtel<br/>Lightstorm<br/>Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | Supported | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |

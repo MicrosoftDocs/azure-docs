@@ -5,8 +5,9 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 02/07/2024
 ms.author: sudhirsneha
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version
@@ -61,34 +62,34 @@ Using the Azure portal, you can migrate from Change Tracking & Inventory with LA
 
 #### Prerequisites
 
-- Ensure to have the Windows PowerShell console installed. We recommend that you use PowerShell version 7.2 or higher. Follow the steps to [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+- Ensure you have PowerShell installed. The latest version of PowerShell 7 or higher is recommended. Follow the steps to [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell).
 - Obtain Read access for the specified workspace resources.
-- Ensure that you have `Az.Accounts` and `Az.OperationalInsights` modules installed. The `Az.PowerShell` module is used to pull workspace agent configuration information.
-- Ensure to have the Azure credentials to run `Connect-AzAccount` and `Select Az-Context` that set the context for the script to run.
+- [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell). The **Az.Accounts** and **Az.OperationalInsights** modules are required to pull workspace agent configuration information.
+- Ensure you have Azure credentials to run `Connect-AzAccount` and `Select-AzContext` which set the script's context.
 Follow these steps to migrate using scripts.
 
 #### Migration guidance
 
 1. Install the script and run it to conduct migrations.
-1. Ensure that the new workspace resource ID is different to the one with which it's associated to in the Change Tracking and Inventory using the LA version.
+1. Ensure the new workspace resource ID is different from the one associated with the Change Tracking and Inventory using the LA version.
 1. Migrate settings for the following data types:
     - Windows Services
     - Linux Files
     - Windows Files
     - Windows Registry
     - Linux Daemons
-1. Generate and associates a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
+1. Generate and associate a new DCR to transfer the settings to the Change Tracking and Inventory using AMA.
 
 #### Onboard at scale
 
-Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) to migrate Change tracking workspace settings to data collection rule.
+Use the [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) to migrate Change tracking workspace settings to a data collection rule.
 
 #### Parameters
 
 **Parameter** | **Required** | **Description** |
 --- | --- | --- |
-`InputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Log Analytics. |
-`OutputWorkspaceResourceId`| Yes | Resource ID of the workspace associated to Change Tracking & Inventory with Azure Monitoring Agent. |
+`InputWorkspaceResourceId`| Yes | Resource ID of the workspace associated with Change Tracking & Inventory with Log Analytics. |
+`OutputWorkspaceResourceId`| Yes | Resource ID of the workspace associated with Change Tracking & Inventory with Azure Monitoring Agent. |
 `OutputDCRName`| Yes | Custom name of the new DCR created. |
 `OutputDCRLocation`| Yes | Azure location of the output workspace ID. |
 `OutputDCRTemplateFolderPath`| Yes | Folder path where DCR templates are created. |
@@ -131,8 +132,8 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 
 ### [Using PowerShell script](#tab/limit-policy)
 
-1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
-1. Any VM with > 100 file/registry settings for migration via portal isn't supported now.
+1. For File Content changes-based settings, you must migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
+1. Any VM with > 100 file/registry settings for migration via Azure Portal isn't supported.
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ---

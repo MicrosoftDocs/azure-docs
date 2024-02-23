@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 02/19/2024
 ---
 
 # Index data from Azure Data Lake Storage Gen2
@@ -152,7 +152,6 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     {
         "name" : "my-search-index",
         "fields": [
@@ -160,9 +159,8 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
             { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
             { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
-            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
+            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true }     
         ]
-      }
     }
     ```
 
@@ -189,9 +187,8 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-adlsgen2-indexer,
+      "name" : "my-adlsgen2-indexer",
       "dataSourceName" : "my-adlsgen2-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -199,7 +196,7 @@ Once the index and data source have been created, you're ready to create the ind
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
           "base64EncodeKeys": null,
-          "configuration:" {
+          "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
               "dataToExtract": "contentAndMetadata",
@@ -240,7 +237,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -253,8 +250,8 @@ The response includes status and the number of items processed. It should look s
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2022-02-21T00:23:24.957Z",
-            "endTime":"2022-02-21T00:36:47.752Z",
+            "startTime":"2024-02-21T00:23:24.957Z",
+            "endTime":"2024-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -266,8 +263,8 @@ The response includes status and the number of items processed. It should look s
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2022-02-21T00:23:24.957Z",
-                "endTime":"2022-02-21T00:36:47.752Z",
+                "startTime":"2024-02-21T00:23:24.957Z",
+                "endTime":"2024-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -287,12 +284,12 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an audio file). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an audio file). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
+PUT /indexers/[indexer name]?api-version=2023-11-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 
@@ -301,6 +298,7 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
         "failOnUnsupportedContentType" : false, 
         "failOnUnprocessableDocument" : false,
         "indexStorageMetadataOnlyForOversizedDocuments": false
+    }
   }
 }
 ```

@@ -5,13 +5,11 @@ services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
-ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: rolyon
 ms.reviewer: bagovind
-
 ---
 # List Azure deny assignments using the REST API
 

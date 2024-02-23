@@ -6,10 +6,8 @@ author: rambk
 manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 6/30/2023
 ms.author: rambala
-
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic

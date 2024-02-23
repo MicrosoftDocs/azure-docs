@@ -2,13 +2,13 @@
 title: 'Speech to text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: quickstart
-author: eric-urban
+ms.date: 2/1/2024
+ms.reviewer: v-baolianzou
 ms.author: eur
-ms.date: 09/15/2023
+author: eric-urban
 recommendations: false
 zone_pivot_groups: openai-whisper
 ---
@@ -23,8 +23,10 @@ The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to 
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - An Azure OpenAI resource created in the North Central US or West Europe regions with the `whisper` model deployed. For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
+
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
 
 ## Set up
 
@@ -35,7 +37,7 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 |Variable name | Value |
 |--------------------------|-------------|
 | `AZURE_OPENAI_ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://aoai-docs.openai.azure.com/`.|
-| `AZURE_OPENAI_KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+| `AZURE_OPENAI_API_KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
@@ -48,7 +50,7 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
 ```CMD
@@ -58,7 +60,7 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
 ```
 
 ```powershell
@@ -68,7 +70,7 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [Bash](#tab/bash)
 
 ```Bash
-echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash

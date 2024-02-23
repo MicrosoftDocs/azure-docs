@@ -181,7 +181,7 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. The
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
 
 Retry policy support is included in these SDKs:
-- Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](sdk-java-v2.md)
+* Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](/java/api/overview/azure/cosmos-readme)
 - Version 1.9.0 and later of the [Node.js SDK for SQL](sdk-nodejs.md) and the [Python SDK for SQL](sdk-python.md)
 - All supported versions of the [.NET Core](sdk-dotnet-core-v2.md) SDKs 
 

@@ -132,7 +132,11 @@ Once you have the secret store set up on your cluster, you can create and add Az
 
 1. Create your secret in Key Vault with whatever name and value you need. You can create a secret by using the [Azure portal](https://portal.azure.com) or the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command.
 
-1. On your cluster, identify the secret provider class (SPC) for the component that you want to add the secret to. For example, `aio-default-spc`.
+1. On your cluster, identify the secret provider class (SPC) for the component that you want to add the secret to. For example, `aio-default-spc`. Use the following command to list all SPCs on your cluster:
+
+   ```bash
+   kubectl get secretproviderclasses -A
+   ```
 
 1. Open the file in your preferred text editor. If you use k9s, type `e` to edit.
 

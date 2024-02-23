@@ -61,7 +61,7 @@ Apache Flink clusters in HDInsight on AKS include the following components, they
 * [DataStreamAPI](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/datastream/overview/#what-is-a-datastream)
 * [TableAPI & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/table/overview/#table-api--sql). 
 
-Refer to the [Roadmap](../whats-new.md#coming-soon) on what's coming soon!
+Refer to the [Roadmap](../whats-new.md#roadmap-of-features) on what's coming soon!
 
 ## Apache Flink Job Management
 

@@ -5,10 +5,10 @@ services: key-vault
 author: mbaldwin
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/04/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 

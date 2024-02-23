@@ -6,7 +6,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 02/06/2024
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
@@ -17,7 +17,7 @@ You can customize egress for an AKS cluster to fit specific scenarios. By defaul
 This article covers the various types of outbound connectivity that are available in AKS clusters.
  
 > [!NOTE]
-> You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
+> You can now update the `outboundType` after cluster creation.
 
 ## Limitations
 
@@ -64,7 +64,7 @@ You must deploy the AKS cluster into an existing virtual network with a subnet t
 
 For more information, see [configuring cluster egress via user-defined routing](egress-udr.md).
 
-## Updating `outboundType` after cluster creation (preview)
+## Updating `outboundType` after cluster creation
 
 Changing the outbound type after cluster creation will deploy or remove resources as required to put the cluster into the new egress configuration.
 
@@ -96,8 +96,6 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 
 > [!WARNING]
 > Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, you need to update them to match the new egress IP address.
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Update cluster to use a new outbound type
 

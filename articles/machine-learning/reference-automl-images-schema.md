@@ -5,7 +5,7 @@ description: Learn how to format your JSONL files for data consumption in automa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: devx-track-python, update-code
+ms.custom:  update-code, devx-track-python
 ms.topic: reference
 ms.reviewer: ssalgado
 ms.author: rvadthyavath

@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.workload: infrastructure
 ms.custom: linux-related-content
 ms.date: 04/11/2023
 ms.author: jushiman

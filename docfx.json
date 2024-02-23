@@ -1096,9 +1096,6 @@
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
         "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
-      "ms.workload": {
-        "articles/cloud-shell/**/*.md": "infrastructure-services"
-      },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
         "articles/ai-services/document-intelligence/**/*.md": ">=doc-intel-2.1.0",
@@ -1297,6 +1294,7 @@
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/management-groups/**/*.md": "Azure governance",
         "articles/governance/policy/**/*.md": "Azure Policy",
+        "articles/governance/machine-configuration/**/*.md": "Azure Automanage",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/hdinsight-aks/**/*.md": "Azure HDInsight on AKS",
         "articles/hdinsight-aks/**/*.yml": "Azure HDInsight on AKS",
@@ -1504,6 +1502,7 @@
           "articles/mysql/howto-troubleshoot-replication-latency.md",
           "articles/postgresql/migrate/migration-service/*.*",
           "articles/role-based-access-control/resource-provider-operations.md",
+          "articles/role-based-access-control/permissions/ai-machine-learning.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",

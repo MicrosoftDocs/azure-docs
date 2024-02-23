@@ -6,7 +6,6 @@ author: mbender-ms
 manager: dcscontentpm
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
 ms.custom: engagement-fy23
