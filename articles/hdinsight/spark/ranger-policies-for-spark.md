@@ -190,7 +190,7 @@ Let's say that you have the policies defined in the Ranger repo already under th
 
 The policies are applied on databases in the Spark catalog. If you want to access the databases in the Hive catalog:
 
-1. In Ambari, go to **SPARK3** > **CONFIGS**.
+1. In Ambari, go to **Spark3** > **Configs**.
 1. Change **metastore.catalog.default** from **spark** to **hive**.
 
    :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot that shows changing a metastore configuration." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
