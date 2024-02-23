@@ -54,6 +54,8 @@ The analyze response for each API returns different objects. API responses conta
 | **styles**| Identified text element properties. | Read, Layout, General Document, Prebuilt, and Custom models|
 | **languages**| Identified language associated with each span of the text extracted | Read |
 | **tables**| Tabular content identified and extracted from the document. Tables relate to tables identified by the pretrained layout model. Content labeled as tables is extracted as structured fields in the documents object.  | Layout, General Document, Invoice, and Custom models |
+| **figures**| Figures (e.g., charts, images) identified and extracted from the document, providing visual representations that aid in the understanding of complex information. | Layout model |
+| **sections** | Hierarchical document structure identified and extracted from the document, e.g., section, sub-section with the corresponsing elements (e.g., paragraph, table, figure) attached to it. | Layout model |
 | **keyValuePairs**| Key-value pairs recognized by a pretrained model. The key is a span of text from the document with the associated value. | General document and Invoice models |
 | **documents**| Fields recognized are returned in the ```fields``` dictionary within the list of documents| Prebuilt models, Custom models|
 
@@ -133,6 +135,52 @@ Based on its position and styling, a cell can be classified as general content, 
 **Layout tables differ from document fields extracted from tabular data**.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and don't always contain structured data.  The method to extract structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant post processing. It's essential to map the row or column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information is exposed as document fields.  Such trained models can also handle tabular data without headers and structured data in nontabular forms, for example the work experience section of a resume.
 
 :::image type="content" source="media/table.png" alt-text="Layout table":::
+
+#### Figures
+
+Figures (e.g., charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption` if there's any.
+
+```json
+{
+    "figures": [
+      {
+        "boundingRegions": [],
+        "spans": [],
+        "elements": [
+          "/paragraphs/15",
+          ...
+        ],
+        "caption": {
+          "content": "Here is a figure with some text",
+          "boundingRegions": [],
+          "spans": [],
+          "elements": [
+            "/paragraphs/15"
+          ]
+        }
+      }
+    ]
+}
+```
+
+#### Sections
+Hierarchical document structure analysis is pivotal in organizing, comprehending, and processing extensive documents. This approach is particularly vital for semantically segmenting long documents to boost comprehension, facilitate navigation, and improve information retrieval. The advent of [Retrieval Augmented Generation (RAG)](concept-retrieval-augmented-generation.md) in document generative AI underscores the significance of hierarchical document structure analysis. The Layout model supports sections and subsections in the output, which identifies the relationship of sections and object within each section. The hierarchical structure is maintained in `elements` of each section.
+
+```json
+{
+    "sections": [
+      {
+        "spans": [],
+        "elements": [
+          "/paragraphs/0",
+          "/sections/1",
+          "/sections/2",
+          "/sections/5"
+        ]
+      },
+...
+}
+```
 
 #### Form field (key value pair)
 
