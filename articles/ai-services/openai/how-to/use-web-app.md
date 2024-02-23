@@ -43,6 +43,8 @@ When customizing the app, we recommend:
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
+Sample source code for Azure OpenAI On Your Data web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as samples only; customers are responsible for all customization and implementation of their web apps using Azure OpenAI On Your Data. 
+
 ### Updating the web app
 
 We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
