@@ -152,7 +152,7 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
 ## Run the sample code
 
-At this point, the resources are deployed to Azure and the project is ready to run. Follow these steps to update the name of the storage account in the code and run the sample console app:
+At this point, the resources are deployed to Azure and the code is ready to run. Follow these steps to update the name of the storage account in the code and run the sample console app:
 
 - **Update the storage account name**: In the local directory, edit the file named **blob_quickstart.py**. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
 - **Run the project**: Execute the following command to run the app: `python blob_quickstart.py`.
@@ -196,7 +196,7 @@ These example code snippets show you how to do the following tasks with the Azur
 ::: zone pivot="blob-storage-quickstart-template"
 
 > [!NOTE]
-> The Azure Developer CLI template includes a project with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+> The Azure Developer CLI template includes a file with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
 
 ::: zone-end
 
@@ -321,12 +321,7 @@ blob_service_client = BlobServiceClient.from_connection_string(connect_str)
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it's unique.
-
-> [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-
-Call the [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#create-container-name--metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
+Create a new container in your storage account by calling the [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-create-container) method on the `blob_service_client` object. In this example, the code appends a GUID value to the container name to ensure that it's unique.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -338,14 +333,12 @@ Add this code to the end of the `try` block:
 
 To learn more about creating a container, and to explore more code samples, see [Create a blob container with Python](storage-blob-container-create-python.md).
 
+> [!IMPORTANT]
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
 ### Upload blobs to a container
 
-The following code snippet:
-
-1. Creates a local directory to hold data files.
-1. Creates a text file in the local directory.
-1. Gets a reference to a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object by calling the [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) method on the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-) method.
+Upload a blob to a container using [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). The example code creates a text file in the local *data* directory to upload to the container.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -359,7 +352,7 @@ To learn more about uploading blobs, and to explore more code samples, see [Uplo
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -373,7 +366,7 @@ To learn more about listing blobs, and to explore more code samples, see [List b
 
 ### Download blobs
 
-Download the previously created blob by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
+Download the previously created blob by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-download-blob) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
@@ -387,7 +380,7 @@ To learn more about downloading blobs, and to explore more code samples, see [Do
 
 ### Delete a container
 
-The following code cleans up the resources the app created by removing the entire container using the [​delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) method. You can also delete the local files, if you like.
+The following code cleans up the resources the app created by removing the entire container using the [​delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-delete-container) method. You can also delete the local files, if you like.
 
 The app pauses for user input by calling `input()` before it deletes the blob, container, and local files. Verify that the resources were created correctly before they're deleted.
 
