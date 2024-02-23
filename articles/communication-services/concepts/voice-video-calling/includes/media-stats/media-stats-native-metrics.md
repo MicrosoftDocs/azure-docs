@@ -24,8 +24,6 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `BitrateInBps` | Audio send bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `PacketCount` | The total number of packets sent. | |
-| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
-| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
 
 ### Incoming audio metrics
 
@@ -43,8 +41,6 @@ If you want to collect the data for offline inspection, we recommend that you co
 | `CodecName` | Codec name | |
 | `BitrateInBps` | Video send bitrate (bits per second) | |
 | `PacketCount` | The total number of packets sent. | |
-| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
-| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | We recommend 1.5 Mbps or higher for high-quality video for upload/download. |
 | `FrameRate` | Frame rate sent on the RTP stream (frames per second) | |
 | `FrameWidth` | Frame width of the encoded frame (pixels) | |
 | `FrameHeight` | Frame height of the encoded frame (pixels) | |
@@ -76,14 +72,11 @@ Currently, statistics fields are the same as *Incoming video metrics*.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
 | `PacketCount` | The total number of packets sent. | |
-| `RoundTripTimeInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 
 ### Incoming data channel metrics
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `AvailableBitrateInBps` | Bandwidth estimation (bits per second) | |
 | `JitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `PacketCount` | The total number of packets sent. | |
