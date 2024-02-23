@@ -62,7 +62,7 @@ In testing, OpenAI reports both the large and small third generation embeddings 
 | MIRACL average | 31.4 | 44.0 | 54.9 |
 | MTEB average | 61.0 | 62.3 | 64.6 |
 
-The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. Official support for the dimensions parameter was added to the OpenAI Python library in version `1.10.0`. If you are running an earlier version of the 1.x library you will need to upgrade `pip install openai --upgrade`.
+The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. The `dimensions` parameter is not supported in all versions of the OpenAI 1.x Python library, to take advantage of this parameter  we recommend upgrading to the latest version: `pip install openai --upgrade`.
 
 OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 02/22/2024
 ---
 
 # Create a hybrid query in Azure AI Search
 
-Hybrid search consists of keyword queries and vector queries in a single search request. 
+Hybrid search combines one or more keyword queries with vector queries in a single search request. 
 
 The response includes the top results ordered by search score. Both vector queries and free text queries are assigned an initial search score from their respective scoring or similarity algorithms. Those scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set. 
 
@@ -24,7 +24,7 @@ The response includes the top results ordered by search score. Both vector queri
 
 + A search index containing vector and non-vector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post), Search Explorer in the Azure portal, or packages in the Azure SDKs that have been updated to use this feature.
++ Use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post) or **REST API 2023-10-01-preview**, Search Explorer in the Azure portal, or packages in the Azure SDKs that have been updated to use this feature.
 
 + (Optional) If you want to also use [semantic ranking](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 

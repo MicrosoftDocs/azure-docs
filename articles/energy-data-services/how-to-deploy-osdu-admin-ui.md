@@ -197,7 +197,19 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
    echo $REDIRECT_URI
     ```
 
-1. Open the Website URL in the browser and validate that it's working correctly and connected to the correct Azure Data Manager for Energy instance. 
+1. Open the Website URL in the browser and validate that it's working correctly and connected to the correct Azure Data Manager for Energy instance.
+
+## Next steps
+After you have a successful Admin UI working, you can:
+
+- [Add first set of users](how-to-manage-users.md#first-time-addition-of-users-in-a-new-data-partition).
+- [Manage legal tags](how-to-manage-legal-tags.md).
+- [Manage ACLs](how-to-manage-acls.md).
+
+You can also ingest data into your Azure Data Manager for Energy instance:
+
+- [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md).
+- [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md).
     
 ## References
 

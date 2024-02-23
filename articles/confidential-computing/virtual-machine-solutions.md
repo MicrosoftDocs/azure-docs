@@ -1,5 +1,5 @@
 ---
-title: Confidential VM solutions
+title: Azure Confidential VM options
 description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
 author: ju-shim
 ms.author: jushiman
@@ -31,8 +31,6 @@ You can create confidential VMs in the following size families:
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
 | **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
-| **ECiesv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk.                      |
-| **ECiedsv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk. |
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.

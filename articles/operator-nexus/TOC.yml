@@ -22,8 +22,17 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
-        - name: Access Control Lists
-          href: concepts-access-control-lists.md
+    - name: Isolation Domains
+      expanded: false
+      items:
+        - name: Isolation Domains overview
+          href: concepts-isolation-domain.md
+        - name: Isolation Domain configuration
+          href: reference-isolation-domain-configuration.md
+        - name: Technical requirements for Isolation Domains
+          href: reference-isolation-domain-technical-requirements.md
+    - name: Access Control Lists
+      href: concepts-access-control-lists.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
@@ -101,6 +110,8 @@
           items:
             - name: Isolation Domain
               href: howto-configure-isolation-domain.md
+            - name: Isolation Domain Configuration Examples
+              href: reference-isolation-domain-configuration-examples.md
             - name: Network Fabric Route Policy
               href: how-to-route-policy.md
             - name: Network Packet Broker
