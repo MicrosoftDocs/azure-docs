@@ -1,17 +1,17 @@
 ---
 title: Connection monitor schemas
 titleSuffix: Azure Network Watcher
-description: Understand the tests data schema and the path data schema of Azure Network Watcher connection monitor.
-services: network-watcher
+description: Learn about the available tests data and path data schemas in Azure Network Watcher connection monitor.
 author: halkazwini
-ms.service: network-watcher
-ms.topic: conceptual
-ms.date: 08/14/2021
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.service: network-watcher
+ms.topic: concept-article
+ms.date: 02/23/2024
+
+#CustomerIntent: As an Azure administrator, I want to understand the available connection monitor schemas so that I can query Log Analytics and understand the output that I'm getting.
 ---
 
-# Azure Network Watcher Connection Monitor schemas
+# Connection monitor schemas
 
 Connection Monitor provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -34,7 +34,7 @@ Here are some benefits of Connection Monitor:
 
 There are two types of logs or data ingested into Log Analytics. The test data (NWConnectionMonitorTestResult query) is updated based on the monitoring frequency of a particular test group. The path data (NWConnectionMonitorPathResult query) is updated when there is a significant change in loss percentage or round-trip time. For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
 
-## Connection Monitor Tests schema
+## Connection monitor tests schema
 
 The following table lists the fields in the Connection Monitor Tests data schema and what they signify. 
 
@@ -73,8 +73,7 @@ The following table lists the fields in the Connection Monitor Tests data schema
 | JitterMs	| The mean deviation round-trip time for the test |
 | AdditionalData	| The additional data for the test |
 
-
-## Connection Monitor Path schema
+## Connection monitor path schema
 
 The following table lists the fields in the Connection Monitor Path data schema and what they signify. 
 
