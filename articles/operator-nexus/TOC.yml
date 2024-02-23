@@ -45,6 +45,8 @@
       href: concepts-nexus-route-policies-overview.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Network Packet Broker
+      href: concepts-nexus-network-packet-broker.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -230,6 +232,8 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Neighbor Group Configuration Overview
+      href: reference-neighbor-group-configuration.md
     - name: Route Policy
       expanded: false
       items:

@@ -5,7 +5,7 @@
     - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
-      href: table-api-faq.yml
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: .NET
