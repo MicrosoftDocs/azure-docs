@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 02/22/2024
 ---
 
 # Lucene query syntax in Azure AI Search
@@ -140,9 +140,11 @@ The following example helps illustrate the differences. Suppose that there's a s
 
  For example, to find documents containing `motel` or `hotel`, specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
-Some tools and languages impose other escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+Some tools and languages impose extra escape character requirements beyond the [escape rules](#escaping-special-characters) imposed by Azure AI Search. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash. 
 
 Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` matches the terms `bee` and `bet` while `/be*/` would match `be`, `bee`, and `beee` but not `bet`. Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with `be` such as `better`.
+
+If you get syntax errors in your regular expression, review the [escape rules](#escaping-special-characters) for special characters. You might also try a different client to confirm whether the problem is tool-specific.
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
