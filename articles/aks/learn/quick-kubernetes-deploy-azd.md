@@ -76,10 +76,10 @@ The Azure Development Template contains all the code needed to create the servic
 Run `azd auth login` 
 
 1. Copy the device code that appears.
-2. Hit enter to open in a new tab the auth portal.
-3. Enter in your Microsoft Credentials in the new page.
-4. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
-5. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
+1. Hit enter to open in a new tab the auth portal.
+1. Enter in your Microsoft Credentials in the new page.
+1. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
+1. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
 [!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
 
@@ -90,9 +90,9 @@ Run `azd auth login`
 The step can take longer depending on your internet speed.
 
 1. Create all your resources with the `azd up` command.
-2. Select which Azure subscription and region for your AKS Cluster.
-3. Wait as azd automatically runs the commands for pre-provision and post-provision steps.
-4. At the end, your output shows the newly created deployments and services.
+1. Select which Azure subscription and region for your AKS Cluster.
+1. Wait as azd automatically runs the commands for pre-provision and post-provision steps.
+1. At the end, your output shows the newly created deployments and services.
 
     ```output
     deployment.apps/rabbitmq created
@@ -108,6 +108,12 @@ The step can take longer depending on your internet speed.
 ## Test the application
 
 When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete. Once completed, follow these steps verify and test the application by opening up the store-front page.
+
+1. Set your namespace as the demo namespace `pets` with the `kubectl set-context` command.
+
+    ```console
+    kubectl config set-context --current --namespace=pets
+    ```
 
 1. View the status of the deployed pods with the [kubectl get pods][kubectl-get] command. 
 
@@ -148,8 +154,6 @@ When your application is created, a Kubernetes service exposes the application's
 ### Visit the store-front
 
 Once on the store page, you can add new items to your cart and check them out. To verify, visit the Azure Service in your portal to view the records of the transactions for your store app.
-
-<!-- Image of Storefront Checkout -->
 
 ## Delete the cluster
 

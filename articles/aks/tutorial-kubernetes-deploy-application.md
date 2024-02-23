@@ -214,6 +214,8 @@ When the application runs, a Kubernetes service exposes the application front en
 
 3. View the application in action by opening a web browser to the external IP address of your service.
 
+    :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
+
 If the application doesn't load, it might be an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If you can't pull the container images, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ### Azure Portal
@@ -221,10 +223,12 @@ If the application doesn't load, it might be an authorization problem with your 
 Navigate to your Azure Portal to find your deployment information.
 
 1. Open your [Resource Group][azure-rg] on the Azure Portal.
-2. Navigate to the Kubernetes service for your cluster
-3. Select `Services and Ingress` under `Kubernetes Resources`
-4. Copy the External IP shown in the column for store-front.
-5. Paste the IP into your browser to visit your store page.
+1. Navigate to the Kubernetes service for your cluster
+1. Select `Services and Ingress` under `Kubernetes Resources`
+1. Copy the External IP shown in the column for store-front.
+1. Paste the IP into your browser to visit your store page.
+
+    :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
 ## Next steps
 
