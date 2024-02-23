@@ -394,7 +394,7 @@ job_id = response.id
 # The fine-tuning job will take some time to start and complete.
 
 print("Job ID:", response.id)
-print("Status:", response.id)
+print("Status:", response.status)
 print(response.model_dump_json(indent=2))
 ```
 
