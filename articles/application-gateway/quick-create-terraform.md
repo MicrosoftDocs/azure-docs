@@ -11,6 +11,7 @@ ms.service: application-gateway
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Terraform
