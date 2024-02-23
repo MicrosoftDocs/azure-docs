@@ -4,7 +4,7 @@ description: 'In this article, you create an Azure AI services resource using Te
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 4/14/2023
+ms.date: 2/23/2024
 ms.custom:
   - devx-track-terraform
   - ignite-2023

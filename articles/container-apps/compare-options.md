@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 06/10/2022
+ms.date: 02/23/2024
 ms.author: cshoe
 ms.custom: mode-other
 ---
