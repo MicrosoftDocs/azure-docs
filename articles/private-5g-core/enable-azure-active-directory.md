@@ -12,9 +12,6 @@ ms.custom: template-how-to
 
 # Enable Microsoft Entra ID for local monitoring tools
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
 Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Microsoft Entra authentication to improve security in your deployment.
 
 In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Microsoft Entra ID to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
@@ -132,7 +129,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
+    `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 

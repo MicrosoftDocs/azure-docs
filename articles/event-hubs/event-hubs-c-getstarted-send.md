@@ -152,7 +152,7 @@ Congratulations! You have now sent messages to an event hub.
 ## Next steps
 Read the following articles:
 
-- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Event processor](event-processor-balance-partition-load.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 

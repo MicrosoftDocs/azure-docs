@@ -10,6 +10,9 @@ author: guywi-ms
 ---
 
 # Install the Log Analytics agent on Linux computers
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 This article provides details on installing the Log Analytics agent on Linux computers hosted in other clouds or on-premises.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]

@@ -88,6 +88,7 @@ Update the below registry settings for iSCSI initiator on Windows.
 |Disables R2T flow control     |InitialR2T=0         |
 |Enables immediate data     |ImmediateData=1         |
 |Sets timeout value for WMI requests to 30 seconds     |WMIRequestTimeout = 30 seconds         |
+|Sets timeout value for link down time to 30 seconds     |LinkDownTime = 30 seconds         |
 
 
 In cluster configurations, ensure iSCSI initiator names unique across all nodes that are sharing volumes. In Windows, you can update them via iSCSI Initiator app.
@@ -104,7 +105,16 @@ In cluster configurations, ensure iSCSI initiator names unique across all nodes 
 
 #### Linux
 
-Update /etc/iscsi/iscsid.conf file with the following values:
+Update the following settings with recommended values in global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory) on the client before connecting any volumes to it. When a volume is connected, a node is created along with a configuration file specific to that node (for example on Ubuntu, it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected one or more volumes to the client before updating global configuration file, update the node specific configuration file for each volume directly or using the following command:
+
+sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value
+
+Where 
+- $volume_iqn: Elastic SAN volume IQN
+- $portal_hostname: Elastic SAN volume portal hostname
+- $port: 3260
+- $iscsi_setting_name: parameter for each setting listed below
+- $setting_value: value recommended for each setting below
 
 |Description  |Parameter and value  |
 |---------|---------|

@@ -121,8 +121,12 @@ items:
           items:
           - name: Receive events from namespace topics (Java)
             href: receive-events-from-namespace-topics-java.md         
-          - name: Publish and subscribe to events using namespace topics (CLI)
-            href: publish-events-using-namespace-topics.md
+          - name: Publish and subscribe to events using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-events-using-namespace-topics.md
+            - name: Azure portal
+              href: publish-events-namespace-topics-portal.md
           - name: Send and pull messages
             items:
             - name: .NET
@@ -130,7 +134,11 @@ items:
         - name: Push delivery
           items:
           - name: Publish and deliver events using namespace topics
-            href: publish-deliver-events-with-namespace-topics.md
+            items:
+            - name: Azure CLI
+              href: publish-deliver-events-with-namespace-topics.md
+            - name: Azure portal
+              href: publish-deliver-events-with-namespace-topics-portal.md
       - name: Concepts        
         items:
         - name: Terminology 
