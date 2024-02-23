@@ -27,7 +27,7 @@
       href: quickstart-wordpress.md
     - name: Deploy a custom container
       href: quickstart-custom-container.md
-    - name: Use ARM template
+    - name: Deploy using ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
 - name: Deployment and configuration
@@ -74,8 +74,6 @@
               href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
-        - name: Use cloud sync
-          href: deploy-content-sync.md
     - name: Authentication for deployment
       href: deploy-authentication-types.md
     - name: Set deployment credentials
@@ -291,8 +289,6 @@
       href: configure-basic-auth-disable.md
     - name: Security
       items:
-        - name: Security recommendations
-          href: security-recommendations.md
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
         - name: About OS and runtime patching

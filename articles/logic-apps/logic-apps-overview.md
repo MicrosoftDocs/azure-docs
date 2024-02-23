@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.custom: mvc, contperf-fy21q4, engagement-fy23
+ms.custom: mvc, engagement-fy23
 ms.date: 01/10/2024
 ---
 

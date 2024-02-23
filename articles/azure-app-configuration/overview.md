@@ -52,8 +52,8 @@ The easiest way to add an App Configuration store to your application is through
 | ASP.NET Core                      | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET Core | ASP.NET Core [quickstart](./quickstart-aspnet-core-app.md) |
 | .NET Framework and ASP.NET        | App Configuration [builder](https://go.microsoft.com/fwlink/?linkid=2074663) for .NET                            | .NET Framework [quickstart](./quickstart-dotnet-app.md)    |
 | Java Spring                       | App Configuration [provider](https://go.microsoft.com/fwlink/?linkid=2180917) for Spring Cloud                   | Java Spring [quickstart](./quickstart-java-spring-app.md)  |
-| JavaScript/Node.js                | App Configuration [client](https://go.microsoft.com/fwlink/?linkid=2103664) for JavaScript                       | Javascript/Node.js [quickstart](./quickstart-javascript.md)|
-| Python                            | App Configuration [client](https://go.microsoft.com/fwlink/?linkid=2103727) for Python                           | Python [quickstart](./quickstart-python.md)                |
+| JavaScript/Node.js                | App Configuration [provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider) for JavaScript                       | Javascript/Node.js [quickstart](./quickstart-javascript-provider.md)|
+| Python                            | App Configuration [provider](https://pypi.org/project/azure-appconfiguration-provider/) for Python                           | Python [quickstart](./quickstart-python-provider.md))                |
 | Other                             | App Configuration [REST API](/rest/api/appconfiguration/)                                                        | None                                                       |
 
 ## Next steps

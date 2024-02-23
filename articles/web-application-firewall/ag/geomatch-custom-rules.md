@@ -278,4 +278,5 @@ If you're using the Geomatch operator, the selectors can be any of the following
 
 ## Next steps
 
-After you learn about custom rules, [create your own custom rules](create-custom-waf-rules.md).
+- [Create your own custom rules](create-custom-waf-rules.md)
+- [Use Azure WAF geomatch custom rules to enhance network security](../geomatch-custom-rules-examples.md)

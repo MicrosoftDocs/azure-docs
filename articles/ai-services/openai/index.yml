@@ -48,6 +48,8 @@ landingContent:
              url: use-your-data-quickstart.md
            - text: Whisper (preview)
              url: whisper-quickstart.md
+           - text: Text to speech (preview)
+             url: text-to-speech-quickstart.md
       - linkListType: tutorial
         links:
          - text: Embeddings
@@ -62,6 +64,8 @@ landingContent:
         links:
           - text: Quota
             url: ./how-to/quota.md
+          - text: Dynamic quota
+            url: ./how-to/dynamic-quota.md
           - text: Provisioned Throughput Units (PTU)
             url: ./concepts/provisioned-throughput.md
           - text: Content filtering

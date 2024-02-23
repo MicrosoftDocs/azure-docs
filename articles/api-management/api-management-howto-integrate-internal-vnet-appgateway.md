@@ -9,8 +9,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 04/17/2023
-ms.custom: engagement-fy23,devx-track-azurepowershell,contperf-fy21q4
-
+ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 

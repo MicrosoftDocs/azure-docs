@@ -33,6 +33,8 @@
 #- name: API governance
 - name: API discovery and consumption
   items:
+      - name: Enable API Center portal
+        href: enable-api-center-portal.md
       - name: Use VS Code extension
         href: use-vscode-extension.md
       - name: Discover APIs with GitHub Copilot Chat

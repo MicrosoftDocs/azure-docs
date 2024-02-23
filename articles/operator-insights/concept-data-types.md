@@ -17,7 +17,7 @@ A Data Product ingests data from one or more sources, digests and enriches this 
 
 A data type is used to refer to an individual data source.  Data types can be from outside the Data Product, such as from a network element. Data types can also be created within the Data Product itself by aggregating or enriching information from other data types.
 
-Data Product operators can choose which data types to use and the data retention period for each data type.
+Data Product operators can choose the data retention period for each data type.
 
 ## Data type contents
 
@@ -33,7 +33,6 @@ Data types are presented as child resources of the Data Product within the Azure
 
 :::image type="content" source="media/concept-data-types/data-types.png" alt-text="Screenshot of Data Types portal page.":::
 
-- Data Product operators can turn off individual data types to avoid incurring processing and storage costs associated with a data type that isn't valuable for their specific use cases.
-- Data Product operators can configure different data retention periods for each data type as shown in the Data Retention page. For example, data types containing personal data are typically configured with a shorter retention period to comply with privacy legislation.
+Data Product operators can configure different data retention periods for each data type as shown in the Data Retention page. For example, data types containing personal data are typically configured with a shorter retention period to comply with privacy legislation.
 
   :::image type="content" source="media/concept-data-types/data-types-data-retention.png" alt-text="Screenshot of Data Types Data Retention portal page.":::

@@ -7,7 +7,7 @@ ms.service: deployment-environments
 ms.topic: how-to 
 ms.date: 11/10/2023
 
-#customer intent: As a developer, I want automatically delete my environment on a specific date so that I can keep resources current.
+# Customer intent: As a developer, I want automatically delete my environment on a specific date so that I can keep resources current.
 
 ---
 

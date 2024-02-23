@@ -68,18 +68,17 @@ To use a smart card to authenticate to Microsoft Entra ID, you must first [confi
 
 ## Session host authentication
 
-If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
-
+If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports. Some clients might require a specific version to be used, which you can find in the link for each authentication type.
 
 |Client  |Supported authentication type(s)  |
 |---------|---------|
 |Windows Desktop client    | Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)               |
 |Azure Virtual Desktop Store app     |  Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)           |
 |Remote Desktop app     |  Username and password       |
-|Web client    | Username and password        |
-|Android client   | Username and password        |
-|iOS client     |   Username and password      |
-|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.        |
+|Web client    | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
+|Android client   | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
+|iOS client     |   Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)      |
+|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).

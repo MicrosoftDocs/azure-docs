@@ -1135,7 +1135,7 @@ items:
       - name: Download Storage Explorer
         href: https://azure.microsoft.com/features/storage-explorer/
       - name: Get started with Storage Explorer
-        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Sign in to Storage Explorer
         href: ../common/storage-explorer-sign-in.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer networking
@@ -1157,13 +1157,13 @@ items:
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer manage Azure Blob storage
-        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer create file shares
-        href: ../../vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer accessibility
-        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Blob storage on Microsoft Q&A
       href: /answers/topics/azure-blob-storage.html
     - name: Blob storage on Stack Overflow
@@ -1457,7 +1457,7 @@ items:
       - name: Download Storage Explorer
         href: https://azure.microsoft.com/features/storage-explorer/
       - name: Get started with Storage Explorer
-        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
@@ -1467,13 +1467,13 @@ items:
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer manage Azure Blob storage
-        href: ../../vs-azure-tools-storage-explorer-blobs.md
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md
       - name: Storage Explorer create file shares
-        href: ../../vs-azure-tools-storage-explorer-files.md
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer accessibility
-        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow

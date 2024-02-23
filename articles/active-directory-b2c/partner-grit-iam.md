@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
 
-#customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C authentication with the Grit IAM B2B2C solution. I need to provide secure and user-friendly identity and access management for my customers.
+# Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C authentication with the Grit IAM B2B2C solution. I need to provide secure and user-friendly identity and access management for my customers.
 ---
 
 # Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C

@@ -7,8 +7,7 @@ ms.subservice: apache-cassandra
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: ignite-2022
+ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a keyspace or table for Azure Cosmos DB - API for Cassandra

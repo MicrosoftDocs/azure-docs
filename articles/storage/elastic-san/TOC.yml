@@ -24,6 +24,10 @@ items:
     href: elastic-san-shared-volumes.md
   - name: Encryption
     href: elastic-san-encryption-overview.md
+  - name: Metrics
+    href: elastic-san-metrics.md
+  - name: Reliability
+    href: ../../reliability/reliability-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
 - name: How to
   items:
   - name: Deploy an Elastic SAN

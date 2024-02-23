@@ -3,7 +3,6 @@ title: Understand your Microsoft Customer Agreement invoice in Azure
 description: Learn how to read and understand your Microsoft Customer Agreement bill in Azure
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

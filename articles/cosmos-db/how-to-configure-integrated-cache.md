@@ -4,7 +4,6 @@ description: Learn how to configure the Azure Cosmos DB integrated cache
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews

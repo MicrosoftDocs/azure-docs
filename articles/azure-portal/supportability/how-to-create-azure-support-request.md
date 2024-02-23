@@ -90,7 +90,11 @@ Next, we collect more details about the problem. Providing thorough and detailed
 
    In some cases, you may see additional options. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 
-1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans) and the country/region in which you're located, including the timing of business hours in that country/region.
+1. In the **Support method** section, select the **Support plan**,  the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans) and the country/region in which you're located, including the timing of business hours in that country/region.
+
+   > [!TIP]
+   > To add a support plan that requires an **Access ID** and **Contract ID**, select **Help + Support** > **Support plans** > **Link support benefits**. When a limited support plan expires or has no support incidents remaining, it won't be available to select.
+
 
 1. Provide your preferred contact method, your availability, and your preferred support language. Confirm that your country/region setting is accurate, as this setting affects the business hours in which a support engineer can work on your request.
 

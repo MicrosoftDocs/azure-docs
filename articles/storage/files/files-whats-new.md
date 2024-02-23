@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/28/2024
+ms.date: 02/01/2024
 ms.author: kendownie
 ---
 
@@ -16,9 +16,13 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2024 quarter 1 (January, February, March)
 
+#### Metadata caching for premium SMB file shares is in public preview
+
+Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+
 #### Snapshot support for NFS Azure premium file shares is generally available
 
-Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
+Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level snapshot management operations via the Azure portal, REST API, Azure PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 #### Sync upload performance improvements for Azure File Sync
 

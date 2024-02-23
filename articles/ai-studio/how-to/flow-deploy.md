@@ -151,7 +151,7 @@ This step allows you to configure the basic settings of the deployment.
 |Virtual machine| The VM size to use for the deployment.|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades.|
 |Inference data collection| If you enable this, the flow inputs and outputs are auto collected in an Azure Machine Learning data asset, and can be used for later monitoring.|
-|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into Azure AI resource default Application Insights.|
+|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into Azure AI hub resource default Application Insights.|
 
 After you finish the basic settings, you can directly **Review + Create** to finish the creation, or you can select **Next** to configure advanced settings.
 
@@ -171,7 +171,7 @@ The authentication method for the endpoint. Key-based authentication provides a 
 
 #### Identity type
 
-The endpoint needs to access Azure resources such as the Azure Container Registry or your Azure AI resource connections for inferencing. You can allow the endpoint permission to access Azure resources via giving permission to its managed identity.
+The endpoint needs to access Azure resources such as the Azure Container Registry or your Azure AI hub resource connections for inferencing. You can allow the endpoint permission to access Azure resources via giving permission to its managed identity.
 
 System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -180,7 +180,7 @@ You notice there's an option whether *Enforce access to connection secrets (prev
 
 ##### User-assigned
 
-When you create the deployment, Azure tries to pull the user container image from the Azure AI resource Azure Container Registry (ACR) and mounts the user model and code artifacts into the user container from the Azure AI resource storage account.
+When you create the deployment, Azure tries to pull the user container image from the Azure AI hub resource Azure Container Registry (ACR) and mounts the user model and code artifacts into the user container from the Azure AI hub resource storage account.
 
 If you created the associated endpoint with **User Assigned Identity**, the user-assigned identity must be granted the following roles before the deployment creation; otherwise, the deployment creation fails. 
 
@@ -226,7 +226,7 @@ You can grant all permissions in Azure portal UI by following steps.
 
 1. Select **Azure Machine Learning Workspace Connection Secrets Reader**, go to **Next**.
     > [!NOTE]
-    > The **Azure Machine Learning Workspace Connection Secrets Reader** role is a built-in role which has permission to get Azure AI resource connections. 
+    > The **Azure Machine Learning Workspace Connection Secrets Reader** role is a built-in role which has permission to get Azure AI hub resource connections. 
     >
     > If you want to use a customized role, make sure the customized role has the permission of `Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action`. Learn more about [how to create custom roles](../../role-based-access-control/custom-roles-portal.md#step-3-basics).
 
@@ -236,15 +236,15 @@ You can grant all permissions in Azure portal UI by following steps.
 
     For **user-assigned identity**, select **User-assigned managed identity**, and search by identity name.
 
-1. For **user-assigned** identity, you need to grant permissions to the Azure AI resource container registry and storage account as well. You can find the container registry and storage account in the Azure AI resource overview page in Azure portal.
+1. For **user-assigned** identity, you need to grant permissions to the Azure AI hub resource container registry and storage account as well. You can find the container registry and storage account in the Azure AI hub resource overview page in Azure portal.
        
     :::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of the overview page with storage and container registry highlighted." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
 
-    Go to the Azure AI resource container registry overview page, select **Access control**, and select **Add role assignment**, and assign **ACR pull |Pull container image** to the endpoint identity.
+    Go to the Azure AI hub resource container registry overview page, select **Access control**, and select **Add role assignment**, and assign **ACR pull |Pull container image** to the endpoint identity.
 
-    Go to the Azure AI resource default storage overview page, select **Access control**, and select **Add role assignment**, and assign **Storage Blob Data Reader** to the endpoint identity.
+    Go to the Azure AI hub resource default storage overview page, select **Access control**, and select **Add role assignment**, and assign **Storage Blob Data Reader** to the endpoint identity.
 
-1. (optional) For **user-assigned** identity, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to grant **Workspace metrics writer** role of Azure AI resource to the identity as well.
+1. (optional) For **user-assigned** identity, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to grant **Workspace metrics writer** role of Azure AI hub resource to the identity as well.
 
 ## Check the status of the endpoint
 

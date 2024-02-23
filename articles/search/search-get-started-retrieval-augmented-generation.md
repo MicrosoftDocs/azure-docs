@@ -75,15 +75,15 @@ In this quickstart:
 
 1. Provide an index name that's unique in your search service.
 
-1. Check **Add vector search to this search index.**
+1. Check **Add vector search to this search index.** This option tokenizes your content and generates embeddings.
 
-1. Select **Azure OpenaI - text-embedding-ada-002**.
+1. Select **Azure OpenaI - text-embedding-ada-002**. This embedding model accepts a maximum of 8192 tokens for each chunk. Data chunking is internal and nonconfigurable.
 
 1. Check the acknowledgment that Azure AI Search is a billable service. If you're using an existing search service, there's no extra charge for vector store unless you add semantic ranking. If you're creating a new service, Azure AI Search becomes billable upon service creation. 
 
 1. Select **Next**.
 
-1. In Upload files, select the four files and then select **Upload**.
+1. In Upload files, select the four files and then select **Upload**. File size limit is 16 MB.
 
 1. Select **Next**.
 
@@ -97,27 +97,29 @@ In this quickstart:
 
 ## Chat with your data
 
-1. Review advanced settings that determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are provided to the model to generate its response.
+The playground gives you options for configuring and monitoring chat. On the right, model configuration determines which model formulates an answer using the search results from Azure AI Search. The input token progress indicator keeps track of the token count of the question you submit.
 
-   Strictness determines whether the model supplements the query with its own information. Level of 5 is no supplementation. Only your grounding data is used, which means the search engine plays a large role in the quality of the response. Semantic ranking can be helpful in this scenario because the ranking models do a better job of inferring the intent of the query.
+Advanced settings on the left determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are provided to the model to generate its response. 
 
-   Lower levels of strictness produce more verbose answers, but might also include information that isn't in your index. 
++ Strictness level 5 means no supplementation. Only your grounding data is used, which means the search engine plays a large role in the quality of the response. Semantic ranking can be helpful in this scenario because the ranking models do a better job of inferring the intent of the query. Lower levels of strictness produce more verbose answers, but might also include information that isn't in your index.
 
-   :::image type="content" source="media/search-get-started-rag/azure-openai-studio-advanced-settings.png" alt-text="Screenshot of the advanced settings.":::
++ Retrieved documents are the number of matching search results used to answer the question. It's capped at 20 to minimize latency and to stay under the model input limits.
 
-1. Start with these settings:
+  :::image type="content" source="media/search-get-started-rag/azure-openai-studio-advanced-settings.png" alt-text="Screenshot of the advanced settings.":::
+
+1. Start with these advanced settings:
 
    + Verify the **Limit responses to your data content** option is selected.
    + Strictness set to 3 or 4.
-   + Retrieved documents set to 20.  Given chunk sizes of 1024 tokens, a setting of 20 gives you roughly 20,000 tokens to use for generating responses. The tradeoff is query latency, but you can experiment with chat replay to find the right balance.
+   + Retrieved documents set to 20.  Maximum documents give the model more information to work with when generating responses. The tradeoff for maximum documents is increased query latency, but you can experiment with chat replay to find the right balance. 
 
 1. Send your first query. The chat models perform best in question and answer exercises. For example, "who gave the Gettysburg speech" or "when was the Gettysburg speech delivered".
 
    More complex queries, such as "why was Gettysburg important", perform better if the model has some latitude to answer (lower levels of strictness) or if semantic ranking is enabled.
 
-   Queries that require deeper analysis or language understanding, such as "how many speeches are in the vector store" or "what's in this vector store", will probably fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The return payload might be insufficient for handling an open-ended question.
+   Queries that require deeper analysis or language understanding, such as "how many speeches are in the vector store", will probably fail. Remember that the search engine looks for chunks having exact or similar terms, phrases, or construction to the query. And while the model might understand the question, if search results are chunks from speeches, it's not the right information to answer that kind of question.
 
-   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means adopting an approach that allows more than 20 chunks. You could modify the generated code (assuming you [deploy the solution](/azure/ai-services/openai/use-your-data-quickstart#deploy-your-model)) to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) on your queries.
+   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store. You could modify the generated code (assuming you [deploy the solution](/azure/ai-services/openai/use-your-data-quickstart#deploy-your-model)) to allow for [service-side exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) on your queries.
 
    :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png" alt-text="Screenshot of a chat session.":::
 
@@ -125,7 +127,7 @@ In this quickstart:
 
 In the playground, it's easy to start over with different data and configurations and compare the results. If you didn't try **Hybrid + semantic** the first time, perhaps try again with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-We also provide code samples that demonstrate the full range of APIs for RAG applications. Samples are available in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
+If you need customization and tuning that the playground can't provide, take a look at code samples that demonstrate the full range of APIs for RAG applications based on Azure AI Search. Samples are available in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
 
 ## Clean up
 

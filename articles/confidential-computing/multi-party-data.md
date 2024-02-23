@@ -12,14 +12,11 @@ ms.service: virtual-machines
 
 ms.subservice: confidential-computing
 
-ms.workload: infrastructure
-
 ms.topic: conceptual
 
 ms.date: 04/20/2023
 
 ms.author: grbury
-
 ---
 
 # Cleanroom and Multi-party Data Analytics

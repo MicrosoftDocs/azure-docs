@@ -4,11 +4,9 @@ description: Configure SAP ASCS/SCS and SAP ERS with SAP HANA high availability 
 services: virtual-machines-linux,virtual-network,storage
 author: apmsft
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 08/16/2022
 ms.author: ampatel
 ---
