@@ -22,11 +22,11 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
 
@@ -44,9 +44,9 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         {
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
-                SearchEndpoint = new Uri(searchEndpoint),
-                Key = searchKey,
-                IndexName = searchIndex,
+                AZURE_AI_SEARCH_ENDPOINT = new Uri(AZURE_AI_SEARCH_ENDPOINT),
+                Key = AZURE_AI_SEARCH_API_KEY,
+                IndexName = AZURE_AI_SEARCH_INDEX,
             },
         }
     },
@@ -128,11 +128,11 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
 
@@ -151,9 +151,9 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         {
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
-                SearchEndpoint = new Uri(searchEndpoint),
-                Key = searchKey,
-                IndexName = searchIndex,
+                AZURE_AI_SEARCH_ENDPOINT = new Uri(AZURE_AI_SEARCH_ENDPOINT),
+                Key = AZURE_AI_SEARCH_API_KEY,
+                IndexName = AZURE_AI_SEARCH_INDEX,
             },
         }
     }

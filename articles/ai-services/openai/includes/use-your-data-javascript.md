@@ -38,11 +38,11 @@ const { OpenAIClient } = require("@azure/openai");
 const { DefaultAzureCredential } = require("@azure/identity")
 
 // Set the Azure and AI Search values from environment variables
-const endpoint = process.env["AOAIEndpoint"];
-const azureApiKey = process.env["AOAIKey"];
-const searchEndpoint = process.env["SearchEndpoint"];
-const searchKey = process.env["SearchKey"];
-const searchIndex = process.env["SearchIndex"];
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const AZURE_AI_SEARCH_ENDPOINT = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const AZURE_AI_SEARCH_API_KEY = process.env["AZURE_AI_SEARCH_API_KEY"];
+const AZURE_AI_SEARCH_INDEX = process.env["AZURE_AI_SEARCH_INDEX"];
 const deploymentId = process.env["AOAIDeploymentId"];
 
 async function main() {
@@ -60,9 +60,9 @@ async function main() {
         {
           type: "AzureCognitiveSearch",
           parameters: {
-            endpoint: searchEndpoint,
-            key: searchKey,
-            indexName: searchIndex,
+            endpoint: AZURE_AI_SEARCH_ENDPOINT,
+            key: AZURE_AI_SEARCH_API_KEY,
+            indexName: AZURE_AI_SEARCH_INDEX,
           },
         },
       ],

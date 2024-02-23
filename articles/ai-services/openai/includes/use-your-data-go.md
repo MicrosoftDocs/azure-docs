@@ -47,18 +47,18 @@ ms.date: 08/29/2023
    )
    
    func main() {
-   	azureOpenAIKey := os.Getenv("AOAIKey")
+   	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
    	modelDeploymentID := os.Getenv("AOAIDeploymentId")
    
    	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
-   	azureOpenAIEndpoint := os.Getenv("AOAIEndpoint")
+   	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
    
    	// Azure AI Search configuration
-   	searchIndex := os.Getenv("SearchIndex")
-   	searchEndpoint := os.Getenv("SearchEndpoint")
-   	searchAPIKey := os.Getenv("SearchKey")
+   	AZURE_AI_SEARCH_INDEX := os.Getenv("AZURE_AI_SEARCH_INDEX")
+   	AZURE_AI_SEARCH_ENDPOINT := os.Getenv("AZURE_AI_SEARCH_ENDPOINT")
+   	searchAPIKey := os.Getenv("AZURE_AI_SEARCH_API_KEY")
    
-   	if azureOpenAIKey == "" || modelDeploymentID == "" || azureOpenAIEndpoint == "" || searchIndex == "" || searchEndpoint == "" || searchAPIKey == "" {
+   	if azureOpenAIKey == "" || modelDeploymentID == "" || azureOpenAIEndpoint == "" || AZURE_AI_SEARCH_INDEX == "" || AZURE_AI_SEARCH_ENDPOINT == "" || searchAPIKey == "" {
    		fmt.Fprintf(os.Stderr, "Skipping example, environment variables missing\n")
    		return
    	}
@@ -89,8 +89,8 @@ ms.date: 08/29/2023
    				//
    				// Quote from here: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data
    				Parameters: &azopenai.AzureCognitiveSearchChatExtensionParameters{
-   					Endpoint:  &searchEndpoint,
-   					IndexName: &searchIndex,
+   					Endpoint:  &AZURE_AI_SEARCH_ENDPOINT,
+   					IndexName: &AZURE_AI_SEARCH_INDEX,
    					Authentication: &azopenai.OnYourDataAPIKeyAuthenticationOptions{
    						Key: &searchAPIKey,
    					},

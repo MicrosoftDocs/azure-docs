@@ -43,8 +43,6 @@ When customizing the app, we recommend:
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
-The source code for this web app is provided as-is. Web app customizations or custom deployments are not officially supported by Microsoft. See the web app support page on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/SUPPORT.md) for more information.
-
 ### Updating the web app
 
 We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
