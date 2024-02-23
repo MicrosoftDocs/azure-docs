@@ -71,7 +71,11 @@ Microsoft Security DevOps uses the following Open Source tools:
         # MSDO runs on windows-latest.
         # ubuntu-latest also supported
         runs-on: windows-latest
-
+    
+        permissions:
+          contents: read
+          id-token: write
+    
         steps:
 
           # Checkout your code repository to scan
