@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
-If a user wants rotated credentials to be stored in their own key vault, the key vault needs to be configured for the Nexus cluster. The user adds a role assignment to the customer key vault to allow the credential manager to write updated credentials and associates the key vault as a secret archive for each cluster.
+If a user wants rotated credentials to be stored in their own key vault, the key vault needs to be configured for the Nexus cluster. The user adds a role assignment to the Customer Key Vault to allow the credential manager to write updated credentials and associates the key vault as a secret archive for each cluster.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 
 1. Assign the *Operator Nexus Key Vault Writer Service Role* to the Nexus User Resource Provider App Name & Management App Name. 
 
-  - Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM) view, select to add a role assignment. See the tables below for details role assignment details. For AT&T, use the **_Production_** App Names.
+  - Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM) view, select to add a role assignment. For AT&T, use the **_Production_** App Names.
 
    **_Built-in Role_**
 
