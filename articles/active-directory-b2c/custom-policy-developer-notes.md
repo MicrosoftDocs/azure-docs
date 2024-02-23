@@ -42,7 +42,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
 | [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
 | [Smart lockout](threat-management.md) | GA | GA | |
-| [CAPTCHA](add-captcha.md) | Preview | Preview | You can enable it during sign up or sign in for Local accounts. |
+| [CAPTCHA](add-captcha.md) | Preview | Preview | You can enable it during sign-up or sign-in for Local accounts. |
 
 ## OAuth 2.0 application authorization flows
 
