@@ -92,8 +92,8 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};Authentication={authentication};Encrypt=yes;'
     
     # For user-assigned managed identity.
-    # user = os.getenv('AZURE_SQL_USER')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};UID={user};Authentication={authentication};Encrypt=yes;'
+    # client_id = os.getenv('AZURE_SQL_USER')
+    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};UID={client_id};Authentication={authentication};Encrypt=yes;'
     
     conn = pyodbc.connect(connString)
     ```
