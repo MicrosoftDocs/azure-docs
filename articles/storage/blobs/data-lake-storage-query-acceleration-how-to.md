@@ -33,27 +33,27 @@ Query acceleration enables applications and analytics frameworks to dramatically
   ### [PowerShell](#tab/azure-powershell)
 
   Not applicable
-  
+ 
   ### [.NET v12 SDK](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download)
-  
+ 
   ### [Java v12 SDK](#tab/java)
 
   - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
-    
+
   - [Apache Maven](https://maven.apache.org/download.cgi)
-  
+
     > [!NOTE]
     > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
   ### [Python v12 SDK](#tab/python)
 
   [Python](https://www.python.org/downloads/) 3.8 or greater.
-  
+
   ### [Node.js v12 SDK](#tab/nodejs)
 
   There are no additional prerequisites required to use the Node.js SDK.
-  
+
 ---
 
 ## Set up your environment
@@ -539,3 +539,4 @@ async function queryDvds(blob)
 
 - [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 - [Query acceleration SQL language reference](query-acceleration-sql-reference.md)
+- [Query Blob Contents (REST API)](https://learn.microsoft.com/en-us/rest/api/storageservices/query-blob-contents)
