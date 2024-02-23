@@ -30,6 +30,7 @@ prerequisites:
       - A system-assigned managed identity for the function app. [Add a system-assigned identity](../app-service/overview-managed-identity.md#add-a-system-assigned-identity)
     - [Azure Functions Core Tools](../azure-functions/functions-run-local.md)
     - To perform the steps in this article, install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
+      ## Prerequisite check
   dependencies:
     - |
       In a terminal or command window, store the names of your Azure Functions function app, Azure Cosmos DB account and resource group as shell variables named ``functionName``, ``cosmosName``, and ``resourceGroupName``.
