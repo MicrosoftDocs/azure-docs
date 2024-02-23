@@ -33,11 +33,11 @@ Query acceleration enables applications and analytics frameworks to dramatically
   ### [PowerShell](#tab/azure-powershell)
 
   Not applicable
- 
+
   ### [.NET v12 SDK](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download)
- 
+
   ### [Java v12 SDK](#tab/java)
 
   - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
