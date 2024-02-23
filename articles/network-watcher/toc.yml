@@ -50,7 +50,7 @@
   - name: VPN troubleshoot
     href: vpn-troubleshoot-overview.md
   - name: Packet capture
-    href: network-watcher-packet-capture-overview.md
+    href: packet-capture-overview.md
   - name: Effective security rules
     href: effective-security-rules-overview.md
   - name: NSG flow logs

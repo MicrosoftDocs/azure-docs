@@ -1,5 +1,9 @@
 - name: NoSQL documentation
   href: index.yml
+- name: Overview
+  items:
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: .NET
@@ -979,8 +983,6 @@
   items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/?products=azure-cosmos-db
-    - name: FAQ
-      href: ../faq.yml?toc=/azure/cosmos-db/sql/toc.json
     - name: Whitepapers
       href: ../whitepapers.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Partners
