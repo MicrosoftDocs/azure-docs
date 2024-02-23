@@ -13,28 +13,28 @@ author: msangapu-msft
 > Automatic scaling is available for all app types: Windows, Linux, and Windows container. Automatic scaling is not supported for deployment slot traffic.
 >
 
-Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
+Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
 
-A comparison of scale out and scale in options available on App Service:
+A comparison of scale-out and scale in options available on App Service:
 
 | | **Manual** | **Autoscale** | **Automatic scaling** |
 | --- | --- | --- | --- |
 | Available pricing tiers	| Basic and Up | Standard and Up | Premium V2 (P1V2, P2V2, P3V2) and Premium V3 (P0V3, P1V3, P2V3, P3V3, P1MV3, P2MV3, P3MV3, P4MV3, P5MV3) pricing tiers|
-|Rule-based scaling	|No	|Yes	|No, the platform manages the scale out and in based on HTTP traffic. |
+|Rule-based scaling	|No	|Yes	|No, the platform manages the scale-out and in based on HTTP traffic. |
 |Schedule-based scaling	|No	|Yes	|No|
-|Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |
+|Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale-out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |
 |Prewarmed instances	|No	|No	|Yes (default 1) |
 |Per-app maximum	|No	|No	|Yes|
-|Metric|?|?|automatic-scaling-instance-count (includes pre-warmed instances)|
+|Metric|?|?|automatic-scaling-instance-count (includes prewarmed instances)|
 
 ## How automatic scaling works
 
-You enable automatic scaling for an App Service Plan and configure a range of instances for each of the web apps. As your web app starts receiving HTTP traffic, App Service monitors the load and adds instances. Resources may be shared when multiple web apps within an App Service Plan are required to scale out simultaneously.
+You enable automatic scaling for an App Service Plan and configure a range of instances for each of the web apps. As your web app starts receiving HTTP traffic, App Service monitors the load and adds instances. Resources may be shared when multiple web apps within an App Service Plan are required to scale-out simultaneously.
 
 
 
 
-Here are a few scenarios where you should scale out automatically:
+Here are a few scenarios where you should scale-out automatically:
 
 - You don't want to set up autoscale rules based on resource metrics.
 - You want your web apps within the same App Service Plan to scale differently and independently of each other.
@@ -56,7 +56,7 @@ __Maximum burst__ is the highest number of instances that your App Service Plan 
 
 #### [Azure portal](#tab/azure-portal)
 
-To enable automatic scaling, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Select **Automatic**, update the __Maximum burst__ value, and select the **Save** button.
+To enable automatic scaling, navigate to the web app's left menu and select **scale-out (App Service Plan)**. Select **Automatic**, update the __Maximum burst__ value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-automatic-scaling.png" alt-text="Automatic scaling in Azure portal" :::
 
@@ -80,7 +80,7 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the minimum number of web app instances, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Update the **Always ready instances** value, and select the **Save** button.
+To set the minimum number of web app instances, navigate to the web app's left menu and select **scale-out (App Service Plan)**. Update the **Always ready instances** value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Screenshot of always ready instances" :::
 
@@ -97,7 +97,7 @@ The __maximum scale limit__ sets the maximum number of instances a web app can s
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the maximum number of web app instances, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Select **Enforce scale out limit**, update the **Maximum scale limit**, and select the **Save** button.
+To set the maximum number of web app instances, navigate to the web app's left menu and select **scale-out (App Service Plan)**. Select **Enforce scale-out limit**, update the **Maximum scale limit**, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Screenshot of maximum scale limit" :::
 
@@ -129,7 +129,7 @@ You can modify the number of prewarmed instances for an app using the Azure CLI.
 
 #### [Azure portal](#tab/azure-portal)
 
-To disable automatic scaling, navigate to the web app's left menu and select **Scale out (App Service Plan)**. Select **Manual**, and select the **Save** button.   
+To disable automatic scaling, navigate to the web app's left menu and select **scale-out (App Service Plan)**. Select **Manual**, and select the **Save** button.   
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Screenshot of manual scaling" :::
 
@@ -152,17 +152,17 @@ Once the load subsides, the platform initiates a review for potential scaling in
 
 Moreover, if multiple web applications are deployed within the same app service plan, the platform endeavors to allocate resources across available instances based on the load of each individual web application.
 
-## How do I get billed for pre-warmed instances?
+## How do I get billed for prewarmed instances?
 
-To understand how you're billed for pre-warmed instances, consider this scenario: Let's say your web app has five instances that are always ready, along with one pre-warmed instance set as the default.
+To understand how you're billed for prewarmed instances, consider this scenario: Let's say your web app has five instances that are always ready, along with one prewarmed instance set as the default.
 
-When your web app is idle and not receiving any HTTP requests, it runs with the five always-ready instances. During this time, you aren't billed for a pre-warmed instance because the always-ready instances aren't being used, and thus no pre-warmed instance is allocated.
+When your web app is idle and not receiving any HTTP requests, it runs with the five always-ready instances. During this time, you aren't billed for a prewarmed instance because the always-ready instances aren't being used, and thus no prewarmed instance is allocated.
 
-However, as soon as your web app starts receiving HTTP requests and the five always-ready instances become active, a pre-warmed instance is allocated, and billing for it begins.
+However, as soon as your web app starts receiving HTTP requests and the five always-ready instances become active, a prewarmed instance is allocated, and billing for it begins.
 
-If the rate of HTTP requests keeps increasing and App Service decides to scale beyond the initial five instances, it will start utilizing the pre-warmed instance. This means that when there are six active instances, a seventh instance is immediately provisioned to fill the pre-warmed buffer.
+If the rate of HTTP requests keeps increasing and App Service decides to scale beyond the initial five instances, it will start utilizing the prewarmed instance. This means that when there are six active instances, a seventh instance is immediately provisioned to fill the prewarmed buffer.
 
-This process of scaling and pre-warming continues until the maximum instance count for the app is reached. It's important to note that no instances are pre-warmed or activated beyond the maximum instance count.
+This process of scaling and prewarming continues until the maximum instance count for the app is reached. It's important to note that no instances are prewarmed or activated beyond the maximum instance count.
 
 <a name="Next Steps"></a>
 
