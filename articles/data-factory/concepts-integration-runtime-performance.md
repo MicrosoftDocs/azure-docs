@@ -29,24 +29,24 @@ If your data flow has many joins and lookups, you may want to use a **memory opt
 
 ## Cluster size
 
-Data flows distribute the data processing over different nodes in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of nodes in the compute environment. More nodes increase the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.
+Data flows distribute the data processing over different cores in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of cores in the compute environment. More cores increase the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.
 
-The default cluster size is four driver nodes and four worker nodes (small). As you process more data, larger clusters are recommended. Below are the possible sizing options:
+The default cluster size is four driver cores and four worker cores (small). As you process more data, larger clusters are recommended. Below are the possible sizing options:
 
-| Worker Nodes | Driver Nodes | Total Nodes | Notes |
+| Worker Cores | Driver Cores | Total Cores | Notes |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Small |
 | 8 | 8 | 16 | Medium |
-| 16 | 16 | 32 | |
+| 16 | 16 | 32 | Large|
 | 32 | 16 | 48 | |
-| 64 | 16 | 80 | Large |
+| 64 | 16 | 80 | |
 | 128 | 16 | 144 | |
 | 256 | 16 | 272 | |
 
 Data flows are priced at vcore-hrs meaning that both cluster size and execution-time factor into this. As you scale up, your cluster cost per minute will increase, but your overall time will decrease.
 
 > [!TIP]
-> There is a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there is a point where increasing the size of a cluster will stop improving performance. For example, If you have more nodes than partitions of data, adding additional nodes won't help. 
+> There is a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there is a point where increasing the size of a cluster will stop improving performance. For example, If you have more cores than partitions of data, adding additional cores won't help. 
 A best practice is to start small and scale up to meet your performance needs. 
 
 ## Custom shuffle partition

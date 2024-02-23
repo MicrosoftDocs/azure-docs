@@ -69,6 +69,8 @@ additionalContent:
               url: ../../firewall/detect-malware-with-sentinel.md
             - text: Detect new threats
               url: ../../web-application-firewall/waf-new-threat-detection.md
+            - text: Enhance network security using custom WAF geomatch rules
+              url: ../../web-application-firewall/geomatch-custom-rules-examples.md
         - title: Training
           links:
             - text: Introduction to Azure Firewall

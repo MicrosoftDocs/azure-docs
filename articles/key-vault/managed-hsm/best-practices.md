@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 01/04/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 
 # Customer intent: As a developer using Managed HSM, I want to know best practices for securing my managed HSM, so that I can implement them.

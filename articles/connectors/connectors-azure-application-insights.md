@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
-tags: connectors
 # Customer intent: As a developer, I want to get telemetry from an Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 

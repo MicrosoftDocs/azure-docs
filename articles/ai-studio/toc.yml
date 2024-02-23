@@ -8,6 +8,8 @@
   - name: What are AI services?
     href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
+  - name: Azure AI Studio architecture
+    href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
   - name: What's new in Azure AI Studio?
@@ -30,6 +32,8 @@
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot using Azure AI CLI and SDK
+    href: tutorials/deploy-copilot-sdk.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
@@ -59,6 +63,8 @@
       href: concepts/ai-resources.md
     - name: Create and manage an Azure AI hub resource
       href: how-to/create-azure-ai-resource.md
+    - name: Create an Azure AI hub resource from template
+      href: how-to/create-azure-ai-hub-template.md
     - name: Create an Azure AI project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -103,6 +109,8 @@
         href: how-to/flow-develop.md
       - name: Tune prompts using variants
         href: how-to/flow-tune-prompts-using-variants.md
+      - name: Process images in a flow
+        href: how-to/flow-process-image.md
     - name: Use prompt flow tools
       items:
       - name: Overview of prompt flow tools
