@@ -64,7 +64,7 @@ The following examples demonstrate how chunking strategies are applied to [NASA'
 
 ### Text Split skill example
 
-Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.dd) is in public preview. Use a preview REST API or an Azure SDK beta package for this scenario.
+Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is in public preview. Use a preview REST API or an Azure SDK beta package for this scenario.
 
 This section describes the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
 
