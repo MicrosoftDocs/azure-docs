@@ -18,7 +18,7 @@ ms.date: 02/23/2024
 > 
 > To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md), or  [migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection monitor in Azure Network Watcher before February 29, 2024.
 
-Connection monitor provides unified, end-to-end connection monitoring in Azure Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
 Here are some use cases for Connection monitor:
 
@@ -38,7 +38,7 @@ Here are some benefits of Connection monitor:
 * Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-:::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints and data storage locations.":::
+:::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
 
 To start using Connection monitor for monitoring, follow these steps: 
 
@@ -57,9 +57,9 @@ The following sections provide details for these steps.
  
 Connection monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
-### Agents for Azure Virtual Machines and virtual machine scale sets 
+### Agents for Azure virtual machines and virtual machine scale sets 
 
-To make Connection monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure Virtual Machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
+To make Connection monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
 You can install the Network Watcher extension when you create a virtual machine or a scale set. You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
@@ -102,7 +102,7 @@ The Log Analytics Windows agent can be multi-homed to send data to multiple work
 
 #### Enable the Network Performance Monitor solution for on-premises machines 
 
-To enable the Network Performance Monitor solution for on-premises machines, do the following: 
+To enable the Network Performance Monitor solution for on-premises machines, follow these steps: 
 
 1. In the Azure portal, go to **Network Watcher**.
 1. On the left pane, under **Monitoring**, select **Network Performance Monitor**. 
@@ -186,19 +186,19 @@ Connection monitors have the following scale limits:
 * Maximum sources and destinations per connection monitor: 100
 * Maximum test configurations per connection monitor: 20
 
-Monitoring coverage for Azure and Non Azure Resources: 
+Monitoring coverage for Azure and Non-Azure Resources: 
 
-Connection monitor now provides 5 different coverage levels for monitoring compound resources i.e. VNets, SubNets, and virtual machine scale sets. The coverage level is defined as the % of instances of a compound resource actually included in monitoring those resources as sources or destinations. 
-Users can manually select a coverage level from Low, Below Average, Average, Above Average, and Full to define an approximate % of instances to be included in monitoring the particular resource as an endpoint
+Connection monitor provides five different coverage levels for monitoring compound resources, that is, virtual networks, subnets, and scale sets. The coverage level is defined as the % of instances of a compound resource actually included in monitoring those resources as sources or destinations. 
+Users can manually select a coverage level from Low, Below Average, Average, Above Average, and Full to define an approximate % of instances to be included in monitoring the particular resource as an endpoint.
 
 ## Analyze monitoring data and set alerts
 
 After you create a connection monitor, sources check connectivity to destinations based on your test configuration.
 
-While monitoring endpoints, Connection monitor re-evaluates the status of endpoints once every 24 hours. Hence, in case a VM gets deallocated or is turned-off during a 24-hour cycle, Connection monitor would report an indeterminate state due to absence of data in the network path till the end of the 24-hour cycle before re-evaluating the status of the VM and reporting the VM status as deallocated. 
+While monitoring endpoints, Connection monitor reevaluates the status of endpoints once every 24 hours. Hence, in case a VM gets deallocated or is turned-off during a 24-hour cycle, Connection monitor would report an indeterminate state due to absence of data in the network path until the end of the 24-hour cycle before reevaluating the status of the VM and reporting the VM status as deallocated. 
 
   > [!NOTE]
-  >  In case of monitoring an Azure Virtual Machine Scale Set, instances of a particular scale set selected for monitoring (either by the user or picked up by default as part of the coverage level selected) might get deallocated or scaled down in the middle of the 24-hour cycle. In this particular time period, Connection monitor will not be able to recognize this action and thus end-up reporting an indeterminate state due to the absence of data. 
+  >  In case of monitoring a Virtual Machine Scale Set, instances of a particular scale set selected for monitoring (either by the user or picked up by default as part of the coverage level selected) might get deallocated or scaled down in the middle of the 24-hour cycle. In this particular time period, Connection monitor will not be able to recognize this action and thus end-up reporting an indeterminate state due to the absence of data. 
   >  Users are advised to allow random selection of virtual machine scale sets instances within coverage levels instead of selecting particular instances of scale sets for monitoring, to minimize the risks of non-discoverability of deallocated or scaled down virtual machine scale sets instances in a 24 hours cycle and lead to an indeterminate state of connection monitor.  
 
 ### Checks in a test
@@ -207,7 +207,7 @@ Depending on the protocol that you select in the test configuration, Connection 
 
 If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. You can set valid response codes by using PowerShell and Azure CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
-If you use TCP or ICMP, the service calculates the packet-loss percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you've enabled traceroute data for your network tests, you can view the hop-by-hop loss and latency for your on-premises network.
+If you use TCP or ICMP, the service calculates the packet-loss percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can view the hop-by-hop loss and latency for your on-premises network.
 
 
 ### States of a test
@@ -252,19 +252,19 @@ You can filter a list based on:
 
   :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection monitor." lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-For example, to view all tests in Connection monitor, where the source IP is 10.192.64.56, do the following:
+For example, to view all tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 
 1. Change the view to **Test**.
 1. In the **Search** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
-To show only failed tests in Connection monitor, where the source IP is 10.192.64.56, do the following:
+To show only failed tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the **Search** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
-To show only failed tests in Connection monitor, where the destination is outlook.office365.com, do the following:
+To show only failed tests in Connection monitor, where the destination is outlook.office365.com, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the **Search** box, enter **office.live.com**.
@@ -308,13 +308,11 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 
     * Select a test group, test configuration, source, or destination to view all tests in the entity.
 
-To view the trends in RTT and the percentage of failed checks for a test group, do the following:
+To view the trends in RTT and the percentage of failed checks for a test group, select the test group that you want to investigate. 
 
-* Select the test group that you want to investigate. 
+You can view and navigate between them as you would in the connection monitor: essentials, summary, table for test groups, sources, destinations, and test configurations. 
 
-   You can view and navigate between them as you would in the connection monitor: essentials, summary, table for test groups, sources, destinations, and test configurations. 
-
-To view the trends in RTT and the percentage of failed checks for a test, do the following:
+To view the trends in RTT and the percentage of failed checks for a test, follow these steps:
 
 1. Select the test that you want to investigate. You can view the network topology and the end-to-end trend charts for checks-failed percentage and round-trip time. 
 
@@ -346,7 +344,7 @@ In connection monitors that were created in the Connection monitor experience, d
 
 Metrics are generated according to monitoring frequency, and they describe aspects of a connection monitor at a particular time. Connection monitor metrics also have multiple dimensions, such as SourceName, DestinationName, TestConfiguration, and TestGroup. You can use these dimensions to visualize specific data and target it while defining alerts.
 
-Azure metrics currently allow a minimum granularity of 1 minute. If the frequency is less than 1 minute, aggregated results will be displayed.
+Azure metrics currently allow a minimum granularity of 1 minute. If the frequency is less than 1 minute, aggregated results are displayed.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection monitor." lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -364,9 +362,9 @@ When you use metrics, set the resource type as **Microsoft.Network/networkWatche
 
 You can create metric alerts on connection monitors by using the following methods: 
 
-* From Connection monitor, create metric alerts during the creation of connection monitors by using [the Azure portal](connection-monitor-preview-create-using-portal.md#). 
+* From Connection monitor, create metric alerts during the creation of connection monitors using [the Azure portal](connection-monitor-preview-create-using-portal.md#). 
 * From Connection monitor, create metric alerts by using **Configure Alerts** in the dashboard. 
-* From Azure monitor, create metric alerts by doing the following: 
+* From Azure monitor, create metric alerts by following these steps: 
 
     1. Select the connection monitor resource that you created in Connection monitor.
     1. Ensure that **Metric** is selected as the signal type for the connection monitor.
@@ -408,7 +406,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
     * Agent stopped.
     * Failed DNS resolution.
     * No application or listener listening on the destination port.
-    * Socket could not be opened.
+    * Socket couldn't be opened.
 * VM state issues: 
     * Starting
     * Stopping
@@ -442,7 +440,7 @@ The migration helps produce the following results:
 * Agents and firewall settings work as is. No changes are required. 
 
 * Existing connection monitors are mapped to Connection monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the latest Connection monitor, download a template to make changes to Connection monitor, and submit it via Azure Resource Manager. 
-* Azure Virtual Machines with the Network Watcher extension send data to both the workspace and the metrics. Connection monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent > ChecksFailedPercent and AverageRoundtripMs > RoundTripTimeMs.
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics get migrated to new metrics as ProbesFailedPercent > ChecksFailedPercent and AverageRoundtripMs > RoundTripTimeMs.
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
    * **Dashboards and integrations**: Requires manual editing of the metrics set. 
@@ -461,7 +459,7 @@ There are several reasons to migrate from Network Performance Monitor and Connec
 | Compound resources - Virtual networks, subnets, and on-premises custom networks | Performance monitoring supports subnets, on-premises networks, and logical network groups. Service connectivity monitoring and ExpressRoute support only on-premises and cross-workspace monitoring. | Not available | Available |
 | Connectivity metrics and dimensions measurements |	Not available | Loss, latency, and RTT. | Available |
 | Automation – PowerShell, the Azure CLI, Terraform | Not available | Available | Available |
-| Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and ExpressRoute do not support Linux. | Available | Available |
+| Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and ExpressRoute don't support Linux. | Available | Available |
 | Support for public, government, Mooncake, and air-gapped cloud | Available | Available | Available|
 
 ## Related content
