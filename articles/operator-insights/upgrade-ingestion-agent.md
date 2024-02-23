@@ -1,6 +1,6 @@
 ---
-title: Upgrade ingestion agents for Azure Operator Insights
-description: Learn how to upgrade Azure Operator Insights ingestion agents.
+title: Upgrade the Azure Operator Insights ingestion agent
+description: Learn how to upgrade the Azure Operator Insights ingestion agent to receive the latest new features or fixes.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
@@ -8,7 +8,7 @@ ms.service: operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
 
-#CustomerIntent: As a someone managing an agent that has already been set up, I want to upgrade it to receive the latest enhancements or receive fixes.
+#CustomerIntent: As a someone managing an agent that has already been set up, I want to upgrade it to receive the latest enhancements or fixes.
 ---
 # Upgrade Azure Operator Insights ingestion agents
 
@@ -33,7 +33,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
     sudo dnf install ./*.rpm
     ```
     Answer `y` when prompted.  
-1. Create a new configuration file based on the new sample, keeping values from the original. Follow specific instructions in the release notes for the upgrade to ensure the new configuration is generated correctly. 
+1. Make any changes to the configuration file described by your support contact or the documentation for the new version. Most upgrades don't require any configuration changes.
 1. Restart the agent.
     ```
     sudo systemctl restart az-aoi-ingestion.service
