@@ -8,6 +8,7 @@ ms.date: 01/27/2024
 ms.author: tomfitz
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 # Manage Azure resource groups by using Python
 
