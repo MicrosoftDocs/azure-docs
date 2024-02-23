@@ -89,7 +89,7 @@ landingContent:
           - text: Create an Azure support request
             url: supportability/how-to-create-azure-support-request.md
           - text: Manage an Azure support request
-            url: supportability/how-to-manage-azure-support-request.md
+            url: supportability/how-to-manage-azure-support-request.yml
 
   # Card
   - title: Reference
