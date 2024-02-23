@@ -7,40 +7,49 @@ ms.service: dev-box
 ms.topic: concept-article
 ms.date: 02/24/2024
 
-# Customer intent: As a platform admin, I want to understand what makes an ADE template AZD compatible, so that I can customize my ADE template (catalog items).
+# Customer intent: As a platform admin, I want to understand what makes an ADE template AZD compatible, so that I can customize my ADE template (environment definitions).
 
 ---
 
-# 
+# Working with Azure Developer CLI and Azure Deployment Environments
 
-In this article, you learn how to configure an AZD compatible catalog that contains a template for an environment… 
+In this article, you learn how Azure Developer CLI compatible templates differ from ADE environment definitions.
 
 ## What is the Azure Developer CLI?
 
-<!-- The Azure Developer CLI (azd) is an open-source command-line tool that reduces the time it takes for you to get your application from a local development environment to Azure. azd provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your preferred local development environment (e.g. editor or integrated development environment (IDE)), or CI/CD (continuous integration/continuous deployment) pipelines.
+The Azure Developer CLI (`azd`) is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your preferred local development environment (e.g. editor or integrated development environment (IDE)), or CI/CD (continuous integration/continuous deployment) pipelines. You can install `azd` locally on your machine or use it in other environments such as GitHub Codespaces.
 
-You can install azd locally on your machine or use it in other environments such as GitHub Codespaces.
+### AZD commands
+`azd` is designed to have a minimal number of commands with a small number of parameters for ease of use. Some of the most common azd commands you'll use include:
 
-The Azure Developer CLI relies on extensible templates that include everything you need to get an application up and running on Azure. These templates include reusable infrastructure as code (IaC) assets written in Bicep or Terraform and proof-of-concept application code that can be replaced with your own app code. -->
+- azd init - Initialize a new application.
+- azd up - Provision Azure resources and deploy your project with a single command.
+- azd provision - Provision the Azure resources for an application.
+- azd deploy - Deploy the application code to Azure.
+- azd pipeline - (Beta) Manage and configure your deployment pipelines.
+- azd auth - Authenticate with Azure.
+- azd config - Manage azd configurations (e.g. default Azure subscription, location).
+- azd down - Delete Azure resources for an application.
 
-## `azd` compatible catalogs
+## How does `azd` work with ADE?
 
-Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the attached catalog to provision new environments. 
+`azd` works with Azure Deployment Environments (ADE) to enable you to create environments from where you’re working. 
 
-> [!NOTE]
-> Currently, Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog.
+`azd` working with ADE supports the following scenarios:
+- Create an environment from code in a local folder
+    - This technique works well for individual developers working with unique infrastructure and code that they want to upload to the cloud. 
+    - They can use `azd` to provision an environment and to deploy their code.
+    - 
+- Create an environment from an `azd` compatible template
+    - For use at scale, you can create multiple ADE environments from an `azd` compatible template. You can create a new `azd`-compatible template, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog.
+    - If you choose to use an existing environment definition, you will need to make a few changes to make it compatible with `azd`.
 
-To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.
-
-You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
-
-To get help with AZD compatibility, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create). 
 
 ## `azd` templates
 
 The Azure Developer CLI commands are designed to work with standardized templates. Each template is a code repository that adheres to specific file and folder conventions. The templates contain the assets `azd` needs to provision an Azure Deployment Environment environment. When you run a command like `azd up`, the tool uses the template assets to execute various workflow steps, such as provisioning or deploying resources to Azure.
 
-Convert your own app into an azd template - You can also convert an existing app into an azd template by following the Make your project compatible with azd guide. Creating your own template is often more work initially, but allows for the most control and produces a reusable solution for future development work on the app. 
+<!-- Convert your own app into an azd template - You can also convert an existing app into an azd template by following the Make your project compatible with azd guide. Creating your own template is often more work initially, but allows for the most control and produces a reusable solution for future development work on the app. -->
 
 All azd templates include the following assets:
 
@@ -69,6 +78,18 @@ Most azd templates also optionally include one or more of the following folders:
 
 - .azdo folder - If you decide to use Azure Pipelines for CI/CD, define the workflow configuration files in this folder.
 
+## `azd` compatible catalogs
+
+Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the infrastructure resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the catalog attached to the dev center to provision new environments. 
+
+> [!NOTE]
+> Currently, Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog.
+
+To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that AZD knows how to find the hosts and deploy the app to them.
+
+You can see a list of supported Azure services here: [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments).
+
+To get help with AZD compatibility, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create). 
 
 ## Make your ADE environment definition compatible with `azd`
 
