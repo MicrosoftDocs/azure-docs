@@ -18,7 +18,7 @@
 - name: Getting started
   items:
     - name: Well-architected considerations
-      href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+      href: /azure/well-architected/service-guides/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Plan your implementation
       href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Windows container considerations
@@ -388,7 +388,7 @@
             - name: Defender for Containers overview
               href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Enable Defender for Containers
-              href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: ../defender-for-cloud/defender-for-containers-enable.md?pivots=defender-for-container-aks&toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Image security
           items:
             - name: Validate signed images with Image Integrity
