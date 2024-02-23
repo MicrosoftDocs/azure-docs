@@ -24,5 +24,4 @@ Create a [Microsoft Partner Center account.](https://partner.microsoft.com/dashb
 6. If the device is approved for Edge Secured-core certification, notification is sent and the device appears on the [Edge Secured-core device listing](edge-secured-core-devices.md) page.
 7. If the device didn't meet requirements for Edge Secured-core certification, notification is sent and you can submit new/additional validation data to Microsoft. 
 
-![Diagram showing flowchart for certification process.](./media/images/certification-flowchart.png)
-(./media/images/certification-flowchart-expanded.png)
+[![Diagram showing flowchart for certification process.](./media/images/certification-flowchart.png)](./media/images/certification-flowchart-expanded.png#lightbox)
