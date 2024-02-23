@@ -47,6 +47,8 @@ While most of the resources used by Azure AI Studio live in your Azure subscript
     > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
 
 Managed compute resources and managed virtual networks exist in the Microsoft subscription, but are managed by you. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
+
+Managed compute resources also require vulnerability management. This is a shared responsibility between you and Microsoft. For more information, see [vulnerability management](vulnerability-management.md).
  
 ## Azure resource providers
 
