@@ -34,15 +34,17 @@ You must strongly consider the following facts regarding the storage accounts us
 
 ## Storage account requirements
 
-Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to work with the new function app. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. You can also use an existing storage account with your function app. The following restrictions apply to storage accounts used by your function app, so you must make sure an existing storage account meets these requirements: 
+Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to work with the new function app. If you choose an existing one, portal will filter out certain unsupported ones. The following restrictions apply to storage accounts used by your function app, so you must make sure an existing storage account meets these requirements: 
 
 + The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ Storage accounts already secured by using firewalls or virtual private networks can't be used in the portal creation flow. For more information, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
++ Storage accounts already secured by using firewalls or virtual private networks can't be used in the portal creation flow. Currently, Portal does not filter out these accounts. If you'd like to use a restricted storage account, you'll find guidance in [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 + When creating your function app in the portal, you're only allowed to choose an existing storage account in the same region as the function app you're creating. This is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
 + When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
+
+Although ARM deployments support the use of secured storage accounts in non-Consumption plans, certain networking configurations must be set. These are detailed in [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). Forgetting to do so will result in the PreFlight validation failing.
 
 ## Storage account guidance
 
