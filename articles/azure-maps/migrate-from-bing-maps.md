@@ -173,6 +173,7 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [free Azure account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
+[Microsoft Entra authentication]: /entra/fundamentals/whatis
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [Migrate a web app]: migrate-from-bing-maps-web-app.md
 [Route - Get Route Directions]: /rest/api/maps/route/get-route-directions

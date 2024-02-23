@@ -241,6 +241,8 @@
         href: ../automate/migrate-ea-reporting-arm-apis-overview.md
       - name: EA Marketplace Store Charge API
         href: ../automate/migrate-ea-marketplace-store-charge-api.md
+      - name: EA Billing Periods API
+        href: ../automate/migrate-enterprise-agreement-billing-periods-api.md
       - name: EA Usage Details APIs
         href: ../automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API

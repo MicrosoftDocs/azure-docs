@@ -3,7 +3,6 @@ title: "include file"
 description: "include file" 
 services: microsoft-sentinel
 author: cwatson-cat
-tags: azure-service-management
 ms.topic: "include"
 ms.date: 04/27/2022
 ms.author: cwatson

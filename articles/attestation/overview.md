@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: references_regions
 
@@ -16,11 +16,11 @@ Microsoft Azure Attestation is a unified solution for remotely verifying the tru
 
 Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation.
 
-Azure Attestation enables cutting-edge security paradigms such as [Azure Confidential computing](../confidential-computing/overview.md) and Intelligent Edge protection. Customers have been requesting the ability to independently verify the location of a machine, the posture of a virtual machine (VM) on that machine, and the environment within which enclaves are running on that VM. Azure Attestation will empower these and many additional customer requests.
+Azure Attestation enables cutting-edge security paradigms such as [Azure Confidential computing](../confidential-computing/overview.md) and Intelligent Edge protection. Customers have been requesting the ability to independently verify the location of a machine, the posture of a virtual machine (VM) on that machine, and the environment within which enclaves are running on that VM. Azure Attestation empowers these and many additional customer requests.
 
 Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (for example, relying parties and auditing authorities).
 
-Azure Attestation supports both platform- and guest-attestation of AMD SEV-SNP based Confidential VMs (CVMs). Azure Attestation-based platform attestation happens automatically during critical boot path of CVMs, with no customer action needed. For more details on guest attestation, see [Announcing general availability of guest attestation for confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/announcing-general-availability-of-guest-attestation-for/ba-p/3648228).
+Azure Attestation supports both platform- and guest-attestation of AMD SEV-SNP based Confidential VMs (CVMs). Azure Attestation-based platform attestation happens automatically during critical boot path of CVMs, with no customer action needed. For more information on guest attestation, see [Announcing general availability of guest attestation for confidential VMs](https://techcommunity.microsoft.com/t5/azure-confidential-computing/announcing-general-availability-of-guest-attestation-for/ba-p/3648228).
 
 ## Use cases
 
@@ -50,7 +50,7 @@ Client applications can be designed to take advantage of TPM attestation by dele
 
 ### AMD SEV-SNP attestation
 
-Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-solutions.md). CVM offers VM OS disk encryption option with platform-managed keys or customer-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements will be sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
+Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-solutions.md). CVM offers VM OS disk encryption option with platform-managed keys or customer-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements is sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
 
 ### Trusted Launch attestation
 
@@ -69,22 +69,19 @@ To keep Microsoft operationally out of trusted computing base (TCB), critical op
 
 ## Why use Azure Attestation
 
-Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
+Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits:
 
-- Unified framework for attesting multiple environments such as TPMs, SGX enclaves and VBS enclaves 
-- Allows creation of custom attestation providers and configuration of policies to restrict token generation
-- Protects its data while-in use with implementation in an SGX enclave or Confidential Virtual Machine based on AMD SEV-SNP
+- Unified framework for attesting multiple environments such as TPMs, SGX enclaves and VBS enclaves.
+- Allows creation of custom attestation providers and configuration of policies to restrict token generation.
+- Protects its data while-in use with implementation in an SGX enclave or Confidential Virtual Machine based on AMD SEV-SNP.
 - Highly available service 
 
 ## How to establish trust with Azure Attestation
 
-1.	**Verify if attestation token is generated by Azure Attestation** - Attestation token generated by Azure Attestation is signed using a self-signed certificate. The signing certificates URL is exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadata-configuration/get?tabs=HTTP#get-openid-metadata). Relying party can retrieve the signing certificate and perform signature verification of the attestation token.  See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/master/sgx.attest.sample.oe.sdk/validatequotes.net/Helpers/JwtValidationHelper.cs#L21-L22) for more information
- 
-2.	**Verify if Azure Attestation is running inside an SGX enclave** - The token signing certificates include SGX quote of the TEE inside which Azure Attestation runs. If relying party prefers to check if Azure Attestation is running inside a valid SGX enclave, the SGX quote can be retrieved from the signing certificate and locally validated. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/e7f296ee2ca1dd93b75acdc6bab0cc9a6a20c17c/sgx.attest.sample.oe.sdk/validatequotes.net/MaaQuoteValidator.cs#L62-L65)  for more information
-               
-3.	**Validate binding of Azure Attestation SGX quote with the key that signed the attestation token** – Relying party can verify if hash of the public key that signed the attestation token matches the report data field of the Azure Attestation SGX quote. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/e7f296ee2ca1dd93b75acdc6bab0cc9a6a20c17c/sgx.attest.sample.oe.sdk/validatequotes.net/MaaQuoteValidator.cs#L78-L105)  for more information
-
-4.	**Validate if Azure Attestation code measurements match the Azure published values** -  The SGX quote embedded in attestation token signing certificates includes code measurements of Azure Attestation, like mrsigner. If relying party is interested to validate if the SGX quote belongs to Azure Attestation running inside Azure, mrsigner value can be retrieved from the SGX quote in attestation token signing certificate and compared with the value provided by Azure Attestation team. If you're interested to perform this validation, submit a request on [Azure support page](https://azure.microsoft.com/support/options/). Azure Attestation team will reach out to you when we plan to rotate the Mrsigner. 
+1. **Verify if attestation token is generated by Azure Attestation** - Attestation token generated by Azure Attestation is signed using a self-signed certificate. The signing certificates URL is exposed via an [OpenID metadata endpoint](/rest/api/attestation/metadata-configuration/get?tabs=HTTP#get-openid-metadata). Relying party can retrieve the signing certificate and perform signature verification of the attestation token.  See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/master/sgx.attest.sample.oe.sdk/validatequotes.net/Helpers/JwtValidationHelper.cs#L21-L22) for more information
+1. **Verify if Azure Attestation is running inside an SGX enclave** - The token signing certificates include SGX quote of the TEE inside which Azure Attestation runs. If relying party prefers to check if Azure Attestation is running inside a valid SGX enclave, the SGX quote can be retrieved from the signing certificate and locally validated. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/e7f296ee2ca1dd93b75acdc6bab0cc9a6a20c17c/sgx.attest.sample.oe.sdk/validatequotes.net/MaaQuoteValidator.cs#L62-L65)  for more information
+1. **Validate binding of Azure Attestation SGX quote with the key that signed the attestation token** – Relying party can verify if hash of the public key that signed the attestation token matches the report data field of the Azure Attestation SGX quote. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation/blob/e7f296ee2ca1dd93b75acdc6bab0cc9a6a20c17c/sgx.attest.sample.oe.sdk/validatequotes.net/MaaQuoteValidator.cs#L78-L105)  for more information
+1. **Validate if Azure Attestation code measurements match the Azure published values** -  The SGX quote embedded in attestation token signing certificates includes code measurements of Azure Attestation, like MRSIGNER. If relying party is interested to validate if the SGX quote belongs to Azure Attestation running inside Azure, MRSIGNER value can be retrieved from the SGX quote in attestation token signing certificate and compared with the value provided by Azure Attestation team. If you're interested to perform this validation, submit a request on [Azure support page](https://azure.microsoft.com/support/options/). Azure Attestation team will reach out to you when we plan to rotate the MRSIGNER.
 
 Mrsigner of Azure Attestation is expected to change when code signing certificates are rotated. The Azure Attestation team follows the below rollout schedule for every mrsigner rotation:
 

@@ -124,6 +124,26 @@ The following situations and outcomes are possible when you use Private Link in 
 
 - If you don't configure any public traffic or service endpoint and you create private endpoints, then the Azure Database for PostgreSQL flexible server instance is accessible only through the private endpoints. If you don't configure public traffic or a service endpoint, after all approved private endpoints are rejected or deleted, no traffic will be able to access the Azure Database for PostgreSQL flexible server instance.
 
+## Troubleshooting connectivity issues with Private Endpoint based networking
+
+Following are basic areas to check if you are having connectivity issues using Private Endpoint based networking:
+
+1. **Verify IP Address Assignments:** Check that the private endpoint has the correct IP address assigned and that there are no conflicts with other resources. For more information on private endpoint and IP see this [doc](../../private-link/manage-private-endpoint.md)
+2. **Check Network Security Groups (NSGs):** Review the NSG rules for the private endpoint's subnet to ensure the necessary traffic is allowed and does not have conflicting rules.  For more information on NSG see this [doc](../../virtual-network/network-security-groups-overview.md)
+3. **Validate Route Table Configuration:** Ensure the route tables associated with the private endpoint's subnet and the connected resources are correctly configured with the appropriate routes.
+4. **Use Network Monitoring and Diagnostics:** Leverage Azure Network Watcher to monitor and diagnose network traffic using tools like Connection Monitor or Packet Capture. For more information on network diagnostics see this [doc](../../network-watcher/network-watcher-overview.md)
+
+Further details on troubleshooting private are also available in this [guide](../../private-link/troubleshoot-private-endpoint-connectivity.md)
+
+## Troubleshooting DNS resolution with Private Endpoint based networking
+
+Following are basic areas to check if you are having DNS resolution issues using Private Endpoint based networking:
+
+1. **Validate DNS Resolution:** Check if the DNS server or service used by the private endpoint and the connected resources is functioning correctly. Ensure the private endpoint's DNS settings are accurate. For more information on private endpoints and DNS zone settings see this [doc](../../private-link/private-endpoint-dns.md)
+2. **Clear DNS Cache:** Clear the DNS cache on the private endpoint or client machine to ensure the latest DNS information is retrieved and avoid inconsistent errors.
+3. **Analyze DNS Logs:** Review DNS logs for error messages or unusual patterns, such as DNS query failures, server errors, or timeouts. For more on DNS metrics see this [doc](../../dns/dns-alerts-metrics.md)
+
+
 ## Next steps
 
 - Learn how to create an Azure Database for PostgreSQL flexible server instance by using the **Private access (VNet integration)** option in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).

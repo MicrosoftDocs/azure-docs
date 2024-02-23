@@ -12,6 +12,9 @@
 
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses, including the primary, that you added to the VM. Complete the following steps for your VM operating system.
 
 ### Windows Server

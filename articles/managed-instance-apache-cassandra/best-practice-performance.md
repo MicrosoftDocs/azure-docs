@@ -11,7 +11,7 @@ keywords: azure performance cassandra
 
 # Best practices for optimal performance
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This article provides tips on how to optimize performance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed. This article provides tips on how to optimize performance.
 
 
 ## Optimal setup and configuration

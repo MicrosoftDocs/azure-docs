@@ -109,9 +109,9 @@ val callAgent: CallAgent = CallClient().createCallAgent(
 
 | Class Name | Description          |
 |-----------|----------------------|
-|[CallClient](/java/api/com.azure.android.communication.calling.callclient?view=communication-services-java-android) | The class serving as the entry point for the Calling SDK.|
+|[CallClient](/java/api/com.azure.android.communication.calling.callclient) | The class serving as the entry point for the Calling SDK.|
 | CommunicationTokenCredential | The Azure Communication Services User token credential|
-|[CallAgent](/java/api/com.azure.android.communication.calling.callagent?view=communication-services-java-android) |The class responsible for managing calls on behalf of the authenticated user |
+|[CallAgent](/java/api/com.azure.android.communication.calling.callagent) |The class responsible for managing calls on behalf of the authenticated user |
 
 
 
@@ -250,8 +250,8 @@ incomingCall.accept(context)
 
 |Class Name | Description          |
 |-----------|----------------------|
-|[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener?view=communication-services-java-android) | Functional interface for incoming calls. |
-|[IncomingCall](/java/api/com.azure.android.communication.calling.incomingcall?view=communication-services-java-android)| Describes an incoming call |
+|[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener) | Functional interface for incoming calls. |
+|[IncomingCall](/java/api/com.azure.android.communication.calling.incomingcall)| Describes an incoming call |
 
 
 ## Video 
@@ -403,11 +403,11 @@ call.startVideo(context, videoStream).get()
 
 |Class Name | Description          |
 |-----------|----------------------|
-|[DeviceManager](/java/api/com.azure.android.communication.calling.devicemanager?view=communication-services-java-android) | Facilitates the interaction with the device |
-|[LocalVideoStream](/java/api/com.azure.android.communication.calling.localvideostream?view=communication-services-java-android) | Local video stream information |
-|[VideoDeviceInfo](/java/api/com.azure.android.communication.calling.videodeviceinfo?view=communication-services-java-android) | Information about a video device |
-|[VideoOptions](/java/api/com.azure.android.communication.calling.videooptions?view=communication-services-java-android) | Property bag class for Video Options |
-|[Call](/java/api/com.azure.android.communication.calling.call?view=communication-services-java-android)|Describes a call|
+|[DeviceManager](/java/api/com.azure.android.communication.calling.devicemanager) | Facilitates the interaction with the device |
+|[LocalVideoStream](/java/api/com.azure.android.communication.calling.localvideostream) | Local video stream information |
+|[VideoDeviceInfo](/java/api/com.azure.android.communication.calling.videodeviceinfo) | Information about a video device |
+|[VideoOptions](/java/api/com.azure.android.communication.calling.videooptions) | Property bag class for Video Options |
+|[Call](/java/api/com.azure.android.communication.calling.call)|Describes a call|
 
 
 ## Rendering Video
@@ -444,10 +444,10 @@ videoContainer.addView(preview)
 
 |Class Name | Description          |
 |-----------|----------------------|
-|[SaclingMode](/java/api/com.azure.android.communication.calling.scalingmode?view=communication-services-java-android) | Enum for local and remote video scaling mode|
-|[CreateViewOptions](/java/api/com.azure.android.communication.calling.createviewoptions?view=communication-services-java-android) | Options to be passed when rendering a Video |
-|[VideoStreamRenderer](/java/api/com.azure.android.communication.calling.videostreamrenderer?view=communication-services-java-android) | Renderer for video rendering |
-|[VideoStreamRendererView](/java/api/com.azure.android.communication.calling.videostreamrendererview?view=communication-services-java-android)|View used to render video|
+|[SaclingMode](/java/api/com.azure.android.communication.calling.scalingmode) | Enum for local and remote video scaling mode|
+|[CreateViewOptions](/java/api/com.azure.android.communication.calling.createviewoptions) | Options to be passed when rendering a Video |
+|[VideoStreamRenderer](/java/api/com.azure.android.communication.calling.videostreamrenderer) | Renderer for video rendering |
+|[VideoStreamRendererView](/java/api/com.azure.android.communication.calling.videostreamrendererview)|View used to render video|
 
 
 ## Audio
@@ -778,10 +778,10 @@ The CallAgent receives updates regarding calls through two listeners: `CallsUpda
 #### Class reference
 | Class Name  | Description          |
 |-----------|----------------------|
-|[PropertyChangedListener](/java/api/com.azure.android.communication.calling.propertychangedlistener?view=communication-services-java-android) | Informs the library that the call state has changed|
-|[CallsUpdatedListener](/java/api/com.azure.android.communication.calling.callsupdatedlistener?view=communication-services-java-android) | Informs the library when the calls are updated |
-|[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener?view=communication-services-java-android) | Informs the library about incoming call |
-|[VideoDevicesUpdatedListener](/java/api/com.azure.android.communication.calling.videodevicesupdatedlistener?view=communication-services-java-android) | Informs the library that new video devices were added or removed to the current library|
+|[PropertyChangedListener](/java/api/com.azure.android.communication.calling.propertychangedlistener) | Informs the library that the call state has changed|
+|[CallsUpdatedListener](/java/api/com.azure.android.communication.calling.callsupdatedlistener) | Informs the library when the calls are updated |
+|[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener) | Informs the library about incoming call |
+|[VideoDevicesUpdatedListener](/java/api/com.azure.android.communication.calling.videodevicesupdatedlistener) | Informs the library that new video devices were added or removed to the current library|
 
 
 ## Ending a Call
@@ -822,8 +822,8 @@ call.hangUp(HangUpOptions().apply { isForEveryone = true }).get()
 #### Class reference
 | Class Name  | Description          |
 |-----------|----------------------|
-|[Call](/java/api/com.azure.android.communication.calling.call?view=communication-services-java-android) | Describes a call |
-|[HangUp Options](/java/api/com.azure.android.communication.calling.hangupoptions?view=communication-services-java-android)| Property bag class for hanging up a call |
+|[Call](/java/api/com.azure.android.communication.calling.call) | Describes a call |
+|[HangUp Options](/java/api/com.azure.android.communication.calling.hangupoptions)| Property bag class for hanging up a call |
 
 ## Cleaning Up
 If you want to [clean up and remove a Communication Services subscription](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp#clean-up-resources), you can delete the resource or resource group.

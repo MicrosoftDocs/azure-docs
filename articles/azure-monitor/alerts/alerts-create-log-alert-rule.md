@@ -1,16 +1,16 @@
 ---
-title: Create Azure Monitor log alert rules
-description: This article shows you how to create a new log alert rule.
+title: Create Azure Monitor log search alert rules
+description: This article shows you how to create a new log search alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 11/27/2023
-ms.reviewer: harelbr
+ms.date: 02/22/2024
+ms.reviewer: nolavime
 ---
 
-# Create or edit a log alert rule
+# Create or edit a log search alert rule
 
-This article shows you how to create a new log alert rule or edit an existing log alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
+This article shows you how to create a new log search alert rule or edit an existing log search alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
 You create an alert rule by combining the resources to be monitored, the monitoring data from the resource, and the conditions that you want to trigger the alert. You can then define [action groups](./action-groups.md) and [alert processing rules](alerts-action-rules.md) to determine what happens when an alert is triggered.
 
@@ -34,9 +34,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
     > [!NOTE]
-    > Log alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+    > * The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
 1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
 
@@ -51,27 +52,27 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         | project _ResourceId=tolower(id), tags
     ```
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log alert queries that query ARG or ADX, see [log alert query samples](./alerts-log-alert-query-samples.md) 
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md) 
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
 
 1. In the **Measurement** section, select values for these fields:
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the Measurement tab when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the Measurement tab when creating a new log search alert rule.":::
 
     |Field  |Description  |
     |---------|---------|
-    |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+    |Measure|Log search alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
     |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
     |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
 
 1. <a name="dimensions"></a>(Optional) In the **Split by dimensions** section, you can use dimensions to help provide context for the triggered alert.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the splitting by dimensions section of a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the splitting by dimensions section of a new log search alert rule.":::
 
     Dimensions are columns from your query results that contain additional data. When you use dimensions, the alert rule groups the query results by the dimension values and evaluates the results of each group separately. If the condition is met, the rule fires an alert for that group. The alert payload includes the combination that triggered the alert.
 
@@ -84,7 +85,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     Select values for these fields:
 
     -  **Resource ID column**: In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
-        - use the ARM **Azure Resource ID** column as a dimension
+        - use the ARM **Azure Resource ID** column as a dimension (notice that by using this option the alert will be fired on the **workspace** with the **Azure Resource ID** column as a dimension.
         - specify it as a dimension in the Azure Resource ID property, which makes the resource returned by your query the target of the alert, so alerts are fired on the resource returned by your query, such as a virtual machine or a storage account, as opposed to in the workspace. When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that is different from the alert rule subscription. 
 
     |Field  |Description  |
@@ -96,7 +97,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. In the **Alert logic** section, select values for these fields:
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log search alert rule.":::
 
     |Field  |Description  |
     |---------|---------|
@@ -111,11 +112,11 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     > * The query uses the **adx** pattern
     > * The query calls a function that calls other tables
 
-    For sample log alert queries that query ARG or ADX, see [log alert query samples](./alerts-log-alert-query-samples.md)
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
 
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the Advanced options section of a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the Advanced options section of a new log search alert rule.":::
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
@@ -145,12 +146,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. Define the **Alert rule details**.
 
-   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log search alert rule.":::
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log search alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
@@ -159,7 +160,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for all the resources added to the scope of the rule.
 
         The identity associated with the rule must have these roles:
-        - If the query is accessing a Log Analytics workspace, the identity must be assigned a **Reader role** for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have a reader role on all of them.
+        - If the query is accessing a Log Analytics workspace, the identity must be assigned a **Reader role** for all workspaces accessed by the query. If you're creating resource-centric log search alerts, the alert rule may access multiple workspaces, and the identity must have a reader role on all of them.
         - If you are querying an ADX or ARG cluster you must add **Reader role** for all data sources accessed by the query. For example, if the query is resource centric, it needs a reader role on that resources. 
         - If the query is [accessing a remote Azure Data Explorer cluster](../logs/azure-monitor-data-explorer-proxy.md), the identity must be assigned:
             - **Reader role** for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs a reader role on that ADX cluster.
@@ -180,7 +181,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Field |Description |
     |---------|---------|
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-    |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met for a specific time range. The time range differs based on the frequency of the alert:<br>**1 minute**: The alert condition isn't met for 10 minutes.<br>**5-15 minutes**: The alert condition isn't met for three frequency periods.<br>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.<br>**11 to 12 hours**: The alert condition isn't met for one frequency period. <br><br>Note that stateful log alerts have these limitations:<br> - they can trigger up to 300 alerts per evaluation.<br> - you can have a maximum of 5000 alerts with the `fired` alert condition.|
+    |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met for a specific time range. The time range differs based on the frequency of the alert:<br>**1 minute**: The alert condition isn't met for 10 minutes.<br>**5-15 minutes**: The alert condition isn't met for three frequency periods.<br>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.<br>**11 to 12 hours**: The alert condition isn't met for one frequency period. <br><br>Note that stateful log search alerts have these limitations:<br> - they can trigger up to 300 alerts per evaluation.<br> - you can have a maximum of 5000 alerts with the `fired` alert condition.|
     |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
     |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
@@ -190,5 +191,5 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 
 ## Next steps
-- [Log alert query samples](./alerts-log-alert-query-samples.md) 
+- [Log search alert query samples](./alerts-log-alert-query-samples.md) 
 - [View and manage your alert instances](alerts-manage-alert-instances.md)

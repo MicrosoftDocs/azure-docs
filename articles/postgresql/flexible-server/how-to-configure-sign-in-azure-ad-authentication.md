@@ -174,8 +174,9 @@ To connect by using a Microsoft Entra token with PgAdmin, follow these steps:
 1. Open Pgadmin and click **Register** from left hand menu and select **Server**
 2. In **General** Tab provide a connection name and clear the **Connect now** option.
 3. Click the **Connection** tab  and provide your Azure Database for PostgreSQL flexible server instance details for **Hostname/address** and **username** and save.
-4. From the browser menu, select your Azure Database for PostgreSQL flexible server connection and click **Connect Server**
-5. Enter your Active Directory token password when prompted.
+   **username is your Microsoft Entra ID or email**
+5. From the browser menu, select your Azure Database for PostgreSQL flexible server connection and click **Connect Server**
+6. Enter your Active Directory token password when prompted.
 
 
 :::image type="content" source="media/how-to-configure-sign-in-Azure-ad-authentication/login-using-pgadmin.png" alt-text="Screenshot that shows login process using PG admin.":::
