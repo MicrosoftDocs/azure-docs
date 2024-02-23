@@ -54,7 +54,7 @@
     - name: Create an Azure support request
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
-      href: supportability/how-to-manage-azure-support-request.md
+      href: supportability/how-to-manage-azure-support-request.yml
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
 - name: Azure mobile app

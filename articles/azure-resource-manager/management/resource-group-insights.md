@@ -38,10 +38,10 @@ The resource group insights page provides several other tools scoped to help you
 
    | Tool | Description |
    | ---------------- |:-----|
-   | [**Alerts**](../alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
-   | [**Metrics**](../data-platform.md) | Visualize and explore your metric based data.    |
-   | [**Activity logs**](../essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
-   | [**Application map**](../app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
+   | [**Alerts**](../../azure-monitor/alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
+   | [**Metrics**](../../azure-monitor/data-platform.md) | Visualize and explore your metric based data.    |
+   | [**Activity logs**](../../azure-monitor/essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
+   | [**Application map**](../../azure-monitor/app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
 ## Failures and performance
 
@@ -109,6 +109,6 @@ Resource Group insights relies on the Azure Monitor Alerts Management system to 
 
 ## Next steps
 
-- [Azure Monitor Workbooks](../visualize/workbooks-overview.md)
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Azure Monitor Alerts](../alerts/alerts-overview.md)
+- [Azure Monitor Alerts](../../azure-monitor/alerts/alerts-overview.md)
