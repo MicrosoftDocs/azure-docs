@@ -41,6 +41,10 @@ Custom classification models are deep-learning-model types that combine layout a
 
 ## Model capabilities
 
+> [!Note]
+>
+> * Starting with the `2024-02-29-preview` API, custom clasification models support incremental training. You can add new samples to existing classes or add new classes by referencing an existing classifier.
+
 Custom classification models can analyze a single- or multi-file documents to identify if any of the trained document types are contained within an input file. Here are the currently supported scenarios:
 
 * A single file containing one document. For instance, a loan application form.
@@ -54,6 +58,21 @@ Custom classification models can analyze a single- or multi-file documents to id
 ✔️ The maximum allowed number of classes is `500`. The maximum allowed number of document samples per class is `100`.
 
 The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application.
+
+### Incremental training
+
+With custom models, you need to maintain access to the training dataset ff you need to update your classifier with new samples for an existing class, or add new classes. Classifier models now support incremental training where you can refernece an existing classifier an append to it new samples for an existing class or add new class with samples. This enables scenarios where data retention is a challenge and the classifier needs to be updated to align with changing business needs. Incremental training is supported with models trained with API version ```2024-02-29-preview``` and later. 
+
+> [!IMPORTANT]
+>
+> Incremental trainiing is only supported with models trained with the same API version. If you are trying to extend a model, use the API version the original model was trained with to extend the model.
+
+Incremental training requires that you provide the original model id as the ```baseClassifierId```. See [incremental training](concept-incremental-classifier.md) to learn more about how to use incremental training.
+
+### Office document type support 
+
+You can now train classifiers to recognize document types in a variety of formats including PDF, images, Word PowerPoint and Excel. When assembling your training dataset, you can add documents of any of the supported types. The classifier does not require you to explicitly label specific types. As a best practice ensuring your traiing dataset has at least one sample of each format will improve the overall accuacy of the model.
+
 
 ### Compare custom classification and composed models
 
@@ -81,13 +100,14 @@ Classification models can now be trained on documents of different languages. Se
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX)|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom extraction|  ✔  | ✔ |   |
+    |Custom classification|  ✔  | ✔ | ✔ |
 
    
 

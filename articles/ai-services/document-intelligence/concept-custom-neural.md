@@ -43,13 +43,17 @@ Custom neural models share the same labeling format and strategy as [custom temp
 
 ## Model capabilities
 
+ > [!IMPORTANT]
+    > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
+
 Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
 
-| Form fields | Selection marks | Tabular fields | Signature | Region |
-|:--:|:--:|:--:|:--:|:--:|
-| Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
+| Form fields | Selection marks | Tabular fields | Signature | Region | Overlapping fields |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
 <sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
+<sup>2</sup> Overlapping fields i supported starting with the API version ```2024-02-29-preview```. Overlapping fields have some limits, see [overlapping fields](overlappingfields) for more details. 
 
 ### Build mode
 
@@ -75,6 +79,29 @@ Tabular fields support **cross page tables** by default:
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+
+Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
+
+* Tables (fixed or dynamic) add support for table confidence, a measure of how accurately the entire tablle is recognized, row confidence which is a measure of recognition of an individual row and finally a cell confidence.
+
+* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell. 
+
+See  [confidence and acccuracy scores](concept-accuracy-confidence.md) to learn more about table, row and cell confidence.
+
+## Overlapping fields
+
+With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
+
+To use the overlapping fields, your dataset will need to contain at least one sample with the expected overlap. To label an overlap, use region labeling to label label each of the spans of content (with the ovelap) for each field. Overlaps supported are complete overlaps (same set of tokens are labeled for two different fields) or partial overlap (some tokens belong to both fields, but there are tokens that are only part of one field or the other).
+
+Overlapping fields have some limits.
+
+* Any token or word can only be labeled as two fields.
+* overlapping fields in a table cannot span table rows
+* Overlapping fields can only be recognized if at least one sample in the dataset contains overlapping labels for those fields.
+
+To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
+
 
 ## Supported regions
 
@@ -138,7 +165,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
     |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom neural   |  ✔  | ✔ |   |
 
     &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
@@ -184,7 +211,6 @@ Values in training cases should be diverse and representative. For example, if a
 ## Current Limitations
 
 * The model doesn't recognize values split across page boundaries.
-* Custom neural models are only trained in English. Model performance is lower for documents in other languages.
 * If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
 * Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Document Intelligence service quotas and limits](service-limits.md)
 

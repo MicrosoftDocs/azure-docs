@@ -14,7 +14,7 @@ monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
-# Build and train a custom model
+# Build and train a custom extraction model
 
 :::moniker range=">=doc-intel-3.0.0"
 

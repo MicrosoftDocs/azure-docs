@@ -55,6 +55,10 @@ When labeling a large span of text, rather than mark each word in the span, hold
 
 A second option for labeling larger spans of text is to use region labeling. When region labeling is used, the OCR results are populated in the value at training time. The difference between the shift select and region labeling is only in the visual feedback the shift labeling approach provides.
 
+## Label overlapping fields
+
+Overlapping fields are supported for fields and table cells. If you expect your analyze results to contain overlapping fields, you should add at least one sample to the training dataset with the specific field overlaps labeled. To label a overlapping field, use the region labeling feature to select the regions for each field. Both complete and partial overlaps are supported. Any single word in the document can only be labeled for two fields.
+
 ## Field subtypes
 
 When creating a field, select the right subtype to minimize post processing, for instance select the ```dmy``` option for dates to extract the values in a ```dd-mm-yyyy``` format.

@@ -24,6 +24,7 @@ ms.author: lajanuar
 > * **Custom neural models do not provide accuracy scores during training**.
 > * Confidence scores for structured fields such as tables are currently unavailable.
 
+
 Custom models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
 ## Accuracy scores
@@ -37,6 +38,11 @@ The accuracy value range is a percentage between 0% (low) and 100% (high). The e
 :::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
 
 ## Confidence scores
+
+> [!NOTE]
+>
+> * **Table cell confidence scores are now included with the 2024-02-29-preview API version**.
+> * Confidence scores for table cells from custom models is added to the API starting with the 2024-02-29-preview API.
 
 Document Intelligence analysis results return an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return a confidence score.
 
@@ -59,6 +65,35 @@ The following table demonstrates how to interpret both the accuracy and confiden
 | High | Low | <ul><li>The analyzed document appears different from the training dataset.</li><li>The model would benefit from retraining with at least five more labeled documents. </li><li>These results could also indicate a format variation between the training dataset and the analyzed document. </br>Consider adding a new model.</li></ul>  |
 | Low | High | <ul><li>This result is most unlikely.</li><li>For low accuracy scores, add more labeled data or split visually distinct documents into multiple models.</li></ul> |
 | Low | Low| <ul><li>Add more labeled data.</li><li>Split visually distinct documents into multiple models.</li></ul>|
+
+## Table, row and cell confidence
+
+With the addition of table, row and cell confidence with the ```2024-02-29-preview``` API, here are some common questions that should help with interpreting the scores
+
+* Would I ever expect to see a high confidence score for cells, but a low confidence score for the row?
+Yes. The different levels of table confidence (cell, row, and table) are meant to capture the correctness of a prediction at that specific level. A correctly predicted cell that belongs to a row with other possible misses would have high cell confidence, but the row's confidence should be low. Similarly, a correct row in a table with challenges with other rows would have high row confidence whereas the table's overall confidence would be low.
+
+* What is the expected confidence score when cells are merged? This will cause the number of columns identified to change, how will scores be affected?
+Regardless of the type of table, the expectation for merged cells is that they should have lower confidence values. Furthermore, the cell that is missing (because it got amerged with an adjacent cell) should have NULL value with lower confidence as well. How much lower these values might be will depend on the training dataset, the general trend of both merged and missing cell having lower scores should hold.
+
+* What is the confidence score when a value is optional? Should you expect a cell with NULL value and high confidence if the value is missing?
+If your training dataset is representative of the optionality of cells, it helps the model know how often a value tends to appear in the training set, and thus what to expect during inference. This feature is used when computing the confidence of either a prediction or of making no prediction at all (NULL). You should expect an empty field with high confidence for missing values that are mostly empty in the training set too.
+
+* How do you determine if a field is optional and not present or missed? Is the expectation that the confidence score will answer that question?
+When a value is missing from a row, the cell will have NULL value and confidence assigned. A high confidence score here should mean that the model prediction (of there not being a value) is more likely to be correct. In contrast, a low score should signal more uncertainty from the model (and thus the possibility of an error, like the value being missed).
+
+* When extracting a multi-page table with a row split across pages, what should be the expectation for cell confidence and row confidence?
+Expect the Cell confidence to be high. Row confidence to be potentially lower than that of other non-split rows. This may be affected by how common split rows are in the training data set, but in general, a split row will look different than the other rows in the table (thus, the model will be less certain that it is correct).
+
+* For cross-page tables with rows that cleanly end and start at the page boundaries, is it correct to assume that confidence scores will be consistent across pages?
+Yes. Since rows will look similar in shape and contents, regardless of where they are in the document (or in which page), their respective confidence scores should be consistent.
+
+* What is the best way to leverage these new confidence scores?
+look at all levels of table confidence starting in a top-to-bottom approach: begin by checking a table's confidence as a whole, then drill down to the row level to look at individual rows, and finally look at cell-level confidences. Depending on the type of table, there are a couple of things of note:
+
+For **fixed tables**, cell-level confidence already captures quite a bit of information on the correctness of things. This means that simply going over each cell and looking at its confidence may be enough to help determine the quality of the prediction.
+For **dynamic tables**, the levels are meant to build on top of each other, so the top-to-bottom approach is more important. 
+
 
 ## Ensure high model accuracy
 

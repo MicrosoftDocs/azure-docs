@@ -51,7 +51,7 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
- > Starting with version 3.1—2023-07-31(GA) API, custom neural models only require one sample labeled document to train a model.
+> Starting with version 3.1—2024-02-29-preview API, custom neural models now support overlapping fields and table, row and cell level confidence.
 >
 
 The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
@@ -76,13 +76,14 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX)|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom extaction|  ✔  | ✔ |   |
+    |Custom classification|  ✔  | ✔ | ✔ |
 
     &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
@@ -128,12 +129,17 @@ The following table compares custom template and custom neural features:
 |Document structure|Template, form, and structured | Structured, semi-structured, and unstructured|
 |Training time | 1 to 5 minutes | 20 minutes to 1 hour |
 |Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks and tables|
+|Overlapping fields | Not supported | Supported |
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
 |Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
 
 ### Custom classification model
 
  Document classification is a new scenario supported by Document Intelligence with the ```2023-07-31``` (v3.1 GA) API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+
+ > [!NOTE]
+>
+>Starting with the ```2024-02-29-preview``` API version document classification now supports Office document types for classification. This API version also introduces [incremental training](concept-incremental-classifier.md) for the classification model.
 
 ## Custom model tools
 
