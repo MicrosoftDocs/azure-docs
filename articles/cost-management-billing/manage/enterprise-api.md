@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 02/14/2024
 ms.author: banders
 
 ---
@@ -20,7 +20,7 @@ The Azure Enterprise Reporting APIs enable Enterprise Azure customers to program
 All date and time parameters required for APIs must be represented as combined Coordinated Universal Time (UTC) values. Values returned by APIs are shown in UTC format.
 
 ## Enabling data access to the API
-* **Generate or retrieve the API key** - Sign in to the Enterprise portal, and navigate to Reports > Download Usage > API Access Key to generate or retrieve the API key.
+* **Generate or retrieve the API key** - For more information, see [API key generation](enterprise-rest-apis.md#api-key-generation).
 * **Passing keys in the API** - The API key needs to be passed for each call for Authentication and Authorization. The following property needs to be to the HTTP headers.
 
 |Request Header Key | Value|

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 02/13/2024
 
 #CustomerIntent: As an administrator, I want to learn how to create a PeerASN resource so I can associate my peer ASN to Azure subscription and submit peering requests.
 ---
@@ -25,7 +25,7 @@ As an Internet Service Provider or Internet Exchange Provider, you must associat
 
 ## Register Peering provider
 
-In this section, you learn how to check if the peering provider is registered in your subscription and how to register it if not registered. Peering resource provider is required to set up peering. If you previously registered the peering resource provider, you can skip this section.
+In this section, you learn how to check if the peering provider is registered in your subscription and how to register it if not registered. Peering provider is required to set up peering. If you previously registered the peering provider, you can skip this section.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

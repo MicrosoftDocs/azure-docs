@@ -41,54 +41,57 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 
 * **Region Name:** This column lists the name of Azure region where Azure Database for PostgreSQL - Single Server is offered. 
 * **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region. As we retire older gateway hardware, we recommend that you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you're operating.
+* **Gateway IP addresses (decommissioning):** This column lists the IP addresses of the gateways hosted on an older generation of hardware that is being decommissioned right now. If you're provisioning a new server, you can ignore these IP addresses. If you have an existing server, continue to retain the outbound rule for the firewall for these IP addresses as we haven't decommissioned it yet. If you drop the firewall rules for these IP addresses, you may get connectivity errors. Instead, you're expected to proactively add the new IP addresses listed in Gateway IP addresses column to the outbound firewall rule as soon as you receive the notification for decommissioning. This will ensure when your server is migrated to latest gateway hardware, there's no interruptions in connectivity to your server.
+* **Gateway IP addresses (decommissioned):** This column lists the IP addresses of the gateway rings, which are decommissioned and are no longer in operations. You can safely remove these IP addresses from your outbound firewall rule.
 
 
-| **Region name** |  **Gateway IP address subnets** |
-|:----------------|:------------------------------------------|
-| Australia Central  | 20.36.105.32/29 | 
-| Australia Central 2      | 20.36.113.32/29 |
-| Australia East     |  13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29 |
-| Australia South East   |13.77.49.32/29  |
-| Brazil South  | 191.233.200.32/29, 191.234.144.32/29|
-| Canada Central  | 	13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29|
-| Canada East    | 40.69.105.32/29 |
-| Central US  | 104.208.21.192/29, 13.89.168.192/29, 52.182.136.192/29
-| China East                     |      52.130.112.136/29|
-| China East 2             | 52.130.120.88/29|
-| China East 3           | 52.130.128.88/29|
-| China North   | 52.130.128.88/29 |
-| China North 2  | 	52.130.40.64/29|
-| China North 3  | 13.75.32.192/29, 13.75.33.192/29 |
-| East Asia    | 13.75.32.192/29, 13.75.33.192/29|
-| East US  |20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29|
-| East US 2  |104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29|
-| France Central   | 40.79.136.32/29, 40.79.144.32/29 |
-| France South  | 	40.79.176.40/29, 40.79.177.32/29|
-| Germany West Central  | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29|
-| India Central | 104.211.86.32/29, 20.192.96.32/29|
-| India South    | 40.78.192.32/29, 40.78.193.32/29|
-| India West     | 	104.211.144.32/29, 104.211.145.32/29 |
-| Japan East  | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
-| Japan West  | 40.74.96.32/29 |
-| Korea Central     | 20.194.64.32/29,20.44.24.32/29, 52.231.16.32/29 |
-| Korea South   | 52.231.145.0/29 |
-| North Central US   | 52.162.105.192/29|
-| North Europe   |13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29 |
-| South Africa North     | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29 |
-| South Africa West      | 102.133.25.32/29|
-| South Central US  |20.45.121.32/29, 20.49.88.32/29, 20.49.89.32/29, 40.124.64.136/29|
-| South East Asia  | 13.67.16.192/29, 23.98.80.192/29, 40.78.232.192/29 |
-| Switzerland North   |51.107.56.32/29, 51.103.203.192/29, 20.208.19.192/29, 51.107.242.32/27|
-| Switzerland West  | 51.107.153.32/29|
-| UAE Central     | 20.37.72.96/29, 20.37.73.96/29 |
-| UAE North    | 40.120.72.32/29, 65.52.248.32/29 |
-| UK South   |51.105.64.32/29, 51.105.72.32/29, 51.140.144.32/29|
-| UK West | 51.140.208.96/29, 51.140.209.32/29 |
-| West Central US    | 13.71.193.32/29 |
-| West Europe  | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29|
-| West US  |13.86.217.224/29|
-| West US 2    | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29|
-| West US 3     | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
+| **Region name**        | **Gateway IP address subnets**                                | **Gateway IP addresses (decommissioning)** | **Gateway IP addresses (decommissioned)** |
+|:-----------------------|:--------------------------------------------------------------|:------------------------------------------|:------------------------------------------|
+| Australia Central      | 20.36.105.32/29                                           |                                           |                                           |
+| Australia Central 2    | 20.36.113.32/29                                           |                                           |                                           |
+| Australia East         | 13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29           | 13.75.149.87                              |                                           |
+| Australia South East   | 13.77.49.32/29                                            | 13.73.109.251                             |                                           |
+| Brazil South            | 191.233.200.32/29, 191.234.144.32/29                        |                                           | 104.41.11.5                               |
+| Canada Central          | 13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29          |                                           |                                           |
+| Canada East             | 40.69.105.32/29                                           | 40.86.226.166                             |                                           |
+| Central US              | 104.208.21.192/29, 13.89.168.192/29, 52.182.136.192/29      | 13.67.215.62                              |                                           |
+| China East              | 52.130.112.136/29                                         |                                           |                                           |
+| China East 2            | 52.130.120.88/29                                          |                                           |                                           |
+| China East 3            | 52.130.128.88/29                                          |                                           |                                           |
+| China North             | 52.130.128.88/29                                          |                                           |                                           |
+| China North 2           | 52.130.40.64/29                                           |                                           |                                           |
+| China North 3           | 13.75.32.192/29, 13.75.33.192/29                           |                                           |                                           |
+| East Asia               | 13.75.32.192/29, 13.75.33.192/29                           |                                           |                                           |
+| East US                 | 20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29            | 40.121.158.30                             | 191.238.6.43                              |
+| East US 2               | 104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29     | 52.177.185.181                            |                                           |
+| France Central          | 40.79.136.32/29, 40.79.144.32/29                            |                                           |                                           |
+| France South            | 40.79.176.40/29, 40.79.177.32/29                            |                                           |                                           |
+| Germany West Central     | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29        |                                           |                                           |
+| India Central           | 104.211.86.32/29, 20.192.96.32/29                           |                                           |                                           |
+| India South             | 40.78.192.32/29, 40.78.193.32/29                           |                                           |                                           |
+| India West              | 104.211.144.32/29, 104.211.145.32/29                        | 104.211.160.80                            |                                           |
+| Japan East              | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29           | 13.78.61.196                              |                                           |
+| Japan West              | 40.74.96.32/29                                            | 104.214.148.156                          |                                           |
+| Korea Central           | 20.194.64.32/29, 20.44.24.32/29, 52.231.16.32/29            | 52.231.32.42                              |                                           |
+| Korea South             | 52.231.145.0/29                                          | 52.231.200.86                            |                                           |
+| North Central US        | 52.162.105.192/29                                         | 23.96.178.199                            |                                           |
+| North Europe            | 13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29        | 40.113.93.91                             | 191.235.193.75                           |
+| South Africa North      | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29    |                                           |                                           |
+| South Africa West       | 102.133.25.32/29                                          |                                           |                                           |
+| South Central US        | 20.45.121.32/29, 20.49.88.32/29, 20.49.89.32/29, 40.124.64.136/29 | 13.66.62.124                             | 23.98.162.75                              |
+| South East Asia         | 13.67.16.192/29, 23.98.80.192/29, 40.78.232.192/29          | 104.43.15.0                              |                                           |
+| Switzerland North       | 51.107.56.32/29, 51.103.203.192/29, 20.208.19.192/29, 51.107.242.32/27 |                                   |                                           |
+| Switzerland West        | 51.107.153.32/29                                         |                                           |                                           |
+| UAE Central             | 20.37.72.96/29, 20.37.73.96/29                            |                                           |                                           |
+| UAE North               | 40.120.72.32/29, 65.52.248.32/29                           |                                           |                                           |
+| UK South                | 51.105.64.32/29, 51.105.72.32/29, 51.140.144.32/29         |                                           |                                           |
+| UK West                 | 51.140.208.96/29, 51.140.209.32/29                         |                                           |                                           |
+| West Central US         | 13.71.193.32/29                                          | 13.78.145.25                             |                                           |
+| West Europe             | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29        | 40.68.37.158                             | 191.237.232.75                           |
+| West US                 | 13.86.217.224/29                                         | 104.42.238.205                           | 23.99.34.75                              |
+| West US 2               | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29       |                                           |                                           |
+| West US 3               | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29       |                                           |                                           |
+
 
 
 ## Connection redirection

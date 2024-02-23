@@ -8,9 +8,8 @@ ms.topic: include
 ms.date: 12/12/2023
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
- -->
+<!--
 
 February, 2024 preview release is now available.
 
@@ -54,7 +53,7 @@ Arc SQL Server | Support for TLS 1.3
 Arc SQL Server | Improved prompt for feedback in Azure portal | GA
 
 Arc SQL Server | Monitoring | Show monitoring upload status on Arc SQL Server Overview UX | GA
-
+ 
 Arc SQL Server | Migration | Continuously run and view a migration assessment for an Arc SQL Server in the Azure Portal | Preview
 
-
+--->

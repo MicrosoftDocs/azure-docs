@@ -3,7 +3,7 @@ title: Reliability in Azure Batch
 description: Learn about reliability in Azure Batch
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: batch
 ms.date: 03/09/2023

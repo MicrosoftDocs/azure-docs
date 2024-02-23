@@ -3,7 +3,6 @@ title: SAP HANA availability within one Azure region | Microsoft Docs
 description: Describes SAP HANA operations on Azure native VMs in one Azure region.
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.custom: linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

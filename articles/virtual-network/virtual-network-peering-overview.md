@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 05/28/2023
+ms.date: 02/22/2024
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
@@ -104,11 +104,13 @@ You can also try the [Troubleshoot virtual network peering issues](virtual-netwo
 
 ## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
 
-The following constraints apply only when virtual networks are globally peered:
+**The following constraints apply only when virtual networks are globally peered:**
 
-* Resources in one virtual network can't communicate with the front-end IP address of a Basic Load Balancer (internal or public)  in a globally peered virtual network.
+* Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
 
-* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+* Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+
+**You can't perform virtual network peerings as part of the `PUT` virtual network operation.**
 
 For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 

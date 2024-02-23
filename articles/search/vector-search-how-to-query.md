@@ -123,7 +123,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -161,7 +161,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -338,7 +338,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "preFilter",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -376,7 +376,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "preFilter",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -438,7 +438,7 @@ api-key: {{admin-api-key}}
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -471,7 +471,7 @@ The following query example looks for similarity in both `myImageVector` and `my
     "select": "title, content, category",
     "vectorQueries": [
         {
-            "kind": "vector"
+            "kind": "vector",
             "vector": [
                 -0.009154141,
                 0.018708462,
@@ -519,7 +519,7 @@ POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search
     "select": "title, genre, description",
     "vectorQueries": [
         {
-            "kind": "text"
+            "kind": "text",
             "text": "mystery novel set in London",
             "fields": "descriptionVector",
             "k": 5
@@ -546,7 +546,7 @@ api-key: {{admin-api-key}}
     "vectorFilterMode": "postFilter",
     "vectorQueries": [
         {
-            "kind": "text"
+            "kind": "text",
             "text": "mystery novel set in London",
             "fields": "descriptionVector, synopsisVector",
             "k": 5

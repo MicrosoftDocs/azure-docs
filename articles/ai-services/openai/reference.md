@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's REST API. In this article, you lear
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 02/21/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -19,7 +19,7 @@ This article provides details on the inference REST API endpoints for Azure Open
 
 ## Authentication
 
-Azure OpenAI provides two methods for authentication. you can use  either API Keys or Microsoft Entra ID.
+Azure OpenAI provides two methods for authentication. You can use  either API Keys or Microsoft Entra ID.
 
 - **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides guidance for how to make calls with this type of authentication.
 
@@ -48,33 +48,34 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
-| ```deployment-id``` | string | Required | The deployment name you chose when you deployed the model.  |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```deployment-id``` | string | Required | The deployment name you chose when you deployed the model.|
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.|
 
 **Supported versions**
 
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
-- `2023-03-15-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 
 **Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```prompt``` | string or array | Optional | ```<\|endoftext\|>``` | The prompt(s) to generate completions for, encoded as a string, or array of strings. Note that ```<\|endoftext\|>``` is the document separator that the model sees during training, so if a prompt isn't specified the model generates as if from the beginning of a new document. |
+| ```prompt``` | string or array | Optional | ```<\|endoftext\|>``` | The prompt or prompts to generate completions for, encoded as a string, or array of strings. ```<\|endoftext\|>``` is the document separator that the model sees during training, so if a prompt isn't specified the model generates as if from the beginning of a new document. |
 | ```max_tokens``` | integer | Optional | 16 | The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens can't exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096). |
-| ```temperature``` | number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values means the model takes more risks. Try 0.9 for more creative applications, and 0 (`argmax sampling`) for ones with a well-defined answer. We generally recommend altering this or top_p but not both. |
+| ```temperature``` | number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values mean the model takes more risks. Try 0.9 for more creative applications, and 0 (`argmax sampling`) for ones with a well-defined answer. We generally recommend altering this or top_p but not both. |
 | ```top_p``` | number | Optional | 1 | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both. |
 | ```logit_bias``` | map | Optional | null | Modify the likelihood of specified tokens appearing in the completion. Accepts a json object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this tokenizer tool (which works for both GPT-2 and GPT-3) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect varies per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. As an example, you can pass {"50256": -100} to prevent the <\|endoftext\|> token from being generated. |
 | ```user``` | string | Optional | | A unique identifier representing your end-user, which can help monitoring and detecting abuse |
 | ```n``` | integer | Optional |  1 | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for max_tokens and stop. |
 | ```stream``` | boolean | Optional | False | Whether to stream back partial progress. If set, tokens are sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message.| 
-| ```logprobs``` | integer | Optional | null | Include the log probabilities on the logprobs most likely tokens, as well the chosen tokens. For example, if logprobs is 10, the API will return a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. This parameter cannot be used with `gpt-35-turbo`. |
+| ```logprobs``` | integer | Optional | null | Include the log probabilities on the logprobs most likely tokens, as well the chosen tokens. For example, if logprobs is 10, the API will return a list of the 10 most likely tokens. The API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. This parameter cannot be used with `gpt-35-turbo`. |
 | ```suffix```| string | Optional | null | The suffix that comes after a completion of inserted text. |
 | ```echo``` | boolean | Optional | False | Echo back the prompt in addition to the completion. This parameter cannot be used with `gpt-35-turbo`. |
 | ```stop``` | string or array | Optional | null | Up to four sequences where the API will stop generating further tokens. The returned text won't contain the stop sequence. For GPT-4 Turbo with Vision, up to two sequences are supported. |
@@ -133,24 +134,25 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
-- `2023-03-15-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 
 **Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```input```| string or array | Yes | N/A | Input text to get embeddings for, encoded as an array or string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). Only `text-embedding-ada-002 (Version 2)` supports array input.|
+| ```input```| string or array | Yes | N/A | Input text to get embeddings for, encoded as an array or string. The number of input tokens varies depending on what [model you're using](./concepts/models.md). Only `text-embedding-ada-002 (Version 2)` supports array input.|
 | ```user``` | string | No | Null | A unique identifier representing your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
 
 #### Example request
@@ -199,17 +201,19 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD or YYYY-MM-DD-preview format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD or YYYY-MM-DD-preview format. |
 
 **Supported versions**
 
-- `2023-03-15-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` (required for Vision scenarios) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+
 
 **Request body**
 
@@ -219,11 +223,11 @@ The request body consists of a series of messages. The model will generate a res
 |--|--|--|--|--|
 | `messages` | array | Yes | N/A | The series of messages associated with this chat completion request. It should include previous messages in the conversation. Each message has a `role` and `content`. |
 | `role`| string | Yes | N/A | Indicates who is giving the current message. Can be `system`,`user`,`assistant`,`tool`, or `function`.|
-| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = "high", "low", or "auto" </li> </ul> </ul> </ul>|
+| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = `high`, `low`, or `auto` </li> </ul> </ul> </ul>|
 | `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
 | `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
-| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
-| `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
+| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has `grounding` and `ocr` properties, each has a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
+| `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property, which should be `"AzureComputerVision"` and a `parameters` property, which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
 
 #### Example request
 
@@ -288,13 +292,13 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 In the example response, `finish_reason` equals `stop`. If `finish_reason` equals `content_filter` consult our [content filtering guide](./concepts/content-filter.md) to understand why this is occurring.
 
 > [!IMPORTANT]
-> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the `tools` parameter. The replacement for `function_call` is the `tool_choice` parameter. Parallel function calling which was introduced as part of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) is only supported with `gpt-35-turbo` (1106) and `gpt-4` (1106-preview) also known as GPT-4 Turbo Preview.  
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the `tools` parameter. The replacement for `function_call` is the `tool_choice` parameter. Parallel function calling which was introduced as part of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) is only supported with `gpt-35-turbo` (1106) and `gpt-4` (1106-preview) also known as GPT-4 Turbo Preview. 
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | ```messages``` | array | Required |  | The collection of context messages associated with this chat completions request. Typical usage begins with a [chat message](#chatmessage) for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.|
 | ```temperature```| number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or `top_p` but not both. |
-| ```n``` | integer | Optional | 1 | How many chat completion choices to generate for each input message.  |
+| ```n``` | integer | Optional | 1 | How many chat completion choices to generate for each input message. |
 | ```stream``` | boolean | Optional | false | If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message." |
 | ```stop``` | string or array | Optional | null | Up to 4 sequences where the API will stop generating further tokens.|
 | ```max_tokens``` | integer | Optional | inf | The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return will be (4096 - prompt tokens).|
@@ -302,10 +306,10 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 | ```frequency_penalty``` | number | Optional | 0 | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.|
 | ```logit_bias``` | object | Optional | null | Modify the likelihood of specified tokens appearing in the completion. Accepts a json object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect varies per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.|
 | ```user``` | string | Optional | | A unique identifier representing your end-user, which can help Azure OpenAI to monitor and detect abuse.|
-|```function_call```|  | Optional | | `[Deprecated in 2023-12-01-preview replacement paremeter is tools_choice]`Controls how the model responds to function calls. "none" means the model doesn't call a function, and responds to the end-user. "auto" means the model can pick between an end-user or calling a function. Specifying a particular function via {"name": "my_function"} forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json) |
+|```function_call```|  | Optional | | `[Deprecated in 2023-12-01-preview replacement parameter is tools_choice]`Controls how the model responds to function calls. "none" means the model doesn't call a function, and responds to the end-user. `auto` means the model can pick between an end-user or calling a function. Specifying a particular function via {"name": "my_function"} forces the model to call that function. "none" is the default when no functions are present. `auto` is the default if functions are present. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json) |
 |```functions``` | [`FunctionDefinition[]`](#functiondefinition-deprecated) | Optional | | `[Deprecated in 2023-12-01-preview replacement paremeter is tools]` A list of functions the model can generate JSON inputs for. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)|
 |```tools```| string (The type of the tool. Only [`function`](#function) is supported.)  | Optional | |A list of tools the model can call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model can generate JSON inputs for. This parameter requires API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/generated.json) |
-|```tool_choice```| string or object | Optional | none is the default when no functions are present. auto is the default if functions are present. | Controls which (if any) function is called by the model. none means the model won't call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. Specifying a particular function via {"type: "function", "function": {"name": "my_function"}} forces the model to call that function. This parameter requires API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)|
+|```tool_choice```| string or object | Optional | none is the default when no functions are present. `auto` is the default if functions are present. | Controls which (if any) function is called by the model. None means the model won't call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via {"type: "function", "function": {"name": "my_function"}} forces the model to call that function. This parameter requires API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) or later.|
 
 ### ChatMessage
 
@@ -360,7 +364,10 @@ The definition of a caller-specified function that chat completions can invoke i
 
 ## Completions extensions
 
-Extensions for chat completions, for example Azure OpenAI on your data.
+Extensions for chat completions, for example Azure OpenAI On Your Data.
+
+> [!IMPORTANT]
+> The following information is for version `2023-12-01-preview` of the API. This **is not** the current version of the API. To find the latest reference documentation, see [Azure OpenAI On Your Data reference](./references/on-your-data.md).
 
 **Use chat completions extensions**
 
@@ -374,18 +381,19 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+
 
 #### Example request
 
-You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
+You can make requests using Azure AI Search, Azure Cosmos DB for MongoDB vCore, Pinecone, and Elasticsearch. For more information, see [Azure OpenAI On Your Data](./concepts/use-your-data.md#supported-data-sources).
 
 ##### Azure AI Search
 
@@ -615,28 +623,28 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `messages` | array | Required | null | The messages to generate chat completions for, in the chat format. |
-| `dataSources` | array | Required |  | The data sources to be used for the Azure OpenAI on your data feature. |
+| `dataSources` | array | Required |  | The data sources to be used for the Azure OpenAI On Your Data feature. |
 | `temperature` | number | Optional | 0 | 	What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or `top_p` but not both. |
 | `top_p` | number | Optional | 1 |An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.|
 | `stream` | boolean | Optional | false | If set, partial message deltas are sent, like in ChatGPT. Tokens are sent as data-only server-sent events as they become available, with the stream terminated by a message `"messages": [{"delta": {"content": "[DONE]"}, "index": 2, "end_turn": true}]`  |
 | `stop` | string or array | Optional | null | Up to two sequences where the API will stop generating further tokens. |
-| `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return is `4096 - prompt_tokens`.  |
+| `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return is `4096 - prompt_tokens`. |
 
 The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
 
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. For Elasticsearch the value is `Elasticsearch`. For Azure Machine Learning, the value is `AzureMLIndex`. For Pinecone, the value is `Pinecone`. |
+| `type` | string | Required | null | The data source to be used for the Azure OpenAI On Your Data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. For Elasticsearch the value is `Elasticsearch`. For Azure Machine Learning, the value is `AzureMLIndex`. For Pinecone, the value is `Pinecone`. |
 | `indexName` | string | Required | null | The search index to be used. |
-| `inScope` | boolean | Optional | true | If set, this value limits responses specific to the grounding data content.  |
-| `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
-| `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
+| `inScope` | boolean | Optional | true | If set, this value limits responses specific to the grounding data content. |
+| `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio. |
+| `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`. |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
 | `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
-| `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
-| `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
-| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
+| `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-types) outside of private networks and private endpoints. | 
+| `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-types) outside of private networks and private endpoints. | 
+| `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-types). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI On Your Data use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 
@@ -649,7 +657,7 @@ The following parameters are used for Azure AI Search.
 | `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
 | `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
 | `queryType` | string | Optional | simple |  Indicates which query option is used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
-| `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search. | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
 
 The following parameters are used inside of the `authentication` field, which enables you to use Azure OpenAI [without public network access](./how-to/use-your-data-securely.md).
 
@@ -673,7 +681,7 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
 | `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
 | `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
-| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default. |
 
 ```json
 "fieldsMapping": {
@@ -713,7 +721,7 @@ The following parameters are used for Azure Cosmos DB for MongoDB vCore.
 | `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
 | `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
 | `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
-| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When you use Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
+| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore. | null | Index data column mapping. When you use Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors. |
 
 The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
 
@@ -749,7 +757,7 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
 | `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
 | `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
-| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default. |
 | `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
 
 ```json
@@ -823,7 +831,7 @@ The following parameters are used for Pinecone.
 | `filepathField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a file path. |
 | `contentFields` (found inside of `fieldsMapping`) | string | Required | null | The name of the index fields that should be treated as content. |
 | `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
-| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for your content fields. Use `\n` by default. |
 
 The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
 
@@ -839,7 +847,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 },
 ```
 
-### Start an ingestion job 
+### Start an ingestion job (preview)
 
 > [!TIP]
 > The `JOB_NAME` you choose will be used as the index name. Be aware of the [constraints](/rest/api/searchservice/create-index#uri-parameters) for the *index name*.
@@ -906,7 +914,7 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 | `chunkSize` | int | Optional |1024 |This number defines the maximum number of tokens in each chunk produced by the ingestion flow. |
 
 
-### List ingestion jobs
+### List ingestion jobs (preview)
 
 ```console
 curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs?api-version=2023-10-01-preview \ 
@@ -940,7 +948,7 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 } 
 ```
 
-### Get the status of an ingestion job 
+### Get the status of an ingestion job (preview)
 
 ```console
 curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/YOUR_JOB_NAME?api-version=2023-10-01-preview \ 
@@ -975,11 +983,13 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your DALL-E 3 model deployment such as *MyDalle3*. You're required to first deploy a DALL-E 3 model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+
 
 **Request body**
 
@@ -989,7 +999,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 | `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
 | `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
-| `response_format` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64 byte code in JSON format). |
+| `response_format` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64-byte code in JSON format). |
 | `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid` (for hyper-realistic / dramatic images). |
 
 
@@ -1042,14 +1052,16 @@ POST https://{your-resource-name}.openai.azure.com/openai/images/generations:sub
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+
 
 **Request body**
 
@@ -1101,9 +1113,11 @@ GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{oper
 
 **Supported versions**
 
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
+
 
 #### Example request
 
@@ -1154,9 +1168,9 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{o
 
 **Supported versions**
 
-- `2023-06-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-06-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
+- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
 
 #### Example request
 
@@ -1187,12 +1201,13 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
 | ```deployment-id``` | string | Required | The name of your Whisper model deployment such as *MyWhisperDeployment*. You're required to first deploy a Whisper model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 
 **Request body**
 
@@ -1271,12 +1286,13 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
 | ```deployment-id``` | string | Required | The name of your Whisper model deployment such as *MyWhisperDeployment*. You're required to first deploy a Whisper model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
-- `2023-09-01-preview` (retiring 2024-04-02) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 
 **Request body**
 
@@ -1320,11 +1336,11 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
 | ```deployment-id``` | string | Required | The name of your text to speech model deployment such as *MyTextToSpeechDeployment*. You're required to first deploy a text to speech model (such as `tts-1` or `tts-1-hd`) before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format. |
 
 **Supported versions**
 
-- `2024-02-15-preview`
+- `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 
 **Request body**
 
@@ -1355,7 +1371,7 @@ The speech is returned as an audio file from the previous request.
 
 ## Management APIs
 
-Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
+Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
 
 [**Management APIs reference documentation**](/rest/api/cognitiveservices/)
 
