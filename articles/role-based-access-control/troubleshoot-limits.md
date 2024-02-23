@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 01/12/2024
+ms.date: 02/22/2024
 ms.author: rolyon
 ---
 
@@ -63,7 +63,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
@@ -147,7 +147,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
@@ -217,7 +217,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
@@ -272,7 +272,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 ### Solution 4 - Make role assignments eligible
 
-To reduce the number of role assignments in the subscription and you have Microsoft Entra ID P2, make role assignments eligible in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md) instead of permanently assigned.
+To reduce the number of role assignments in the subscription and you have Microsoft Entra ID P2, make role assignments eligible in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) instead of permanently assigned.
 
 ### Solution 5 - Add an additional subscription
 
@@ -323,7 +323,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    This query checks active role assignments and doesn't consider eligible custom role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible custom role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](../governance/includes/resource-graph/query/authorization-unused-custom-roles.md)]
 
