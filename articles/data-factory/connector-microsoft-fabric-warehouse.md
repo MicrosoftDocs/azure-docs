@@ -29,7 +29,7 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 ## Get started
 
@@ -174,7 +174,7 @@ For a full list of sections and properties available for defining activities, se
 ### Microsoft Fabric Warehouse as the source
 
 >[!TIP]
->To load data from Microsoft Fabric Warehouse efficiently by using data partitioning, learn more from [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-azure-synapse-analytics).
+>To load data from Microsoft Fabric Warehouse efficiently by using data partitioning, learn more from [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse).
 
 To copy data from Microsoft Fabric Warehouse, set the **type** property in the Copy Activity source to **WarehouseSource**. The following properties are supported in the Copy Activity **source** section:
 
@@ -292,7 +292,7 @@ To copy data to Microsoft Fabric Warehouse, set the sink type in Copy Activity t
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | The **type** property of the Copy Activity sink must be set to **WarehouseSink**. | Yes                                           |
-| allowCopyCommand| Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric) to load data into Microsoft Fabric Warehouse. <br/><br/>See [Use COPY statement to load data into Microsoft Fabric Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>The allowed values is **True**. | Yes |
+| allowCopyCommand| Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric&preserve-view=true) to load data into Microsoft Fabric Warehouse. <br/><br/>See [Use COPY statement to load data into Microsoft Fabric Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>The allowed values is **True**. | Yes |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No |
 | writeBatchTimeout| This property specifies the wait time for the insert, upsert and stored procedure operation to complete before it times out.<br/><br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the timeout defaults to "00:30:00"| No |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Microsoft Fabric Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
@@ -373,7 +373,7 @@ Best practices to load data with partition option:
 ```
 ## <a name="use-copy-statement"></a> Use COPY statement to load data into Microsoft Fabric Warehouse
 
-Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric) is a simple and flexible way to load data into Microsoft Fabric Warehouse with high throughput. To learn more details, check [Bulk load data using the COPY statement](../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md)
+Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric&preserve-view=true) is a simple and flexible way to load data into Microsoft Fabric Warehouse with high throughput. To learn more details, check [Bulk load data using the COPY statement](../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md)
 
 
 - If your source data is in **Azure Blob or Azure Data Lake Storage Gen2**, and the **format is COPY statement compatible**, you can use copy activity to directly invoke COPY statement to let Microsoft Fabric Warehouse pull the data from source. For details, see **[Direct copy by using COPY statement](#direct-copy-by-using-copy-statement)**.
@@ -474,7 +474,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]
->If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the COPY statement load.(confirmation???)
+>If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the COPY statement load.
 
 ```json
 "activities":[
