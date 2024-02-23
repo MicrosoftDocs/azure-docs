@@ -27,7 +27,7 @@ Projects are hosted by an Azure AI hub resource that provides enterprise-grade s
 
 ## Project details
 
-In the project details page (select **Build** > **Settings**), you can find information about the project, such as the project name, description, and the Azure AI hub resource that hosts the project. You can also find the project ID, which is used to identify the project in the Azure AI Studio API.
+In the project details page (select **Build** > **AI project settings**), you can find information about the project, such as the project name, description, and the Azure AI hub resource that hosts the project. You can also find the project ID, which is used to identify the project in the Azure AI Studio API.
 
 - Name: The name of the project corresponds to the selected project in the left panel. 
 - AI hub: The Azure AI hub resource that hosts the project. 

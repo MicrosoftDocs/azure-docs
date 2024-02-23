@@ -212,6 +212,8 @@
         href: ../ai-services/rotate-keys.md?context=/azure/ai-studio/context/context
       - name: Configure customer-managed keys
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
+    - name: Vulnerability management
+      href: concepts/vulnerability-management.md
 - name: Responsible AI
   items:
   - name: Overview
