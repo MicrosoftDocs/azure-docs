@@ -79,7 +79,7 @@ jobs:
           push: true
           tags: ${{ secrets.IMAGE_TAG }}
           file: Dockerfile
-     # Run Analyzers 
+     # Run Mapping Tool in MSDO
     - name: Run Microsoft Security DevOps Analysis
       uses: microsoft/security-devops-action@latest
       id: msdo
