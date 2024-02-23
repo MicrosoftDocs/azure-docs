@@ -99,7 +99,7 @@ The response is of the form:
 }
 ```
 
-`date` contains the timestamp of the most recent SIM swap in the `date-time` format defined in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6).
+`date` contains the timestamp of the most recent SIM swap in the `date-time` format defined in [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6). `date` may be `null`: this means that the SIM has never been swapped, or has not been swapped within the timeframe that the Operator maintains data for.
 
 ### Verify that a SIM card has been swapped in a certain time frame
 
