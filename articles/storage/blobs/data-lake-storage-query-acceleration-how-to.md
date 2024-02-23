@@ -539,4 +539,3 @@ async function queryDvds(blob)
 
 - [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 - [Query acceleration SQL language reference](query-acceleration-sql-reference.md)
-
