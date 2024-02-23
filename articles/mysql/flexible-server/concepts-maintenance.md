@@ -80,7 +80,7 @@ Be aware of the following when using this feature:
 - **Demand Constraints:** Your rescheduled maintenance might be canceled due to a high number of maintenance activities occurring simultaneously in the same region.
 - **Lock-in Period:** Rescheduling is unavailable 15 minutes prior to the initially scheduled maintenance time to maintain the reliability of the service.
 
-There is no limitation on how many times a maintenance can be rescheduled, as long as the maintenance has not entered into the "In preparation" state, you can always reschedule your maintenance to another time.
+There's no limitation on how many times a maintenance can be rescheduled, as long as the maintenance hasn't entered into the "In preparation" state, you can always reschedule your maintenance to another time.
 
 > [!NOTE]
 > We recommend monitoring notifications closely during the preview stage to accommodate potential adjustments.
