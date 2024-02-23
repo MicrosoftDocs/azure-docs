@@ -1,6 +1,4 @@
-###YamlMime:HowTo
-
----
+### YamlMime:HowTo
 metadata:
     title: Manage an Azure support request
     description: Learn about viewing support requests and how to send messages, upload files, and manage options.
@@ -14,7 +12,9 @@ title: |
   Manage an Azure support request
 
 introduction: |
-  After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com).
+  After you
+  [create an Azure support request](how-to-create-azure-support-request.md), you
+  can manage it in the [Azure portal](https://portal.azure.com).
 
   > [!TIP]
   > You can create and manage requests programmatically by using the
