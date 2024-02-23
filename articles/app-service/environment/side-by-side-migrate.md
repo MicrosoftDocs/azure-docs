@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 2/21/2024
+ms.date: 2/22/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -30,7 +30,9 @@ At this time, the side by side migration feature supports migrations to App Serv
 ### Azure Public
 
 - East Asia
+- North Europe
 - West Central US
+- West US 2
 
 The following App Service Environment configurations can be migrated using the side by side migration feature. The table gives the App Service Environment v3 configuration when using the side by side migration feature based on your existing App Service Environment.
 
