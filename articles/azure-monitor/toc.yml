@@ -1118,7 +1118,7 @@ items:
     - name: Workbook Samples
       href: visualize/workbooks-samples.md
     - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md
+      href: insights/troubleshoot-workbooks.md
   - name: Grafana
     href: visualize/grafana-plugin.md
   - name: Dashboards
