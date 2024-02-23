@@ -134,7 +134,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
 | gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
 | gpt-4 (0125-preview) | East US <br> North Central US <br> South Central US <br> |
-| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
+| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East <br> Switzerland North <br> Australia East|   |  
 
 #### Azure Government regions
 
