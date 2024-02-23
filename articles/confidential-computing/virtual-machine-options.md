@@ -87,7 +87,7 @@ Confidential VMs run on specialized hardware, so you can only [resize confidenti
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
-### Guest Operating System Support
+### Guest OS support
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
