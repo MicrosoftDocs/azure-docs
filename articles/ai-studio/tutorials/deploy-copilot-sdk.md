@@ -86,7 +86,7 @@ In this tutorial, you use a prebuilt custom container via [Visual Studio Code (W
 
 In the left pane of Visual Studio Code, you see the `code` folder for personal work such as cloning git repos. There's also a `shared` folder that has files that everyone that is connected to this project can see. For more information about the directory structure, see [Get started with Azure AI projects in VS Code](../how-to/develop-in-vscode.md#the-custom-container-folder-structure).
 
-You can still use the Azure AI Studio (that's still open in another browser tab) while working in VS Code Web. You can see the compute is running via **Build** > **Settings** > **Compute instances**. You can pause or stop the compute from here.
+You can still use the Azure AI Studio (that's still open in another browser tab) while working in VS Code Web. You can see the compute is running via **Build** > **AI project settings** > **Compute instances**. You can pause or stop the compute from here.
 
 :::image type="content" source="../media/tutorials/copilot-sdk/compute-running.png" alt-text="Screenshot of the compute instance running in Azure AI Studio." lightbox="../media/tutorials/copilot-sdk/compute-running.png":::
 

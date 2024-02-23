@@ -97,7 +97,7 @@ For the examples in this section, assume that all Azure AI Studio resources are 
 Here's an example of how to monitor costs for an Azure AI Studio project. The costs are used as an example only. Your costs will vary depending on the services that you use and the amount of usage.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select your project and then select **Settings** from the left navigation menu.
+1. Select your project and then select **AI project settings** from the left navigation menu.
 
     :::image type="content" source="../media/cost-management/project-costs/project-settings-go-view-costs.png" alt-text="Screenshot of the Azure AI Studio portal showing how to see project settings." lightbox="../media/cost-management/project-costs/project-settings-go-view-costs.png":::
 
