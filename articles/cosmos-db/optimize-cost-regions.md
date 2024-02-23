@@ -22,14 +22,14 @@ In a multi-region writes system, the net available RUs for write operations incr
 
 ### Example
 
-Consider that you have a container in West US configured for single-region writes, provisioned with throughput of 10K RU/s, storing 0.5 TB of data this month. Let’s assume you add a region, East US, with the same storage and throughput and you want the ability to write to the containers in both the regions from your app. Your new total monthly bill (assuming 730 hours in a month) will be as follows:
+Consider that you have a container in West US configured for single-region writes, provisioned with throughput of 10K RU/s, storing 0.5 TB of data this month. Let’s assume you add a region, East US, with the same storage and throughput and you want the ability to write to the containers in both the regions from your app. Your new total monthly consumption (assuming 730 hours in a month) will be as follows:
 
-|**Item**|**Usage (monthly)**|**Rate**|**Monthly Cost**|
-|----|----|----|----|
-|Throughput bill for container in West US (single write region) |10K RU/s * 730 hours |$0.008 per 100 RU/s per hour |$584 |
-|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 730 hours |$0.016 per 100 RU/s per hour |$2,336 |
-|Storage bill for container in West US |0.5 TB (or 512 GB) |$0.25/GB |$128 |
-|Storage bill for container in 2 regions - West US & East US |2 * 0.5 TB (or 1,024 GB) |$0.25/GB |$256 |
+|**Item**|**Usage (monthly)**|
+|----|----|----|
+|Throughput bill for container in West US (single write region) |10K RU/s * 730 hours |
+|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 730 hours |
+|Storage bill for container in West US |0.5 TB (or 512 GB) |
+|Storage bill for container in 2 regions - West US & East US |2 * 0.5 TB (or 1,024 GB) |
 
 ## Improve throughput utilization on a per region-basis
 
