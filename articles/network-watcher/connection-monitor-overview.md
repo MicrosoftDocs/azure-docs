@@ -199,7 +199,7 @@ While monitoring endpoints, Connection monitor reevaluates the status of endpoin
 
   > [!NOTE]
   >  In case of monitoring a Virtual Machine Scale Set, instances of a particular scale set selected for monitoring (either by the user or picked up by default as part of the coverage level selected) might get deallocated or scaled down in the middle of the 24-hour cycle. In this particular time period, Connection monitor will not be able to recognize this action and thus end-up reporting an indeterminate state due to the absence of data. 
-  >  Users are advised to allow random selection of virtual machine scale sets instances within coverage levels instead of selecting particular instances of scale sets for monitoring, to minimize the risks of non-discoverability of deallocated or scaled down virtual machine scale sets instances in a 24 hours cycle and lead to an indeterminate state of connection monitor.  
+  >  Users are advised to allow random selection of virtual machine scale sets instances within coverage levels instead of selecting particular instances of scale sets for monitoring, to minimize the risks of non-discoverability of deallocated or scaled down virtual machine scale sets instances in a 24-hour cycle and lead to an indeterminate state of connection monitor.  
 
 ### Checks in a test
 
