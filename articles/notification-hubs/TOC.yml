@@ -76,7 +76,11 @@
 - name: Concepts
   items:
   - name: Reliability
-    href: ../reliability/reliability-notification-hubs.md?toc=/azure/reliability/toc.json
+    items:
+    - name: Availability zones and disaster recovery
+      href: ../reliability/reliability-notification-hubs.md?toc=/azure/reliability/toc.json
+    - name: Migrate to availability zone support
+      href: ../reliability/migrate-notification-hubs.md?toc=/azure/reliability/toc.json  
   - name: EU Data Boundary
     href: eu-data-boundary.md
   - name: Data encryption at rest

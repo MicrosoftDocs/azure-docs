@@ -36,6 +36,8 @@
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
         href: migrate-monitor-log-analytics.md
+      - name: Azure Notification Hubs
+        href: migrate-notification-hubs.md
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric

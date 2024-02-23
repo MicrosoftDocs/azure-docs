@@ -48,17 +48,9 @@ You can only enable availability zones on new namespaces. Because Notification H
 
 To learn how to set up a new namespace with availability zones, see [Create an Azure notification hub in the Azure portal](/azure/notification-hubs/create-notification-hub-portal).
 
+### Migrate to availability zone support
 
-
-Notification Hubs offers two availability configurations:
-
-- **Cross region disaster recovery** provides metadata disaster recovery coverage. Cross-region is supported in paired and flexible region recovery options. Each Azure region is paired with another region within the same geography. All Notification Hubs tiers support [Azure paired regions][] (where available). All tiers provide a *flexible recovery region* option, enabling you to choose from a list of supported regions. In regions with availability zones and no region pair, you can use flexible recovery to choose a failover region that provides resiliency in the event of a full region failure.
-
-   | Region type               | Options                                                                                                                  |
-   |---------------------------|-------------------------------------------------------------------------------------------------------------------|
-   | Paired recovery regions   | See [Azure cross-region replication pairings](/azure/reliability/cross-region-replication-azure#azure-paired-regions). |
-   | Flexible recovery regions (new feature) | - West Us 2 <br />  - North Europe <br />  - Australia East <br />  - Brazil South <br />  - South East Asia <br />  - South Africa North                   |
-
+To learn how to move an existing Notification Hubs resource to a new region with availability zone support, see [Migrate Notification Hubs to availability zone support](./migrate-notification-hubs.md).
 
 
 ## Cross-region disaster recovery and business continuity
@@ -67,9 +59,24 @@ Notification Hubs offers two availability configurations:
 
 Notification Hubs provides metadata disaster recovery coverage through cross-region replication of metadata such as the Notification Hubs name, the connection string, and other critical information. 
 
-You can use the [Azure paired region](./cross-region-replication-azure.md#azure-paired-regions) or choose from a list of supported flexible regions. 
+You can use the [Azure paired region](./cross-region-replication-azure.md#azure-paired-regions) or choose from a list of regions that support [Flexible Recovery Region](#flexible-recovery-region). 
 
 When a disaster recovery scenario is triggered, registration data is the only segment of the Notification Hubs infrastructure that's lost. See the [Back up registration data](#back-up-registration-data) section for options for preserving the registration data for your namespace and how to restore it.
+
+
+### Flexible Recovery Region
+
+Flexible Recovery Region is a simple solution that allows you to configure a secondary namespace as a failover target for your primary namespace. You can choose from the list of supported regions. In the case of regions with availability zones but no paired region, you can use flexible recovery to select a secondary region. When the failover is triggered, the secondary namespace becomes the active namespace, and the primary namespace becomes the passive namespace. All the requests and messages sent to the primary namespace are redirected to the secondary namespace, and the push notifications are delivered from the secondary namespace.
+
+The following regions support Flexible Recovery Region:
+
+- West US 2
+- North Europe
+- Australia East
+- Brazil South
+- South East Asia
+- South Africa North
+
 
 ### Back up registration data
 
