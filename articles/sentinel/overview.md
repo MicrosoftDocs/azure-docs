@@ -58,7 +58,7 @@ After you [onboard to Microsoft Sentinel](quickstart-onboard.md), monitor your d
 
 Workbooks display differently in Microsoft Sentinel than in Azure Monitor. But it may be useful for you to see how to [create a workbook in Azure Monitor](../azure-monitor/visualize/workbooks-create-workbook.md). Microsoft Sentinel allows you to create custom workbooks across your data. Microsoft Sentinel also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
-:::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Screenshot of workbooks page in Microsoft Sentinel with a list of available workbooks.":::
+:::image type="content" source="media/monitor-your-data/access-workbooks.png" alt-text="Screenshot of workbooks page in Microsoft Sentinel with a list of available workbooks.":::
 
 Workbooks are intended for SOC engineers and analysts of all tiers to visualize data.
 
