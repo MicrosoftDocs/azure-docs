@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges. Then you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2023
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -84,7 +84,7 @@ Sample actual cost report:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | OnDemand | Usage | 24 | 1 | 0.8 | 0.8 | 1 hour | 19.2 | Manual calculation of the actual charge: multiply 24 \* 0.8 \* 1 hour. |
 | xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations/SavingsPlan | Usage | 24 | 1 | 0.8 | 0 | 1 hour | 0 | Manual calculation of the actual charge: multiply 24 \* 0 \* 1 hour. |
-| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations | Purchase | 15 | 120 | 0.8 | 120 | 1 hour | 1800 | Manual calculation of the actual charge: multiply 15 \* 120 \* 1 hour. |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations | Purchase | 15 | 120 | 120 | 120 | 1 hour | 1800 | Manual calculation of the actual charge: multiply 15 \* 120 \* 1 hour. |
 
 Sample amortized cost report:
 
@@ -95,11 +95,11 @@ Sample amortized cost report:
 
 >[!NOTE]
 > - Limitations on `PayGPrice`
->    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
->    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, or `Marketplace`.
+>    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Marketplace`, or `SavingsPlan`.
+>    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >- Limitations on `UnitPrice`
->    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `Spot`, or `MarketPlace`.
->    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, or `SavingsPlan`.
+>    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`.
+>    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations` or `SavingsPlan`.
 
 ## Unexpected charges
 
