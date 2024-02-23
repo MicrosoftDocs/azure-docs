@@ -49,13 +49,42 @@ The following is an example of an advanced query that utilizes container image m
 1. Add the container image mapping tool to your MSDO workflow:
 
     ```yml
-          # Run analyzers
-        - name: Run Microsoft Security DevOps Analysis
-          uses: microsoft/security-devops-action@latest
-          id: msdo
-          with:
-            include-tools: container-mapping
-    ```
+name: Build and Map Container Image
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Set Permissions
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8' 
+    # Set Authentication to Container Registry of Choice
+   - name: Azure Container Registry Login 
+        uses: Azure/docker-login@v1 
+        with:
+        login-server: <containerRegistryLoginServer>
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+     # Build and Push Image
+    - name: Build and Push the Docker image 
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ secrets.IMAGE_TAG }}
+          file: Dockerfile
+     # Run Analyzers 
+    - name: Run Microsoft Security DevOps Analysis
+      uses: microsoft/security-devops-action@latest
+      id: msdo
+      with:
+        include-tools: container-mapping
 
 After building a container image in a GitHub workflow and pushing it to a registry, see the mapping by using the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md):
 
