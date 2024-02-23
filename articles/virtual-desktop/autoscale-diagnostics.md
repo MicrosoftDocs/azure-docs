@@ -29,7 +29,7 @@ To enable diagnostics for your scaling plan:
 
 1. Enter a name for the diagnostic setting.
 
-1. Next, select **Autoscale logs** and choose either **storage account** or **event hub** depending on where you want to send the report.
+1. Next, select **Autoscale logs** and choose either **Archive to a storage account** or **Stream to an event hub** depending on where you want to send the report.
 
 1. Select **Save**.
 

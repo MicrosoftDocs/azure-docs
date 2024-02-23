@@ -532,7 +532,7 @@
       - name: Collect and query user connection quality data
         displayName: monitoring, network, graphics
         href: connection-quality-monitoring.md
-      - name: Monitor Autoscale operations
+      - name: Monitor Autoscale operations with Insights
         displayName: monitoring, scale, scaling, avd insights, avdi
         href: autoscale-monitor-operations-insights.md
       - name: Set up diagnostics for Autoscale
