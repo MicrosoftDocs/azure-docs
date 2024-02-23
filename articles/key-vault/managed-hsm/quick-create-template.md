@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/21/2023
+ms.date: 02/20/2024
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm

@@ -370,6 +370,7 @@ The following table explains the properties you can set using this trigger attri
 |**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**AutoCompleteMessages**| `true` if the trigger should automatically complete the message after a successful invocation. `false` if it should not, such as when you are [handling message settlement in code](#usage). If not explicitly set, the behavior will be based on the [`autoCompleteMessages` configuration in `host.json`][host-json-autoComplete].|
 
 # [In-process model](#tab/in-process)
 
@@ -590,9 +591,16 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 ## PeekLock behavior
 
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running.
+The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode).
 
-The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [ServiceBusProcessor.MaxAutoLockRenewalDuration](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.maxautolockrenewalduration). The default value of this setting is 5 minutes.
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell"
+ By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete].
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+ By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete] or through a [property on the trigger attribute](#attributes). You should disable automatic completion if your function code handles message settlement.
+::: zone-end  
+
+If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running. The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [ServiceBusProcessor.MaxAutoLockRenewalDuration](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.maxautolockrenewalduration). The default value of this setting is 5 minutes.
 
 ::: zone pivot="programming-language-csharp" 
 ## Message metadata
@@ -696,3 +704,4 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+[host-json-autoComplete]: ./functions-bindings-service-bus.md#hostjson-settings
