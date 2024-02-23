@@ -238,6 +238,35 @@ Any disaster recovery plans for Azure Virtual Desktop must include replicating t
 
 Azure Files has limits on the number of open handles per root directory, directory, and file. When using MSIX app attach or app attach, VHDX or CimFS disk images are mounted using the computer account of the session host, meaning one handle is opened per session host per disk image, rather than per user. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
+## MSIX and Appx package certificates
+
+All MSIX and Appx packages require a valid code signing certificate. To use these packages with app attach, you need to ensure the whole certificate chain is trusted on your session hosts. A code signing certificate has the object identifier `1.3.6.1.5.5.7.3.3`. You can get a code signing certificate for your packages from:
+
+- A public certificate authority (CA).
+
+- An internal enterprise or standalone certificate authority, such as [Active Directory Certificate Services](/windows-server/identity/ad-cs/active-directory-certificate-services-overview). You need to export the code signing certificate, including its private key.
+
+- A tool such as the PowerShell cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) that generates a self-signed certificate. You should only use self-signed certificates in a test environment. For more information on creating a self-signed certificate for MSIX and Appx packages, see [Create a certificate for package signing](/windows/msix/package/create-certificate-package-signing).
+
+Once you've obtained a certificate, you need to digitally sign your MSIX or Appx packages with the certificate. You can use the [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) to sign your packages when you create an MSIX package. For more information, see [Create an MSIX package from any desktop installer](/windows/msix/packaging-tool/create-app-package).
+
+To ensure the certificate is trusted on your session hosts, you need your session hosts to trust the whole certificate chain. How you do this depends on where you got the certificate from and how you manage your session hosts and the identity provider you use. The following table provides some guidance on how to ensure the certificate is trusted on your session hosts:
+
+- **Public CA**: certificates from a public CA are trusted by default in Windows and Windows Server.
+
+- **Internal Enterprise CA**:
+
+    - For session hosts joined to Active Directory, with AD CS configured as the internal enterprise CA, are trusted by default and stored in the configuration naming context of Active Directory Domain Services. When AD CS is a configured as a standalone CA, you need to configure Group Policy to distribute the root and intermediate certificates to session hosts. For more information, see [Distribute certificates to Windows devices by using Group Policy](/windows-server/identity/ad-cs/distribute-certificates-group-policy/).
+
+    - For session hosts joined to Microsoft Entra ID, you can use Microsoft Intune to distribute the root and intermediate certificates to session hosts. For more information, see [Trusted root certificate profiles for Microsoft Intune](/mem/intune/protect/certificates-trusted-root).
+
+    - For session hosts using Microsoft Entra hybrid join, you can use either of the previous methods, depending on your requirements.
+
+- **Self-signed**: install the trusted root to the **Trusted Root Certification Authorities** store on each session host. We don't recommend distributing this certificate using Group Policy or Intune as it should only be used for testing.
+
+> [!IMPORTANT]
+> You should timestamp your package so that its validity can outlast your certificate's expiration date. Otherwise, once the certificate has expired, you need to update the package with a new valid certificate and once again ensure it's trusted on your session hosts.
+
 ## Next steps
 
 Learn how to [Add and manage app attach applications in Azure Virtual Desktop](app-attach-setup.md).
