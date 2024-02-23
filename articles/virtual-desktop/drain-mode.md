@@ -1,10 +1,10 @@
 ---
 title: Drain session hosts for maintenance in Azure Virtual Desktop
-description: Learn how to drain session hosts for maintenance in Azure Virtual Desktop.
+description: Learn how to enable drain mode to isolate session hosts for maintenance in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/22/2024
+ms.date: 02/23/2024
 ---
 
 # Drain session hosts for maintenance in Azure Virtual Desktop
@@ -45,7 +45,10 @@ To enable drain mode for a session host and block new sessions in the Azure port
 
 ### [Azure PowerShell](#tab/powershell)
 
-You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command.
+You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command. You'll need to run these commands for every session host for which you want to enable and disable drain.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -53,29 +56,26 @@ You can set drain mode in PowerShell with the *AllowNewSessions* parameter, whic
 
    ```powershell
    $params = @{
-       ResourceGroupName = '<resourceGroupName>'
-       HostPoolName = '<hostpoolname>'
-       Name = '<hostname>'
+       ResourceGroupName = '<ResourceGroupName>'
+       HostPoolName = '<HostPoolName>'
+       Name = '<SessionHostName>'
        AllowNewSession = $False
    }
 
    Update-AzWvdSessionHost @params
    ```
 
-3.  To disable drain for a session host and allow new sessions, run the following command:
+3. To disable drain for a session host and allow new sessions, run the following command:
 
    ```powershell
    $params = @{
-       ResourceGroupName = '<resourceGroupName>'
-       HostPoolName = '<hostpoolname>'
-       Name = '<hostname>'
+       ResourceGroupName = '<ResourceGroupName>'
+       HostPoolName = '<HostPoolName>'
+       Name = '<SessionHostName>'
        AllowNewSession = $True
    }
 
    Update-AzWvdSessionHost @params
    ```
-
-> [!IMPORTANT]
-> You'll need to run these commands for every session host for which you want to enable and disable drain.
 
 ---
