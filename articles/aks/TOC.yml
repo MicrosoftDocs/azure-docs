@@ -159,7 +159,7 @@
     - name: Overview
       href: best-practices.md
     - name: Baseline architecture for an AKS cluster
-      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+      href: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: High availability disaster recovery
       items:
         - name: Overview
