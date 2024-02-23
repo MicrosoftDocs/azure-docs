@@ -69,7 +69,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.26**
 
-- Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for non-required in classic mode.
+- Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for nonrequired in classic mode.
 
 **2.1.25**
 
@@ -95,21 +95,20 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.21**
 
-- Additional sanitization of script tags to avoid XSS attacks. This revision breaks any script tags in the `<body>`. You should add script tags to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md?pivots=b2c-user-flow).
+- More sanitization of script tags to avoid XSS attacks. This revision breaks any script tags in the `<body>`. You should add script tags to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md?pivots=b2c-user-flow).
 
 **2.1.20**
 - Fixed Enter event trigger on MFA.
 - CSS changes rendering page text/control in vertical manner for small screens
 
 **2.1.19**
-- Fixed accessibility bugs.
-- Handled Undefined Error message for existing user sign up.
-- Moved Password mismatch error to Inline instead of page level.
-- Accessibility changes related to High Contrast button display and anchor focus improvements
+- Fix accessibility bugs.
+- Handle Undefined Error message for existing user sign-up.
+- Move Password mismatch error to Inline instead of page level.
 
 **2.1.18**
 - Add asterisk for required fields
-- TOTP Store Icons position fixes for Classic Template
+- Fix TOTP Store Icons position for Classic Template
 - Activate input items only when verification code is verified
 - Add Alt Text for Background Image
 - Added customization for server errors by TOTP verification
@@ -118,11 +117,11 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Add descriptive error message and fixed forgotPassword link
 - Make checkbox as group
 - Enforce Validation Error Update on control change and enable continue on email verified
-- Added additional field to error code to validation failure response
+- Add more field to error code to validation failure response
 	
 
 **2.1.16**
-- Fixed "Claims for verification control have not been verified" bug while verifying code.
+- Fixed "Claims for verification control haven't been verified" bug while verifying code.
 - Hide error message on validation succeeds and send code to verify
 
 **2.1.15**
@@ -197,10 +196,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **1.2.0**
 
-- The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
+- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer (IE) to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
 - Accessibility fixes
-- Fixed an accessibility issue so that error messages are now read by Narrator. 
+- Fix  an accessibility issue so that error messages are read by Narrator. 
 - Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from the checkbox control. 
 - Added support for a display control for phone number verification.
@@ -208,7 +207,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards provide the correct suggestions.
-- Support for Chrome translate.
+- Support for Chrome translates.
 - Added support for company branding in user flow pages.
 
 **1.1.0**
@@ -237,7 +236,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.13**
 
-- Fixed content security policy (CSP) violation and remove additional request header X-Aspnetmvc-Version
+- Fixed content security policy (CSP) violation and remove more request header X-Aspnetmvc-Version
 
 **2.1.12**
 
@@ -302,13 +301,13 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **1.2.0**
 
-- The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
+- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer (IE) to properly save this information.
 - Accessibility fixes
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
-- Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
-- Support for Chrome translate.
+- Email field is now `type=email` and mobile keyboards provide the correct suggestions.
+- Support for Chrome translates.
 - Added support for tenant branding in user flow pages.
 
 **1.1.0**
@@ -339,11 +338,11 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **1.2.9**
 
-- Fixed `Enter` event trigger on MFA.
+- Fix `Enter` event trigger on MFA.
 
 - CSS changes render page text/control in vertical manner for small screens
 
-- Fixed Multifactor tab navigation bug.
+- Fix Multifactor tab navigation bug.
 
 **1.2.8**
 
@@ -378,9 +377,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Minor bug fixes.
 
 **1.2.2**
-- Fixed an issue with auto-filling the verification code when using iOS.
+- Fixed an issue with autofilling the verification code when using iOS.
 - Fixed an issue with redirecting a token to the relying party from Android Webview. 
-- Added a UXString `heading` in addition to `intro` to display on the page as a title. This messages is hidden by default.  
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This message is hidden by default.  
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 
 **1.2.1**
@@ -393,8 +392,8 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
-- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
-- Support for Chrome translate.
+- Email field is now `type=email` and mobile keyboards provide the correct suggestions
+- Support for Chrome translates.
 - Added support for tenant branding in user flow pages.
 
 **1.1.0**
@@ -440,8 +439,8 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
-- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
-- Support for Chrome translate
+- Email field is now `type=email` and mobile keyboards provide the correct suggestions
+- Support for Chrome translates
 
 **1.1.0**
 
@@ -478,8 +477,8 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
-- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
-- Support for Chrome translate
+- Email field is now `type=email` and mobile keyboards provide the correct suggestions
+- Support for Chrome translates
 
 **1.0.0**
 

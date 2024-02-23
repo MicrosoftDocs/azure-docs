@@ -22,7 +22,7 @@ Use CAPTCHA display controls to generate a CAPTCHA challenge string, then verify
 
 The screenshot shows the CAPTCHA display control shown on a sign-up page:
 
-:::image type="content" source="media/add-captcha/add-captcha.png" alt-text="Screenshot of CAPTCHA as it appears in the sign-up page."::: 
+:::image type="content" source="media/display-control-captcha/add-captcha.png" alt-text="Screenshot of CAPTCHA as it appears in the sign-up page."::: 
 
 The sign-up page loads with the CAPTCHA display control. The user then inputs the characters they see or hear. The **Send verification code** button sends a verification code to the user's email, and isn't CAPTCHA display control element, but it causes the CAPTCHA challenge string to be verified.
 
