@@ -14,6 +14,8 @@ ms.author: kumud
 
 # Embed the Internet Analyzer client
 
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
+
 This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. **The profile-specific JavaScript client is provided after the first test has been configured.** From there, you may continue to add or remove tests to that profile without having to embed a new script. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
 
 > [!IMPORTANT]

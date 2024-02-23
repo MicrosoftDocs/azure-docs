@@ -140,90 +140,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 > [!NOTE]
 > The PrivateAccessID should exactly match the "resourceID" used to create the CSPA resource in Step 1.
 
-## Step 4: Update host VM to map the communications endpoint to the private endpoint
-
-During the Preview of this feature, customers need to update the Agent VM extensions settings to point to the communication endpoint that supports traffic over a private network. Customers need to update the host entry on the actual VM to map the communication endpoint to the private IP generated during the private endpoint creation. You can get the IP address from the "DNS Configuration" tab in the Private Endpoint resource seen in the following screenshot:
-
-[![Screenshot of Private Endpoint DNS Config tab.](images/dns-config.png)](images/dns-config.png#lightbox)
-
-After noting the IP address, you need to open the "hosts" file on your host VM and update it with the following entry:
-
-```
-<IP address>    acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
-```
-
-> [!NOTE]
-> **Path of hosts file on Windows:** C:\Windows\System32\drivers\etc
->
-> 
-> **Path of hosts file on Linux:** /etc/hosts
-
-Example of what the "hosts" file should look like. The IP address and Azure region change for your scenario:
-
-[![Screenshot of hosts file.](images/cspa-hosts.png)](images/cspa-hosts.png#lightbox)
-
-Save and close the file.
-
-## Step 5: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
-
-In this step, you need to continue to edit files on the host VM machine. You need to update the "agentSettings.json" and "agentInstanceConfig.json" files to include the communication endpoint based on the region in which the VM targets were created in the previous steps. 
-
-### Updating the agentSettings.json
-
-> [!NOTE]
-> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-\<Version\>\win-x64\agentSettings.json
->
-> 
-> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-\<Version\>\linux-x64
-
-<br/>
-
-**Communication endpoint format:** https://acs-frontdoor-prod-\<azureRegion\>.chaosagent.trafficmanager.net
-
-<br/>
-
-Example of updated agentSettings.json: 
-
-[![Screenshot of agentSettings JSON.](images/agent-settings-json.png)](images/agent-settings-json.png#lightbox)
-
-
-### Updating the agentInstanceConfig.json
-
-> [!NOTE]
-> **Path of agentInstanceConfig.json file on Windows:** C:\Windows\System32\config\systemprofile\.azure-chaos-	agent\data
->
-> 
-> **Path of agentInstanceConfig.json file on Linux:** /.azure-chaos-agent/data/agentInstanceConfig.json
-
-<br/>
-
-**Communication endpoint format:** https://acs-frontdoor-prod-\<azureRegion\>.chaosagent.trafficmanager.net
-
-<br/>
-
-Example of updated agentInstanceConfig.json: 
-
-[![Screenshot of agentInstanceConfig JSON.](images/agent-instance-config-json.png)](images/agent-instance-config-json.png#lightbox)
-
-## Step 5.5: Disable CRL verification in agentSettings.JSON
-
-**IF** you blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you need to update agentSettings.JSON to disable CRL verification check in the agent.
-
-By default this field is set to **true**, so you can either remove this field or set the value to false. See [here](chaos-studio-tutorial-agent-based-cli.md) for more details. 
-
-```
-"communicationApi": {
-     "checkCertRevocation": false
-  }
-```
-
-The final agentSettings.JSON should appear as shown:
-
-[![Screenshot of agentSettings JSON with disabled CRL verification.](images/agent-settings-crl.png)](images/agent-settings-crl.png#lightbox)
-
-If outbound access to Microsoft CRL verification endpoints is not blocked, then you can ignore this step. 
-
-## Step 6: Restart the Azure Chaos Agent service in the VM
+## Step 4: Restart the Azure Chaos Agent service in the VM
 
 After making all the required changes to the host, restart the Azure Chaos Agent Service in the VM
 
@@ -241,7 +158,7 @@ Systemctl restart azure-chaos-agent
 
 [![Screenshot of restarting Linux VM.](images/restart-linux-vm.png)](images/restart-linux-vm.png#lightbox)
 
-## Step 7: Run your Agent-based experiment using private endpoints
+## Step 5: Run your Agent-based experiment using private endpoints
 
 After the restart, the Chaos agent should be able to communicate with the Agent Communication data plane service and the agent registration to the data plane should be successful. After successful registration, the agent will be able to heartbeat its status and you can go ahead and run the chaos agent-based experiments using private endpoints!
 

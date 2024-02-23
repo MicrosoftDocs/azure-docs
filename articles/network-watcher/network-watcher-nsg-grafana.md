@@ -4,7 +4,6 @@ titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 05/03/2023
@@ -12,6 +11,9 @@ ms.author: halkazwini
 ms.custom: engagement-fy23, linux-related-content
 ---
 # Manage and analyze network security group flow logs using Network Watcher and Grafana
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 

@@ -358,7 +358,7 @@ matches: {
     '5xx'
     'reset'
     'connect-failure'
-    'retriabe-4xx'
+    'retriable-4xx'
   ]
 }
 ```

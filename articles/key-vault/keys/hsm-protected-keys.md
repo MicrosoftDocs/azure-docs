@@ -4,12 +4,11 @@ description: Learn how to plan for, generate, and then transfer your own HSM-pro
 services: key-vault
 author: mbaldwin
 manager: devtiw
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/24/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---

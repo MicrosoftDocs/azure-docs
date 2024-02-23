@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/07/2024
+ms.date: 02/08/2024
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -225,7 +225,7 @@ The Azure services that support each encryption model:
 | Azure NetApp Files               | Yes                | Yes                | Yes                |
 | Archive Storage                  | Yes                | Yes                | -                  |
 | StorSimple                       | Yes                | Yes                | Yes                |
-| Azure Backup                     | Yes                | Yes                | Yes                |
+| Azure Backup                     | Yes                | Yes, including Managed HSM | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
 | **Other**                        |                    |                    |                    |
