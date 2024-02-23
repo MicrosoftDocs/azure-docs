@@ -15,7 +15,7 @@ ms.custom: "include file"
 | Resource | Limit |Notes|
 | --- | --- |---|
 | Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account  |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
-| Maximum number of concurrent running jobs at the same instance of time per Automation account  |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. </br> </br> Free trial and Azure for Student subscriptions can run up to 10 concurrent jobs at the same instance of time per Automation account <sup>2</sup>|
+| Maximum number of concurrent running jobs at the same instance of time per Automation account  |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. </br> </br> Free trial and Azure for Student subscriptions can run up to 10 concurrent jobs at the same instance of time per Automation account. <sup>2</sup>|
 | Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs)|When this limit is reached, the subsequent requests to create a job fail. |
 | Maximum job stream limit|1 MiB|A single stream cannot be larger than 1 MiB.|
 | Maximum job stream limit on Azure Automation portal | 200KB | Portal limit to show the job logs.|
@@ -40,7 +40,7 @@ ms.custom: "include file"
 |Maximum number of characters in the value field of a variable| 1048576||
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.</br>
-<sup>2</sup>To request a limit increase, create an [Azure Support request](https://portal.azure.com/). Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quote increases. If you have a free subscription, you can [upgrade](https://learn.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) to Pay-As-You-Go subscription.
+<sup>2</sup>To request a limit increase, create an [Azure Support request](https://portal.azure.com/). Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](https://learn.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) to Pay-As-You-Go subscription.
 
 #### Change Tracking and Inventory
 
