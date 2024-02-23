@@ -10,6 +10,7 @@ ms.author: tarcher
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a Windows VM cluster in Azure using Terraform

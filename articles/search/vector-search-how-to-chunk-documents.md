@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 02/22/2024
 ---
 
 # Chunking large documents for vector search solutions in Azure AI Search
@@ -49,28 +49,30 @@ When it comes to chunking data, think about these factors:
 
 If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization (preview)](vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
 
-+ [LangChain](https://python.langchain.com/en/latest/index.html)
-+ [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
++ [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
++ [Semantic Kernel TextChunker](/dotnet/api/microsoft.semantickernel.text.textchunker)
 
 Most libraries provide common chunking techniques for fixed size, variable size, or a combination. You can also specify an overlap that duplicates a small amount of content in each chunk for context preservation.
 
 ## Chunking examples
 
-The following examples demonstrate how chunking strategies are  applied to [NASA's Earth at Night e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf):
+The following examples demonstrate how chunking strategies are applied to [NASA's Earth at Night e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf) PDF file:
 
-+ [Text Split skill (preview](cognitive-search-skill-textsplit.md)
-+ [LangChain](https://python.langchain.com/en/latest/index.html)
-+ [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
-+ [custom skill](cognitive-search-custom-skill-scale.md)
++ [Text Split skill (preview](#text-split-skill-example)
++ [LangChain](#langchain-data-chunking-example)
++ [Custom skill](cognitive-search-custom-skill-scale.md)
 
-### Text Split skill (preview)
+### Text Split skill example
 
-This section documents the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
+Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is in public preview. Use a preview REST API or an Azure SDK beta package for this scenario.
 
+This section describes the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
+
+A sample notebook for this example can be found on the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/data-chunking/textsplit-data-chunking-example.ipynb) repository.
 Set `textSplitMode` to break up content into smaller chunks:
 
-  + `pages` (default). Chunks are made up of multiple sentences.
-  + `sentences`. Chunks are made up of single sentences. What constitutes a "sentence" is language dependent. In English, standard sentence ending punctuation such as `.` or `!` is used. The language is controlled by the `defaultLanguageCode` parameter.
++ `pages` (default). Chunks are made up of multiple sentences.
++ `sentences`. Chunks are made up of single sentences. What constitutes a "sentence" is language dependent. In English, standard sentence ending punctuation such as `.` or `!` is used. The language is controlled by the `defaultLanguageCode` parameter.
 
 The `pages` parameter adds extra parameters:
 
@@ -114,9 +116,11 @@ The optimal choice of parameters depends on how the chunks will be used. For mos
 |-----------------|-----------------|-----------------|
 | `pages` | 2000 | 500 |
 
-### LangChain
+### LangChain data chunking example
 
 LangChain provides document loaders and text splitters. This example shows you how to load a PDF, get token counts, and set up a text splitter. Getting token counts helps you make an informed decision on chunk sizing.
+
+A sample notebook for this example can be found on the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/data-chunking/langchain-data-chunking-example.ipynb) repository.
 
 ```python
 from langchain_community.document_loaders import PyPDFLoader
@@ -126,6 +130,7 @@ pages = loader.load()
 
 print(len(pages))
 ```
+
 Output indicates 200 documents or pages in the PDF.
 
 To get an estimated token count for these pages, use TikToken.
