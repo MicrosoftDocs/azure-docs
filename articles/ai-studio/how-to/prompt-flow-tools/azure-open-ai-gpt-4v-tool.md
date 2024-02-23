@@ -41,7 +41,7 @@ Set up connections to provisioned resources in prompt flow.
 |------------------------|-------------|------------------------------------------------------------------------------------------------|----------|
 | connection             | AzureOpenAI | The Azure OpenAI connection to be used in the tool.                                              | Yes      |
 | deployment\_name       | string      | The language model to use.                                                                      | Yes      |
-| prompt                 | string      | Text prompt that the language model uses to generate its response.                    | Yes      |
+| prompt                 | string      | Text prompt that the language model uses to generate its response. The Jinja template for composing prompts in this tool follows a similar structure to the chat API in the LLM tool. To represent an image input within your prompt, you can use the syntax `![image]({{INPUT NAME}})`. Image input can be passed in the `user`, `system` and `assistant` messages.                 | Yes      |
 | max\_tokens            | integer     | Maximum number of tokens to generate in the response. Default is 512.                      | No       |
 | temperature            | float       | Randomness of the generated text. Default is 1.                                            | No       |
 | stop                   | list        | Stopping sequence for the generated text. Default is null.                                 | No       |
@@ -54,3 +54,7 @@ Set up connections to provisioned resources in prompt flow.
 | Return Type | Description                              |
 |-------------|------------------------------------------|
 | string      | The text of one response of conversation |
+
+## Next step
+
+Learn more about [how to process images in prompt flow](../flow-process-image.md).
