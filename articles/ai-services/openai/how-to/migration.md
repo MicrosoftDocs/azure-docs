@@ -68,7 +68,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_version = "2023-05-15"
 
 response = openai.ChatCompletion.create(
@@ -95,7 +95,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-05-15"
 )
 
@@ -124,7 +124,7 @@ Additional examples can be found in our [in-depth Chat Completion article](chatg
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = 'azure'
 openai.api_version = '2023-05-15' # this might change in the future
@@ -146,7 +146,7 @@ import os
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2023-12-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
@@ -189,7 +189,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version = "2023-05-15",
   azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
 )
@@ -217,7 +217,7 @@ from openai import AsyncAzureOpenAI
 
 async def main():
     client = AsyncAzureOpenAI(  
-      api_key = os.getenv("AZURE_OPENAI_KEY"),  
+      api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
       api_version = "2023-12-01-preview",
       azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )

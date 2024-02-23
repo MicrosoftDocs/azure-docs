@@ -57,7 +57,7 @@ import json
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"
 )
 
@@ -154,7 +154,7 @@ When functions are provided, by default the `function_call` is set to `"auto"` a
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_version = "2023-07-01-preview"
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
@@ -215,7 +215,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-10-01-preview",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
@@ -274,7 +274,7 @@ print(response.choices[0].message.model_dump_json(indent=2))
 
 ```powershell-interactive
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY
+    api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like https:/YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-10-01-preview' # may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' # the custom name you chose for your deployment

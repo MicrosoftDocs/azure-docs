@@ -152,7 +152,7 @@ For large data files, we recommend that you import from an Azure Blob store. Lar
 ```bash
 curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-12-01-preview \
   -H "Content-Type: multipart/form-data" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -F "purpose=fine-tune" \
   -F "file=@C:\\fine-tuning\\training_set.jsonl;type=application/json"
 ```
@@ -162,7 +162,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-12-01-preview 
 ```bash
 curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-12-01-preview \
   -H "Content-Type: multipart/form-data" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -F "purpose=fine-tune" \
   -F "file=@C:\\fine-tuning\\validation_set.jsonl;type=application/json"
 ```
@@ -174,7 +174,7 @@ After you uploaded your training and validation files, you're ready to start the
 ```bash
 curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{
     "model": "gpt-35-turbo-0613", 
     "training_file": "<TRAINING_FILE_ID>", 
@@ -198,7 +198,7 @@ After you start a fine-tune job, it can take some time to complete. Your job mig
 
 ```bash
 curl -X GET $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<YOUR-JOB-ID>?api-version=2023-12-01-preview \
-  -H "api-key: $AZURE_OPENAI_KEY"
+  -H "api-key: $AZURE_OPENAI_API_KEY"
 ```
 
 ## Deploy a customized model
@@ -292,7 +292,7 @@ After your custom model deploys, you can use it like any other deployed model. Y
 ```bash
 curl $AZURE_OPENAI_ENDPOINT/openai/deployments/<deployment_name>/chat/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
 ```
 
@@ -304,12 +304,12 @@ The following Python example uses the REST API to retrieve the file ID of the fi
 
 ```bash
 curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<JOB_ID>?api-version=2023-12-01-preview" \
-  -H "api-key: $AZURE_OPENAI_KEY")
+  -H "api-key: $AZURE_OPENAI_API_KEY")
 ```
 
 ```bash
 curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/files/<RESULT_FILE_ID>/content?api-version=2023-12-01-preview" \
-    -H "api-key: $AZURE_OPENAI_KEY" > <RESULT_FILENAME>
+    -H "api-key: $AZURE_OPENAI_API_KEY" > <RESULT_FILENAME>
 ```
 
 The result file is a CSV file that contains a header row and a row for each training step performed by the fine-tuning job. The result file contains the following columns:
@@ -359,7 +359,7 @@ To perform fine-tuning on a model that you have previously fine-tuned, you would
 ```bash
 curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{
     "model": "gpt-35-turbo-0613.ft-5fd1918ee65d4cd38a5dcf6835066ed7", 
     "training_file": "<TRAINING_FILE_ID>", 
