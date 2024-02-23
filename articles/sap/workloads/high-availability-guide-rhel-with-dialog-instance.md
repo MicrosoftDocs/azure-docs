@@ -4,7 +4,6 @@ description: Configure SAP Dialog Instance on SAP ASCS/SCS high availability VMs
 services: virtual-machines-linux,virtual-network,storage
 author: dennispadia
 manager: rdeltcheva
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial

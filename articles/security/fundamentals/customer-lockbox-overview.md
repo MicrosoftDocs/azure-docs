@@ -35,7 +35,6 @@ The following services are currently supported for Customer Lockbox:
 - Azure Database for MySQL
 - Azure Database for MySQL Flexible Server
 - Azure Database for PostgreSQL
-- Azure Databricks
 - Azure Edge Zone Platform Storage
 - Azure Energy
 - Azure Functions

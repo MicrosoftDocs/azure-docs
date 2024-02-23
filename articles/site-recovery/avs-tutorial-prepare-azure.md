@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/04/2023
+ms.date: 02/19/2024
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 
@@ -108,11 +108,6 @@ The virtual network takes a few seconds to create. After it's created, it appear
 
 Learn more about:
 
-> [!div class="nextstepaction"]
-> [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
-
-> [!div class="nextstepaction"]
-> [Azure networks](../virtual-network/virtual-networks-overview.md)
-
-> [!div class="nextstepaction"]
-> [Managed disks](../virtual-machines/managed-disks-overview.md)
+- [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
+- [Azure networks](../virtual-network/virtual-networks-overview.md)
+- [Managed disks](../virtual-machines/managed-disks-overview.md).
