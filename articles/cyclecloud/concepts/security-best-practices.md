@@ -3,7 +3,7 @@ title: Security Best Practices
 description: Learn about Azure CycleCloud Security Best Practices
 author: prkannap
 ms.date: 08/02/2021
-ms.author: prkannap
+ms.author: aevdokimova
 ---
 
 # Azure CycleCloud – Security Best Practices
@@ -18,7 +18,7 @@ If you want to also restrict outbound internet access, it is possible to configu
 
 ## Authentication and Authorization
 
-Azure CycleCloud offers three methods of authentication: a built-in database with encryption, Active Directory, or LDAP. Any account with five authorization failures within 60 seconds will automatically be locked for five minutes. Accounts can manually be unlocked by an administrator and are automatically unlocked after five minutes.
+Azure CycleCloud offers four methods of authentication: a built-in database with encryption, Active Directory, LDAP, or Entra ID. Any account with five authorization failures within 60 seconds will automatically be locked for five minutes. Accounts can manually be unlocked by an administrator and are automatically unlocked after five minutes.
 
 CycleCloud should be installed on a drive with only admin-group access. This will prevent non-admin users from accessing non-encrypted data. Non-admin users should not be included to this group. Ideally, access to the CycleCloud installation should be limited to only administrators.
 

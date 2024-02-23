@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # User Authentication
 
-Azure CycleCloud offers three methods of authentication: a built-in database with encryption, Active Directory, or LDAP. To select and setup your authentication method, open the **Settings** page from the Admin menu (top right of your screen) and double-click on **Authentication**. Choose your preferred authentication method and follow the instructions below.
+Azure CycleCloud offers four methods of authentication: a built-in database with encryption, Active Directory, LDAP, or Entra ID. To select and setup your authentication method, open the **Settings** page from the Admin menu (top right of your screen) and double-click on **Authentication**. Choose your preferred authentication method and follow the instructions below.
 
 ## Built-In
 
@@ -19,7 +19,7 @@ You can test a user's credentials by entering the username and password then cli
 ## Active Directory
 
 > [!CAUTION]
-> It is possible to lock yourself out of your CycleCloud instance when changing from local to AD or LDAP authentication. Access will be granted to users that have both a local account and can authenticate to the server configured (local passwords will be ignored). The instructions below make effort to guard against lockout.
+> It is possible to lock yourself out of your CycleCloud instance when changing from local to AD, LDAP or Entra ID authentication. Access will be granted to users that have both a local account and can authenticate to the server configured (local passwords will be ignored). The instructions below make effort to guard against lockout.
 
 1. Click the check box to enable Active Directory.
 2. Enter the URL for your Active Directory server (starting with _ldap://_ or _ldaps://_)
@@ -31,8 +31,8 @@ You can test a user's credentials by entering the username and password then cli
 ![Active Directory configuration](../images/active-directory.png)
 
 The example above shows a sample configuration for an Active Directory environment. Windows users
-log in as `EXAMPLE\\username`, so "EXAMPLE" is entered as the Domain. Authentication is handled by
-the server `ad.example.com`, so _ldaps://ad.example.com_ is entered as the URL.
+log in as **EXAMPLE\\username**, so "EXAMPLE" is entered as the Domain. Authentication is handled by
+the server **ad.example.com**, so _ldaps://ad.example.com_ is entered as the URL.
 
 > [!NOTE]
 > After a failed authentication attempt, the "Authentication failed" message may still display in the **Authentication settings** window. Clicking **Cancel** and starting again will clear this message. Successful authentication will replace the "Authentication failed" message with "Authentication succeeded".
@@ -44,6 +44,43 @@ the server `ad.example.com`, so _ldaps://ad.example.com_ is entered as the URL.
 3. Click "Test" to ensure that CycleCloud can use the provided settings. Use an account that exists on your authentication server.
 4. In a separate browser or incognito window, log in as the domain account you added in step 2.
 5. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
+
+## Entra ID **(PREVIEW)**
+
+### Configuring CycleCloud for Entra Authentication and Authorization
+
+> [!NOTE]
+> You must first create a Microsoft Entra application. If you have not yet created one, then [create one now](./create-app-registration.md#creating-the-cyclecloud-app-registration)
+
+#### GUI Configuration
+
+To enable Entra ID Authentication:
+1. Launch Cyclecloud, and then navigate to **Settings** in the upper right-hand corner
+1. Select the table row named **Authentication** and click **Configure** or double-click on the row. In the pop-up dialog, select the **Entra ID** section.
+![Authentication setting in CycleCloud GUI](../images/entra_setup/entra22.png)
+1. Then, you will see a window with three sections. Stay in the **Entra ID** section.
+![Entra ID Authentication Configuration menu](../images/entra_setup/entra23.png)
+1. Check the **Enable Entra ID authentication** checkbox. 
+1. Find the **Overview** page for your Microsoft Entra application in the Azure Portal and fill in the Tenant ID and Client ID based off those values.
+1. By default, the endpoint is set to https://login.microsoftonline.com (the Public endpoint). However, you may also set a custom endpoint, such as one for a government cloud environment.
+1. Hit **Save** to save your changes.
+
+### Configuring Access to Cluster Nodes
+The CycleCloud User Management feature for Linux clusters requires an SSH Public Key for Users with login access to cluster nodes. When Entra ID authentication and authorization is enabled, Users should log in to the CycleCloud at least once to initialize their User account record and then edit their Profile to add their public SSH key.
+
+CycleCloud will autogenerate a UID and GID for Users. But if a cluster will be accessing persistent storage resources, it may be required for an Administrator to set the UID/GID for users explicitly to match the existing users on the filesystem.
+
+These User profile updates may also be performed by pre-creating User records as an alternative to GUI operation. See [User Management](/azure/cyclecloud/concepts/user-management) for more details.
+
+### Using Entra ID Authentication with CycleCloud
+
+An attempt to authenticate with CycleCloud using Entra ID has the following supported scenarios: 
+1. Successful authentication always resets User roles to match the ones set up in Entra ID. Note that, since the default lifespan of an access token is an hour, it might be required for you to log out and log back in for the new roles to be set.
+1. If the user you are authenticating as has been pre-created, it is possible for the Tenant ID and Object ID to not be set to anything prior to the first login. This will result in a warning message going to the logs and these values being set to match the ones coming from Entra ID token.
+1. If for any reason the Object ID and/or Tenant ID do not match the ones in the access token, it is treated as authentication error. The old User record will have to be manually removed before this user can authenticate.
+1. If you lock yourself out of the Super User account by forgetting to create one that can be authenticated using your Entra ID, you can disable the Entra ID authentication through the console by running `./cycle_server reset_access`
+1. Users created through Entra ID authentication do not have public ssh keys configured by default, so you will have to configure them manually to use User Management on nodes.
+
 
 ## Password Policy
 
