@@ -105,7 +105,7 @@ In Standard workflows that use the Service Bus built-in operations, you can incr
 
 To increase the timeout for sending a message, [add the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
 
-### [Service Bus managed connector triggers](#tab/managed)
+### Service Bus managed connector triggers
 
 * For the Service Bus managed connector, all triggers are *long-polling*. This trigger type processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
@@ -134,7 +134,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
   > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
-### [Service Bus built-in connector triggers](#tab/builtin)
+### Service Bus built-in connector triggers
 
 * Some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the "maximum message count" parameter is not supported, the number of messages received can still be controlled through setting the "maxMessageBatchSize" property in the host.json.
   
