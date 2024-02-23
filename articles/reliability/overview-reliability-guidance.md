@@ -126,6 +126,8 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ### ![An icon that signifies this service is non-regional.](media/icon-always-available.svg) Non-regional services (always-available services)
 
+| Product| Availability zone guide | Disaster recovery guide |
+|-------|-------|-------|
 |Azure Bot Service|[Reliability in Azure Bot Service](reliability-bot.md)|[Reliability in Azure Bot Service](reliability-bot.md)|
 |Azure Traffic Manager|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|[Reliability in Azure Traffic Manager](reliability-traffic-manager.md)|
 
