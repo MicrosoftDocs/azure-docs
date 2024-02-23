@@ -134,7 +134,6 @@ procedureSection:
       - You can't upload more than one file. To include multiple different files, package them together in a compressed format such as .zip.
       - Files can't be larger than 4 MB.
       - All files must have a valid file name extension, such as `.docx` or `.xlsx`. Most file name extensions are supported, but you can't upload files with these extensions: `.bat, .cmd, .exe, .ps1, .js, .vbs, .com, .lnk, .reg, .bin,. cpl, .inf, .ins, .isu, .job, .jse, .msi, .msp, .paf, .pif, .rgs, .scr, .sct, .vbe, .vb, .ws, .wsf, .wsh`
-
     steps:
       - |
         On the **All support requests** page, select the support request.
@@ -185,7 +184,6 @@ procedureSection:
       - |
         For **Service type**, select **Portal** and for **Problem type** select **Issue with Support Ticket Experience**.
 
----
 relatedContent:
   - text: create an Azure support request
     url: how-to-create-azure-support-request.md
