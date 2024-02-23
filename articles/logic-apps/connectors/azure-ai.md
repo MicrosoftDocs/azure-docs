@@ -125,16 +125,16 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 ### Data ingestion workflow
 
-To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
+To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
 
-Each step in this process not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
+Each step in this pattern not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
-| 1 | Check for new data. | **When an HTTP request is received** | A trigger that monitors for new documents, either based on a scheduled recurrence or in response to specific events, such as an uploaded new file in a specific storage system, for example, SharePoint, OneDrive, or Azure Blob Storage. |
+| 1 | Check for new data. | **When an HTTP request is received** | A trigger that polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. For example, an event might be a new file uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, a Request trigger operation waits for an HTTP call from another endpoint. |
 | 2 | Get the data's location. | **HTTP** | An action that gets the URL for the document in the specified storage system. |
-| 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates strings. |
-| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes output from the **Compose** action](../../ai-services/openai/overview#tokens). |
+| 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
+| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview#tokens). |
 | 5 | Convert data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output to a JSON array. |
 | 6 | | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
 | 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings. |
@@ -147,33 +147,19 @@ As your vector databases continue to ingest data, make sure the data is easily s
 
 The following pattern is only one example that shows how a chat workflow might look:
 
-1. Capture the prompt.
-
-   Add a trigger that captures the customer's question in JSON format. This example uses the Request trigger.
-
-1. Train the model. 
-
-   Add an action that adapts to sample responses. This example is modeled on the GitHub example.
-
-1. Generate the query.
-
-   Add an action that crafts search queries for the vector database.
-
-1. Convert the query into an embedding.
-
-   Add an action that transforms queries into vector embeddings.
-
-1. Run the vector search.
-
-   Execute searches in the chosen database.
-
-1. Create prompt. 
-
-   Add an action that uses straightforward JavaScript to build prompts.
-	
-1. Perform chat completion.
-
-   Add an action that connects to the chat completion API, which guarantees reliable responses in chat conversations.
+| Step | Task | Underlying operation | Description |
+|------|------|----------------------|-------------|
+| 1 | Capture the prompt. | **When an HTTP request is received** | A trigger that waits for  the customer's question in JSON format. This example uses the Request trigger. |
+| 2 | Train the model. | **Compose** | A **Data Operations** action that includes input to train the model. |
+| 3 | Train the model. | **Compose** | A **Data Operations** action that includes sample customer questions input. | 
+| 4 | Train the model. | **Compose** | A **Data Operations** action that includes input for the search query. | 
+| 5 | Generate the query. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to create search queries for the vector database by using the outputs from the previous **Compose** actions. |
+| 6 | Convert the query into an embedding. | **Get the chat completions** | An **Azure OpenAI** action that converts queries into vector embeddings. |
+| 7 | Get an embedding. | **Gets a single embedding** | An **Azure OpenAI** action that gets a single embedding. |
+| 8 | Run the vector search. | **Vector search** | An **Azure AI Search** action that executes searches in the vector database. |
+| 9 | Create the prompt. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to build a prompt. |
+| 10 | Perform chat completion. | **Get the chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. |
+| 11 | Return a response. | **Response** | A **Request** action that returns the results to the caller when you use the **Request** trigger. |
 
 ## See also
 
