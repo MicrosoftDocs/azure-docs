@@ -9,6 +9,7 @@ ms.author: tarcher
 ms.date: 4/14/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using Terraform

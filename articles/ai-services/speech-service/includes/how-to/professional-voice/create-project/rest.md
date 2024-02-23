@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eric-urban
- ms.author: eur
- ms.service: azure-ai-speech
- ms.topic: include
- ms.date: 12/1/2023
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 12/1/2023
+ms.custom: include
 ---
 
 Professional voice projects contain the voice talent consent statement, training datasets, voice models, and endpoints.

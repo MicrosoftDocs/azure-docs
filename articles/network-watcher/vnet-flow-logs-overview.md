@@ -1,17 +1,18 @@
 ---
-title: VNet flow logs (preview)
+title: VNet flow logs (Preview)
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher VNet flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 01/16/2024
+ms.date: 02/23/2024
+ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
 
-# VNet flow logs (preview)
+# VNet flow logs (Preview)
 
 Virtual network (VNet) flow logs are a feature of Azure Network Watcher. You can use them to log information about IP traffic flowing through a virtual network.
 
@@ -204,46 +205,38 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
-## Considerations for VNet flow logs
-
-### Storage account
+## Storage account considerations for VNet flow logs 
 
 - **Location**: The storage account must be in the same region as the virtual network.
-- **Subscription**: The storage account must be in either:
-
-  - The same subscription as the virtual network.
-  - A subscription that's associated with the same Microsoft Entra tenant as the virtual network's subscription.
+- **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
 
-### Cost
-
-VNet flow logs are billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
-
-Pricing of VNet flow logs doesn't include the underlying costs of storage. Using the retention policy feature with VNet flow logs means incurring separate storage costs for extended periods of time.
-
-If you want to retain data forever and don't want to apply any retention policy, set retention days to zero. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
-
 ## Pricing
 
-Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of *network logs collected* and will come with a free tier of 5 GB/month per subscription. If enable traffic analytics for VNet flow logs, existing pricing for traffic analytics applies. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+Currently, VNet flow logs aren't billed. However, the following costs apply:
+
+- Traffic analytics: if traffic analytics is enabled for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+- Storage: flow logs are stored in a storage account, and their retention policy can be set from one day to 365 days. If a retention policy isn't set, the logs are maintained forever. Pricing of VNet flow logs doesn't include the costs of storage. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Availability
 
-VNet flow logs are available in the following regions during the preview:
-
-- East US 2 EUAP
-- Central US EUAP
+VNet flow logs can be directly enabled with no access restrictions during the preview in the following regions:
+- Swiss North
+- UK South
 - West Central US
+
+However, you must fill out the [VNet flow logs preview sign-up form](https://aka.ms/VNetflowlogspreviewsignup) to sign up for access to the preview in the following regions:
+- Central US EUAP
 - East US
 - East US 2
+- East US 2 EUAP
 - West US
 - West US 2
 
-To get access to the preview, go to the [VNet flow logs preview sign-up page](https://aka.ms/VNetflowlogspreviewsignup).
-
 ## Related content
 
-- To learn how to manage VNet flow logs, see [Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell](vnet-flow-logs-powershell.md) or [Create, change, enable, disable, or delete VNet flow logs using the Azure CLI](vnet-flow-logs-cli.md).
+- To learn how to create, change, enable, disable, or delete VNet flow logs, see [Manage VNet flow logs using Azure PowerShell](vnet-flow-logs-powershell.md) or [Manage VNet flow logs using the Azure CLI](vnet-flow-logs-cli.md).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).

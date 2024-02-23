@@ -48,7 +48,8 @@ As part of compliance requirements in various industries, vendors are expected t
 ![Screenshot of flow for play action.](./media/play-action.png)
 
 ## Known limitations
-- Play action isn't enabled to work with Teams Interoperability.
+- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.

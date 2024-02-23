@@ -18,6 +18,8 @@
   - name: Create a private endpoint - ARM template
     displayName: Azure Resource Manager
     href: create-private-endpoint-template.md
+  - name: Create a private endpoint - Terraform
+    href: create-private-endpoint-terraform.md
   - name: Create a Private Link service - Azure portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell

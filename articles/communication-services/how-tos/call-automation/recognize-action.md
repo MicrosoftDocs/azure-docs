@@ -57,6 +57,8 @@ This guide will help you get started with recognizing DTMF input provided by par
 
 ## Known limitations
 - In-band DTMF is not supported, use RFC 2833 DTMF instead.
+- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
 
 ## Clean up resources
 

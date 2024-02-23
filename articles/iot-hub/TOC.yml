@@ -525,8 +525,6 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
-        - name: Classic IP filter
-          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
