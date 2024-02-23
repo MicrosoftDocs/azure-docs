@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -28,7 +28,7 @@ Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites)
 
 ## Build with the LLM tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ LLM** to add the LLM tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/llm-tool.png" alt-text="Screenshot of the LLM tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/llm-tool.png":::
