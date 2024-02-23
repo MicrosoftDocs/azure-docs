@@ -6,10 +6,9 @@ author: mbender-ms
 manager: dcscontentpm
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
-ms.date: 06/27/2023
+ms.date: 02/23/2024
 ms.author: mbender
-ms.custom: seodoc18, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses
@@ -22,11 +21,11 @@ If you suspect backend pool members are receiving traffic, it could be due to th
 
 Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
 
-## Cause 1: You have session persistence configured
+### Cause 1: You have session persistence configured
 
 Using source persistence distribution mode can cause an uneven distribution of traffic. If this distribution isn't desired, update session persistence to be **None** so traffic is distributed across all healthy instances in the backend pool. Learn more about [distribution modes for Azure Load Balancer](distribution-mode-concepts.md).
 
-## Cause 2: You have a proxy configured
+### Cause 2: You have a proxy configured
 
 Clients that run behind proxies might be seen as one unique client application from the load balancer's point of view.
 
@@ -42,7 +41,7 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 
 * Accessing the Internet load balancer frontend from the participating load balancer backend pool VM
 
-## Cause 1: A load balancer backend pool VM isn't listening on the data port
+### Cause 1: A load balancer backend pool VM isn't listening on the data port
 
 If a VM doesn't respond to the data traffic, it may be because either the target port isn't open on the participating VM, or, the VM isn't listening on that port. 
 
@@ -60,7 +59,7 @@ If a VM doesn't respond to the data traffic, it may be because either the target
 
 4. If the port is marked as **LISTENING**, then check the target application on that port for any possible issues.
 
-## Cause 2: A network security group is blocking the port on the load balancer backend pool VM  
+### Cause 2: A network security group is blocking the port on the load balancer backend pool VM  
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
@@ -78,7 +77,7 @@ For the public load balancer, the IP address of the Internet clients will be use
 
 4. Test if the VM has now started to respond to the health probes.
 
-## Cause 3: Access of the internal load balancer from the same VM and network interface 
+### Cause 3: Access of the internal load balancer from the same VM and network interface 
 
 If your application hosted in the backend VM of an internal load balancer is trying to access another application hosted in the same backend VM over the same network interface, it's an unsupported scenario and will fail. 
 
@@ -90,7 +89,7 @@ You can resolve this issue via one of the following methods:
 
 * Configure the application in dual NIC VMs so each application was using its own network interface and IP address. 
 
-## Cause 4: Access of the internal load balancer frontend from the participating load balancer backend pool VM
+### Cause 4: Access of the internal load balancer frontend from the participating load balancer backend pool VM
 
 If an internal load balancer is configured inside a virtual network, and one of the participant backend VMs is trying to access the internal load balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario isn't supported.
 

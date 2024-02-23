@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 1/22/2024
 ms.author: eur
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-csharp
 ---
 
 # What is speech translation?

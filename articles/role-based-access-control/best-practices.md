@@ -6,10 +6,8 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 01/30/2024
 ms.author: rolyon
-
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
 ---
 

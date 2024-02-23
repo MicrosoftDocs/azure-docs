@@ -202,13 +202,13 @@ See the following articles for full code examples:
 > [!div class="nextstepaction"]
 > [Show traffic](./map-show-traffic.md)
 
-[Reverse Address Search API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
+[Reverse Address Search API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Fetch API]: https://fetch.spec.whatwg.org/
 [Create a map]: map-create.md
 [popup]: /javascript/api/azure-maps-control/atlas.popup#open
 [Add a popup on the map]: map-add-popup.md
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
-[Get Search Address Reverse API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
+[Get Search Address Reverse API]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [load event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [setOptions]: /javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-
 [@azure-rest/maps-search]: https://www.npmjs.com/package/@azure-rest/maps-search

@@ -7,7 +7,6 @@ author: mbender-ms
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23

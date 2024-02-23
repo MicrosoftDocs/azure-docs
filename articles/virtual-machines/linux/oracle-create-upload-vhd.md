@@ -5,7 +5,6 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: oracle
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/09/2021

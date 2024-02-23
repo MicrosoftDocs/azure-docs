@@ -8,7 +8,6 @@ manager: KumudD
 ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

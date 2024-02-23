@@ -1,11 +1,10 @@
 ---
-title: Deploy a dual-stack Azure Gateway Load Balancer 
+title: Deploy a dual-stack Azure Gateway Load Balancer
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you deploy IPv6 configurations to an existing IPv4-configured Azure Gateway Load Balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/25/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell

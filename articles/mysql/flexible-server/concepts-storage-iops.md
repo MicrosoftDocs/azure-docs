@@ -27,8 +27,10 @@ Moreover, Additional IOPS with pre-provisioned refers to the flexibility of incr
 
 Autoscale IOPS offer the flexibility to scale IOPS on demand, eliminating the need to pre-provision a specific amount of IO per second. By enabling Autoscale IOPS, your server will automatically adjust IOPS based on workload requirements. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.
 
-**Dynamic Scaling**: Autoscale IOPS dynamically adjust the IOPS limit of your database server based on the actual demand of your workload. This ensures optimal performance without manual intervention or configuration
+**Dynamic Scaling**: Autoscale IOPS dynamically adjust the IOPS limit of your database server based on the actual demand of your workload. This ensures optimal performance without manual intervention or configuration.
+
 **Handling Workload Spikes**: Autoscale IOPS enable your database to seamlessly handle workload spikes or fluctuations without compromising the performance of your applications. This feature ensures consistent responsiveness even during peak usage periods.
+
 **Cost Savings**: Unlike the Pre-provisioned IOPS  where a fixed IOPS limit is specified and paid for regardless of usage, Autoscale IOPS lets you pay only for the number of I/O operations that you consume.
 With this feature, you'll only be charged for the IO your server actually utilizes, avoiding unnecessary provisioning and expenses for underutilized resources. This ensures both cost savings and optimal performance, making it a smart choice for managing your database workload efficiently.
 

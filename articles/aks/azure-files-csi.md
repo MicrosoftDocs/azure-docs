@@ -346,7 +346,10 @@ mountOptions:
 
 ### Create NFS file share storage class
 
-Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options]
+Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options].
+
+> [!NOTE]
+> `vers`, `minorversion`, `sec` are configured by the Azure File CSI driver. Specifying a value in your manifest for these properties aren't supported.
 
 ```yml
 apiVersion: storage.k8s.io/v1

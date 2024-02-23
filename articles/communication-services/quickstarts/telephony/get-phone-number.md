@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Get and manage phone numbers using Azure Communication Services
-description: Learn how to manage phone numbers using Azure Communication Services
+description: Learn how to manage phone numbers using Azure Communication Services.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -51,9 +51,9 @@ zone_pivot_groups: acs-azcli-azp-azpnew-java-net-python-csharp-js
 
 Common Questions and Issues:
 
-- When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number shows up in your ACS resource on Azure Portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
 
-- When a Communication Services resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
+- When a Communication Services resource is deleted, the phone numbers associated with that resource are automatically released at the same time.
 
 ## Next steps
 

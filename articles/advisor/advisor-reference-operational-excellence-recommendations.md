@@ -4,7 +4,6 @@ description: Operational excellence recommendations
 ms.topic: article
 author: mabrahms
 ms.author: v-mabrahms
-ms.custom: ignite-2022
 ms.date: 10/05/2023
 ---
 

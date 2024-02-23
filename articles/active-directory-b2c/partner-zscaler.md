@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: As an IT admin, I want to integrate Azure Active Directory B2C authentication with Zscaler Private Access. I need to provide secure access to private applications and assets without the need for a virtual private network (VPN).
+# Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C authentication with Zscaler Private Access. I need to provide secure access to private applications and assets without the need for a virtual private network (VPN).
 ---
 
 # Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C

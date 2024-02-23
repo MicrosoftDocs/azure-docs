@@ -2,7 +2,6 @@
 author: jiec
 ms.author: jiec
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 04/02/2022
 ---

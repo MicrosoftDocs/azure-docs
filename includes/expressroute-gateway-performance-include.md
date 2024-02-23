@@ -31,9 +31,9 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 | Gateway SKU | Connections per second | Mega-Bits per second | Packets per second | Supported number of VMs in the virtual network <sup>1<sup/> | Flow count limit |
 |--|--|--|--|--|--|
 | **Standard/ERGw1Az** | 7,000 | 1,000 | 100,000 | 2,000 | 100,000 |
-| **High Performance/ERGw2Az** | 14,000 | 2,000 | 250,000 | 4,500 | 200,000 |
+| **High Performance/ERGw2Az** | 14,000 | 2,000 | 200,000 | 4,500 | 200,000 |
 | **Ultra Performance/ErGw3Az** | 16,000 | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
-| **ErGwScale (per scale unit)** | N/A | 1,000 | 100,000 | 2,000 | 100,000 |
+| **ErGwScale (per scale unit)** | N/A | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
 
 <sup>1<sup/> The values in the table are estimates and varies depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs gets exceeded, the gateway will start to dropping packets.
 

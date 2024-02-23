@@ -6,10 +6,9 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 01/02/2024
 ms.author: rolyon
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 # Assign Azure roles using Azure CLI
 

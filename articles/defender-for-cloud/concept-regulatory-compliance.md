@@ -2,7 +2,6 @@
 title: The Microsoft cloud security benchmark in Microsoft Defender for Cloud
 description: Learn about the Microsoft cloud security benchmark in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 01/10/2023
 ---
 

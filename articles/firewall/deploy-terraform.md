@@ -10,6 +10,7 @@ ms.date: 10/15/2023
 ms.author: victorh
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Terraform

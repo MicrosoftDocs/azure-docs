@@ -138,14 +138,14 @@ The two keys:
 
 Each dataset can only have one primary key.
 
-All incoming data within the pipeline is stored in the `equipment` dataset in the reference data store. The stored data includes the `installationDate` timestamp and keys such as `equipment` and `location`.
+All incoming data within the pipeline is stored in the `equipment` dataset in the reference data store. The stored data includes the `installationDate` timestamp and keys such as `equipment name` and `location`.
 
 These properties are available in the enrichment stages of other pipelines where you can use them to provide context and add additional information to the messages being processed. For example, you can use this data to supplement sensor readings from a specific piece of equipment with its installation date and location. To learn more, see the [Enrich](howto-configure-enrich-stage.md) stage.
 
-Within the `equipment` dataset, the `asset` key serves as the primary key. When th pipeline ingests new data, Data Processor checks this property to determine how to handle the incoming data:
+Within the `equipment` dataset, the `equipment name` key serves as the primary key. When th pipeline ingests new data, Data Processor checks this property to determine how to handle the incoming data:
 
-- If a message arrives with an `asset` key that doesn't yet exist in the dataset (such as `Pump`), Data Processor adds a new entry to the dataset. This entry includes the new `asset` type and its associated data such as `location`, `installationDate`, and `isSpare`.
-- If a message arrives with an `asset` key that matches an existing entry in the dataset (such as `Slicer`), Data Processor updates that entry. The associated data for that equipment such as `location`, `installationDate`, and `isSpare` updates with the values from the incoming message.
+- If a message arrives with an `equipment name` key that doesn't yet exist in the dataset (such as `Pump`), Data Processor adds a new entry to the dataset. This entry includes the new `equipment name` type and its associated data such as `location`, `installationDate`, and `isSpare`.
+- If a message arrives with an `equipment name` key that matches an existing entry in the dataset (such as `Slicer`), Data Processor updates that entry. The associated data for that equipment such as `location`, `installationDate`, and `isSpare` updates with the values from the incoming message.
 
 The `equipment` dataset in the reference data store is an up-to-date source of information that can enhance and contextualize the data flowing through other pipelines in Data Processor using the `Enrich` stage.
 

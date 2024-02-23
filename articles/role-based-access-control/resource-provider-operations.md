@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 11/30/2023
+ms.date: 02/07/2024
 ms.custom: generated
 ---
 
@@ -51,6 +51,7 @@ Click the resource provider name in the following table to see the list of opera
 | **Web** |
 | [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
+| [Microsoft.Communication](#microsoftcommunication) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
 | [Microsoft.Media](#microsoftmedia) |
@@ -100,6 +101,7 @@ Click the resource provider name in the following table to see the list of opera
 | **Integration** |
 | [Microsoft.ApiManagement](#microsoftapimanagement) |
 | [Microsoft.AppConfiguration](#microsoftappconfiguration) |
+| [Microsoft.AVS](#microsoftavs) |
 | [Microsoft.AzureStack](#microsoftazurestack) |
 | [Microsoft.AzureStackHCI](#microsoftazurestackhci) |
 | [Microsoft.DataBoxEdge](#microsoftdataboxedge) |

@@ -12,7 +12,7 @@ ms.date: 12/12/2023
 
 # Network planning for Oracle Database@Azure
 
-In this article, you learn about the topologies and constraints for Oracle Database@Azure. After you purchase the offer through Azure Marketplace and provision the Exadata infrastructure, you'll then need to create your virtual machine cluster that will host your Oracle Exadata Database. These Oracle database clusters are connected to your Azure virtual network via a virtual NIC from your delegated subnet (delegated to ``Oracle.Database/networkAattachement``).  
+In this article, you learn about the topologies and constraints for Oracle Database@Azure. After you purchase the offer through Azure Marketplace and provision the Exadata infrastructure, you'll then need to create your virtual machine cluster that will host your Oracle Exadata Database. These Oracle database clusters are connected to your Azure virtual network via a virtual NIC from your delegated subnet (delegated to ``Oracle.Database/networkAttachement``).  
 
 ## Supported topologies
 

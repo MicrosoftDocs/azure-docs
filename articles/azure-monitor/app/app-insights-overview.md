@@ -21,8 +21,8 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
 - [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
-- Performance view: Review application performance metrics and potential bottlenecks.
-- Failures view: Identify and analyze failures in your application to minimize downtime.
+- [Failures view](failures-and-performance-views.md?tabs=failures-view): Identify and analyze failures in your application to minimize downtime.
+- [Performance view](failures-and-performance-views.md?tabs=performance-view): Review application performance metrics and potential bottlenecks.
 
 ### Monitoring
 - [Alerts](../alerts/alerts-overview.md): Monitor a wide range of aspects of your application and trigger various actions.
@@ -94,7 +94,7 @@ This section lists all supported platforms and frameworks.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Spring Apps](../../spring-apps/enterprise/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Logging frameworks

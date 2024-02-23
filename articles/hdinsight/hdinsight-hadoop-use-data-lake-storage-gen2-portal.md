@@ -5,7 +5,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, seoapr2020, subject-rbac-steps
+ms.custom: hdinsightactive, subject-rbac-steps
 ms.date: 08/22/2023
 ---
 

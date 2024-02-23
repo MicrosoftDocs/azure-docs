@@ -186,6 +186,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-ip-filter-classic.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-ip-filtering",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-customer-managed-keys.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-what-is-iot-hub.md",
       "redirect_url": "/azure/iot-hub/about-iot-hub",
       "redirect_document_id": false
@@ -1393,6 +1403,11 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md",
       "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
       "redirect_document_id": false
     }
   ]
