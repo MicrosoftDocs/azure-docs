@@ -32,7 +32,7 @@ To try out the layer 4 features of Azure Application Gateway, this article shows
 ## Register to the preview
 
 > [!NOTE]
-> When you join the preview, all new Application Gateways provision with the ability to use layer 4 proxy features. If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
+> When you join this preview, all Application Gateways will have the ability to use Layer 4 proxy features. This is an auto-approved registration and needs about **30 minutes to take effect**.
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
 
