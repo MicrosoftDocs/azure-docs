@@ -172,9 +172,87 @@
 - name: Reference
   items:
   - name: Built-in roles
-    href: built-in-roles.md
-  - name: Resource provider operations
-    href: resource-provider-operations.md
+    items:
+    - name: Built-in roles
+      href: built-in-roles.md
+    - name: General
+      href: built-in-roles/general.md
+    - name: Compute
+      href: built-in-roles/compute.md
+    - name: Networking
+      href: built-in-roles/networking.md
+    - name: Storage
+      href: built-in-roles/storage.md
+    - name: Web and Mobile
+      href: built-in-roles/web-and-mobile.md
+    - name: Containers
+      href: built-in-roles/containers.md
+    - name: Databases
+      href: built-in-roles/databases.md
+    - name: Analytics
+      href: built-in-roles/analytics.md
+    - name: AI + machine learning
+      href: built-in-roles/ai-machine-learning.md
+    - name: Internet of Things
+      href: built-in-roles/internet-of-things.md
+    - name: Mixed reality
+      href: built-in-roles/mixed-reality.md
+    - name: Integration
+      href: built-in-roles/integration.md
+    - name: Identity
+      href: built-in-roles/identity.md
+    - name: Security
+      href: built-in-roles/security.md
+    - name: DevOps
+      href: built-in-roles/devops.md
+    - name: Monitor
+      href: built-in-roles/monitor.md
+    - name: Management and governance
+      href: built-in-roles/management-and-governance.md
+    - name: Hybrid + multicloud
+      href: built-in-roles/hybrid-multicloud.md
+  - name: Permissions
+    items:
+    - name: Permissions
+      href: resource-provider-operations.md
+    - name: General
+      href: permissions/general.md
+    - name: Compute
+      href: permissions/compute.md
+    - name: Networking
+      href: permissions/networking.md
+    - name: Storage
+      href: permissions/storage.md
+    - name: Web and Mobile
+      href: permissions/web-and-mobile.md
+    - name: Containers
+      href: permissions/containers.md
+    - name: Databases
+      href: permissions/databases.md
+    - name: Analytics
+      href: permissions/analytics.md
+    - name: AI + machine learning
+      href: permissions/ai-machine-learning.md
+    - name: Internet of Things
+      href: permissions/internet-of-things.md
+    - name: Mixed reality
+      href: permissions/mixed-reality.md
+    - name: Integration
+      href: permissions/integration.md
+    - name: Identity
+      href: permissions/identity.md
+    - name: Security
+      href: permissions/security.md
+    - name: DevOps
+      href: permissions/devops.md
+    - name: Migration
+      href: permissions/migration.md
+    - name: Monitor
+      href: permissions/monitor.md
+    - name: Management and governance
+      href: permissions/management-and-governance.md
+    - name: Hybrid + multicloud
+      href: permissions/hybrid-multicloud.md
   - name: Azure RBAC limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell
