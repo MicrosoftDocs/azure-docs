@@ -137,7 +137,7 @@ az sig image-definition create \
    --offer myOffer \
    --sku 20_04-lts-gen2 \
    --os-type Linux \
-   --hyper-v-generation V2
+   --hyper-v-generation V2 \
    --features SecurityType=TrustedLaunchSupported
 ```
 

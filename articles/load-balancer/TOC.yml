@@ -106,6 +106,8 @@
     href: distribution-mode-concepts.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
   - name: Reliability
     items:
     - name: Availability zones and cross-region load balancer
