@@ -153,8 +153,6 @@
         href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
-    - name: Azure Certified for IoT device catalog
-      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Azure Roadmap

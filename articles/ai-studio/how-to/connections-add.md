@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: larryfr
 ms.author: larryfr
 author: Blackmist
@@ -40,7 +40,7 @@ Here's a table of the available connection types in Azure AI Studio with descrip
 ## Create a new connection
 
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. If you don't have a project already, first create a project.
-1. Select **Settings** from the collapsible left menu. 
+1. Select **AI project settings** from the collapsible left menu. 
 1. Select **View all** from the **Connections** section.
 1. Select **+ Connection** under **Resource connections**.
 1. Select the service you want to connect to from the list of available external resources.
