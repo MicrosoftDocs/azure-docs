@@ -167,15 +167,11 @@ procedureSection:
       To cancel a support plan:
     steps:
       - |
-       If you need assistance managing a support request, [create another support request](how-to-create-azure-support-request.md) to get help.
-      - |
-        For the **Issue type**, select **Technical**, then select **All Services**. 
-      - |
-        For **Service type**, select **Portal** and for **Problem type** select **Issue with Support Ticket Experience**.
+       See [Cancel a support plan](https://learn.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#cancel-a-subscription-in-the-azure-portal).
   - title: | 
       Get help with a support request
     summary: |
-      For help, create a support request.
+      For help, create a support request"
     steps:
       - |
         Select [create another support request](how-to-create-azure-support-request.md) to get help.
@@ -185,7 +181,7 @@ procedureSection:
         For **Service type**, select **Portal** and for **Problem type** select **Issue with Support Ticket Experience**.
 
 relatedContent:
-  - text: create an Azure support request
+  - text: Create an Azure support request
     url: how-to-create-azure-support-request.md
   - text: Azure support ticket REST API
     url: /rest/api/support

@@ -63,7 +63,7 @@ The following steps show how to use the developer tools in Microsoft Edge. For m
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
-1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.yml#upload-files).
 
 ## Google Chrome
 
@@ -111,7 +111,7 @@ The following steps show how to use the developer tools in Google Chrome. For mo
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
-1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.yml#upload-files).
 
 ## Safari
 
@@ -165,7 +165,7 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
-1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.yml#upload-files).
 
 ## Firefox
 
@@ -209,7 +209,7 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
-1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.yml#upload-files).
 
 ## Next steps
 

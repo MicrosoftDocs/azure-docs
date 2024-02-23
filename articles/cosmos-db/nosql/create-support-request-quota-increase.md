@@ -38,7 +38,7 @@ To request a quota increase, you must create a new support request with your wor
 
    * **Quota specific fields** provide the requested information for your specific quota request.
 
-   * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
+   * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.yml#upload-files) article.
 
    * **Severity**: Choose one of the available severity levels based on the business impact.
 
