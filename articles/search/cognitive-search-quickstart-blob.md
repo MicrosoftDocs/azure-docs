@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/30/2023
+ms.date: 02/22/2024
 ---
 # Quickstart: Create a skillset in the Azure portal
 
@@ -31,13 +31,13 @@ Before you begin, have the following prerequisites in place:
 + Azure Storage account with Blob Storage.
 
 > [!NOTE]
-> This quickstart uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create an Azure AI multi-service resource.
+> This quickstart uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI transformations. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create an Azure AI multi-service resource.
 
 ## Set up your data
 
 In the following steps, set up a blob container in Azure Storage to store heterogeneous content files.
 
-1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. Unzip the files.
+1. [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) consisting of a small file set of different types. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 

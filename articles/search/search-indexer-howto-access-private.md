@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/22/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -116,7 +116,7 @@ When you complete the steps in this section, you have a shared private link that
 
 1. On the **Shared Private Access** page, select **+ Add Shared Private Access**.
 
-1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
+1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID**.
 
 1. If you select the first option (recommended), the portal helps you pick the appropriate Azure resource and fills in other properties, such as the group ID of the resource and the resource type.
 
