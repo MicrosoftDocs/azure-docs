@@ -32,7 +32,7 @@ Mistral-large is Mistral AI's most advanced Large Language Model (LLM). It can b
 Additionally, mistral-large is:
 
 - Straight-to-the-point. Purposely trained to eliminate unnecessary verbosity and generate concise outputs.
-1. Specialized in RAG. Crucial information is not lost in the middle of long context windows (up to 32K tokens).
+- Specialized in RAG. Crucial information is not lost in the middle of long context windows (up to 32K tokens).
 1. Strong in coding. Code generation, review, and comments. Can output results as JSON and do function calling.
 1. Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 
