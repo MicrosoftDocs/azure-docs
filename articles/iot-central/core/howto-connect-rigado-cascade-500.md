@@ -20,7 +20,7 @@ This article describes how you can connect a Rigado Cascade 500 gateway device t
 
 Cascade 500 IoT gateway is a hardware offering from Rigado that's part of their Cascade Edge-as-a-Service solution. It provides commercial IoT project and product teams with flexible edge computing power, a robust containerized application environment, and a wide variety of wireless device connectivity options such as Bluetooth 5, LTE, and Wi-Fi.
 
-Cascade 500 is certified for Azure IoT Plug and Play and enables you to easily onboard the device into your end-to-end solutions. The Cascade gateway lets you wirelessly connect to various condition monitoring sensors that are in close proximity to the gateway device. You can use the gateway device to onboard these sensors into IoT Central.
+The Cascade gateway lets you wirelessly connect to various condition monitoring sensors that are in close proximity to the gateway device. You can use the gateway device to onboard these sensors into IoT Central.
 
 ## Prerequisites
 
