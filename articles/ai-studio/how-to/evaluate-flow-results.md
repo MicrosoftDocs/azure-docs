@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -17,23 +17,23 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-The Azure AI Studio's evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your AI projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
+The Azure AI Studio evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your AI projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
 
 Once you've visualized your evaluation results, you can dive into a thorough examination. This includes the ability to not only view individual results but also to compare these results across multiple evaluation runs. By doing so, you can identify trends, patterns, and discrepancies, gaining invaluable insights into the performance of your AI system under various conditions. 
 
 In this article you learn to: 
 
-- View the evaluation result and metrics 
-- Compare the evaluation results 
-- Understand the built-in evaluation metrics 
-- Improve the performance  
-- View the evaluation results and metrics 
+- View the evaluation result and metrics.
+- Compare the evaluation results.
+- Understand the built-in evaluation metrics.
+- Improve the performance.
+- View the evaluation results and metrics.
 
 ## Find your evaluation results
 
-Upon submitting your evaluation, you can locate the submitted evaluation run within the run list by navigating to the 'Evaluation' tab. 
+Upon submitting your evaluation, you can locate the submitted evaluation run within the run list by navigating to the **Evaluation** page. 
 
-You can oversee your evaluation runs within the run list. With the flexibility to modify the columns using the column editor and implement filters, you can customize and create your own version of the run list. Additionally, you have the ability to swiftly review the aggregated evaluation metrics across the runs, enabling you to perform quick comparisons. 
+You can monitor and manage your evaluation runs within the run list. With the flexibility to modify the columns using the column editor and implement filters, you can customize and create your own version of the run list. Additionally, you have the ability to swiftly review the aggregated evaluation metrics across the runs, enabling you to perform quick comparisons. 
 
 :::image type="content" source="../media/evaluations/view-results/evaluation-run-list.png" alt-text="Screenshot of the evaluation run list." lightbox="../media/evaluations/view-results/evaluation-run-list.png":::
 

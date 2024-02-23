@@ -194,7 +194,7 @@ The **FormatReply** node formats the output of the **DetermineReply** node.
 
 In prompt flow, you should also see:
 - **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **Settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
+- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **AI project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png":::
 

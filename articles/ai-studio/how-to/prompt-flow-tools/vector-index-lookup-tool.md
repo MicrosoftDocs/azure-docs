@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -21,7 +21,7 @@ The prompt flow *Vector index lookup* tool is tailored for querying within vecto
 
 ## Build with the Vector index lookup tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Vector Index Lookup** to add the Vector index lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/vector-index-lookup-tool.png" alt-text="Screenshot of the Vector Index Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/vector-index-lookup-tool.png":::

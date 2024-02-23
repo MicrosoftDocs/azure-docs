@@ -46,7 +46,7 @@ using Azure.AI.OpenAI;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
 var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 

@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 02/22/2024
 ---
 
 # Preview features in Azure AI Search
@@ -21,8 +21,11 @@ Preview features are removed from this list if they're retired or transition to 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-|  [**Integrated vectorization**](vector-search-integrated-vectorization.md) | Index, skillset, queries | Skills-driven data chunking and vectorization during indexing, and text-to-vector conversion during query execution. | [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for `vectorizer`, [Create or Update Skillset (preview)](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for `SplitSkill`, and [Search POST (preview)](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for `vectorQueries`, 2023-10-01-Preview or later. |
-| **Import and vectorize data** | Azure portal | A wizard that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. | Available on all search services, in all regions. |
+|  [**Integrated vectorization**](vector-search-integrated-vectorization.md) | Index, skillset, queries | Skills-driven data chunking and vectorization during indexing, and text-to-vector conversion during query execution. | [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for `vectorizer`, [Create or Update Skillset (preview)](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for AzureOpenAIEmbedding skill and the data chunking properties of the Text Split skill, and [Search POST (preview)](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) for `vectorQueries`, 2023-10-01-Preview or later. |
+| [**Import and vectorize data**](search-get-started-portal-import-vectors.md) | Azure portal | A wizard that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. | Available on all search services, in all regions. |
+| [**AzureOpenAIEmbedding skill**](cognitive-search-skill-azure-openai-embedding.md) | AI enrichment (skills) | A new skill type that calls Azure OpenAI embedding model to generate embeddings during queries and indexing. | [Create or Update Skillset (preview)](/rest/api/searchservice/preview-api/create-or-update-skillset), 2023-10-01-Preview or later. Also available in the portal through the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md). |
+| [**Text Split skill**](cognitive-search-skill-textsplit.md) | AI enrichment (skills) | Text Split has two new chunking-related properties in preview: `maximumPagesToTake`, `pageOverlapLength`. | [Create or Update Skillset (preview)](/rest/api/searchservice/preview-api/create-or-update-skillset), 2023-10-01-Preview or later. Also available in the portal through the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md). |
+| [**Index projections**](index-projections-concept-intro.md) | AI enrichment (skills) | A component of a skillset definition that defines the shape of a secondary index, supporting a one-to-many index pattern, where content from an enrichment pipeline can target multiple indexes.| [Create or Update Skillset (preview)](/rest/api/searchservice/preview-api/create-or-update-skillset), 2023-10-01-Preview or later. Also available in the portal through the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md). |
 |  [**Azure Files indexer**](search-file-storage-integration.md) | Indexer data source | New data source for indexer-based indexing from [Azure Files](https://azure.microsoft.com/services/storage/files/) | [Create or Update Data Source (preview)](/rest/api/searchservice/preview-api/create-or-update-data-source), 2021-04-30-Preview or later. |
 | [**SharePoint Indexer**](search-howto-index-sharepoint-online.md) | Indexer data source | New data source for indexer-based indexing of SharePoint content. | [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to enable the feature. Use [Create or Update Data Source (preview)](/rest/api/searchservice/preview-api/create-or-update-data-source), 2020-06-30-Preview or later, or the Azure portal. |
 |  [**MySQL indexer**](search-howto-index-mysql.md) | Indexer data source | New data source for indexer-based indexing of Azure MySQL data sources.| [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to enable the feature. Use [Create or Update Data Source (preview)](/rest/api/searchservice/preview-api/create-or-update-data-source), 2020-06-30-Preview or later, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
@@ -30,12 +33,21 @@ Preview features are removed from this list if they're retired or transition to 
 | [**Azure Cosmos DB for Apache Gremlin indexer**](search-howto-index-cosmosdb.md) | Indexer data source | New data source for indexer-based indexing through the Apache Gremlin APIs in Azure Cosmos DB. | [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to enable the feature. Use [Create or Update Data Source (preview)](/rest/api/searchservice/preview-api/create-or-update-data-source), 2020-06-30-Preview or later.|
 | [**Native blob soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexer data source | Applies to the Azure Blob Storage indexer. Recognizes blobs that are in a soft-deleted state, and removes the corresponding search document during indexing. | [Create or Update Data Source (preview)](/rest/api/searchservice/preview-api/create-or-update-data-source), 2020-06-30-Preview or later. |
 | [**Reset Documents**](search-howto-run-reset-indexers.md) | Indexer | Reprocesses individually selected search documents in indexer workloads. | [Reset Documents (preview)](/rest/api/searchservice/preview-api/reset-documents), 2020-06-30-Preview or later. |
-| [**speller**](cognitive-search-aml-skill.md) | Query | Optional spelling correction on query term inputs for simple, full, and semantic queries. | [Search Documents (preview)](/rest/api/searchservice/preview-api/search-documents), 2020-06-30-Preview or later, and Search Explorer (portal). |
+| [**speller**](speller-how-to-add.md) | Query | Optional spelling correction on query term inputs for simple, full, and semantic queries. | [Search Documents (preview)](/rest/api/searchservice/preview-api/search-documents), 2020-06-30-Preview or later, and Search Explorer (portal). |
 | [**Normalizers**](search-normalizers.md) | Query |  Normalizers provide simple text preprocessing: consistent casing, accent removal, and ASCII folding, without invoking the full text analysis chain.| [Search Documents (preview)](/rest/api/searchservice/preview-api/search-documents), 2020-06-30-Preview or later.|
 | [**featuresMode parameter**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevance (scoring) | Relevance score expansion to include details: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial). | [Search Documents (preview)](/rest/api/searchservice/preview-api/search-documents), 2019-05-06-Preview or later.|
 | [**Azure Machine Learning (AML) skill**](cognitive-search-aml-skill.md) | AI enrichment (skills) | A new skill type to integrate an inferencing endpoint from Azure Machine Learning. | [Create or Update Skillset (preview)](/rest/api/searchservice/preview-api/create-or-update-skillset), 2019-05-06-Preview or later. Also available in the portal, in skillset design, assuming Azure AI Search and Azure Machine Learning services are deployed in the same subscription. |
 | [**Incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md) | AI enrichment (skills) | Adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, doesn't change the content. Caching applies only to enriched documents produced by a skillset.| [Create or Update Indexer (preview)](/rest/api/searchservice/preview-api/create-or-update-indexer), API versions 2021-04-30-Preview, 2020-06-30-Preview, or 2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | [Search Documents (preview)](/rest/api/searchservice/preview-api/search-documents) calls, in all supported API versions: 2023-10-10-Preview, 2023-07-01-Preview, 2021-04-30-Preview, 2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, 2017-11-11-Preview. |
+
+## Preview features in Azure SDKs
+
+Each Azure SDK team releases beta packages on their own timeline. Check the change log for mentions of new features in beta packages:
+
++ [Change log for Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.5.0-beta.5/sdk/search/Azure.Search.Documents/CHANGELOG.md)
++ [Change log for Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.5.11/sdk/search/azure-search-documents/CHANGELOG.md)
++ [Change log for Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/search-documents_11.3.3/sdk/search/search-documents/CHANGELOG.md)
++ [Change log for Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.3.0/sdk/search/azure-search-documents/CHANGELOG.md).
 
 ## Using preview features
 
@@ -46,15 +58,6 @@ The following statements apply to preview features:
 + Preview features are available under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), without a service level agreement.
 + Preview features might undergo breaking changes if a redesign is required. 
 + Sometimes preview features don't make it into a GA release.
-
-## Preview feature support in Azure SDKs
-
-Each Azure SDK team releases beta packages on their own timeline. Check the change log for mentions of new features in beta packages:
-
-+ [Change log for Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.5.0-beta.5/sdk/search/Azure.Search.Documents/CHANGELOG.md)
-+ [Change log for Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.5.11/sdk/search/azure-search-documents/CHANGELOG.md)
-+ [Change log for Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/search-documents_11.3.3/sdk/search/search-documents/CHANGELOG.md)
-+ [Change log for Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.3.0/sdk/search/azure-search-documents/CHANGELOG.md).
 
 ## How to call a preview REST API
 
