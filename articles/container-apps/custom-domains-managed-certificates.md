@@ -6,12 +6,12 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/02/2023
+ms.date: 02/23/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Custom domain names and free managed certificates in Azure Container Apps (preview)
+# Custom domain names and free managed certificates in Azure Container Apps
 
 Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain.
 
@@ -29,8 +29,10 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 The requirements are:
 
 - Your container app has HTTP ingress enabled and is publicly accessible.
+
 - For apex domains, you must have an A record pointing to your Container Apps environment's IP address.
-- For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+
+- For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
 
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
