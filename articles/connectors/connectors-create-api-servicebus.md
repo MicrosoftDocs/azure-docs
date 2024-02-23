@@ -134,7 +134,6 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
   > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
-<a name="permissions-connection-string"></a>
 
 ## Step 1: Check access to Service Bus namespace
 
