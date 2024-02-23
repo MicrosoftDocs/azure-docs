@@ -144,8 +144,8 @@ The following samples collect sensor data from a BME280 sensor (or can simulate 
 
 | SDK | Sample |
 | --- | ------ |
-| Python | (iot-hub-python-raspberrypi-client-app)[https://github.com/Azure-Samples/iot-hub-python-raspberrypi-client-app] |
-| C | (iot-hub-c-raspberrypi-client-app)[https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app] |
+| Python | [iot-hub-python-raspberrypi-client-app](https://github.com/Azure-Samples/iot-hub-python-raspberrypi-client-app) |
+| C | [iot-hub-c-raspberrypi-client-app](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app) |
 | Node | [RaspberryPiApp](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Tutorials/RaspberryPiApp) |
 
 > [!NOTE]
