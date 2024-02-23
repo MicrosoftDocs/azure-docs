@@ -7,7 +7,7 @@ author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to 
-ms.date: 12/01/2023
+ms.date: 02/23/2024
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As an IT infrastructure admin, I want to install arc agents to use Azure management services for SCVMM VMs.
@@ -16,6 +16,9 @@ keywords: "VMM, Arc, Azure"
 # Install Arc agents at scale for Arc-enabled SCVMM VMs
 
 In this article, you learn how to install Arc agents at scale for SCVMM VMs and use Azure management capabilities.
+
+>[!IMPORTANT]
+>We recommend maintaining the SCVMM management server and the SCVMM console in the same Long-Term Servicing Channel (LTSC) and Update Rollup (UR) version.
 
 >[!NOTE]
 >This article is applicable only if you are running:  
