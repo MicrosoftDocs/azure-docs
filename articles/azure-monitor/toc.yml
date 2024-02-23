@@ -521,24 +521,12 @@ items:
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
         href: containers/container-insights-private-link.md
-    - name: Query Prometheus metrics
-      items:
-      - name: Query using Grafana
-        items:
-        - name: Configure Grafana with managed system identity
-          displayName: Prometheus
-          href: essentials/prometheus-grafana.md
-        - name: Configure Grafana with Microsoft Entra ID
-          displayName: Prometheus
-          href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Query using Azure workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
       - name: Query using the API and PromQL
         displayName: Prometheus
         href: essentials/prometheus-api-promql.md        
-    - name: Disable monitoring
-      href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -557,8 +545,8 @@ items:
         href: containers/container-insights-reports.md
       - name: Custom metrics
         href: containers/container-insights-custom-metrics.md
-    - name: Log queries
-      href: containers/container-insights-log-query.md
+      - name: Log queries
+        href: containers/container-insights-log-query.md
     - name: View live data
       items:
       - name: Live Data overview
@@ -576,6 +564,8 @@ items:
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
+    - name: Disable monitoring
+      href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
       items:
       - name: Prometheus
