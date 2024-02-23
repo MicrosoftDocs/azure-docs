@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Overview
             url: introduction.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: quickstart
         links:
           - text: Create resources - Azure portal

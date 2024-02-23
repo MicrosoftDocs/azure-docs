@@ -68,7 +68,7 @@ landingContent:
           - text: About Azure confidential VMs
             url: confidential-vm-overview.md
           - text: Azure Confidential VM options
-            url: virtual-machine-solutions.md
+            url: virtual-machine-options.md
       - linkListType: concept
         links:
           - text: Guest attestation for confidential VMs
