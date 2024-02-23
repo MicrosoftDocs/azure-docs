@@ -111,45 +111,35 @@ For more information, see the following resources:
 - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../authenticate-with-managed-identity?tabs=standard)
 
-## Example solutions
-
-### Ingest data and create chat #1
+## Example: Ingest data and create chat
 
 This example shows how to use the Azure OpenAI and Azure AI Search connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
 
-#### Prerequisites
+### Prerequisites
 
-[Requirements](https://github.com/Azure-Samples/azure-search-openai-demo?tab=readme-ov-file#azure-account-requirements).
+[Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites)
 
-#### Sample link
+### Sample link
 
-[ChatGPT + Enterprise data with Azure OpenAI and AI Search](https://github.com/Azure-Samples/azure-search-openai-demo)
+[Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
-#### Data ingestion workflow
+### Data ingestion workflow
 
 To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
 Each step in this process not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
 
-1. Check for new data.
-
-   Add a trigger that monitors for PDF files, either based on a scheduled recurrence or in response to specific events, such as the arrival of a new file in a chosen storage system, such as SharePoint, OneDrive, or Azure Blob Storage.
-
-1. Get the data.
-
-   Add an action that gets the document from the storage system.
-
-1. Tokenize the data.
-
-   Add an action that tokenizes the document.
-
-1. Generate embeddings.
-
-   Add an Azure OpenAI action that creates embeddings.
-
-1. Index the data.
-  
-   Add an Azure AI Search action that indexes the document.
+| Step | Task | Underlying operation | Description |
+|------|------|----------------------|-------------|
+| 1 | Check for new data. | **When an HTTP request is received** | A trigger that monitors for new documents, either based on a scheduled recurrence or in response to specific events, such as an uploaded new file in a specific storage system, for example, SharePoint, OneDrive, or Azure Blob Storage. |
+| 2 | Get the data's location. | **HTTP** | An action that gets the URL for the document in the specified storage system. |
+| 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates strings. |
+| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes output from the **Compose** action](../../ai-services/openai/overview#tokens). |
+| 5 | Convert data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output to a JSON array. |
+| 6 | | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
+| 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings. |
+| 8 | Select the data and embeddings. | **Select** | A **Data Operations** action that selects the JSON outputs and embeddings. | 
+| 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the selected content. |
 
 ### Chat workflow
 
@@ -185,16 +175,6 @@ The following pattern is only one example that shows how a chat workflow might l
 
    Add an action that connects to the chat completion API, which guarantees reliable responses in chat conversations.
 
-### Ingest data and set up chat #2
-
-This example shows how to ingest document data into your Azure AI Search instance and to chat with your data.
-
-#### Prerequisites
-
-[Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
-
-#### Sample link
-
-[Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
-
 ## See also
+
+[Azure OpenAI and AI Search connectors for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584)
