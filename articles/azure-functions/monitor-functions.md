@@ -130,7 +130,7 @@ Azure Functions writes all logs to the **FunctionAppLogs** table under **LogMana
 <!-- Add sample Kusto queries for your service here. -->
 The following sample queries can help you monitor all your functions app logs:
 
-```
+```Kusto
 
 FunctionAppLogs
 | order by TimeGenerated desc
@@ -153,7 +153,7 @@ FunctionAppLogs
 
 The following sample query can help you monitor exceptions on all your functions app logs:
 
-```
+```Kusto
 
 FunctionAppLogs
 | where ExceptionDetails != ""  
