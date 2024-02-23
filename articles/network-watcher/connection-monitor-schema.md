@@ -8,38 +8,24 @@ ms.service: network-watcher
 ms.topic: concept-article
 ms.date: 02/23/2024
 
-#CustomerIntent: As an Azure administrator, I want to understand the available connection monitor schemas so that I can query Log Analytics and understand the output that I'm getting.
+#CustomerIntent: As an Azure administrator, I want to learn about the available fields in connection monitor schemas so that I can understand the output of Log Analytics queries.
 ---
 
 # Connection monitor schemas
 
-Connection Monitor provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection monitor stores the data it collects in a Log Analytics workspace. There are two types of logs or data ingested into Log Analytics from connection monitor:
 
-Here are some use cases for Connection Monitor:
+- The test data (`NWConnectionMonitorTestResult` query) is updated based on the monitoring frequency of a particular test group.
+- The path data (`NWConnectionMonitorPathResult` query) is updated when there is a significant change in loss percentage or round-trip time.
 
-- Your front-end web server virtual machine (VM) communicates with a database server VM in a multiple-tier application. You want to check network connectivity between the two VMs.
-- You want VMs in the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
-- You have multiple on-premises office sites in Seattle, Washington, and in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, compare the latencies between Seattle and Ashburn.
-- Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
-- You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
-
-Here are some benefits of Connection Monitor:
-
-* Unified, intuitive experience for Azure and hybrid monitoring needs
-* Cross-region, cross-workspace connectivity monitoring
-* Higher probing frequencies and better visibility into network performance
-* Faster alerting for your hybrid deployments
-* Support for connectivity checks that are based on HTTP, TCP, and ICMP 
-* Metrics and Log Analytics support for both Azure and non-Azure test setups
-
-There are two types of logs or data ingested into Log Analytics. The test data (NWConnectionMonitorTestResult query) is updated based on the monitoring frequency of a particular test group. The path data (NWConnectionMonitorPathResult query) is updated when there is a significant change in loss percentage or round-trip time. For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
+For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
 
 ## Connection monitor tests schema
 
-The following table lists the fields in the Connection Monitor Tests data schema and what they signify. 
+The following table lists the fields in the connection monitor tests data schema and what they signify:
 
-| Field  |    Description   |
-|---|---|
+| Field | Description |
+| ----- | ----------- |
 | TimeGenerated	| The timestamp (UTC) of when the log was generated |
 | RecordId	| The record ID for unique identification of the test result record |
 | ConnectionMonitorResourceId	| The Connection Monitor resource ID of the test |
@@ -75,10 +61,10 @@ The following table lists the fields in the Connection Monitor Tests data schema
 
 ## Connection monitor path schema
 
-The following table lists the fields in the Connection Monitor Path data schema and what they signify. 
+The following table lists the fields in the connection monitor path data schema and what they signify:
 
-| Field  |    Description   |
-|---|---|
+| Field | Description |
+| ----- | ----------- |
 | TimeGenerated	 | The timestamp (UTC) of when the log was generated |
 | RecordId	| The record ID for unique identification of the test result record |
 | TopologyId	| The topology ID of the path record |
