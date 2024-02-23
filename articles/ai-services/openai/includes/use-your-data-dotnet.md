@@ -27,7 +27,7 @@ string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
@@ -133,7 +133,7 @@ string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));

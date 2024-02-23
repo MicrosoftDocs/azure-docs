@@ -43,7 +43,7 @@ const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
 const AZURE_AI_SEARCH_ENDPOINT = process.env["AZURE_AI_SEARCH_ENDPOINT"];
 const AZURE_AI_SEARCH_API_KEY = process.env["AZURE_AI_SEARCH_API_KEY"];
 const AZURE_AI_SEARCH_INDEX = process.env["AZURE_AI_SEARCH_INDEX"];
-const deploymentId = process.env["AOAIDeploymentId"];
+const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
 async function main() {
   console.log("== Chat Using Your Own Data Sample ==");
