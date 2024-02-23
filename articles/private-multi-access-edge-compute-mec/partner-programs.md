@@ -17,7 +17,7 @@ Azure private MEC solution partners include technology partners, application ISV
 
 - **Technology Partners** bring critical hardware and software components such as network functions, Radio Access Network (RAN) technologies, and SIMs to the Azure private MEC ecosystem. Customers can mix and match these components to meet their requirements.
 - **System Integrators and Operators** are responsible for planning, deployment, and operation of a customer’s Azure private MEC implementation. These providers bring assets and expertise such as spectrum, RF planning, installation, maintenance, and support. System Integrators and Operators enable customers to rapidly deploy the Azure private MEC solution without requiring in-house expertise in complexities surrounding mobile network technologies.
-- **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications leverage the low latency edge computing capabilities of Azure private MEC to enable a customer’s specific use-cases within industries, including manufacturing, energy, and transportation.
+- **Application ISV Partners** bring ready to deploy software solutions built for Azure private MEC. These applications use the low latency edge computing capabilities of Azure private MEC to enable a customer’s specific use-cases within industries, including manufacturing, energy, and transportation.
 
 ### System Integrators (SIs)
 Our system integrator partners include:
@@ -56,7 +56,7 @@ Networking ISV partners include software vendors that provide network functions 
 | | [Versa Networks](https://aka.ms/versa) |
 
 ### SIM & RAN
-SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Contact the partner representative for more details:
+SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners completed interop tests with Azure private MEC. Contact the partner representative for more details:
 
 |SIM |RAN (hardware)|
 |---------|---------|
@@ -102,4 +102,4 @@ Our application ISV partners include:
 - To partner with Microsoft and deploy Azure private MEC solutions:
     - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you're an operator and system integrator managed service providers.
     - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you're a Platform partner, such as a network function or hardware vendor.
-    - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
+    - Onboard your applications to the Azure Marketplace, and then [preregister for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).
