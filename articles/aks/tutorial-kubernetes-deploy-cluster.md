@@ -224,7 +224,7 @@ Sign in to your Azure Account through AZD configures your credentials.
     aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
     ```
 
-[!INCLUDE [azd-login-ts](../includes/azd/azd-login-ts.md)]
+[!INCLUDE [azd-login-ts](./includes/azd/azd-login-ts.md)]
 
 ---
 

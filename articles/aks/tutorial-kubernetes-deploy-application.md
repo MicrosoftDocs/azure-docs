@@ -149,6 +149,33 @@ AZD does not require a container registry step.
     kubectl get pods
     ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
+
+    ```console
+    kubectl apply -f aks-store-quickstart.yaml
+    ```
+
+    The following example output shows the resources successfully created in the AKS cluster:
+
+    ```output
+    deployment.apps/rabbitmq created
+    service/rabbitmq created
+    deployment.apps/order-service created
+    service/order-service created
+    deployment.apps/product-service created
+    service/product-service created
+    deployment.apps/store-front created
+    service/store-front created
+    ```
+
+2. Check the deployment is successful by viewing the pods with `kubectl`
+
+    ```console
+    kubectl get pods
+    ```
+
 ### [Azure Developer CLI](#tab/azure-azd)
 
 Deployment in AZD in broken down into multiple stages represented by hooks. Run `azd up` as an all-in-one command.
@@ -163,7 +190,7 @@ You can change this later inside the `.azure/<your-env-name>/.env` file.
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-### [Azure CLI](#tab/azure-cli)
+### Command Line
 
 1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
@@ -189,16 +216,15 @@ When the application runs, a Kubernetes service exposes the application front en
 
 If the application doesn't load, it might be an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If you can't pull the container images, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
-### [Azure Portal](#tab/azure-azd)
+### Azure Portal
 
-You can navigate to your Azure Portal to find your deployment information.
+Navigate to your Azure Portal to find your deployment information.
 
-1. Open your [Resource Group](azure-portal-rg)
+1. Open your [Resource Group][azure-rg] on the Azure Portal.
 2. Navigate to the Kubernetes service for your cluster
 3. Select `Services and Ingress` under `Kubernetes Resources`
 4. Copy the External IP shown in the column for store-front.
-
-<!-- TODO: ADD IMAGE -->
+5. Paste the IP into your browser to visit your store page.
 
 ## Next steps
 
@@ -216,6 +242,7 @@ In the next tutorial, you learn how to use PaaS services for stateful workloads 
 > [Use PaaS services for stateful workloads in AKS][aks-tutorial-paas]
 
 <!-- LINKS - external -->
+[azure-rg]:https://ms.portal.azure.com/#browse/resourcegroups
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
