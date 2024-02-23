@@ -297,20 +297,6 @@
                   href: troubleshoot/onboarding.md
                 - name: Troubleshoot Change Tracking and Inventory issues
                   href: troubleshoot/change-tracking.md      
-    - name: Start/Stop VMs during off-hours
-      items:
-        - name: Overview
-          href: automation-solution-vm-management.md
-        - name: Support regions for linked Log Analytics workspace
-          href: how-to/region-mappings.md
-        - name: Configure Stop/Start VMs during off-hours
-          href: automation-solution-vm-management-config.md
-        - name: Query logs from Start/Stop VMs during off-hours
-          href: automation-solution-vm-management-logs.md
-        - name: Remove Start/Stop VMs during off-hours
-          href: automation-solution-vm-management-remove.md
-        - name: Troubleshoot Stop/Start VMs during off-hours
-          href: troubleshoot/start-stop-vm.md
     - name: Update Management
       items:
         - name: Overview

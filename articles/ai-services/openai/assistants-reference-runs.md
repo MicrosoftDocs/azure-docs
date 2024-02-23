@@ -37,7 +37,6 @@ Create a run.
 | `assistant_id` | string | Required | The ID of the assistant to use to execute this run. |
 | `model` | string or null | Optional | The model deployment name to be used to execute this run. If a value is provided here, it will override the model deployment name associated with the assistant. If not, the model deployment name associated with the assistant will be used. |
 | `instructions` | string or null | Optional | Overrides the instructions of the assistant. This is useful for modifying the behavior on a per-run basis. |
-| `additional_instructions` | string or null | Optional | Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions. |
 | `tools` | array or null | Optional | Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis. |
 | `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
@@ -53,7 +52,7 @@ A run object.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -69,7 +68,7 @@ print(run)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
     "assistant_id": "asst_abc123"
@@ -109,7 +108,7 @@ A run object.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -128,7 +127,7 @@ run = client.beta.threads.create_and_run(
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
       "assistant_id": "asst_abc123",
@@ -177,7 +176,7 @@ A list of [run](#run-object) objects.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -192,7 +191,7 @@ print(runs)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -234,7 +233,7 @@ A list of [run step](#run-step-object) objects.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -250,7 +249,7 @@ print(run_steps)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -283,7 +282,7 @@ The [run](#run-object) object matching the specified run ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -299,7 +298,7 @@ print(run)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -333,7 +332,7 @@ The [run step](#run-step-object) object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -350,7 +349,7 @@ print(run_step)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps/{step_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -389,7 +388,7 @@ The modified [run](#run-object) object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -406,7 +405,7 @@ print(run)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
   -d '{
     "metadata": {
@@ -450,7 +449,7 @@ The modified [run](#run-object) object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -472,7 +471,7 @@ print(run)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
     "tool_outputs": [
@@ -514,7 +513,7 @@ The modified [run](#run-object) object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -530,7 +529,7 @@ print(run)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST
 ```
