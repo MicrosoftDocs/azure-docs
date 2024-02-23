@@ -27,7 +27,7 @@ Learn more about these topics:
 
 * [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md)
 
-* [Understand IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints)
+* [Understand IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing)
 
 * [Use IoT Hub message routing to send device-to-cloud messages to different endponts](iot-hub-devguide-messages-d2c.md)
 

@@ -24,13 +24,13 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 ## IoT Hub endpoints for development and management
 
-Azure IoT Hub is a multi-tenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
+Azure IoT Hub is a multitenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
 :::image type="content" source="./media/iot-hub-devguide-endpoints/endpoints.png" alt-text="Diagram showing the list of build-in IoT Hub endpoints." border="false":::
 
 The following list describes the endpoints:
 
-* **Resource provider**: an [Azure Resource Manager](../azure-resource-manager/management/overview.md) interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level shared access policies](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions), as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities](./iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Resource provider**: an [Azure Resource Manager](../azure-resource-manager/management/overview.md) interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level shared access policies](./authenticate-authorize-sas.md#access-control-and-permissions), as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities](./iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Device identity management**: a set of HTTPS REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities](iot-hub-devguide-identity-registry.md) are used for device authentication and access control.
 
@@ -66,7 +66,6 @@ All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protoco
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
-
 ## Custom endpoints for message routing
 
 You can link existing Azure services in your Azure subscriptions to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices can't write directly to these endpoints. For more information about message routing, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md).
@@ -79,7 +78,7 @@ IoT Hub currently supports the following Azure services as custom endpoints:
 * Service Bus Topics
 * Cosmos DB (preview)
    
-For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ### Built-in endpoint
 
@@ -89,7 +88,7 @@ You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages
 
 There are two storage services IoT Hub can route messages to: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Both of these use blobs for their storage.
 
-IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. TU use JSON encoding, set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
+IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. To use JSON encoding set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
 
 The encoding format can be set only when the blob storage endpoint is configured; it can't be edited for an existing endpoint.
 
@@ -129,7 +128,7 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 
 ### Azure Cosmos DB as a routing endpoint (preview)
 
-You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as Base64 encoded binary.
+You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as base 64 encoded binary.
 
 To support high-scale scenarios, you can enable [synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md) for the Cosmos DB endpoint. As Cosmos DB is a hyperscale data store, all data/documents written to it must contain a field that represents a logical partition. Each logical partition has a maximum size of 20 GB. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be changed once it has been set.  
 
