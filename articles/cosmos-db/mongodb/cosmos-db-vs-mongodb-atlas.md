@@ -26,13 +26,14 @@ ms.date: 06/03/2023
 | MongoDB wire protocol | Yes | Yes |
 | Compatible with MongoDB tools and drivers | Yes | Yes |
 | Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
-| SLA covers cloud platform | Yes | "Services, hardware, or software provided by a third party, such as cloud platform services on which MongoDB Atlas runs are not covered" |
+| SLA covers cloud platform | Yes | No. "Services, hardware, or software provided by a third party, such as cloud platform services on which MongoDB Atlas runs are not covered" |
 | 99.999% availability SLA | [Yes](../high-availability.md) | No |
 | Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
 | True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
 | Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | Yes |
+| Vector Search in Free Tier | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
 | Integrated text search, geospatial processing | Yes | Yes |
-| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want | Yes, with 512 MB storage |
+| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. Azure Cosmos DB for MognoDB vCore offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
 | Azure Integrations | Native [first-party integrations](./integrations-overview.md) with Azure services such as Azure Functions, Azure Logic Apps, Azure Stream Analytics, and Power BI and more | Limited number of third party integrations |
 | Choice of instance configuration | Yes, with [Azure Cosmos DB for MongoDB vCore](./vcore/introduction.md) | Yes |
