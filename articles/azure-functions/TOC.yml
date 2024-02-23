@@ -581,9 +581,6 @@
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
-        - name: Send logs to Azure Monitor Logs
-          href: functions-monitor-log-analytics.md
-          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Authenticate
       items:
         - name: Configure auth providers

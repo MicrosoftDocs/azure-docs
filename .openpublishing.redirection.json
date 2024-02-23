@@ -10875,6 +10875,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/functions-monitor-log-analytics.md",
+            "redirect_url": "/azure/azure-functions/monitor-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false

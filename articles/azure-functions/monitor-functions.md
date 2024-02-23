@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 02/15/2024
+ms.date: 02/22/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: azure-functions
@@ -81,9 +81,15 @@ For a list of available metrics for Azure Functions, see [Azure Functions monito
   - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+
+Azure Functions integrates with Azure Monitor Logs to monitor functions. For detailed instructions on how to set up diagnostic settings to configure and route resource logs, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings).
+
+:::image type="content" source="media/monitor-functions/choose-table.png" alt-text="Screenshot of adding a diagnostic setting for Azure Functions.":::
+
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#resource-logs).
+
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
-NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
+NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
@@ -93,8 +99,9 @@ NOTE: Azure Monitor already has general information on how to configure and rout
 [!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
 <!-- Add service-specific information about your imported logs here. -->
 
-<!-- ## Other logs. Optional section.
-If your service has other logs that aren't resource logs or in the activity log, add information that states what they are and what they cover here. You can describe how to route them in a later section. -->
+## Other logs
+
+Azure Functions also offers the ability to collect more than Azure Monitor resource logs. For information on how to set up Azure Functions streaming execution logs, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 <!-- LOGS SECTION END ------------------------------------->
 
@@ -112,10 +119,23 @@ The following examples use Azure Monitor metrics to help estimate the cost of ru
 
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
 
+### Analyze logs for Azure Functions
+
+Azure Functions writes all logs to the **FunctionAppLogs** table under **LogManagement** in the Log Analytics workspace where you send the data. You can use Kusto queries to query the data.
+
+:::image type="content" source="media/monitor-functions/querying.png" alt-text="Screenshot of the Query window for Azure Functions in a Log Analytics workspace.":::
+
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
-The following sample query can help you monitor all your functions app logs:
+The following sample queries can help you monitor all your functions app logs:
+
+```
+
+FunctionAppLogs
+| order by TimeGenerated desc
+
+```
 
 ```Kusto
 FunctionAppLogs
@@ -129,6 +149,16 @@ The following sample query can help you monitor a specific functions app's logs:
 FunctionAppLogs
 | where FunctionName == "<Function name>" 
 | order by TimeGenerated desc
+```
+
+The following sample query can help you monitor exceptions on all your functions app logs:
+
+```
+
+FunctionAppLogs
+| where ExceptionDetails != ""  
+| order by TimeGenerated asc
+
 ```
 
 The following sample query can help you monitor exceptions on a specific functions app's logs:
@@ -159,7 +189,8 @@ Fill in the following table with metric and log alerts that would be valuable fo
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
 ### Azure Functions alert rules
-The following table lists common and recommended alert rules for Azure Functions.
+The following table lists common and recommended alert rules for Azure Functions. This is just a recommended list. You can set alerts for any metric, log entry, or activity log entry that's listed in the [Monitoring data reference for Azure Functions](monitor-functions-reference.md).
+
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
@@ -182,9 +213,8 @@ The following table lists common and recommended alert rules for Azure Functions
 
 For more information about monitoring Azure Functions, see the following articles:
 
-- [Azure Functions monitoring data reference](monitor-functions-reference.md) provides a reference of the metrics, logs, and other important values created by your function app.
+- [Azure Functions monitoring data reference](monitor-functions-reference.md) provides a reference of the metrics, logs, and other important values available for your function app.
 - [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) gives general details about monitoring Azure resources.
 - [Monitor executions in Azure Functions](functions-monitoring.md) details how to monitor a function app.
 - [How to configure monitoring for Azure Functions](configure-monitoring.md) describes how to configure monitoring.
 - [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md) describes how to view and query the data being collected from a function app.
-- [Monitor Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md) shows you how to configure Azure Functions to send logs to Azure Monitor Logs.
