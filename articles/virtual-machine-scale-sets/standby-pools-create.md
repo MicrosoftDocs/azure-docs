@@ -30,7 +30,7 @@ Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace 
 
 ### RBAC Permissions
 In order for Standby Pools to successfully create Virtual Machines, you need to assign the appropriate RBAC roles. 
-1) In the Azure Portal, navigate to your subscriptions. 
+1) In the Azure portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
 3) Select **Access Control (IAM)**.
 4) Select Add -> **Add Role Assignment**.
