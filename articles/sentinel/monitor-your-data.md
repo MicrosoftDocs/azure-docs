@@ -3,7 +3,7 @@ title: Visualize your data using workbooks in Microsoft Sentinel | Microsoft Doc
 description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 02/22/2024
 ms.author: yelevin
 ---
 
