@@ -92,7 +92,7 @@ This can happen if you are trying to create an index using an **Owner**, **Contr
 
 If the Azure AI hub resource the project uses was created through Azure AI Studio:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
+1. Select **AI project settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
 1. In the Azure portal under **Overview** > **Resources** select the Azure AI service type. It's named similar to "YourAzureAIResourceName-aiservices."
 
@@ -108,7 +108,7 @@ If the Azure AI hub resource the project uses was created through Azure AI Studi
 
 If the Azure AI hub resource the project uses was created through Azure portal:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
+1. Select **AI project settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
 1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
 1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
