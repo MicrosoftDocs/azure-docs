@@ -112,7 +112,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Modify thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
 ```
 
 Modifies a thread.
@@ -175,7 +175,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Delete thread
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
 ```
 
 Delete a thread
