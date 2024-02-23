@@ -119,15 +119,17 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 #### Prerequisites
 
-See [this example's requirements](https://github.com/Azure-Samples/azure-search-openai-demo?tab=readme-ov-file#azure-account-requirements).
+[Requirements](https://github.com/Azure-Samples/azure-search-openai-demo?tab=readme-ov-file#azure-account-requirements).
 
 #### Sample link
 
-[Azure Logic Apps project: ChatGPT + Enterprise data with Azure OpenAI and AI Search](https://github.com/Azure-Samples/azure-search-openai-demo)
+[ChatGPT + Enterprise data with Azure OpenAI and AI Search](https://github.com/Azure-Samples/azure-search-openai-demo)
 
 #### Data ingestion workflow
 
-To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
+To save considerable time and effort when you build an ingestion pipeline, implement the following pattern with any data source. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
+
+Each step in this process not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files. This pattern encapsulates all the advantages and benefits currently offered by Standard workflows in single-tenant Azure Logic Apps.
 
 1. Check for new data.
 
@@ -148,8 +150,6 @@ To save considerable time and effort when you build an ingestion pipeline, imple
 1. Index the data.
   
    Add an Azure AI Search action that indexes the document.
-
-Each step in this process not only provides faster performance when run in a stateless workflow, but also makes sure that the AI seamlessly extracts all the crucial information from your data files.
 
 ### Chat workflow
 
@@ -187,20 +187,14 @@ The following pattern is only one example that shows how a chat workflow might l
 
 ### Ingest data and set up chat #2
 
-This example shows how to ingest document data into your Azure AI Search instance and to chat with your data using a Standard logic app workflow.
+This example shows how to ingest document data into your Azure AI Search instance and to chat with your data.
 
 #### Prerequisites
 
-See [this example's requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
+[Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
 
 #### Sample link
 
-[Azure Logic Apps project: Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
-
-This project contains the following components: 
-
-- A logic app workflow that uses the Azure OpenAI connector to get embeddings from an OpenAI model and uses the Azure AI Search connector to index documents.
-
-- A logic app workflow that uses the Azure AI Search connector to search indexed documents from an Azure AI Search instance and uses the Azure OpenAI connector to answer questions about the documents using natural language. 
+[Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
 ## See also
