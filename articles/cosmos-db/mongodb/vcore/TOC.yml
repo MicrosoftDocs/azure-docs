@@ -22,6 +22,8 @@
       href: free-tier.md
     - name: Burstable tier
       href: burstable-tier.md
+    - name: Multi-Cloud Solution
+      href: multi-cloud.md
     - name: Vector search
       items:
         - name: Vector search overview
