@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure confidential virtual machines FAQ
-  description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
+  description: Answers to frequently asked questions (FAQs) about confidential virtual machines in Azure Confidential Computing.
   author: michamcr
   ms.topic: faq
   ms.service: virtual-machines
