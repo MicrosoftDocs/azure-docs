@@ -616,6 +616,9 @@
   - name: Custom image templates
     displayName: troubleshooting, virtual machines, vms, images, vhd, vhdx
     href: troubleshoot-custom-image-templates.md
+  - name: App attach
+    displayName: troubleshooting, apps, remoteapp
+    href: troubleshoot-app-attach.md
 - name: Reference
   items:
   - name: Azure CLI
