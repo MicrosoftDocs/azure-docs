@@ -16,8 +16,7 @@ ms.reviewer: jojoh
 EA customers who were previously using the Enterprise Reporting consumption.azure.com API to obtain reserved instance recommendations need to migrate to a parity Azure Resource Manager API. Instructions to do this are outlined below along with any contract differences between the old API and the new API.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
-> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md).
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
 
 ## Assign permissions to an SPN to call the API
 

@@ -16,8 +16,7 @@ ms.reviewer: maminn
 EA customers who were previously using the Enterprise Reporting consumption.azure.com API to [get their marketplace store charges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) need to migrate to a replacement Azure Resource Manager API. This article helps you migrate by using the following instructions. It also explains the contract differences between the old API and the new API.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
-> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md).
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
 
 Endpoints to migrate off:
 

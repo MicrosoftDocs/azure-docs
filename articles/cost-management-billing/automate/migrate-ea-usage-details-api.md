@@ -18,8 +18,7 @@ EA customers who were previously using the Enterprise Reporting APIs behind the 
 The dataset is referred to as *cost details* instead of *usage details*.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
-> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md).
+> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
 
 ## New solutions generally available
 
