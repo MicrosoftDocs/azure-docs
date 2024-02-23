@@ -43,7 +43,7 @@ procedureSection:
         View the details and status of support requests by going to **Help +
         support** > **All support requests** in the Azure portal.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="All support requests":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="Screenshot of all support requests.":::
 
       - |
         On this page, you can search, filter, and sort support requests. By
@@ -86,11 +86,11 @@ procedureSection:
 
           - If your request isn't assigned, you see a screen like the following. Select a new severity level, then select **Change**.
 
-              :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Select a new severity level":::
+              :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Screenshot of how to select a new severity level.":::
 
           - If your request is assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message) to request a change in severity level.
 
-              :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Can't select a new severity level":::
+              :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Screenshot of can't select a new severity level.":::
   - title: | 
       Allow collection of advanced diagnostic information
     summary: |
@@ -117,7 +117,7 @@ procedureSection:
       - |
         Select **Yes** or **No**, then select **Submit**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Screenshot of grant permissions for diagnostic information.":::
   - title: | 
       Upload files
     summary: |
