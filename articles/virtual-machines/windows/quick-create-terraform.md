@@ -5,12 +5,12 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 07/17/2023
 ms.author: jushiman
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Use Terraform to create a Windows VM

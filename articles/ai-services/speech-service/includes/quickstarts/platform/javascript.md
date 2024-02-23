@@ -2,13 +2,13 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/javascript.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript.
+In this quickstart, you install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript.
 
 The Speech SDK for JavaScript is available as an npm package. See [microsoft-cognitiveservices-speech-sdk](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk) and its companion GitHub repository [cognitive-services-speech-sdk-js](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
 
@@ -45,7 +45,7 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 1. Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. These files are unpacked:
 
    - *microsoft.cognitiveservices.speech.sdk.bundle.js*: A human-readable version of the Speech SDK.
-   - *microsoft.cognitiveservices.speech.sdk.bundle.js.map*: A map file that's used for debugging SDK code.
+   - *microsoft.cognitiveservices.speech.sdk.bundle.js.map*: A map file to use for debugging SDK code.
    - *microsoft.cognitiveservices.speech.sdk.bundle.d.ts*: Object definitions for use with TypeScript.
    - *microsoft.cognitiveservices.speech.sdk.bundle-min.js*: A minified version of the Speech SDK.
    - *speech-processor.js*: Code to improve performance on some browsers.
@@ -63,7 +63,7 @@ Download and extract the *microsoft.cognitiveservices.speech.sdk.bundle.js* file
 > [!TIP]
 > If you're targeting a web browser and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias that's used to name the `require` module.
 
-Alternatively, you could directly include a `<script>` tag in the HTML `<head>` element, relying on the [JSDelivr NPM syndicate](https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk).
+Alternatively, you could directly include a `<script>` tag in the HTML `<head>` element, relying on the [JSDelivr](https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk).
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">

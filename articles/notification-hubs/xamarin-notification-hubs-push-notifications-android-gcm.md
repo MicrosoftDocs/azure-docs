@@ -5,7 +5,6 @@ author: sethmanheim
 manager: femila
 services: notification-hubs
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: csharp
 ms.topic: tutorial
@@ -14,7 +13,6 @@ ms.date: 02/06/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 02/06/2024
-
 ---
 
 # Tutorial: Send push notifications to Xamarin.Android apps using Notification Hubs
