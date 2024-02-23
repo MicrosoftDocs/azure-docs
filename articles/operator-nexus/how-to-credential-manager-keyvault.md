@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
-If a user wants rotated credentials to be stored in their own key vault, the key vault needs to be configured for the Nexus cluster.  The user adds a role assignment to the customer key vault to allow the credential manager to write updated credentials and associates the key vault as a secret archive for each cluster.
+If a user wants rotated credentials to be stored in their own key vault, the key vault needs to be configured for the Nexus cluster. The user adds a role assignment to the customer key vault to allow the credential manager to write updated credentials and associates the key vault as a secret archive for each cluster.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ If a user wants rotated credentials to be stored in their own key vault, the key
 az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscription ID>
 ```
 
-1. Assign the *Operator Nexus Key Vault Writer Service Role* to the Nexus User RP App Name & Management App Name. 
+1. Assign the *Operator Nexus Key Vault Writer Service Role* to the Nexus User Resource Provider App Name & Management App Name. 
 
-  - Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* blade.  Then from the *Access control (IAM) blade, select to add a role assignment.  See the tables below for details role assignment details. For AT&T, use the **_Production_** App Names.
+  - Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM) view, select to add a role assignment. See the tables below for details role assignment details. For AT&T, use the **_Production_** App Names.
 
    **_Built-in Role_**
 
@@ -62,14 +62,14 @@ az role assignment create --assignee 05cf5e27-931d-47ad-826d-cb9028d8bd7a --role
 az role assignment create --assignee 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
 
-1. User associates the customer key vault as a secret archive for the Nexus cluster.  The key vault resource ID must be configured in the cluster and enabled for secrets archive to store the secrets of the cluster.
+1. User associates the Customer Key Vault as a secret archive for the Nexus cluster. The key vault resource ID must be configured in the cluster and enabled for secrets archive to store the secrets of the cluster.
 
 Example:
 ```
-# Set and enable customer key vault on Nexus cluster
+# Set and enable Customer Key Vault on Nexus cluster
 az networkcloud cluster update --ids /subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Nexus Cluster Name> --secret-archive "{key-vault-id:<Key Vault Resource ID>,use-key-vault:true}"
 
-# Show customer key vault setting (secretArchive) on the Nexus cluster
+# Show Customer Key Vault setting (secretArchive) on the Nexus cluster
 az networkcloud cluster show --ids /subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Nexus Cluster Name> --query secretArchive
 ```
 
