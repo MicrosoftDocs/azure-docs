@@ -112,3 +112,4 @@ You can start or stop a compute instance from the Azure AI Studio.
 ## Next steps
 
 - [Create and manage prompt flow runtimes](./create-manage-runtime.md)
+- [Vulnerability management](../concepts/vulnerability-management.md)
