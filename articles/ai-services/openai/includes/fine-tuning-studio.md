@@ -153,7 +153,7 @@ You can create a custom model from one of the following available base models:
 
 - Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
 
-:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model" lightbox="../media/fine-tuning/models.png":::
+:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model." lightbox="../media/fine-tuning/models.png":::
 
 For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md#fine-tuning-models).
 

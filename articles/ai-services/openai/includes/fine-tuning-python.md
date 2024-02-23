@@ -37,7 +37,7 @@ The following models support fine-tuning:
 
 Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
 
-:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model" lightbox="../media/fine-tuning/models.png":::
+:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model." lightbox="../media/fine-tuning/models.png":::
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
