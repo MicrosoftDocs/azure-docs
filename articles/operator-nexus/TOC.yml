@@ -46,7 +46,7 @@
     - name: Availability
       href: concepts-nexus-availability.md
     - name: Network Packet Broker
-      href: concepts-nexus-npb-overview.md
+      href: concepts-nexus-network-packet-broker.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
