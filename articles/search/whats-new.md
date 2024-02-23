@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 02/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -16,6 +16,12 @@ ms.custom:
 # What's new in Azure AI Search
 
 **Azure Cognitive Search is now Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
+
+## February 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| **New dimension limits** | Feature | For vector fields, maximum dimension limits are now `3072`, up from `2048`. Next-generation embedding models support more dimensions. Limits have been increased accordingly. |
 
 ## November 2023
 
