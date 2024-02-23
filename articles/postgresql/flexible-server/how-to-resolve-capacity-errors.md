@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.author: kabharati 
 ms.reviewer: sachinpmsft 
-author: kabharati
+author: sachinpmsft
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.custom: references_regions
