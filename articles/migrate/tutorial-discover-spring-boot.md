@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/21/2024
+ms.date: 02/23/2024
 ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
 ---
 
@@ -46,6 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - [Discover AWS instances](tutorial-discover-aws.md)
    - [Discover GCP instances](tutorial-discover-gcp.md)
 - Ensure that you have performed software inventory by providing the server credentials on the appliance configuration manager. [Learn more](how-to-discover-applications.md).
+- Only Migrate projects created with Public endpoint connectivity are supported. Private endpoint projects are not supported. 
 
 ## Set up Kubernetes-based appliance
 
@@ -152,11 +153,11 @@ After you save the script on the Linux server, follow these steps:
 1. Open the Terminal on the server and execute the following command to execute the script as a root user: 
     `sudo su -` 
 
-2. Change the directory to where you saved the script and execute the script using command: `bash deploy.sh` 
+1. Change the directory to where you saved the script and execute the script using command: `bash deploy.sh` 
 
-3. Follow the instructions in the script and sign in with your Azure user account when prompted. 
+1. Follow the instructions in the script and sign in with your Azure user account when prompted. 
 
-4. The script performs the following steps: 
+1. The script performs the following steps: 
 
     1. Installing required CLI extensions. 
     2. Registering Azure Resource Providers 
@@ -164,8 +165,12 @@ After you save the script on the Linux server, follow these steps:
     4. Setting up MicroK8s Kubernetes cluster 
     5. Installing the required operators on the cluster 
     6. Creating the required Migrate resources 
+    
+1. After the script is executed successfully, configure the appliance through the portal.
 
 #### [Bring your own cluster](#tab/K8-byoc)
+
+After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
@@ -174,18 +179,21 @@ After you save the script on the Linux server, follow these steps:
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
 
-
 1.	Open the terminal on the server and execute the following command to execute the script as a root user:
 `sudo su -`
-2.	Navigate to the directory where you saved the script and execute the script using the `bash deploy.sh` command.
-3.	Follow the instructions in the script and sign in with your Azure user account when prompted.
-4.	The script performs the following steps:
+1.	Navigate to the directory where you saved the script and execute the script using the `bash deploy.sh` command.
+
+1.	Follow the instructions in the script and sign in with your Azure user account when prompted.
+
+1.	The script performs the following steps:
+
     1. Installing required CLI extensions.
     2. Registering Azure Resource Providers.
     3. Checking for prerequisites like connectivity to required endpoints.
     5. Installing the required operators on the cluster.
     6. Creating the required Migrate resources.
-5. After the script is executed successfully, configure the appliance through the portal. 
+
+1. After the script is executed successfully, configure the appliance through the portal. 
 ---
 
 ### Reinstallation
