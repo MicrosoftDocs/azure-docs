@@ -71,6 +71,22 @@ In this step, add parameters to the query request. To be successful, your query 
 
    :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
+   Here's some JSON text that you can paste into the view:
+
+   ```json
+    {
+        "queryType": "semantic",
+        "search": "historic hotel with good food",
+        "semanticConfiguration": "my-semantic-config",
+        "answers": "extractive|count-3",
+        "captions": "extractive|highlight-true",
+        "highlightPreTag": "<strong>",
+        "highlightPostTag": "</strong>",
+        "select": "HotelId,HotelName,Description,Category",
+        "count": true
+    }
+   ```
+   
 ### [**REST API**](#tab/rest-query)
 
 Use [Search Documents](/rest/api/searchservice/documents/search-post) to formulate the request.

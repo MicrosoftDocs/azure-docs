@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/18/2024
+ms.date: 02/22/2024
 ms.custom:
   - mode-ui
   - ignite-2023
@@ -43,11 +43,19 @@ Before you begin, have the following prerequisites in place:
 
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Screenshot of the Search explorer tab." border="true":::
 
-1. To specify query parameters and an API version, switch to **JSON view**. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
+## Query two ways
+
+There are two approaches for querying in Search explorer. 
+
++ The default search bar accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
+
++ JSON view supports parameterized queries. Filters, orderby, select, count, searchFields, and all other parameters must be set in JSON view.
+
+  Switch to **JSON view** for parameterized queries. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
 
    :::image type="content" source="media/search-explorer/search-explorer-json-view.png" alt-text="Screenshot of the JSON view selector." border="true":::
 
-## Unspecified query
+## Run an unspecified query
 
 In Search explorer, POST requests are formulated internally using the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), with responses returned as verbose JSON documents.
 
@@ -68,6 +76,8 @@ Equivalent syntax for an empty search is `*` or `"search": "*"`.
 ## Free text search
 
 Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure AI Search. Only those fields attributed as "searchable" in the index definition are scanned for matches. 
+
+You don't need JSON view for a free text query, but we provide it in JSON for consistency with other examples in this article.
 
 Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search. The "@search.score" is a relevance score computed for the match using the [default scoring algorithm](index-ranking-similarity.md#default-scoring-algorithm).
 
