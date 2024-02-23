@@ -1,6 +1,6 @@
 ---
 title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
-description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps
+description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -16,7 +16,7 @@ Using an OpenTelemetry (OTel) data collector with your Azure Container Apps envi
 - Datadog
 - Any OTLP-configured endpoint
 
-The following table shows you what data you can send to each destination:
+The following table shows you what type of data you can send to each destination:
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
@@ -27,11 +27,13 @@ The following table shows you what data you can send to each destination:
 Through simple configuration settings, the Container Apps OTel collector makes it easy for you to:
 
 - Send data to one or multiple destinations
-- Switch collection destinations  
+- Switch collection destinations
+
+This article shows you how to setup and configure an OTel collector for your container app.
 
 ## Set up a collector
 
-Setting up a collector is a two step process. The first step is to set up an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Application Insights, you first need to create an App Insights instance.
+Setting up a collector is a two step process. The first step is to create an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Application Insights, you first need to create an App Insights instance.
 
 The second step is to configure your container app to send data to the destination.
 
@@ -41,7 +43,7 @@ The following examples show how to configure your container app to send telemetr
 
 The only configuration detail required from Application Insights is the connection string. Once you have the connection string, you can configure the collector via your container app's ARM template or with Azure CLI commands.
 
-### ARM template
+# [ARM template](#tab/)
 
 ```json
 {
@@ -60,24 +62,24 @@ The only configuration detail required from Application Insights is the connecti
 }
 ```
 
-### Azure CLI
-
-You can use the Azure CLI to configure the Application Insights data collector when you create and update your Container Apps environment.
+# [Azure CLI](#tab/azure-cli)
 
 TODO
+
+---
 
 ## Datadog
 
 The Datadog collector configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
 
-| Datadog agent property | Container Apps configuration property | 
+| Datadog agent property | Container Apps configuration property |
 |---|---|
 | `DD_SITE` | `site` |
 | `DD_API_KEY` | `key` |
 
 Once you have these configuration details, you can configure the collector via your container app's ARM template or with Azure CLI commands.
 
-### ARM template
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -97,11 +99,11 @@ Once you have these configuration details, you can configure the collector via y
 }
 ```
 
-### Azure CLI
-
-You can use the Azure CLI to configure the Datadog data collector when you create and update your Container Apps environment.
+# [Azure CLI](#tab/azure-cli)
 
 TODO
+
+---
 
 ## OLTP endpoint
 
@@ -109,7 +111,7 @@ An OpenTelemetry protocol (OTLP) endpoint is a telemetry data destination that c
 
 While you can set up as many OTLP-configured endpoints as you like, each endpoint must be distinct.
 
-### ARM template
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -137,11 +139,15 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 | `header` |  |
 | `insecure` |  |
 
-### Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 TODO
 
+---
+
 ## Restrictions
+
+Keep in mind the following restrictions as you use an OTel collector in your container app:
 
 - You can only set up one Application Insights and Datadog endpoint at a time.
 - While you can define more than one OTLP-configured endpoint, each one must be distinct.
