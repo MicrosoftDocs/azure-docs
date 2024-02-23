@@ -72,7 +72,7 @@ jobs:
         login-server: <containerRegistryLoginServer>
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-     # Build and Push Image
+    # Build and Push Image
     - name: Build and Push the Docker image 
         uses: docker/build-push-action@v2
         with:
