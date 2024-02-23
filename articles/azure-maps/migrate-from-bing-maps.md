@@ -153,7 +153,6 @@ Learn the details of how to migrate your Bing Maps application with these articl
 > [!div class="nextstepaction"]
 > [Migrate a web app]
 
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps code samples]: https://samples.azuremaps.com/
