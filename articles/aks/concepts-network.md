@@ -177,7 +177,7 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Access to resources secured by service endpoints | Supported | Supported | Supported | Supported |
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | Supported| Same limitations when using Overlay mode |
 | Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
-| Default Azure DNS and Private Zones | Supported | Supported | Supported | Supported |
+| Default Azure DNS and Private Zones | Supported | Supported | Supported | |
 
 For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 
