@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Cosmos DB
 description: This article contains important reference material you need when you monitor Azure Cosmos DB.
-ms.date: 02/14/2024
+ms.date: 02/24/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.author: esarroyo
@@ -64,100 +64,94 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 
 #### Request metrics
 
-|Metric (Metric Display Name)|Unit (Aggregation Type) |Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---| ---| ---| ---|
-| TotalRequests (Total Requests) | Count (Count) | Number of requests made| DatabaseName, CollectionName, Region, StatusCode| All | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second | Used to monitor requests per status code, container at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
-| MetadataRequests (Metadata Requests) |Count (Count) | Count of Azure Resource Manager metadata requests. Metadata has request limits. See [Control Plane Limits](concepts-limits.md#control-plane) for more information. | DatabaseName, CollectionName, Region, StatusCode| All | | Used to monitor metadata requests in scenarios where requests are being throttled. See [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests) for more information. |
-| MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
+- TotalRequests (Total Requests)
+- MetadataRequests (Metadata Requests)
+- MongoRequests (Mongo Requests)
 
 #### Request Unit metrics
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---| ---| ---| ---|
-| MongoRequestCharge (Mongo Request Charge) | Count (Total) |Mongo Request Units Consumed| DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Used to monitor Mongo resource RUs in a minute.|
-| TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |All| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Sum aggregation at minute interval/level and divide by 60.|
-| ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
-| AutoscaleMaxThroughput (Autoscale Max Throughput)| Count (Maximum) |Autoscale max throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor autoscale max throughput per container.|
-| PhysicalPartitionThroughputInfo (Physical Partition Throughput Info)| Count (Maximum) |Provisioned throughput at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M| | Used to monitor provisioned throughput per physical partition. If resource is autoscale, represents autoscale max RU/s per physical partition. To see provisioned throughput for all physical partitions, split by dimension Physical Partition Id.|
+- MongoRequestCharge (Mongo Request Charge)
+- TotalRequestUnits (Total Request Units)
+- ProvisionedThroughput (Provisioned Throughput)
+- AutoscaleMaxThroughput (Autoscale Max Throughput)
+- PhysicalPartitionThroughputInfo (Physical Partition Throughput Info)
 
 #### Storage metrics
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---| ---| ---| ---|
-| AvailableStorage (Available Storage) |Bytes (Total) | Total available storage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Available Storage| Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
-| DataUsage (Data Usage) |Bytes (Total) |Total data usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Data size | Used to monitor total data usage at container and region, minimum granularity should be 5 minutes.|
-| IndexUsage (Index Usage) | Bytes (Total) |Total Index usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Index Size| Used to monitor total data usage at container and region, minimum granularity should be 5 minutes. |
-| DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Storage Capacity| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
-| DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
-| PhysicalPartitionSizeInfo (Physical Partition Size Info) | Count (Maximum) | Storage at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M | |Used to monitor physical partition size (bytes) at physical partition granularity. To see storage for all physical partitions, split by dimension Physical Partition Id.|
+- AvailableStorage (Available Storage)
+- DataUsage (Data Usage)
+- IndexUsage (Index Usage)
+- DocumentQuota (Document Quota)
+- DocumentCount (Document Count)
+- PhysicalPartitionSizeInfo (Physical Partition Size Info)
 
 #### Latency metrics
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---| ---| ---|
-| ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
-| Server Side Latency| MilliSeconds (Average) | Time taken by the server to process the request. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region |	All	| Used to monitor the request latency on the Azure Cosmos DB server. |
+- ReplicationLatency (Replication Latency)
+- Server Side Latency
 
 #### Availability metrics
 
-|Metric (Metric Display Name) |Unit (Aggregation Type)|Description| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---| ---| ---|
-| ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+- ServiceAvailability (Service Availability)
 
 #### API for Cassandra metrics
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---| ---| ---|
-| CassandraRequests (Cassandra Requests) | Count (Count) | Number of API for Cassandra requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
-| CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request units consumed by the API for Cassandra | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a API for Cassandra account.|
-| CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB API for Cassandra.|
+- CassandraRequests (Cassandra Requests)
+- CassandraRequestCharges (Cassandra Request Charges)
+- CassandraConnectionClosures (Cassandra Connection Closures)
 
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
-|Namespace|Dimension|
-|---------|---------|
-|Microsoft.DocumentDB/DatabaseAccounts|ApiKind|
-|Microsoft.DocumentDB/DatabaseAccounts|ApiKindResourceType|
-|Microsoft.DocumentDB/DatabaseAccounts|APIType|
-|Microsoft.DocumentDB/DatabaseAccounts|ApplicationType|
-|Microsoft.DocumentDB/DatabaseAccounts|BuildType|
-|Microsoft.DocumentDB/DatabaseAccounts|CacheEntryType|
-|Microsoft.DocumentDB/DatabaseAccounts|CacheExercised|
-|Microsoft.DocumentDB/DatabaseAccounts|CacheHit|
-|Microsoft.DocumentDB/DatabaseAccounts|CapacityType|
-|Microsoft.DocumentDB/DatabaseAccounts|ChildResourceName|
-|Microsoft.DocumentDB/DatabaseAccounts|ClosureReason|
-|Microsoft.DocumentDB/DatabaseAccounts|CommandName|
-|Microsoft.DocumentDB/DatabaseAccounts|ConnectionMode|
-|Microsoft.DocumentDB/DatabaseAccounts|DiagnosticSettingsName|
-|Microsoft.DocumentDB/DatabaseAccounts|Error|
-|Microsoft.DocumentDB/DatabaseAccounts|ErrorCode|
-|Microsoft.DocumentDB/DatabaseAccounts|IsExternal|
-|Microsoft.DocumentDB/DatabaseAccounts|IsSharedThroughputOffer|
-|Microsoft.DocumentDB/DatabaseAccounts|IsThroughputRequest|
-|Microsoft.DocumentDB/DatabaseAccounts|KeyType|
-|Microsoft.DocumentDB/DatabaseAccounts|MetricType|
-|Microsoft.DocumentDB/DatabaseAccounts|NotStarted|
-|Microsoft.DocumentDB/DatabaseAccounts|OfferOwnerRid|
-|Microsoft.DocumentDB/DatabaseAccounts|PartitionKeyRangeId|
-|Microsoft.DocumentDB/DatabaseAccounts|PhysicalPartitionId|
-|Microsoft.DocumentDB/DatabaseAccounts|PhysicalPartitionId|
-|Microsoft.DocumentDB/DatabaseAccounts|PriorityLevel|
-|Microsoft.DocumentDB/DatabaseAccounts|PublicAPIType|
-|Microsoft.DocumentDB/DatabaseAccounts|ReplicationInProgress|
-|Microsoft.DocumentDB/DatabaseAccounts|ResourceGroupName|
-|Microsoft.DocumentDB/DatabaseAccounts|ResourceName|
-|Microsoft.DocumentDB/DatabaseAccounts|Role|
-|Microsoft.DocumentDB/DatabaseAccounts|SourceRegion|
-|Microsoft.DocumentDB/DatabaseAccounts|TargetContainerName|
-|Microsoft.DocumentDB/DatabaseAccounts|TargetRegion|
-|Microsoft.DocumentDB/cassandraClusters|cassandra_datacenter|
-|Microsoft.DocumentDB/cassandraClusters|cassandra_node|
-|Microsoft.DocumentDB/cassandraClusters|cache_name|
-|Microsoft.DocumentDB/mongoClusters|ServerName|
+
+### Microsoft.DocumentDB/DatabaseAccounts
+
+- ApiKindResourceType
+- APIType
+- ApplicationType
+- BuildType
+- CacheEntryType
+- CacheExercised
+- CacheHit
+- CapacityType
+- ChildResourceName
+- ClosureReason
+- CommandName
+- ConnectionMode
+- DiagnosticSettingsName
+- Error
+- ErrorCode
+- IsExternal
+- IsSharedThroughputOffer
+- IsThroughputRequest
+- KeyType
+- MetricType
+- NotStarted
+- OfferOwnerRid
+- PartitionKeyRangeId
+- PhysicalPartitionId
+- PhysicalPartitionId
+- PriorityLevel
+- PublicAPIType
+- ReplicationInProgress
+- ResourceGroupName
+- ResourceName
+- Role
+- SourceRegion
+- TargetContainerName
+- TargetRegion
+
+### Microsoft.DocumentDB/cassandraClusters
+
+- cassandra_datacenter
+- cassandra_node
+- cache_name
+
+### Microsoft.DocumentDB/mongoClusters
+
+- ServerName
 
 <!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]

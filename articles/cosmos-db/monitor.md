@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Cosmos DB
 description: Start here to learn how to monitor Azure Cosmos DB.
-ms.date: 02/14/2024
+ms.date: 02/24/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.author: esarroyo
@@ -35,11 +35,19 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-> [!NOTE]
-> Some parts of the Azure platform aren't case sensitive. This situation can result in confusion or collision of telemetry and actions on containers with such names.
+In the Azure portal, you can monitor Azure Cosmos DB from your Azure Cosmos DB account page or the Azure Monitor page.
+
+- **Azure Cosmos DB account page:** The **Overview** page for your Azure Cosmos DB account shows a brief view of the resource usage, such as total requests, requests that resulted in a specific HTTP status code, and hourly billing. Use the **Monitoring** section in the left menu of the page to access detailed **Insights**, **Alerts**, **Metrics**, **Logs**, and **Workbooks** for your account.
+
+- **Azure Monitor:** You can also monitor metrics and logs and create dashboards for your Azure Cosmos DB account by using Azure Monitor in the Azure portal. Monitor collects most Azure Cosmos DB metrics by default. You can use Monitor to collect diagnostic logs and activity logs, capture event and trace data as logs, and analyze these logs by running queries on the gathered data.
+
+Azure Cosmos DB monitoring includes server-side and client-side data. Server-side metrics include throughput, storage, availability, latency, consistency, and system level metrics. Client-side metrics include request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string.
+
+The following image shows available options to monitor your Azure Cosmos DB server-side metrics, client-side metrics, and logs through the Azure portal. You can also monitor Azure Cosmos DB programmatically by using the .NET, Java, Python, or Node.js SDKs, and the headers in REST API.
+
+:::image type="content" source="media/monitor/monitoring-options-portal.png" alt-text="Diagram shows monitoring options available in Azure portal." border="false":::
 
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
-
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 Azure Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview). Use Azure Cosmos DB insights for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience.
@@ -64,6 +72,19 @@ For more information about the resource types for Azure Cosmos DB, see [Azure Co
   - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#metrics).
+
+### Azure Cosmos DB metrics
+
+In Azure Cosmos DB, you can monitor your client-side and server-side metrics data by selecting **Metrics** on your Azure Cosmos DB portal page navigation. Server-side metrics include throughput, storage, availability, latency, consistency, and system level metrics. By default, these metrics have a retention period of seven days.
+
+Azure Monitor also collects the Azure Cosmos DB metrics by default. Most of the metrics that are available from the Azure Cosmos DB portal page are also available in these metrics. You don't need to explicitly configure anything. The metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. By default, these metrics have a retention period of 30 days.
+
+The dimension values for the metrics, such as container name, are case insensitive. Use case insensitive comparison when doing string comparisons on these dimension values.
+
+> [!NOTE]
+> Some parts of the Azure platform aren't case sensitive. This situation can result in confusion or collision of telemetry and actions on containers with such names.
+
+On the client side, you can collect the details for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string. You can use this data to debug issues or if you need to contact the Azure Cosmos DB support team.
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
@@ -93,6 +114,10 @@ Custom imported service-specific information. Add service-specific information a
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
+
+### Azure Cosmos DB logs
+
+You can monitor diagnostic logs from your Azure Cosmos DB account and create dashboards from Azure Monitor. Data such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container changes, the properties of an Azure Cosmos DB account change. The logs capture these events. You can analyze these logs by running queries on the gathered data.
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
@@ -121,7 +146,7 @@ If your service has other logs that aren't resource logs or in the activity log,
 <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>
 ### Analyze Azure Cosmos DB metrics
 
-You can use Azure Monitor Metrics Explorer to analyze metrics for Azure Cosmos DB with metrics from other Azure services by opening **Metrics** from the **Azure Monitor** menu. For more information about how to use metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
+You can use Azure Monitor Metrics Explorer to analyze metrics for Azure Cosmos DB with metrics from other Azure services by selecting **Metrics** under **Monitoring** in your Azure Cosmos DB account portal navigation. For more information about how to use metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 You can monitor server-side latency, request unit usage, and normalized request unit usage for your Azure Cosmos DB resources. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others.
 
