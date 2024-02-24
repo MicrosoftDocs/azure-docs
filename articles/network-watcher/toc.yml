@@ -36,9 +36,11 @@
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
   - name: Connection monitor
-    href: connection-monitor-overview.md
-  - name: Connection monitor schema
-    href: connection-monitor-schema.md
+    items:
+    - name: Overview
+      href: connection-monitor-overview.md
+    - name: Schema
+      href: connection-monitor-schema.md
   - name: IP flow verify
     href: ip-flow-verify-overview.md
   - name: NSG diagnostics
@@ -95,7 +97,7 @@
     href: network-insights-topology.md
   - name: Create a connection monitor
     items:
-    - name: Portal
+    - name: Azure portal
       href: connection-monitor-create-using-portal.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
@@ -125,7 +127,7 @@
       href: diagnose-vm-network-routing-problem-cli.md
   - name: Diagnose outbound connection problems
     items:
-    - name: Portal
+    - name: Azure portal
       href: network-watcher-connectivity-portal.md
     - name: PowerShell
       href: network-watcher-connectivity-powershell.md
@@ -149,7 +151,7 @@
     items:
     - name: Manage packet captures for VMs
       items:
-      - name: Azure Portal
+      - name: Azure portal
         href: packet-capture-vm-portal.md
       - name: Azure PowerShell
         href: packet-capture-vm-powershell.md
@@ -157,7 +159,7 @@
         href: packet-capture-vm-cli.md
     - name: Manage packet captures for scale sets
       items:
-      - name: Azure Portal
+      - name: Azure portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
       - name: Azure PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
