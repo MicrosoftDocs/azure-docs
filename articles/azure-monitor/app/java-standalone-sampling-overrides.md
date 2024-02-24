@@ -102,9 +102,9 @@ This example also suppresses collecting any downstream spans (dependencies) that
         "telemetryType": "request",
         "attributes": [
           {
-            "key": "http.url",
-            "value": "https?://[^/]+/health-check",
-            "matchType": "regexp"
+            "key": "url.path",
+            "value": "/health-check",
+            "matchType": "strict"
           }
         ],
         "percentage": 0
