@@ -86,7 +86,6 @@ procedureSection:
       Delete an address range
     summary:
       In this task, you delete an IP address range from an address space. First, delete any existing subnets, and then delete the IP address range.
-
       > [!NOTE]
       > Before you can delete an address space, it must be empty. If a subnet exists in the address range, you can't remove the address range. To remove an address range, you must first delete any subnets and any of the subnet's resources which exist in the address range.
     steps: 
