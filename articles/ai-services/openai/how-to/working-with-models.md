@@ -38,13 +38,13 @@ As your use of Azure OpenAI evolves, and you start to build and integrate with a
 
 When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will automatically upgrade to the default version at the time of retirement.
 
-## Viewing deprecation dates
+## Viewing retirement dates
 
 For currently deployed models, from Azure OpenAI Studio select **Deployments**:
 
 :::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio." lightbox="../media/models/deployments.png":::
 
-To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
+To view retirement dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
 
 :::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio." lightbox="../media/models/column-options.png":::
 
