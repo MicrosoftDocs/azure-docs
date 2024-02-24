@@ -159,6 +159,12 @@ Both kubenet and Azure CNI provide network connectivity for your AKS clusters. H
   * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
   * Requires more IP address space.
 
+| Network model | When to use |
+|---------------|-------------|
+| **Kubenet** | • IP address space conversation is a priority. </br> • Simple configuration. </br> • Fewer than 400 nodes per cluster. </br> • Kubernetes internal or external load balancers are sufficient for reaching pods from outside the cluster. </br> • Manually managing and maintaining user defined routes is acceptable. |
+| **Azure CNI** | • Full virtual network connectivity is required for pods. </br> • Advanced AKS features (such as virtual nodes) are needed. </br> • Sufficient IP address space is available. </br> • Pod to pod and pod to virtual machine connectivity is needed. </br> • External resources need to reach pods directly. </br> • AKS network policies are required. |
+| **Azure CNI Overlay** | • IP address shortage is a concern. </br> • Scaling up to 1000 nodes and 250 pods per node is sufficient. </br> • Additional hop for pod connectivity is acceptable. </br> • Simpler network configuration. </br> • AKS egress requirements can be met. |
+
 The following behavior differences exist between kubenet and Azure CNI:
 
 | Capability | Kubenet | Azure CNI | Azure CNI Overlay | Azure CNI Powered by Cilium |
@@ -168,10 +174,10 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Pod-VM connectivity; VM in the same virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | Pod-VM connectivity; VM in peered virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | On-premises access using VPN or Express Route | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | [No Application Gateway Ingress Controller (AGIC) support][azure-cni-overlay-limitations] | Same limitations when using Overlay mode |
+| Access to resources secured by service endpoints | Supported | Supported | Supported | Supported |
+| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | Supported| Same limitations when using Overlay mode |
 | Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
-
-For both kubenet and Azure CNI plugins, the DNS service is provided by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
+| Default Azure DNS and Private Zones | Supported | Supported | Supported | Supported |
 
 For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 
