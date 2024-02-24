@@ -329,12 +329,12 @@ The following sample shows how to hash existing attribute values.
 ### Extract
 
 The following sample shows how to use a regular expression (regex) to create new attributes based on the value of another attribute.
-For example, given `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
+For example, given `url.path = http://example.com/path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
 * httpProtocol: `http`
 * httpDomain: `example.com`
 * httpPath: `path`
 * httpQueryParams: `queryParam1=value1,queryParam2=value2`
-* http.url: *no* change
+* url.path: *no* change
 
 ```json
 {
@@ -345,7 +345,7 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "^(?<httpProtocol>.*):\\/\\/(?<httpDomain>.*)\\/(?<httpPath>.*)(\\?|\\&)(?<httpQueryParams>.*)",
             "action": "extract"
           }
@@ -358,7 +358,7 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 
 ### Mask
 
-For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` using either of the below configurations.
+For example, given `url.path = https://example.com/user/12345622` is updated to `url.path = https://example.com/user/****` using either of the below configurations.
 
 
 First configuration example:
@@ -372,7 +372,7 @@ First configuration example:
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "user\\/\\d+",
             "replace": "user\\/****",
             "action": "mask"
@@ -396,7 +396,7 @@ Second configuration example with regular expression group name:
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "^(?<userGroupName>[a-zA-Z.:\/]+)\d+",
             "replace": "${userGroupName}**",
             "action": "mask"
