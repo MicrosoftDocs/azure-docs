@@ -258,7 +258,7 @@ items:
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
-      - name: Azure Certified Device
+      - name: Edge Secured-core
         tocHref: /azure/certification/
         topicHref: /azure/certification/
       - name: IoT Operations

@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 12/21/2023
+ms.date: 02/21/2024
 ---
 
 #	Azure OpenAI Embedding skill
@@ -17,6 +17,8 @@ ms.date: 12/21/2023
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
 
 The **Azure OpenAI Embedding** skill connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings.
+
+The [Import and vectorize data](search-get-started-portal-import-vectors.md) uses the **Azure OpenAI Embedding** skill to vectorize content. You can run the wizard and review the generated skillset to see how the wizard builds it.
 
 > [!NOTE]
 > This skill is bound to Azure OpenAI and is charged at the existing [Azure OpenAI pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing).
@@ -28,7 +30,7 @@ Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill
 
 ## Data limits
 
-The maximum size of a text input should be 8,000 tokens. If input exceeds the maximum allowed, the model throws an invalid request error. For more information, see the [tokens](/azure/ai-services/openai/overview#tokens) key concept in the Azure OpenAI documentation.
+The maximum size of a text input should be 8,000 tokens. If input exceeds the maximum allowed, the model throws an invalid request error. For more information, see the [tokens](/azure/ai-services/openai/overview#tokens) key concept in the Azure OpenAI documentation. Consider using the [Text Split skill](cognitive-search-skill-textsplit.md) if you need data chunking.
 
 ## Skill parameters
 
@@ -36,16 +38,16 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `resourceUri` | The URI where a valid Azure OpenAI model is deployed. The model should be an embedding model, such as text-embedding-ada-002. See the [List of Azure OpenAI models](/azure/ai-services/openai/concepts/models) for supported models. |
-| `apiKey`   |  The secret key pertaining to a valid Azure OpenAI `resourceUri.` If you provide a key, leave `authIdentity` empty. If you set both the `apiKey` and `authIdentity`, the `apiKey` is used on the connection. |
-| `deploymentId`   | The name of the deployed Azure OpenAI embedding model.|
+| `resourceUri` | The URI of a model provider, such as an Azure OpenAI resource or an OpenAI URL.  |
+| `apiKey`   |  The secret key used to access the model. If you provide a key, leave `authIdentity` empty. If you set both the `apiKey` and `authIdentity`, the `apiKey` is used on the connection. |
+| `deploymentId`   | The name of the deployed Azure OpenAI embedding model. The model should be an embedding model, such as text-embedding-ada-002. See the [List of Azure OpenAI models](/azure/ai-services/openai/concepts/models) for supported models.|
 | `authIdentity`   | A user-managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to send text to Azure OpenAI. |
 
 ## Skill inputs
 
 | Input	 | Description |
 |--------------------|-------------|
-| `text` | The input text to be vectorized.|
+| `text` | The input text to be vectorized. If you're using data chunking, the source might be `/document/pages/*`. |
 
 ## Skill outputs
 
@@ -100,13 +102,13 @@ For the given input text, a vectorized embedding output is produced.
 }
 ```
 
-The output resides in memory. To send this output to a field in the search index, you must define an [outputFieldMapping](cognitive-search-output-field-mapping.md) that maps the vectorized embedding output (which is an array) to the single index field which is of Collection(Edm.Single) type. Following the example above and assuming the index field in which you want to store the results of the vectorized embedding output is called **embeddingindexfield**, the outputFieldMapping to include in the definition of the indexer would look like the following:
+The output resides in memory. To send this output to a field in the search index, you must define an [outputFieldMapping](cognitive-search-output-field-mapping.md) that maps the vectorized embedding output (which is an array) to a [vector field](vector-search-how-to-create-index.md). Assuming the skill output resides in the document's **embedding** node, and **content_vector** is the field in the search index, the outputFieldMapping in indexer should look like:
 
 ```json
   "outputFieldMappings": [
     {
       "sourceFieldName": "/document/embedding/*",
-      "targetFieldName": "embeddingindexfield"
+      "targetFieldName": "content_vector"
     }
   ]
 ```

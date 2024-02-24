@@ -68,7 +68,7 @@ Follow these steps to set up monitoring for your prompt flow deployment:
 
     :::image type="content" source="../media/deploy-monitor/monitor/monitor-metrics.png" alt-text="Screenshot of the monitoring result metrics." lightbox = "../media/deploy-monitor/monitor/monitor-metrics.png":::
 
-By default, operational metrics such as requests per minute and request latency show up. The default safety and quality monitoring signal are configured with a 10% sample rate and run on your default workspace Azure Open AI connection. 
+By default, operational metrics such as requests per minute and request latency show up. The default safety and quality monitoring signal are configured with a 10% sample rate and run on your default workspace Azure OpenAI connection. 
 
 Your monitor is created with default settings:
 - 10% sample rate
