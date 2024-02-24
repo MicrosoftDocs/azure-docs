@@ -11,7 +11,7 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
 
-# Configure Private Link for agent-based experiments ((preview)
+# Configure Private Link for agent-based experiments (preview)
 
 This article explains the steps needed to configure Azure Private Link for an Azure Chaos Studio agent-based experiment (preview). The current user experience is based on the private endpoints support that's enabled as part of the public preview of the private endpoints feature. Expect this experience to evolve with time as the feature is enhanced to general availability (GA) quality. It's currently in preview.
 
