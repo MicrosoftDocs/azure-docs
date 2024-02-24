@@ -4,6 +4,8 @@
   items:
     - name: What is Azure Cosmos DB for MongoDB vCore?
       href: introduction.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: Create resources - Azure portal
