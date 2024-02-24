@@ -239,7 +239,7 @@ The following is an example response:
 
 | **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| Curl           | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
 | Mistral AI     | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
