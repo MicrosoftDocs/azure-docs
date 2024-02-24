@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Manag
 
 ## Microsoft.Advisor
 
+Your personalized Azure best practices recommendation engine.
+
 Azure service: [Azure Advisor](/azure/advisor/)
 
 > [!div class="mx-tableFixed"]
@@ -126,6 +128,8 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Microsoft.Authorization/roleManagementPolicyAssignments/read | Get role management policy assignments |
 
 ## Microsoft.Automation
+
+Simplify cloud management with process automation.
 
 Azure service: [Automation](/azure/automation/)
 
@@ -267,6 +271,8 @@ Azure service: [Automation](/azure/automation/)
 
 ## Microsoft.Batch
 
+Cloud-scale job scheduling and compute management.
+
 Azure service: [Batch](/azure/batch/)
 
 > [!div class="mx-tableFixed"]
@@ -331,6 +337,8 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/jobSchedules/delete | Deletes a job schedule from a Batch account |
 
 ## Microsoft.Billing
+
+Manage your subscriptions and see usage and billing.
 
 Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 
@@ -489,6 +497,8 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 
 ## Microsoft.Blueprint
 
+Enabling quick, repeatable creation of governed environments.
+
 Azure service: [Azure Blueprints](/azure/governance/blueprints/)
 
 > [!div class="mx-tableFixed"]
@@ -573,6 +583,8 @@ Azure service: core
 
 ## Microsoft.Consumption
 
+Programmatic access to cost and usage data for your Azure resources.
+
 Azure service: [Cost Management](/azure/cost-management-billing/)
 
 > [!div class="mx-tableFixed"]
@@ -608,6 +620,8 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.Consumption/usageDetails/read | List the usage details for a scope for EA and WebDirect subscriptions. |
 
 ## Microsoft.CostManagement
+
+Optimize what you spend on the cloud, while maximizing cloud potential.
 
 Azure service: [Cost Management](/azure/cost-management-billing/)
 
@@ -745,6 +759,8 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 
 ## Microsoft.GuestConfiguration
 
+Audit settings inside a machine using Azure Policy.
+
 Azure service: [Azure Policy](/azure/governance/policy/)
 
 > [!div class="mx-tableFixed"]
@@ -759,6 +775,8 @@ Azure service: [Azure Policy](/azure/governance/policy/)
 > | Microsoft.GuestConfiguration/operations/read | Gets the operations for the Microsoft.GuestConfiguration resource provider |
 
 ## Microsoft.Intune
+
+Enable your workforce to be productive on all their devices, while keeping your organization's information protected.
 
 Azure service: Microsoft Monitoring Insights
 
@@ -791,6 +809,8 @@ Azure service: [Azure Lighthouse](/azure/lighthouse/)
 
 ## Microsoft.Management
 
+Use management groups to efficiently apply governance controls and manage groups of Azure subscriptions.
+
 Azure service: [Management Groups](/azure/governance/management-groups/)
 
 > [!div class="mx-tableFixed"]
@@ -811,6 +831,8 @@ Azure service: [Management Groups](/azure/governance/management-groups/)
 > | Microsoft.Management/managementGroups/subscriptions/delete | De-associates subscription from the management group. |
 
 ## Microsoft.PolicyInsights
+
+Summarize policy states for the subscription level policy definition.
 
 Azure service: [Azure Policy](/azure/governance/policy/)
 
@@ -848,6 +870,8 @@ Azure service: [Azure Policy](/azure/governance/policy/)
 > | Microsoft.PolicyInsights/policyEvents/logDataEvents/action | Log the resource component policy events. |
 
 ## Microsoft.Portal
+
+Build, manage, and monitor all Azure products in a single, unified console.
 
 Azure service: [Azure portal](/azure/azure-portal/)
 
@@ -926,6 +950,8 @@ Azure service: [Microsoft Purview](/purview/)
 > | Microsoft.Purview/purviewAccountBindings/delete | Delete Account Binding. |
 
 ## Microsoft.RecoveryServices
+
+Hold and organize backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases.
 
 Azure service: [Site Recovery](/azure/site-recovery/)
 
@@ -1176,6 +1202,8 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 
 ## Microsoft.ResourceGraph
 
+Powerful tool to query, explore, and analyze your cloud resources at scale.
+
 Azure service: [Azure Resource Graph](/azure/governance/resource-graph/)
 
 > [!div class="mx-tableFixed"]
@@ -1191,6 +1219,8 @@ Azure service: [Azure Resource Graph](/azure/governance/resource-graph/)
 > | Microsoft.ResourceGraph/resourcesHistory/read | List all snapshots of resources history within specified subscriptions, management groups or tenant scope |
 
 ## Microsoft.Resources
+
+Deployment and management service for Azure that enables you to create, update, and delete resources in your Azure subscription.
 
 Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 
@@ -1263,6 +1293,8 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/tenants/read | Gets the list of tenants. |
 
 ## Microsoft.Solutions
+
+Find the solution to meet the needs of your application or business.
 
 Azure service: [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/)
 

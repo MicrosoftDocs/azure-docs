@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Datab
 
 ## Microsoft.Cache
 
+Power applications with high-throughput, low-latency data access.
+
 Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 
 > [!div class="mx-tableFixed"]
@@ -96,6 +98,8 @@ Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 > | Microsoft.Cache/redisEnterprise/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for a Redis Enterprise Cache |
 
 ## Microsoft.DataFactory
+
+Hybrid data integration at enterprise scale, made easy.
 
 Azure service: [Data Factory](/azure/data-factory/)
 
@@ -274,6 +278,8 @@ Azure service: [Data Factory](/azure/data-factory/)
 
 ## Microsoft.DataMigration
 
+Simplify on-premises database migration to the cloud.
+
 Azure service: [Azure Database Migration Service](/azure/dms/)
 
 > [!div class="mx-tableFixed"]
@@ -340,6 +346,8 @@ Azure service: [Azure Database Migration Service](/azure/dms/)
 > | Microsoft.DataMigration/sqlMigrationServices/tasks/read | Get Migration Service task details |
 
 ## Microsoft.DBforMariaDB
+
+Managed MariaDB database service for app developers.
 
 Azure service: [Azure Database for MariaDB](/azure/mariadb/)
 
@@ -423,6 +431,8 @@ Azure service: [Azure Database for MariaDB](/azure/mariadb/)
 > | Microsoft.DBforMariaDB/servers/waitStatistics/read | Return a wait statistic |
 
 ## Microsoft.DBforMySQL
+
+Managed MySQL database service for app developers.
 
 Azure service: [Azure Database for MySQL](/azure/mysql/)
 
@@ -565,6 +575,8 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/servers/waitStatistics/read | Return a wait statistic |
 
 ## Microsoft.DBforPostgreSQL
+
+Managed PostgreSQL database service for app developers.
 
 Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 
@@ -727,6 +739,8 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 
 ## Microsoft.DocumentDB
+
+A NoSQL document database-as-a-service.
 
 Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 
@@ -1046,6 +1060,8 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create throughputPool account in throughputPool |
 
 ## Microsoft.Sql
+
+Managed, intelligent SQL in the cloud.
 
 Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index), [Azure Synapse Analytics](/azure/synapse-analytics/)
 
@@ -1646,6 +1662,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/virtualClusters/delete | Deletes an existing virtual cluster. |
 
 ## Microsoft.SqlVirtualMachine
+
+Host enterprise SQL Server apps in the cloud.
 
 Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 

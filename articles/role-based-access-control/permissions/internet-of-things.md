@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Inter
 
 ## Microsoft.DataBoxEdge
 
+Appliances and solutions for data transfer to Azure and edge compute.
+
 Azure service: [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview)
 
 > [!div class="mx-tableFixed"]
@@ -105,6 +107,8 @@ Azure service: [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overvie
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | Lists or gets the operation result |
 
 ## Microsoft.Devices
+
+Ensure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
 Azure service: [IoT Hub](/azure/iot-hub/), [IoT Hub Device Provisioning Service](/azure/iot-dps/)
 
@@ -328,6 +332,8 @@ Azure service: [Azure Digital Twins](/azure/digital-twins/)
 
 ## Microsoft.IoTCentral
 
+Experience the simplicity of SaaS for IoT, with no cloud expertise required.
+
 Azure service: [IoT Central](/azure/iot-central/)
 
 > [!div class="mx-tableFixed"]
@@ -411,6 +417,8 @@ Azure service: [IoT security](/azure/iot/iot-security-architecture)
 
 ## Microsoft.NotificationHubs
 
+Send push notifications to any platform from any back end.
+
 Azure service: [Notification Hubs](/azure/notification-hubs/)
 
 > [!div class="mx-tableFixed"]
@@ -462,6 +470,8 @@ Azure service: [Notification Hubs](/azure/notification-hubs/)
 > | Microsoft.NotificationHubs/resourceTypes/read | Gets a list of the resource types for Notification Hubs |
 
 ## Microsoft.TimeSeriesInsights
+
+Explore and analyze time-series data from IoT devices.
 
 Azure service: [Time Series Insights](/azure/time-series-insights/)
 
