@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Netwo
 
 ## Microsoft.Cdn
 
+Ensure secure, reliable content delivery with broad global reach.
+
 Azure service: [Content Delivery Network](/azure/cdn/)
 
 > [!div class="mx-tableFixed"]
@@ -396,6 +398,8 @@ Azure service: [Mobile networks](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/sims/read | Gets all the SIMs in a resource group. |
 
 ## Microsoft.Network
+
+Connect cloud and on-premises infrastructure and services to provide your customers and users the best possible experience.
 
 Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastion](/azure/bastion/), [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), [Azure DNS](/azure/dns/), [Azure ExpressRoute](/azure/expressroute/), [Azure Firewall](/azure/firewall/), [Azure Front Door Service](/azure/frontdoor/), [Azure Private Link](/azure/private-link/), [Load Balancer](/azure/load-balancer/), [Network Watcher](/azure/network-watcher/), [Traffic Manager](/azure/traffic-manager/), [Virtual Network](/azure/virtual-network/), [Virtual WAN](/azure/virtual-wan/), [VPN Gateway](/azure/vpn-gateway/)
 

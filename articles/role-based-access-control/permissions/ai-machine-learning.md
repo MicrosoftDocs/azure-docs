@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the AI + 
 
 ## Microsoft.BotService
 
+Intelligent, serverless bot service that scales on demand.
+
 Azure service: [Azure Bot Service](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
@@ -88,6 +90,8 @@ Azure service: [Azure Bot Service](/azure/bot-service/)
 > | Microsoft.BotService/Operations/read | Read the operations for all resource types |
 
 ## Microsoft.CognitiveServices
+
+Add smart API capabilities to enable contextual interactions.
 
 Azure service: [Cognitive Services](/azure/cognitive-services/)
 
@@ -1470,6 +1474,8 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 
 ## Microsoft.MachineLearning
 
+Access and manage the predictive models that you created and deployed as web services.
+
 Azure service: [Machine Learning Studio (classic)](/azure/machine-learning/classic/)
 
 [!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
@@ -1500,6 +1506,8 @@ Azure service: [Machine Learning Studio (classic)](/azure/machine-learning/class
 > | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 
 ## Microsoft.MachineLearningServices
+
+Enterprise-grade machine learning service to build and deploy models faster.
 
 Azure service: [Machine Learning](/azure/machine-learning/)
 

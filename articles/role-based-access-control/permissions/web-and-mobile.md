@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Web a
 
 ## Microsoft.AppPlatform
 
+A fully managed Spring Cloud service, built and operated with Pivotal.
+
 Azure service: [Azure Spring Apps](/azure/spring-apps/)
 
 > [!div class="mx-tableFixed"]
@@ -188,6 +190,8 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 
 ## Microsoft.CertificateRegistration
 
+Allow an application to use its own credentials for authentication.
+
 Azure service: [App Service Certificates](/azure/app-service/configure-ssl-certificate#buy-and-import-app-service-certificate)
 
 > [!div class="mx-tableFixed"]
@@ -291,6 +295,8 @@ Azure service: [App Service](/azure/app-service/)
 
 ## Microsoft.Maps
 
+Simple and secure location APIs provide geospatial context to data.
+
 Azure service: [Azure Maps](/azure/azure-maps/)
 
 > [!div class="mx-tableFixed"]
@@ -341,6 +347,8 @@ Azure service: [Azure Maps](/azure/azure-maps/)
 > | Microsoft.Maps/accounts/services/weather/read | Allows reading of data for Weather services. |
 
 ## Microsoft.Media
+
+Encode, store, and stream video and audio at scale.
 
 Azure service: [Media Services](/azure/media-services/)
 
@@ -483,6 +491,8 @@ Azure service: [Media Services](/azure/media-services/)
 
 ## Microsoft.Search
 
+Leverage search services and get comprehensive results.
+
 Azure service: [Azure Search](/azure/search/)
 
 > [!div class="mx-tableFixed"]
@@ -548,6 +558,8 @@ Azure service: [Azure Search](/azure/search/)
 > | Microsoft.Search/searchServices/indexes/documents/delete | Delete documents from an index. |
 
 ## Microsoft.SignalRService
+
+Add real-time web functionalities easily.
 
 Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 
@@ -680,6 +692,8 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/WebPubSub/user/read | Check user existence |
 
 ## microsoft.web
+
+Quickly create and deploy mission critical web apps at scale.
 
 Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azure-functions/)
 
