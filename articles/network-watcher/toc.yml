@@ -36,9 +36,11 @@
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
   - name: Connection monitor
-    href: connection-monitor-overview.md
-  - name: Connection monitor schema
-    href: connection-monitor-schema.md
+    items:
+    - name: Overview
+      href: connection-monitor-overview.md
+    - name: Schema
+      href: connection-monitor-schema.md
   - name: IP flow verify
     href: ip-flow-verify-overview.md
   - name: NSG diagnostics
