@@ -62,6 +62,8 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 
 ## Microsoft.KeyVault
 
+Safeguard and maintain control of keys and other secrets.
+
 Azure service: [Key Vault](/azure/key-vault/)
 
 > [!div class="mx-tableFixed"]
@@ -192,6 +194,8 @@ Azure service: [Key Vault](/azure/key-vault/)
 > | Microsoft.KeyVault/vaults/storageaccounts/sas/read | Read the SAS (Shared Access Signature) definition for a managed storage account. |
 
 ## Microsoft.Security
+
+Protect your enterprise from advanced threats across hybrid cloud workloads.
 
 Azure service: [Security Center](/azure/security-center/)
 

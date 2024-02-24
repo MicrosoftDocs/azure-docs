@@ -118,6 +118,8 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 
 ## Microsoft.ResourceHealth
 
+Diagnose and get support for service problems that affect your Azure resources.
+
 Azure service: [Azure Service Health](/azure/service-health/)
 
 > [!div class="mx-tableFixed"]

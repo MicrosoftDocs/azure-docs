@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Integ
 
 ## Microsoft.ApiManagement
 
+Easily build and consume Cloud APIs.
+
 Azure service: [API Management](/azure/api-management/)
 
 > [!div class="mx-tableFixed"]
@@ -493,6 +495,8 @@ Azure service: [API Management](/azure/api-management/)
 
 ## Microsoft.AppConfiguration
 
+Fast, scalable parameter storage for app configuration.
+
 Azure service: core
 
 > [!div class="mx-tableFixed"]
@@ -627,6 +631,8 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 
 ## Microsoft.DataCatalog
 
+Get more value from your enterprise data assets.
+
 Azure service: [Data Catalog](/azure/data-catalog/)
 
 > [!div class="mx-tableFixed"]
@@ -641,6 +647,8 @@ Azure service: [Data Catalog](/azure/data-catalog/)
 > | Microsoft.DataCatalog/operations/read | Lists operations available on Microsoft.DataCatalog resource provider. |
 
 ## Microsoft.EventGrid
+
+Get reliable event delivery at massive scale.
 
 Azure service: [Event Grid](/azure/event-grid/)
 
@@ -955,6 +963,8 @@ Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 
 ## Microsoft.Logic
 
+Automate the access and use of data across clouds without writing code.
+
 Azure service: [Logic Apps](/azure/logic-apps/)
 
 > [!div class="mx-tableFixed"]
@@ -1072,6 +1082,8 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 
 ## Microsoft.Relay
 
+Expose services that run in your corporate network to the public cloud.
+
 Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 
 > [!div class="mx-tableFixed"]
@@ -1144,6 +1156,8 @@ Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 > | Microsoft.Relay/namespaces/messages/listen/action | Receive messages |
 
 ## Microsoft.ServiceBus
+
+Connect across private and public cloud environments.
 
 Azure service: [Service Bus](/azure/service-bus-messaging/)
 

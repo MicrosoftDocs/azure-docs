@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Migra
 
 ## Microsoft.Migrate
 
+Easily discover, assess, right-size, and migrate your on-premises VMs to Azure.
+
 Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 
 > [!div class="mx-tableFixed"]

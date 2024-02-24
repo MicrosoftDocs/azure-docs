@@ -266,6 +266,8 @@ Azure service: Classic deployment model virtual machine
 
 ## Microsoft.Compute
 
+Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use.
+
 Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
 
 > [!div class="mx-tableFixed"]
@@ -541,6 +543,8 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 
 ## Microsoft.DesktopVirtualization
 
+The best virtual desktop experience, delivered on Azure.
+
 Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 
 > [!div class="mx-tableFixed"]
@@ -650,6 +654,8 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
 
 ## Microsoft.ServiceFabric
+
+Develop microservices and orchestrate containers on Windows or Linux.
 
 Azure service: [Service Fabric](/azure/service-fabric/)
 
