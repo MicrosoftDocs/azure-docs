@@ -485,13 +485,13 @@ groups:
   - id: java
     title: Java
 - id: function-worker-process
-  title: .NET Azure Functions worker process 
-  prompt: Choose how to run   
+  title: .NET Azure Functions process model
+  prompt: Choose your .NET mode   
   pivots: 
-  - id: in-proc
-    title: In-process
   - id: isolated
-    title: Isolated worker process
+    title: Isolated worker model
+  - id: in-proc
+    title: In-process model
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
