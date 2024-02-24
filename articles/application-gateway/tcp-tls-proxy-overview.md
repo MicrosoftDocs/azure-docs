@@ -17,7 +17,7 @@ In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HT
 
 As a reverse proxy service, the Layer 4 operations of Application Gateway work similar to its Layer 7 proxy operations. A client establishes a TCP connection with Application Gateway, and Application Gateway itself initiates a new TCP connection to a backend server from the backend pool. The following figure shows typical operation.
 
-![Overview of how TCP/TLS proxy works](./media/tcp-tls-proxy-overview/layer-4-proxy-overview.png) 
+![Overview diagram of how TCP/TLS proxy works.](./media/tcp-tls-proxy-overview/layer-4-proxy-overview.png) 
 
 Process flow:
 
