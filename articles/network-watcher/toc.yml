@@ -97,7 +97,7 @@
     href: network-insights-topology.md
   - name: Create a connection monitor
     items:
-    - name: Portal
+    - name: Azure portal
       href: connection-monitor-create-using-portal.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
@@ -127,7 +127,7 @@
       href: diagnose-vm-network-routing-problem-cli.md
   - name: Diagnose outbound connection problems
     items:
-    - name: Portal
+    - name: Azure portal
       href: network-watcher-connectivity-portal.md
     - name: PowerShell
       href: network-watcher-connectivity-powershell.md
