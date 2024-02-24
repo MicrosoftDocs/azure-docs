@@ -17,7 +17,7 @@ Azure Monitor is based on a [common monitoring data platform](data-platform.md) 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
 > [!IMPORTANT]
-> There is a cost for collecting and retaining most types of data in Azure Monitor. To minimize your cost, ensure that you don't collect any more data than you require and that your environment is configured to optimize your costs. See [Cost optimization in Azure Monitor](cost-optimization.md) for a summary of recommendations.
+> There is a cost for collecting and retaining most types of data in Azure Monitor. To minimize your cost, ensure that you don't collect any more data than you require and that your environment is configured to optimize your costs. See [Cost optimization in Azure Monitor](best-practices-cost.md) for a summary of recommendations.
 
 ## Azure resources
 Most resources in Azure generate the monitoring data described in the following table. Some services will also have additional data that can be collected by enabling other features of Azure Monitor. Regardless of the services that you're monitoring though, you should start by understanding and configuring collection of this data.
