@@ -235,7 +235,7 @@ Navigate to your Azure Portal to find your deployment information.
 In this tutorial, you deployed a sample Azure application to a Kubernetes cluster in AKS. You learned how to:
 
 > [!div class="checklist"]
->
+> 
 > * Update a Kubernetes manifest file.
 > * Run an application in Kubernetes.
 > * Test the application.
