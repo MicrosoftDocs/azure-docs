@@ -51,7 +51,7 @@ Mistral-large can be deployed as a service with pay-as-you-go, and is offered by
     > Pay-as-you-go model deployment offering is only available in AI hubs created in **East US 2** and **France Central** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resouce Group.`
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resouce Group.
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
