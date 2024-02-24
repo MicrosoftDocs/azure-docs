@@ -174,7 +174,7 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Pod-VM connectivity; VM in the same virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | Pod-VM connectivity; VM in peered virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | On-premises access using VPN or Express Route | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| Access to resources secured by service endpoints | Supported | Supported | Supported | Supported |
+| Access to resources secured by service endpoints | Supported | Supported | Supported | |
 | Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | Supported| Same limitations when using Overlay mode |
 | Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
 | Default Azure DNS and Private Zones | Supported | Supported | Supported | |
