@@ -164,9 +164,9 @@ those are also collected for all '/login' requests.
         "telemetryType": "request",
         "attributes": [
           {
-            "key": "http.url",
-            "value": "https?://[^/]+/login",
-            "matchType": "regexp"
+            "key": "url.path",
+            "value": "/login",
+            "matchType": "strict"
           }
         ],
         "percentage": 100
