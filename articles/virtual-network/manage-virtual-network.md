@@ -174,7 +174,7 @@ You can't add the following address ranges:
 - 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probe-source-ip-address))
 
 > [!NOTE]
-> If the virtual network is peered with another virtual network or connected with on-premises network, the new address range can't overlap with the address space of the peered virtual networks or on-premises network. To learn more, see [Update the address space for a peered virtual network](update-virtual-network-peering-address-space.md).
+> If the virtual network is peered with another virtual network or connected with on-premises network, the new address range can't overlap with the address space of the peered virtual networks or on-premises network. To learn more, see [Update the address space for a peered virtual network](update-virtual-network-peering-address-space.yml).
 
 ### Add or remove an address range using the Azure portal
 

@@ -159,7 +159,7 @@
     - name: Manage VNet peering
       href: virtual-network-manage-peering.md
     - name: Update VNet peering address spaces
-      href: update-virtual-network-peering-address-space.md
+      href: update-virtual-network-peering-address-space.
     - name: Connectivity scenarios
       items:
       - name: Virtual network to Virtual network
