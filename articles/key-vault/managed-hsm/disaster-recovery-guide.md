@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 02/23/2024
 ms.author: mbaldwin
 ---
 
@@ -32,7 +32,7 @@ Here are the steps of the disaster recovery procedure:
 4. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 5. Restore the recent HSM backup from the source HSM.
 
-These steps will enable you to manually replicate contents of the HSM to another region. The HSM name (and the service endpoint URI) will be different, so you may have to change your application configuration to make use of these keys from a different location.
+These steps will enable you to manually replicate contents of the HSM to another region. The HSM name (and the service endpoint URI) will be different, so you will have to change your application configuration to make use of these keys from a different location.
 
 ## Create a new Managed HSM
 
