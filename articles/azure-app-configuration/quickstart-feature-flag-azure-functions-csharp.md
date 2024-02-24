@@ -51,7 +51,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md). |
     
-    ![Azure Functions project settings](../../includes/media/functions-vs-tools-create/functions-project-settings.png)
+    ![Screenshot of Azure Functions project settings](../../includes/media/functions-vs-tools-create/functions-project-settings.png)
 
     ---
 
