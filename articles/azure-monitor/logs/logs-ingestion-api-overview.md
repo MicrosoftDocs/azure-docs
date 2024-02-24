@@ -32,7 +32,7 @@ Data sent to the ingestion API can be sent to the following tables:
 - [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)<br>
 - [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs)<br>
 - [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)<br>
-- [ASimDnsAuditLogs](/azure/azure-monitor/reference/tables/asimdnsauditlogs)<br>
+- ASimDnsAuditLogs<br>
 - [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs)<br>
 - [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)<br>
 - [ASimProcessEventLogs](/azure/azure-monitor/reference/tables/asimprocesseventlogs)<br>
@@ -51,7 +51,6 @@ Data sent to the ingestion API can be sent to the following tables:
 - [ExchangeOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/exchangeonlineassessmentrecommendation)<br>
 - [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs)<br>
 - [GoogleCloudSCC](/azure/azure-monitor/reference/tables/googlecloudscc)<br>
-- [PlatformTelemetryStreamDef.Table](/azure/azure-monitor/reference/tables/platformtelemetrystreamdef.table)<br>
 - [SCCMAssessmentRecommendation](/azure/azure-monitor/reference/tables/sccmassessmentrecommendation)<br>
 - [SCOMAssessmentRecommendation](/azure/azure-monitor/reference/tables/scomassessmentrecommendation)<br>
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)<br>
@@ -60,11 +59,11 @@ Data sent to the ingestion API can be sent to the following tables:
 - [SharePointOnlineAssessmentRecommendation](/azure/azure-monitor/reference/tables/sharepointonlineassessmentrecommendation)<br>
 - [SPAssessmentRecommendation](/azure/azure-monitor/reference/tables/spassessmentrecommendation)<br>
 - [SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/sqlassessmentrecommendation)<br>
-- [StorageInsightsAccountPropertiesDaily](/azure/azure-monitor/reference/tables/storageinsightsaccountpropertiesdaily)<br>
-- [StorageInsightsDailyMetrics](/azure/azure-monitor/reference/tables/storageinsightsdailymetrics)<br>
-- [StorageInsightsHourlyMetrics](/azure/azure-monitor/reference/tables/storageinsightshourlymetrics)<br>
-- [StorageInsightsMonthlyMetrics](/azure/azure-monitor/reference/tables/storageinsightsmonthlymetrics)<br>
-- [StorageInsightsWeeklyMetrics](/azure/azure-monitor/reference/tables/storageinsightsweeklymetrics)<br>
+- StorageInsightsAccountPropertiesDaily<br>
+- StorageInsightsDailyMetrics<br>
+- StorageInsightsHourlyMetrics<br>
+- StorageInsightsMonthlyMetrics<br>
+- StorageInsightsWeeklyMetrics<br>
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>
 - [UCClient](/azure/azure-monitor/reference/tables/ucclient)<br>
 - [UCClientReadinessStatus](/azure/azure-monitor/reference/tables/ucclientreadinessstatus)<br>
