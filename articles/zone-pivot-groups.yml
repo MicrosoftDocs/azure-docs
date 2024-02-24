@@ -3026,3 +3026,16 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: sloanster
+- id: acs-web-safari-chrome-firefox-known-issues
+  title: Knowns issues
+  prompt: Choose a platform
+  pivots:
+  - id: all-browsers
+    title: All browsers
+  - id: safari-browser
+    title: Safari browser
+  - id: chrome-browser
+    title: Chrome browser
+  - id: firefox-browser
+    title: Firefox browser

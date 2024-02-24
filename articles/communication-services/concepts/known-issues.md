@@ -10,11 +10,24 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: devx-track-js
+zone_pivot_groups: acs-web-safari-chrome-firefox-known-issues
+---
+
+# Best practices: Azure Communication Services calling SDKs
+This article provides information about best practices related to the Azure Communication Services calling SDKs.
+
+::: zone pivot="platform-web"
+[!INCLUDE [Web](includes/best-practices-web.md)]
+::: zone-end
+
+::: zone pivot="platform-native"
+[!INCLUDE [Native](includes/best-practices-native.md)]
+::: zone-end
 ---
 
 # Known issues in the SDKs and APIs
 
-This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
+These articles provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).
