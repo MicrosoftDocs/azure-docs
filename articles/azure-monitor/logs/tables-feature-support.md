@@ -31,7 +31,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AADRiskyUsers](/azure/azure-monitor/reference/tables/aadriskyusers) | |
 | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | |
 | [AADUserRiskEvents](/azure/azure-monitor/reference/tables/aaduserriskevents) | |
-| [ABAPAuditLog](/azure/azure-monitor/reference/tables/abapauditlog) | |
+| ABAPAuditLog | |
 | [ABSBotRequests](/azure/azure-monitor/reference/tables/absbotrequests) | |
 | [ACSAuthIncomingOperations](/azure/azure-monitor/reference/tables/acsauthincomingoperations) | |
 | [ACSBillingUsage](/azure/azure-monitor/reference/tables/acsbillingusage) | |
@@ -123,7 +123,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs) | |
 | [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs) | |
 | [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) | |
-| [ASimDnsAuditLogs](/azure/azure-monitor/reference/tables/asimdnsauditlogs) | |
+| ASimDnsAuditLogs | |
 | [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs) | |
 | [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) | |
 | [ASimProcessEventLogs](/azure/azure-monitor/reference/tables/asimprocesseventlogs) | |
@@ -200,7 +200,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [DeviceTvmSoftwareVulnerabilitiesKB](/azure/azure-monitor/reference/tables/devicetvmsoftwarevulnerabilitieskb) | |
 | [DnsEvents](/azure/azure-monitor/reference/tables/dnsevents) | |
 | [DnsInventory](/azure/azure-monitor/reference/tables/dnsinventory) | |
-| [DummyHydrationFact](/azure/azure-monitor/reference/tables/dummyhydrationfact) | |
+| DummyHydrationFact | |
 | [DynamicEventCollection](/azure/azure-monitor/reference/tables/dynamiceventcollection) | |
 | [Dynamics365Activity](/azure/azure-monitor/reference/tables/dynamics365activity) | |
 | [EmailAttachmentInfo](/azure/azure-monitor/reference/tables/emailattachmentinfo) | |
@@ -273,7 +273,6 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [NWConnectionMonitorTestResult](/azure/azure-monitor/reference/tables/nwconnectionmonitortestresult) | |
 | [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | |
 | [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. |
-| [PlatformTelemetryStreamDef.Table](/azure/azure-monitor/reference/tables/platformtelemetrystreamdef.table) | |
 | [PowerAppsActivity](/azure/azure-monitor/reference/tables/powerappsactivity) | |
 | [PowerAutomateActivity](/azure/azure-monitor/reference/tables/powerautomateactivity) | |
 | [PowerBIActivity](/azure/azure-monitor/reference/tables/powerbiactivity) | |
@@ -281,11 +280,11 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [PowerPlatformAdminActivity](/azure/azure-monitor/reference/tables/powerplatformadminactivity) | |
 | [PowerPlatformConnectorActivity](/azure/azure-monitor/reference/tables/powerplatformconnectoractivity) | |
 | [PowerPlatformDlpActivity](/azure/azure-monitor/reference/tables/powerplatformdlpactivity) | |
-| [ProcessInvestigator](/azure/azure-monitor/reference/tables/processinvestigator) | |
+| ProcessInvestigator | |
 | [ProjectActivity](/azure/azure-monitor/reference/tables/projectactivity) | |
 | [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |
-| [RomeDetectionEvent](/azure/azure-monitor/reference/tables/romedetectionevent) | |
+| RomeDetectionEvent | |
 | [SCCMAssessmentRecommendation](/azure/azure-monitor/reference/tables/sccmassessmentrecommendation) | |
 | [SCOMAssessmentRecommendation](/azure/azure-monitor/reference/tables/scomassessmentrecommendation) | |
 | [SecureScoreControls](/azure/azure-monitor/reference/tables/securescorecontrols) | |
@@ -316,11 +315,11 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [SqlVulnerabilityAssessmentScanStatus](/azure/azure-monitor/reference/tables/sqlvulnerabilityassessmentscanstatus) | |
 | [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs) | |
 | [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs) | |
-| [StorageInsightsAccountPropertiesDaily](/azure/azure-monitor/reference/tables/storageinsightsaccountpropertiesdaily) | |
-| [StorageInsightsDailyMetrics](/azure/azure-monitor/reference/tables/storageinsightsdailymetrics) | |
-| [StorageInsightsHourlyMetrics](/azure/azure-monitor/reference/tables/storageinsightshourlymetrics) | |
-| [StorageInsightsMonthlyMetrics](/azure/azure-monitor/reference/tables/storageinsightsmonthlymetrics) | |
-| [StorageInsightsWeeklyMetrics](/azure/azure-monitor/reference/tables/storageinsightsweeklymetrics) | |
+| StorageInsightsAccountPropertiesDaily | |
+| StorageInsightsDailyMetrics | |
+| StorageInsightsHourlyMetrics | |
+| StorageInsightsMonthlyMetrics | |
+| StorageInsightsWeeklyMetrics | |
 | [StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs) | |
 | [StorageTableLogs](/azure/azure-monitor/reference/tables/storagetablelogs) | |
 | [SucceededIngestion](/azure/azure-monitor/reference/tables/succeededingestion) | |
