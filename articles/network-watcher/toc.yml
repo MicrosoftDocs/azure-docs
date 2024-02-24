@@ -151,7 +151,7 @@
     items:
     - name: Manage packet captures for VMs
       items:
-      - name: Azure Portal
+      - name: Azure portal
         href: packet-capture-vm-portal.md
       - name: Azure PowerShell
         href: packet-capture-vm-powershell.md
@@ -159,7 +159,7 @@
         href: packet-capture-vm-cli.md
     - name: Manage packet captures for scale sets
       items:
-      - name: Azure Portal
+      - name: Azure portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
       - name: Azure PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
