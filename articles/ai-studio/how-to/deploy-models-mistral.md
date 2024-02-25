@@ -1,7 +1,7 @@
 ---
 title: How to deploy Mistral family of models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Mistral-large with Azure AI Studio.
+description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -16,16 +16,16 @@ ms.custom: [references_regions]
 # How to deploy Mistral models with Azure AI Studio
 
 Mistral AI offers two categories of models in AI Studio:
-* Premium models: Mistral-large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
+* Premium models: Mistral Large. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
 * Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
 
 You can browse the Mistral family of models in the Model Catalog by filtering on the Mistral collection.
 
-## Mistral-large 
+## Mistral Large 
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral-large model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
 
-Mistral-large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
+Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
 
 Additionally, mistral-large is:
 
@@ -36,11 +36,11 @@ Additionally, mistral-large is:
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-## Deploy Mistral-large with pay-as-you-go
+## Deploy Mistral Large with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Mistral-large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Note that Mistral AI can change or update the terms of use and pricing of this model.
+Mistral Large can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Note that Mistral AI can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -89,11 +89,11 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment for chat completions using the [`<target_url>/v1/chat/completions`](#chat-api) API.
 1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
 
-To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral-large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
+To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
 
-### Consume the Mistral-large model as a service
+### Consume the Mistral Large model as a service
 
-Mistral-large can be consumed using the chat API.
+Mistral Large can be consumed using the chat API.
 
 1. On the **Build** page, select **Deployments**.
 
@@ -105,7 +105,7 @@ Mistral-large can be consumed using the chat API.
 
     For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
 
-### Reference for Mistral-large deployed as a service
+### Reference for Mistral Large deployed as a service
 
 #### Chat API
 
@@ -247,7 +247,7 @@ The following is an example response:
 
 ## Cost and quotas
 
-### Cost and quota considerations for Mistral-large deployed as a service
+### Cost and quota considerations for Mistral Large deployed as a service
 
 Mistral models deployed as a service are offered by Mistral AI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
