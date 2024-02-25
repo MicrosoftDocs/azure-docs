@@ -48,7 +48,7 @@ To estimate the monthly API traffic in Azure API Management, do the following st
 1. Select the time range as **Last 30 days**.
 1. Select the following parameters:
 
-    1. Scope: **`Azure API Management Service Name`** 
+    1. Scope: **Azure API Management Service Name** 
     1. Metric Namespace: **API Management service standard metrics**
     1. Metric = **Requests**
     1. Aggregation = **Sum**

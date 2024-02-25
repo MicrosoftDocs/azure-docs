@@ -447,6 +447,8 @@
       href: defender-for-apis-introduction.md
     - name: Support and prerequisites
       href: defender-for-apis-prepare.md
+    - name: Selecting entitlement plans
+      href: defender-for-apis-entitlement-plans.md  
     - name: Protect your APIs with Defender for APIs
       href: defender-for-apis-deploy.md
     - name: Validate APIs alerts
