@@ -46,6 +46,18 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Changes in where to access Compliance offerings and Microsoft Actions
+
+**Announcement date: February 25, 2024**
+
+**Estimated date for change: September 30, 2024**
+
+On September 30, 2024, the locations where you access Compliance offerings and Microsoft Actions will change.
+
+The table that lists the compliance status of Microsoft's products (accessed from the **Compliance offerings** button in the toolbar of Defender's [regulatory compliance dashboard](regulatory-compliance-dashboard.md)). After this button is removed from Defender for Cloud, you'll still be able to access this information using the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+For a subset of controls, Microsoft Actions was accessible from the **Microsoft Actions (Preview)** button in the controls details pane. After this button is removed, you can view Microsoft Actions by visiting Microsoft’s [Service Trust Portal for FedRAMP](https://servicetrust.microsoft.com/viewpage/FedRAMP) and accessing  the Azure System Security Plan document.
+
 ## Update recommendations to align with Azure AI Services resources
 
 **Announcement date: February 20, 2024**
@@ -84,7 +96,6 @@ Microsoft Defender for Cloud is decommissioning the resource provider `Microsoft
 Customers that are still using the API version **2022-09-01-preview** under `Microsoft.SecurityDevOps` to query Defender for Cloud DevOps security data will be impacted. To avoid disruption to their service, customer will need to update to the new API version **2023-09-01-preview** under the `Microsoft.Security` provider.
 
 Customers currently using Defender for Cloud DevOps security from Azure portal won't be impacted.
-
 
 For details on the new API version, see [Microsoft Defender for Cloud REST APIs](/rest/api/defenderforcloud/operation-groups).
 
