@@ -243,10 +243,10 @@
   items:
   - name: Monitor Azure Files
     href: storage-files-monitoring.md
-  - name: Analyze metrics and logs
+  - name: Analyze metrics
     href: analyze-files-metrics.md
   - name: Create alerts
-    href: files-monitoring-alerts.md    
+    href: files-monitoring-alerts.md
 - name: Application development
   items:
   - name: Configure connection strings
@@ -313,7 +313,7 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring data reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template
     displayName: arm
