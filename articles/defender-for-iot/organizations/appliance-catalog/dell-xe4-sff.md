@@ -36,8 +36,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |----|----|
 |Construction |Small Form Factor |
 |Dimensions |1. Width: 6.65 in. (169.00 mm) <br>2. Depth: 11.84 in. (300.80 mm)  <br>3. Height: 14.45 in. (367.00 mm) |
-|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54 kg) **website gives different values** Weight (min): 9.27 lb. (4.20 kg)
-Weight (max): 12.42 lb (5.63 kg)|
+|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54 kg) **website gives different values** Weight (min): 9.27 lb. (4.20 kg) Weight (max): 12.42 lb (5.63 kg)|
 |CPU |12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |
 |Memory |8 GB (1x8GB) DDR4 Non-ECC Memory |
 |Storage |M.2 2280 512-GB PCIe NVMe Class 40 Solid State Drive |
