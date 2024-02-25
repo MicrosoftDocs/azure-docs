@@ -24,16 +24,16 @@ This article introduces the core concepts that provide networking to your applic
 
 ## Kubernetes networking basics
 
-Kubernetes employs a virtual networking layer to manage access within and between your applications or their components. This involves the following key aspects:
+Kubernetes employs a virtual networking layer to manage access within and between your applications or their components:
 
 - **Kubernetes nodes and virtual network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
 
-- **Kube-proxy component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
+- **Kube-proxy component**: kube-proxy runs on each node and is responsible for providing the necessary network features.
 
 Regarding specific Kubernetes functionalities:
 
-- **Services**: These are used to logically group pods, allowing direct access to them through a specific IP address or DNS name on a designated port.
-- **Service types**: This feature lets you specify the kind of Service you wish to create.
+- **Services**: Services is used to logically group pods, allowing direct access to them through a specific IP address or DNS name on a designated port.
+- **Service types**: Specifies the kind of Service you wish to create.
 - **Load balancer**: You can use a load balancer to distribute network traffic evenly across various resources.
 - **Ingress controllers**: These facilitate Layer 7 routing, which is essential for directing application traffic.
 - **Egress traffic control**: Kubernetes allows you to manage and control outbound traffic from cluster nodes.
@@ -48,13 +48,13 @@ In the context of the Azure platform:
 
 ## Services
 
-To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. You can specify a Kubernetes *ServiceType* to specify what kind of Service you want, for example if you want to expose a Service onto an external IP address that's outside of your cluster. For more information, see the Kubernetes documentation for [Publishing Services (ServiceTypes)][service-types].
+To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. You can specify a Kubernetes *ServiceType* to define the type of Service you want. For example, if you want to expose a Service on an external IP address outside of your cluster. For more information, see the Kubernetes documentation on [Publishing Services (ServiceTypes)][service-types].
 
 The following ServiceTypes are available:
 
 * **ClusterIP**
   
-  ClusterIP creates an internal IP address for use within the AKS cluster. This Service is good for *internal-only applications* that support other workloads within the cluster. This is the default that's used if you don't explicitly specify a type for a Service.
+  ClusterIP creates an internal IP address for use within the AKS cluster. The ClusterIP Service is good for *internal-only applications* that support other workloads within the cluster. ClusterIP is the default used if you don't explicitly specify a type for a Service.
 
     ![Diagram showing ClusterIP traffic flow in an AKS cluster][aks-clusterip]
 
@@ -114,12 +114,12 @@ For more information, see [Configure kubenet networking for an AKS cluster][aks-
 
 ### Azure CNI (advanced) networking
 
-With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly. To avoid these planning challenges, it is possible to enable the feature [Azure CNI networking for dynamic allocation of IPs and enhanced subnet support][configure-azure-cni-dynamic-ip-allocation].
+With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly. To avoid these planning challenges, it's possible to enable the feature [Azure CNI networking for dynamic allocation of IPs and enhanced subnet support][configure-azure-cni-dynamic-ip-allocation].
 
 > [!NOTE]
 > Due to Kubernetes limitations, the Resource Group name, the Virtual Network name and the subnet name must be 63 characters or less.
 
-Unlike kubenet, traffic to endpoints in the same virtual network isn't NAT'd to the node's primary IP. The source address for traffic inside the virtual network is the pod IP. Traffic that's external to the virtual network still NATs to the node's primary IP.
+Unlike kubenet, traffic to endpoints in the same virtual network isn't translated (NAT) to the node's primary IP. The source address for traffic inside the virtual network is the pod IP. Traffic that's external to the virtual network still NATs to the node's primary IP.
 
 Nodes use the [Azure CNI][cni-networking] Kubernetes plugin.
 
@@ -129,19 +129,19 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 ### Azure CNI Overlay networking
 
-[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for most clusters.
+[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of virtual network IPs to pods. Azure CNI Overlay assigns private CIDR IPs to pods. The private IPs are separate from the virtual network and can be reused across multiple clusters. Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for most clusters.
 
 ### Azure CNI Powered by Cilium
 
-[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM)
+[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM).
 
-Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Using eBPF programs and a more efficient API object structure, Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20K pod][use-network-policies].
+Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using ePBF programs and a more efficient API object structure.
 
 Azure CNI Powered by Cilium is the recommended option for clusters that require network policy enforcement.
 
 ### Bring your own CNI
 
-It is possible to install in AKS a third party CNI using the [Bring your own CNI][use-byo-cni] feature.
+It's possible to install in AKS a non-Microsoft CNI using the [Bring your own CNI][use-byo-cni] feature.
 
 ### Compare network models
 
@@ -159,6 +159,12 @@ Both kubenet and Azure CNI provide network connectivity for your AKS clusters. H
   * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
   * Requires more IP address space.
 
+| Network model | When to use |
+|---------------|-------------|
+| **Kubenet** | • IP address space conversation is a priority. </br> • Simple configuration. </br> • Fewer than 400 nodes per cluster. </br> • Kubernetes internal or external load balancers are sufficient for reaching pods from outside the cluster. </br> • Manually managing and maintaining user defined routes is acceptable. |
+| **Azure CNI** | • Full virtual network connectivity is required for pods. </br> • Advanced AKS features (such as virtual nodes) are needed. </br> • Sufficient IP address space is available. </br> • Pod to pod and pod to virtual machine connectivity is needed. </br> • External resources need to reach pods directly. </br> • AKS network policies are required. |
+| **Azure CNI Overlay** | • IP address shortage is a concern. </br> • Scaling up to 1,000 nodes and 250 pods per node is sufficient. </br> • Extra hop for pod connectivity is acceptable. </br> • Simpler network configuration. </br> • AKS egress requirements can be met. |
+
 The following behavior differences exist between kubenet and Azure CNI:
 
 | Capability | Kubenet | Azure CNI | Azure CNI Overlay | Azure CNI Powered by Cilium |
@@ -168,10 +174,10 @@ The following behavior differences exist between kubenet and Azure CNI:
 | Pod-VM connectivity; VM in the same virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | Pod-VM connectivity; VM in peered virtual network | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
 | On-premises access using VPN or Express Route | Works when initiated by pod | Works both ways | Works when initiated by pod | Works when initiated by pod |
-| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | [No Application Gateway Ingress Controller (AGIC) support][azure-cni-overlay-limitations] | Same limitations when using Overlay mode |
+| Access to resources secured by service endpoints | Supported | Supported | Supported | |
+| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported | Supported| Same limitations when using Overlay mode |
 | Support for Windows node pools | Not Supported | Supported | Supported | [Available only for Linux and not for Windows.][azure-cni-powered-by-cilium-limitations] |
-
-For both kubenet and Azure CNI plugins, the DNS service is provided by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
+| Default Azure DNS and Private Zones | Supported | Supported | Supported | |
 
 For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 
@@ -211,7 +217,7 @@ To learn more about the AGIC add-on for AKS, see [What is Application Gateway In
 
 ### SSL/TLS termination
 
-SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt".
+SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt."
 
 For more information on configuring an NGINX ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
