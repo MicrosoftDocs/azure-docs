@@ -66,6 +66,8 @@ If you don't have access to run the metrics query, reach out to your internal Az
 
 API Management service resources don't enable multi-selection with metrics. You can let the API Management service team know this capability is important and upvote this request.
 
+:::image type="content" source="media/defender-for-apis-entitlement-plans/upvote-message.png" alt-text="Screenshot that shows upvote button." lightbox="media/defender-for-apis-entitlement-plans/upvote-message.png":::
+
 ## Next steps
 
 Learn how to [investigate API findings, recommendations, and alerts](defender-for-apis-posture.md).   
