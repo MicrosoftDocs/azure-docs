@@ -156,7 +156,7 @@ For example, this iframe allows both camera and microphone access:
 
 **The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
 
-## Limits to the number of simultaneous video streams
+## Supported number of incoming video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
