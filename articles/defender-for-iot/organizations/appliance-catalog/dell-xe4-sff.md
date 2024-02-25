@@ -7,9 +7,7 @@ ms.topic: reference
 <!-- description when used in for - which word to remove, check all other HW descriptions for same typo-->
 # DELL XE4 SFF
 
-This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines.
-
-The DELL XE4 SFF is also available for the on-premises management console. <!-- remove?-->
+This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines. The DELL XE4 SFF is also available for the on-premises management console. <!-- remove?-->
 <!-- check correct device number-->
 | Appliance characteristic |Details |
 |---------|---------|
@@ -21,6 +19,10 @@ The DELL XE4 SFF is also available for the on-premises management console. <!-- 
 The following image shows a sample of the DELL XE4 SFF front panel:
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view.png" alt-text="Photo of the front view of the DELL XE4 SFF." border="false":::
+
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view-700x400.png" alt-text="Photo of the front view of the DELL XE4 SFFa." border="false":::
+
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view-1000x600.png" alt-text="Photo of the front view of the DELL XE4 SFFb." border="false":::
 
 The following image shows a sample of the DELL XE4 SFF back panel:
 
@@ -159,7 +161,7 @@ To install Defender for IoT software:
 <!-- what to change here?-->
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
 
 Then, use any of the following procedures to continue:
 
