@@ -68,6 +68,8 @@
   items:
     - name: Monitoring data
       href: monitor-operator-insights-data-reference.md
+    - name: Device reference schema for the Quality of Experience Affirmed MCC Data Product
+      href: device-reference-schema.md
     - name: Azure CLI for Operator Insights
       href: /cli/azure/service-page/azure%20operator%20insights%20-%20network%20analytics
     - name: PowerShell for Operator Insights

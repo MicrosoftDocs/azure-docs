@@ -39,6 +39,12 @@ iOS Chrome browser support is now available in public preview. Known issues are:
 - No outgoing and incoming audio when switching browser to background or locking the device. This issue has been fixed in iOS version 16.4+.
 - No incoming/outgoing audio coming from bluetooth headset. When a user connects bluetooth headset in the middle of Azure Communication Services call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it isn't reproducible on iOS 16.
 
+### iOS Safari displays an incorrect resolution size of the camera preview
+This bug occurs on iOS 16.7 or iOS 17 versions earlier than 17.4 when users rotate their phones or enable/disable video during the call.
+The camera preview briefly displays an incorrect resolution size before returning to normal.
+The issue is not reproducible on iOS 17.4 Beta.
+Related WebKit bug [here](https://bugs.webkit.org/show_bug.cgi?id=259364).
+
 ### iOS 16 introduced bugs when putting browser in the background during a call
 The iOS 16 release introduced a bug that can stop the Azure Communication Services audio\video call when using Safari mobile browser. Apple is aware of this issue and is looking for a fix on their side. The impact could be that an Azure Communication Services call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
 
