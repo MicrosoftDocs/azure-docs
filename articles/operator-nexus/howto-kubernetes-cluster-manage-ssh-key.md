@@ -36,9 +36,9 @@ Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disco
 
 Following are the variables you need to set, along with the [quickstart guide](./quickstarts-kubernetes-cluster-deployment-cli.md#create-an-azure-nexus-kubernetes-cluster) default values you can use for certain variables.
 
-`SSH_PUBLIC_KEY` -  For the cluster wide keys.
-`CONTROL_PLANE_SSH_PUBLIC_KEY` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
-`INITIAL_AGENT_POOL_SSH_PUBLIC_KEY` - For each agent pool, you can provide public keys that are inserted into the nodes in that pool.
+* `SSH_PUBLIC_KEY` -  For the cluster wide keys. Note that using cluster wide key with agent pool and control plane keys doesn't have any effect as the control plane and agent pool keys are used instead of the cluster wide keys.
+* `CONTROL_PLANE_SSH_PUBLIC_KEY` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
+* `INITIAL_AGENT_POOL_SSH_PUBLIC_KEY` - For each agent pool, you can provide public keys that are inserted into the nodes in that pool.
 
 ```azurecli
     az networkcloud kubernetescluster create \
@@ -109,7 +109,7 @@ To update the SSH keys, you can apply the same Bicep/ARM configuration used duri
 
 #### Update cluster wide SSH keys
 
-Use the following command to update the cluster wide SSH keys, which are used for all nodes in the cluster. All the nodes in the cluster will be updated with the new keys.
+Use the following command to update the cluster wide SSH keys, which are used for all nodes in the cluster. All the nodes in the cluster will be updated with the new keys if the clster was created with only cluster wide keys.
 
 ```azurecli
 az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --ssh-key-values "$CLUSER_WIDE_KEY"
