@@ -18,7 +18,7 @@ When selecting a plan, consider the following important points:
 - The API traffic counted towards the billing will be reset to 0 at the start of each month (every billing cycle). 
 - The overages are computed on API traffic exceeding the entitlement limit per plan selection during the month for your entire subscription.
 
-To select the best plan for your Subscription from Microsoft Defender for Cloud pricing page, follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
+To select the best plan for your subscription from Microsoft Defender for Cloud pricing page, follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
 
     > [!NOTE]
     > You need to have the appropriate permissions on the subscription to pick a plan when you turn on Microsoft Defender for APIs. Refer to the [roles and permission requirements](defender-for-apis-prepare.md). You must select a plan that grants entitlement appropriate for the API traffic volume in your subscription to receive the most optimal pricing. By default, subscriptions are opted into "Plan 1", which can lead to unexpected overages if your subscription has API traffic higher than the [1 million API calls entitlement](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/18).
@@ -28,31 +28,43 @@ To select the best plan for your Subscription from Microsoft Defender for Cloud 
 
     :::image type="content" source="media/defender-for-apis-entitlement-plans/select-environment-settings.png" alt-text="Screenshot that shows where to select Environment settings." lightbox="media/defender-for-apis-entitlement-plans/select-environment-settings.png":::
    
-1. Select Details under Pricing column for the “APIs” plan. 
+1. Select **Details** under the pricing column for the APIs plan.     
+
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/select-api-details.png" alt-text="Screenshot that shows where to select api details." lightbox="media/defender-for-apis-entitlement-plans/select-api-details.png":::
+ 
 1. Select the plan that is suitable for your subscription. 
 1. Select **Save**. 
 
-## Selecting optimal plan based on historical Azure API Management API traffic usage 
+## Selecting the optimal plan based on historical Azure API Management API traffic usage 
 
-To estimate the monthly API traffic in Azure API Management 
+To estimate the monthly API traffic in Azure API Management, do the following: 
 
-1. Navigate to the Azure API Management portal and select “Metrics” under “Monitoring” menu bar item.  
+1. Navigate to the Azure API Management portal and select **Metrics** under the Monitoring menu bar item.  
+
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/select-metrics.png" alt-text="Screenshot that shows where to select metrics." lightbox="media/defender-for-apis-entitlement-plans/select-metrics.png":::
 
 1. Select the time range as **Last 30 days**.
 1. Select the following parameters:
 
-    1. Scope: <Azure API Management Service Name> 
-    1. Metric Namespace: API Management service standard metrics 
-    1. Metric = “Requests”
-    1. Aggregation = “Sum” 
+    1. Scope: **`Azure API Management Service Name`** 
+    1. Metric Namespace: **API Management service standard metrics**
+    1. Metric = **Requests**
+    1. Aggregation = **Sum**
     
-1. After setting the above parameters, the query will automatically run, and total number of requests for the past 30 days will be available at the bottom of the screen (in the screenshot below, the query results in “414” total number of requests).
+1. After setting the above parameters, the query will automatically run, and the total number of requests for the past 30 days appear at the bottom of the screen (in the screenshot example, the query results in 414 total number of requests).
+
+
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/metrics-results.png" alt-text="Screenshot that shows metrics results." lightbox="media/defender-for-apis-entitlement-plans/metrics-results.png":::
 
     > [!NOTE]
-    > The instructions above are for calculating the usage per Azure API management service. To calculate the estimated traffic usage for all API management services within the Azure subscription, change the Scope parameter to each Azure API management service within the Azure Subscription, re-run the query, and add up the query results. 
+    > These instructions are for calculating the usage per Azure API management service. To calculate the estimated traffic usage for *all* API management services within the Azure subscription, change the **Scope** parameter to each Azure API management service within the Azure subscription, re-run the query, and sum the query results. 
 
 If you do not have access to run the metrics query, reach out to your internal Azure API Management administrator or your Microsoft account manager.  
 
 ## Limitations
 
-API Management service resources have not enabled multi-selection with metrics. You can let the API Management service team know this capability is important and upvote this request.   
+API Management service resources have not enabled multi-selection with metrics. You can let the API Management service team know this capability is important and upvote this request.
+
+## Next steps
+
+Learn how to [investigate API findings, recommendations, and alerts](defender-for-apis-posture.md).   
