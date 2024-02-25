@@ -25,19 +25,27 @@ Analytics rules search for specific events or sets of events across your environ
 
 ## Create a custom analytics rule with a scheduled query
 
+# [Azure portal](#tab/azure)
+
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. In the action bar at the top, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Create scheduled query" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Screenshot of Analytics screen in Azure portal" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
+
+# [Defender portal](#tab/defender)
+
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+1. In the action bar at the top of the grid, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
+
+    :::image type="content" source="media/tutorial-detect-threats-custom/defender-create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Defender portal." lightbox="media/tutorial-detect-threats-custom/defender-create-scheduled-query.png":::
+
+---
 
 ### Analytics rule wizard&mdash;General tab
 
 - Provide a unique **Name** and a **Description**.
-
-- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
-
-    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
 
@@ -49,7 +57,11 @@ Analytics rules search for specific events or sets of events across your environ
     Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
   
     Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
-  
+
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
+
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
