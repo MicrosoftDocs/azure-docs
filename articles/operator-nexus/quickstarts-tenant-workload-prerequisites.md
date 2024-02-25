@@ -189,7 +189,7 @@ To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cl
 
 While the cloud services network automatically enables access to essential platform endpoints, you need to add others, such as docker.io, if your application requires them. Configuring the cloud services network proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcarding the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pulling from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
 
-The egress endpoints must comply with the domain name structures and hostname specifications outlined in RFC 1034, RFC 1035, and RFC 1123. Here are a few examples to demonstrate compliant naming conventions for domain and hostnames.
+The egress endpoints must comply with the domain name structures and hostname specifications outlined in RFC 1034, RFC 1035, and RFC 1123. Valid domain names include alphanumeric characters, hyphens (not at the start or end), and can have subdomains separated by dots. Here are a few examples to demonstrate compliant naming conventions for domain and hostnames.
   
 - `contoso.com`: The base domain, serving as a second-level domain under the .com top-level domain.
 - `sales.contoso.com`: A subdomain of contoso.com, serving as a third-level domain under the .com top-level domain.
