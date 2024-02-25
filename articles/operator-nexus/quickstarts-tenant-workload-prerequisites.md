@@ -185,7 +185,16 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 
 #### Create a cloud services network
 
-Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cluster, you must have a cloud services network. Without this network, you can't create a VM or cluster.
+
+While the proxy automatically enables access to essential platform endpoints, you need to manually add others, such as docker.io, if your application requires them. Configuring the cloud services network is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcarding the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pulling from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
+
+The egress endpoints must comply with the domain name structures and hostname specifications outlined in RFC 1034, RFC 1035, and RFC 1123. Here are a few examples to demonstrate compliant naming conventions for domain and hostnames.
+  
+- `contoso.com`: The base domain, serving as a second-level domain under the .com top-level domain.
+- `sales.contoso.com`: A subdomain of contoso.com, serving as a third-level domain under the .com top-level domain.
+- `web-server-1.contoso.com`: A hostname for a specific web server, using hyphens to separate the words and the numeral.
+- `api.v1.contoso.com`: Incorporates two subdomains (`v1` and `api`) above the base domain contoso.com.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -224,6 +233,8 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 
 ---
 
+Once you have the cloud services network, you can create a VM or cluster with it to enable connectivity to the configured egress endpoints. It's important to note that the proxy only supports HTTPS.
+
 #### Using the proxy to reach outside of the virtual machine
 
 After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you can use the tenant proxy to reach outside of the virtual machine. This proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
@@ -239,8 +250,6 @@ After setting the environment variables, your virtual machine can reach outside 
 
 > [!NOTE]
 > HTTP is not supported due to security reasons when using the proxy to access resources outside of the virtual machine. It is required to use HTTPS for secure communication when managing packages or installing software on the Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network.
-
-Configuring the proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcarding the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pulling from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
 
 > [!IMPORTANT]
 > When using a proxy, it's also important to set the `no_proxy` environment variable properly. This variable can be used to specify domains or IP addresses that shouldn't be accessed through the proxy. If not set properly, it can cause issues while accessing services, such as the Kubernetes API server or cluster IP. Make sure to include the IP address or domain name of the Kubernetes API server and any cluster IP addresses in the `no_proxy` variable.
