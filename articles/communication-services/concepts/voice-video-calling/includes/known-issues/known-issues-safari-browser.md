@@ -15,11 +15,11 @@ ms.custom: template-how-to
 ## Safari Desktop
 ___
 
-### On MacOS Safari 17 and up, video background effects might cause video flashing, both in local preview and on the remote side
+### On macOS Safari 17 and up, video background effects might cause video flashing, both in local preview and on the remote side
 
 **Browser version:** Safari 17 and up. <br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** A bug was found in one of the updates of the MacOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
+**Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
 **Recommended workaround:** Await a forthcoming update or patch from Apple.
 
 ### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3.
