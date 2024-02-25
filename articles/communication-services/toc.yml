@@ -780,10 +780,10 @@ items:
       href: concepts/voice-video-calling/user-experience.md
     - name: Known Issues
       items:    
-    - name: WebJS calling SDK
-      href: concepts/voice-video-calling/known-issues-webjs.md
-    - name: Call Automation
-      href: concepts/voice-video-calling/known-issues-call-automation.md
+      - name: WebJS calling SDK
+        href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Call Automation
+        href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
     items:
     - name: Overview

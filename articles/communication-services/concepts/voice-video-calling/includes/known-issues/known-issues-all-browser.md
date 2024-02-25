@@ -12,14 +12,14 @@ ms.subservice: calling
 ms.custom: template-how-to
 ---
 
-### All Desktop browsers
+## All Desktop browsers
 
 
 ### It isn't possible to render multiple previews from multiple devices on web
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** It isn't possible to render multiple previews from multiple devices on web. This issue is a known limitation.<br>
-**Known issue reference:** For more information, see [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).<br>
+**Known issue reference:** For more information, see [Calling SDK overview](../../../voice-video-calling/calling-sdk-features.md).<br>
   
 
 ### Repeatedly switching video devices might cause video streaming to stop temporarily
@@ -41,7 +41,7 @@ ms.custom: template-how-to
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** During an ongoing group call, suppose that *User A* sends video, and then *User B* joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay.<br>
-**Known issue reference:** For more information [Network recommendations](../../voice-video-calling/network-requirements.md).<br>
+**Known issue reference:** For more information [Network recommendations](../../../voice-video-calling/network-requirements.md).<br>
 
 ### Excessive use of certain APIs like mute/unmute results in throttling on Azure Communication Services infrastructure
 **Browser version:** All.<br>
@@ -51,14 +51,14 @@ ms.custom: template-how-to
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
 <br>
 
-### All mobile browser
+## All mobile browser
 
 
 ### It isn't possible to render multiple previews from multiple devices on web
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** It isn't possible to render multiple previews from multiple devices on web. This issue is a known limitation.<br>
-**Known issue reference:** For more information, see [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).<br>
+**Known issue reference:** For more information, see [Calling SDK overview](../../../voice-video-calling/calling-sdk-features.md).<br>
 
 ### Repeatedly switching video devices might cause video streaming to stop temporarily
 **Browser version:** All.<br>
@@ -78,7 +78,7 @@ Excessive use of mute/unmute is blocked in Azure Communication Services infrastr
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** During an ongoing group call, suppose that *User A* sends video, and then *User B* joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay.<br>
-**Known issue reference:** For more information [Network recommendations](../../voice-video-calling/network-requirements.md). <br>
+**Known issue reference:** For more information [Network recommendations](../../../voice-video-calling/network-requirements.md). <br>
 
  ### Excessive use of certain APIs like mute/unmute results in throttling on Azure Communication Services infrastructure
 **Browser version:** All.<br>

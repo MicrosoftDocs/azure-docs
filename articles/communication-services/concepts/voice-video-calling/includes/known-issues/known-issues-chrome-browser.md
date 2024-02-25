@@ -83,12 +83,11 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 ### Camera switching makes the screen freeze - Google Pixel 4a
 **Device affected:** Google Pixel 4a.<br>
 **Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.<br>
 
-  **Azure Communication Service calling SDK version:** All.<br>
-  **Description:** When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.<br>
 
-
-## iOS Chrme
+## iOS Chrome
 
 ### No outgoing and incoming audio when switching browser to background or locking the device - fixed in iOS version 16.4+
 **iOS version:** All iOS versions up to iOS 16.3.<br>

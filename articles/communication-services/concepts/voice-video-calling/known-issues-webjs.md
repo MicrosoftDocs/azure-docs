@@ -14,7 +14,7 @@ zone_pivot_groups: acs-web-safari-chrome-firefox-known-issues
 ---
 
 # Known issues in  Azure Communication Services calling WebJS SDKs
-This article provides information about related to the Azure Communication Services WebJS calling SDK.
+This article provides known issues related to using the  Azure Communication Services WebJS calling SDK.
 
 ::: zone pivot="all-browsers"
 [!INCLUDE [All browsers](./includes/known-issues/known-issues-all-browser.md)]
@@ -25,10 +25,10 @@ This article provides information about related to the Azure Communication Servi
 ::: zone-end
 
 ::: zone pivot="chrome-browser"
-[!INCLUDE [Safari browser](./includes/known-issues/known-issues-chrome-browser.md)]
+[!INCLUDE [Chrome browser](./includes/known-issues/known-issues-chrome-browser.md)]
 ::: zone-end
 
 ::: zone pivot="firefox-browser"
-[!INCLUDE [Safari browser](./includes/known-issues/known-issues-firefox-browser.md
+[!INCLUDE [Firefox browser](./includes/known-issues/known-issues-firefox-browser.md)]
 ::: zone-end
 ---

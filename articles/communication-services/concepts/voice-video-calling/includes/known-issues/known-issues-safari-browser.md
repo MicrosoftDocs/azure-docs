@@ -30,7 +30,7 @@ ___
 **Recommended workaround:** Consider updating to the latest macOS/Safari version..<br>
 
 
-## Safari Mobile
+## Safari iOS Mobile
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 **iOS version:** iOS versions 16 to 16.1.<br>
