@@ -1005,14 +1005,6 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 **Type**: Vulnerability Assessment
 
-### [AWS registry container images should have vulnerabilities resolved - (powered by Trivy)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03587042-5d4b-44ff-af42-ae99e3c71c87)
-
-**Description**: Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
-
-**Severity**: High
-
-**Type**: Vulnerability Assessment
-
 ## Data recommendations
 
 ### [(Enable if required) Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/814df446-7128-eff0-9177-fa52ac035b74)
