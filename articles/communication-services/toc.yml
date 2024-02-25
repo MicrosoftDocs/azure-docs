@@ -778,8 +778,8 @@ items:
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
-    - name: Known issues
-      href: concepts/known-issues.md
+    - name: Known issues WebJS calling
+      href: concepts/voice-video-calling/known-issues-webjs.md
   - name: Chat
     items:
     - name: Overview

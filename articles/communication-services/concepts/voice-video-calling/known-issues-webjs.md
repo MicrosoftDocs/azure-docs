@@ -1,0 +1,33 @@
+---
+title: Azure Communication Services - known issues
+description: Learn more about Azure Communication Services known issues
+author: sloanster
+services: azure-communication-services
+
+ms.author: micahvivion
+ms.date: 02/24/2024
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.custom: devx-track-js
+zone_pivot_groups: acs-web-safari-chrome-firefox-known-issues
+---
+
+# Known issues in  Azure Communication Services calling WebJS SDKs
+This article provides information about related to the Azure Communication Services WebJS calling SDK.
+
+::: zone pivot="all-browsers"
+[!INCLUDE [All browsers](../concepts/voice-video-calling/includes/known-issues/known-issues-all-browser.md)]
+::: zone-end
+
+::: zone pivot="safari-browser"
+[!INCLUDE [Safari browser](../concepts/voice-video-calling/includes/known-issues/known-issues-safari-browser.md)]
+::: zone-end
+
+::: zone pivot="chrome-browser"
+[!INCLUDE [Safari browser](../concepts/voice-video-calling/includes/known-issues/known-issues-chrome-browser.md)]
+::: zone-end
+
+::: zone pivot="firefox-browser"
+[!INCLUDE [Safari browser](../concepts/voice-video-calling/includes/known-issues/known-issues-firefox-browser.md)]
+::: zone-end
+---
