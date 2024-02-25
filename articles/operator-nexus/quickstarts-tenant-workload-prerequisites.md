@@ -258,7 +258,7 @@ After setting the proxy environment variables, your virtual machine will be able
 
 When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it across multiple racks. This technique can improve resource utilization and fault tolerance.
 
-If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
+If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule to spread the VM across racks and bare metal nodes. This rule also aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 
