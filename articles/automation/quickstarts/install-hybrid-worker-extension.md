@@ -1,7 +1,7 @@
 ---
-title: Azure Quickstart - Install Hybrid Worker extension on Azure portal
+title: Azure Quickstart - Install Hybrid Worker extension on Azure portal.
 titleSuffix: Azure Automation
-description: This article helps you get startedon how to install Hybrid Worker extension on Azure portal
+description: This article helps you get started on how to install Hybrid Worker extension on Azure portal.
 services: automation
 keywords: hybrid worker extension, automation
 ms.date: 02/25/2024
@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 # Quickstart: Install Hybrid Worker extension on Virtual Machines using the Azure Portal
 
-Azure Automation User Hybrid Worker enables execution of PowerShell and Python scripts directly on machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. You can configure Windows & Linux Azure Virtual Machine. [Azure Arc-enabled Server](../../azure-arc/servers/overview.md), [Arc-enabled VMware vSphere VM](../../azure-arc/vmware-vsphere/overview.md) and [Azure Arc-enabled SCVMM](../../azure-arc/system-center-virtual-machine-manager/overview.md) as User Hybrid Worker by installing Hybrid Worker extension.
+The Azure Automation User Hybrid Worker enables execution of PowerShell and Python scripts directly on machines for managing guest workloads or as a gateway to environments that aren't accessible from Azure. You can configure Windows & Linux Azure Virtual Machine. [Azure Arc-enabled Server](../../azure-arc/servers/overview.md), [Arc-enabled VMware vSphere VM](../../azure-arc/vmware-vsphere/overview.md), and [Azure Arc-enabled SCVMM](../../azure-arc/system-center-virtual-machine-manager/overview.md) as User Hybrid Worker by installing Hybrid Worker extension.
 
 This quickstart shows you how to install Azure Automation Hybrid Worker extension on an Azure Virtual Machine through the Extensions blade on Azure portal. 
 
@@ -20,24 +20,35 @@ You can follow similar steps for installing Hybrid Worker extension on all other
 
 ## Prerequisites
 
-- An Azure Automation account in a supported region
+- An Azure Automation account in a supported region.
 - A Windows Azure Virtual machine on which Hybrid Worker extension would be installed.
 - Enable system-assigned managed identity on Azure Virtual machine. If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process. For more information, see [detailed prerequisites](../extension-based-hybrid-runbook-worker-install.md).
-- 
 
+## Install Hybrid Worker Extension
 
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for Virtual machines.
+1. In the **Virtual machines** page, from the list, select the machine on which you want to install Hybrid worker extension.
+1. Under **Settings**, select **Extensions + applications** for Azure VMs or select **Extensions**.
 
-Ihttps://learn.microsoft.com/en-us/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows%2Cbicep-template#prerequisites
+   :::image type="content" source="./media/install-hybrid-worker-extension/select-extensions.png" alt-text="Screenshot that shows the menu option to install extensions." lightbox="./media/install-hybrid-worker-extension/select-extensions.png":::
 
-
-
+ 1. Select **+Add**, and in the **Install an Extension**, search and select for **Azure Automation Windows Hybrid Worker** from the list, and then select  **Next**.
  
+    :::image type="content" source="./media/install-hybrid-worker-extension/select-hybrid-worker.png" alt-text="Screenshot that shows the search option to select Automation Windows Hybrid Worker." lightbox="./media/install-hybrid-worker-extension/select-hybrid-worker.png":::
 
+1. Complete the installation by providing the Automation Account Name, Automation Account Region, and Automation Account Hybrid Runbook Worker Group Name, where you want to add the machine selected in Step 2.
+
+   > [!NOTE]
+   > If you don't have an existing Automation account or Hybrid Runbook Worker Group, provide the new names, and resources would be created automatically in your subscription.  
  
+    :::image type="content" source="./media/install-hybrid-worker-extension/configure-hybrid-worker-extension.png" alt-text="Screenshot that shows how to configure Automation Windows Hybrid Worker Extension." lightbox="./media/install-hybrid-worker-extension/configure-hybrid-worker-extension.png":::
+    
+1. After you confirm the required information, select **Review+ Create**.
+
+A summary of the deployment is displayed and you can review the status of the deployment. The Hybrid Worker extension gets installed on the machine and the Hybrid Worker gets registered to the Hybrid Worker group. The machine can now be used to execute Azure Automation jobs.  
 
 ## Next steps
 
-In this quickstart, you enabled an Azure Linux VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
+ To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).
 
-> [!div class="nextstepaction"]
-> [Set up continuous deployment with Chocolatey](../automation-dsc-cd-chocolatey.md)
+- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
