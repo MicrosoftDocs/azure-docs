@@ -26,7 +26,7 @@ The following image shows a sample of the DELL XE4 SFF back panel:
 
 The following image shows the DELL XE4 SFF dust filter installation and maintenance:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the dust filter of the DELL XE4 SFF." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the dust filter of the DELL XE4 SFF." border="true":::
 
 ## Specifications
 <!-- note website gives different values for weights-->
