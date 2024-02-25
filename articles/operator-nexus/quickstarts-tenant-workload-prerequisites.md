@@ -246,7 +246,7 @@ export HTTPS_PROXY=http://169.254.0.11:3128
 export https_proxy=http://169.254.0.11:3128
 ```
 
-After setting the environment variables, your virtual machine can reach outside of the virtual network using the proxy.
+After setting the proxy environment variables, your virtual machine will be able to reach the configured egress endpoints.
 
 > [!NOTE]
 > HTTP is not supported due to security reasons when using the proxy to access resources outside of the virtual machine. It is required to use HTTPS for secure communication when managing packages or installing software on the Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network.
