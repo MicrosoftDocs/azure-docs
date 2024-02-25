@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 # Known issues in the SDKs and APIs
 
-These articles provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
+These articles provide information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).
