@@ -15,8 +15,8 @@ The DELL XE4 SFF is also available for the on-premises management console. <!-- 
 |---------|---------|
 |**Hardware profile** | L500 |
 |**Performance** | Max bandwidth: 25 Mbps <br>Max devices: 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
-|**Physical specifications** | Mounting: Small Form Factor <br> orts: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors<br>Minimum dimensions (H x W x D) 11.42 x 3.65 x 11.53 in<br>Minimum dimensions (H x W x D) 29.00 x 9.26 x 29.28 cm|
-|**Status** | Supported, available pre-configured |
+|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors<br>Minimum dimensions (H x W x D) 11.42 x 3.65 x 11.53 in<br>Minimum dimensions (H x W x D) 29.00 x 9.26 x 29.28 cm|
+|**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:
 
@@ -26,29 +26,30 @@ The following image shows a sample of the DELL XE4 SFF back panel:
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-rear-view.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
 
-The following image shows the DELL XE4 SFF dust filter installation and maintanance:
+The following image shows the DELL XE4 SFF dust filter installation and maintenance:
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
 
 ## Specifications
-
+<!-- note website gives different values for weights-->
 |Component|Technical specifications|
 |----|----|
 |Construction |Small Form Factor |
 |Dimensions |1. Width: 6.65 in. (169.00 mm) <br>2. Depth: 11.84 in. (300.80 mm)  <br>3. Height: 14.45 in. (367.00 mm) |
-|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54kg) |
+|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54 kg) **website gives different values** Weight (min): 9.27 lb. (4.20 kg)
+Weight (max): 12.42 lb (5.63 kg)|
 |CPU |12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |
-|Memory |8GB (1x8GB) DDR4 Non-ECC Memory |
-|Storage |M.2 2280 512GB PCIe NVMe Class 40 Solid State Drive |
+|Memory |8 GB (1x8GB) DDR4 Non-ECC Memory |
+|Storage |M.2 2280 512-GB PCIe NVMe Class 40 Solid State Drive |
 |Network controller |Built-in 1x1Gbps  |
 |Device access | |
-|Power Adapter |300W internal power supply unit (PSU), 92% Efficient PSU, 80 Plus Platinum |
+|Power Adapter |300 W internal power supply unit (PSU), 92% Efficient PSU, 80 Plus Platinum |
 |PWS |300 W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |
 |Temperature |5°C to 45°C (41°F to 113°F) |
 |Dust Filter |Dell XE4 optional dust filter fits over the front of the chassis and safeguards internal components in areas such as factory, warehouse, and retail environments without impeding air flow. |
 |Humidity |20% to 80% (non-condensing, Max dew point temperature = 26°C) |
 |Vibration |0.26 GRMS random at 5 Hz to 350 Hz |
-|Shock |Bottom/Right half-sine pulse 40G, 2ms |
+|Shock |Bottom/Right half-sine pulse 40G, 2 ms |
 |EMC |Product Safety, EMC and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
 
 ## DELL XE4 SFF - Bill of Materials
@@ -56,8 +57,8 @@ The following image shows the DELL XE4 SFF dust filter installation and maintana
 |Type|Description|PN|Quantity|
 |----|---|----|----|
 |Processor|12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |338-CCYL|1|
-|Memory| 8GB (1x8GB) DDR4 Non-ECC Memory |370-AGFP |1 |
-|Storage |M.2 2280 512GB PCIe NVMe Class 40 Solid State Drive |400-BMWH |1 |
+|Memory| 8 GB (1x8GB) DDR4 Non-ECC Memory |370-AGFP |1 |
+|Storage |M.2 2280 512 GB PCIe NVMe Class 40 Solid State Drive |400-BMWH |1 |
 |Storage |M.2 22x30 Thermal Pad |412-AAQT |1 |
 |Storage |M2X3.5 Screw for SSD/DDPE |773-BBBC |1 |
 |Speakers |Internal Speaker |520-AARD |1 |
@@ -84,7 +85,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintana
 |Processor Label |Intel Core i5 Processor Label |340-CUEW |1 |
 |Raid Connectivity |NO RAID |817-BBBN |1 |
 |Transportation from ODM to region |Desktop BTO Standard shipment |800-BBIO |1 |
-|Bezel |OEM,BRAND,XE4SFF,RM7WS2MN-V2,NOM,AVIGILON |325-BFBS |1 |
+|Bezel |OEM, BRAND, XE4SFF, RM7WS2MN-V2, NOM, AVIGILON |325-BFBS |1 |
 |Bezel |OEM Badge Small Form Factor |340-DBRM |1 |
 |Bezel |Client ID Module info mod for no apps on OEM Client platform projects |750-ABLB |1 |
 |OEMR XE4 Small Form Factor |OptiPlex XE4 Small Form Factor OEM-Ready |210-BDLO |1 |
@@ -96,10 +97,10 @@ The following image shows the DELL XE4 SFF dust filter installation and maintana
 |Label |Regulatory Label XE4 OEM SFF EMEA |389-EEGP |1 |
 |Operating System |Ubuntu Linux 20.04 |605-BBNY |1 |
 |Operating System Recovery Options |No Media |620-AAOH |1 |
-|Dell Services: Extended Service |ProSupport and Next Business Day Onsite Service Initial (Emerging only), 15 Month(s) |199-BINT |1 |
-|Dell Services: Extended Service |ProSupport and Next Business Day Onsite Service Extension (Emerging only), 21 Month(s) |199-BINU |1 |
+|Dell Services: Extended Service |ProSupport and Next Business Day Onsite Service Initial (Emerging only), 15 Months |199-BINT |1 |
+|Dell Services: Extended Service |ProSupport and Next Business Day Onsite Service Extension (Emerging only), 21 Months |199-BINU |1 |
 |Dell Services: Hardware Support |Parts Only Warranty 15 Months |709-BDHS |1 |
-|Dell Services:GCP/OEM PM |CSO OEM Solution Client Program Support, EMEA |683-17925 |1 |
+|Dell Services: GCP/ OEM PM |CSO OEM Solution Client Program Support, EMEA |683-17925 |1 |
 
 ## Optional port expansion
 
@@ -107,31 +108,31 @@ Optional modules for port expansion include:
 
 |Description| PN|Quantity|
 |--------------|--------------|---------|
-|Dell Intel Ethernet i350 Quad Port 1GbE Base-T Adapter PCIe Full Height |540-BDLF |1|
-|Intel 1GB Single Port PCIe Network card (half height) |540-BBMO |1 |
-|Intel X710 Dual Port 10GbE SFP+ Adapter | 540-BDQZ |1|
+|Dell Intel Ethernet i350 Quad Port 1 GbE Base-T Adapter PCIe Full Height |540-BDLF |1|
+|Intel 1 GB Single Port PCIe Network card (half height) |540-BBMO |1 |
+|Intel X710 Dual Port 10 GbE SFP+ Adapter | 540-BDQZ |1|
 
-### Setup the Dell XE4 BIOS
+### Set up the Dell XE4 BIOS
 <!-- is this h3 heading?-->
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
-In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+If any of the steps are missing in the BIOS, make sure that the hardware matches the specifications above.
 Set up the Dell XE4 BIOS to achieve optimal performance for sensors.
 
 **To configure the Dell XE4 BIOS**:
 <!-- how to bold etc the names and -> -->
-1. Setup “Boot Mode”
+1. Set up “Boot Mode”
 
     1. Go to -> System setup options -> Boot Configuration menu -> Boot Mode
 
     1. Set to UEFI Only
 
-1. Setup installation boot from USB/DVD (as applicable)
+1. Set up installation boot from USB/DVD (as applicable)
 
     1. Go to -> System setup options -> Boot Configuration menu -> Boot Sequence
 
     1. Select the installation disk drive as the first option
 
-1. Setup “Restart on Power Loss”
+1. Set up “Restart on Power Loss”
 
     1. Go to -> System setup options -> Power Menu -> AC Behavior
 
