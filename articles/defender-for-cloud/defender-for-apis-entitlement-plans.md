@@ -20,10 +20,10 @@ When selecting a plan, consider the following important points:
 
 To select the best plan for your subscription from Microsoft Defender for Cloud pricing page, follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
 
-    > [!NOTE]
-    > You need to have the appropriate permissions on the subscription to pick a plan when you turn on Microsoft Defender for APIs. Refer to the [roles and permission requirements](defender-for-apis-prepare.md). You must select a plan that grants entitlement appropriate for the API traffic volume in your subscription to receive the most optimal pricing. By default, subscriptions are opted into "Plan 1", which can lead to unexpected overages if your subscription has API traffic higher than the [1 million API calls entitlement](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/18).
+  > [!NOTE]
+  > You need to have the appropriate permissions on the subscription to pick a plan when you turn on Microsoft Defender for APIs. Refer to the [roles and permission requirements](defender-for-apis-prepare.md). 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Environment Settings** and select the Azure Subscription that either has Defender for APIs enabled or the one that you wish to enable.
 
     :::image type="content" source="media/defender-for-apis-entitlement-plans/select-environment-settings.png" alt-text="Screenshot that shows where to select Environment settings." lightbox="media/defender-for-apis-entitlement-plans/select-environment-settings.png":::
@@ -35,7 +35,9 @@ To select the best plan for your subscription from Microsoft Defender for Cloud 
 1. Select the plan that is suitable for your subscription. 
 1. Select **Save**. 
 
-## Selecting the optimal plan based on historical Azure API Management API traffic usage 
+## Selecting the optimal plan based on historical Azure API Management API traffic usage
+
+You must select a plan that grants entitlement appropriate for the API traffic volume in your subscription to receive the most optimal pricing. By default, subscriptions are opted into "Plan 1", which can lead to unexpected overages if your subscription has API traffic higher than the [1 million API calls entitlement](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/18). 
 
 To estimate the monthly API traffic in Azure API Management, do the following steps: 
 
@@ -52,7 +54,6 @@ To estimate the monthly API traffic in Azure API Management, do the following st
     1. Aggregation = **Sum**
     
 1. After setting the above parameters, the query will automatically run, and the total number of requests for the past 30 days appear at the bottom of the screen (in the screenshot example, the query results in 414 total number of requests).
-
 
     :::image type="content" source="media/defender-for-apis-entitlement-plans/metrics-results.png" alt-text="Screenshot that shows metrics results." lightbox="media/defender-for-apis-entitlement-plans/metrics-results.png":::
 
