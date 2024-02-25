@@ -10,25 +10,25 @@ ms.topic: reference
 This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines.
 
 The DELL XE4 SFF is also available for the on-premises management console. <!-- remove?-->
-
+<!-- check correct device number-->
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** | Max bandwidth: 25 Mbps <br>Max devices: 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
+|**Performance** | Max bandwidth: 25 Mbps <br>Max devices: **what is correct number here?** 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
 |**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors<br>Minimum dimensions (H x W x D) 11.42 x 3.65 x 11.53 in<br>Minimum dimensions (H x W x D) 29.00 x 9.26 x 29.28 cm|
 |**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-front-view.png" alt-text="Photo of the front view of the DELL XE4 SFF." border="false":::
 
 The following image shows a sample of the DELL XE4 SFF back panel:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-rear-view.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-rear-view.png" alt-text="Photo of the back view of the DELL XE4 SFF." border="false":::
 
 The following image shows the DELL XE4 SFF dust filter installation and maintenance:
 
-:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
+:::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the dust filter of the DELL XE4 SFF." border="false":::
 
 ## Specifications
 <!-- note website gives different values for weights-->
@@ -155,7 +155,7 @@ To install Defender for IoT software:
 
 1. Start the appliance.
 
-1. Continue by installing your Defender for IoT software. For more information, see [Defender for IoT software installation](/ot-deploy/install-software-ot-sensor.md#install-defender-or-iot-software-on-ot-sensors).
+1. Continue by installing your Defender for IoT software. For more information, see [Defender for IoT software installation](../ot-deploy/install-software-ot-sensor.md#install-defender-or-iot-software-on-ot-sensors).
 <!-- what to change here?-->
 ## Next steps
 
