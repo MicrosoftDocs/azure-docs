@@ -77,7 +77,23 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 > - AMA versions **1.28.11** and above receive logs on **TCP port 28330**.
 > - Earlier versions of AMA receive logs via Unix domain socket.
 
-## Set up the Common Event Format (CEF) via AMA connector
+## Set up the data connectors
+
+# [Syslog](#tab/syslog)
+
+### Set up the Syslog via AMA connector
+
+The setup process for the Syslog via AMA connector has two parts:
+
+1. **Install the Azure Monitor Agent and create a Data Collection Rule (DCR)**.
+    - [Using the Azure portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr)
+    - [Using the Azure Monitor Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr)
+
+1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
+
+# [CEF](#tab/cef)
+
+### Set up the Common Event Format (CEF) via AMA connector
 
 The setup process for the CEF via AMA connector has two parts:
 
@@ -85,18 +101,25 @@ The setup process for the CEF via AMA connector has two parts:
     - [Using the Azure portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr)
     - [Using the Azure Monitor Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr)
 
-1. [**Run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon.
+1. [**Run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
+
+---
 
 ### Prerequisites
 
-- You must have the Microsoft Sentinel **Common Event Format** solution enabled.
+- You must have the appropriate Microsoft Sentinel solution enabled&mdash;**Syslog** and/or **Common Event Format**.
+
 - Your Azure account must have the following roles/permissions:
 
   | Built-in role | Scope | Reason |
   | ------------- | ----- | ------ |
-  | <li>[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)<li>[Azure Connected Machine<br>Resource Administrator](../role-based-access-control/built-in-roles.md) | <li>Virtual machines<li>VM scale sets<li>Azure Arc-enabled servers | To deploy the agent |
-  | <li>Any role that includes the action<br>*Microsoft.Resources/deployments/\** | <li>Subscription<li>Resource group<li>Existing data collection rule | To deploy Azure Resource Manager templates |
-  | <li>[Monitoring Contributor](../role-based-access-control/built-in-roles.md) | <li>Subscription<li>Resource group<li>Existing data collection rule | To create or edit data collection rules |
+  | - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)<br>- [Azure Connected Machine<br>&nbsp;&nbsp;&nbsp;Resource Administrator](../role-based-access-control/built-in-roles.md) | <li>Virtual machines<li>VM scale sets<li>Azure Arc-enabled servers | To deploy the agent |
+  | Any role that includes the action<br>*Microsoft.Resources/deployments/\** | <li>Subscription<li>Resource group<li>Existing data collection rule | To deploy Azure Resource Manager templates |
+  | [Monitoring Contributor](../role-based-access-control/built-in-roles.md) | <li>Subscription<li>Resource group<li>Existing data collection rule | To create or edit data collection rules |
+
+#### Log forwarder prerequisites
+
+If you're collecting messages from a log forwarder, the following additional prerequisites apply:
 
 - You must have a designated Linux VM (your **Log forwarder**) to collect logs.
     - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
@@ -126,6 +149,8 @@ To avoid this scenario, use one of these methods:
     where ProcessName !contains "CEF"
     ```
 
+For more details on how to ingest both Syslog and CEF messages from the same agent, see [Ingest log messages in both the CEF and Syslog format](connect-cef-syslog.md).
+
 #### Log forwarder security considerations
 
 Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](../virtual-machines/security-policy.md), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).
@@ -138,13 +163,40 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 ### Install the AMA and create a Data Collection Rule (DCR)
 
 You can perform this step in one of two ways:
-- Deploy and configure the **CEF via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
+- Deploy and configure the **Syslog via AMA** and/or **CEF via AMA** data connectors in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
     **&mdash;OR&mdash;**
 - Send HTTP requests to the [Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
 Select the appropriate tab below to see the instructions for each way.
 
-# [Microsoft Sentinel portal](#tab/portal)
+# [Microsoft Sentinel portal](#tab/portal/syslog)
+
+#### Open the connector page and start the DCR wizard
+
+1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
+
+1. Select **Data connectors** from the navigation menu
+
+1. Type *Syslog* in the **Search** box. From the results, select the **Syslog via AMA** connector.
+
+1. Select **Open connector page** on the details pane.
+
+1. In the **Configuration** area, select **+Create data collection rule**. 
+
+    :::image type="content" source="media/connect-cef-ama/cef-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
+
+1. In the **Basic** tab: 
+    - Type a DCR name.
+    - Select your subscription.
+    - Select the resource group where your collector is defined.
+
+    :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basic tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
+
+1. Select **Next: Resources >**.
+
+
+
+# [Microsoft Sentinel portal](#tab/portal/cef)
 
 #### Open the connector page and start the DCR wizard
 

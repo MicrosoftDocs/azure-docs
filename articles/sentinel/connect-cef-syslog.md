@@ -1,6 +1,6 @@
 ---
-title: Stream logs in both the CEF and Syslog format to Microsoft Sentinel 
-description: Stream and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace.
+title: Ingest log messages in both the CEF and Syslog format to Microsoft Sentinel 
+description: Ingest and filter log messages in both the CEF and Syslog format to your Microsoft Sentinel workspace.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -8,22 +8,20 @@ ms.date: 02/09/2023
 #Customer intent: As a security operator, I want to stream and filter CEF an Syslog-based logs from my organization to my Microsoft Sentinel workspace, so I can avoid duplication between CEF and Syslog data.   
 ---
 
-# Stream logs in both the CEF and Syslog format
+# Ingest log messages in both the CEF and Syslog format
 
-This article describes how to stream and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace from multiple appliances. This article is useful in the following scenario:
+This article describes how to ingest and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace from multiple devices from a single collector. This article is useful in the following scenario:
 
 - You're using a Linux log collector to forward both Syslog and CEF events to your Microsoft Sentinel workspaces using the Azure Monitor Agent (AMA). 
-- You want to ingest Syslog events in the Syslog table and CEF events in the CommonSecurityLog table.
+- You want to ingest Syslog events in the *Syslog* table and CEF events in the *CommonSecurityLog* table.
 
 During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. 
 
-Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+Learn how to [ingest Syslog or CEF messages with the Azure Monitor Agent](connect-cef-syslog-ama.md), including using Microsoft Sentinel data connectors to create a DCR.
 
 > [!IMPORTANT]
 >
 > On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
-
-Read more about [CEF](connect-cef-ama.md#what-is-common-event-format-cef) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
 
 ## Prerequisites
 
@@ -36,7 +34,7 @@ Before you begin, verify that you have:
     - For space requirements for your log forwarder, see the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review this blog post, which includes [designs for scalable ingestion](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516).
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
-- To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. [Configure a log forwarder](connect-cef-ama.md#how-microsoft-sentinel-collects-cef-logs-with-the-azure-monitor-agent).
+- To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. For more information, see [Overview](connect-cef-syslog-ama.md#overview).
 
 ## Avoid data ingestion duplication
 
