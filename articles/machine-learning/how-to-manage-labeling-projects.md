@@ -290,7 +290,7 @@ Import from either a COCO file or an Azure MLTable data asset.
 
 ### Import options
 
-[!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
+[!INCLUDE [mapping](includes/machine-learning-data-labeling-import.md)]
 
 #### [Text projects](#tab/text)
 

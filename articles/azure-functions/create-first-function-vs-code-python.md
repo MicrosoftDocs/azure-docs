@@ -28,7 +28,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 There's also a [CLI-based version](create-first-function-cli-python.md) of this article.
 
-This video shows you how to create a Python function in Azure using VS Code.
+This video shows you how to create a Python function in Azure using Visual Studio Code.
 > [!VIDEO a1e10f96-2940-489c-bc53-da2b915c8fc2]
 
 The steps in the video are also described in the following sections.
@@ -39,7 +39,7 @@ Before you begin, make sure that you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
++ A Python version that is [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -58,7 +58,7 @@ Before you begin, make sure that you have the following requirements in place:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in Python. Later in this article, you'll publish your function code to Azure.
+In this section, you use Visual Studio Code to create a local Azure Functions project in Python. Later in this article, you publish your function code to Azure.
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
@@ -90,8 +90,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Authorization level**| Choose `ANONYMOUS`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.   
- 
-5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
+<!--- Remove these last steps after the next Core Tools version is released (4.28.0)---> 
+5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model when running locally.  
 
 6. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
 
@@ -99,7 +99,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     ```
 
-    This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
+    This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
 
 ## Start the emulator
 
@@ -110,7 +110,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+After you verify that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -153,27 +153,13 @@ In this section, you create a function app and related resources in your Azure s
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
-::: zone pivot="python-mode-decorators"
-## Update app settings
-
-To use the Python v2 model in your function app, you need to add a new application setting in Azure named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-
-1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
-
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-
-The setting added to your new function app, which enables it to run the v2 model in Azure. 
-::: zone-end
-
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to create a function app with a simple HTTP-triggered function. In the next articles, you expand that function by connecting to Azure Cosmos DB and Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
+You created and deployed a function app with a simple HTTP-triggered function. In the next articles, you expand that function by connecting to a storage service in Azure. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python)
