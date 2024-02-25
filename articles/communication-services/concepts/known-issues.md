@@ -1,28 +1,15 @@
 ---
 title: Azure Communication Services - known issues
 description: Learn more about Azure Communication Services
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 06/30/2021
+ms.author: micahvivion
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: devx-track-js
-zone_pivot_groups: acs-web-safari-chrome-firefox-known-issues
----
-
-# Best practices: Azure Communication Services calling SDKs
-This article provides information about best practices related to the Azure Communication Services calling SDKs.
-
-::: zone pivot="platform-web"
-[!INCLUDE [Web](includes/best-practices-web.md)]
-::: zone-end
-
-::: zone pivot="platform-native"
-[!INCLUDE [Native](includes/best-practices-native.md)]
-::: zone-end
 ---
 
 # Known issues in the SDKs and APIs
