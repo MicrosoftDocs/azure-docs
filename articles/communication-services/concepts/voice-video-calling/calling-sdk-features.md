@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
-Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
+Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
@@ -166,10 +166,19 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK does not enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+
+## Supported video resolutions
+The Azure Communicaton Services Calling SDK support up to the following video resolutions:
+
+| Maximum video resolution | WebJS | iOS | Android | Windows |
+| ------------- | ----- | ----- | ------- | ------- |
+| **Receiving video** | 1080P | 1080P | 1080P   | 1080P   |
+| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
+
+The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters.
 
 ## Calling SDK timeouts
-
 The following timeouts apply to the Communication Services Calling SDKs:
 
 | Action                                                                      | Timeout in seconds |

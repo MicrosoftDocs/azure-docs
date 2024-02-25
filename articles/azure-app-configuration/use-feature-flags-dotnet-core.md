@@ -30,7 +30,7 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
-To access the .NET feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
+To access the .NET feature manager, your app must have references to the `Microsoft.Azure.AppConfiguration.AspNetCore` and `Microsoft.FeatureManagement.AspNetCore` NuGet packages.
 
 The .NET feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET supports, including the local `appsettings.json` file or environment variables.
 

@@ -54,7 +54,7 @@ A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the
 
 **Q. How do I manage my reserved instances for MariaDB?**
 
-A. Since MariaDB service is on deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 1 2025 when MariaDB service will no longer be available. 
+A. Since MariaDB service is on deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 19 2025 when MariaDB service will no longer be available. You can exchange your existing MariaDB reservations to MySQL reservations.
 
 **Q. After the Azure Database for MariaDB retirement announcement, what if I still need to create a new MariaDB server to meet my business needs?**
 

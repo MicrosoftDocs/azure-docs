@@ -37,11 +37,11 @@ The Connected Machine agent supports local configurations that allow you to set 
 
 For Windows:
 
-`azcmagent config set extensions.blocklist " microsoft.cplat.core/runcommandhandlerwindows"`
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerwindows"`
 
 For Linux:
 
-`azcmagent config set extensions.blocklist " microsoft.cplat.core/runcommandhandlerlinux"`
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
 
 
 ## Azure CLI

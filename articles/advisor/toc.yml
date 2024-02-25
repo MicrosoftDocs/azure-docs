@@ -42,6 +42,8 @@
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
+  - name: Use Azure Well Architected Framework Assessments
+    href: advisor-assessments.md
   - name: Optimize virtual machine spend by resizing or shutting down underutilized instances
     href: advisor-cost-recommendations.md
   - name: Optimize your Azure costs using the cost optimization workbook 

@@ -57,7 +57,7 @@ The following section describes the steps that should be taken to use Azure Appl
    Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
 
-   B.    The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection)             adds a role assignment to the application gateway with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles.md#all). This role assignment is defined in the resources section of template with PrincipalId and a role definition ID                   determined from the first step. 
+   B.    The [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-AppGateway)             adds a role assignment to the application gateway with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles.md). This role assignment is defined in the resources section of template with PrincipalId and a role definition ID                   determined from the first step. 
 
 
       ```json
@@ -107,7 +107,7 @@ The following section describes the steps that should be taken to use Azure Appl
    -ResourceGroupName <resourceGroupName>
    ```
 
-4.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DDoSNwProtection) that assigns roles and adds application gateway configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `appGatewayName`, and `appGatewayBackendPoolId` obtained above.
+4.	Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-AppGateway) that assigns roles and adds application gateway configuration as part of the service fabric managed cluster creation. Update the template with `principalId`, `appGatewayName`, and `appGatewayBackendPoolId` obtained above.
 5.	You can also modify your existing ARM template and add new property `appGatewayBackendPoolId` under Microsoft.ServiceFabric/managedClusters resource that takes the resource ID of the application gateway.
 
   	   #### ARM template:
