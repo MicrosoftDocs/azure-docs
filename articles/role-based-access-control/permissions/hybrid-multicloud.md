@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Hybri
 
 ## Microsoft.AzureStack
 
+Build and run innovative hybrid applications across cloud boundaries.
+
 Azure service: [Azure Stack](/azure-stack/)
 
 > [!div class="mx-tableFixed"]

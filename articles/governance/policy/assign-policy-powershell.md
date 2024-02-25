@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure PowerShell"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure PowerShell.
-ms.date: 02/16/2024
+ms.date: 02/23/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,9 +45,11 @@ To verify if `Microsoft.PolicyInsights` is registered, run `Get-AzResourceProvid
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
 ```
 
+For more information, go to [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) and [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
+
 ## Create policy assignment
 
-Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment.
+Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment. This example uses the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
 
 Run the following commands and replace `<resourceGroupName>` with your resource group name:
 
@@ -97,6 +99,12 @@ Properties         : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementa
 
 For more information, go to [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment).
 
+If you want to redisplay the policy assignment information, run the following command:
+
+```azurepowershell
+Get-AzPolicyAssignment -Name 'audit-vm-managed-disks' -Scope $rg.ResourceId
+```
+
 ## Identify non-compliant resources
 
 The compliance state for a new policy assignment takes a few minutes to become active and provide results about the policy's state.
@@ -119,8 +127,6 @@ The `$complianceparms` variable uses splatting to create parameter values used i
 - `ResourceGroupName` gets the resource group name from the `$rg.ResourceGroupName` property.
 - `PolicyAssignmentName` specifies the name used when the policy assignment was created.
 - `Filter` uses an expression to find resources that aren't compliant with the policy assignment.
-
-For more information, go to [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Your results resemble the following example and `ComplianceState` shows `NonCompliant`:
 
@@ -145,6 +151,8 @@ ManagementGroupIds       : {managementGroupId}
 ComplianceState          : NonCompliant
 AdditionalProperties     : {[complianceReasonCode, ]}
 ```
+
+For more information, go to [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 ## Clean up resources
 

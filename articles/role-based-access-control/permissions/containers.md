@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Conta
 
 ## Microsoft.ContainerInstance
 
+Easily run containers on Azure without managing servers.
+
 Azure service: [Container Instances](/azure/container-instances/)
 
 > [!div class="mx-tableFixed"]
@@ -63,6 +65,8 @@ Azure service: [Container Instances](/azure/container-instances/)
 > | Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by azure container instance resource provider on a subnet. |
 
 ## Microsoft.ContainerRegistry
+
+Store and manage container images across all types of Azure deployments.
 
 Azure service: [Container Registry](/azure/container-registry/)
 
@@ -208,6 +212,8 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/trustedCollections/write | Allows push or publish of trusted collections of container registry content. This is similar to Microsoft.ContainerRegistry/registries/sign/write action except that this is a data action |
 
 ## Microsoft.ContainerService
+
+Accelerate your containerized application development without compromising security.
 
 Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
 

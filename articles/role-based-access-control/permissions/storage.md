@@ -82,6 +82,8 @@ Azure service: Classic deployment model storage
 
 ## Microsoft.DataBox
 
+Move stored or in-flight data to Azure quickly and cost-effectively.
+
 Azure service: [Azure Data Box](/azure/databox/)
 
 > [!div class="mx-tableFixed"]
@@ -111,6 +113,8 @@ Azure service: [Azure Data Box](/azure/databox/)
 > | Microsoft.DataBox/subscriptions/resourceGroups/validateMoveResources/action | This method validates whether resource move is allowed or not. |
 
 ## Microsoft.DataShare
+
+A simple and safe service for sharing big data with external organizations.
 
 Azure service: [Azure Data Share](/azure/data-share/)
 
@@ -209,6 +213,8 @@ Azure service: [Azure Elastic SAN](/azure/storage/elastic-san/)
 
 ## Microsoft.NetApp
 
+Enterprise-grade Azure file shares, powered by NetApp.
+
 Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 
 > [!div class="mx-tableFixed"]
@@ -285,6 +291,8 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/Operations/read | Reads an operation resources. |
 
 ## Microsoft.Storage
+
+Get secure, massively scalable cloud storage for your data, apps, and workloads.
 
 Azure service: [Storage](/azure/storage/)
 
@@ -491,6 +499,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/tableServices/tables/entities/update/action | Merge or update table entities |
 
 ## Microsoft.StorageCache
+
+File caching for high-performance computing (HPC).
 
 Azure service: [Azure HPC Cache](/azure/hpc-cache/)
 

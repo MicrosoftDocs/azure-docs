@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Analy
 
 ## Microsoft.AnalysisServices
 
+Enterprise-grade analytics engine as a service.
+
 Azure service: [Azure Analysis Services](/azure/analysis-services/index)
 
 > [!div class="mx-tableFixed"]
@@ -41,6 +43,8 @@ Azure service: [Azure Analysis Services](/azure/analysis-services/index)
 > | Microsoft.AnalysisServices/skus/read | Retrieves the information of Skus |
 
 ## Microsoft.Databricks
+
+Fast, easy, and collaborative Apache Spark-based analytics platform.
 
 Azure service: [Azure Databricks](/azure/databricks/)
 
@@ -80,6 +84,8 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/delete | Deletes a virtual network peering |
 
 ## Microsoft.DataLakeAnalytics
+
+Distributed analytics service that makes big data easy.
 
 Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 
@@ -125,6 +131,8 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 
 ## Microsoft.DataLakeStore
 
+Highly scalable and cost-effective data lake solution for big data analytics.
+
 Azure service: [Azure Data Lake Store](/azure/storage/blobs/data-lake-storage-introduction)
 
 > [!div class="mx-tableFixed"]
@@ -168,6 +176,8 @@ Azure service: [Azure Data Lake Store](/azure/storage/blobs/data-lake-storage-in
 > | Microsoft.DataLakeStore/operations/read | Get available operations of DataLakeStore. |
 
 ## Microsoft.EventHub
+
+Receive telemetry from millions of devices.
 
 Azure service: [Event Hubs](/azure/event-hubs/)
 
@@ -269,6 +279,8 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 
 ## Microsoft.HDInsight
 
+Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters.
+
 Azure service: [HDInsight](/azure/hdinsight/)
 
 > [!div class="mx-tableFixed"]
@@ -322,6 +334,8 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/locations/checkNameAvailability/read | Check Name Availability |
 
 ## Microsoft.Kusto
+
+Service for storing and running interactive analytics over Big Data.
 
 Azure service: [Azure Data Explorer](/azure/data-explorer/)
 
@@ -405,6 +419,8 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 
 ## Microsoft.PowerBIDedicated
 
+Manage Power BI Premium dedicated capacities for exclusive use by an organization.
+
 Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
@@ -443,6 +459,8 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
 
 ## Microsoft.StreamAnalytics
+
+Real-time data stream processing from millions of IoT devices.
 
 Azure service: [Stream Analytics](/azure/stream-analytics/)
 

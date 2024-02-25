@@ -1380,6 +1380,102 @@ Lets you purchase reservations
 }
 ```
 
+## Reservations Administrator
+
+Lets one read and manage all the reservations in a tenant
+
+[Learn more](/azure/cost-management-billing/reservations/view-reservations)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/read |  |
+> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/action |  |
+> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/write |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Capacity"
+  ],
+  "description": "Lets one read and manage all the reservations in a tenant",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a8889054-8d42-49c9-bc1c-52486c10e7cd",
+  "name": "a8889054-8d42-49c9-bc1c-52486c10e7cd",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Capacity/*/read",
+        "Microsoft.Capacity/*/action",
+        "Microsoft.Capacity/*/write",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Reservations Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Reservations Reader
+
+Lets one read all the reservations in a tenant
+
+[Learn more](/azure/cost-management-billing/reservations/view-reservations)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Capacity"
+  ],
+  "description": "Lets one read all the reservations in a tenant",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/582fc458-8989-419f-a480-75249bc5db7e",
+  "name": "582fc458-8989-419f-a480-75249bc5db7e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Capacity/*/read",
+        "Microsoft.Authorization/roleAssignments/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Reservations Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Resource Policy Contributor
 
 Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy.
