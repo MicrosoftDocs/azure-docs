@@ -167,7 +167,7 @@ Automation Operators are able to start, stop, suspend, and resume jobs
 > | [Microsoft.Automation](../permissions/management-and-governance.md#microsoftautomation)/automationAccounts/schedules/read | Gets an Azure Automation schedule asset |
 > | [Microsoft.Automation](../permissions/management-and-governance.md#microsoftautomation)/automationAccounts/schedules/write | Creates or updates an Azure Automation schedule asset |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Automation](../permissions/management-and-governance.md#microsoftautomation)/automationAccounts/jobs/output/read | Gets the output of a job |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -492,14 +492,14 @@ Azure Resource Bridge Deployment Role
 > | Microsoft.ExtendedLocation/customLocations/write | Creates or Updates Custom Location resource |
 > | Microsoft.ExtendedLocation/customLocations/delete | Deletes Custom Location resource |
 > | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/register/action | Register the subscription for Microsoft.HybridConnectivity |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
 > | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -577,7 +577,7 @@ Allows read access to billing data
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/*/read | Read Billing information |
-> | [Microsoft.Commerce](../permissions/management-and-governance.md#microsoftcommerce)/*/read |  |
+> | [Microsoft.Commerce](../permissions/general.md#microsoftcommerce)/*/read |  |
 > | [Microsoft.Consumption](../permissions/management-and-governance.md#microsoftconsumption)/*/read |  |
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
 > | [Microsoft.CostManagement](../permissions/management-and-governance.md#microsoftcostmanagement)/*/read |  |
@@ -1159,7 +1159,7 @@ Lets you manage New Relic Application Performance Management accounts and applic
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -1261,10 +1261,10 @@ Read and create quota requests, get quota request status, and create support tic
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/read | Get the current service limit or quota of the specified resource and location |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/read | Get the current service limit or quota of the specified resource and location |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
 > | [Microsoft.Quota](../permissions/general.md#microsoftquota)/usages/read | Get the usages for resource providers |
 > | [Microsoft.Quota](../permissions/general.md#microsoftquota)/quotas/read | Get the current Service limit or quota of the specified resource |
 > | [Microsoft.Quota](../permissions/general.md#microsoftquota)/quotas/write | Creates the service limit or quota request for the specified resource |
@@ -1329,8 +1329,8 @@ Lets you purchase reservations
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/catalogs/read | Read catalog of Reservation |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/catalogs/read | Read catalog of Reservation |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/register/action | Registers Subscription with Microsoft.Compute resource provider |
 > | [Microsoft.Consumption](../permissions/management-and-governance.md#microsoftconsumption)/register/action | Register to Consumption RP |
 > | [Microsoft.Consumption](../permissions/management-and-governance.md#microsoftconsumption)/reservationRecommendationDetails/read | List Reservation Recommendation Details |
@@ -1389,9 +1389,9 @@ Lets one read and manage all the reservations in a tenant
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/read |  |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/action |  |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/write |  |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/read |  |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/action |  |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/write |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
@@ -1442,7 +1442,7 @@ Lets one read all the reservations in a tenant
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Capacity](../permissions/management-and-governance.md#microsoftcapacity)/*/read |  |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1563,7 +1563,7 @@ Lets you manage Site Recovery service except vault creation and role assignment
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
@@ -1691,7 +1691,7 @@ Lets you failover and failback but not perform other Site Recovery management op
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/tokenInfo/read |  |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |

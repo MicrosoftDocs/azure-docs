@@ -277,7 +277,7 @@ Azure service: Classic deployment model virtual network
 
 ## Microsoft.MobileNetwork
 
-Azure service: [Mobile networks](/azure/private-5g-core/)
+Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
