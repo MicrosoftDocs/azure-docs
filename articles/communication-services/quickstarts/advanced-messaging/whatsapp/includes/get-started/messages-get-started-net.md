@@ -173,7 +173,8 @@ Follow these steps to add the necessary code snippets to the Main function of yo
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
-TODO add another bullet for template
+  - [Send a template message to a WhatsApp User](#option-1-initiate-conversation-from-business---send-a-template-message)
+  - [Initiate conversation from user](#option-2-initiate-conversation-from-user)
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
 
@@ -226,14 +227,11 @@ var recipientList = new List<string> { "+14255550199" };
 
 ### Start sending messages between a business and a WhatsApp user
 
-
-
-
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-Even if is an active conversation, a business can only send template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+A business can send only template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
 
 | Type of message | Ability for businees to send message to user |
 |--|--|
@@ -241,7 +239,7 @@ Even if is an active conversation, a business can only send template messages un
 | Text | After the user sends any message to the business  |
 | Media | After the user sends any message to the business |
 
-#### (Option 1) Initiate conversation from business - Send a templated message
+#### (Option 1) Initiate conversation from business - Send a template message
 Initiate a conversation by sending a template message.
 
 First, create a MessageTemplate using the values for a template. 
@@ -259,8 +257,8 @@ var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
 - [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md). 
    
-For further WhatsApp requirements on templates, refer to the following resources:
-- WhatsApp Business Platform API references [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
+For further WhatsApp requirements on templates, refer to the hatsApp Business Platform API references:
+- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
 - [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
 - [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
 
