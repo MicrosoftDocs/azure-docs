@@ -269,7 +269,7 @@ WHERE company_id = 5;
 ```
 
 More generally, we can create a [GIN
-indices](https://www.postgresql.org/docs/current/static/gin-intro.html) on
+indices](https://www.postgresql.org/docs/current/gin-intro.html) on
 every key and value within the column.
 
 ```sql

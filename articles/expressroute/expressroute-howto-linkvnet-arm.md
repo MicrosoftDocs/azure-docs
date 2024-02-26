@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure PowerShell'
-description: This tutorial provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure PowerShell.
+title: 'Link a virtual network to an ExpressRoute circuit - Azure PowerShell'
+description: This article provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: tutorial
-ms.date: 07/18/2022
+ms.topic: how-to
+ms.date: 08/31/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
+ms.custom: devx-track-azurepowershell, template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
+# Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -18,14 +18,9 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
 
-This tutorial helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
+This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Connect a virtual network in the same subscription to a circuit
-> - Connect a virtual network in a different subscription to a circuit
-> - Modify a virtual network connection
-> - Configure ExpressRoute FastPath
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
 
 ## Prerequisites
 
@@ -35,15 +30,15 @@ In this tutorial, you learn how to:
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType `ExpressRoute`, not VPN.
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
 
-* A single VNet can be linked to up to 16 ExpressRoute circuits. Use the steps in this article to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
+* A single virtual network can be linked to up to 16 ExpressRoute circuits. Use the steps in this article to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 
-* If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on will also allow you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+* If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on allows you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
-* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
+* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add more address spaces, up to 1,000, to the local or peered virtual networks.
 
 * Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
@@ -108,7 +103,7 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
-The response to the previous commands will contain the authorization key and status:
+The response to the previous commands contains the authorization key and status:
 
 ```azurepowershell
 Name                   : MyAuthorization1
@@ -179,7 +174,7 @@ You can update certain properties of a virtual network connection.
 
 **To update the connection weight**
 
-Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
+Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic is sent on the connection with the highest *RoutingWeight*.
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
@@ -207,54 +202,33 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
-### FastPath and Private Link for 100 Gbps ExpressRoute Direct
+### FastPath Virtual Network Peering, User-Defined-Routes (UDRs) and Private Link support for ExpressRoute Direct Connections
 
-With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This is Generally Available for connections associated to 100 Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
-1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
-* Azure Subscription ID
-* Virtual Network (VNet) Resource ID
-* Azure Region where the Private Endpoint/Private Link service is deployed
+With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
+These scenarios are Generally Available for limited scenarios with connections associated to 100-Gb ExpressRoute Direct circuits. To enable, follow the below guidance:
+1. Complete this [Microsoft Form](https://aka.ms/fastpathlimitedga) to request to enroll your subscription.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+$connection = Get-AzVirtualNetworkGatewayConnection -ResourceGroupName <resource-group> -ResourceName <connection-name>
+$connection.ExpressRouteGatewayBypass = $true
+$connection.EnablePrivateLinkFastPath = $true
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
-3. Disable and Enable FastPath on the target connection(s) to enable the changes. Once this step is complete. 100 Gb Private Link traffic over ExpressRoute will bypass the ExpressRoute Virtual Network Gateway in the data path.
-
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
->
 
-## Enroll in ExpressRoute FastPath features (preview)
-
-### FastPath virtual network peering and user defined routes (UDRs).
-
-With FastPath and virtual network peering, you can enable ExpressRoute connectivity directly to VMs in a local or peered virtual network, bypassing the ExpressRoute virtual network gateway in the data path.
-
-With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct ExpressRoute traffic to an Azure Firewall or third party NVA. FastPath will honor the UDR and send traffic directly to the target Azure Firewall or NVA, bypassing the ExpressRoute virtual network gateway in the data path.
-
-To enroll in the preview, send an email to **exrpm@microsoft.com**, providing the following information: 
-* Azure Subscription ID
-* Virtual Network (VNet) Resource ID
-* ExpressRoute Circuit Resource ID
+> [!NOTE]
+> Enabling FastPath Private Link support for limited GA scenarios may take upwards of 2 weeks to complete. Please plan your deployment(s) in advance.
+> 
 
 **FastPath support for virtual network peering and UDRs is only available for ExpressRoute Direct connections**.
-
-### FastPath and Private Link for 10 Gbps ExpressRoute Direct
-
-With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10 Gbps ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.
-
-To enroll in this preview, run the following Azure PowerShell command in the target Azure subscription:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
-```
 
 > [!NOTE]
 > Any connections configured for FastPath in the target subscription will be enrolled in the selected preview. We do not advise enabling these previews in production subscriptions.
 > If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
->   1. Enroll in one of the FastPath preview features with the Azure PowerShell commands above.
+>   1. Enroll in one of the FastPath preview features with the Azure PowerShell commands.
 >   1. Disable and then re-enable FastPath on the target connection.
 >   1. To switch between preview features, register the subscription with the target preview PowerShell command, and then disable and re-enable FastPath on the connection.
 >
@@ -271,7 +245,7 @@ Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG
 
 In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure route filters for Microsoft peering using PowerShell, advance to the next tutorial.
+To learn how to configure, route filters for Microsoft peering using PowerShell, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md)

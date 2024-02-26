@@ -2,17 +2,14 @@
 title: Route traffic for HA of applications - Azure CLI - Traffic Manager
 description: Azure CLI script sample - Route traffic for high availability of applications
 services: traffic-manager
-documentationcenter: traffic-manager
 author: greg-lindsay
-manager: twooley
+manager: kumud
 tags: azure-infrastructure
-ms.assetid:
+ms.custom: devx-track-azurecli
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: traffic-manager
-ms.date: 02/28/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 

@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 03/24/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Here are the supported protocols for clients accessing your device.
@@ -12,4 +12,5 @@ Here are the supported protocols for clients accessing your device.
 |---------|---------|---------|
 |SMB    | 2.X, 3.X      | SMB 1 isn't supported.|
 |NFS     |3.0, 4.1        | Mac OS is not supported with NFS v4.1.         |
+
 

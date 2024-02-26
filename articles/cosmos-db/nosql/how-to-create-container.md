@@ -1,6 +1,6 @@
 ---
 title: Create a container in Azure Cosmos DB for NoSQL
-description: Learn how to create a container in Azure Cosmos DB for NoSQL by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
+description: Learn how to create a container in Azure Cosmos DB for NoSQL by using Azure portal, .NET, Java, Python, Node.js, and other SDKs.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -9,7 +9,7 @@ ms.date: 01/03/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL
@@ -26,7 +26,7 @@ This article explains the different ways to create a container in Azure Cosmos D
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
@@ -70,4 +70,4 @@ Container container = await database.CreateContainerIfNotExistsAsync(containerPr
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../resource-model.md)

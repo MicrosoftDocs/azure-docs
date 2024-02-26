@@ -3,13 +3,12 @@ title: SAP HANA scale-out with standby with Azure NetApp Files on RHEL| Microsof
 description: High-availability guide for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 11/15/2022
+ms.date: 07/11/2023
 ms.author: radeltch
 ---
 
@@ -37,6 +36,7 @@ ms.author: radeltch
 [2455582]: https://launchpad.support.sap.com/#/notes/2455582
 [2593824]: https://launchpad.support.sap.com/#/notes/2593824
 [2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 [sap-swcenter]: https://support.sap.com/en/my-support/software-downloads.html
 
 [2447641]: https://access.redhat.com/solutions/2447641
@@ -50,7 +50,7 @@ This article describes how to deploy a highly available SAP HANA system in a sca
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux for SAP 7.6. 
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 
 Before you begin, refer to the following SAP notes and papers:
@@ -64,6 +64,7 @@ Before you begin, refer to the following SAP notes and papers:
 * SAP Note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
 * SAP Note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure
 * SAP Note [2191498]: Contains the required SAP Host Agent version for Linux in Azure
 * SAP Note [2243692]: Contains information about SAP licensing on Linux in Azure
@@ -116,9 +117,24 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 For information about the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].  
 
+### Important considerations
+
+As you're creating your Azure NetApp Files volumes for SAP HANA scale-out with stand by nodes scenario, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
+
+### Sizing for HANA database on Azure NetApp Files
+
+The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+
+While designing the infrastructure for SAP HANA on Azure with Azure NetApp Files, be aware of the recommendations in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#sizing-for-hana-database-on-azure-netapp-files).       
+The configuration in this article is presented with simple Azure NetApp Files Volumes.   
+
+> [!IMPORTANT]
+> For production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
+
 ### Deploy Azure NetApp Files resources  
 
 The following instructions assume that you've already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.   
+
 
 1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 
@@ -140,60 +156,7 @@ The following instructions assume that you've already deployed your [Azure virtu
    * volume **HN1**-log-mnt00002 (nfs://10.9.0.4/**HN1**-log-mnt00002)
    * volume **HN1**-shared (nfs://10.9.0.4/**HN1**-shared)
    
-   In this example, we used a separate Azure NetApp Files volume for each HANA data and log volume. For a more cost-optimized configuration on smaller or non-productive systems, it's possible to place all data mounts on a single volume and all logs mounts on a different single volume.  
-
-### Important considerations
-
-As you're creating your Azure NetApp Files for SAP HANA scale-out with stand by nodes scenario, be aware of the following important considerations:
-
-- The minimum capacity pool is 4 tebibytes (TiB).  
-- The minimum volume size is 100 gibibytes (GiB).
-- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region.  
-- The selected virtual network must have a subnet that's delegated to Azure NetApp Files.
-- The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). When you're sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.  
-- With the Azure NetApp Files [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on). 
-- The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.  
-
-> [!IMPORTANT]
-> For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
-
-### Sizing for HANA database on Azure NetApp Files
-
-The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). 
-
-As you design the infrastructure for SAP in Azure, be aware of some minimum storage requirements by SAP, which translate into minimum throughput characteristics:
-
-- Read-write on /hana/log of 250 megabytes per second (MB/s) with 1-MB I/O sizes.  
-- Read activity of at least 400 MB/s for /hana/data for 16-MB and 64-MB I/O sizes.  
-- Write activity of at least 250 MB/s for /hana/data with 16-MB and 64-MB I/O sizes. 
-
-The [Azure NetApp Files throughput limits](../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TiB of volume quota are:
-- Premium Storage tier - 64 MiB/s  
-- Ultra Storage tier - 128 MiB/s  
-
-To meet the SAP minimum throughput requirements for data and log, and the guidelines for /hana/shared, the recommended sizes would be:
-
-| Volume | Size of<br>Premium Storage tier | Size of<br>Ultra Storage tier | Supported NFS protocol |
-| --- | --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
-| /hana/data | 6.3 TiB | 3.2 TiB | v4.1 |
-| /hana/shared | 1xRAM per 4 worker nodes | 1xRAM per 4 worker nodes | v3 or v4.1 |
-
-The SAP HANA configuration for the layout that's presented in this article, using Azure NetApp Files Ultra Storage tier, would be:
-
-| Volume | Size of<br>Ultra Storage tier | Supported NFS protocol |
-| --- | --- | --- |
-| /hana/log/mnt00001 | 2 TiB | v4.1 |
-| /hana/log/mnt00002 | 2 TiB | v4.1 |
-| /hana/data/mnt00001 | 3.2 TiB | v4.1 |
-| /hana/data/mnt00002 | 3.2 TiB | v4.1 |
-| /hana/shared | 2 TiB | v3 or v4.1 |
-
-> [!NOTE]
-> The Azure NetApp Files sizing recommendations stated here are targeted to meet the minimum requirements that SAP recommends for their infrastructure providers. In real customer deployments and workload scenarios, these sizes may not be sufficient. Use these recommendations as a starting point and adapt, based on the requirements of your specific workload.  
-
-> [!TIP]
-> You can resize Azure NetApp Files volumes dynamically, without having to *unmount* the volumes, stop the virtual machines, or stop SAP HANA. This approach allows flexibility to meet both the expected and unforeseen throughput demands of your application.
+   In this example, we used a separate Azure NetApp Files volume for each HANA data and log volume. For a more cost-optimized configuration on smaller or non-productive systems, it's possible to place all data mounts on a single volume and all logs mounts on a different single volume.    
 
 ## Deploy Linux virtual machines via the Azure portal
 
@@ -395,7 +358,7 @@ Configure and prepare your OS by doing the following steps:
     # if using NFSv3 for this volume, mount with the following command
     mount <b>10.9.0.4</b>:/<b>HN1</b>-shared /mnt/tmp
     # if using NFSv4.1 for this volume, mount with the following command
-    mount -t nfs -o sec=sys,vers=4.1 <b>10.9.0.4</b>:/<b>HN1</b>-shared /mnt/tmp
+    mount -t nfs -o sec=sys,nfsvers=4.1 <b>10.9.0.4</b>:/<b>HN1</b>-shared /mnt/tmp
     cd /mnt/tmp
     mkdir shared usr-sap-<b>hanadb1</b> usr-sap-<b>hanadb2</b> usr-sap-<b>hanadb3</b>
     # unmount /hana/shared
@@ -439,11 +402,11 @@ Configure and prepare your OS by doing the following steps:
     <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
-    10.9.0.4:/<b>HN1</b>-data-mnt00001 /hana/data/<b>HN1</b>/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.9.0.4:/<b>HN1</b>-data-mnt00002 /hana/data/<b>HN1</b>/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.9.0.4:/<b>HN1</b>-log-mnt00001 /hana/log/<b>HN1</b>/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.9.0.4:/<b>HN1</b>-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.9.0.4:/<b>HN1</b>-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-data-mnt00001 /hana/data/<b>HN1</b>/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-data-mnt00002 /hana/data/<b>HN1</b>/mnt00002  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-log-mnt00001 /hana/log/<b>HN1</b>/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-shared/shared /hana/shared  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     </code></pre>
@@ -455,7 +418,7 @@ Configure and prepare your OS by doing the following steps:
     <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
-    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb1</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb1</b> /usr/sap/<b>HN1</b>  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     </code></pre>
@@ -465,7 +428,7 @@ Configure and prepare your OS by doing the following steps:
     <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
-    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb2</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb2</b> /usr/sap/<b>HN1</b>  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     </code></pre>
@@ -475,7 +438,7 @@ Configure and prepare your OS by doing the following steps:
     <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
-    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb3</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.9.0.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb3</b> /usr/sap/<b>HN1</b>  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     </code></pre>
@@ -646,48 +609,8 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
        <pre><code>
         # Execute as root
-        sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30301/tcp
-        sudo firewall-cmd --zone=public --add-port=30303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30303/tcp
-        sudo firewall-cmd --zone=public --add-port=30306/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30306/tcp
-        sudo firewall-cmd --zone=public --add-port=30307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30307/tcp
-        sudo firewall-cmd --zone=public --add-port=30313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30313/tcp
-        sudo firewall-cmd --zone=public --add-port=30315/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30315/tcp
-        sudo firewall-cmd --zone=public --add-port=30317/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30317/tcp
-        sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30340/tcp
-        sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30341/tcp
-        sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30342/tcp
-        sudo firewall-cmd --zone=public --add-port=1128/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1128/tcp
-        sudo firewall-cmd --zone=public --add-port=1129/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1129/tcp
-        sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40302/tcp
-        sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40301/tcp
-        sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40307/tcp
-        sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40303/tcp
-        sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40340/tcp
-        sudo firewall-cmd --zone=public --add-port=50313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50313/tcp
-        sudo firewall-cmd --zone=public --add-port=50314/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50314/tcp
-        sudo firewall-cmd --zone=public --add-port=30310/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30310/tcp
-        sudo firewall-cmd --zone=public --add-port=30302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30302/tcp
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp --permanent
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp
        </code></pre>
 
    - Start HANA

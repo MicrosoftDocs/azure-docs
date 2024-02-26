@@ -1,10 +1,9 @@
 ---
 title: Indexing in Azure Cosmos DB for Apache Cassandra account
-description: Learn how secondary indexing works in Azure Azure Cosmos DB for Apache Cassandra account.
+description: Learn how secondary indexing works in Azure Cosmos DB for Apache Cassandra account.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: thvankra
@@ -22,7 +21,7 @@ It's not advised to create an index on a frequently updated column. It is pruden
 
 
 > [!NOTE]
-> Secondary index is not supported on the following objects:
+> Secondary indexes can only be created by using the CQL commands mentioned in this article, and not through the Resource Provider utilities (ARM templates, Azure CLI, PowerShell, or Terraform). Secondary indexes are not supported on the following objects:
 > - data types such as frozen collection types, decimal, and variant types.
 > - Static columns
 > - Clustering keys

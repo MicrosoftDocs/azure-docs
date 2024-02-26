@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
-ms.date: 12/06/2022
-ms.custom: template-how-to 
+ms.date: 02/14/2024
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Configure inbound NAT Rules for Virtual Machine Scale Sets
@@ -20,7 +20,7 @@ In this article, you'll learn how to configure, update, and delete inbound NAT R
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Add inbound NAT rules 
-Individual inbound NAT rules can't be added to a Virtual Machine Scale Set. However, you can add a set of inbound NAT rules with a defined front-end port range and back-end port for all instances in the Virtual Machine Scale Set. 
+Individual inbound NAT rules can't be added to a Virtual Machine Scale Set. However, you can add a set of inbound NAT rules with a defined frontend port range and backend port for all instances in the Virtual Machine Scale Set. 
 
 To add a set of inbound NAT rules for the Virtual Machine Scale Sets, you create a set of inbound NAT rules in the load balancer that targets a backend pool using [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) as follows:
 
@@ -39,7 +39,7 @@ To add a set of inbound NAT rules for the Virtual Machine Scale Sets, you create
 
 ```
 
-The new inbound NAT rule can't have an overlapping front-end port range with existing inbound NAT rules. To view existing inbound NAT rules that are set up, use [az network lb inbound-nat-rule show](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-show) as follows:
+The new inbound NAT rule can't have an overlapping frontend port range with existing inbound NAT rules. To view existing inbound NAT rules that are set up, use [az network lb inbound-nat-rule show](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-show) as follows:
 
 ```azurecli
 

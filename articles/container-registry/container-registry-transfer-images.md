@@ -4,8 +4,9 @@ description: ACR Transfer with Az CLI with ARM templates
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom:
+ms.date: 10/31/2023
+ms.custom: devx-track-azurecli
+ms.service: container-registry
 ---
 
 # ACR Transfer with ARM templates
@@ -19,15 +20,18 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 - You have an existing Keyvault with a secret containing a valid SAS token with the necessary permissions in both clouds.
 - You have a recent version of Az CLI installed in both clouds.
 
+> [!IMPORTANT]
+> The ACR Transfer supports artifacts with the layer size limits to 8 GB due to the technical limitations.
+
 ## Consider using the Az CLI extension
 
-For most non-automated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
+For most nonautomated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
 
 ## Create ExportPipeline with Resource Manager
 
 Create an ExportPipeline resource for your source container registry using Azure Resource Manager template deployment.
 
-Copy ExportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) to a local folder.
+Copy ExportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/ExportPipelines) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -92,7 +96,7 @@ EXPORT_RES_ID=$(az deployment group show \
 
 Create an ImportPipeline resource in your target container registry using Azure Resource Manager template deployment. By default, the pipeline is enabled to import automatically when the storage account in the target environment has an artifact blob.
 
-Copy ImportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) to a local folder.
+Copy ImportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/ImportPipelines) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -157,7 +161,7 @@ IMPORT_RES_ID=$(az deployment group show \
 
 Create a PipelineRun resource for your source container registry using Azure Resource Manager template deployment. This resource runs the ExportPipeline resource you created previously, and exports specified artifacts from your container registry as a blob to your source storage account.
 
-Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) to a local folder.
+Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/PipelineRun/PipelineRun-Export) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -204,7 +208,7 @@ az storage blob list \
 
 Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-v10.md#transfer-data) from the source storage account to the target storage account.
 
-For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
+For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens aren't shown.)
 
 ```console
 azcopy copy \
@@ -230,7 +234,7 @@ If you didn't enable the `sourceTriggerStatus` parameter of the import pipeline,
 
 You can also use a PipelineRun resource to trigger an ImportPipeline for artifact import to your target container registry.
 
-Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) to a local folder.
+Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/PipelineRun/PipelineRun-Import) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -271,7 +275,7 @@ az acr repository list --name <target-registry-name>
 
 ## Redeploy PipelineRun resource
 
-If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Please ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
+If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
 
 ```console
 CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
@@ -319,15 +323,15 @@ View [ACR Transfer Troubleshooting](container-registry-transfer-troubleshooting.
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-login]: /cli/azure/reference-index#az_login
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
-[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az_keyvault_secret_show
-[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
-[az-storage-container-generate-sas]: /cli/azure/storage/container#az_storage_container_generate_sas
-[az-storage-blob-list]: /cli/azure/storage/blob#az_storage-blob-list
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
-[az-deployment-group-delete]: /cli/azure/deployment/group#az_deployment_group_delete
-[az-deployment-group-show]: /cli/azure/deployment/group#az_deployment_group_show
-[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
-[az-acr-import]: /cli/azure/acr#az_acr_import
-[az-resource-delete]: /cli/azure/resource#az_resource_delete
+[az-login]: /cli/azure/reference-index#az-login
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-storage-container-generate-sas]: /cli/azure/storage/container#az-storage-container-generate-sas
+[az-storage-blob-list]: /cli/azure/storage/blob#az-storage-blob-list
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-deployment-group-delete]: /cli/azure/deployment/group#az-deployment-group-delete
+[az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
+[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
+[az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

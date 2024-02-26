@@ -1,8 +1,8 @@
 ---
 title: Model conversion
 description: Describes the process of converting a model for rendering
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---
@@ -26,7 +26,7 @@ There are minor differences between the formats regarding material property conv
 
 ### Point clouds
 
-* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`
+* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`. Numerical values can be expressed either as floating-point value strings (with a decimal point) or in hexadecimal format, indicated by the `0x` prefix. The color components (red, green, blue) are expected to fall within the range of 0.0 to 255.0.
 * **PLY** : Only binary PLY files are supported. Properties other than position and color are ignored. Every PLY file has a human-readable header, which can be used to verify whether the following requirements are met:
   * file must be encoded using the `binary_little_endian 1.0` format,
   * file contains a point cloud (that is, no triangles),

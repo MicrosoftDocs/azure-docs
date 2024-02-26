@@ -7,7 +7,6 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/20/2021
 ms.author: cshoe
-ms.custom: contperf-fy21q4
 ---
 
 # Build configuration for Azure Static Web Apps
@@ -134,7 +133,7 @@ In this configuration:
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./get-started-portal.md?pivots=azure-devops).
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./deployment-token-management.md).
 
 > [!NOTE]
 > `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
@@ -222,6 +221,7 @@ inputs:
 ```
 
 ---
+
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
@@ -300,6 +300,44 @@ inputs:
   output_location: 'public'
   build_timeout_in_minutes: 30
   azure_static_web_apps_api_token: $(deployment_token)
+```
+
+---
+
+## Run workflow without deployment secrets
+
+Sometimes you need your workflow to continue to process even when some secrets are missing. Set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true` to configure your workflow to proceed without defined secrets.
+
+When enabled, this feature allows the workflow to continue without deploying the site's content.
+
+# [GitHub Actions](#tab/github-actions)
+
+```yaml
+...
+
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }}
+  action: 'upload'
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
+```
+
+# [Azure Pipelines](#tab/azure-devops)
+
+```yaml
+...
+
+inputs:
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+  azure_static_web_apps_api_token: $(deployment_token)
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
 ---

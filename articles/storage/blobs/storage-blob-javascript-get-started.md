@@ -6,23 +6,21 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/30/2022
-
-ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js
-
 ---
 
-
 # Get started with Azure Blob Storage and JavaScript
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Prerequisites
 
@@ -51,44 +49,45 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
     npm install @azure/storage-blob
     ```
 
-1. If you want to use passwordless connections using Azure AD, install the Azure Identity client library for JavaScript:
+1. If you want to use passwordless connections using Microsoft Entra ID, install the Azure Identity client library for JavaScript:
 
     ```bash
     npm install @azure/identity
     ```
 
-
 ## Authorize access and connect to Blob Storage
 
-Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code. 
+Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
 
 ### Set up identity access to the Azure cloud
 
-To connect to Azure without passwords, you need to set up an Azure identity or use an existing identity. Once the identity is set up, make sure to assign the appropriate roles to the identity. 
+To connect to Azure without passwords, you need to set up an Azure identity or use an existing identity. Once the identity is set up, make sure to assign the appropriate roles to the identity.
 
-To authorize passwordless access with Azure AD, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
+To authorize passwordless access with Microsoft Entra ID, you'll need to use an Azure credential. Which type of credential you need depends on where your application runs. Use this table as a guide.
 
 |Environment|Method|
 |--|--|
-|Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
-|Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
-|Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
-|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=/azure/storage/blobs/toc.json)|
+|Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|Developer environment|[Service principal](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|Azure-hosted apps|[Azure-hosted apps setup](/azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
+|On-premises|[On-premises app setup](/azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)|
 
 ### Set up storage account roles
 
 Your storage resource needs to have one or more of the following [Azure RBAC](../../role-based-access-control/built-in-roles.md) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
 
-After you complete the setup, each identity needs at least one of the appropriate roles: 
-    
-* A [data access](../common/authorize-data-access.md) role - such as: 
-    * **Storage Blob Data Reader**
-    * **Storage Blob Data Contributor**
-* A [resource](../common/authorization-resource-provider.md) role - such as:
-    * **Reader** 
-    * **Contributor**
+After you complete the setup, each identity needs at least one of the appropriate roles:
+
+- A [data access](../common/authorize-data-access.md) role - such as:
+  - **Storage Blob Data Reader**
+  - **Storage Blob Data Contributor**
+
+- A [resource](../common/authorization-resource-provider.md) role - such as:
+  - **Reader**
+  - **Contributor**
 
 ## Build your application
+
 As you build your application, your code will primarily interact with three types of resources:
 
 - The storage account, which is the unique top-level namespace for your Azure Storage data.
@@ -109,7 +108,7 @@ Each type of resource is represented by one or more associated JavaScript client
 
 ## Create a BlobServiceClient object
 
-The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs. 
+The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs.
 
 ## [Passwordless](#tab/azure-ad)
 
@@ -117,7 +116,7 @@ Once your Azure storage account identity roles and your local environment are se
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js" highlight="9-12":::
 
-The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control. If you use a local service principal as part of your DefaultAzureCredential set up, any security information for that credential will also go into the `.env` file. 
+The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control. If you use a local service principal as part of your DefaultAzureCredential set up, any security information for that credential will also go into the `.env` file.
 
 If you plan to deploy the application to servers and clients that run outside of Azure, create one of the [credentials](https://www.npmjs.com/package/@azure/identity#credential-classes) that meets your needs.
 
@@ -127,10 +126,9 @@ Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storag
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-account-name-and-key.js" highlight="12-15":::
 
-The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control. 
+The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
-
 
 ## [SAS token](#tab/sas-token)
 
@@ -152,14 +150,11 @@ To generate and manage SAS tokens, see any of these articles:
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
-
-
------------------
-
+---
 
 ## Create a ContainerClient object
 
-You can create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object either from the BlobServiceClient, or directly. 
+You can create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object either from the BlobServiceClient, or directly.
 
 ### Create ContainerClient object from BlobServiceClient
 

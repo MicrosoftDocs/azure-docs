@@ -2,8 +2,8 @@
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that will automatically be renewed.
 ms.topic: conceptual
-ms.date: 07/16/2021
-
+ms.custom: linux-related-content
+ms.date: 12/05/2023
 ---
 # Enable automatic certificate rotation in a Batch pool
 
@@ -11,7 +11,7 @@ ms.date: 07/16/2021
 
 ## Create a user-assigned identity
 
-First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) in the same tenant as your Batch account. This managed identity does not need to be in the same resource group or even in the same subscription.
+First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) in the same tenant as your Batch account. This managed identity doesn't need to be in the same resource group or even in the same subscription.
 
 Be sure to note the **Client ID** of the user-assigned managed identity. You'll need this value later.
 
@@ -37,6 +37,9 @@ In your key vault, assign a Key Vault access policy that allows your user-assign
 
 Create a Batch pool with your managed identity by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library). For more information, see [Configure managed identities in Batch pools](managed-identity-pools.md).
 
+> [!TIP]
+> Existing pools cannot be updated with the Key Vault VM extension. You will need to recreate your pool.
+
 The following example uses the Batch Management REST API to create a pool. Be sure to use your certificate's **Secret Identifier** for `observedCertificates` and your managed identity's **Client ID** for `msiClientId`, replacing the example data below.
 
 REST API URI
@@ -61,10 +64,10 @@ Request Body
                 "imageReference": {
                     "publisher": "canonical",
                     "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "sku": "20.04-lts",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.ubuntu 20.04",
                 "extensions": [
                     {
                         "name": "KVExtensions",
@@ -84,10 +87,10 @@ Request Body
                             "authenticationSettings": {
                                 "msiEndpoint": "http://169.254.169.254/metadata/identity",
                                 "msiClientId": "b9f6dd56-d2d6-4967-99d7-8062d56fd84c"
-                            }  
+                            }
                         },
-                    }                
-               ]            
+                    }
+               ]
             }
         },
         "scaleSettings": {

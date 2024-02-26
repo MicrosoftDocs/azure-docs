@@ -3,14 +3,12 @@ title: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload | Microso
 description: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 manager: patfilot
-tags: azure-resource-manager
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 11/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 # SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 
@@ -213,7 +211,7 @@ There are two supported High Availability configurations for SAP ASE on Azure:
 
 
 > [!NOTE]
-> The failover times and other characteristics of either HA Aware or Floating IP solutions are similar.  When deciding between these two solutions customers should perform their own testing and evaluation including factors such as planned and unplanned failover times and other operational procedures.  
+> The failover times and other characteristics of either HA Aware or Floating IP solutions are similar.  When deciding between these two solutions customers should perform their own testing and evaluation including factors such as planned and unplanned failover times and other operational procedures. 
 
 ### Third node for disaster recovery
 Beyond using SAP ASE Always-On for local high availability, you might want to extend the configuration to an asynchronously replicated node in another Azure region. For more information, see [Installation Procedure for Sybase 16. 3 Patch Level 3 Always-on + DR on Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).

@@ -2,7 +2,7 @@
 title: Collect IIS logs with the Log Analytics agent in Azure Monitor
 description: This article describes how to configure collection of IIS log files that store user activity and the details of the records they create in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
 
 ---
@@ -10,7 +10,7 @@ ms.reviewer: JeffWo
 # Collect IIS logs with the Log Analytics agent in Azure Monitor
 Internet Information Services (IIS) stores user activity in log files that can be collected by the Log Analytics agent and stored in [Azure Monitor Logs](../data-platform.md).
 
-![Diagram that shows IIS logs.](media/data-sources-iis-logs/overview.png)
+:::image type="content" source="media/data-sources-iis-logs/overview.png" lightbox="media/data-sources-iis-logs/overview.png" alt-text="Diagram that shows IIS logs.":::
 
 > [!IMPORTANT]
 > This article covers collecting IIS logs with the [Log Analytics agent](./log-analytics-agent.md), which **will be deprecated by August 2024**. Be sure to [migrate to Azure Monitor Agent](./azure-monitor-agent-manage.md) before August 2024 to continue ingesting data. See [Collect text logs with Azure Monitor Agent (preview)](../agents/data-collection-text-log.md) for details on collecting IIS logs with [Azure Monitor Agent](azure-monitor-agent-overview.md).

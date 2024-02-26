@@ -1,10 +1,8 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-author: timwarner-msft
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.author: timwarner
 ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
@@ -201,21 +199,6 @@ Here's a sample of a query result with the _ObjectArray_ formatting:
     "facets": [],
     "resultTruncated": "true"
 }
-```
-
-Here are some examples of setting **resultFormat** to use the _ObjectArray_ format:
-
-```csharp
-var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
-```
-
-```python
-request_options = QueryRequestOptions(
-    result_format=ResultFormat.object_array
-)
-request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
-response = client.resources(request)
 ```
 
 ## Next steps

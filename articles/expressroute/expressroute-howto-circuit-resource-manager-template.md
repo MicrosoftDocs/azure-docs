@@ -8,8 +8,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an ExpressRoute circuit by using Azure Resource Manager template
@@ -33,7 +32,7 @@ Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manag
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
@@ -41,7 +40,7 @@ To see more related templates, select [here](https://azure.microsoft.com/resourc
 
 To create an ExpressRoute Circuit by deploying a template:
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -60,7 +59,7 @@ To create an ExpressRoute Circuit by deploying a template:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*. You cannot change the SKU from *Standard/Premium* to *Local*.
+   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
    * **SKU family** determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
    * **Peering Location** is the physical location where you are peering with Microsoft.
 

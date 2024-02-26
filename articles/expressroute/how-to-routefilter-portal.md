@@ -1,16 +1,15 @@
 ---
-title: 'Tutorial: Configure route filters for Microsoft peering - Azure portal'
-description: This tutorial shows you how to configure route filters for Microsoft peering using the Azure portal.
+title: 'Configure route filters for Microsoft peering - Azure portal'
+description: This article shows you how to configure route filters for Microsoft peering using the Azure portal.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
-ms.topic: tutorial
-ms.date: 07/20/2022
+ms.topic: how-to
+ms.date: 08/31/2023
 ms.author: duau
-ms.custom: seodec18, template-tutorial
+ms.custom: template-tutorial
 ---
-# Tutorial: Configure route filters for Microsoft peering using the Azure portal
+# Configure route filters for Microsoft peering using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
@@ -28,11 +27,7 @@ Connectivity to all Azure and Microsoft 365 services causes a large number of pr
 
 * Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Get BGP community values.
-> - Create a route filter and a filter rule.
-> - Associate a route filter to an ExpressRoute circuit.
+:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network.":::
 
 ### <a name="about"></a>About route filters
 

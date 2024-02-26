@@ -27,7 +27,7 @@
   items:
   - name: DTDL models
     href: concepts-models.md
-  - name: Ontologies
+  - name: Industry ontologies
     items:
     - name: What is an ontology?
       href: concepts-ontologies.md
@@ -127,8 +127,8 @@
       href: how-to-create-endpoints.md
     - name: Create routes and filters
       href: how-to-create-routes.md
-    - name: Use data history with Azure Data Explorer
-      href: how-to-use-data-history.md
+    - name: Create a data history connection
+      href: how-to-create-data-history-connection.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
     - name: Integrate with Azure Maps
@@ -177,7 +177,9 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
     href: /cli/azure/dt
-  - name: DTDL v2 spec
+  - name: DTDL v3 Language Description
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
+  - name: DTDL v2 Language Description
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
   - name: Query language reference
     items:
@@ -280,23 +282,21 @@
   - name: Tools and sample projects
     items:
       - name: Azure Digital Twins Explorer
-        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
+        href: https://explorer.digitaltwins.azure.net
+      - name: 3D Scenes Studio
+        href: https://explorer.digitaltwins.azure.net/3dscenes
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Sample for ingesting OPC UA data into Azure Digital Twins
         href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
-      - name: Azure Digital Twins end-to-end samples
-        href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-      - name: DTDL Validator (sample)
-        href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: DTDL parser sample
+        href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
       - name: Model Uploader (sample)
         href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
       - name: Model Deleter (sample)
         href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
       - name: OWL2DTDL Converter   
         href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL   
-      - name: DPS and IoT Hub integration sample
-        href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
       - name: Multivariate Anomaly Detection Toolkit
@@ -315,12 +315,10 @@
     items:
     - name: DTDL extension for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
-    - name: DTDL parser library - NuGet
-      href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
-    - name: DTDL validator (sample)
-      href: /samples/azure-samples/dtdl-validator/dtdl-validator/
-    - name: DTMI spec
-      href: https://github.com/Azure/digital-twin-model-identifier
+    - name: DTDLParser on NuGet
+      href: https://www.nuget.org/packages/DTDLParser
+    - name: DTDL parser sample
+      href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
   - name: Learning paths
     items:  
     - name: 'Extend IoT solutions by using Azure Digital Twins'
@@ -336,6 +334,6 @@
     - name: Azure portal
       href: https://portal.azure.com
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

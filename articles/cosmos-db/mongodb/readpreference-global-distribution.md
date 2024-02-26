@@ -1,5 +1,5 @@
 ---
-title: Use Read preference with the Azure Cosmos DB's API for MongoDB 
+title: Use Read preference with the Azure Cosmos DB's API for MongoDB
 description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB's API for MongoDB
 author: gahl-levy
 ms.author: gahllevy
@@ -8,7 +8,6 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.custom: devx-track-js, ignite-2022
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -168,4 +167,4 @@ If you're not going to continue to use this app, delete all resources created by
 
 * [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution.md)
-* [Develop locally with the Azure Cosmos DB Emulator](../local-emulator.md)
+* [Develop locally with the Azure Cosmos DB Emulator](../emulator.md)

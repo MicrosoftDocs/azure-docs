@@ -3,7 +3,7 @@ title: Vertex Execution View in Data Lake Tools for Visual Studio
 description: This article describes how to use the Vertex Execution View to exam Data Lake Analytics jobs.
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 # Use the Vertex Execution View in Data Lake Tools for Visual Studio
 

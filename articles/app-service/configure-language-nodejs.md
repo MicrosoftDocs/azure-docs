@@ -2,9 +2,12 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: javascript, devx-track-azurecli
+ms.devlang: javascript
+# ms.devlang: javascript, devx-track-azurecli
 ms.topic: article
 ms.date: 01/21/2022
+author: msangapu-msft
+ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
@@ -174,7 +177,7 @@ You can also configure a custom start file with the following extensions:
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename-with-extension>"
 ```
 
 ### Run custom command

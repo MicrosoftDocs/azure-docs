@@ -1,13 +1,13 @@
 ---
-title: Connect a Rigado Cascade 500 in Azure IoT Central | Microsoft Docs
-description: Learn how to connect a Rigado Cascade 500 gateway device to your IoT Central application. 
+title: Connect a Rigado Cascade 500 in Azure IoT Central
+description: Learn how to configure and connect a Rigado Cascade 500 gateway device to your IoT Central application. 
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/27/2023
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-author: dominicbetts
-ms.author: dobett
-ms.date: 11/01/2022
 
 # This article applies to solution builders.
 ---
@@ -20,7 +20,7 @@ This article describes how you can connect a Rigado Cascade 500 gateway device t
 
 Cascade 500 IoT gateway is a hardware offering from Rigado that's part of their Cascade Edge-as-a-Service solution. It provides commercial IoT project and product teams with flexible edge computing power, a robust containerized application environment, and a wide variety of wireless device connectivity options such as Bluetooth 5, LTE, and Wi-Fi.
 
-Cascade 500 is certified for Azure IoT Plug and Play and enables you to easily onboard the device into your end-to-end solutions. The Cascade gateway lets you wirelessly connect to various condition monitoring sensors that are in close proximity to the gateway device. You can use the gateway device to onboard these sensors into IoT Central.
+The Cascade gateway lets you wirelessly connect to various condition monitoring sensors that are in close proximity to the gateway device. You can use the gateway device to onboard these sensors into IoT Central.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To connect the Cascade 500 device to your IoT Central application, you need to r
 
 1. Now select **SAS-IoT-Edge-Devices** and make a note of the **Primary key**:
 
-    :::image type="content" source="media/howto-connect-rigado-cascade-500/primary-key-sas.png" alt-text="Screenshot that shows the primary SAS key for you device connection group." lightbox="media/howto-connect-rigado-cascade-500/primary-key-sas.png":::
+    :::image type="content" source="media/howto-connect-rigado-cascade-500/primary-key-sas.png" alt-text="Screenshot that shows the primary SAS key for your device connection group." lightbox="media/howto-connect-rigado-cascade-500/primary-key-sas.png":::
 
 ## Contact Rigado to connect the gateway
 

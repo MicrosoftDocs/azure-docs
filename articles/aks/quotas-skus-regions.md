@@ -1,12 +1,11 @@
 ---
-title: Limits for resources, SKUs, regions
+title: Limits for resources, SKUs, and regions in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: conceptual
-ms.date: 03/25/2021
-
+ms.date: 01/12/2024
 ---
+
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 
 All Azure services set default limits and quotas for resources and features, including usage restrictions for certain virtual machine (VM) SKUs.
@@ -22,7 +21,7 @@ This article details the default resource limits for Azure Kubernetes Service (A
 All other network, compute, and storage limitations apply to the provisioned infrastructure. For the relevant limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!IMPORTANT]
-> When you upgrade an AKS cluster, extra resources are temporarily consumed. These resources include available IP addresses in a virtual network subnet or virtual machine vCPU quota. 
+> When you upgrade an AKS cluster, extra resources are temporarily consumed. These resources include available IP addresses in a virtual network subnet or virtual machine vCPU quota.
 >
 > For Windows Server containers, you can perform an upgrade operation to apply the latest node updates. If you don't have the available IP address space or vCPU quota to handle these temporary resources, the cluster upgrade process will fail. For more information on the Windows Server node upgrade process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
@@ -32,9 +31,9 @@ The list of supported VM sizes in AKS is evolving with the release of new VM SKU
 
 ## Restricted VM sizes
 
-VM sizes with less than 2 CPUs may not be used with AKS.
+VM sizes with fewer than two CPUs may not be used with AKS.
 
-Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with at least 2 CPUs.
+Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with at least two CPUs.
 
 For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure][vm-skus].
 
@@ -52,13 +51,28 @@ For the latest list of where you can deploy and run clusters, see [AKS region av
 
 When you create a cluster using the Azure portal, you can choose a preset configuration to quickly customize based on your scenario. You can modify any of the preset values at any time.
 
-| Preset           | Description                                                            |
-|------------------|------------------------------------------------------------------------|
-| Standard         | Best if you're not sure what to choose. Works well with most applications. |
-| Dev/Test         | Best for experimenting with AKS or deploying a test application. |
-| Cost-optimized   | Best for reducing costs on production workloads that can tolerate interruptions. |
-| Batch processing | Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for applications requiring fast scale-up and scale-out of the cluster. |
-| Hardened access  | Best for large enterprises that need full control of security and stability. |
+| Preset                      | Description                                                            |
+|-----------------------------|------------------------------------------------------------------------|
+| Production Standard         | Best for most applications serving production traffic with AKS recommended best practices. |
+| Dev/Test                    | Best for developing new workloads or testing existing workloads. |
+| Production Economy          | Best for serving production traffic in a cost conscious way if your workloads can tolerate interruptions. |
+| Production Enterprise       | Best for serving production traffic with rigorous permissions and hardened security. |
+
+|                              | Production Standard |Dev/Test|Production Economy|Production Enterprise|
+|------------------------------|---------|--------|--------|--------|
+|**System node pool node size**|Standard_D8ds_v5 |Standard_DS2_v2|Standard_D8ds_v5|Standard_D16ds_v5|
+|**System node pool autoscaling range**|2-5 nodes|2-100 nodes|2-5 nodes|2-5 nodes|
+|**User node pool node size**|Standard_D8ds_v5|-|Standard_D8as_v4|Standard_D8ds_v5|
+|**User node pool autoscaling range**|2-100 nodes|-|-|2-100 nodes|
+|**Private cluster**|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Availability zones**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Policy**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Monitor**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Secrets store CSI driver**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Network configuration**|Azure CNI|Kubenet|Azure CNI|Azure CNI|
+|**Network configuration**|Calico|Calico|Calico|Calico|
+|**Authentication and Authorization**|Local accounts with Kubernetes RBAC|Local accounts with Kubernetes RBAC|Azure AD Authentication with Azure RBAC|Azure AD authentication with Azure RBAC|
+
 
 ## Next steps
 
@@ -70,4 +84,4 @@ You can increase certain default limits and quotas. If your resource supports an
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/sizes.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool

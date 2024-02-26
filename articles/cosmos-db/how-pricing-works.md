@@ -1,13 +1,13 @@
 ---
-title: Pricing model of Azure Cosmos DB 
+title: Pricing model of Azure Cosmos DB
 description: This article explains the pricing model of Azure Cosmos DB and how it simplifies your cost management and cost planning.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2022
-ms.custom: cosmos-db-video, ignite-2022
+ms.date: 01/05/2024
+ms.custom: cosmos-db-video
 ---
 
 # Pricing model in Azure Cosmos DB
@@ -27,7 +27,7 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 
   - **Serverless**: In [serverless](serverless.md) mode, you don't have to provision any throughput when creating resources in your Azure Cosmos DB account. At the end of your billing period, you get billed for the number of Request Units that has been consumed by your database operations.
 
-- **Storage**: You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour. Storage is billed on a consumption basis, so you don't have to reserve any storage in advance. You're billed only for the storage you consume.
+- **Storage**: You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour. Storage is billed on a consumption basis, so you don't have to reserve any storage in advance. You're billed only for the storage you consume. The smallest amount of data billed for any non empty container is 1 GB.
 
 The pricing model in Azure Cosmos DB is consistent across all APIs. For more information, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), [Understanding your Azure Cosmos DB bill](understand-your-bill.md) and [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md).
 
@@ -43,7 +43,7 @@ Azure Cosmos DB offers many options for developers to it for free. These options
 
 * **Try Azure Cosmos DB for free**: Azure Cosmos DB offers a time-limited experience by using try Azure Cosmos DB for free accounts. You can create an Azure Cosmos DB account, create database and collections and run a sample application by using the Quickstarts and tutorials. You can run the sample application without subscribing to an Azure account or using your credit card. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) offers Azure Cosmos DB for one month, with the ability to renew your account any number of times.
 
-* **Azure Cosmos DB emulator**: Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Emulator is offered at no cost and with high fidelity to the cloud service. Using Azure Cosmos DB emulator, you can develop and test your applications locally, without creating an Azure subscription or incurring any costs. You can develop your applications by using the emulator locally before going into production. After you're satisfied with the functionality of the application against the emulator, you can switch to using the Azure Cosmos DB account in the cloud and significantly save on cost. For more information about dev/test, see [using Azure Cosmos DB for development and testing](local-emulator.md).
+* **Azure Cosmos DB emulator**: Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Emulator is offered at no cost and with high fidelity to the cloud service. Using Azure Cosmos DB emulator, you can develop and test your applications locally, without creating an Azure subscription or incurring any costs. You can develop your applications by using the emulator locally before going into production. After you're satisfied with the functionality of the application against the emulator, you can switch to using the Azure Cosmos DB account in the cloud and significantly save on cost. For more information about dev/test, see [using Azure Cosmos DB for development and testing](emulator.md).
 
 ## Pricing with reserved capacity
 
@@ -66,4 +66,4 @@ You can learn more about optimizing the costs for your Azure Cosmos DB resources
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos DB accounts](optimize-cost-regions.md)
 * Learn about [Azure Cosmos DB reserved capacity](reserved-capacity.md)
-* Learn about [Azure Cosmos DB Emulator](local-emulator.md)
+* Learn about [Azure Cosmos DB Emulator](emulator.md)

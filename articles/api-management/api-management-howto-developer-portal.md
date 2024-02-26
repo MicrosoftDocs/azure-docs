@@ -3,14 +3,12 @@ title: Overview of the developer portal in Azure API Management
 titleSuffix: Azure API Management
 description: Learn about the developer portal in API Management - a customizable website, where API consumers can explore your APIs.
 services: api-management
-documentationcenter: API Management
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 10/28/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of the developer portal
@@ -22,13 +20,6 @@ As introduced in this article, you can customize and extend the developer portal
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-## Migrate from the legacy portal
-
-> [!IMPORTANT]
-> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
-
-Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-deprecated-migration.md).
 
 ## Customize and style the managed portal
 

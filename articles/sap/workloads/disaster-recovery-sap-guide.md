@@ -6,8 +6,8 @@ author: dennispadia
 manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 01/31/2023
 ---
 

@@ -2,14 +2,10 @@
 title: Azure DDoS Protection fundamental best practices
 description: Learn the best security practices using Azure DDoS Protection.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ignite-2022
-ms.workload: infrastructure-services
-ms.date: 02/08/2023
+ms.topic: conceptual
+ms.date: 10/06/2023
 ms.author: abell
 ---
 # Azure DDoS Protection fundamental best practices
@@ -23,7 +19,9 @@ Ensure that security is a priority throughout the entire lifecycle of an applica
 To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](/azure/architecture/guide/pillars).
 You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
 
-Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
+Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure. To learn more about maximizing your effectiveness using DDoS Protection, see [Maximizing Effectiveness: Best Practices for Azure DDoS Protection and Application Resilience](https://techcommunity.microsoft.com/t5/azure-network-security-blog/maximizing-effectiveness-best-practices-for-azure-ddos/ba-p/3914324).
+
+
 
 ## Design for scalability
 
@@ -49,4 +47,4 @@ We often see customers' on-premises resources getting attacked along with their 
 
 ## Next steps
 
-- Learn how to [create an Azure DDoS protection plan](manage-ddos-protection.md).
+* Learn more about [business continuity](ddos-disaster-recovery-guidance.md).

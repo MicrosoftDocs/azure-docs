@@ -1,12 +1,11 @@
 ---
-title: Database transactions and optimistic concurrency control in Azure Cosmos DB 
+title: Database transactions and optimistic concurrency control in Azure Cosmos DB
 description: This article describes database transactions and optimistic concurrency control in Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/04/2019
 ---
@@ -65,7 +64,7 @@ In an Azure Cosmos DB account configured with **multi-region writes**, data can 
 
 Learn more about database transactions and optimistic concurrency control in the following articles:
 
-- [Working with Azure Cosmos DB databases, containers and items](../account-databases-containers-items.md)
+- [Working with Azure Cosmos DB databases, containers and items](../resource-model.md)
 - [Consistency levels](../consistency-levels.md)
 - [Conflict types and resolution policies](../conflict-resolution-policies.md)
 - [Using TransactionalBatch](transactional-batch.md)

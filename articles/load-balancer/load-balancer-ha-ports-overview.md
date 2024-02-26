@@ -1,15 +1,13 @@
 ---
 title: High availability ports overview in Azure
 titleSuffix: Azure Load Balancer
-description: Learn about high availability ports load balancing on an internal load balancer. 
+description: Learn about high availability ports load balancing on an internal load balancer.
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/14/2022
+ms.topic: conceptual
+ms.date: 05/03/2023
 ms.author: mbender
+ms.custom: template-concept, engagement-fy23
 ---
 
 # High availability ports overview
@@ -20,7 +18,7 @@ High availability (HA) ports are a type of load balancing rule that provides an 
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
-The HA ports load-balancing rules are configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
+The HA ports load-balancing rules are configured when you set the frontend and backend ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
 
 ## Why use HA ports?
 
@@ -49,13 +47,9 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 
 You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [standard load balancer](./load-balancer-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
-## Region availability
-
-The HA ports feature is available in all the global Azure regions.
-
 ## Supported configurations
 
-### A single, non-floating IP (non-Direct Server Return) HA-ports configuration on an internal standard load balancer
+### A single, nonfloating IP (non-Direct Server Return) HA-ports configuration on an internal standard load balancer
 
 This configuration is a basic HA ports configuration. Use the following steps to configure an HA ports load-balancing rule on a single frontend IP address:
 
@@ -63,23 +57,23 @@ This configuration is a basic HA ports configuration. Use the following steps to
 
 2. For **Floating IP**, select **Disabled**.
 
-This configuration doesn't allow any other load-balancing rule configuration on the current load balancer resource. It also allows no other internal load balancer resource configuration for the given set of back-end instances.
+This configuration doesn't allow any other load-balancing rule configuration on the current load balancer resource. It also allows no other internal load balancer resource configuration for the given set of backend instances.
 
-However, you can configure a public Standard Load Balancer for the back-end instances in addition to this HA ports rule.
+However, you can configure a public Standard Load Balancer for the backend instances in addition to this HA ports rule.
 
 ### A single, floating IP (Direct Server Return) HA-ports configuration on an internal standard load balancer
 
 You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
 
-With this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you can't use a non-floating IP, HA-ports load-balancing configuration on top of this configuration.
+With this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you can't use a nonfloating IP, HA-ports load-balancing configuration on top of this configuration.
 
 ### Multiple HA-ports configurations on an internal standard load balancer
 
 To configure more than one HA port frontend for the same backend pool, use the following steps:
 
-- Configure more than one front-end private IP address for a single internal standard load balancer resource.
+- Configure more than one frontend private IP address for a single internal standard load balancer resource.
 
-- Configure multiple load-balancing rules, where each rule has a single unique front-end IP address selected.
+- Configure multiple load-balancing rules, where each rule has a single unique frontend IP address selected.
 
 - Select the **HA ports** option, and then set **Floating IP** to **Enabled** for all the load-balancing rules.
 
@@ -91,7 +85,7 @@ You can configure **one** public standard load balancer resource for the backend
 
 - HA ports load-balancing rules are available only for an internal standard load balancer.
 
-- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single front-end IP configuration unless both have Floating IP enabled.
+- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single frontend IP configuration unless both have Floating IP enabled.
 
 - IP fragmenting isn't supported. 
 

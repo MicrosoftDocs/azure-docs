@@ -2,11 +2,10 @@
 title: RDP to AKS Windows Server nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create an RDP connection with Azure Kubernetes Service (AKS) cluster Windows Server nodes for troubleshooting and maintenance tasks.
-services: container-service
 ms.topic: article
-ms.date: 07/06/2022
-
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.author: mattmcinnes
+ms.date: 04/26/2023
 #Customer intent: As a cluster operator, I want to learn how to use RDP to connect to nodes in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -14,7 +13,7 @@ ms.date: 07/06/2022
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS Windows Server node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access the AKS Windows Server nodes using RDP. For security purposes, the AKS nodes aren't exposed to the internet.
 
-Alternatively, if you want to SSH to your AKS Windows Server nodes, you'll need access to the same key-pair that was used during cluster creation. Follow the steps in [SSH into Azure Kubernetes Service (AKS) cluster nodes][ssh-steps]. 
+Alternatively, if you want to SSH to your AKS Windows Server nodes, you need access to the same key-pair that was used during cluster creation. Follow the steps in [SSH into Azure Kubernetes Service (AKS) cluster nodes][ssh-steps].
 
 This article shows you how to create an RDP connection with an AKS node using their private IP addresses.
 
@@ -62,7 +61,7 @@ The following example creates a virtual machine named *myVM* in the *myResourceG
 
 ### [Azure CLI](#tab/azure-cli)
 
-You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
+You need to get the subnet ID used by your Windows Server node pool and query for:
 * The cluster's node resource group
 * The virtual network
 * The subnet's name
@@ -104,14 +103,14 @@ Record the public IP address of the virtual machine. You'll use this address in 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You'll need to get the subnet ID used by your Windows Server node pool. The commands below will query for the following information:
+You'll need to get the subnet ID used by your Windows Server node pool and query for:
 * The cluster's node resource group
 * The virtual network
 * The subnet's name and address prefix
 * The subnet ID
 
 ```azurepowershell-interactive
-$CLUSTER_RG = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup  
+$CLUSTER_RG = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup
 $VNET_NAME = (Get-AzVirtualNetwork -ResourceGroupName $CLUSTER_RG).Name
 $ADDRESS_PREFIX = (Get-AzVirtualNetwork -ResourceGroupName $CLUSTER_RG).AddressSpace | Select-Object -ExpandProperty AddressPrefixes
 $SUBNET_NAME = (Get-AzVirtualNetwork -ResourceGroupName $CLUSTER_RG).Subnets[0].Name
@@ -155,7 +154,7 @@ The following example output shows the VM has been successfully created and disp
 13.62.204.18
 ```
 
-Record the public IP address of the virtual machine. You'll use this address in a later step.
+Record the public IP address of the virtual machine and use the address in a later step.
 
 ---
 
@@ -194,7 +193,7 @@ First, get the resource group and name of the NSG to add the rule to:
 
 ```azurepowershell-interactive
 $CLUSTER_RG = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup
-$NSG_NAME = (Get-AzNetworkSecurityGroup -ResourceGroupName $CLUSTER_RG).Name 
+$NSG_NAME = (Get-AzNetworkSecurityGroup -ResourceGroupName $CLUSTER_RG).Name
 ```
 
 Then, create the NSG rule:
@@ -222,7 +221,7 @@ Get-AzNetworkSecurityGroup -Name $NSG_NAME -ResourceGroupName $CLUSTER_RG | Add-
 ### [Azure CLI](#tab/azure-cli)
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
-    
+
 ```azurecli
 az aks install-cli
 ```
@@ -236,7 +235,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ### [Azure PowerShell](#tab/azure-powershell)
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
-    
+
 ```azurepowershell
 Install-AzAksKubectl
 ```
@@ -272,7 +271,7 @@ Connect to the public IP address of the virtual machine you created earlier usin
 
 ![Image of connecting to the virtual machine using an RDP client](media/rdp/vm-rdp.png)
 
-After you've connected to your virtual machine, connect to the *internal IP address* of the Windows Server node you want to troubleshoot using an RDP client from within your virtual machine.
+After you have connected to your virtual machine, connect to the *internal IP address* of the Windows Server node you want to troubleshoot using an RDP client from within your virtual machine.
 
 ![Image of connecting to the Windows Server node using an RDP client](media/rdp/node-rdp.png)
 
@@ -351,7 +350,7 @@ Alternatively, you can use [Azure Bastion][azure-bastion] to connect to your Win
 
 ### Deploy Azure Bastion
 
-To deploy Azure Bastion, you'll need to find the virtual network your AKS cluster is connected to. 
+To deploy Azure Bastion, you'll need to find the virtual network your AKS cluster is connected to.
 
 1. In the Azure portal, go to **Virtual networks**. Select the virtual network your AKS cluster is connected to.
 1. Under **Settings**, select **Bastion**, then select **Deploy Bastion**. Wait until the process is finished before going to the next step.
@@ -369,7 +368,7 @@ az aks show -n myAKSCluster -g myResourceGroup --query 'nodeResourceGroup' -o ts
 #### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-(Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup  
+(Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).nodeResourceGroup
 ```
 
 ---
@@ -390,7 +389,7 @@ When you're finished, exit the Bastion session and remove the Bastion resource.
 
 1. In the Azure portal, go to **Bastion** and select the Bastion resource you created.
 1. At the top of the page, select **Delete**. Wait until the process is complete before proceeding to the next step.
-1. In the Azure portal, go to **Virtual networks**. Select the virtual network that your AKS cluster is connected to. 
+1. In the Azure portal, go to **Virtual networks**. Select the virtual network that your AKS cluster is connected to.
 1. Under **Settings**, select **Subnet**, and delete the **AzureBastionSubnet** subnet that was created for the Bastion resource.
 
 ## Next steps
@@ -398,7 +397,7 @@ When you're finished, exit the Bastion session and remove the Bastion resource.
 If you need more troubleshooting data, you can [view the Kubernetes primary node logs][view-primary-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [rdp-mac]: https://aka.ms/rdmac
 
@@ -415,5 +414,5 @@ If you need more troubleshooting data, you can [view the Kubernetes primary node
 [install-azure-cli]: /cli/azure/install-azure-cli
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [ssh-steps]: ssh.md
-[view-primary-logs]: ../azure-monitor/containers/container-insights-log-query.md#resource-logs
-[azure-bastion]: ../bastion/bastion-overview.md  
+[view-primary-logs]: monitor-aks.md#aks-control-planeresource-logs
+[azure-bastion]: ../bastion/bastion-overview.md

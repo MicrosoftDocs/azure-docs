@@ -7,27 +7,12 @@ ms.author: dobett
 ms.date: 01/20/2023
 ms.topic: how-to
 ms.service: iot-hub
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-hub
 zone_pivot_groups: programming-languages-set-twenty-seven
 
 #- id: programming-languages-set-twenty-seven
-## Owner: dobett
-#  title: Programming languages
-#  prompt: Choose a programming language
-#  pivots:
-#  - id: programming-language-ansi-c
-#    title: C
-#  - id: programming-language-csharp
-#    title: C#
-#  - id: programming-language-java
-#    title: Java
-#  - id: programming-language-javascript
-#    title: JavaScript
-#  - id: programming-language-python
-#    title: Python
-#  - id: programming-language-embedded-c
 #    title: Embedded C
-
 #Customer intent: As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 

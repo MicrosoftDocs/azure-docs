@@ -2,11 +2,11 @@
 title: Software plan discount - Azure
 description: Learn how software plan discounts are applied to software on virtual machines.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ To buy the right plan, you need to understand your VM usage and the number of vC
 
 ## How reservation discount is applied
 
-A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+A reservation discount is "*use-it-or-lose-it*." So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
@@ -44,7 +44,7 @@ For example, if your usage is for product **SUSE Linux Enterprise Server Priorit
 
 ## Discount applies to different VM sizes for SUSE plans
 
-Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
+Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. That means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 
 The discount amount depends on the ratio listed in the following tables. The ratio compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many VM instances get the SUSE Linux plan discount.
 
@@ -55,6 +55,8 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
 The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers only a portion of the software cost, which is about 77%.
+
+The ratios are based on prices. The 2.6 ratio means that 1 vCPU VM is covered when your purchase quantity of 1 has 5 or more vCPUs.
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 

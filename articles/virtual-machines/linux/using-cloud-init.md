@@ -1,17 +1,18 @@
 ---
-title: Overview of cloud-init support for Linux VMs in Azure 
+title: Overview of cloud-init support for Linux VMs in Azure
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
 author: srijang
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/21/2022
 ms.author: srijangupta
-
 ---
 # cloud-init support for virtual machines in Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -46,6 +47,7 @@ There are two stages to making cloud-init available to the supported Linux distr
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7 |RHEL |7.7, 7.8, 7_9 |latest |yes | yes |
 |RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |yes | yes |
+|RedHat 9 |RHEL |9_0, 9_1 |latest |yes | yes |
 
 * All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. Cloud-init is not supported on RHEL 6. 
 

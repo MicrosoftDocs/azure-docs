@@ -3,13 +3,13 @@ title: Protect web apps on Azure VMware Solution with Azure Application Gateway
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 12/19/2023
 ms.custom: engagement-fy23
 ---
 
 # Protect web apps on Azure VMware Solution with Azure Application Gateway
 
-[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that lets you manage traffic to your web applications. It's offered in both Azure VMware Solution v1.0 and v2.0. Both versions tested with web apps running on Azure VMware Solution.
+[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that lets you manage traffic to your web applications, offered in both Azure VMware Solution v1.0 and v2.0. Both versions tested with web apps running on Azure VMware Solution.
 
 The capabilities include:
 
@@ -68,7 +68,7 @@ The Application Gateway instance gets deployed on the hub in a dedicated subnet 
 
 10. Add a path-based rule and select **Add**. Repeat to add more path-based rules.
 
-11. When you have finished adding path-based rules, select **Add** again; then select **Next: Tags>**.
+11. When you finish adding path-based rules, select **Add** again, then select **Next: Tags>**.
 
 12. Add tags and then select **Next: Review + Create>**.
 
@@ -76,7 +76,7 @@ The Application Gateway instance gets deployed on the hub in a dedicated subnet 
 
 ## Configuration examples
 
-Now you'll configure Application Gateway with Azure VMware Solution VMs as backend pools for the following use cases:
+Now configure Application Gateway with Azure VMware Solution VMs as backend pools for the following use cases:
 
 - [Hosting multiple sites](#hosting-multiple-sites)
 - [Routing by URL](#routing-by-url)
@@ -86,13 +86,13 @@ Now you'll configure Application Gateway with Azure VMware Solution VMs as backe
 This procedure shows you how to define backend address pools using VMs running on an Azure VMware Solution private cloud on an existing application gateway.
 
 >[!NOTE]
->This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.fabrikam.com.
+>This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.contoso2.com.
 
-1. In your private cloud, create two different pools of VMs. One represents Contoso and the second Fabrikam.
+1. In your private cloud, create two different pools of VMs. One represents Contoso and the second contoso2.
 
     :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool.png" alt-text="Screenshot showing summary of a web server's details in VMware vSphere Client."lightbox="media/application-gateway/app-gateway-multi-backend-pool.png":::
 
-    We've used Windows Server 2016 with the Internet Information Services (IIS) role installed. Once the VMs are installed, run the following PowerShell commands to configure IIS on each of the VMs.
+    We used Windows Server 2016 with the Internet Information Services (IIS) role installed. Once the VMs are installed, run the following PowerShell commands to configure IIS on each of the VMs.
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -125,7 +125,7 @@ The following steps define backend address pools using VMs running on an Azure V
 
     :::image type="content" source="media/application-gateway/app-gateway-url-route-backend-pool.png" alt-text="Screenshot of page in VMware vSphere Client showing summary of another VM."lightbox="media/application-gateway/app-gateway-url-route-backend-pool.png":::
 
-    Windows Server 2016 with IIS role installed has been used to illustrate this tutorial. Once the VMs are installed, run the following PowerShell commands to configure IIS for each VM tutorial.
+    Windows Server 2016 with IIS role installed was used to illustrate this tutorial. Once the VMs are installed, run the following PowerShell commands to configure IIS for each VM tutorial.
 
     The first virtual machine, contoso-web-01, hosts the main website.
 
@@ -186,7 +186,7 @@ The following steps define backend address pools using VMs running on an Azure V
 
 ## Next Steps
 
-Now that you've covered using Application Gateway to protect a web app running on Azure VMware Solution, you may want to learn about:
+Now that you covered using Application Gateway to protect a web app running on Azure VMware Solution, learn more about:
 
 - [Configuring Azure Application Gateway for different scenarios](../application-gateway/configuration-overview.md).
 - [Deploying Traffic Manager to balance Azure VMware Solution workloads](deploy-traffic-manager-balance-workloads.md).

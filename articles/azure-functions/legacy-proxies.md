@@ -24,16 +24,17 @@ Re-enabling proxies requires you to set a flag in the `AzureWebJobsFeatureFlags`
 
 + If this setting already exists, add `,EnableProxies` to the end of the existing value.
 
-[`AzureWebJobsFeatureFlags`](functions-app-settings.md#azurewebjobsfeatureflags) is a comma-delimited array of flags used to enable preview and other temporary features. 
+[`AzureWebJobsFeatureFlags`](functions-app-settings.md#azurewebjobsfeatureflags) is a comma-delimited array of flags used to enable preview and other temporary features. To learn more about how to create and modify application settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-To learn more about how to create and modify application settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+>[!NOTE]
+>Even when re-enabled using the `EnableProxies` flag, you can't work with proxies in the Azure portal. Instead, you must work directly with the *proxies.json* file for your function app. For more information, see [Advanced configuration](#advanced-configuration).
 
 ## <a name="create"></a>Create a proxy
 
 > [!IMPORTANT] 
 > For equivalent content using API Management, see [Expose serverless APIs from HTTP endpoints using Azure API Management](functions-openapi-definition.md). 
 
-Proxies are defined in the _proxies.json_ file in the root of your function app. The steps in this section show you how to use the Azure portal to create this file in your function app. Not all languages and operating system combinations support in-portal editing. If you can't modify your function app files in the portal, you can instead create and deploy the equivalent `proxies.json` file from the root of your local project folder. To learn more about portal editing support, see [Language support details](functions-create-function-app-portal.md#language-support-details). 
+Proxies are defined in the _proxies.json_ file in the root of your function app. The steps in this section show you how to use the Azure portal to create this file in your function app. Not all languages and operating system combinations support in-portal editing. If you can't modify your function app files in the portal, you can instead create and deploy the equivalent `proxies.json` file from the root of your local project folder. To learn more about portal editing support, see [Language support details](supported-languages.md#language-support-details). 
 
 1. Open the [Azure portal], and then go to your function app.
 1. In the left pane, select **Proxies** and then select **+Add**.

@@ -7,6 +7,7 @@ ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
 ms.date: 01/23/2023
 ms.author: madsd
+ms.custom: UpdateFrequency3
 
 ---
 # App Service networking features

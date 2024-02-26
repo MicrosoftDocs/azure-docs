@@ -1,0 +1,60 @@
+### YamlMime:Landing 
+
+title: Azure API Center (preview) documentation 
+summary: API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
+
+metadata: 
+  title: Azure API Center documentation | Microsoft Docs
+  description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
+  ms.service: api-center
+  ms.topic: landing-page
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/24/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About API Center
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is API Center?
+            url: overview.md
+          - text: Key concepts
+            url: key-concepts.md
+  # Card
+  - title: Manage your API inventory
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create your API center
+            url: set-up-api-center.md
+      - linkListType: tutorial
+        links:
+          - text: 1 - Customize metadata properties
+            url: add-metadata-properties.md
+          - text: 2 - Add APIs to the inventory
+            url: register-apis.md
+          - text: 3 - Add environments and deployments
+            url: configure-environments-deployments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage inventory - Azure CLI
+            url: manage-apis-azure-cli.md
+          - text: Import APIs from API Management
+            url: import-api-management-apis.md
+# Card
+  - title: Discover APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable your API Center portal
+            url: enable-api-center-portal.md
+          - text: Use VS Code extension
+            url: use-vscode-extension.md
+          - text: Discover APIs with GitHub Copilot Chat
+            url: use-vscode-extension-copilot.md

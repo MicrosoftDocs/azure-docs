@@ -6,8 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Integration Runtime IP addresses
@@ -17,7 +16,7 @@ ms.date: 02/08/2023
 The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
 
 > [!IMPORTANT]  
-> Data flows and Azure Integration Runtime which enable Managed Virtual Network don't support the use of fixed IP ranges.
+> Azure Integration Runtime which enable Managed Virtual Network  and all data flows don't support the use of fixed IP ranges.
 >
 > You can use these IP ranges for Data Movement, Pipeline and External activities executions. These IP ranges can be used for filtering in data stores/ Network Security Group (NSG)/ Firewalls for inbound access from Azure Integration runtime. 
 
@@ -25,6 +24,8 @@ The IP addresses that Azure Integration Runtime uses depends on the region where
 
 Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located. You can get an IP range list of service tags from the [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). For example, if the Azure region is **AustraliaEast**, you can get an IP range list from **DataFactory.AustraliaEast**.
 
+> [!NOTE]
+> Azure Data Factory IP range is shared across Fabric Data Factory.
 
 ## Known issue with Azure Storage
 
@@ -32,6 +33,6 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 
   Instead, we suggest using [trusted services while connecting to Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 
-## Next steps
+## Related content
 
 * [Security considerations for data movement in Azure Data Factory](data-movement-security-considerations.md)

@@ -1,20 +1,19 @@
 ---
-title: Attach a data disk to a Linux VM 
+title: Attach a data disk to a Linux VM
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.collection: linux
-
 ---
-# Use the portal to attach a data disk to a Linux VM 
+# Use the portal to attach a data disk to a Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md). 
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md).
 
 Before you attach disks to your VM, review these tips:
 
@@ -34,7 +33,7 @@ Before you attach disks to your VM, review these tips:
 1. On the **Disks** pane, under **Data disks**, select **Create and attach a new disk**.
 
 1. Enter a name for your managed disk. Review the default settings, and update the **Storage type**, **Size (GiB)**, **Encryption** and **Host caching** as necessary.
-   
+
    :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
 
@@ -43,13 +42,13 @@ Before you attach disks to your VM, review these tips:
 
 ## Attach an existing disk
 1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
-1. Select the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
+1. Select the drop-down menu for **Disk name** and select a disk from the list of available managed disks.
 
 1. Select **Save** to attach the existing managed disk and update the VM configuration:
-   
+
 
 ## Connect to the Linux VM to mount the new disk
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*: 
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*:
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -57,7 +56,7 @@ ssh azureuser@10.123.123.25
 
 ## Find the disk
 
-Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks. 
+Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks.
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -65,7 +64,7 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
 The output is similar to the following example:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -85,7 +84,7 @@ In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LU
 
 Here's what that might look like using `lsblk`:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -102,14 +101,14 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 ### Prepare a new empty disk
 
 > [!IMPORTANT]
-> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
+> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk).
 > The following instructions will delete data on the disk.
 
 If you're attaching a new disk, you need to partition the disk.
 
 The `parted` utility can be used to partition and to format a data disk.
 - Use the latest version `parted` that is available for your distro.
-- If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
+- If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.
 
 
 The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
@@ -135,7 +134,6 @@ Use `mount` to then mount the filesystem. The following example mounts the */dev
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
-
 To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It's also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
@@ -144,7 +142,7 @@ sudo blkid
 
 The output looks similar to the following example:
 
-```bash
+```output
 /dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
 /dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
 /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
@@ -157,7 +155,7 @@ The output looks similar to the following example:
 
 Next, open the **/etc/fstab** file in a text editor. Add a line to the end of the file, using the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Using the example from this article, the new line would look like the following:
 
-```bash
+```config
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
@@ -165,7 +163,7 @@ When you're done editing the file, save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
-> 
+>
 > The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 
@@ -179,7 +177,7 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
 The output will look something like this:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -200,11 +198,11 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 * Use the `discard` mount option in */etc/fstab*, for example:
 
-    ```bash
+    ```config
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
-  
+
 # [Ubuntu](#tab/ubuntu)
 
 ```bash
@@ -222,6 +220,7 @@ sudo fstrim /datadrive
 # [SUSE](#tab/suse)
 
 ```bash
+sudo zypper install util-linux
 sudo fstrim /datadrive
 ```
 ---

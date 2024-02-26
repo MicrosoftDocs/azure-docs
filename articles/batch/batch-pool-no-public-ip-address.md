@@ -2,8 +2,8 @@
 title: Create an Azure Batch pool without public IP addresses (preview)
 description: Learn how to create an Azure Batch pool without public IP addresses.
 ms.topic: how-to
-ms.date: 11/18/2022
-ms.custom: references_regions
+ms.date: 05/30/2023
+ms.custom: references_regions, linux-related-content
 ---
 
 # Create a Batch pool without public IP addresses (preview)
@@ -28,7 +28,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Prerequisites
 
-- **Authentication**. To use a pool without public IP addresses inside a [virtual network](./batch-virtual-network.md), the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Azure AD authentication or key-based authentication can be used.
+- **Authentication**. To use a pool without public IP addresses inside a [virtual network](./batch-virtual-network.md), the Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Azure Batch services with Microsoft Entra ID](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Microsoft Entra authentication or key-based authentication can be used.
 
 - **An Azure VNet**. If you're creating your pool in a [virtual network](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure CLI, or other methods.
 
@@ -84,9 +84,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           "imageReference": {
                "publisher": "Canonical",
                "offer": "UbuntuServer",
-               "sku": "18.04-lts"
+               "sku": "20.04-lts"
           },
-          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 20.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -111,6 +111,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      ]
 }
 ```
+
+> [!Important]
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Outbound access to the internet
 

@@ -91,7 +91,7 @@ Now that the repository is created, you can create a static web app from the Azu
 Next you add a workflow task responsible for building and deploying your site as you make changes.
 
 ### Add deployment token
-
+When following the below steps, make sure that you select * for the environments section. It may appear the default value is all but you need to click the dropdown and manually select *.
 1. Go to the repository in GitLab.
 1. Select **Settings**.
 1. Select **CI/CD**.
@@ -145,7 +145,7 @@ Next you add a workflow task responsible for building and deploying your site as
     variables:
       API_TOKEN: $DEPLOYMENT_TOKEN
       APP_PATH: '$CI_PROJECT_DIR/Client'
-      OUTPUT_PATH: '$CI_PROJECT_DIR/wwwroot'
+      OUTPUT_PATH: 'wwwroot'
     
     deploy:
       stage: deploy

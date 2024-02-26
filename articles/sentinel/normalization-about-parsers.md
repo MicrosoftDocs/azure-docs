@@ -44,7 +44,7 @@ The following table lists the available unifying parsers:
 
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
-| Audit Event | imAuditEvent |
+| Audit Event | _Im_AuditEvent |
 | Authentication | imAuthentication | 
 | Dns | _Im_Dns |
 | File Event | imFileEvent |

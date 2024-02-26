@@ -93,7 +93,7 @@ if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 ```
 
 ### Wait processing
-Use this pattern for applications that do not need results for every frames (e.g. processing a video from a file). The `simple_sample.exe` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of wait processing.
+Use this pattern for applications that do not need results for every frames (e.g. processing a video from a file). The `simple_sample.exe` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples/tree/d87e80a2775413ee65f40943bbb65057e4c41976/body-tracking-samples/simple_sample) is an example of wait processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);

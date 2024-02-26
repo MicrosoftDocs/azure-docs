@@ -38,7 +38,7 @@ Let us see an example of these policies in action.
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Event arrived late and outside tolerance level. So event time gets adjusted to maximum late arrival tolerance.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Event arrived late but within tolerance level. So event time doesn't get adjusted.  |
 | **3** | 00:10:42 | 00:10:42 | 00:10:42 | Event arrived on time. No adjustment needed.  |
-| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Event arrived out-of-order but within the tolerance of 5 seconds. So, event time doesn't get adjusted. For analytics purposes, this event will be considered as preceding event number 4 (with considering the total 5 events. The actual order is: 1, 2, 5, 4, 3).  |
+| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Event arrived out-of-order but within the tolerance of 5 seconds. So, event time doesn't get adjusted. For analytics purposes, this event will be considered as preceding event number 3 (with considering the total 5 events. The actual order is: 1, 2, 5, 4, 3).  |
 | **5** | 00:10:35 | 00:10:45  | 00:10:37 | Event arrived out-of-order and outside tolerance of 5 seconds. So, event time is adjusted to maximum of out-of-order tolerance. |
 
 ## Can these settings delay output of my job? 

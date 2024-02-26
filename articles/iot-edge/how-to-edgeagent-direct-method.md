@@ -33,7 +33,7 @@ az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device na
 
 In the Azure portal, invoke the method with the method name `ping` and an empty JSON payload `{}`.
 
-![Invoke direct method 'ping' in Azure portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
+:::image type="content" source="./media/how-to-edgeagent-direct-method/ping-direct-method.png" alt-text="Screenshot showing how to invoke the direct method ping in Azure portal.":::
 
 ## Restart module
 
@@ -67,7 +67,7 @@ In the Azure portal, invoke the method with the method name `RestartModule` and 
 }
 ```
 
-![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
+:::image type="content" source="./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png" alt-text="Screenshot showing how to invoke direct method RestartModule in the Azure portal.":::
 
 ## Diagnostic direct methods
 

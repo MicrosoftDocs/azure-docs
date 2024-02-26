@@ -3,14 +3,13 @@ title: Configure a connection string
 titleSuffix: Azure Storage
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime using Shared Key authorization.
 services: storage
-author: jimmart-dev
-
-ms.service: storage
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/24/2023
-ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: common
 ---
 
 # Configure Azure Storage connection strings
@@ -34,7 +33,7 @@ Your application needs to access the connection string at runtime to authorize r
 - An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 
 > [!WARNING]
-> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Azure AD authorization for access to your storage account.
+> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Microsoft Entra authorization for access to your storage account.
 
 ## Configure a connection string for Azurite
 
@@ -112,7 +111,7 @@ For more information about configuring a custom domain for Azure Storage, see [M
 
 ### Create a connection string with an endpoint suffix
 
-To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Azure China 21Vianet or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
+To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Microsoft Azure operated by 21Vianet or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -121,7 +120,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Here's an example connection string for storage services in Azure China 21Vianet:
+Here's an example connection string for storage services in Azure operated by 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -136,9 +135,10 @@ To learn how to authorize access to Azure Storage with the account key or with a
 
 - [Authorize access and connect to Blob Storage with .NET](../blobs/storage-blob-dotnet-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
 - [Authorize access and connect to Blob Storage with Java](../blobs/storage-blob-java-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with JavaScript](../blobs/storage-blob-javascript-get-started.md#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with Python](../blobs/storage-blob-python-get-started.md#authorize-access-and-connect-to-blob-storage)
 
 ## Next steps
 
-- [Use the Azure Identity library to get an access token for authorization](identity-library-acquire-token.md)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)

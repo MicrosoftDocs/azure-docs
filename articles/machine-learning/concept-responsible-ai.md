@@ -4,25 +4,23 @@ titleSuffix: Azure Machine Learning
 description: Learn what Responsible AI is and how to use it with Azure Machine Learning to understand models, protect data, and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 11/09/2022
-ms.custom: responsible-ai, event-tier1-build-2022
+ms.date: 01/31/2024
+ms.custom: responsible-ai, build-2023, build-2023-dataai
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
 # What is Responsible AI?
 
-[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
-
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Responsible Artificial Intelligence (Responsible AI) is an approach to developing, assessing, and deploying AI systems in a safe, trustworthy, and ethical way. AI systems are the product of many decisions made by those who develop and deploy them. From system purpose to how people interact with AI systems, Responsible AI can help proactively guide these decisions toward more beneficial and equitable outcomes. That means keeping people and their goals at the center of system design decisions and respecting enduring values like fairness, reliability, and transparency.
 
-Microsoft has developed a [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It's a framework for building AI systems according to six principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For Microsoft, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in products and services that people use every day.
+Microsoft developed a [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It's a framework for building AI systems according to six principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. For Microsoft, these principles are the cornerstone of a responsible and trustworthy approach to AI, especially as intelligent technology becomes more prevalent in products and services that people use every day.
 
 This article demonstrates how Azure Machine Learning supports tools for enabling developers and data scientists to implement and operationalize the six principles.
 
@@ -51,9 +49,9 @@ When AI systems help inform decisions that have tremendous impacts on people's l
 
 A crucial part of transparency is *interpretability*: the useful explanation of the behavior of AI systems and their components. Improving interpretability requires stakeholders to comprehend how and why AI systems function the way they do. The stakeholders can then identify potential performance issues, fairness issues, exclusionary practices, or unintended outcomes.  
 
-**Transparency in Azure Machine Learning**: The [model interpretability](how-to-machine-learning-interpretability.md) and [counterfactual what-if](./concept-counterfactual-analysis.md) components of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) enable data scientists and developers to generate human-understandable descriptions of the predictions of a model. 
+**Transparency in Azure Machine Learning**: The [model interpretability](how-to-machine-learning-interpretability.md) and [counterfactual what-if](./concept-counterfactual-analysis.md) components of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) enable data scientists and developers to generate human-understandable descriptions of the predictions of a model.
 
-The model interpretability component provides multiple views into a model's behavior: 
+The model interpretability component provides multiple views into a model's behavior:
 
 - *Global explanations*. For example, what features affect the overall behavior of a loan allocation model?
 - *Local explanations*. For example, why was a customer's loan application approved or rejected? 
@@ -78,7 +76,7 @@ As AI becomes more prevalent, protecting privacy and securing personal and busin
 - Scan for vulnerabilities.
 - Apply and audit configuration policies.
 
-Microsoft has also created two open-source packages that can enable further implementation of privacy and security principles:
+Microsoft also created two open-source packages that can enable further implementation of privacy and security principles:
 
 - [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core): Differential privacy is a set of systems and practices that help keep the data of individuals safe and private. In machine learning solutions, differential privacy might be required for regulatory compliance. SmartNoise is an open-source project (co-developed by Microsoft) that contains components for building differentially private systems that are global.
 

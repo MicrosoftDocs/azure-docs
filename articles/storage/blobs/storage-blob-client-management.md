@@ -5,12 +5,12 @@ description: Learn how to create and manage clients that interact with data reso
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.author: pauljewell
-ms.subservice: blobs
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
@@ -45,10 +45,10 @@ Each client type can be instantiated by calling a simple constructor, or an over
 
 ## Authorize a client object
 
-For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Azure via an Azure Active Directory (Azure AD) security principal. The authentication process includes obtaining an access token for authorization. This access token is passed as a credential when the client is instantiated, and the credential persists throughout the client lifetime. The Azure AD security principal requesting the token must be assigned an appropriate Azure RBAC role that grants access to blob data. To learn more, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+For an app to access blob resources and interact with them, a client object must be authorized. The code samples in this article use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Azure via a Microsoft Entra security principal. The authentication process includes obtaining an access token for authorization. This access token is passed as a credential when the client is instantiated, and the credential persists throughout the client lifetime. The Microsoft Entra security principal requesting the token must be assigned an appropriate Azure RBAC role that grants access to blob data. To learn more, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
 The following authorization mechanisms can be used to grant the appropriate level of access to a client object:
-- [Azure AD](authorize-access-azure-active-directory.md): recommended for optimal security
+- [Microsoft Entra ID](authorize-access-azure-active-directory.md): recommended for optimal security
 - [Shared access signature (SAS)](../common/storage-sas-overview.md): supported, and most secure when using a user delegation SAS token
 - [Account access key (Shared Key)](/rest/api/storageservices/authorize-with-shared-key): supported, but not recommended as it can be less secure
 
@@ -58,13 +58,13 @@ To learn more about authorization, see [Authorize access to data in Azure Storag
 
 Working with any Azure resource using the SDK begins with creating a client object. In this section, you learn how to create client objects to interact with the three types of resources in the storage service: storage accounts, containers, and blobs.
 
+When your application creates a client object, you pass a URI referencing the endpoint to the client constructor. You can construct the endpoint string manually, as shown in the examples in this article, or you can query for the endpoint at runtime using the Azure Storage management library. To learn how to query for an endpoint, see [Query for a Blob Storage endpoint](storage-blob-query-endpoint-srp.md).
+
 ### Create a BlobServiceClient object
 
-An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. 
+An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account.
 
-A common scenario is to instantiate a single service client, then create container clients and blob clients from the service client, as needed. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account. 
-
-To work with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration, including client options and credentials.
+A common scenario is to instantiate a single service client, then create container clients and blob clients from the service client, as needed. To work with a specific container or blob, you can use the `BlobServiceClient` object to create a [container client](#create-a-blobcontainerclient-object) or [blob client](#create-a-blobclient-object). Clients created from a `BlobServiceClient` will inherit its client configuration, including client options and credentials.
 
 The following examples show how to create a `BlobServiceClient` object:
 

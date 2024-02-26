@@ -3,25 +3,24 @@ title: 'Azure ExpressRoute: Router configuration samples - NAT'
 description: This page provides router configuration samples for Cisco and Juniper routers.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 12/28/2023
 ms.author: duau
-
 ---
+
 # Router configuration samples to set up and manage NAT
 
-This article provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These router configurations are intended to be samples for guidance only and must not be used as is. You'll need to work with your vendor to come up with appropriate configurations for your network.
+This article provides NAT configuration samples for Cisco ASA and Juniper SRX series routers when working with ExpressRoute. These router configurations are intended to be samples for guidance only and must not be used as is. You need to work with your vendor to come up with appropriate configurations for your network.
 
 > [!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 > 
 > 
 
-* Router configuration samples below apply to Azure Public and Microsoft peerings. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
+* The following router configuration samples apply to Azure Public and Microsoft peerings. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
 
-* You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute will result in asymmetric routing and loss of connectivity.
+* You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute results in asymmetric routing and loss of connectivity.
 
 
 ## Cisco ASA firewalls
@@ -196,7 +195,7 @@ nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT dest
 ```
 
 ### 4. Configure NAT policies
-* Create two NAT pools. One will be used to NAT traffic outbound to Microsoft and other from Microsoft to the customer.
+* Create two NAT pools. One is used to NAT traffic outbound to Microsoft and other from Microsoft to the customer.
 * Create rules to NAT the respective traffic
 
 ```console

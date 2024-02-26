@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Azure Cosmos DB Java SDK v4 for API for NoSQL: release notes and resources
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, ignite-2022
 
 [!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
-The Azure Cosmos DB Java SDK v4 for NoSQL combines an Async API and a Sync API into one Maven artifact. The v4 SDK brings enhanced performance, new API features, and Async support based on Project Reactor and the [Netty library](https://netty.io/). Users can expect improved performance with Azure Cosmos DB Java SDK v4 versus the [Azure Cosmos DB Async Java SDK v2](sdk-java-async-v2.md) and the [Azure Cosmos DB Sync Java SDK v2](sdk-java-v2.md).
+The Azure Cosmos DB Java SDK v4 for NoSQL combines an Async API and a Sync API into one Maven artifact. The v4 SDK brings enhanced performance, new API features, and Async support based on Project Reactor and the [Netty library](https://netty.io/). Users can expect improved performance with Azure Cosmos DB Java SDK v4 versus the [Azure Cosmos DB Async Java SDK v2](sdk-java-async-v2.md) and the [Azure Cosmos DB Sync Java SDK v2](/java/api/overview/azure/cosmos-readme).
 
 > [!IMPORTANT]  
 > These Release Notes are for Azure Cosmos DB Java SDK v4 only. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
@@ -57,7 +57,7 @@ Release history is maintained in the azure-sdk-for-java repo, for detailed list 
 
 ## Recommended version
 
-It's strongly recommended to use version 4.37.1 and above.
+It's strongly recommended to use version 4.48.2 and above.
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)] 

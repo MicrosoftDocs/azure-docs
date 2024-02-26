@@ -2,16 +2,12 @@
 title: Azure database security checklist| Microsoft Docs
 description: Use the Azure database security checklist to make sure that you address important cloud computing security issues.
 services: security
-documentationcenter: na
 author: terrylanfear
 manager: rkarlin
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2023
 ms.author: terrylan
 ---
@@ -44,7 +40,7 @@ We recommend that you read the [Azure Database Security Best Practices](/azure/a
 | <br> Encryption in Motion/Transit| <ul><li>[Transport Layer Security](/windows-server/security/tls/transport-layer-security-protocol), for data encryption when data is moving to the networks.</li><li>Database requires secure communication from clients based on the [TDS(Tabular Data Stream)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) protocol over TLS (Transport Layer Security).</li></ul> |
 |<br>Encryption at rest| <ul><li>[Transparent Data Encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview), when inactive data is stored physically in any digital form.</li></ul>|
 |**Control Access**||  
-|<br> Database Access | <ul><li>[Authentication](/azure/azure-sql/database/logins-create-manage) (Azure Active Directory Authentication) AD authentication uses identities managed by Azure Active Directory.</li><li>[Authorization](/azure/azure-sql/database/logins-create-manage) grant users the least privileges necessary.</li></ul> |
+|<br> Database Access | <ul><li>[Authentication](/azure/azure-sql/database/logins-create-manage) (Microsoft Entra authentication) AD authentication uses identities managed by Microsoft Entra ID.</li><li>[Authorization](/azure/azure-sql/database/logins-create-manage) grant users the least privileges necessary.</li></ul> |
 |<br>Application Access| <ul><li>[Row level Security](/sql/relational-databases/security/row-level-security) (Using Security Policy, at the same time restricting row-level access  based on a user's identity,role, or execution context).</li><li>[Dynamic Data Masking](/azure/azure-sql/database/dynamic-data-masking-overview) (Using Permission & Policy, limits sensitive data exposure by masking it to non-privileged users)</li></ul>|
 |**Proactive Monitoring**||  
 | <br>Tracking & Detecting| <ul><li>[Auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an Audit log/ Activity log in your [Azure Storage account](../../storage/common/storage-account-create.md).</li><li>Track Azure Database health using [Azure Monitor Activity Logs](../../azure-monitor/essentials/platform-logs-overview.md).</li><li>[Threat Detection](/azure/azure-sql/database/threat-detection-configure) detects anomalous database activities indicating potential security threats to the database. </li></ul> |

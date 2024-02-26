@@ -3,6 +3,7 @@ title: SAP Business One on Azure Virtual Machines | Microsoft Docs
 description: SAP Business One on Azure.
 author: msjuergent
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 02/11/2022
 ms.author: juergent

@@ -1,231 +1,149 @@
 ---
-title: Quickstart - Azure Cosmos DB for NoSQL client library for Node.js
-description: Learn how to build a Node.js app to manage Azure Cosmos DB for NoSQL account resources in this quickstart.
+title: Quickstart - Node.js client library
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Deploy a Node.js Express web application that uses the client library to interact with Azure Cosmos DB for NoSQL data in this quickstart.
 author: seesharprun
 ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
-ms.topic: quickstart
-ms.date: 09/22/2022
-ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey
+ms.custom: devx-track-js
+ms.topic: quickstart-sdk
+ms.date: 01/08/2024
+zone_pivot_groups: azure-cosmos-db-quickstart-env
+# CustomerIntent: As a developer, I want to learn the basics of the Node.js library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
 
-# Quickstart - Azure Cosmos DB for NoSQL client library for Node.js
+# Quickstart: Azure Cosmos DB for NoSQL library for Node.js
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[Quickstart selector](includes/quickstart-selector.md)]
+[!INCLUDE[Developer Quickstart selector](includes/quickstart/dev-selector.md)]
 
-Get started with the Azure Cosmos DB client library for JavaScript to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the Azure Cosmos DB for NoSQL client library for Node.js to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-> [!NOTE]
-> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples) are available on GitHub as a Node.js project.
+[API reference documentation](/javascript/api/overview/azure/cosmos-readme) | [Library source code](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos) | [Package (npm)](https://www.npmjs.com/package/@azure/cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
-- [Node.js 10 or later](https://dotnet.microsoft.com/download)
-- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-
-### Prerequisite check
-
-- In a terminal or command window, run ``node --version`` to check that the Node.js version is one of the current long term support (LTS) versions.
-- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+[!INCLUDE[Developer Quickstart prerequisites](includes/quickstart/dev-prereqs.md)]
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for JavaScript to manage resources.
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
 
-### Create an Azure Cosmos DB account
+::: zone pivot="devcontainer-codespace"
 
-> [!TIP]
-> No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required. If you create an account using the free trial, you can safely skip ahead to the [Create a new JavaScript project](#create-a-new-javascript-project) section.
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/azure-samples/cosmos-db-nosql-nodejs-quickstart?template=false&quickstart=1&azure-portal=true)
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](includes/create-resources.md)]
+::: zone-end
 
-### Configure environment variables
+::: zone pivot="devcontainer-vscode"
 
-[!INCLUDE [Create environment variables for key and endpoint](includes/environment-variables.md)]
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/cosmos-db-nosql-nodejs-quickstart)
 
-### Create a new JavaScript project
+::: zone-end
 
-1. Create a new Node.js application in an empty folder using your preferred terminal.
+[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
 
-    ```bash
-    npm init -y
-    ```
+### Install the client library
 
-2. Edit the `package.json` file to use ES6 modules by adding the `"type": "module",` entry. This setting allows your code to use modern async/await syntax.
+The client library is available through the Node Package Manager, as the `@azure/cosmos` package.
 
-    :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/package.json" highlight="6":::
-
-### Install the package
-
-1. Add the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) npm package to the Node.js project.
+1. Open a terminal and navigate to the `/src` folder.
 
     ```bash
-    npm install @azure/cosmos
+    cd ./src
     ```
 
-1. Add the [dotenv](https://www.npmjs.com/package/dotenv) npm package to read environment variables from a `.env` file.
+1. If not already installed, install the `@azure/cosmos` package using `npm install`.
 
     ```bash
-    npm install dotenv
+    npm install --save @azure/cosmos
     ```
 
-### Create local development environment files
+1. Also, install the `@azure/identity` package if not already installed.
 
-1. Create a `.gitignore` file and add the following value to ignore your environment file and your node_modules. This configuration file ensures that only secure and relevant files are checked into source code.
-
-    ```text
-    .env
-    node_modules
+    ```bash
+    npm install --save @azure/identity
     ```
 
-1. Create a `.env` file with the following variables:
-
-    ```text
-    COSMOS_ENDPOINT=
-    COSMOS_KEY=
-    ```
-
-### Create a code file
-
-Create an `index.js` and add the following boilerplate code to the file to read environment variables:
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="1-3":::
-
-### Add dependency to client library
-
-Add the following code at the end of the `index.js` file to include the required dependency to programmatically access Cosmos DB.
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="5-6":::
-
-### Add environment variables to code file
-
-Add the following code at the end of the `index.js` file to include the required environment variables. The endpoint and key were found at the end of the [account creation steps](#create-an-azure-cosmos-db-account).
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="8-11":::
-
-### Add variables for names
-
-Add the following variables to manage unique database and container names and the [**partition key (`pk`)**](../partitioning-overview.md).
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="13-19":::
-
-In this example, we chose to add a timeStamp to the database and container in case you run this sample code more than once.
+1. Open and review the **src/package.json** file to validate that the `azure-cosmos` and `azure-identity` entries both exist.
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](includes/object-model.md)]
-
-You'll use the following JavaScript classes to interact with these resources:
-
-- [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
-- [``Database``](/javascript/api/@azure/cosmos/database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Container``](/javascript/api/@azure/cosmos/container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
-- [``SqlQuerySpec``](/javascript/api/@azure/cosmos/sqlqueryspec) - This interface represents a SQL query and any query parameters.
-- [``QueryIterator<>``](/javascript/api/@azure/cosmos/queryiterator) - This class represents an iterator that can track the current page of results and get a new page of results.
-- [``FeedResponse<>``](/javascript/api/@azure/cosmos/feedresponse) - This class represents a single page of responses from the iterator.
+| Name | Description |
+| --- | --- |
+| [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
+| [`Database`](/javascript/api/@azure/cosmos/database) | This class represents a database within the account. |
+| [`Container`](/javascript/api/@azure/cosmos/container) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| [`PartitionKey`](/javascript/api/@azure/cosmos/partitionkey) | This class represents a logical partition key. This class is required for many common operations and queries. |
+| [`SqlQuerySpec`](/javascript/api/@azure/cosmos/sqlqueryspec) | This interface represents a SQL query and any query parameters. |
 
 ## Code examples
 
 - [Authenticate the client](#authenticate-the-client)
-- [Create a database](#create-a-database)
-- [Create a container](#create-a-container)
+- [Get a database](#get-a-database)
+- [Get a container](#get-a-container)
 - [Create an item](#create-an-item)
-- [Get an item](#get-an-item)
+- [Get an item](#read-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
-
-For this sample code, the container will use the category as a logical partition key.
+[!INCLUDE[Developer Quickstart sample explanation](includes/quickstart/dev-sample-primer.md)]
 
 ### Authenticate the client
 
-In the `index.js`, add the following code to use the resource **endpoint** and **key** to authenticate to Cosmos DB. Define a new instance of the [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) class.
+[!INCLUDE[Developer Quickstart authentication explanation](includes/quickstart/dev-auth-primer.md)]
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="21-22":::
+This sample creates a new instance of the `CosmosClient` type and authenticates using a `DefaultAzureCredential` instance.
 
-### Create a database
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="create_client" highlight="1,3":::
 
-Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+### Get a database
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="24-26":::
+Use `client.database` to retrieve the existing database named *`cosmicworks`*.
 
-### Create a container
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="get_database":::
 
-Add the following code to create a container with the [``Database.Containers.createContainerIfNotExistsAsync``](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) method. The method returns a reference to the container.
+### Get a container
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="28-35":::
+Retrieve the existing *`products`* container using `database.container`.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="get_container":::
 
 ### Create an item
 
-Add the following code to provide your data set. Each _product_ has a unique ID, name, category name (used as partition key) and other fields.
+Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and sale. Create an item in the container using `container.items.upsert`. This method "upserts" the item effectively replacing the item if it already exists.
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="37-84":::
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="create_item" highlight="10":::
 
-Create a few items in the container by calling [``Container.Items.create``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-create) in a loop.
+### Read an item
 
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="86-91":::
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.item` to get a pointer to an item and `item.read` to efficiently retrieve the specific item.
 
-### Get an item
-
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.item().read``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) passing in both values to return an item.
-
-The partition key is specific to a container. In this Contoso Products container, the category name, `categoryName`, is used as the partition key.
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="93-95":::
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="read_item" highlight="4":::
 
 ### Query items
 
-Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual data objects.
+Perform a query over multiple items in a container using `container.items.query`. Find all items within a specified category using this parameterized query:
 
-The query is programmatically composed to `SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'`.
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="97-114":::
-
-If you want to use this data returned from the FeedResponse as an _item_, you need to create an [``Item``](/javascript/api/@azure/cosmos/item), using the [``Container.Items.read``](#get-an-item) method.
-
-### Delete an item
-
-Add the following code to delete an item you need to use the ID and partition key to get the item, then delete it. This example uses the [``Container.Item.delete``](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-delete) method to delete the item.
-
-:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js"  range="116-118":::
-
-## Run the code
-
-This app creates an Azure Cosmos DB SQL API database and container. The example then creates items and then reads one item back. Finally, the example issues a query that should only return items matching a specific category. With each step, the example outputs metadata to the console about the steps it has performed.
-
-To run the app, use a terminal to navigate to the application directory and run the application.
-
-```bash
-node index.js
+```nosql
+SELECT * FROM products p WHERE p.category = @category
 ```
 
-The output of the app should be similar to this example:
+Fetch all of the results of the query using `query.fetchAll`. Loop through the results of the query.
 
-```output
-contoso_1663276732626 database ready
-products_1663276732626 container ready
-'Touring-1000 Blue, 50' inserted
-'Touring-1000 Blue, 46' inserted
-'Mountain-200 Black, 42' inserted
-Touring-1000 Blue, 50 read
-08225A9E-F2B3-4FA3-AB08-8C70ADD6C3C2: Touring-1000 Blue, 50, BK-T79U-50
-2C981511-AC73-4A65-9DA3-A0577E386394: Touring-1000 Blue, 46, BK-T79U-46
-0F124781-C991-48A9-ACF2-249771D44029 Item deleted
-```
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="query_items" highlight="2,11":::
 
-## Clean up resources
+## Related content
 
-[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](includes/clean-up-resources.md)]
+- [.NET Quickstart](quickstart-dotnet.md)
+- [Java Quickstart](quickstart-java.md)
+- [Python Quickstart](quickstart-python.md)
+- [Go Quickstart](quickstart-go.md)
 
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB SQL API account, create a database, and create a container using the JavaScript SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
+## Next step
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build a Node.js console app](sql-api-nodejs-get-started.md)
+> [Tutorial: Build a Node.js web app](tutorial-nodejs-web-app.md)

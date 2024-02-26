@@ -2,7 +2,7 @@
 title: Azure Resource Health overview
 description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 02/14/2023
 
 ---
 # Resource Health overview
@@ -64,6 +64,26 @@ Different resources have their own criteria for when they report that they are d
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
 For Virtual Machine Scale Sets, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+
+### Health not supported
+
+The message *Health not supported* or *RP has no information about the resource, or you don't have read/write access for that resource* means that your resource is not supported for the health metrics.
+
+To know which resources support health metrics, refer to [Supported Resource Types](resource-health-checks-resource-types.md) page.
+
+## Resource health events sent to the activity log
+
+A resource health event is recorded in the activity log when:
+- An annotation, for example "ResourceDegraded" or "AccountClientThrottling", is submitted for a resource.
+- A resource transitioned to or from Unhealthy.
+- A resource was Unhealthy for more than 15 minutes.
+
+The following resource health transitions aren't recorded in the activity log:
+- A transition to Unknown state.
+- A transition from Unknown state if:
+    - This is the first transition.
+    - If the state prior to Unknown is the same as the new state after. (For example, if the resource transitioned from Healthy to Unknown and back to Healthy).
+    - For compute resources: VMs that transition from Healthy to Unhealthy, and back to Healthy, when the Unhealthy time is less than 35 seconds.
 
 ## History information
 

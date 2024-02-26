@@ -6,7 +6,7 @@ ms.author: cbroad
 ms.service: certification
 ms.topic: how-to 
 ms.date: 01/28/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # How to test IoT Plug and Play devices
@@ -26,19 +26,19 @@ This article shows you how to:
 The application code that runs on your IoT Plug and Play must:
 
 - Connect to Azure IoT Hub using the [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md).
-- Follow the [IoT Plug an Play conventions](../iot-develop/concepts-developer-guide-device.md) to implement of telemetry, properties, and commands.
+- Follow the [IoT Plug an Play conventions](../iot/concepts-developer-guide-device.md) to implement of telemetry, properties, and commands.
 
 The application is software that's installed separately from the operating system or is bundled with the operating system in a firmware image that's flashed to the device.
 
-Prior to certifying your device through the certification process for IoT Plug and Play, you will want to validate that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model locally prior to submitting to the [Azure IoT Public Model Repository](../iot-develop/concepts-model-repository.md).
+Prior to certifying your device through the certification process for IoT Plug and Play, you will want to validate that the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model locally prior to submitting to the [Azure IoT Public Model Repository](../iot/concepts-model-repository.md).
 
 To meet the certification requirements, your device must:
 
 - Connects to Azure IoT Hub using the [DPS](../iot-dps/about-iot-dps.md).
 - Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
 - Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
-- Send the model ID during [DPS registration](../iot-develop/concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
-- Announce the model ID during the [MQTT connection](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
+- Send the model ID during [DPS registration](../iot/concepts-developer-guide-device.md#dps-payload) in the DPS provisioning payload.
+- Announce the model ID during the [MQTT connection](../iot/concepts-developer-guide-device.md#model-id-announcement).
 
 ## Test with the Azure IoT Extension CLI
 
@@ -125,32 +125,36 @@ az iot product test task create --type QueueTestRun --test-id [YourTestId] --wai
 Example test run output
 
 ```json
-      "validationTasks": [
-        {
-          "componentName": "Default component",
-          "endTime": "2020-08-25T05:18:49.5224772+00:00",
-          "interfaceId": "dtmi:com:example:TemperatureController;1",
-          "logs": [
-            {
-              "message": "Waiting for telemetry from the device",
-              "time": "2020-08-25T05:18:37.3862586+00:00"
-            },
-            {
-              "message": "Validating PnP properties",
-              "time": "2020-08-25T05:18:37.3875168+00:00"
-            },
-            {
-              "message": "Validating PnP commands",
-              "time": "2020-08-25T05:18:37.3894343+00:00"
-            },
-            {
-              "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
-              "time": "2020-08-25T05:18:37.4205985+00:00"
-            },
-            {
-              "message": "PnP interface properties validation passed",
-              "time": "2020-08-25T05:18:37.4206964+00:00"
-            },
+"validationTasks": [
+  {
+    "componentName": "Default component",
+    "endTime": "2020-08-25T05:18:49.5224772+00:00",
+    "interfaceId": "dtmi:com:example:TemperatureController;1",
+    "logs": [
+      {
+        "message": "Waiting for telemetry from the device",
+        "time": "2020-08-25T05:18:37.3862586+00:00"
+      },
+      {
+        "message": "Validating PnP properties",
+        "time": "2020-08-25T05:18:37.3875168+00:00"
+      },
+      {
+        "message": "Validating PnP commands",
+        "time": "2020-08-25T05:18:37.3894343+00:00"
+      },
+      {
+        "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
+        "time": "2020-08-25T05:18:37.4205985+00:00"
+      },
+      {
+        "message": "PnP interface properties validation passed",
+        "time": "2020-08-25T05:18:37.4206964+00:00"
+      },
+      ...
+    ]
+  }
+]
 ```
 
 ## Test using the Azure Certified Device portal
@@ -159,7 +163,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 ### Onboarding
 
-To use the [certification portal](https://certify.azure.com), you must use an Azure Active Directory from your work or school tenant.
+To use the [certification portal](https://certify.azure.com), you must use a Microsoft Entra ID from your work or school tenant.
 
 To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 

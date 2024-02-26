@@ -5,6 +5,7 @@ description: This article provides guidance on how to configure Application Gate
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/05/2022
 ms.author: greglin

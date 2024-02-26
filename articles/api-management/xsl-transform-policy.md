@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 08/26/2022
+ms.topic: article
+ms.date: 01/02/2024
 ms.author: danlep
 ---
 
@@ -33,14 +33,19 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |parameter|Used to define variables used in the transform|No|
-|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
+|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt).|Yes|
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
+- Currently, this policy supports XSLT version 1.0.
 
 ## Examples
 

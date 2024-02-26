@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create an Apache Spark GPU-enabled Pool in Azure Synapse Analytics using the Azure portal
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
 - [Synapse Analytics workspace](quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

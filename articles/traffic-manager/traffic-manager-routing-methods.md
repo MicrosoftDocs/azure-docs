@@ -4,11 +4,10 @@ description: This article helps you understand the different traffic routing met
 services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/30/2022
 ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Traffic Manager routing methods

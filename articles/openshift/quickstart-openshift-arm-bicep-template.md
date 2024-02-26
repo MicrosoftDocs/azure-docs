@@ -4,12 +4,12 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 02/02/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
-#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
+#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift cluster with an Azure Resource Manager template or Bicep file
@@ -32,13 +32,13 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 * An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/).
 
-* Ability to assign User Access Administrator and Contributor roles. If you lack this ability, contact your Azure Active Directory admin to manage roles.
+* Ability to assign User Access Administrator and Contributor roles. If you lack this ability, contact your Microsoft Entra admin to manage roles.
 
 * A Red Hat account. If you don't have one, you'll have to [register for an account](https://www.redhat.com/wapps/ugc/register.html).
 
 * A pull secret for your Azure Red Hat OpenShift cluster. [Download the pull secret file from the Red Hat OpenShift Cluster Manager web site](https://cloud.redhat.com/openshift/install/azure/aro-provisioned).
 
-* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
@@ -64,7 +64,7 @@ The template defines three Azure resources:
 
 More Azure Red Hat OpenShift template samples can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
 
-Save the following example as *azuredeploy.json*:
+Save the following example as *azuredeploy.bicep*:
 
 ```json
 {
@@ -371,7 +371,7 @@ More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift we
 
 Create the following Bicep file containing the definition for the Azure Red Hat OpenShift cluster. The following example shows how your Bicep file should look when configured.
 
-Save the following file as *azuredeploy.json*:
+Save the following file as *azuredeploy.bicep*:
 
 ```bicep
 @description('Location')
@@ -453,6 +453,27 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
+@description('Specify if FIPS validated crypto modules are used')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param fips string = 'Disabled'
+
+@description('Specify if master VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param masterEncryptionAtHost string = 'Disabled'
+
+@description('Specify if worker VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param workerEncryptionAtHost string = 'Disabled'
+
 var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
 var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
 var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
@@ -516,7 +537,7 @@ resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.A
   }
 }
 
-resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-04-30' = {
+resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-04-01' = {
   name: clusterName
   location: location
   tags: tags
@@ -525,6 +546,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
       domain: domain
       resourceGroupId: resourceGroupId
       pullSecret: pullSecret
+      fipsValidatedModules: fips
     }
     networkProfile: {
       podCidr: podCidr
@@ -537,6 +559,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
     masterProfile: {
       vmSize: masterVmSize
       subnetId: masterSubnetId
+      encryptionAtHost: masterEncryptionAtHost
     }
     workerProfiles: [
       {
@@ -545,6 +568,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
         diskSizeGB: workerVmDiskSize
         subnetId: workerSubnetId
         count: workerCount
+        encryptionAtHost: workerEncryptionAtHost
       }
     ]
     apiserverProfile: {
@@ -575,14 +599,17 @@ This section provides information on deploying the azuredeploy.json template.
 
 The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
 
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
+
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
 | `domain` |The domain prefix for the cluster. | | none |
 | `pullSecret` | The pull secret that you obtained from the Red Hat OpenShift Cluster Manager web site.
 | `clusterName` | The name of the cluster. | |
-| `aadClientId` | The application ID (a GUID) of an Azure Active Directory (Azure AD) client application. | |
-| `aadObjectId` | The object ID (a GUID) of the service principal for the Azure AD client application. | |
-| `aadClientSecret` | The client secret of the service principal for the Azure AD client application, as a secure string. | |
+| `aadClientId` | The application ID (a GUID) of a Microsoft Entra client application. | |
+| `aadObjectId` | The object ID (a GUID) of the service principal for the Microsoft Entra client application. | |
+| `aadClientSecret` | The client secret of the service principal for the Microsoft Entra client application, as a secure string. | |
 | `rpObjectId` | The object ID (a GUID) of the resource provider service principal. | |
 
 The template parameters below have default values. They can be specified, but they aren't explicitly required.
@@ -652,7 +679,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
 $spDisplayName="sp-$resourceGroup-$suffix"
-$azureADAppSp = New-AzADServicePrincipal -DisplayName $displayName -Role Contributor
+$azureADAppSp = New-AzADServicePrincipal -DisplayName $spDisplayName -Role Contributor
 
 New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access Administrator' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
@@ -661,7 +688,6 @@ New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor
 ### Get the Service Principal password  - PowerShell
 
 ```powershell
-$aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
@@ -693,12 +719,12 @@ Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
-    -TemplateParameterFile azuredeploy.json
+    -TemplateFile azuredeploy.json
 ```
 
 ::: zone-end
 
-### Connect to your cluster -  PowerShell
+### Connect to your cluster
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 
@@ -751,7 +777,9 @@ az provider register --namespace 'Microsoft.Authorization' --wait
 az group create --name $RESOURCEGROUP --location $LOCATION
 ```
 
-### Create a service principal for the new Azure AD application 
+<a name='create-a-service-principal-for-the-new-azure-ad-application'></a>
+
+### Create a service principal for the new Microsoft Entra application 
 - Azure CLI
 
 ```azurecli-interactive
@@ -767,13 +795,13 @@ SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
 az role assignment create \
     --role 'User Access Administrator' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 
 az role assignment create \
     --role 'Contributor' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 ```
 
@@ -789,11 +817,11 @@ ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" 
 az deployment group create \
     --name aroDeployment \
     --resource-group $RESOURCEGROUP \
-    --template-file azuredeploy.json \
+    --template-file azuredeploy.bicep \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$CLUSTER \
+    --parameters clusterName=$ARO_CLUSTER_NAME \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
@@ -819,10 +847,10 @@ az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 
 In this article, you learned how to create an Azure Red Hat OpenShift cluster running OpenShift 4 using both ARM templates and Bicep.
 
-Advance to the next article to learn how to configure the cluster for authentication using Azure Active Directory.
+Advance to the next article to learn how to configure the cluster for authentication using Microsoft Entra ID.
 
 * [Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster](howto-service-principal-credential-rotation.md)
 
-* [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
+* [Configure authentication with Microsoft Entra ID using the command line](configure-azure-ad-cli.md)
 
-* [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i
+* [Configure authentication with Microsoft Entra ID using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i

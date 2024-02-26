@@ -1,11 +1,10 @@
 ---
-title: Monitor the throughput usage of an operation in Azure Cosmos DB 
-description: Learn how to monitor the throughput or request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are taking more request units. 
+title: Monitor the throughput usage of an operation in Azure Cosmos DB
+description: Learn how to monitor the throughput or request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are taking more request units.
 ms.service:  cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.date: 09/16/2021
 ---
 
@@ -53,7 +52,7 @@ To get the request unit usage of each operation either by total(sum) or average,
 
    :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Azure Cosmos DB Request units for operations in Azure monitor":::
 
-If you want to see the request unit usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chat like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
+If you want to see the request unit usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chart like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
 
    :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure Cosmos DB Request units for all operations by the collection in Azure monitor" border="true":::
 

@@ -6,12 +6,11 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
 ---
 
 # What is Azure Managed Instance for Apache Cassandra?
 
-The Azure Managed Instance for Apache Cassandra service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed.
 
 :::image type="content" source="./media/introduction/icon.gif" alt-text="Azure Managed Instance for Apache Cassandra is a managed service for Apache Cassandra." border="false":::
 
@@ -25,7 +24,7 @@ You can use this service to easily place managed instances of Apache Cassandra d
 - **Metrics:** each datacenter node provisioned by the service emits metrics using [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra). The metrics can be [visualized in Prometheus or Grafana](visualize-prometheus-grafana.md). The service is also integrated with [Azure Monitor for metrics and diagnostic logging](monitor-clusters.md).
 
 >[!NOTE]
-> The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+> The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Simplified scaling
 

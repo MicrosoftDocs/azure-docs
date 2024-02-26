@@ -6,8 +6,7 @@ author: jonbeck
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: jonbeck
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
@@ -39,7 +38,7 @@ There are two ways you can create your child DNS zone:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a child DNS zone via parent DNS zone Overview page
 

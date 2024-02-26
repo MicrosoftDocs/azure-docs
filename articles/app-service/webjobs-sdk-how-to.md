@@ -4,7 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create even
 author: ggailey777
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/24/2021
 ms.author: glenga
@@ -722,7 +722,7 @@ The attribute can be declared at the parameter, method, or class level. The sett
 
 ### Timeout attribute
 
-The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the Timeout attribute. Timeout causes the function to be canceled after 15 seconds. When the Timeout attribute's "throwOnError" parameter is set to "true", the function invocation is terminated by having an exception thrown by the webjobs SDK when the timeout inverval is exceeded. The default value of "throwOnError" is "false". When the Timeout attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
+The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the Timeout attribute. Timeout causes the function to be canceled after 15 seconds. When the Timeout attribute's "throwOnError" parameter is set to "true", the function invocation is terminated by having an exception thrown by the webjobs SDK when the timeout interval is exceeded. The default value of "throwOnError" is "false". When the Timeout attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
 
 ```cs
 [Timeout("00:00:15")]

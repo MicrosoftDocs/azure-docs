@@ -3,7 +3,7 @@ title: Tutorial - Delete an Azure VMware Solution private cloud
 description: Learn how to delete an Azure VMware Solution private cloud that you no longer need.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 10/27/2022
+ms.date: 12/19/2023
 ms.custom: engagement-fy23
 ---
 
@@ -24,15 +24,18 @@ When you delete a private cloud, all VMs, their data, clusters, and network addr
 
 ## Prerequisites
 
-If you require the VMs and their data later, make sure to backup the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
+If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
 
 ## Delete the private cloud
 
-1. Access the Azure VMware Solutions console in the [Azure portal](https://portal.azure.com).
+1. Access the Azure VMware Solutions console in the [Azure portal](https://portal.azure.com).  
+   
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 2. Select the private cloud you want to delete.
 
 3. Enter the name of the private cloud and select **Yes**.
 
->[!NOTE]
->The deletion process takes a few hours to complete.  
+> [!NOTE]
+> The deletion process takes a few hours to complete.  The Delete icon is at the top of the Azure VMware Solution private cloud and Overview section in the portal. Selecting Delete requires you to add the private cloud name and reason to delete.

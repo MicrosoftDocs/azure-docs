@@ -1,16 +1,14 @@
 ---
 title: Use packet capture to do proactive network monitoring with alerts - Azure Functions
-description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
-services: network-watcher
+description: Learn how to create an alert triggered packet capture with Azure Network Watcher and Azure Functions.
 author: halkazwini
-ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
+ms.author: halkazwini 
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 01/09/2023
-ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.date: 02/14/2024
+ms.custom: devx-track-azurepowershell
 ---
+
 # Monitor networks proactively with alerts and Azure Functions using Packet Capture
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of virtual machines. The capture file can have a filter that is defined to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
@@ -25,13 +23,13 @@ By using Network Watcher alerting and functions from within the Azure ecosystem,
 
 ## Prerequisites
 
-* The latest version of [Azure PowerShell](/powershell/azure/install-Az-ps).
-* An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
-* An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/extensions/network-watcher-windows.md) or [Linux virtual machine extension](../virtual-machines/extensions/network-watcher-linux.md).
+- The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
+- An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
+- An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/extensions/network-watcher-windows.md) or [Linux virtual machine extension](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## Scenario
 
-In this example, your VM has more outgoing traffic than usual and you want to be alerted. Similarly, you can create alerts for any condition.
+In this example, a virtual machine (VM) has more outgoing traffic than usual and you want to be alerted. Similarly, you can create alerts for any condition.
 
 When an alert is triggered, the packet-level data helps to analyze why the outgoing traffic has increased. You can take steps to return the virtual machine to its original state.
 
@@ -56,29 +54,33 @@ This scenario does the following:
 
 To create an Azure function to process the alert and create a packet capture, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), search for *function app* in **All services** and select it.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/search-result.png" alt-text="Screenshot of finding the function app in Azure portal.":::
+1. In the search box at the top of the portal, enter *function app*. Select **Function App** from the search results
 
-2. Select **Create** to open the **Create Function App** screen.
+    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png" alt-text="Screenshot shows how to search for the function app in Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png":::
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app.png" alt-text="Screenshot of the Create function app screen.":::
+1. Select **+ Create**.
 
-2. In the **Basics** tab, enter the following values: 
-   1. Under **Project Details**, select the **Subscription** for which you want to create the Function app and the **Resource Group** to contain the app.
-   2. Under **Instance details**, do the following:
-      1. Enter the name of the Function app. This name will be appended by *.azurewebsites.net*.
-      2. In **Publish**, select the mode of publishing, either *Code* or *Docker Container*.
-      3. Select a **Runtime stack**.
-      4. Select the version of the Runtime stack in **Version**.
-      5. Select the **Region** in which you want to create the function app.
-   3. Select **OK** to create the app.
-   3. Under **Operating System**, select the type of Operating system that you're currently using. Azure recommends the type of Operating system based on your runtime stack selection. 
-   4. Under **Plan**, select the type of plan that you want to use for the function app. Choose from the following options:
+1. In the **Basics** tab of **Create Function App**, enter or select values for the following settings: 
+
+   - Under **Project Details**, select the **Subscription** for which you want to create the Function app and the **Resource Group** to contain the app.
+   - Under **Instance details**, do the following:
+      - Enter the name of the Function app. This name will be appended by *.azurewebsites.net*.
+      - In **Publish**, select the mode of publishing, either *Code* or *Docker Container*.
+      - Select a **Runtime stack**.
+      - Select the version of the Runtime stack in **Version**.
+      - Select the **Region** in which you want to create the function app.
+   - Select **OK** to create the app.
+   - Under **Operating System**, select the type of Operating system that you're currently using. Azure recommends the type of Operating system based on your runtime stack selection. 
+   - Under **Plan**, select the type of plan that you want to use for the function app. Choose from the following options:
       - Consumption (Serverless) - For event-driven scaling for the most minimum cost. 
       - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation.
       - App Service Plan - For reusing compute from an existing app service plan.
-3. Select **Review + create** to create the app.
+
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png" alt-text="Screenshot of the Create function app page in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png":::
+
+1. Select **Review + create** to create the app.
 
 ### Create an Azure function
 
@@ -88,9 +90,9 @@ To create an Azure function to process the alert and create a packet capture, fo
 
 2. Select **Develop in portal** from the **Development environment** drop-down.
 3. Under **Select a template**, select **HTTP Trigger**.
-4. In the **Template details** section, do the following:
-   1. Enter the name of the function in the **New function** field.
-   2. Select **Function** as the **Authorization level** and select **Create**.
+4. In the **Template details** section:
+   - Enter the name of the function in the **New function** field.
+   - Select **Function** as the **Authorization level** and select **Create**.
 5. After the function is created, go to the function and select **Code + Test**.
 
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/code-test.png" alt-text="Screenshot of the Code + Test screen.":::
@@ -149,7 +151,7 @@ The client ID is the Application ID of an application in the Azure Active Direct
     ```
 
    > [!NOTE]
-   > The password that you use when creating the application should be the same password that you created earlier when saving the key file.
+   > The password that you used when creating the application should be the same password that you created earlier when saving the key file.
 
 1. In the Azure portal, select **Subscriptions**. Select the subscription to use and select **Access control (IAM)**.  
 
@@ -343,7 +345,6 @@ Go to an existing virtual machine and [add an alert rule](../azure-monitor/alert
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
 7. Select **No** in **Enable the common alert schema** slider and select **OK**. 
 
-
 ## Review the results
 
 After the criteria for the alert triggers, a packet capture is created. Go to Network Watcher and select **Packet capture**. On this page, you can select the packet capture file link to download the packet capture.
@@ -354,6 +355,6 @@ For instructions on downloading files from Azure storage accounts, see [Get star
 
 After your capture has been downloaded, you can view it using tools like [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) and [WireShark](https://www.wireshark.org/)that can read a **.cap** file. 
 
-## Next steps
+## Next step
 
 Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-deep-packet-inspection.md).

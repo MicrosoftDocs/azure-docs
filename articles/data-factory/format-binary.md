@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 01/05/2024
 ms.author: jianleishen
 ---
 
@@ -122,7 +122,7 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 | type          | The type property of the copy activity source must be set to **BinarySink**. | Yes      |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)

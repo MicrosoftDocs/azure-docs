@@ -53,7 +53,7 @@ The following table highlights a few locations in the portal you can use to insp
 |--- | --- | --- |
 | [Failures](../azure-monitor/app/asp-net-exceptions.md) | _Investigate > Failures_ | Review failed requests. |
 | [Server requests](../azure-monitor/app/tutorial-performance.md) | _Investigate > Performance_ | Review individual API requests.  |
-| [Logs](../azure-monitor/app/diagnostic-search.md) | _Monitoring > Logs_ | Interact with an editor to query transaction logs. |
+| [Logs](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search) | _Monitoring > Logs_ | Interact with an editor to query transaction logs. |
 | [Metrics](../azure-monitor/essentials/app-insights-metrics.md) | _Monitoring > Metrics_ | Interact with a designer to create custom charts using various metrics. |
 
 ### Traces

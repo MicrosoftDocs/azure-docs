@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 08/30/2022
+ms.date: 09/19/2023
 ---
 
 # Enable Private Link on an HDInsight Kafka Rest Proxy cluster

@@ -2,7 +2,8 @@
 title: Linter rule - secure secrets in parameters
 description: Linter rule - secure secrets in parameters
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.custom: devx-track-bicep
+ms.date: 02/10/2023
 ---
 
 # Linter rule - secure secrets in parameters
@@ -37,6 +38,10 @@ You can fix it by adding the secure decorator:
 @secure()
 param mypassword string
 ```
+
+Optionally, you can use **Quick Fix** to add the secure decorator:
+
+:::image type="content" source="./media/linter-rule-secure-secrets-in-parameters/linter-rule-secure-secrets-in-parameters-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix.":::
 
 ## Silencing false positives
 

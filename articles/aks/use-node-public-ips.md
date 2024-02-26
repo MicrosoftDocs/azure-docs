@@ -1,8 +1,8 @@
 ---
 title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 1/12/2023
 ms.author: pahealy
 author: phealy
@@ -73,7 +73,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## Use public IP tags on node public IPs (PREVIEW)
 
-Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](/azure/virtual-network/ip-services/routing-preference-overview.md) feature.
+Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](../virtual-network/ip-services/routing-preference-overview.md) feature.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -136,7 +136,7 @@ az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location>
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
-If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](/azure/virtual-network/network-security-groups-overview#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
+If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](../virtual-network/network-security-groups-overview.md#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
 
 ### Host port specification format
 
@@ -203,24 +203,22 @@ az aks create \
 
 ### Add a new node pool with allowed ports and application security groups
 
-```azurecli-interactive
-az aks nodepool add \
+```az aks nodepool add \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ### Update the allowed ports and application security groups for a node pool
 
-```azurecli-interactive
-az aks nodepool update \
+```az aks nodepool update \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ## Automatically assign host ports for pod workloads (PREVIEW)
@@ -319,7 +317,7 @@ Containers:
 
 ## Next steps
 
-* Learn about [using multiple node pools in AKS](use-multiple-node-pools.md).
+* Learn about [using multiple node pools in AKS](create-node-pools.md).
 
 * Learn about [using standard load balancers in AKS](load-balancer-standard.md)
 

@@ -5,11 +5,11 @@ description: Learn how Azure Machine Learning's AutoML forms lag based features 
 services: machine-learning
 author: ericwrightatwork
 ms.author: vlbejan
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 12/15/2022
 show_latex: true
 ---
@@ -42,7 +42,7 @@ Table 2: Lag featurization for $h=1$ <a name="tbl:classic-lag-1"></a>
 | 3/1/2001   | 20    | 2/1/2001  | 10        | 1       |
 | 4/1/2001   | 30    | 3/1/2001  | 20        | 1       |
 | 5/1/2001   | 40    | 4/1/2001  | 30        | 1       |
-| 6/1/2001   | 50    | 4/1/2001  | 40        | 1       |
+| 6/1/2001   | 50    | 5/1/2001  | 40        | 1       |
 
 Table 2 is generated from Table 1 by shifting the $y_t$ column down by a single observation. We've added a column named `Origin` that has the dates that the lag features originate from. Next, we generate the lagging feature for the forecast horizon $h=2$ only.
 

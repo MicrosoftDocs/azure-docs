@@ -8,15 +8,12 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 10/25/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 10/20/2023
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Current version](quickstart-create-data-factory-resource-manager-template.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -180,7 +177,7 @@ If you want to delete just the data factory, and not the entire resource group, 
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory using an ARM template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
 

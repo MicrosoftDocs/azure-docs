@@ -1,10 +1,9 @@
 ---
 title: Create and deploy a template spec with Bicep
 description: Learn how to use Bicep to create and deploy a template spec to a resource group in your Azure subscription. Then, use a template spec to deploy Azure resources.
-ms.date: 03/30/2022
+ms.date: 06/23/2023
 ms.topic: quickstart
-ms.custom: mode-api
-
+ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create and share deployment templates so that other people in my organization can deploy Microsoft Azure resources.
 ---
 
@@ -17,7 +16,7 @@ When you create a template spec, the Bicep file is transpiled into JavaScript Ob
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell [version 6.3.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.27.0 or later](/cli/azure/install-azure-cli).
+- Azure PowerShell [version 6.3.0 or later](/powershell/azure/install-azure-powershell) or Azure CLI [version 2.27.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 ## Create Bicep file
@@ -45,7 +44,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -120,12 +119,12 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
     @description('Location for all resources.')
     param location string = resourceGroup().location
 
-    resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2021-05-01' = {
+    resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2022-02-01' = {
       name: templateSpecName
       location: location
     }
 
-    resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2021-05-01' = {
+    resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2022-02-01' = {
       parent: createTemplateSpec
       name: templateSpecVersionName
       location: location
@@ -166,7 +165,7 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2021-08-01'
+              'apiVersion': '2022-09-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {
@@ -355,7 +354,7 @@ To deploy a template spec using a Bicep file, use a module. The module links to 
 
 ## Grant access
 
-If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to an Azure AD group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to a Microsoft Entra group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
 ## Update Bicep file
 
@@ -386,7 +385,7 @@ param storageNamePrefix string = 'storage'
 
 var storageAccountName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -473,12 +472,12 @@ Rather than create a new template spec for the revised template, add a new versi
     @description('Location for all resources.')
     param location string = resourceGroup().location
 
-    resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2021-05-01' = {
+    resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2022-02-01' = {
       name: templateSpecName
       location: location
     }
 
-    resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2021-05-01' = {
+    resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2022-02-01' = {
       parent: createTemplateSpec
       name: templateSpecVersionName
       location: location
@@ -527,7 +526,7 @@ Rather than create a new template spec for the revised template, add a new versi
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2021-08-01'
+              'apiVersion': '2022-09-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {

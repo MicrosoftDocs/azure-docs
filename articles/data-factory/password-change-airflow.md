@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 10/20/2023
 ms.author: abnarain
 ---
 
@@ -17,12 +17,11 @@ This article describes how to change the password for a Managed Airflow environm
 
 ## Updating the password
 
-We recommend using **Azure AD** authentication in Managed Airflow environments. However, if you choose to use **Basic** authentication, you can still update the Airflow password by editing the Airflow environment configuration and updating the username/password in the integration runtime settings, as shown here:
+We recommend using **Microsoft Entra ID** authentication in Managed Airflow environments. However, if you choose to use **Basic** authentication, you can still update the Airflow password by editing the Airflow environment configuration and updating the username/password in the integration runtime settings, as shown here:
 
 :::image type="content" source="media/password-change-airflow/password-change-airflow.png" alt-text="Screenshot showing how to change an Airflow password in the integration runtime settings.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Azure Business Continuity Center documentation (preview)
+summary: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+
+metadata:
+  title: Azure Business Continuity Center Documentation
+  description: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+  ms.service: azure-business-continuity-center
+  ms.custom:
+    - ignite-2023
+  ms.topic: landing-page
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
+  ms.date: 11/15/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about Azure Business Continuity center (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Business Continuity center?
+            url: business-continuity-center-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Business Continuity center support matrix
+            url: business-continuity-center-support-matrix.md
+          
+  # Card (optional)
+  - title: Monitor protection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor protection summary
+            url: tutorial-monitor-protection-summary.md

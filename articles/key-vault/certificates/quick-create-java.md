@@ -1,8 +1,8 @@
 ---
 title: Quickstart for Azure Key Vault Certificate client library - Java
-description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
+description: Learn about the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
 ms.date: 11/14/2022
 ms.service: key-vault
@@ -14,6 +14,9 @@ ms.devlang: java
 # Quickstart: Azure Key Vault Certificate client library for Java (Certificates)
 
 Get started with the Azure Key Vault Certificate client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
+
+> [!TIP]
+> If you're working with Azure Key Vault Certificates resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Key Vault Certificates, see [Enable HTTPS in Spring Boot with Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
 Additional resources:
 

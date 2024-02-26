@@ -52,7 +52,7 @@ See [AuthorizationFailed](#AuthorizationFailed).
 
 **More information**
 
-For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 For more information about Microsoft Customer Agreements, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md).
 
@@ -106,7 +106,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## AuthorizationFailed
 
@@ -168,7 +168,7 @@ The message indicates that the Enterprise Agreement administrator hasn't enabled
 
 **More information**
 
-For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## DisallowedOperation
 
@@ -222,7 +222,7 @@ The message indicates that your partner hasn't published pricing for the Enterpr
 
 **More information**
 
-For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
+For more information, see [Troubleshoot Azure enterprise cost views](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
 ## InvalidAuthenticationTokenTenant
 
@@ -401,7 +401,7 @@ Error message `Unauthorized`.
 
 **Mitigation**
 
-If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Azure Active Directory instance. Resource Provider registration is required to use Cost Management for AWS.
+If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Microsoft Entra instance. Resource Provider registration is required to use Cost Management for AWS.
 
 If you get an `Empty GUID user id` error, update the bearer token associated with the request. You might temporarily see the error in the Azure portal, but it should resolve itself. If you continue to see the error in the Azure portal, refresh your browser.
 

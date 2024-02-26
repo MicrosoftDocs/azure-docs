@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Dice roller'
 description: Quickly create a dice rolling app using the Azure Fluid Relay service
-author: hickeys
 ms.service: azure-fluid
 ms.topic: quickstart
 ms.date: 01/18/2023
-ms.author: hickeys
 ms.custom: mode-other
 ---
 
@@ -51,11 +49,14 @@ You can open new tabs with the same URL to create additional instances of the di
 To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local server.
 
 ### Configure and create an Azure client
+
 Install @fluidframework/azure-client and "@fluidframework/test-client-utils packages and import Azure Client and InsecureTokenProvider.
+
 ```javascript
 import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
 import { AzureClient } from "@fluidframework/azure-client";
 ```
+
 To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
 service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced. (For information about how to find these values, see [How to: Provision an Azure Fluid Relay service](../how-tos/provision-fluid-azure-portal.md).) Note that the `id` and `name` fields are arbitrary.
 
@@ -73,7 +74,9 @@ const serviceConfig = {
 ```
 
 > [!WARNING]
-> During development, you can use `InsecureTokenProvider` to generate and sign authentication tokens that the Azure Fluid Relay service will accept. However, as the name implies, this is insecure and should not be used in production environments. The Azure Fluid Relay resource creation process provides you with a secret key which can be used to sign secure requests. **To ensure that this secret doesn't get exposed, this should be replaced with another implementation of ITokenProvider that fetches the token from a secure, developer-provided backend service prior to releasing to production.** An example implementation is [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class). For more information, see [How to: Write a TokenProvider with an Azure Function](../how-tos/azure-function-token-provider.md).
+> During development, you can use `InsecureTokenProvider` to generate and sign authentication tokens that the Azure Fluid Relay service will accept. However, as the name implies, this is insecure and should not be used in production environments. The Azure Fluid Relay resource creation process provides you with a secret key which can be used to sign secure requests. **To ensure that this secret doesn't get exposed, this should be replaced with another implementation of ITokenProvider that fetches the token from a secure, developer-provided backend service prior to releasing to production.**
+>
+> One secure approach is outlined in ["How to: Write a TokenProvider with an Azure Function"](../how-tos/azure-function-token-provider.md).
 
 ### Build and run the client only
 

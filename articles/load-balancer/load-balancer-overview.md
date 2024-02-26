@@ -3,22 +3,18 @@ title: What is Azure Load Balancer?
 titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
-# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
-ms.custom: FY23 Content-Maintenance
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 09/15/2023
 ms.author: mbender
-
+ms.custom: template-overview, engagement-fy23
+# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ---
 
 # What is Azure Load Balancer?
 
-*Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. 
+*Load balancing* refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
 
 Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load-balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set.
 
@@ -31,16 +27,6 @@ An **[internal (or private) load balancer](./components.md#frontend-ip-configura
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
 For more information on the individual load balancer components, see [Azure Load Balancer components](./components.md).
-
->[!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
-> * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md).
-> * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
-> 
-> Your end-to-end scenarios may benefit from combining these solutions as needed.
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
-
 
 ## Why use Azure Load Balancer?
 With Azure Load Balancer, you can scale your applications and create highly available services. 

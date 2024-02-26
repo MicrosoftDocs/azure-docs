@@ -3,12 +3,12 @@ title: Use Azure VM Image Builder with a gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using VM Image Builder and Azure PowerShell.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.reviewer: jushiman
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: windows 
+ms.collection: windows
 ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows image and distribute it to an Azure Compute Gallery 
@@ -26,9 +26,9 @@ VM Image Builder automatically runs `Sysprep` to generalize the image. The comma
 Be aware of the number of times you layer customizations. You can run the `Sysprep` command a limited number of times on a single Windows image. After you've reached the `Sysprep` limit, you must re-create your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 
-## Register the features
+## Register the providers
 
-To use VM Image Builder, you need to register the features.
+To use VM Image Builder, you need to register the providers.
 
 1. Check your provider registrations. Make sure that each one returns *Registered*.
 
@@ -38,6 +38,7 @@ To use VM Image Builder, you need to register the features.
    Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
    Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
    Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | Format-table -Property ResourceTypes,RegistrationState
    ```
 
 1. If they don't return *Registered*, register the providers by running the following commands:
@@ -47,7 +48,7 @@ To use VM Image Builder, you need to register the features.
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
    Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
    ```
 
 1. Install PowerShell modules:
@@ -214,7 +215,7 @@ Your template must be submitted to the service. The following commands will down
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -ApiVersion "2020-02-14" `
+   -ApiVersion "2022-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -226,7 +227,7 @@ Invoke-AzResourceAction `
    -ResourceName $imageTemplateName `
    -ResourceGroupName $imageResourceGroup `
    -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
-   -ApiVersion "2020-02-14" `
+   -ApiVersion "2022-02-14" `
    -Action Run
 ```
 
@@ -245,9 +246,10 @@ Create a VM from the image version that you created with VM Image Builder.
 
    ```powershell
    $imageVersion = Get-AzGalleryImageVersion `
-      -ResourceGroupName $imageResourceGroup `
-      -GalleryName $sigGalleryName `
-      -GalleryImageDefinitionName $imageDefName
+   -ResourceGroupName $imageResourceGroup `
+   -GalleryName $sigGalleryName `
+   -GalleryImageDefinitionName $imageDefName
+   $imageVersionId = $imageVersion.Id
    ```
 
 1. Create the VM in the second region, where the image was replicated:
@@ -311,7 +313,7 @@ Delete the resource group template first. Otherwise, the staging resource group 
 1. Get the ResourceID of the image template. 
 
    ```powerShell
-   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
+   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2022-02-14"
    ```
 
 1. Delete image template.

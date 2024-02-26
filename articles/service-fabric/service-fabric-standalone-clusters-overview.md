@@ -38,7 +38,7 @@ For more information, read [Node-to-node security](service-fabric-cluster-securi
 
 Client-to-node security authenticates clients and helps secure communication between a client and individual nodes in the cluster. This type of security helps ensure that only authorized users can access the cluster and the applications that are deployed on the cluster. Clients are uniquely identified through either their X.509 certificate security credentials. Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.
 
-In addition to client certificates, Azure Active Directory can also be configured to authenticate clients with the cluster.
+In addition to client certificates, Microsoft Entra ID can also be configured to authenticate clients with the cluster.
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 

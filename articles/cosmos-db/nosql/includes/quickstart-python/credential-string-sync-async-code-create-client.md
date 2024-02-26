@@ -21,6 +21,6 @@ ms.custom: include file
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app_cred.py" range="25-27":::
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app_cred.py" range="69":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app_cred.py" range="67":::
 
 ---

@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 08/10/2022
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Soft delete for virtual machines
 
@@ -111,9 +111,9 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 
 ## How to disable soft delete
 
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Next steps
 
-- Read the [frequently asked questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) about soft delete
+- Read the [frequently asked questions](soft-delete-azure-backup-faq.yml) about soft delete
 - Read about all the [security features in Azure Backup](security-overview.md)

@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Chaos Studio?
     href: chaos-studio-overview.md
-  - name: What is chaos engineering?
-    href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: Quickstart
   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 
@@ -26,6 +24,8 @@
       href: sample-template-targets.md
     - name: Experiments
       href: sample-template-experiment.md
+  - name: Bicep 
+    href: chaos-studio-bicep.md
   - name: Azure policy definitions
     href: sample-policy-targets.md
 - name: Concepts
@@ -36,12 +36,16 @@
     href: chaos-studio-faults-actions.md
   - name: Targets and capabilities
     href: chaos-studio-targets-capabilities.md
+  - name: Target selection
+    href: chaos-studio-target-selection.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
   - name: Private networking
     href: chaos-studio-private-networking.md
   - name: Regional availability
     href: chaos-studio-region-availability.md
+  - name: Reliability 
+    href: ../reliability/reliability-chaos-studio.md?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
@@ -64,8 +68,26 @@
       href: chaos-studio-tutorial-aks-cli.md
   - name: Create and run experiment - Dynamic targeting
     items:
+    - name: Portal
+      href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
+  - name: Experiment templates
+    items: 
+    - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+      href: chaos-studio-tutorial-aad-outage-portal.md
+    - name: Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
+      href: chaos-studio-tutorial-availability-zone-down-portal.md
+  - name: Telemetry
+    items:
+    - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+      href: chaos-studio-set-up-azure-monitor.md
+    - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+      href: chaos-studio-set-up-app-insights.md
+  - name: Configure an experiment using customer-managed keys (CMK)
+    href: chaos-studio-configure-customer-managed-keys.md
+  - name: Set up an agent-based chaos experiment using private link
+    href: chaos-studio-private-link-agent-service.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference
@@ -74,7 +96,9 @@
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
-  - name: Preview limitations and known issues
+  - name: Version compatibility
+    href: chaos-studio-versions.md
+  - name: Limitations and known issues
     href: chaos-studio-limitations.md
   - name: Service limits
     href: chaos-studio-service-limits.md
@@ -83,16 +107,16 @@
   - name: Python SDK
     href: /python/api/azure-mgmt-chaos/
   - name: .NET SDK
-    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Chaos/0.9.15-preview
+    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/arm-chaos/
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?query=chaos%20studio
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/
+    href: https://azure.microsoft.com/pricing/details/chaos-studio/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions
+  - name: Feedback
+    href: https://aka.ms/ChaosStudioFeedback

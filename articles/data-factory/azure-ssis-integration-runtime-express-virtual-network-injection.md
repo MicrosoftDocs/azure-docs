@@ -4,15 +4,14 @@ description: Learn how to configure a virtual network for express injection of A
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 10/20/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Express virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 > [!NOTE]
 > Express virtual network injection feature is not supported for SSIS integration runtime in below regions yet:
 >
@@ -122,7 +121,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|------|
     | <b>Azure Public</b> | _\*.frontend.clouddatahub.net_ |
     | <b>Azure Government</b> | _\*.frontend.datamovement.azure.us_ |
-    | <b>Azure China 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
+    | <b>Microsoft Azure operated by 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 
@@ -130,7 +129,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
 
   - If you need to access Azure Files, you must open port *445* for outbound TCP traffic with *0.0.0.0/0* or your Azure Files FQDN as destination.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

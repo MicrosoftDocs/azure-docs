@@ -11,11 +11,11 @@ ms.custom: template-how-to
 
 # Create branch preview environments in Azure Static Web Apps
 
-You can configure your site to deploy every change made to branches that aren't a production branch. This preview deployment is published at a stable URL that includes the branch name. For example, if the branch is named `dev`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-dev.<LOCATION>.azurestaticapps.net`.
+You can configure your site to deploy every change made to branches that aren't a production branch. This preview deployment is published at a stable URL that includes the branch name. For example, if the branch is named `dev`, then the environment is available at a location like `<DEFAULT_HOST_NAME>-dev.<LOCATION>.azurestaticapps.net`. You can delete a branch environment in the portal via the *Environments* tab of your static web app. 
 
 ## Configuration
 
-To enable stable URL environments, make the following changes to your [configuration .yml file](build-configuration.md?tabs=github-actions).
+To enable stable URL environments, make the following changes to your [configuration.yml file](build-configuration.md?tabs=github-actions).
 
 - Set the `production_branch` input to your production branch name on the `static-web-apps-deploy` job in GitHub action or on the AzureStaticWebApp task. This action ensures changes to your production branch are deployed to the production environment, while changes to other branches are deployed to a preview environment.
 - List the branches you want to deploy to preview environments in the trigger array in your workflow configuration so that changes to those branches also trigger the GitHub Actions or Azure Pipelines deployment.

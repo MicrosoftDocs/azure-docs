@@ -12,7 +12,7 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100|
-|**Performance** |  Max bandwidth: 10Mbps<br>Max devices: 100|
+|**Performance** |  Max bandwidth: 10 Mbps<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
 
@@ -39,7 +39,7 @@ The following image shows a view of the YS-FIT2 back panel:
 | Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for YS-FIT2 (Optional)|
 |UPS|Fit-uptime Miniature 12 V UPS for miniPCs (Optional)|
 |Mounting |VESA / wall or Din Rail mounting kit |
-| Temperature |0°C ~ 70°C |
+| Temperature |0°C ~ 60°C |
 | Humidity |5% ~ 95%, non-condensing |
 | Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz, 3 axis)|
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15 g , 6 directions)|
@@ -153,6 +153,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

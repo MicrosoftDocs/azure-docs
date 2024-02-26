@@ -3,8 +3,9 @@ title: How to troubleshoot the Azure Data Lake Analytics U-SQL job failures beca
 description: 'Troubleshoot U-SQL job failures because of the upgrade to .NET Framework 4.7.2.'
 ms.reviewer: whhender
 ms.service: data-lake-analytics
+ms.custom: devx-track-dotnet
 ms.topic: troubleshooting
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 
 # Azure Data Lake Analytics is upgrading to the .NET Framework v4.7.2
@@ -33,7 +34,7 @@ Check for the potential of backwards-compatibility breaking issues by running th
    1. Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
    1. For 4.7.2. compatibility, `read isRetargeting == True` identifies possible issues.
-2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilities are listed below),  you can further check by
+2. If the tool indicates if your code could be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilities are listed below),  you can further check by
    1. Analyzing your code and identifying if your code is passing values to the impacted APIs
    1. Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
 3. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).

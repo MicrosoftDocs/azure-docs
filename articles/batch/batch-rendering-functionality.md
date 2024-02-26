@@ -7,6 +7,9 @@ ms.topic: how-to
 
 # Azure Batch rendering capabilities
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Standard Azure Batch capabilities are used to run rendering workloads and applications. Batch also includes specific features to support rendering workloads.
 
 For an overview of Batch concepts, including pools, jobs, and tasks, see [this article](./batch-service-workflow-features.md).
@@ -21,7 +24,7 @@ Most rendering applications will require licenses obtained from a license server
 
 ## Batch pools using rendering VM images
 
-> [!IMPORTANT]
+> [!WARNING]
 > The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### Rendering application installation

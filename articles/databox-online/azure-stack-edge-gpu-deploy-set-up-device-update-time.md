@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2022
+ms.date: 07/19/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -45,7 +45,7 @@ Follow these steps to configure device related settings:
 
 1. Enter a **Name** for your device. The name must contain from 1 to 13 characters and can have letter, numbers, and hyphens.
 
-1. Provide a **DNS domain** for your device. This domain is used to set up the device as a file server.
+1. Provide a **DNS domain** for your device using all lowercase characters. This domain is used to set up the device as a file server.
 
 1. To validate and apply the configured device settings, select **Apply**.
 

@@ -10,7 +10,7 @@ ms.reviewer: mopeakande
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
+ms.custom: how-to, deploy, devplatv2
 ---
 
 # View costs for an Azure Machine Learning managed online endpoint
@@ -33,7 +33,7 @@ Navigate to the **Cost Analysis** page for your subscription:
 
     [![Managed online endpoint cost analysis: screenshot of a subscription in the Azure portal showing red box around "Cost Analysis" button on the left hand side.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png#lightbox)
 
-Create a filter to scope data to your Azure Machine learning workspace resource:
+Create a filter to scope data to your Azure Machine Learning workspace resource:
 
 1. At the top navigation bar, select **Add filter**.
 

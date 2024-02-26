@@ -13,6 +13,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell.
 
 You learn how to:
@@ -34,7 +37,7 @@ Before you start:
 
 - Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
 - Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Log into Azure
 

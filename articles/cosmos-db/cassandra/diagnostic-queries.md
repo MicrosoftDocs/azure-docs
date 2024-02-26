@@ -5,9 +5,9 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/08/2022
+ms.subservice: apache-cassandra
 ---
 
 # Troubleshoot issues with advanced diagnostics queries with Azure Cosmos DB for Apache Cassandra

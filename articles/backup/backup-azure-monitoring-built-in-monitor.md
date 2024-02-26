@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 09/14/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitoring Azure Backup workloads
@@ -25,6 +25,8 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 >For items backed-up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
 >
 > The DPM version must be DPM 1807 (5.1.378.0) or DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
+>
+>For DPM, MABS and MARS, the Backup Item (VM name, cluster name, host name, volume or folder name) and Protection Group cannot include '<', '>', '%', '&', ':', '\', '?', '/', '#' or any control characters.
 
 ## Backup Jobs in Backup center
 

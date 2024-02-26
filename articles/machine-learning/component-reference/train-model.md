@@ -66,7 +66,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
 Model interpretability provides possibility to comprehend the ML model and to present the underlying basis for decision-making in a way that is understandable to humans.
 
-Currently **Train Model** component supports [using interpretability package to explain ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
+Currently **Train Model** component supports [using interpretability package to explain ML models](../v1/how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
 
 - Linear Regression
 - Neural Network Regression
@@ -89,7 +89,7 @@ After the pipeline run completed, you can visit **Explanations** tab in the righ
 
 ![Screenshot showing model explanation charts](./media/module/train-model-explanations-tab.gif)
 
-To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
+To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](../v1/how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## Results
 

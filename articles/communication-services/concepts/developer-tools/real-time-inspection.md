@@ -1,11 +1,10 @@
 ---
 title: Developer Tools - Azure Communication Services Communication Monitoring
 description: Conceptual documentation outlining the capabilities provided by the Communication Monitoring tool.
-author: ddematheu2
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 03/29/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -104,4 +103,4 @@ The tool includes the ability to download the logs captured using the `Download 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
 - [Leverage Network Diagnostic Tool](./network-diagnostic.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

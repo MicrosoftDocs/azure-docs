@@ -1,28 +1,26 @@
 ---
 title: Send push notifications to specific Android apps using Azure Notification Hubs
 description: Learn how to send push notifications to specific Android apps by using Azure Notification Hubs.
-documentationcenter: android
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-
-ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc, devx-track-java
-ms.date: 09/11/2019
+ms.custom: mvc, devx-track-java, devx-track-dotnet
+ms.date: 02/06/2024
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 09/11/2019
+ms.reviewer: heathertian
+ms.lastreviewed: 02/06/2024
 ---
 
 # Tutorial: Send push notifications to specific Android apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
+
+> [!NOTE]
+> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 

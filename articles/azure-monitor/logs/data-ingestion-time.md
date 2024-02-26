@@ -58,7 +58,7 @@ Azure data adds more time to become available at a data collection endpoint for 
 
 - **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the data collection endpoint.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
+- **Activity logs** are available for analysis in 3 to 10 minutes.
 
 ### Management solutions collection
 
@@ -69,7 +69,7 @@ Some solutions don't collect their data from an agent and might use a collection
 - Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real time latency guarantees.
 - Windows Analytics solutions (Update Compliance, for example) data is collected by the solution at a daily frequency.
 
-To determine a solution's collection frequency, see the [documentation for each solution](../insights/solutions.md).
+To determine a solution's collection frequency, see the [documentation for each solution](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Pipeline-process time
 
@@ -79,7 +79,7 @@ After the data is available at the data collection endpoint, it takes another 30
 
 After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
 
-Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
+Some solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Application Insights calculates application map data; Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
 
 Another process that adds latency is the process that handles custom logs. In some cases, this process might add a few minutes of latency to logs that are collected from files by the agent.
 
@@ -106,7 +106,7 @@ Ingestion time might vary for different resources under different circumstances.
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than 3 days, the row will be dropped. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than two days, the row will be dropped. |
 | Record received by the data collection endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
 
@@ -149,6 +149,7 @@ Heartbeat
 
 Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services:
 
+
 ``` Kusto
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
@@ -156,6 +157,40 @@ AzureDiagnostics
 | extend AgentLatency = _TimeReceived - TimeGenerated 
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
+
+Use the same query logic to diagnose latency conditions for Application Insights data: 
+
+
+```kusto
+// Classic Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+requests
+| where timestamp  > start and timestamp < end
+| extend TimeEventOccurred = timestamp
+| extend TimeRequiredtoGettoAzure = _TimeReceived - timestamp
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - timestamp
+| project timestamp, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+
+```kusto
+// Workspace-based Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+AppRequests
+| where TimeGenerated  > start and TimeGenerated < end
+| extend TimeEventOccurred = TimeGenerated
+| extend TimeRequiredtoGettoAzure = _TimeReceived - TimeGenerated
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - TimeGenerated
+| project TimeGenerated, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+The two queries above can be paired with any other Application Insights table other than "requests".
 
 ### Resources that stop responding
 In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record, which can be identified by the standard `TimeGenerated` field.

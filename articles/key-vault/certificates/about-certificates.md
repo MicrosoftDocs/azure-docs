@@ -3,12 +3,11 @@ title: About Azure Key Vault certificates
 description: Get an overview of the Azure Key Vault REST interface and certificates.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 01/04/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -76,7 +75,7 @@ A response includes these additional read-only attributes:
 - `nbf`: `IntDate` contains the value of the "not before" date of the X.509 certificate.  
 
 > [!Note] 
-> If a Key Vault certificate expires, its addressable key and secret become inoperable.  
+> If a Key Vault certificate expires it can still be retrieved, but certificate may become inoperable in scenarios like TLS protection where expiration of certificate is validated.  
 
 ### Tags
 
@@ -172,10 +171,6 @@ As an example, here are some use cases of using certificates to secure communica
 * **Intranet/internet websites**: Protect access to your intranet site and ensure encrypted data transfer over the internet through TLS certificates.
 * **IoT and networking devices**: Protect and secure your devices by using certificates for authentication and communication.
 * **Cloud/multicloud**: Secure cloud-based applications on-premises, cross-cloud, or in your cloud provider's tenant.
-
-### Code signing
-
-A certificate can help secure the code/script of software, to ensure that the author can share the software over the internet without interference by malicious entities. After the author signs the code by using a certificate and taking advantage of code-signing technology, the software is marked with a stamp of authentication that displays the author and their website. The certificate used in code signing helps validate the software's authenticity, promoting end-to-end security.
 
 ## Next steps
 - [Certificate creation methods](create-certificate.md)

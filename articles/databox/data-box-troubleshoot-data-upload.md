@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 06/06/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices

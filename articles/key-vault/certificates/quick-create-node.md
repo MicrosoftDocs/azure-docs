@@ -136,7 +136,6 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     * [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient#@azure-keyvault-certificates-certificateclient-begindeletecertificate)
 * [PollerLike interface](/javascript/api/@azure/core-lro/pollerlike)
     * [getResult](/javascript/api/@azure/core-lro/pollerlike#@azure-core-lro-pollerlike-getresult)
-    * [pollUntilDone](/javascript/api/@azure/core-lro/pollerlike@azure-core-lro-pollerlike-polluntildone)
 
 
 ### Set up the app framework

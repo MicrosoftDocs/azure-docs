@@ -1,7 +1,6 @@
 ---
 title: SQL scripts in Synapse Studio
 description: Introduction to Synapse Studio SQL scripts in Azure synapse Analytics.  
-services: synapse-analytics 
 author: pimorano 
 ms.service: synapse-analytics 
 ms.subservice: sql
@@ -40,6 +39,10 @@ There are several ways to start the authoring experience in SQL script. You can 
 Select the **Run** button to execute your SQL script. The results are displayed by default in a table.
 
 ![new sql script results table](media/author-sql-script/new-sql-script-results-table.png)
+
+Synapse Studio creates a new session for each SQL script execution. Once a SQL script execution completes, the session is automatically closed.
+
+Temporary tables are only visible to the session in which they were created and are automatically dropped when the session closes.
 
 ## Export your results
 

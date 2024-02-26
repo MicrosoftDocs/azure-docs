@@ -3,6 +3,8 @@
 - name: Overview
   expanded: true
   items:
+  - name: What's happening to Azure DB for MariaDB
+    href: whats-happening-to-mariadb.md
   - name: What is Azure DB for MariaDB?
     href: overview.md
   - name: Which MariaDB option should I choose?

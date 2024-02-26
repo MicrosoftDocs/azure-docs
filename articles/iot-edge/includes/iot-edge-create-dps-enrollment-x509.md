@@ -71,7 +71,7 @@ Group enrollments use an intermediate or root CA certificate from the certificat
 
 #### Verify your root certificate
 
-When you create an enrollment group, you have the option of using a verified certificate. You can verify a certificate with DPS by proving that you have ownership of the root certificate. For more information, see [How to do proof-of-possession for X.509 CA certificates](/articles/iot-dps/how-to-verify-certificates.md).
+When you create an enrollment group, you have the option of using a verified certificate. You can verify a certificate with DPS by proving that you have ownership of the root certificate. For more information, see [How to do proof-of-possession for X.509 CA certificates](/azure/iot-dps/how-to-verify-certificates).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub device provisioning service.
 

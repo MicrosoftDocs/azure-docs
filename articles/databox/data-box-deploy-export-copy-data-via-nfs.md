@@ -2,13 +2,13 @@
 title: Tutorial to copy data from Azure Data Box via NFS| Microsoft Docs
 description: Learn how to copy data from your Azure Data Box via NFS
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/04/2022
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
 # Tutorial: Copy data from Azure Data Box via NFS

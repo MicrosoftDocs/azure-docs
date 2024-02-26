@@ -5,13 +5,16 @@ services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
-ms.author: erd
+ms.author: jushiman
 ms.date: 10/31/2022
-ms.topic: how-to  
-ms.reviewer: erd
+ms.topic: how-to
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Run scripts in your Linux VM by using managed Run Commands
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -28,6 +31,30 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
 
+## Prerequisites
+
+### Linux Distro’s Supported
+| **Linux Distro** | **x64** | **ARM64** |
+|:-----|:-----:|:-----:|
+| Alma Linux |	9.x+ |	Not Supported |
+| CentOS |	7.x+,  8.x+ |	Not Supported |
+| Debian |	10+ |	Not Supported |
+| Flatcar Linux |	3374.2.x+ |	Not Supported |
+| Azure Linux | 2.x | Not Supported |
+| openSUSE |	12.3+ |	Not Supported |
+| Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
+| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	Not Supported |
+| Rocky Linux |	9.x+ |	Not Supported |
+| SLES |	12.x+, 15.x+ |	Not Supported |
+| Ubuntu |	18.04+, 20.04+, 22.04+ |	Not Supported |
+
+## Limiting access to Run Command
+
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/write` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+
+You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 
 ## Azure CLI 
 

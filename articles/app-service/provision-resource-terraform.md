@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.topic: article
 ms.date: 10/20/2022
 ms.tool: terraform
-ms.custom: subject-terraform
+ms.custom: subject-terraform, devx-track-terraform
 ---
 
 # Create App Service app using a Terraform template

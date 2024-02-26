@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Build a API for Table app with Java SDK and Azure Cosmos DB
@@ -92,7 +92,7 @@ Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershe
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-azure-powershell).
 
 It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 

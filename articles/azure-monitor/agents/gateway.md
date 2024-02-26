@@ -2,7 +2,7 @@
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 
 ---
@@ -38,11 +38,11 @@ Each agent must have network connectivity to the gateway so that agents can auto
 
 The following diagram shows data flowing from direct agents, through the gateway, to Azure Automation and Log Analytics. The agent proxy configuration must match the port that the Log Analytics gateway is configured with.  
 
-![Diagram of direct agent communication with services](./media/gateway/oms-omsgateway-agentdirectconnect.png)
+:::image type="content" source="./media/gateway/oms-omsgateway-agentdirectconnect.png" lightbox="./media/gateway/oms-omsgateway-agentdirectconnect.png" alt-text="Diagram of direct agent communication with services":::
 
 The following diagram shows data flow from an Operations Manager management group to Log Analytics.   
 
-![Diagram of Operations Manager communication with Log Analytics](./media/gateway/log-analytics-agent-opsmgrconnect.png)
+:::image type="content" source="./media/gateway/log-analytics-agent-opsmgrconnect.png" lightbox="./media/gateway/log-analytics-agent-opsmgrconnect.png" alt-text="Diagram of Operations Manager communication with Log Analytics":::
 
 ## Set up your system
 
@@ -95,22 +95,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
-
-To get the Log Analytics gateway from the Azure portal, follow these steps:
-
-1. Browse the list of services, and then select **Log Analytics**. 
-1. Select a workspace.
-1. In your workspace pane, from the pane on the left, under **General**, select **Quick Start**. 
-1. Under **Choose a data source to connect to the workspace**, select **Computers**.
-1. In the **Direct Agent** pane, select **Download Log Analytics gateway**.
- 
-   ![Screenshot of the steps to download the Log Analytics gateway](./media/gateway/download-gateway.png)
-
-or 
-
-1. In your workspace pane, from the pane on the left, under **Settings**, select **Advanced settings**.
-1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
+Get the latest version of the Log Analytics gateway Setup file from Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)).
 
 ## Install Log Analytics gateway using setup wizard
 
@@ -118,8 +103,8 @@ To install a gateway using the setup wizard, follow these steps.
 
 1. From the destination folder, double-click **Log Analytics gateway.msi**.
 1. On the **Welcome** page, select **Next**.
-
-   ![Screenshot of Welcome page in the Gateway Setup wizard](./media/gateway/gateway-wizard01.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-wizard01.png" lightbox="./media/gateway/gateway-wizard01.png" alt-text="Screenshot of Welcome page in the Gateway Setup wizard" border="false":::
 
 1. On the **License Agreement** page, select **I accept the terms in the License Agreement** to agree to the Microsoft Software License Terms, and then select **Next**.
 1. On the **Port and proxy address** page:
@@ -130,15 +115,15 @@ To install a gateway using the setup wizard, follow these steps.
    b. If the server where the gateway is installed needs to communicate through a proxy, enter the proxy address where the gateway needs to connect. For example, enter `http://myorgname.corp.contoso.com:80`.  If you leave this field blank, the gateway will try to connect to the internet directly.  If your proxy server requires authentication, enter a username and password.
 
    c. Select **Next**.
-
-   ![Screenshot of configuration for the gateway proxy](./media/gateway/gateway-wizard02.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-wizard02.png" lightbox="./media/gateway/gateway-wizard02.png" alt-text="Screenshot of configuration for the gateway proxy" border="false":::
 
 1. If you do not have Microsoft Update enabled, the Microsoft Update page appears, and you can choose to enable it. Make a selection and then select **Next**. Otherwise, continue to the next step.
 1. On the **Destination Folder** page, either leave the default folder C:\Program Files\OMS Gateway or enter the location where you want to install the gateway. Then select **Next**.
 1. On the **Ready to install** page, select **Install**. If User Account Control requests permission to install, select **Yes**.
 1. After Setup finishes, select **Finish**. To verify that the service is running, open the services.msc snap-in and verify that **OMS Gateway** appears in the list of services and that its status is **Running**.
-
-   ![Screenshot of local services, showing that OMS Gateway is running](./media/gateway/gateway-service.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/gateway-service.png" lightbox="./media/gateway/gateway-service.png" alt-text="Screenshot of local services, showing that OMS Gateway is running" border="false":::
 
 ## Install the Log Analytics gateway using the command line
 
@@ -188,18 +173,18 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
 3. To connect a Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
 
-    ![Network Load Balancing Manager – Add Host To Cluster](./media/gateway/nlb02.png)
+    :::image type="content" source="./media/gateway/nlb02.png" lightbox="./media/gateway/nlb02.png" alt-text="Network Load Balancing Manager – Add Host To Cluster":::
  
 4. Enter the IP address of the gateway server that you want to connect. 
 
-    ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/gateway/nlb03.png) 
+    :::image type="content" source="./media/gateway/nlb03.png" lightbox="./media/gateway/nlb03.png" alt-text="Network Load Balancing Manager – Add Host To Cluster: Connect"::: 
 
 ### Azure Load Balancer
 
 To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
 
 > [!NOTE]
-> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](/troubleshoot/azure/virtual-machines/allocation-failure#resize-a-vm-or-add-vms-to-an-existing-availability-set).
 > 
 
 After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -212,11 +197,11 @@ After the load balancer is created, a backend pool needs to be created, which di
 
 To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
 1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
-2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
    (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
-3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+3. Add the **data ingestion endpoint URL** to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
    `Stop-Service -Name <gateway-name>`  
@@ -271,12 +256,12 @@ To configure integration, update the system proxy configuration by using Netsh o
 After completing the integration with Log Analytics, remove the change by running `netsh winhttp reset proxy`. Then, in the Operations console, use the **Configure proxy server** option to specify the Log Analytics gateway server. 
 
 1. On the Operations Manager console, under **Operations Management Suite**, select **Connection**, and then select **Configure Proxy Server**.
-
-   ![Screenshot of Operations Manager, showing the selection Configure Proxy Server](./media/gateway/scom01.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/scom01.png" lightbox="./media/gateway/scom01.png" alt-text="Screenshot of Operations Manager, showing the selection Configure Proxy Server" border="false":::
 
 1. Select **Use a proxy server to access the Operations Management Suite** and then enter the IP address of the Log Analytics gateway server or virtual IP address of the load balancer. Be careful to start with the prefix `http://`.
-
-   ![Screenshot of Operations Manager, showing the proxy server address](./media/gateway/scom02.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/gateway/scom02.png" lightbox="./media/gateway/scom02.png" alt-text="Screenshot of Operations Manager, showing the proxy server address" border="false":::
 
 1. Select **Finish**. Your Operations Manager management group is now configured to communicate through the gateway server to the Log Analytics service.
 
@@ -355,8 +340,8 @@ An error in step 3 means that the module wasn't imported. The error might occur 
 ## Troubleshooting
 
 To collect events logged by the gateway, you should have the Log Analytics agent installed.
-
-![Screenshot of the Event Viewer list in the Log Analytics gateway log](./media/gateway/event-viewer.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/gateway/event-viewer.png" lightbox="./media/gateway/event-viewer.png" alt-text="Screenshot of the Event Viewer list in the Log Analytics gateway log" border="false":::
 
 ### Log Analytics gateway event IDs and descriptions
 
@@ -388,15 +373,15 @@ The following table shows the performance counters available for the Log Analyti
 | Log Analytics Gateway/Error Count |Number of errors |
 | Log Analytics Gateway/Connected Client |Number of connected clients |
 | Log Analytics Gateway/Rejection Count |Number of rejections due to any TLS validation error |
-
-![Screenshot of Log Analytics gateway interface, showing performance counters](./media/gateway/counters.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/gateway/counters.png" lightbox="./media/gateway/counters.png" alt-text="Screenshot of Log Analytics gateway interface, showing performance counters" border="false":::
 
 ## Assistance
 
 When you're signed in to the Azure portal, you can get help with the Log Analytics gateway or any other Azure service or feature.
 To get help, select the question mark icon in the upper-right corner of the portal and select **New support request**. Then complete the new support request form.
 
-![Screenshot of a new support request](./media/gateway/support.png)
+:::image type="content" source="./media/gateway/support.png" lightbox="./media/gateway/support.png" alt-text="Screenshot of a new support request":::
 
 ## Next steps
 

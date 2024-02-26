@@ -2,11 +2,10 @@
 title: Identify unattached Azure disks - Azure portal
 description: How to find unattached Azure managed and unmanaged (VHDs/page blobs) disks by using the Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 04/25/2022
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks - Azure portal

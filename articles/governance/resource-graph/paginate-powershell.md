@@ -3,9 +3,7 @@ title: 'Paginate Azure Resource Graph query results using Azure PowerShell'
 description: In this quickstart, you control the volume Azure Resource Graph query output by using pagination in Azure PowerShell.
 ms.date: 11/11/2022
 ms.topic: quickstart
-ms.author: timwarner
-author: timwarner-msft
-ms.custom: dev-track-azurepowershell
+ms.custom: dev-track-azurepowershell, devx-track-azurepowershell
 ---
 # Quickstart: Paginate Azure Resource Graph query results using Azure PowerShell
 
@@ -33,10 +31,10 @@ added. This module can be used with locally installed PowerShell, with
 The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 8.x or higher. If it isn't yet installed, follow
-  [these instructions](/powershell/azure/install-az-ps).
+  [these instructions](/powershell/azure/install-azure-powershell).
 
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
-  [these instructions](/powershell/scripting/gallery/installing-psget).
+  [these instructions](/powershell/gallery/powershellget/install-powershellget).
 
 ### Install the module
 
@@ -74,10 +72,11 @@ We'll then configure the query to return five records (VMs) at a time.
    ```powershell
    # Login first with Connect-AzAccount if not using Cloud Shell
 
-   # Run Azure Resource Graph query Search-AzGraph -Query "Resources | join kind=leftouter
-   (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName
-   = name, subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' |
-   project VMResourceId = id, subscriptionName, resourceGroup, name"
+   # Run Azure Resource Graph query
+   Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | where 
+   type=='microsoft.resources/subscriptions' | project subscriptionName = name, subscriptionId) on 
+   subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id, 
+   subscriptionName, resourceGroup, name"
    ```
 
 1. Update the query to implement the `skipToken` parameter and return 5 VMs in each batch:

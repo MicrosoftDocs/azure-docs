@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 04/12/2022
+ms.date: 01/31/2024
 ms.service: virtual-wan
 ms.topic: include
 ---
@@ -11,7 +11,7 @@ ms.topic: include
 
 1. On the page for the hub that you created, under **Connectivity** on the left pane, click **VPN (Site to site)** to open the VPN Site to site page.
 
-1. On the **VPN (Site to site)** page, you should see your site. If you don't, you may need to click the **Hub association:x** bubble to clear the filters and view your site.
+1. On the **VPN (Site to site)** page, you should see your site. If you don't, you might need to click the **Hub association:x** bubble to clear the filters and view your site.
 
 1. Select the checkbox next to the name of the site (don't click the site name directly), then click **Connect VPN sites**.
 
@@ -19,9 +19,9 @@ ms.topic: include
 
 1. On the **Connect sites** page, configure the settings.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings.":::
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot shows the Connected Sites pane for Virtual HUB ready for a preshared key and associated settings.":::
 
-   * **Pre-shared key (PSK)**: Enter the pre-shared key used by your VPN device. If you don't enter a key, Azure autogenerates one for you. You would then use that key when configuring your VPN device.
+   * **Pre-shared key (PSK)**: Enter the preshared key used by your VPN device. If you don't enter a key, Azure autogenerates one for you. You would then use that key when configuring your VPN device.
    * **Protocol and IPsec**: You can either leave the default settings for Protocol (IKEv2) and IPsec (Default), or you can configure custom settings. For more information, see [default/custom IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
    * **Propagate Default Route**: Only change this setting to **Enable** if you know you want to propagate the default route. Otherwise, leave it as **Disable**. You can always modify this setting later.
    
@@ -43,7 +43,7 @@ ms.topic: include
     * **Unknown**: This state is typically seen if the backend systems are working to transition to another status.
     * **Connecting**: The VPN gateway is trying to reach out to the actual on-premises VPN site.
     * **Connected**: Connectivity is established between VPN gateway and the on-premises VPN site.
-    * **Not connected**: Connectivity is not established.
+    * **Not connected**: Connectivity isn't established.
     * **Disconnected**: This status is seen if, for any reason (on-premises or in Azure), the connection was disconnected.
 1. If you want to make changes to your site, select the checkbox next to the site name (don't click the site name directly), then click the **...** context menu.
 
@@ -54,3 +54,8 @@ ms.topic: include
    * Edit the VPN connection to this hub.
    * Delete the VPN connection to this hub.
    * Download the VPN configuration file specific to this site. If you instead want to download the configuration file for sites connected to this hub, select **Download VPN Config** from the menu at the top of the page.
+
+
+1. You can then click on the VPN Site to see the connectivity status per each link connection.
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/link-connectivity-status.png" alt-text="Screenshot shows link connections for a given VPN site." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/link-connectivity-status.png":::
+

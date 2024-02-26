@@ -4,10 +4,9 @@ description: Learn how to control when automatic OS image upgrades are rolled ou
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 11/22/2022
-ms.author: jushiman 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: jushiman
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 #pmcontact: PPHILLIPS
 ---

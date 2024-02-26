@@ -1,6 +1,6 @@
 ---
-title: Azure services
-description: Learn about Region types and service categories in Azure.
+title: Available Azure services by region types and categories 
+description: Learn about region types and service categories in Azure.
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
@@ -46,11 +46,11 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Application Gateway              | Azure API Management                              | 
 > | Azure Backup                           | Azure App Configuration                           | 
 > | Azure Cosmos DB                        | Azure App Service                                 | 
-> | Azure Event Hubs                       | Azure Active Directory Domain Services            | 
+> | Azure Event Hubs                       | Microsoft Entra Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       | 
 > | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure Cognitive Search                            | 
+> | Azure Public IP                        | Azure AI Search                            | 
 > | Azure Service Bus                      | Azure Container Registry                          | 
 > | Azure Service Fabric                   | Azure Container Instances                         |
 > | Azure Site Recovery                    | Azure Data Explorer                               |  
@@ -89,13 +89,15 @@ Azure services are presented in the following tables by category. Note that some
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic                                          |
+> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg)
+
+>  Strategic                                          |
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
-> | Azure Applied AI Services                            |
+> | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure Cognitive Services                             |
+> | Azure AI services                             |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
@@ -112,7 +114,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |
 > | Azure Spatial Anchors                                |
-> | Azure Spring Cloud                                   |
+> | Azure Spring Apps                                |
 > | Azure Storage: Archive Storage                       |
 > | Azure Synapse Analytics                              |
 > | Azure Ultra Disk Storage                             |
@@ -141,8 +143,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: NDv2-series                        |
 > | Virtual Machines: NP-series                          |
 > | Virtual Machines: NVv3-series                        |
-> | Virtual Machines: NVv4-series                        | 
+> | Virtual Machines: NVv4-series                        |
 > | Virtual Machines: SAP HANA on Azure Large Instances  |
+
 
 Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
@@ -151,4 +154,3 @@ To learn more about preview services that aren't yet in general availability and
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
-

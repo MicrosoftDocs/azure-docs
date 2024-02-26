@@ -1,15 +1,12 @@
 ---
-title: Use Azure Front Door with Azure Storage blobs - Azure Front Door | Microsoft Docs
+title: Use Azure Front Door with Azure Storage blobs
 description: Learn how to use Front Door with storage blobs for accelerating content delivery of static content, enabling a secure and scalable architecture.
 services: front-door
-documentationcenter: ''
-author: johndowns
+author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/08/2022
-ms.author: jodowns
+ms.topic: conceptual
+ms.date: 12/28/2023
+ms.author: duau
 ---
 
 # Use Azure Front Door with Azure Storage blobs
@@ -33,7 +30,7 @@ Data flows through the scenario as follows:
 1. The storage account sends a response to the Front Door PoP.
 1. When the PoP receives the response, it stores it in its cache for subsequent requests.
 1. The PoP returns the response to the client.
-1. Any requests directly to the storage account through the internet are blocked by the Azure Storage firewall.
+1. Any requests directly to the storage account through the internet gets blocked by the Azure Storage firewall.
 
 ## Components
 
@@ -42,14 +39,14 @@ Data flows through the scenario as follows:
 
 ### Alternatives
 
-If you have static files in another cloud storage provider, or if you host static content on infrastructure that you own and maintain, much of this scenario continues to apply. However, you need to consider how you secure the incoming traffic to your origin server, to verify that it's come through Front Door. If your storage provider doesn't support Private Link, consider using an alternative approach like [allowlisting the Front Door service tag and inspecting the `X-Azure-FDID` header](origin-security.md).
+If you have static files in another cloud storage provider, or if you host static content on infrastructure that you own and maintain, much of this scenario continues to apply. However, you need to consider how you protect the incoming traffic to your origin server, to verify that it comes through Front Door. If your storage provider doesn't support Private Link, consider using an alternative approach like [allowlisting the Front Door service tag and inspecting the `X-Azure-FDID` header](origin-security.md).
 
 ## Scenario details
 
 Static content delivery is useful in many situations, such as these examples:
 - Delivering images, CSS files, and JavaScript files for a web application.
 - Serving files and documents, such as PDF files or JSON files.
-- Delivering non-streaming video.
+- Delivering nonstreaming video.
 
 By its nature, static content doesn't change frequently. Static files might also be large in size. These characteristics make it a good candidate to be cached, which improves performance and reduces the cost to serve requests.
 
@@ -65,11 +62,11 @@ As a content delivery network (CDN), Front Door caches the content at its global
 
 #### Authentication
 
-Front Door is designed to be internet-facing, and this scenario is optimized for publicly available blobs. If you need to authenticate access to blobs, consider using [shared access signatures](../storage/common/storage-sas-overview.md), and ensure that you enable the [*Cache every unique URL* query string behavior](front-door-caching.md#query-string-behavior) to avoid Front Door from serving requests to unauthenticated clients. However, this approach might not make effective use of the Front Door cache, because each request with a different shared access signature must be sent to the origin separately.
+Front Door is designed to be internet-facing, and this scenario is optimized for publicly available blobs. If you need to authenticate access to blobs, consider using [shared access signatures](../storage/common/storage-sas-overview.md), and ensure that you enable the [*Use Query String* query string behavior](front-door-caching.md#query-string-behavior) to avoid Front Door from serving requests to unauthenticated clients. However, this approach might not make effective use of the Front Door cache, because each request with a different shared access signature must be sent to the origin separately.
 
 #### Origin security
 
-Front Door securely connects to the Azure Storage account by using [Private Link](private-link.md). The storage account is configured to deny direct access from the internet, and to only allow requests through the private endpoint connection used by Front Door. This configuration ensures that every request is processed by Front Door, and avoids exposing the contents of your storage account directly to the internet. However, this configuration requires the premium SKU of Azure Front Door. If you use the standard SKU, your storage account must be publicly accessible. You could use a [shared access signature](../storage/common/storage-sas-overview.md) to secure requests to the storage account, and either have the client include the signature on all of their requests, or use the Front Door [rules engine](front-door-rules-engine.md) to attach it from Front Door.
+Front Door securely connects to the Azure Storage account by using [Private Link](private-link.md). The storage account is configured to deny direct access from the internet, and to only allow requests through the private endpoint connection used by Front Door. This configuration ensures that every request gets processed by Front Door, and avoids exposing the contents of your storage account directly to the internet. However, this configuration requires the premium tier of Azure Front Door. If you use the standard tier, your storage account must be publicly accessible. You could use a [shared access signature](../storage/common/storage-sas-overview.md) to secure requests to the storage account, and either have the client include the signature on all of their requests, or use the Front Door [rules engine](front-door-rules-engine.md) to attach it from Front Door.
 
 #### Custom domain names
 

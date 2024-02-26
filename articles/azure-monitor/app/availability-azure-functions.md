@@ -1,40 +1,68 @@
 ---
-title: Create and run custom availability tests by using Azure Functions
-description: This article explains how to create an Azure function with TrackAvailability() that will run periodically according to the configuration given in a TimerTrigger function. 
+title: Review TrackAvailability() test results
+description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 01/06/2023
-ms.devlang: csharp
+ms.date: 11/02/2023
 ---
 
-# Create and run custom availability tests by using Azure Functions
+# Review TrackAvailability() test results
 
-This article explains how to create an Azure function with `TrackAvailability()` that will run periodically according to the configuration given in the `TimerTrigger` function with your own business logic. The results of this test will be sent to your Application Insights resource, where you can query for and alert on the availability results data. Then you can create customized tests similar to what you can do via [availability monitoring](./monitor-web-app-availability.md) in the Azure portal. By using customized tests, you can:
+This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor). [Standard tests](availability-standard-tests.md) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
 
-- Write more complex availability tests than is possible by using the portal UI.
-- Monitor an app inside of your Azure virtual network.
-- Change the endpoint address.
-- Create an availability test even if this feature isn't available in your region.
+## Prerequisites
+
+> [!div class="checklist"]
+> - [Workspace-based Application Insights resource](create-workspace-resource.md)
+> - Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
+> - Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
+
+> [!IMPORTANT]
+> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code.
+
+## Check availability
+
+Start by reviewing the graph on the **Availability** tab of your Application Insights resource.
+
+> [!NOTE]
+> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+
+ :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
+
+To see the end-to-end transaction details, under **Drill into**, select **Successful** or **Failed**. Then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
+
+:::image type="content" source="media/availability-azure-functions/sample.png" alt-text="Screenshot that shows selecting a sample availability test.":::
+
+:::image type="content" source="media/availability-azure-functions/end-to-end.png" alt-text="Screenshot that shows end-to-end transaction details." lightbox="media/availability-azure-functions/end-to-end.png":::
+
+## Query in Log Analytics
+
+You can use Log Analytics to view your availability results, dependencies, and more. To learn more about Log Analytics, see [Log query overview](../logs/log-query-overview.md).
+
+:::image type="content" source="media/availability-azure-functions/availabilityresults.png" alt-text="Screenshot that shows availability results." lightbox="media/availability-azure-functions/availabilityresults.png":::
+
+:::image type="content" source="media/availability-azure-functions/dependencies.png" alt-text="Screenshot that shows the New Query tab with dependencies limited to 50." lightbox="media/availability-azure-functions/dependencies.png":::
+
+## Basic code sample
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test. By default, if you walk through this example, you'll be creating a basic availability HTTP GET test.
 >
 > To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
-
-## Create a timer trigger function
+### Create a timer trigger function
 
 1. Create an Azure Functions resource.
     - If you already have an Application Insights resource:
-    
+
         - By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
         - Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
-          
+
           On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
-            
+
           :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
 
     - If you don't have an Application Insights resource created yet for your timer-triggered function:
-        - By default, when you're creating your Azure Functions application, it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
-        
+        - By default, when you're creating your Azure Functions application, it creates an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
+
     > [!NOTE]
     > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
 1. Create a timer trigger function.
@@ -46,7 +74,7 @@ This article explains how to create an Azure function with `TrackAvailability()`
 
     :::image type="content" source="media/availability-azure-functions/add-function.png" alt-text="Screenshot that shows how to add a timer trigger function to your function app." lightbox="media/availability-azure-functions/add-function.png":::
 
-## Add and edit code in the App Service Editor
+### Add and edit code in the App Service Editor
 
 Go to your deployed function app, and under **Development Tools**, select the **App Service Editor** tab.
 
@@ -71,7 +99,7 @@ To create a new file, right-click under your timer trigger function (for example
 
     ```csharp
     using System.Net.Http; 
-    
+
     public async static Task RunAvailabilityTestAsync(ILogger log) 
     { 
         using (var httpClient = new HttpClient()) 
@@ -84,70 +112,70 @@ To create a new file, right-click under your timer trigger function (for example
 
 1. Define the `REGION_NAME` environment variable as a valid Azure availability location.
 
-    Run the following command in the [Azure CLI](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions.
+    Run the following command in the [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions.
 
     ```azurecli
     az account list-locations -o table
     ```
 
-1. Copy the following code into the **run.csx** file. (You'll replace the preexisting code.)
-   
+1. Copy the following code into the **run.csx** file. (You replace the pre-existing code.)
+
     ```csharp
     #load "runAvailabilityTest.csx" 
-    
+
     using System; 
-    
+
     using System.Diagnostics; 
-    
+
     using Microsoft.ApplicationInsights; 
-    
+
     using Microsoft.ApplicationInsights.Channel; 
-    
+
     using Microsoft.ApplicationInsights.DataContracts; 
-    
+
     using Microsoft.ApplicationInsights.Extensibility; 
-    
+
     private static TelemetryClient telemetryClient; 
-    
+
     // ============================================================= 
-    
+
     // ****************** DO NOT MODIFY THIS FILE ****************** 
-    
+
     // Business logic must be implemented in RunAvailabilityTestAsync function in runAvailabilityTest.csx 
-    
+
     // If this file does not exist, please add it first 
-    
+
     // ============================================================= 
-    
+
     public async static Task Run(TimerInfo myTimer, ILogger log, ExecutionContext executionContext) 
-    
+
     { 
         if (telemetryClient == null) 
         { 
             // Initializing a telemetry configuration for Application Insights based on connection string 
-    
+
             var telemetryConfiguration = new TelemetryConfiguration(); 
             telemetryConfiguration.ConnectionString = Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING"); 
             telemetryConfiguration.TelemetryChannel = new InMemoryChannel(); 
             telemetryClient = new TelemetryClient(telemetryConfiguration); 
         } 
-    
+
         string testName = executionContext.FunctionName; 
         string location = Environment.GetEnvironmentVariable("REGION_NAME"); 
         var availability = new AvailabilityTelemetry 
         { 
             Name = testName, 
-    
+
             RunLocation = location, 
-    
+
             Success = false, 
         }; 
-    
+
         availability.Context.Operation.ParentId = Activity.Current.SpanId.ToString(); 
         availability.Context.Operation.Id = Activity.Current.RootId; 
         var stopwatch = new Stopwatch(); 
         stopwatch.Start(); 
-    
+
         try 
         { 
             using (var activity = new Activity("AvailabilityContext")) 
@@ -159,13 +187,13 @@ To create a new file, right-click under your timer trigger function (for example
             } 
             availability.Success = true; 
         } 
-    
+
         catch (Exception ex) 
         { 
             availability.Message = ex.Message; 
             throw; 
         } 
-    
+
         finally 
         { 
             stopwatch.Stop(); 
@@ -175,33 +203,12 @@ To create a new file, right-click under your timer trigger function (for example
             telemetryClient.Flush(); 
         } 
     } 
-    
+
     ```
-
-## Check availability
-
-To make sure everything is working, look at the graph on the **Availability** tab of your Application Insights resource.
-
-> [!NOTE]
-> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
-
- :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
-
-To see the end-to-end transaction details, under **Drill into**, select **Successful** or **Failed**. Then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
-
-:::image type="content" source="media/availability-azure-functions/sample.png" alt-text="Screenshot that shows selecting a sample availability test.":::
-
-:::image type="content" source="media/availability-azure-functions/end-to-end.png" alt-text="Screenshot that shows end-to-end transaction details." lightbox="media/availability-azure-functions/end-to-end.png":::
-
-## Query in Log Analytics
-
-You can use Log Analytics to view your availability results, dependencies, and more. To learn more about Log Analytics, see [Log query overview](../logs/log-query-overview.md).
-
-:::image type="content" source="media/availability-azure-functions/availabilityresults.png" alt-text="Screenshot that shows availability results." lightbox="media/availability-azure-functions/availabilityresults.png":::
-
-:::image type="content" source="media/availability-azure-functions/dependencies.png" alt-text="Screenshot that shows the New Query tab with dependencies limited to 50." lightbox="media/availability-azure-functions/dependencies.png":::
 
 ## Next steps
 
-- [Application Map](./app-map.md)
-- [Transaction diagnostics](./transaction-diagnostics.md)
+* [Standard tests](availability-standard-tests.md)
+* [Availability alerts](availability-alerts.md)
+* [Application Map](./app-map.md)
+* [Transaction diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics)

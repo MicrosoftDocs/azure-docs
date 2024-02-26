@@ -1,9 +1,9 @@
 ---
 title: Cross workspace queries
 description: The API supports the ability to query across multiple workspaces.
-author: bwren
-ms.author: bwren
 ms.date: 08/06/2022
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Cross workspace queries
@@ -20,6 +20,9 @@ For either implicit or explicit cross-workspace queries, you need to specify the
  - Qualified Name - string with format \<subscriptionName\>/\<resourceGroup\>/\<workspaceName\>
  - Workspace ID - GUID string
  - Azure Resource ID - string with format /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroup\>/providers/  microsoft.operationalinsights/workspaces/\<workspaceName\>
+
+> [!NOTE]
+> We strongly recommend identifying a workspace by its unique Workspace ID or Azure Resource ID because they remove ambiguity and are more performant.
 
 ## Implicit cross workspace queries
 

@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 11/11/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Azure Cosmos DB Async Java SDK for API for NoSQL (legacy): Release notes and resources
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, ignite-2022
 
 [!INCLUDE[SDK selector](../includes/cosmos-db-sdk-list.md)]
 
-The API for NoSQL Async Java SDK differs from the API for NoSQL Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [API for NoSQL Java SDK](sdk-java-v2.md) does not support asynchronous operations. 
+The API for NoSQL Async Java SDK differs from the API for NoSQL Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [API for NoSQL Java SDK](/java/api/overview/azure/cosmos-readme) does not support asynchronous operations.
 
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! We **strongly recommend** using [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 

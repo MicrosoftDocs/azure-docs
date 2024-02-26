@@ -1,21 +1,28 @@
 ---
 title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.custom: has-azure-ad-ps-ref
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Get sensor data from sensor partners
 
 Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
 
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information, see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+
+
   ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
 Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
-To start sensor data streaming, ensure the following:
+To start sensor data streaming, ensure the following steps:
 
 -  You installed FarmBeats in Azure Marketplace.
 -  You decided on the sensors and devices that you want to install on your farm.
@@ -42,17 +49,17 @@ Follow the below steps to  generate the above information:
 
 2. **If you are on FarmBeats version 1.2.7 or later, skip steps a, b and c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
 
-      a.  Go to **Azure Active Directory** > **App Registrations**
+      a.  Go to **Microsoft Entra ID** > **App Registrations**
 
-      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
+      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It has the same name as your FarmBeats datahub.
 
-      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
+      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This gives access to the Azure CLI (Cloud Shell) to perform the below steps:
 
 3. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
     ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Ensure the environment is set to **PowerShell**. By default, it's set to Bash.
+4. Ensure the environment is set to **PowerShell**. By default, it is set to Bash.
 
     ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -62,13 +69,13 @@ Follow the below steps to  generate the above information:
     cd
     ```
 
-6. Run the following command. This connects an authenticated account to use for Azure AD requests
+6. Run the following command to connect an authenticated account to use for Microsoft Entra ID requests
 
     ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
-7. Run the following command. This will download a script to your home directory.
+7. Run the following command. This downloads a script to your home directory.
 
     ```azurepowershell-interactive
 
@@ -76,7 +83,7 @@ Follow the below steps to  generate the above information:
 
     ```
 
-8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Microsoft Entra ID** > **Overview** page.
 
     ```azurepowershell-interactive
 
@@ -99,7 +106,7 @@ Now you have the following information generated from the previous section.
  - Client secret
  - Tenant ID
 
-You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, Teralytic or Pessl Instruments (Metos.at) go to the corresponding pages as mentioned below:
+You need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you're using devices from Davis Instruments, Teralytic or Pessl Instruments (Metos.at) go to the corresponding pages as mentioned below:
 
 1. [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
@@ -123,7 +130,7 @@ Currently, FarmBeats supports the following devices:
 Follow these steps:
 
 1. On the home page, select **Devices** from the menu.
-  The **Devices** page displays the device type, model, status, the farm it's placed in, and the last updated date for metadata. By default, the farm column is set to *NULL*. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
+  The **Devices** page displays the device type, model, status, the farm it is placed in, and the last updated date for metadata. By default, the farm column is set to *NULL*. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
 2. Select the device to view the device properties, telemetry, and child devices connected to the device.
 
     ![Devices page](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
@@ -133,7 +140,7 @@ Follow these steps:
 Follow these steps:
 
 1. On the home page, select **Sensors** from the menu.
-  The **Sensors** page displays details about the type of sensor, the farm it's connected to, parent device, port name, port type, and the last updated status.
+  The **Sensors** page displays details about the type of sensor, the farm it is connected to, parent device, port name, port type, and the last updated status.
 2. Select the sensor to view sensor properties, active alerts, and telemetry from the sensor.
 
     ![Sensors page](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)

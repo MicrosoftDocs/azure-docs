@@ -4,12 +4,16 @@ description: Get answers to common questions about using Migration and moderniza
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 03/06/2023
 ms.custom: engagement-fy23
 ---
 
 # Migration and modernization: Common questions
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article answers common questions about the Migration and modernization tool. If you've other questions, check these resources:
 
@@ -259,7 +263,7 @@ Agentless replication results in some performance impact on VMware vCenter Serve
 
 ### Can I use Azure Migrate to migrate my web apps to Azure App Service?
 
-You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](./tutorial-migrate-webapps.md)
+You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](./tutorial-modernize-asp-net-appservice-code.md)
 
 
 ## Agent-based Migration

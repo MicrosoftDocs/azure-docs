@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Convert session token formats in .NET SDK

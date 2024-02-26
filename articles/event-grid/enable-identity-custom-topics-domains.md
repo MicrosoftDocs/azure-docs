@@ -6,7 +6,7 @@ ms.date: 07/21/2022
 ---
 
 # Assign a managed identity to an Event Grid custom topic or domain 
-This article shows you how to use the Azure portal and CLI to assign a system-assigned or a user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to an Event Grid custom topic or a domain. 
+This article shows you how to use the Azure portal and CLI to assign a system-assigned or a user-assigned [managed identity](/entra/identity/managed-identities-azure-resources/overview) to an Event Grid custom topic or a domain. 
 
 ## Enable identity when creating a topic or domain
 
@@ -47,7 +47,7 @@ When you use Azure portal, you can assign one system assigned identity and up to
 The following procedures show you how to enable an identity for a custom topic. The steps for enabling an identity for a domain are similar. 
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Search for **event grid topics** in the search bar at the top.
+2. Search for **Event Grid topics** in the search bar at the top.
 3. Select the **custom topic** for which you want to enable the managed identity. 
 4. Select **Identity** on the left menu.
 
@@ -58,7 +58,7 @@ The following procedures show you how to enable an identity for a custom topic. 
     :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Identity page for a custom topic"::: 
 
 ### To assign a user-assigned identity to a topic
-1. Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
+1. Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
     :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Screenshot showing the User Assigned Identity tab":::     
@@ -68,7 +68,7 @@ The following procedures show you how to enable an identity for a custom topic. 
     1. Select **Add**. 
 1. Refresh the list in the **User assigned** tab to see the added user-assigned identity.
 
-You can use similar steps to enable an identity for an event grid domain.
+You can use similar steps to enable an identity for an Event Grid domain.
 
 # [Azure CLI](#tab/cli)
 You can also use Azure CLI to assign a system-assigned identity to an existing custom topic or domain. Currently, Azure CLI doesn't support assigning a user-assigned identity to a topic or a domain.

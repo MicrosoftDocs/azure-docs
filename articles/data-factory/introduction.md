@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
-ms.date: 08/11/2022
+ms.date: 07/20/2023
 ---
 
 # What is Azure Data Factory?
@@ -62,7 +62,8 @@ If you prefer to code transformations by hand, ADF supports external activities 
 After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Azure Monitor logs, and health panels on the Azure portal.
 
 ## Top-level concepts
-An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of below key components.
+An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of the following key components:
+
 - Pipelines
 - Activities
 - Datasets
@@ -117,7 +118,7 @@ Control flow is an orchestration of pipeline activities that includes chaining a
 ### Variables
 Variables can be used inside of pipelines to store temporary values and can also be used in conjunction with parameters to enable passing values between pipelines, data flows, and other activities.
 
-## Next steps
+## Related content
 Here are important next step documents to explore:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md)

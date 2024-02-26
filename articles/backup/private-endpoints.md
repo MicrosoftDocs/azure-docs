@@ -2,11 +2,11 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/26/2023
 ms.custom: devx-track-azurepowershell
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create and use private endpoints (v1 experience) for Azure Backup
@@ -165,67 +165,6 @@ For **each private DNS** zone listed above (for Backup, Blobs and Queues), do th
 
     ![Add virtual network link](./media/private-endpoints/add-virtual-network-link.png)
 
-### When using custom DNS server or host files
-
-If you're using your custom DNS servers, you'll need to add the DNS records needed by the private endpoints to your DNS servers. You can also use conditional forwarders and redirect the DNS request for the FQDN to Azure DNS. Azure DNS redirects the DNS requests to private DNS zone and resolve them.
-
-#### For the Backup service
-
-1. In your DNS server, create a DNS zone for Backup according to the following naming convention:
-
-    |Zone |Service |
-    |---------|---------|
-    |`privatelink.<geo>.backup.windowsazure.com`   |  Backup        |
-
-    >[!NOTE]
-    > In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
-    >
-    > - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
-    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
-    > - [Geo-code list - sample XML](scripts/geo-code-list.md)
-
-1. Next, we need to add the required DNS records. To view the records that need to be added to the Backup DNS zone, navigate to the private endpoint you created above, and go to the **DNS configuration** option under the left navigation bar.
-
-    ![DNS configuration for custom DNS server](./media/private-endpoints/custom-dns-configuration.png)
-
-1. Add one entry for each FQDN and IP displayed as A type records in your DNS zone for Backup. If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the following format:
-
-    `<private ip><space><backup service privatelink FQDN>`
-
->[!NOTE]
->As shown in the screenshot above, the FQDNs depict `xxxxxxxx.<geo>.backup.windowsazure.com` and not `xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`. In such cases, ensure you include (and if required, add) the `.privatelink.` according to the stated format.
-
-#### For Blob and Queue services
-
-For blobs and queues, you can either use conditional forwarders or create DNS zones in your DNS server.
-
-##### If using conditional forwarders
-
-If you're using conditional forwarders, add forwarders for blob and queue FQDNs as follows:
-
-|FQDN  |IP  |
-|---------|---------|
-|`privatelink.blob.core.windows.net`     |  168.63.129.16       |
-|`privatelink.queue.core.windows.net`     | 168.63.129.16       |
-
-##### If using private DNS zones
-
-If you're using DNS zones for blobs and queues, you'll need to first create these DNS zones and later add the required A records.
-
-|Zone |Service  |
-|---------|---------|
-|`privatelink.blob.core.windows.net`     |  Blob     |
-|`privatelink.queue.core.windows.net`     | Queue        |
-
-At this moment, we'll only create the zones for blobs and queues when using custom DNS servers. Adding DNS records will be done later in two steps:
-
-1. When you register the first backup instance, that is, when you configure backup for the first time
-1. When you run the first backup
-
-We'll perform these steps in the following sections.
-
 ## When using custom DNS server or host files
 
 - If you're using a custom DNS server, you can use conditional forwarder for backup service, blob, and queue FQDNs to redirect the DNS requests to Azure DNS (168.63.129.16). Azure DNS redirects it to Azure Private DNS zone. In such setup, ensure that a virtual network link for Azure Private DNS zone exists as mentioned in [this section](#when-using-custom-dns-server-or-host-files).
@@ -280,7 +219,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 
 In the VM in the locked down network, ensure the following:
 
-1. The VM should have access to Azure AD.
+1. The VM should have access to Microsoft Entra ID.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup
@@ -599,7 +538,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
    | ------- | ------ | ---- |
    | Azure Backup | *.backup.windowsazure.com | 443 |
    | Azure Storage | *.blob.core.windows.net <br><br> *.queue.core.windows.net <br><br> *.blob.storage.azure.net | 443 |
-   | Azure active directory <br><br> Updated domain URLs mentioned under sections 56 and 59 in [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | *.msftidentity.com, *.msidentity.com, account.activedirectory.windowsazure.com, accounts.accesscontrol.windows.net, adminwebservice.microsoftonline.com, api.passwordreset.microsoftonline.com, autologon.microsoftazuread-sso.com, becws.microsoftonline.com, clientconfig.microsoftonline-p.net, companymanager.microsoftonline.com, device.login.microsoftonline.com, graph.microsoft.com, graph.windows.net, login.microsoft.com, login.microsoftonline.com, login.microsoftonline-p.com, login.windows.net, logincert.microsoftonline.com, loginex.microsoftonline.com, login-us.microsoftonline.com, nexus.microsoftonline-p.com, passwordreset.microsoftonline.com, provisioningapi.microsoftonline.com <br><br> 20.190.128.0/18, 40.126.0.0/18, 2603:1006:2000::/48, 2603:1007:200::/48, 2603:1016:1400::/48, 2603:1017::/48, 2603:1026:3000::/48, 2603:1027:1::/48, 2603:1036:3000::/48, 2603:1037:1::/48, 2603:1046:2000::/48, 2603:1047:1::/48, 2603:1056:2000::/48, 2603:1057:2::/48 <br><br> *.hip.live.com, *.microsoftonline.com, *.microsoftonline-p.com, *.msauth.net, *.msauthimages.net, *.msecnd.net, *.msftauth.net, *.msftauthimages.net, *.phonefactor.net, enterpriseregistration.windows.net, management.azure.com, policykeyservice.dc.ad.msft.net | As applicable. |
+   | Microsoft Entra ID <br><br> Updated domain URLs mentioned under sections 56 and 59 in [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | *.msftidentity.com, *.msidentity.com, account.activedirectory.windowsazure.com, accounts.accesscontrol.windows.net, adminwebservice.microsoftonline.com, api.passwordreset.microsoftonline.com, autologon.microsoftazuread-sso.com, becws.microsoftonline.com, clientconfig.microsoftonline-p.net, companymanager.microsoftonline.com, device.login.microsoftonline.com, graph.microsoft.com, graph.windows.net, login.microsoft.com, login.microsoftonline.com, login.microsoftonline-p.com, login.windows.net, logincert.microsoftonline.com, loginex.microsoftonline.com, login-us.microsoftonline.com, nexus.microsoftonline-p.com, passwordreset.microsoftonline.com, provisioningapi.microsoftonline.com <br><br> 20.190.128.0/18, 40.126.0.0/18, 2603:1006:2000::/48, 2603:1007:200::/48, 2603:1016:1400::/48, 2603:1017::/48, 2603:1026:3000::/48, 2603:1027:1::/48, 2603:1036:3000::/48, 2603:1037:1::/48, 2603:1046:2000::/48, 2603:1047:1::/48, 2603:1056:2000::/48, 2603:1057:2::/48 <br><br> *.hip.live.com, *.microsoftonline.com, *.microsoftonline-p.com, *.msauth.net, *.msauthimages.net, *.msecnd.net, *.msftauth.net, *.msftauthimages.net, *.phonefactor.net, enterpriseregistration.windows.net, management.azure.com, policykeyservice.dc.ad.msft.net | As applicable. |
 
 1. Allow access to these domains in the proxy server and link private DNS zone ( `*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`) with the VNET where proxy server is created or uses a custom DNS server with the respective DNS entries. <br><br> The VNET where proxy server is running and the VNET where private endpoint NIC is created should be peered, which would allow the proxy server to redirect the requests to private IP.
 

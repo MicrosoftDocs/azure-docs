@@ -76,7 +76,7 @@ Let's quickly outline the progression of a certificate from issuance to consumpt
 
 1. The domain owner also designates in the RA the identities of authorized requesters, entities that are entitled to request the enrollment of certificates with the specified domain or subject.
 
-1. An authorized requester then enrolls into a certificate via a secret-management service. In Azure, the secret-management service of choice is Azure Key Vault, which securely stores and allows the retrieval of secrets and certificates by authorized entities. Key Vault also renews and re-keys the certificate as configured in the associated certificate policy. Key Vault uses Azure Active Directory as the identity provider.
+1. An authorized requester then enrolls into a certificate via a secret-management service. In Azure, the secret-management service of choice is Azure Key Vault, which securely stores and allows the retrieval of secrets and certificates by authorized entities. Key Vault also renews and re-keys the certificate as configured in the associated certificate policy. Key Vault uses Microsoft Entra ID as the identity provider.
 
 1. An authorized retriever, or *provisioning agent*, retrieves the certificate from the key vault, including its private key, and installs it on the machines that host the cluster.
 

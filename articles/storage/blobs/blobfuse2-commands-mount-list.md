@@ -2,12 +2,12 @@
 title: How to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points.
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
@@ -60,7 +60,10 @@ The following flags are inherited from parent command [`blobfuse2 mount`](blobfu
 Display all current BlobFuse2 mount points:
 
 ```bash
-~$ blobfuse2 mount list
+sudo blobfuse2 mount list
+```
+Example output
+```output
 1 : /home/<user>/bf2a
 2 : /home/<user>/bf2b
 ```

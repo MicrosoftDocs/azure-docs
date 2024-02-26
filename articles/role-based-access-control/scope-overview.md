@@ -6,8 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 08/09/2021
+ms.date: 06/02/2023
 ms.author: rolyon
 ---
 
@@ -45,7 +44,7 @@ The scope consists of a series of identifiers separated by the slash (/) charact
 ```
 
 - `{subscriptionId}` is the ID of the subscription to use (a GUID).
-- `{resourcesGroupName}` is the name of the containing resource group.
+- `{resourceGroupName}` is the name of the containing resource group.
 - `{providerName}` is the name of the [resource provider](../azure-resource-manager/management/azure-services-resource-providers.md) that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
 - `{resourceName}` is the last part of the string that identifies a specific resource.
 
@@ -76,7 +75,7 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
 - In the Azure portal, open the resource and then look at the properties. The resource should list the **Resource ID** where you can determine the scope. For example, here are the resource IDs for a storage account.
 
-    ![Resource IDs for a storage account in Azure portal](./media/scope-overview/scope-resource-id.png)
+    ![Screenshot that shows resource IDs for a storage account in Azure portal.](./media/scope-overview/scope-resource-id.png)
 
 - Another way is to use the Azure portal to assign a role temporarily at the resource scope and then use [Azure PowerShell](role-assignments-list-powershell.md) or [Azure CLI](role-assignments-list-cli.md) to list the role assignment. In the output, the scope will be listed as a property.
 

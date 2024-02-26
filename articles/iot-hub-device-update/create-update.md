@@ -6,6 +6,7 @@ ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
+ms.custom: devx-track-azurecli
 ---
 
 # Prepare an update to import into Device Update for IoT Hub
@@ -52,7 +53,7 @@ The [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) 
 * `--update-provider`, `--update-name`, and `--update-version`: These three parameters define the **updateId** object that is a unique identifier for each update.
 * `--compat`: The **compatibility** object is a set of name-value pairs that describe the properties of a device that this update is compatible with.
   * The same exact set of compatibility properties can't be used with more than one provider and name combination.
-* `--step`: The update handler on the device (for example, `microsoft/script:1`, `microsoft/swupdate:1`, or `microsoft/apt:1`) and its associated properties for this update.
+* `--step`: The update **handler** on the device (for example, `microsoft/script:1`, `microsoft/swupdate:1`, or `microsoft/apt:1`) and its associated **properties** for this update.
 * `--file`: The paths to your update file or files.
 
 For more information about these parameters, see [Import schema and API information](import-schema.md).
@@ -75,7 +76,7 @@ az iot du update init v5 \
     --update-name AptUpdate \
     --update-version 1.0.0 \
     --compat manufacturer=Contoso model=Vacuum \
-    --step handler=handler=microsoft/script:1 properties='{"installedCriteria": "1.0"}' \
+    --step handler=microsoft/script:1 properties='{"installedCriteria": "1.0"}' \
     --file path=/my/apt/manifest/file
 ```
 
@@ -83,7 +84,7 @@ For handler properties, you may need to escape certain characters in your JSON. 
 
 The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5).
 
-Once you've created your import manifest and saved it as a JSON file, you're ready to [import your update](import-update.md).
+Once you've created your import manifest and saved it as a JSON file, you're ready to [import your update](import-update.md). If you are planning to use the Azure portal UI for importing, be sure to name your import manifest in the following format: "\<manifestname\>.importmanifest.json".
 
 ## Create an advanced Device Update import manifest for a proxy update
 

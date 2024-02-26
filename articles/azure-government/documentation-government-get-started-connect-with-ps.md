@@ -3,8 +3,7 @@ title: Connect to Azure Government with PowerShell
 description: Information on connecting to your subscription in Azure Government with PowerShell.
 ms.service: azure-government
 ms.topic: quickstart
-ms.workload: azure-government
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: mode-api
 ms.date: 01/18/2023
 ---
 
@@ -27,7 +26,7 @@ This quickstart shows how to use PowerShell to access and start managing resourc
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Specifying Azure Government as the *environment* to connect to
 

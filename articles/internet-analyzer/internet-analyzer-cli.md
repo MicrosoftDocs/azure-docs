@@ -5,13 +5,15 @@ services: internet-analyzer
 author: KumudD
 
 ms.service: internet-analyzer
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: kumud
-# Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
-
+# Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users.
 ---
 # Create an Internet Analyzer test using CLI (Preview)
+
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
 
 There are two ways to create an Internet Analyzer resource - using the [Azure portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
 

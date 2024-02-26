@@ -4,7 +4,7 @@ description: Overview of Apache Phoenix
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/08/2022
+ms.date: 04/26/2023
 ---
 
 # Apache Phoenix in Azure HDInsight
@@ -41,10 +41,10 @@ For example, here is a physical table named `product_metrics` with the following
 
 ```sql
 CREATE  TABLE product_metrics (
-    metric_type CHAR(1),
+    metric_type CHAR(1)  NOT NULL,
     created_by VARCHAR,
-    created_date DATE,
-    metric_id INTEGER
+    created_date DATE  NOT NULL,
+    metric_id INTEGER  NOT NULL
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
 
@@ -66,7 +66,7 @@ A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Usi
 
 ### Transactions
 
-While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.io/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
+While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.apache.org/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
 
 As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
 

@@ -16,22 +16,13 @@ The Avro files produced by Event Hubs Capture have the following Avro schema:
 ## Azure Storage Explorer
 You can verify that captured files were created in the Azure Storage account using tools such as [Azure Storage Explorer][Azure Storage Explorer]. You can download files locally to work on them. 
 
-An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
-
-## Use Apache Drill
-[Apache Drill][Apache Drill] is an "open-source SQL query engine for Big Data exploration" that can query structured and semi-structured data wherever it is. The engine can run as a standalone node or as a huge cluster for great performance.
-
-A native support to Azure Blob storage is available, which makes it easy to query data in an Avro file, as described in the documentation:
-
-[Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
-
-To easily query captured files, you can create and execute a VM with Apache Drill enabled via a container to access Azure Blob storage. See the following sample: [Streaming at Scale with Event Hubs Capture](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture-databricks-delta).
+An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
 
 ## Use Apache Spark
 [Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are a few options to run Apache Spark in Azure, and each provides easy access to Azure Blob storage:
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
-- [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
+- [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]. See the following sample: [Streaming at Scale with Event Hubs Capture](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture-databricks-delta).
 - [Azure Kubernetes Service](../aks/spark-job.md) 
 
 ## Use Avro Tools
@@ -76,7 +67,6 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 
 
 [Apache Avro]: https://avro.apache.org/
-[Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
@@ -86,5 +76,4 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 [Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
-[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

@@ -1,15 +1,16 @@
 ---
-title: Create a function triggered by Azure Cosmos DB 
+title: Create a function triggered by Azure Cosmos DB
 description: Use Azure Functions to create a serverless function that is invoked when data is added to a database in Azure Cosmos DB.
-
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 04/28/2020
-ms.custom: cc996988-fb4f-47, ignite-2022
+ms.date: 12/28/2023
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
 ## Prerequisites
 
@@ -40,14 +41,11 @@ Next, you create a function in the new function app.
 
 ## Create Azure Cosmos DB trigger
 
-1. In your function app, select **Functions** from the left menu, and then select **Add** from the top menu. 
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
 
-1. On the **New Function** page, enter `cosmos` in the search field and then choose the **Azure Cosmos DB trigger** template.
+1. Under **Select a template**, scroll down and choose the **Azure Cosmos DB trigger** template.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Functions page in the Azure portal":::
-
-
-1. Configure the new trigger with the settings as specified in the following table:
+1. In **Template details**, configure the new trigger with the settings as specified in this table, then select **Create**:
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -58,11 +56,7 @@ Next, you create a function in the new function app.
     | **Collection name for leases** | leases | Name of the collection to store the leases. |
     | **Create lease collection if it does not exist** | Yes | Checks for existence of the lease collection and automatically creates it. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Create the Azure Cosmos DB triggered function":::
-
-1. Select **Create Function**. 
-
-    Azure creates the Azure Cosmos DB trigger function.
+    Azure creates the Azure Cosmos DB triggered function based on the provided values.
 
 1. To display the template-based function code, select **Code + Test**.
 

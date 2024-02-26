@@ -6,7 +6,6 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/08/2022
 ---
@@ -14,7 +13,7 @@ ms.date: 06/08/2022
 # Create an Azure Cosmos DB for NoSQL account
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-An Azure Cosmos DB for NoSQL account contains all of your Azure Cosmos DB resources: databases, containers, and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../account-databases-containers-items.md).
+An Azure Cosmos DB for NoSQL account contains all of your Azure Cosmos DB resources: databases, containers, and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../resource-model.md).
 
 ## Prerequisites
 

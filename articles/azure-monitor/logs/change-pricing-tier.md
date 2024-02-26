@@ -2,6 +2,9 @@
 title: Change pricing tier for Log Analytics workspace
 description: Details on how to change pricing tier for Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
+author: guywild
+ms.author: guywild
+ms.reviewer: Dale.Koetke
 ms.date: 03/25/2022
 ---
  
@@ -9,12 +12,12 @@ ms.date: 03/25/2022
 Each Log Analytics workspace in Azure Monitor can have a different [pricing tier](cost-logs.md#commitment-tiers). This article describes how to change the pricing tier for a workspace and how to track these changes.
 
 > [!NOTE]
-> This article describes how to change the commitment tier for a Log Analytics workspace once you determine which commitment tier you want to use. See [Azure Monitor Logs pricing details](cost-logs.md) for details on how commitment tiers work and [Azure Monitor cost and usage](../usage-estimated-costs.md#log-analytics-workspace) for recommendations on the most cost effective commitment based on your observed Azure Monitor usage.
+> This article describes how to change the commitment tier for a Log Analytics workspace once you determine which commitment tier you want to use. See [Azure Monitor Logs pricing details](cost-logs.md) for details on how commitment tiers work and [Azure Monitor cost and usage](../cost-usage.md#log-analytics-workspace) for recommendations on the most cost effective commitment based on your observed Azure Monitor usage.
 
 ## Permissions required
 To change the pricing tier for a workspace, you must be assigned to one of the following roles: 
 
-- Log Analytics Contributor role
+- Log Analytics Contributor role.
 - A custom role with `Microsoft.OperationalInsights/workspaces/*/write` permissions.
 
 ## Changing pricing tier
@@ -24,7 +27,7 @@ Use the following steps to change the pricing tier of your workspace using the A
 
 1. From the **Log Analytics workspaces** menu, select your workspace, and open **Usage and estimated costs**. This displays a list of each of the pricing tiers available for this workspace.
 
-2. Review the estimated costs for each pricing tier. This estimate assumes that the last 31 days of your usage is typical. In the example below, based on the data patterns from the previous 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier (#2).  
+2. Review the estimated costs for each pricing tier. This estimate assumes that the last 31 days of your usage is typical. Choose the tier with the lowest estimated cost.  
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
@@ -68,4 +71,4 @@ Changes to a workspace's pricing tier are recorded in the [Activity Log](../esse
 ## Next steps
 
 - See [Azure Monitor Logs pricing details](cost-logs.md) for details on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
-- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Azure Monitor cost and usage](../cost-usage.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.

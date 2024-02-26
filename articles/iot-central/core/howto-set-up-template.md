@@ -1,14 +1,13 @@
 ---
-title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties and commands for your type.
+title: Define a new IoT device type in Azure IoT Central
+description: How to create an Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties and commands for your device type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: [contperf-fy21q1, device-developer]
-
+ms.custom: device-developer
 # This article applies to solution builders and device developers.
 ---
 
@@ -37,10 +36,10 @@ To learn how to manage device templates by using the IoT Central REST API, see [
 You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
-- Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
+- Import a device template from the device catalog. Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
-- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
+- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) and [IoT Central DTDL extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 > [!NOTE]
@@ -93,7 +92,7 @@ To create a device model, you can:
 
 - Use IoT Central to create a custom model from scratch.
 - Import a DTDL model from a JSON file. A device builder might have used Visual Studio Code to author a device model for your application.
-- Select one of the devices from the Device Catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
+- Select one of the devices from the device catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
@@ -111,7 +110,7 @@ To view and manage the interfaces in your device model:
 
     :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model":::
 
-1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot-pnp/concepts-modeling-guide.md#multiple-components) in the modeling guide.
+1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot/concepts-modeling-guide.md) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="Screenshot that shows how to add interface or component." lightbox="media/howto-set-up-template/add-interface.png":::
 
@@ -139,7 +138,7 @@ The following table shows the configuration settings for a telemetry capability:
 | Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Telemetry. |
 | Semantic Type | The semantic type of the telemetry, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Schema | The telemetry data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
 | Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
 | State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
 | Unit | A unit for the telemetry value, such as **mph**, **%**, or **&deg;C**. |
@@ -161,18 +160,18 @@ The following table shows the configuration settings for a property capability:
 | Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Property. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
-| Writable | If the property isn't writable, the device can report property values to IoT Central. If the property is writable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
+| Schema | The property data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
+| Writable | If the property isn't writable, the device can report property values to IoT Central. If the property is writable, the device can report property values to IoT Central, and IoT Central can send property updates to the device. |
 | Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
 | State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
 | Unit | A unit for the property value, such as **mph**, **%**, or **&deg;C**. |
 | Display Unit | A display unit for use on views and forms. |
 | Comment | Any comments about the property capability. |
 | Description | A description of the property capability. |
-|Color | This is an IoT Central extension to DTDL. |
-|Min value | Set minimum value - This is an IoT Central extension to DTDL. |
-|Max value | Set maximum value - This is an IoT Central extension to DTDL. |
-|Decimal places | This is an IoT Central extension to DTDL. |
+|Color | An IoT Central extension to DTDL. |
+|Min value | Set minimum value - An IoT Central extension to DTDL. |
+|Max value | Set maximum value - An IoT Central extension to DTDL. |
+|Decimal places | An IoT Central extension to DTDL. |
 
 #### Commands
 
@@ -194,7 +193,7 @@ The following table shows the configuration settings for a command capability:
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 |Initial value | The default parameter value. This is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](concepts-telemetry-properties-commands.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot/concepts-message-payloads.md#commands).
 
 #### Offline commands
 
@@ -227,7 +226,7 @@ The following table shows the configuration settings for a cloud property:
 | Display Name | The display name for the cloud property value used on views and forms. |
 | Name | The name of the cloud property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
+| Schema | The cloud property data type, such as double, string, or vector. The semantic type determines the available choices. |
 
 ## Views
 

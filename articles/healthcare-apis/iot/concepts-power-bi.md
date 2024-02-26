@@ -1,23 +1,23 @@
 ---
 title: MedTech service Microsoft Power BI - Azure Health Data Services
-description: In this article, you'll learn how to use the MedTech service and Power BI
+description: Learn how to use the MedTech service and Power BI
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 1/12/2023
+ms.date: 07/21/2023
 ms.author: jasteppe
 ---
 
-# The MedTech service and Microsoft Power BI
+# MedTech service and Microsoft Power BI
 
-In this article, we'll explore using the MedTech service and Microsoft Power Business Intelligence (BI).
+In this article, learn about using the MedTech service and Microsoft Power Business Intelligence (Power BI).
 
 ## The MedTech service and Power BI reference architecture
 
-The reference architecture below shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Medical Things (IoMT) and Fast Healthcare Interoperability Resources (FHIR&#174;) data.
+This reference architecture shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Things (IoT) and FHIR&reg; data.
 
-You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, see [Embed Power BI content in Microsoft Teams](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 :::image type="content" source="media/concepts-power-bi/iot-connector-power-bi.png" alt-text="Screenshot of the MedTech service and Power BI." lightbox="media/concepts-power-bi/iot-connector-power-bi.png":::
 
@@ -35,11 +35,10 @@ Azure IoT Edge can be used in with IoT Hub to create an on-premises endpoint for
 
 ## Next steps
 
-In this article, you've learned about the MedTech service and Power BI integration. 
+[What is the MedTech service?](overview.md)
 
-For an overview of the MedTech service, see
+[Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [What is the MedTech service?](overview.md)
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

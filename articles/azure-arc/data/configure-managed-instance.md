@@ -1,33 +1,31 @@
 ---
-title: Configure Azure Arc-enabled SQL managed instance
-description: Configure Azure Arc-enabled SQL managed instance
-services: azure-arc
+title: Configure SQL Managed Instance enabled by Azure Arc
+description: Configure SQL Managed Instance enabled by Azure Arc.
+author: AbdullahMSFT
+ms.author: amamun
+ms.reviewer: mikeray, randolphwest
+ms.date: 12/05/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
-ms.reviewer: mikeray
-ms.date: 05/27/2022
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
 ---
+# Configure SQL Managed Instance enabled by Azure Arc
 
-# Configure Azure Arc-enabled SQL managed instance
+This article explains how to configure SQL Managed Instance enabled by Azure Arc.
 
-This article explains how to configure Azure Arc-enabled SQL managed instance.
-
-
-## Configure resources such as cores, memory
-
+## Configure resources such as cores and memory
 
 ### Configure using CLI
 
-You can update the configuration of Azure Arc-enabled SQL Managed Instances with the CLI. Run the following command to see configuration options. 
+To update the configuration of an instance with the CLI. Run the following command to see configuration options.
 
 ```azurecli
 az sql mi-arc update --help
 ```
 
-You can update the available memory and cores for an Azure Arc-enabled SQL managed instance using the following command:
+To update the available memory and cores for an instance use:
 
 ```azurecli
 az sql mi-arc update --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -39,7 +37,7 @@ The following example sets the cpu core and memory requests and limits.
 az sql mi-arc update --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n sqlinstance1 --k8s-namespace arc --use-k8s
 ```
 
-To view the changes made to the Azure Arc-enabled SQL managed instance, you can use the following commands to view the configuration yaml file:
+To view the changes made to the instance, you can use the following commands to view the configuration yaml file:
 
 ```azurecli
 az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -47,17 +45,18 @@ az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
 
 ## Configure readable secondaries
 
-When you deploy Azure Arc enabled SQL managed instance in `BusinessCritical` service tier with 2 or more replicas, by default, one secondary replica is automatically configured as `readableSecondary`. This setting can be changed, either to add or to remove the readable secondaries as follows:
+When you deploy SQL Managed Instance enabled by Azure Arc in `BusinessCritical` service tier with 2 or more replicas, by default, one secondary replica is automatically configured as `readableSecondary`. This setting can be changed, either to add or to remove the readable secondaries as follows:
 
 ```azurecli
 az sql mi-arc update --name <sqlmi name>  --readable-secondaries <value> --k8s-namespace <namespace> --use-k8s
 ```
 
-For example, the following example will reset the readable secondaries to 0.
+For example, the following example resets the readable secondaries to 0.
 
 ```azurecli
 az sql mi-arc update --name sqlmi1 --readable-secondaries 0 --k8s-namespace mynamespace --use-k8s
 ```
+
 ## Configure replicas
 
 You can also scale up or down the number of replicas deployed in the `BusinessCritical` service tier as follows:
@@ -68,37 +67,134 @@ az sql mi-arc update --name <sqlmi name> --replicas <value> --k8s-namespace <nam
 
 For example:
 
-The following example will scale down the number of replicas from 3 to 2.
+The following example scales down the number of replicas from 3 to 2.
 
 ```azurecli
 az sql mi-arc update --name sqlmi1 --replicas 2 --k8s-namespace mynamespace --use-k8s
 ```
 
-> [Note]
-> If you scale down from 2 replicas to 1 replica, you may run into a conflict with the pre-configured `--readable--secondaries` setting. You can first edit the `--readable--secondaries` before scaling down the replicas. 
+> [!NOTE]  
+> If you scale down from 2 replicas to 1 replica, you might run into a conflict with the pre-configured `--readable--secondaries` setting. You can first edit the `--readable--secondaries` before scaling down the replicas.
 
+## Configure server options
 
-## Configure Server options
+You can configure certain server configuration settings for SQL Managed Instance enabled by Azure Arc either during or after creation time. This article describes how to configure settings like enabling "Ad Hoc Distributed Queries" or "backup compression default" etc.
 
-You can configure server configuration settings for Azure Arc-enabled SQL managed instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
+Currently the following server options can be configured:
+- Ad Hoc Distributed Queries
+- Default Trace Enabled
+- Database Mail XPs
+- Backup compression default
+- Cost threshold for parallelism
+- Optimize for ad hoc workloads
 
+> [!NOTE]  
+> - Currently these options can only be specified via YAML file, either during SQL Managed Instance creation or post deployment.
+>
+> - The SQL managed instance image tag has to be at least version v1.19.x or above.
 
-### Enable SQL Server agent
+Add the following to your YAML file during deployment to configure any of these options.
 
-SQL Server agent is disabled by default. It can be enabled by running the following command:
+```yml
+spec:
+  serverConfigurations:
+  - name: "Ad Hoc Distributed Queries"
+    value: 1
+  - name: "Default Trace Enabled"
+    value: 0
+  - name: "Database Mail XPs"
+    value: 1
+  - name: "backup compression default"
+    value: 1
+  - name: "cost threshold for parallelism"
+    value: 50
+  - name: "optimize for ad hoc workloads"
+    value: 1
+```
+
+If you already have an existing SQL managed instance enabled by Azure Arc, you can run `kubectl edit sqlmi <sqlminame> -n <namespace>` and add the above options into the spec.
+
+Example YAML file:
+
+```yml
+apiVersion: sql.arcdata.microsoft.com/v13
+kind: SqlManagedInstance
+metadata:
+  name: sql1
+  annotations:
+    exampleannotation1: exampleannotationvalue1
+    exampleannotation2: exampleannotationvalue2
+  labels:
+    examplelabel1: examplelabelvalue1
+    examplelabel2: examplelabelvalue2
+spec:
+  dev: true #options: [true, false]
+  licenseType: LicenseIncluded #options: [LicenseIncluded, BasePrice].  BasePrice is used for Azure Hybrid Benefits.
+  tier: GeneralPurpose #options: [GeneralPurpose, BusinessCritical]
+  serverConfigurations:
+  - name: "Ad Hoc Distributed Queries"
+    value: 1
+  - name: "Default Trace Enabled"
+    value: 0
+  - name: "Database Mail XPs"
+    value: 1
+  - name: "backup compression default"
+    value: 1
+  - name: "cost threshold for parallelism"
+    value: 50
+  - name: "optimize for ad hoc workloads"
+    value: 1
+  security:
+    adminLoginSecret: sql1-login-secret
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "2"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  services:
+    primary:
+      type: LoadBalancer
+  storage:
+    backups:
+      volumes:
+      - className: azurefile # Backup volumes require a ReadWriteMany (RWX) capable storage class
+        size: 5Gi
+    data:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    datalogs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    logs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+```
+
+## Enable SQL Server Agent
+
+SQL Server agent is disabled during a default deployment of SQL Managed Instance enabled by Azure Arc. It can be enabled by running the following command:
 
 ```azurecli
 az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --agent-enabled true
 ```
+
 As an example:
+
 ```azurecli
 az sql mi-arc update -n sqlinstance1 --k8s-namespace arc --use-k8s --agent-enabled true
 ```
 
-### Enable Trace flags
+## Enable trace flags
 
 Trace flags can be enabled as follows:
-```azurecli
-az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --trace-flags "3614,1234" 
-```
 
+```azurecli
+az sql mi-arc update -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s --trace-flags "3614,1234"
+```

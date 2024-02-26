@@ -6,14 +6,10 @@ summary: Bicep is a language for declaratively deploying Azure resources. You ca
 metadata:
   title: Bicep documentation
   description: "Learn how to develop Bicep files and use them to deploy Azure resources"
-  services: azure-resource-manager
   ms.service: azure-resource-manager
   ms.subservice: Bicep
   ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 11/17/2021
+  ms.date: 06/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

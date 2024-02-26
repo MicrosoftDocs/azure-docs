@@ -1,5 +1,5 @@
 ---
-title: Manage Azure IoT Edge deployment manifests | Microsoft Docs
+title: Manage Azure IoT Edge deployment manifests
 description: This article describes how to the deployment manifests for the IT Edge devices that connect to your IoT Central application.
 services: iot-central
 ms.service: iot-central

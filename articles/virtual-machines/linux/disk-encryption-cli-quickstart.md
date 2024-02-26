@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 01/04/2023
-ms.custom: devx-track-azurecli, mode-api
+ms.date: 03/29/2023
+ms.custom: devx-track-azurecli, mode-api, linux-related-content
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a Linux virtual machine (VM).
 
@@ -37,14 +37,17 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following examp
 az vm create \
     --resource-group "myResourceGroup" \
     --name "myVM" \
-    --image "Canonical:UbuntuServer:16.04-LTS:latest" \
+    --image "Canonical:UbuntuServer:20.04-LTS:latest" \
     --size "Standard_D2S_V3"\
     --generate-ssh-keys
 ```
 
+> [!NOTE]
+> Any [ADE supported Linux image version](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) could be used instead of an Ubuntu VM. Replace `Canonical:UbuntuServer:20.04-LTS:latest` accordingly.
+
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```
+```json
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -84,13 +87,13 @@ az vm encryption show --name "myVM" -g "MyResourceGroup"
 
 When encryption is enabled, you will see "EnableEncryption" in the returned output:
 
-```
+```output
 "EncryptionOperation": "EnableEncryption"
 ```
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault. 
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault.
 
 ```azurecli-interactive
 az group delete --name "myResourceGroup"

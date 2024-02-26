@@ -3,11 +3,10 @@ title: Understand your Microsoft Customer Agreement invoice in Azure
 description: Learn how to read and understand your Microsoft Customer Agreement bill in Azure
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 04/26/2023
 ms.author: banders
 ---
 
@@ -98,7 +97,7 @@ The total amount due for each service family is calculated by subtracting *Azure
 
 ### How to pay
 
-At the bottom of the invoice, there are instructions for paying your bill. You can pay by check, wire, or online. If you pay online, you can use a credit card or Azure credits, if applicable.
+At the bottom of the invoice, there are instructions for paying your bill. You can pay by wire transfer or online. If you pay online, you can use a credit card or Azure credits, if applicable.
 
 ### Publisher information
 

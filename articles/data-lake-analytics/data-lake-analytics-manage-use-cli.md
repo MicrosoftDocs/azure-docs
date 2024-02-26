@@ -2,8 +2,9 @@
 title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 ms.service: data-lake-analytics
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 # Manage Azure Data Lake Analytics using the Azure CLI
 

@@ -1,8 +1,9 @@
-- name: Confluent Cloud Azure Integration Documentation
+items:
+- name: Apache Kafka & Apache Flink on Confluent Cloud
   href: index.yml
 - name: Overview
   items:
-  - name: What is Confluent Cloud on Azure?
+  - name: What is Apache Kafka & Apache Flink on Confluent Cloud?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -20,6 +21,8 @@
     href: add-connectors.md
   - name: Manage
     href: manage.md
+  - name: Manage access
+    href: manage-access.md
     displayName: Azure CLI, az confluent organization delete
   - name: Troubleshoot
     items:

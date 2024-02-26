@@ -3,8 +3,8 @@ title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 10/27/2022
-ms.custom: engagement-fy23
+ms.date: 12/19/2023
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud
@@ -16,9 +16,9 @@ You use vCenter Server and NSX-T Manager to manage most other aspects of cluster
 >[!TIP]
 >You can always extend the cluster and add more clusters later if you need to go beyond the initial deployment number.
 
-Because Azure VMware Solution doesn't allow you to manage your private cloud with your cloud vCenter Server at launch, you'll need to do more steps for the configuration. This tutorial covers these steps and related prerequisites.
+Because Azure VMware Solution doesn't allow you to manage your private cloud with your cloud vCenter Server at launch, you need to do more steps for the configuration. This tutorial covers these steps and related prerequisites.
 
-In this tutorial, you'll learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure VMware Solution private cloud
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
 - Follow the information you gathered in the [planning](plan-private-cloud-deployment.md) tutorial to deploy Azure VMware Solution.
 - Ensure you have the appropriate networking configured as described in the [Network planning checklist](tutorial-network-checklist.md).
-- Hosts provisioned and the Microsoft.AVS [resource provider has been registered](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider).
+- Hosts provisioned and the Microsoft.AVS [resource provider is registered](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider).
 
 ## Create a private cloud
 
@@ -37,7 +37,7 @@ In this tutorial, you'll learn how to:
 
 ## Next steps
 
-In this tutorial, you've learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create an Azure VMware Solution private cloud

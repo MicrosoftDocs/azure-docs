@@ -4,12 +4,15 @@ description: This article describes how to use the legacy WindowsAzure.ServiceBu
 ms.topic: article
 ms.date: 04/30/2021
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Use legacy WindowsAzure.ServiceBus .NET framework library with AMQP 1.0
 
 > [!NOTE]
-> This article is for existing users of the WindowsAzure.ServiceBus package looking to switch to using AMQP within the same package. While this package will continue to receive critical bug fixes, we strongly encourage to upgrade to the new [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) package instead which is available as of November 2020 and which support AMQP by default.
+> This article is for existing users of the WindowsAzure.ServiceBus package looking to switch to using AMQP within the same package. While this package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage to upgrade to the new [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) package instead which is available as of November 2020 and which support AMQP by default.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 By default, the WindowsAzure.ServiceBus package communicates with the Service Bus service using a dedicated SOAP-based protocol called Service Bus Messaging Protocol (SBMP). In version 2.1 support for AMQP 1.0 was added which we recommend using rather than the default protocol.
 
@@ -24,7 +27,7 @@ For example,
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Where `namespace` and `SAS key` are obtained from the [Azure portal][Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
+Where `namespace` and `SAS key` are obtained from the [Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
 
 ### AMQP over WebSockets
 To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 

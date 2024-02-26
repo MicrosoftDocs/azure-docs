@@ -1,54 +1,52 @@
 ---
-title: CEILING in Azure Cosmos DB query language
-description: Learn about how the CEILING SQL system function in Azure Cosmos DB returns the smallest integer value greater than, or equal to, the specified numeric expression.
-author: ginamr
+title: CEILING
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the smallest integer value greater than or equal to the specified numeric expression.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# CEILING (Azure Cosmos DB)
+
+# CEILING (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the smallest integer value greater than, or equal to, the specified numeric expression.  
+Returns the smallest integer value greater than or equal to the specified numeric expression.  
   
 ## Syntax
   
 ```sql
-CEILING (<numeric_expr>)  
-```  
-  
+CEILING(<numeric_expr>)  
+```
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
+
+Returns a numeric expression.  
   
 ## Examples
-  
-  The following example shows positive numeric, negative, and zero values with the `CEILING` function.  
-  
-```sql
-SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  
-```  
-  
- Here is the result set.  
-  
-```json
-[{c1: 124, c2: -123, c3: 0}]  
-```  
+
+The following example shows positive numeric, negative, and zero values evaluated with this function.  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`FLOOR`](floor.md)

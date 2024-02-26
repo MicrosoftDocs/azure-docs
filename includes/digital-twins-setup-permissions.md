@@ -11,7 +11,7 @@ To be able to complete all the following steps, you need to have a [role in your
 * Create and manage Azure resources
 * Manage user access to Azure resources (including granting and delegating permissions)
 
-Common roles that meet this requirement are **Owner**, **Account admin**, or the combination of **User Access Administrator** and **Contributor**. For a complete explanation of roles and permissions, including what permissions are included with other roles, visit [Classic subscription administrator roles, Azure roles, and Azure AD roles](../articles/role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
+Common roles that meet this requirement are **Owner**, **Account admin**, or the combination of **User Access Administrator** and **Contributor**. For a complete explanation of roles and permissions, including what permissions are included with other roles, visit [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../articles/role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
 
 To view your role in your subscription, visit the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal (you can use this link or look for *Subscriptions* with the portal search bar). Look for the name of the subscription you are using, and view your role for it in the **My role** column:
 

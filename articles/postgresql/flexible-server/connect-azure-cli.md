@@ -1,33 +1,33 @@
 ---
-title: 'Quickstart: Connect using Azure CLI - Azure Database for PostgreSQL - Flexible Server'
+title: 'Quickstart: Connect using Azure CLI'
 description: This quickstart provides several ways to connect with Azure CLI with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, mode-api
+ms.custom: mvc, mode-api, devx-track-azurecli
 ms.tool: azure-cli
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` and execute single query or sql file with ```az postgres flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL flexible server instance using Azure CLI with `az postgres flexible-server connect` and execute single query or sql file with `az postgres flexible-server execute` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
 
 
 ## Prerequisites
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
-- Log in using Azure CLI with ```az login``` command 
-- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat numerous arguments like resource group or location.
+- Log in using Azure CLI with `az login` command 
+- Turn on parameter persistence with `az config param-persist on`. Parameter persistence will help you use local context without having to repeat numerous arguments like resource group or location.
 
-## Create a PostgreSQL Flexible Server
+## Create Azure Database for PostgreSQL flexible server instance
 
-The first thing we'll create is a managed PostgreSQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
+The first thing to create is a managed Azure Database for PostgreSQL flexible server instance. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
 ```azurecli
 az postgres flexible-server create --public-access <your-ip-address>
@@ -35,7 +35,7 @@ az postgres flexible-server create --public-access <your-ip-address>
 You can provide more arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 ## View all the arguments
-You can view all the arguments for this command with ```--help``` argument. 
+You can view all the arguments for this command with `--help` argument. 
 
 ```azurecli
 az postgres flexible-server connect --help
@@ -123,7 +123,7 @@ test   200
 ```
 
 ## Run SQL File
-You can execute a sql file with the command using ```--file-path``` argument, ```-f```.
+You can execute a sql file with the command using `--file-path` argument, `-f`.
 
 ```azurecli
 az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"

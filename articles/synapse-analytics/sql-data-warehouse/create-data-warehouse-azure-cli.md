@@ -8,7 +8,7 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: wiassaf
 ms.tool: azure-cli
-ms.custom: azure-synapse, mode-api
+ms.custom: azure-synapse, mode-api, devx-track-azurecli
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 

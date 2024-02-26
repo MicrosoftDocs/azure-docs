@@ -6,12 +6,11 @@ summary: Learn how to use Azure Route Server to simplify dynamic routing between
 metadata:
   title: Azure Route Server documentation 
   description: Learn about Azure Route Server
-  services: route-server
   ms.service: route-server 
   ms.topic: landing-page 
   author: halkazwini 
   ms.author: halkazwini 
-  ms.date: 06/10/2022
+  ms.date: 08/30/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -80,6 +79,8 @@ landingContent:
             url: anycast.md
           - text: Default route injection in spoke VNets
             url: route-injection-in-spokes.md
+          - text: Routing preference
+            url: hub-routing-preference.md
            
   # Card
   - title: Troubleshoot

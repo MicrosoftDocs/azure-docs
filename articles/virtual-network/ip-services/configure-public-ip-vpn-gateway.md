@@ -2,12 +2,12 @@
 title: Manage a public IP address with a VPN gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with a VPN gateway and how to change the configuration.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/16/2022
+ms.date: 09/19/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -19,7 +19,7 @@ A VPN gateway is a virtual network gateway used to send encrypted traffic betwee
 
 VPN gateway supports standard and basic SKU public IP addresses depending on the SKU of the VPN gateway. Public IP prefixes aren't supported. 
 
-In this article, you'll learn how to create a VPN gateway using an existing public IP in your subscription. 
+In this article, you learn how to create a VPN gateway using an existing public IP in your subscription. 
 
 ## Prerequisites
 
@@ -29,19 +29,19 @@ In this article, you'll learn how to create a VPN gateway using an existing publ
 
 ## Create VPN gateway using existing public IP
 
-In this section, you'll create a VPN gateway. You'll select the IP address you created in the prerequisites as the public IP for the VPN gateway.
+In this section, you create a VPN gateway. You select the IP address you created in the prerequisites as the public IP for the VPN gateway.
 
 ### Create virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**.
+1. In the search box at the top of the portal, enter **Virtual network**.
 
-3. In the search results, select **Virtual networks**.
+1. In the search results, select **Virtual networks**.
 
-4. Select **+ Create**.
+1. Select **+ Create**.
 
-5. In **Create virtual network**, enter or select the following information.
+1. In **Create virtual network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -52,7 +52,7 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
     | Name | Enter **myVNet**. |
     | Region | Select **West US 2**. |
     
-6. Select the **Review + create** tab, or select the blue **Review + create** button.
+1. Select the **Review + create** tab, or select the blue **Review + create** button.
 
 7. Select **Create**.
 
@@ -103,13 +103,13 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a VPN Gateway. For advanced configuration and setup, see [Tutorial: Create and manage a VPN gateway using Azure portal](../../vpn-gateway/tutorial-create-gateway-portal.md).
+> This is a simple deployment of a VPN gateway. For advanced configuration and setup, see [Tutorial: Create and manage a VPN gateway using Azure portal](../../vpn-gateway/tutorial-create-gateway-portal.md).
 >
-> For more information on Azure VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
+> For more information on Azure VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ## Change or remove public IP address
 
-VPN gateway doesn't support changing the public IP address after creation.
+VPN Gateway doesn't support changing the primary public IP address after creation.
 
 ## Caveats
 
@@ -117,7 +117,7 @@ VPN gateway doesn't support changing the public IP address after creation.
  
 ## Next steps
 
-In this article, you learned how to create a VPN Gateway using an existing public IP address. 
+In this article, you learned how to create a VPN gateway using an existing public IP address. 
 
 - To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).
-- To learn more about VPN gateways, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- To learn more about VPN gateways, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)

@@ -6,7 +6,6 @@ ms.author: iriaosara
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 09/14/2020
 ---
@@ -21,6 +20,10 @@ By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of
 ## Cassandra protocol 
 
 The Azure Cosmos DB for Apache Cassandra is compatible with Cassandra Query Language (CQL) v3.11 API (backward-compatible with version 2.x). The supported CQL commands, tools, limitations, and exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for Apache Cassandra.
+
+## Azure Managed Instance for Apache Cassandra
+
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. If a feature that is critical for your application is listed as not supported below, consider using [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/introduction.md). This is a first-party Azure service for hosting and maintaining pure open-source Apache Cassandra clusters with 100% compatibility.
 
 ## Cassandra driver
 
@@ -137,7 +140,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 |---------|---------|
 | `ALLOW FILTERING` | Yes |
 | `ALTER KEYSPACE` | N/A (PaaS service, replication managed internally)|
-| `ALTER MATERIALIZED VIEW` | No |
+| `ALTER MATERIALIZED VIEW` | Yes |
 | `ALTER ROLE` | No |
 | `ALTER TABLE` | Yes |
 | `ALTER TYPE` | No |
@@ -146,10 +149,10 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `COMPACT STORAGE` | N/A (PaaS service) |
 | `CREATE AGGREGATE` | No | 
 | `CREATE CUSTOM INDEX (SASI)` | No |
-| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md), and cluster key index is currently in [private preview](https://devblogs.microsoft.com/cosmosdb/now-in-private-preview-cluster-key-index-support-for-azure-cosmos-db-cassandra-api/) but full FROZEN collection is not supported) |
+| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md) but full FROZEN collection is not supported) |
 | `CREATE FUNCTION` | No |
 | `CREATE KEYSPACE` (replication settings ignored) | Yes |
-| `CREATE MATERIALIZED VIEW` | No |
+| `CREATE MATERIALIZED VIEW` | Yes |
 | `CREATE TABLE` | Yes |
 | `CREATE TRIGGER` | No |
 | `CREATE TYPE` | Yes |
@@ -161,7 +164,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `DROP FUNCTION` | No |
 | `DROP INDEX` | Yes |
 | `DROP KEYSPACE` | Yes |
-| `DROP MATERIALIZED VIEW` | No |
+| `DROP MATERIALIZED VIEW` | Yes |
 | `DROP ROLE` | No |
 | `DROP TABLE` | Yes |
 | `DROP TRIGGER` | No | 

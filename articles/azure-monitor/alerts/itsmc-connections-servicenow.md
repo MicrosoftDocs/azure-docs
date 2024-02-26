@@ -1,15 +1,18 @@
 ---
 title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 6/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Connect ServiceNow with IT Service Management Connector
 
 This article shows you how to configure the connection between a ServiceNow instance and the IT Service Management Connector (ITSMC) in Log Analytics, so you can centrally manage your IT Service Management (ITSM) work items.
+
+> [!NOTE]
+> As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow.
 
 ## Prerequisites
 Ensure that you meet the following prerequisites for the connection.
@@ -23,11 +26,12 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
-
+- [Set up OAuth for Vancouver](https://docs.servicenow.com/bundle/vancouver-platform-administration/page/administer/general/concept/intro-now-platform-landing.html)
+- [Set up OAuth for Utah](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Rome](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -54,7 +58,7 @@ As a part of setting up OAuth, we recommend:
       
       1. Select the old token from the list according to the OAuth name and expiration date.
 
-         ![Screenshot that shows a list of tokens for OAuth.](media/itsmc-connections-servicenow/snow-system-oauth.png)
+         :::image type="content" source="media/itsmc-connections-servicenow/snow-system-oauth.png" lightbox="media/itsmc-connections-servicenow/snow-system-oauth.png" alt-text="Screenshot that shows a list of tokens for OAuth.":::
       1. Select **Revoke Access** > **Revoke**.
 
 ## Install the user app and create the user role
@@ -103,7 +107,7 @@ Use the following procedure to create a ServiceNow connection.
 
 2. Under **Workspace Data Sources**, select **ITSM Connections**.
 
-   ![Screenshot that shows selection of a data source.](media/itsmc-overview/add-new-itsm-connection.png)
+   :::image type="content" source="media/itsmc-overview/add-new-itsm-connection.png" lightbox="media/itsmc-overview/add-new-itsm-connection.png" alt-text="Screenshot that shows selection of a data source.":::
 
 3. At the top of the right pane, select **Add**.
 
@@ -116,19 +120,19 @@ Use the following procedure to create a ServiceNow connection.
    | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com* (for example `https://XXXXX.service-now.com/`).|
    | **Username**   | Enter the integration username that you created in the ServiceNow app to support the connection to ITSMC.|
    | **Password**   | Enter the password associated with this username. **Note**: The username and password are used for generating authentication tokens only. They're not stored anywhere within the ITSMC service.  |
-   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://old.wiki/index.php/OAuth_Setup). |
+   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](/azure/azure-monitor/alerts/itsmc-connections-servicenow#oauth-setup). |
    | **Client Secret**   | Enter the client secret generated for this ID.   |
    | **Data Sync Scope (in Days)** | Enter the number of past days that you want the data from. The limit is 120 days. |
    | **Work Items To Sync**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through ITSMC. The selected values are imported into Log Analytics. Options are incidents and change requests.|
    | **Create New Configuration Item in ITSM Product** | Select this option if you want to create the configuration items in the ITSM product. When it's selected, ITSMC creates configuration items (if none exist) in the supported ITSM system. It's disabled by default. |
 
-![Screenshot of boxes and options for adding a ServiceNow connection.](media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png)
+:::image type="content" source="media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png" lightbox="media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png" alt-text="Screenshot of boxes and options for adding a ServiceNow connection.":::
 
 When you're successfully connected and synced:
 
 - Selected work items from the ServiceNow instance are imported into Log Analytics. You can view the summary of these work items on the **IT Service Management Connector** tile.
 
-- You can create incidents from Log Analytics alerts or log records, or from Azure alerts in this ServiceNow instance.
+- You can create incidents from log search alerts or log records, or from Azure alerts in this ServiceNow instance.
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
@@ -137,9 +141,9 @@ When you're successfully connected and synced:
 
 The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
 
-The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+The structure of the payload for all alert types except log search V1 alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts, the structure is:
+For Log search alerts (V1 only), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure IoT Edge common errors 
+title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
@@ -12,6 +12,9 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Solutions to common issues for Azure IoT Edge
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
@@ -66,7 +69,9 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
+* The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but and reports *empty config file...*.
+
+* When you run `sudo iotedge check` on a device, it reports *Container engine is not configured with DNS server setting, which may impact connectivity to IoT Hub. Please see https://aka.ms/iotedge-prod-checklist-dns for best practices.*
 
 #### Cause
 
@@ -115,6 +120,49 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
+### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
+
+#### Symptoms
+
+A device configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
+
+#### Cause
+
+Some networks have packet overhead, which makes the default docker network MTU (1500) too high and causes packet fragmentation preventing access to external resources.
+
+#### Solution
+
+1. Check the MTU setting for your docker network.
+
+   `docker network inspect <network name>`
+
+1. Check the MTU setting for the physical network adaptor on your device.
+
+    `ip addr show eth0`
+
+>[!NOTE]
+>The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
+
+If you see a different MTU size for your docker network and the device, try the following workaround:
+
+1. Create a new network. For example,
+
+    `docker network create --opt com.docker.network.driver.mtu=1430 test-mtu`
+
+    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430.
+
+1. Stop and remove the Azure network.
+
+    `docker network rm azure-iot-edge`
+
+1. Recreate the Azure network.
+
+   `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
+
+1. Remove all containers and restart the *aziot-edged* service.
+
+   `sudo iotedge system stop && sudo docker rm -f $(docker ps -aq -f "label=net.azure-devices.edge.owner=Microsoft.Azure.Devices.Edge.Agent") && sudo iotedge config apply`
+
 ### IoT Edge agent can't access a module's image (403)
 
 #### Symptoms
@@ -147,7 +195,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -247,15 +295,15 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. 
-1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*. 
+1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**.
+1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*.
 
    :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
 
-1. Select **Apply** to save changes, then select **Review + create**. 
+1. Select **Apply** to save changes, then select **Review + create**.
 
    The environment variable is now in the `edgeHub` property of the deployment manifest:
-   
+
    ```json
       "edgeHub": {
          "env": {
@@ -288,7 +336,7 @@ The security daemon fails to start and module containers aren't created. The `ed
 
 #### Cause
 
-For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself.
 
 #### Solution
 
@@ -406,7 +454,7 @@ Make sure the parent IoT Edge device can receive incoming requests from the down
 
 #### Symptoms
 
-When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`.
 
 #### Cause
 
@@ -415,13 +463,36 @@ The credentials for the downstream devices weren't updated properly when the mig
 #### Solution
 
 When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
-1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one
 1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
 1. Reconfigure all parent-child device relationships in the new IoT hub
 1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)
 1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
+
+### IoT Edge has low message throughput when geographically distant from IoT Hub
+
+#### Symptoms
+
+Azure IoT Edge devices that are geographically distant from Azure IoT Hub have a lower than expected message throughput.
+
+#### Cause
+
+High latency between the device and IoT Hub can cause a lower than expected message throughput. IoT Edge uses a default message batch size of 10. This limits the number of messages that are sent in a single batch, which increases the number of round trips between the device and IoT Hub.
+
+#### Solution
+
+Try increasing the IoT Edge Hub **MaxUpstreamBatchSize** environment variable. This allows more messages to be sent in a single batch, which reduces the number of round trips between the device and IoT Hub.
+
+To set Azure Edge Hub environment variables in the Azure portal:
+
+1. Navigate to your IoT Hub and select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that you want to update.
+1. Select **Set Modules**.
+1. Select **Runtime Settings**.
+1. In the **Edge Hub** module settings tab, add the **MaxUpstreamBatchSize** environment variable as type **Number** with a value of **20**.
+1. Select **Apply**.
 
 ## Next steps
 

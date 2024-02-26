@@ -8,9 +8,8 @@ metadata:
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.collection: collection
-  author: timwarner-msft
-  ms.author: dacoulte
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 06/02/2021
 
 landingContent:
@@ -47,12 +46,6 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
-          - text: Assign a policy (.NET)
-            url: ./assign-policy-dotnet.md
-          - text: Assign a policy (JavaScript)
-            url: ./assign-policy-javascript.md
-          - text: Assign a policy (Python)
-            url: ./assign-policy-python.md
           - text: Assign a policy (REST)
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
@@ -69,8 +62,6 @@ landingContent:
             url: ./how-to/extension-for-vscode.md
           - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
-          - text: Implement Azure Policy as Code with GitHub
-            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples

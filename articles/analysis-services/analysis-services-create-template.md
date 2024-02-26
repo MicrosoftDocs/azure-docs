@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create an Azure Analysis Services server resource by using Azure Resource Manager template
 description: Quickstart showing how to an Azure Analysis Services server resource by using an Azure Resource Manager template.
-author: minewiskan
-ms.author: owend
+author: kfollis
+ms.author: kfollis
 ms.date: 01/26/2023
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell, subject-armqs, references_regions, mode-arm
+ms.custom: subject-armqs, references_regions, mode-arm, devx-track-arm-template
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+* **Microsoft Entra ID**: Your subscription must be associated with a Microsoft Entra tenant. And, you need to be signed in to Azure with an account in that Microsoft Entra ID. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Review the template
 

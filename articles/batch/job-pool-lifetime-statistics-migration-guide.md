@@ -14,7 +14,7 @@ The Azure Batch lifetime statistics API for jobs and pools will be retired on *A
 
 ## About the feature
 
-Currently, you can use API to retrieve lifetime statistics for [jobs](/rest/api/batchservice/job/get-all-lifetime-statistics#http) and [pools](/rest/api/batchservice/pool/get-all-lifetime-statistics#pools) in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
+Currently, you can use API to retrieve lifetime statistics for jobs and pools in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
 
 To make statistical data available to customers, the Batch service performs aggregation and roll-ups on a periodic basis. Due to these lifetime stats APIs being rarely exercised by Batch customers, these APIs are being retired as alternatives exist.
 
