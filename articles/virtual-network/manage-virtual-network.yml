@@ -24,13 +24,13 @@ prerequisites:
     - |
       **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     - |
-      **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
+      **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.    
     
       If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure.
     - |
-      **Azure CLI users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.
+      **Azure CLI users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.    
 
-      If you're running Azure CLI locally, use Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
+      If you're running Azure CLI locally, use Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.    
 
       The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the appropriate actions listed in **Permissions**.
 procedureSection:
@@ -54,31 +54,31 @@ procedureSection:
           | **Instance details** | |
           | Name | Enter a name for the virtual network you're creating. | The name must be unique in the resource group that you select to create the virtual network in. <br> You can't change the name after the virtual network is created. <br> For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks. |
           | Region | Select an Azure [region](https://azure.microsoft.com/regions/). | A virtual network can be in only one Azure region. However, you can connect a virtual network in one region to a virtual network in another region using [virtual network peering](virtual-network-peering-overview.md). <br> Any Azure resource that you connect to the virtual network must be in the same region as the virtual network. |
-        - |    
-          Select **IP Addresses** tab or **Next: Security >**, **Next: IP Addresses >** and enter the following IP address information:
+      - |    
+        Select **IP Addresses** tab or **Next: Security >**, **Next: IP Addresses >** and enter the following IP address information:
+        
+        - **IPv4 Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you've connected to the virtual network.
+
+          You can't add the following address ranges:
+          - 224.0.0.0/4 (Multicast)
+          - 255.255.255.255/32 (Broadcast)
+          - 127.0.0.0/8 (Loopback)
+          - 169.254.0.0/16 (Link-local)
+          - 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probe-source-ip-address))
           
-          - **IPv4 Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you've connected to the virtual network.
+          The portal requires that you define at least one IPv4 address range when you create a virtual network. You can change the address space after the virtual network is created, under specific conditions.
 
-            You can't add the following address ranges:
-            - 224.0.0.0/4 (Multicast)
-            - 255.255.255.255/32 (Broadcast)
-            - 127.0.0.0/8 (Loopback)
-            - 169.254.0.0/16 (Link-local)
-            - 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probe-source-ip-address))
-            
-            The portal requires that you define at least one IPv4 address range when you create a virtual network. You can change the address space after the virtual network is created, under specific conditions.
+          > [!WARNING]
+          > If a virtual network has address ranges that overlap with another virtual network or on-premises network, the two networks can't be connected. Before you define an address range, consider whether you might want to connect the virtual network to other virtual networks or on-premises networks in the future. Microsoft recommends configuring virtual network address ranges with private address space or public address space owned by your organization.
 
-            > [!WARNING]
-            > If a virtual network has address ranges that overlap with another virtual network or on-premises network, the two networks can't be connected. Before you define an address range, consider whether you might want to connect the virtual network to other virtual networks or on-premises networks in the future. Microsoft recommends configuring virtual network address ranges with private address space or public address space owned by your organization.
+          - **Add IPv6 address space**: IPv6 address space of an Azure Virtual Network enables you to host applications in Azure with IPv6 and IPv4 connectivity within the virtual network and to and from the Internet. 
 
-            - **Add IPv6 address space**: IPv6 address space of an Azure Virtual Network enables you to host applications in Azure with IPv6 and IPv4 connectivity within the virtual network and to and from the Internet. 
+          - **Subnet name**: The subnet name must be unique within the virtual network. You can't change the subnet name after the subnet is created. The portal requires that you define one subnet when you create a virtual network, even though a virtual network isn't required to have any subnets. In the portal, you can define one or more subnets when you create a virtual network. You can add more subnets to the virtual network later, after the virtual network is created. To add a subnet to a virtual network, see [Manage subnets](virtual-network-manage-subnet.md).
 
-            - **Subnet name**: The subnet name must be unique within the virtual network. You can't change the subnet name after the subnet is created. The portal requires that you define one subnet when you create a virtual network, even though a virtual network isn't required to have any subnets. In the portal, you can define one or more subnets when you create a virtual network. You can add more subnets to the virtual network later, after the virtual network is created. To add a subnet to a virtual network, see [Manage subnets](virtual-network-manage-subnet.md).
+            >[!TIP]
+            >Sometimes, administrators create different subnets to filter or control traffic routing between the subnets. Before you define subnets, consider how you might want to filter and route traffic between your subnets. To learn more about filtering traffic between subnets, see [Network security groups](./network-security-groups-overview.md). Azure automatically routes traffic between subnets, but you can override Azure default routes. To learn more about Azures default subnet traffic routing, see [Routing overview](virtual-networks-udr-overview.md).
 
-              >[!TIP]
-              >Sometimes, administrators create different subnets to filter or control traffic routing between the subnets. Before you define subnets, consider how you might want to filter and route traffic between your subnets. To learn more about filtering traffic between subnets, see [Network security groups](./network-security-groups-overview.md). Azure automatically routes traffic between subnets, but you can override Azure default routes. To learn more about Azures default subnet traffic routing, see [Routing overview](virtual-networks-udr-overview.md).
-
-            - **Subnet address range**: The range must be within the address space you entered for the virtual network. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three more addresses are reserved for Azure service usage. As a result, a virtual network with a subnet address range of /29 has only three usable IP addresses. If you plan to connect a virtual network to a VPN gateway, you must create a gateway subnet. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub). You can change the address range after the subnet is created, under specific conditions. To learn how to change a subnet address range, see [Manage subnets](virtual-network-manage-subnet.md).
+          - **Subnet address range**: The range must be within the address space you entered for the virtual network. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three more addresses are reserved for Azure service usage. As a result, a virtual network with a subnet address range of /29 has only three usable IP addresses. If you plan to connect a virtual network to a VPN gateway, you must create a gateway subnet. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub). You can change the address range after the subnet is created, under specific conditions. To learn how to change a subnet address range, see [Manage subnets](virtual-network-manage-subnet.md).
 
           ### Create a virtual network using PowerShell
 
