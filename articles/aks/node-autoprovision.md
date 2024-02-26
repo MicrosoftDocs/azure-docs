@@ -81,7 +81,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - The only network configuration allowed is Cilium + Overlay + Azure
 - Cannot be enabled in a cluster in which **any** AgentPools have autoscaler enabled
 - Cannot be enabled in an existing cluster
-  
+
 ## Enable node autoprovisioning
 
 To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  

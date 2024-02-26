@@ -376,6 +376,10 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
 
+## Azure Database Migration Service Naming Rules
+
+If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](https://learn.microsoft.com/azure/data-factory/naming-rules).
+
 ## Azure SQL Database limitations
 
 Migrating to Azure SQL Database by using the Azure SQL extension for Azure Data Studio has the following limitations:
