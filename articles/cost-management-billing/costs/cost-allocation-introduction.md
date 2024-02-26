@@ -45,7 +45,7 @@ Subscriptions are a way of grouping Azure resources that might or might not shar
 
 You can view and manage your subscriptions in the Azure portal, PowerShell, CLI, or REST API. In the Azure portal, you can also use tools like Cost Management and Advisor to monitor and optimize your subscription costs.
 
-- [Best Practices - Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions)
+- [Best Practices - Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions) 
 - [Organize Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
 
 ### Resource Groups
