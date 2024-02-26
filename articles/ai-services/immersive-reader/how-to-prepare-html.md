@@ -2,13 +2,13 @@
 title: "How to prepare HTML content for Immersive Reader"
 titleSuffix: Azure AI services
 description: Learn how to structure HTML and retrieve your content for use with Immersive Reader.
-author: sharad-sharma-msft
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 02/23/2024
-ms.author: sharad-sharma-msft
+ms.author: sharmas
 ---
 
 # How to prepare HTML content for Immersive Reader
