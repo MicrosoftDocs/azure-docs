@@ -3,7 +3,7 @@ title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
 ms.author: abbyweisberg
 ms.topic: reference
-ms.date: 9/20/2023
+ms.date: 02/13/2024
 ms.reviewer: nolavime
 ---
 
@@ -18,7 +18,7 @@ Refer to these articles for troubleshooting information about metric or log sear
 - [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
 - [Troubleshoot Azure Monitor log search alerts](alerts-troubleshoot-log.md)
 
-If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
+If the alert fires as intended according to the Azure portal but the proper notifications do not occur, [test your action group](./action-groups.md#test-an-action-group-in-the-azure-portal) first to ensure it is properly configured. Otherwise, use the information in the rest of this article to troubleshoot your issue.
 
 ## Action or notification on my alert did not work as expected
 
@@ -28,7 +28,7 @@ If you can see a fired alert in the Azure portal, but have an issue with some of
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps:
 
-1. **Was the email suppressed by an [alert processing rule](../alerts/alerts-action-rules.md)**?
+1. **Was the email suppressed by an [alert processing rule](./alerts-processing-rules.md)**?
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
     <!-- convertborder later -->
@@ -72,7 +72,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
  
 1. **Have you been rated limited due to many emails going to a single email address?**
 
-    Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address is temporarily rate limited: 
+    Email is [rate limited](./action-groups.md#service-limits-for-notifications) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address is temporarily rate limited: 
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-troubleshoot/email-paused.png" lightbox="media/alerts-troubleshoot/email-paused.png" alt-text="Screenshot of an email about being rate limited." border="false":::
 
@@ -89,7 +89,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
-1. **Was the action suppressed by an [alert suppression rule](../alerts/alerts-action-rules.md)?**
+1. **Was the action suppressed by an [alert suppression rule](./alerts-processing-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
     <!-- convertborder later -->
@@ -105,7 +105,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
     SMS and voice calls are rate limited to no more than one notification every five minutes per phone number. If you pass this threshold, the notifications are dropped.
 
-      - Voice call – check your call history and see if you had a different call from Azure in the preceding five minutes.
+      - Voice call - check your call history and see if you had a different call from Azure in the preceding five minutes.
       - SMS - check your SMS history for a message indicating that your phone number is rate limited.
 
     If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following actions:
@@ -119,7 +119,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
  
 1. **SMS: Have you accidentally unsubscribed from the action group?**
 
-    Open your SMS history and check if you opted out of SMS delivery from this specific action group (using the DISABLE action_group_short_name reply) or from all action groups (using the  STOP reply). To subscribe again, either send the relevant SMS command (ENABLE action_group_short_name or START), or remove the SMS action from the action group, and then add it back again.  For more information, see [SMS alert behavior in action groups](alerts-sms-behavior.md).
+    Open your SMS history and check if you opted out of SMS delivery from this specific action group (using the DISABLE action_group_short_name reply) or from all action groups (using the  STOP reply). To subscribe again, either send the relevant SMS command (ENABLE action_group_short_name or START), or remove the SMS action from the action group, and then add it back again.  For more information, see [SMS alert behavior in action groups](./action-groups.md#sms-replies).
 
 1. **Have you accidentally blocked the notifications on your phone?**
 
@@ -148,7 +148,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
        Verify the webhook endpoint you configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload).
 
     1. **Are you calling Slack or Microsoft Teams?**  
-    Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
+    Each of these endpoints expects a specific JSON format. Follow [these instructions](./alerts-logic-apps.md) to configure a logic app action instead.
 
     1. **Did your webhook become unresponsive or return errors?** 
 
@@ -189,7 +189,7 @@ If your notification does not contain this note and you received the alert, but 
 
 1. **Did you pick the correct format for the action?** 
 
-    Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](../alerts/alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
+    Each action type (email, webhook, etc.) has two formats - the default, legacy format, and the [newer common schema format](./alerts-common-schema.md). When you create an action group, you specify the format you want per action - different actions in the action groups may have different formats. 
 
     For example, for webhook action: 
     <!-- convertborder later -->
@@ -199,10 +199,27 @@ If your notification does not contain this note and you received the alert, but 
 
     Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
+1. **Search results not included in log search alert notifications**
+
+   Starting with log search alerts API version 2021-08-01, search results were removed from alert notification payload. 
+   They are now only available for alert rules created with older API versions (2018-04-16). Creation of new alert rules through the Azure Portal will, by default, create the rule with the newer version.
+   Follow [Changes to the log alert rule creation experience](./alerts-manage-alerts-previous-version.md#changes-to-the-log-alert-rule-creation-experience) to learn about the changes and recommended adjustments for using the updated version.
+
+1. **MetricValue field shows as "null" for a resolved log search alert notification**
+
+   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-the-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there is no value that caused the alert to resolve, but rather elapsed time.
+
+1. **Log search alert fired as expected when no results were returned for the query, but dimensions list is empty or alert title does not contain a dimension name.**
+
+   This is by design. When a query returns 0 rows, the resource ID field (which is the basis for populating dimension and title fields) is empty.
  
 1. **Activity log alerts: Is the information available in the activity log?** 
 
-    [Activity log alerts](./activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
+    [Activity log alerts](./alerts-types.md#activity-log-alerts) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields aren't included in the corresponding alert. 
+
+1. **Custom properties missing from email , SMS or push notification.**
+
+   Custom properties are currently passed to the payload for actions only (e.g. webhook, Azure function or logic app) and not for notifications (email / SMS / push).
 
 ## Alert processing rule is not working as expected 
 
@@ -238,7 +255,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 ## How to find the alert ID of a fired alert
 
-When opening a case about a specific fired alert (such as – if you did not receive its email notification), you need to provide the alert ID. 
+When opening a case about a specific fired alert (such as - if you did not receive its email notification), you need to provide the alert ID. 
 
 To locate it, follow these steps:
 
@@ -252,15 +269,15 @@ To locate it, follow these steps:
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
-If you received an error while trying to create, update or delete an [alert processing rule](../alerts/alerts-action-rules.md), follow these steps: 
+If you received an error while trying to create, update or delete an [alert processing rule](./alerts-processing-rules.md), follow these steps: 
 
 1. **Did you receive a permission error?**  
 
-    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to alert processing rules and alerts.
+    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to alert processing rules and alerts.
 
 1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](https://learn.microsoft.com/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
 
