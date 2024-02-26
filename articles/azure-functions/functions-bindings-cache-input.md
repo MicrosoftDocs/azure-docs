@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](functions
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
 ::: zone pivot="programming-language-python"   
-<!--- Replace with the following when Node.js v4 is supported:
+<!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
 [!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
@@ -159,7 +159,10 @@ module.exports = async function (context, key, value) {
 
 ### [Model v4](#tab/nodejs-v4)
 
-Node.js v4 isn't yet supported by the Azure Cache for Redis extension.
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 
@@ -190,7 +193,7 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
 }
 ```
 
-This PowerShell code (from run.ps1) retrives and logs the cached value related to the key provided by the pub/sub trigger. 
+This PowerShell code (from run.ps1) retrieves and logs the cached value related to the key provided by the pub/sub trigger. 
 
 ```powershell
 param($key, $value, $TriggerMetadata)
@@ -242,8 +245,10 @@ The [configuration](#configuration) section explains these properties.
 
 ### [v2](#tab/python-v2)
 
-Python v2 isn't yet supported by the Azure Cache for Redis extension.
-
+<!--- Replace with the following when Python v2  is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
 ---
 
 ::: zone-end  

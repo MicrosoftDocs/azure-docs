@@ -22,8 +22,8 @@ For information on setup and configuration details, see the [overview](functions
 -->
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
-::: zone pivot="programming-language-python"   
-<!--- Replace with the following when Node.js v4 is supported:
+::: zone pivot="programming-language-python"
+<!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
 [!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 

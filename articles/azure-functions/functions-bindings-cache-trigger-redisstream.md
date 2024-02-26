@@ -32,7 +32,7 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
 ::: zone pivot="programming-language-python"   
-<!--- Replace with the following when Node.js v4 is supported:
+<!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
 [!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
@@ -159,7 +159,10 @@ From `function.json`, here's the binding data:
 
 ### [Model v4](#tab/node-v4)
 
-The Node.js v4 programming model example is not yet supported in preview.
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 
@@ -233,7 +236,11 @@ From `function.json`, here's the binding data:
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example is not yet supported in preview.
+<!--- Replace with the following when Python v2 is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
+::: zone-end 
 
 ---
 

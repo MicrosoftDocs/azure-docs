@@ -336,7 +336,10 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 ```
 ### [Model v4](#tab/node-v4)
 
-The Node.js v4 programming model example is not yet supported in preview.
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 ::: zone-end
@@ -477,7 +480,10 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example isn't supported in preview.
+<!--- Replace with the following when Python v2  is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
 
 ---
 
