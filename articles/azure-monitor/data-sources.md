@@ -58,11 +58,13 @@ Azure Kubernetes Service (AKS) clusters create the same activity logs and platfo
 | Data type | Description | Data collection method |
 |:---|:---|:---|
 | Cluster Metrics | Usage and performance data for the cluster, nodes, deployments, and workloads.  | Enable managed Prometheus for the cluster to send cluster metrics to an [Azure Monitor workspace](./essentials/azure-monitor-workspace-overview.md). See [Enable Prometheus and Grafana](./containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) for onboarding and [Default Prometheus metrics configuration in Azure Monitor](containers/prometheus-metrics-scrape-default.md) for a list of metrics that are collected by default.  |
-| Logs | Standard Kubernetes logs including events for the cluster, nodes, deployments, and workloads. | Enable Container insights for the cluster to send container logs to a Log Analytics workspace. See [Enable Container insights](./containers/kubernetes-monitoring-enable.md#enable-container-insights) for onmboarding and [Configure data collection in Container insights using data collection rule](./containers/container-insights-data-collection-dcr.md) to configure which logs will be collected. |
+| Logs | Standard Kubernetes logs including events for the cluster, nodes, deployments, and workloads. | Enable Container insights for the cluster to send container logs to a Log Analytics workspace. See [Enable Container insights](./containers/kubernetes-monitoring-enable.md#enable-container-insights) for onboarding and [Configure data collection in Container insights using data collection rule](./containers/container-insights-data-collection-dcr.md) to configure which logs will be collected. |
 
 
 ## Application
-Application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application. Application Insights stores the data it collects in the same Azure Monitor data platform used by other data sources and includes extensive tools for analyzing this data beyond the standard tools such as Metrics Explorer and Log Analytics. 
+Application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
+
+See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
 
 
 | Data type | Description | Data collection method |
@@ -73,9 +75,7 @@ Application monitoring in Azure Monitor is done with [Application Insights](/azu
 
 
 ## Custom sources
-For any monitoring data that you can't collect with the other methods described in this article, you can use the APIs in the following table to send data to Azure Monitor. See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
-
-"For more information about Application Insights, see https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview". There, customers will find the logic model diagram that contains the information they really want to know about App Insights.
+For any monitoring data that you can't collect with the other methods described in this article, you can use the APIs in the following table to send data to Azure Monitor. 
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
