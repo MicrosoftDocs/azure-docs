@@ -247,9 +247,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-    ::: zone pivot="python-mode-decorators" 
-    ::: zone-end
-
     > [!NOTE]
     > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
 
@@ -303,8 +300,21 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-## Verify in Azure
+## Invoke the function on Azure
 
+Because your function uses an HTTP trigger, you invoke it by making an HTTP request to its URL in the browser or with a tool like curl. 
+
+# [Browser](#tab/browser)
+
+Copy the complete **Invoke URL** shown in the output of the `publish` command into a browser address bar, appending the query parameter `?name=Functions`. The browser should display similar output as when you ran the function locally.
+
+# [curl](#tab/curl)
+
+Run [`curl`](https://curl.haxx.se/) with the **Invoke URL** shown in the output of the `publish` command, appending the parameter `?name=Functions`. The output of the command should be the text, "Hello Functions."
+
+---
+
+<!--- // Re-enable this after this bug gets fixed: https://github.com/Azure/azure-functions-core-tools/issues/3609
 Run the following command to view near real-time streaming logs in Application Insights in the Azure portal.
 
 ```console
@@ -312,6 +322,7 @@ func azure functionapp logstream <APP_NAME> --browser
 ```
 
 In a separate terminal window or in the browser, call the remote function again. A verbose log of the function execution in Azure is shown in the terminal.
+--->
 
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
