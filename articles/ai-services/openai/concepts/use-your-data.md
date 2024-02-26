@@ -415,8 +415,36 @@ When you chat with a model, providing a history of the chat will help the model 
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
+
+As part of this RAG pipeline, there are are three steps at a high-level: 
+
+1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
+
+1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number document chunks are chosen. 
+
+3. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
+
+In total, there are two calls made to GPT: 
+
+* For the intent, the token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+
+* For generation, the token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+
+The model generated output tokens (both intents and response) need to be taken into account for total token estimation. 
+
+| Model	| Generation prompt token count | Intent prompt | Token count | Response token count | Intent token count |
+|--|--|--|--|--|
+| gpt-35-turbo-16k | 4297 | 1366 | 111 | 25 |
+| gpt-4-0613 | 3997 | 1385 | 118 | 18 |
+| gpt-4-1106-preview | 4538 | 811 | 119 | 27 |
+| gpt-35-turbo-1106 | 4854 | 1372 | 110 | 26 |
 
 
+
+
+
+<!--
 | Model | Max tokens for system message | Max tokens for model response |
 |--|--|--|
 | GPT-35-0301 | 400 | 1500 |
@@ -446,6 +474,8 @@ class TokenEstimator(object):
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
+
+-->
 
 ## Troubleshooting 
 
