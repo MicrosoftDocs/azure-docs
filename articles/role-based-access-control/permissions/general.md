@@ -29,6 +29,66 @@ Azure service: core
 > | Microsoft.Addons/supportProviders/supportPlanTypes/write | Adds the Canonical support plan type specified. |
 > | Microsoft.Addons/supportProviders/supportPlanTypes/delete | Removes the specified Canonical support plan |
 
+## Microsoft.Capacity
+
+Azure service: core
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Capacity/calculateprice/action | Calculate any Reservation Price |
+> | Microsoft.Capacity/checkoffers/action | Check any Subscription Offers |
+> | Microsoft.Capacity/checkscopes/action | Check any Subscription |
+> | Microsoft.Capacity/validatereservationorder/action | Validate any Reservation |
+> | Microsoft.Capacity/reservationorders/action | Update any Reservation |
+> | Microsoft.Capacity/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
+> | Microsoft.Capacity/unregister/action | Unregister any Tenant |
+> | Microsoft.Capacity/calculateexchange/action | Computes the exchange amount and price of new purchase and returns policy Errors. |
+> | Microsoft.Capacity/exchange/action | Exchange any Reservation |
+> | Microsoft.Capacity/listSkus/action | Lists SKUs with filters and without any restrictions |
+> | Microsoft.Capacity/appliedreservations/read | Read All Reservations |
+> | Microsoft.Capacity/catalogs/read | Read catalog of Reservation |
+> | Microsoft.Capacity/commercialreservationorders/read | Get Reservation Orders created in any Tenant |
+> | Microsoft.Capacity/operations/read | Read any Operation |
+> | Microsoft.Capacity/reservationorders/changedirectory/action | Change directory of any reservation |
+> | Microsoft.Capacity/reservationorders/availablescopes/action | Find any Available Scope |
+> | Microsoft.Capacity/reservationorders/read | Read All Reservations |
+> | Microsoft.Capacity/reservationorders/write | Create any Reservation |
+> | Microsoft.Capacity/reservationorders/delete | Delete any Reservation |
+> | Microsoft.Capacity/reservationorders/reservations/action | Update any Reservation |
+> | Microsoft.Capacity/reservationorders/return/action | Return any Reservation |
+> | Microsoft.Capacity/reservationorders/swap/action | Swap any Reservation |
+> | Microsoft.Capacity/reservationorders/split/action | Split any Reservation |
+> | Microsoft.Capacity/reservationorders/changeBilling/action | Reservation billing change |
+> | Microsoft.Capacity/reservationorders/merge/action | Merge any Reservation |
+> | Microsoft.Capacity/reservationorders/calculaterefund/action | Computes the refund amount and price of new purchase and returns policy Errors. |
+> | Microsoft.Capacity/reservationorders/changebillingoperationresults/read | Poll any Reservation billing change operation |
+> | Microsoft.Capacity/reservationorders/mergeoperationresults/read | Poll any merge operation |
+> | Microsoft.Capacity/reservationorders/reservations/availablescopes/action | Find any Available Scope |
+> | Microsoft.Capacity/reservationorders/reservations/read | Read All Reservations |
+> | Microsoft.Capacity/reservationorders/reservations/write | Create any Reservation |
+> | Microsoft.Capacity/reservationorders/reservations/delete | Delete any Reservation |
+> | Microsoft.Capacity/reservationorders/reservations/archive/action | Archive a reservation which is in a terminal state like Expired, Split etc. |
+> | Microsoft.Capacity/reservationorders/reservations/unarchive/action | Unarchive a Reservation which was previously archived |
+> | Microsoft.Capacity/reservationorders/reservations/revisions/read | Read All Reservations |
+> | Microsoft.Capacity/reservationorders/splitoperationresults/read | Poll any split operation |
+> | Microsoft.Capacity/resourceProviders/locations/serviceLimits/read | Get the current service limit or quota of the specified resource and location |
+> | Microsoft.Capacity/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
+> | Microsoft.Capacity/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
+> | Microsoft.Capacity/tenants/register/action | Register any Tenant |
+
+## Microsoft.Commerce
+
+Azure service: core
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Commerce/register/action | Register Subscription for Microsoft Commerce UsageAggregate |
+> | Microsoft.Commerce/unregister/action | Unregister Subscription for Microsoft Commerce UsageAggregate |
+> | Microsoft.Commerce/RateCard/read | Returns offer data, resource/meter metadata and rates for the given subscription. |
+> | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure's consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
+
 ## Microsoft.Marketplace
 
 Azure service: core
@@ -116,36 +176,23 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/quotas/write | Creates the service limit or quota request for the specified resource |
 > | Microsoft.Quota/usages/read | Get the usages for resource providers |
 
-## Microsoft.ResourceHealth
+## Microsoft.Subscription
 
-Diagnose and get support for service problems that affect your Azure resources.
-
-Azure service: [Azure Service Health](/azure/service-health/)
+Azure service: core
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.ResourceHealth/events/action | Endpoint to fetch details for event |
-> | Microsoft.ResourceHealth/register/action | Registers the subscription for the Microsoft ResourceHealth |
-> | Microsoft.ResourceHealth/unregister/action | Unregisters the subscription for the Microsoft ResourceHealth |
-> | Microsoft.Resourcehealth/healthevent/action | Denotes the change in health state for the specified resource |
-> | Microsoft.ResourceHealth/AvailabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Gets the availability status for the specified resource |
-> | Microsoft.ResourceHealth/emergingissues/read | Get Azure services' emerging issues |
-> | Microsoft.ResourceHealth/events/read | Get Service Health Events for given subscription |
-> | Microsoft.ResourceHealth/events/fetchEventDetails/action | Endpoint to fetch details for event |
-> | Microsoft.ResourceHealth/events/listSecurityAdvisoryImpactedResources/action | Get Impacted Resources for a given event of type SecurityAdvisory |
-> | Microsoft.ResourceHealth/events/impactedResources/read | Get Impacted Resources for a given event |
-> | Microsoft.Resourcehealth/healthevent/Activated/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Updated/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Resolved/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/InProgress/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Pending/action | Denotes the change in health state for the specified resource |
-> | Microsoft.ResourceHealth/impactedResources/read | Get Impacted Resources for given subscription |
-> | Microsoft.ResourceHealth/metadata/read | Gets Metadata |
-> | Microsoft.ResourceHealth/Notifications/read | Receives Azure Resource Manager notifications |
-> | Microsoft.ResourceHealth/Operations/read | Get the operations available for the Microsoft ResourceHealth |
-> | Microsoft.ResourceHealth/potentialoutages/read | Get Potential Outages for given subscription |
+> | Microsoft.Subscription/cancel/action | Cancels the Subscription |
+> | Microsoft.Subscription/rename/action | Renames the Subscription |
+> | Microsoft.Subscription/enable/action | Reactivates the Subscription |
+> | Microsoft.Subscription/aliases/write | Create subscription alias |
+> | Microsoft.Subscription/aliases/read | Get subscription alias |
+> | Microsoft.Subscription/aliases/delete | Delete subscription alias |
+> | Microsoft.Subscription/Policies/write | Create tenant policy |
+> | Microsoft.Subscription/Policies/default/read | Get tenant policy |
+> | Microsoft.Subscription/subscriptions/acceptOwnership/action | Accept ownership of Subscription |
+> | Microsoft.Subscription/subscriptions/acceptOwnershipStatus/read | Get the status of accepting ownership of Subscription |
 
 ## Microsoft.Support
 

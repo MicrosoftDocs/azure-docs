@@ -277,7 +277,7 @@ Azure service: Classic deployment model virtual network
 
 ## Microsoft.MobileNetwork
 
-Azure service: [Mobile networks](/azure/private-5g-core/)
+Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -401,7 +401,7 @@ Azure service: [Mobile networks](/azure/private-5g-core/)
 
 Connect cloud and on-premises infrastructure and services to provide your customers and users the best possible experience.
 
-Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastion](/azure/bastion/), [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), [Azure DNS](/azure/dns/), [Azure ExpressRoute](/azure/expressroute/), [Azure Firewall](/azure/firewall/), [Azure Front Door Service](/azure/frontdoor/), [Azure Private Link](/azure/private-link/), [Load Balancer](/azure/load-balancer/), [Network Watcher](/azure/network-watcher/), [Traffic Manager](/azure/traffic-manager/), [Virtual Network](/azure/virtual-network/), [Virtual WAN](/azure/virtual-wan/), [VPN Gateway](/azure/vpn-gateway/)
+Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastion](/azure/bastion/), [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), [Azure DNS](/azure/dns/), [Azure ExpressRoute](/azure/expressroute/), [Azure Firewall](/azure/firewall/), [Azure Front Door Service](/azure/frontdoor/), [Azure Private Link](/azure/private-link/), [Azure Route Server](/azure/route-server/), [Load Balancer](/azure/load-balancer/), [Network Watcher](/azure/network-watcher/), [Traffic Manager](/azure/traffic-manager/), [Virtual Network](/azure/virtual-network/), [Virtual Network NAT](/azure/nat-gateway/nat-overview), [Virtual Network Manager](/azure/virtual-network-manager/overview), [Virtual WAN](/azure/virtual-wan/), [VPN Gateway](/azure/vpn-gateway/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

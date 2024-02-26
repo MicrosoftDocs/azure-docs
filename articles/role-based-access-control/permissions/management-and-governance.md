@@ -269,73 +269,6 @@ Azure service: [Automation](/azure/automation/)
 > | Microsoft.Automation/deletedAutomationAccounts/read | Gets an Azure Automation deleted account  |
 > | Microsoft.Automation/operations/read | Gets Available Operations for Azure Automation resources |
 
-## Microsoft.Batch
-
-Cloud-scale job scheduling and compute management.
-
-Azure service: [Batch](/azure/batch/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Batch/register/action | Registers the subscription for the Batch Resource Provider and enables the creation of Batch accounts |
-> | Microsoft.Batch/unregister/action | Unregisters the subscription for the Batch Resource Provider preventing the creation of Batch accounts |
-> | Microsoft.Batch/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account |
-> | Microsoft.Batch/batchAccounts/write | Creates a new Batch account or updates an existing Batch account |
-> | Microsoft.Batch/batchAccounts/delete | Deletes a Batch account |
-> | Microsoft.Batch/batchAccounts/listkeys/action | Lists access keys for a Batch account |
-> | Microsoft.Batch/batchAccounts/regeneratekeys/action | Regenerates access keys for a Batch account |
-> | Microsoft.Batch/batchAccounts/syncAutoStorageKeys/action | Synchronizes access keys for the auto storage account configured for a Batch account |
-> | Microsoft.Batch/batchAccounts/applications/read | Lists applications or gets the properties of an application |
-> | Microsoft.Batch/batchAccounts/applications/write | Creates a new application or updates an existing application |
-> | Microsoft.Batch/batchAccounts/applications/delete | Deletes an application |
-> | Microsoft.Batch/batchAccounts/applications/versions/read | Gets the properties of an application package |
-> | Microsoft.Batch/batchAccounts/applications/versions/write | Creates a new application package or updates an existing application package |
-> | Microsoft.Batch/batchAccounts/applications/versions/delete | Deletes an application package |
-> | Microsoft.Batch/batchAccounts/applications/versions/activate/action | Activates an application package |
-> | Microsoft.Batch/batchAccounts/certificateOperationResults/read | Gets the results of a long running certificate operation on a Batch account |
-> | Microsoft.Batch/batchAccounts/certificates/read | Lists certificates on a Batch account or gets the properties of a certificate |
-> | Microsoft.Batch/batchAccounts/certificates/write | Creates a new certificate on a Batch account or updates an existing certificate |
-> | Microsoft.Batch/batchAccounts/certificates/delete | Deletes a certificate from a Batch account |
-> | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | Cancels the failed deletion of a certificate on a Batch account |
-> | Microsoft.Batch/batchAccounts/detectors/read | Gets AppLens Detector or Lists AppLens Detectors on a Batch account |
-> | Microsoft.Batch/batchAccounts/operationResults/read | Gets the results of a long running Batch account operation |
-> | Microsoft.Batch/batchAccounts/outboundNetworkDependenciesEndpoints/read | Lists the outbound network dependency endpoints for a Batch account |
-> | Microsoft.Batch/batchAccounts/poolOperationResults/read | Gets the results of a long running pool operation on a Batch account |
-> | Microsoft.Batch/batchAccounts/pools/read | Lists pools on a Batch account or gets the properties of a pool |
-> | Microsoft.Batch/batchAccounts/pools/write | Creates a new pool on a Batch account or updates an existing pool |
-> | Microsoft.Batch/batchAccounts/pools/delete | Deletes a pool from a Batch account |
-> | Microsoft.Batch/batchAccounts/pools/stopResize/action | Stops an ongoing resize operation on a Batch account pool |
-> | Microsoft.Batch/batchAccounts/pools/disableAutoscale/action | Disables automatic scaling for a Batch account pool |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/validate/action | Validates a Private endpoint connection proxy on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/write | Create a new Private endpoint connection proxy on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/read | Gets Private endpoint connection proxy on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxies/delete | Delete a Private endpoint connection proxy on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionProxyResults/read | Gets the results of a long running Batch account private endpoint connection proxy operation |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnectionResults/read | Gets the results of a long running Batch account private endpoint connection operation |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnections/write | Update an existing Private endpoint connection on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnections/read | Gets Private endpoint connection or Lists Private endpoint connections on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateEndpointConnections/delete | Delete a Private endpoint connection on a Batch account |
-> | Microsoft.Batch/batchAccounts/privateLinkResources/read | Gets the properties of a Private link resource or Lists Private link resources on a Batch account |
-> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
-> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Batch service |
-> | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the Batch service |
-> | Microsoft.Batch/deployments/preflight/action | Runs Preflight validation for resources included in the request |
-> | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
-> | Microsoft.Batch/locations/accountOperationResults/read | Gets the results of a long running Batch account operation |
-> | Microsoft.Batch/locations/cloudServiceSkus/read | Lists available Batch supported Cloud Service VM sizes at the given location |
-> | Microsoft.Batch/locations/quotas/read | Gets Batch quotas of the specified subscription at the specified Azure region |
-> | Microsoft.Batch/locations/virtualMachineSkus/read | Lists available Batch supported Virtual Machine VM sizes at the given location |
-> | Microsoft.Batch/operations/read | Lists operations available on Microsoft.Batch resource provider |
-> | **DataAction** | **Description** |
-> | Microsoft.Batch/batchAccounts/jobs/read | Lists jobs on a Batch account or gets the properties of a job |
-> | Microsoft.Batch/batchAccounts/jobs/write | Creates a new job on a Batch account or updates an existing job |
-> | Microsoft.Batch/batchAccounts/jobs/delete | Deletes a job from a Batch account |
-> | Microsoft.Batch/batchAccounts/jobSchedules/read | Lists job schedules on a Batch account or gets the properties of a job schedule |
-> | Microsoft.Batch/batchAccounts/jobSchedules/write | Creates a new job schedule on a Batch account or updates an existing job schedule |
-> | Microsoft.Batch/batchAccounts/jobSchedules/delete | Deletes a job schedule from a Batch account |
-
 ## Microsoft.Billing
 
 Manage your subscriptions and see usage and billing.
@@ -521,66 +454,6 @@ Azure service: [Azure Blueprints](/azure/governance/blueprints/)
 > | Microsoft.Blueprint/blueprints/versions/delete | Delete any blueprints |
 > | Microsoft.Blueprint/blueprints/versions/artifacts/read | Read any blueprint artifacts |
 
-## Microsoft.Capacity
-
-Azure service: core
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Capacity/calculateprice/action | Calculate any Reservation Price |
-> | Microsoft.Capacity/checkoffers/action | Check any Subscription Offers |
-> | Microsoft.Capacity/checkscopes/action | Check any Subscription |
-> | Microsoft.Capacity/validatereservationorder/action | Validate any Reservation |
-> | Microsoft.Capacity/reservationorders/action | Update any Reservation |
-> | Microsoft.Capacity/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
-> | Microsoft.Capacity/unregister/action | Unregister any Tenant |
-> | Microsoft.Capacity/calculateexchange/action | Computes the exchange amount and price of new purchase and returns policy Errors. |
-> | Microsoft.Capacity/exchange/action | Exchange any Reservation |
-> | Microsoft.Capacity/listSkus/action | Lists SKUs with filters and without any restrictions |
-> | Microsoft.Capacity/appliedreservations/read | Read All Reservations |
-> | Microsoft.Capacity/catalogs/read | Read catalog of Reservation |
-> | Microsoft.Capacity/commercialreservationorders/read | Get Reservation Orders created in any Tenant |
-> | Microsoft.Capacity/operations/read | Read any Operation |
-> | Microsoft.Capacity/reservationorders/changedirectory/action | Change directory of any reservation |
-> | Microsoft.Capacity/reservationorders/availablescopes/action | Find any Available Scope |
-> | Microsoft.Capacity/reservationorders/read | Read All Reservations |
-> | Microsoft.Capacity/reservationorders/write | Create any Reservation |
-> | Microsoft.Capacity/reservationorders/delete | Delete any Reservation |
-> | Microsoft.Capacity/reservationorders/reservations/action | Update any Reservation |
-> | Microsoft.Capacity/reservationorders/return/action | Return any Reservation |
-> | Microsoft.Capacity/reservationorders/swap/action | Swap any Reservation |
-> | Microsoft.Capacity/reservationorders/split/action | Split any Reservation |
-> | Microsoft.Capacity/reservationorders/changeBilling/action | Reservation billing change |
-> | Microsoft.Capacity/reservationorders/merge/action | Merge any Reservation |
-> | Microsoft.Capacity/reservationorders/calculaterefund/action | Computes the refund amount and price of new purchase and returns policy Errors. |
-> | Microsoft.Capacity/reservationorders/changebillingoperationresults/read | Poll any Reservation billing change operation |
-> | Microsoft.Capacity/reservationorders/mergeoperationresults/read | Poll any merge operation |
-> | Microsoft.Capacity/reservationorders/reservations/availablescopes/action | Find any Available Scope |
-> | Microsoft.Capacity/reservationorders/reservations/read | Read All Reservations |
-> | Microsoft.Capacity/reservationorders/reservations/write | Create any Reservation |
-> | Microsoft.Capacity/reservationorders/reservations/delete | Delete any Reservation |
-> | Microsoft.Capacity/reservationorders/reservations/archive/action | Archive a reservation which is in a terminal state like Expired, Split etc. |
-> | Microsoft.Capacity/reservationorders/reservations/unarchive/action | Unarchive a Reservation which was previously archived |
-> | Microsoft.Capacity/reservationorders/reservations/revisions/read | Read All Reservations |
-> | Microsoft.Capacity/reservationorders/splitoperationresults/read | Poll any split operation |
-> | Microsoft.Capacity/resourceProviders/locations/serviceLimits/read | Get the current service limit or quota of the specified resource and location |
-> | Microsoft.Capacity/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
-> | Microsoft.Capacity/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
-> | Microsoft.Capacity/tenants/register/action | Register any Tenant |
-
-## Microsoft.Commerce
-
-Azure service: core
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Commerce/register/action | Register Subscription for Microsoft Commerce UsageAggregate |
-> | Microsoft.Commerce/unregister/action | Unregister Subscription for Microsoft Commerce UsageAggregate |
-> | Microsoft.Commerce/RateCard/read | Returns offer data, resource/meter metadata and rates for the given subscription. |
-> | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure's consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
-
 ## Microsoft.Consumption
 
 Programmatic access to cost and usage data for your Azure resources.
@@ -668,76 +541,6 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/views/read | List all saved views. |
 > | Microsoft.CostManagement/views/delete | Delete saved views. |
 > | Microsoft.CostManagement/views/write | Update view. |
-
-## Microsoft.DataProtection
-
-Azure service: Microsoft.DataProtection
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.DataProtection/register/action | Registers subscription for given Resource Provider |
-> | Microsoft.DataProtection/unregister/action | Unregisters subscription for given Resource Provider |
-> | Microsoft.DataProtection/backupVaults/write | Create BackupVault operation creates an Azure resource of type 'Backup Vault' |
-> | Microsoft.DataProtection/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
-> | Microsoft.DataProtection/backupVaults/read | The Get Backup Vault operation gets an object representing the Azure resource of type 'Backup Vault' |
-> | Microsoft.DataProtection/backupVaults/read | Gets list of Backup Vaults in a Subscription |
-> | Microsoft.DataProtection/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | Microsoft.DataProtection/backupVaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'Backup Vault' |
-> | Microsoft.DataProtection/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/write | Creates a Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/delete | Deletes the Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/read | Returns details of the Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | Microsoft.DataProtection/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/sync/action | Sync operation retries last failed operation on backup instance to bring it to a valid state. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
-> | Microsoft.DataProtection/backupVaults/backupInstances/stopProtection/action | Stop Protection operation stops both backup and retention schedules of backup instance. Existing data will be retained forever. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/suspendBackups/action | Suspend Backups operation stops only backups of backup instance. Retention activities will continue and hence data will be ratained as per policy. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/resumeProtection/action | Resume protection of a ProtectionStopped BI. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/resumeBackups/action | Resume Backups for a BackupsSuspended BI. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
-> | Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read | Returns details of the Recovery Point |
-> | Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | Microsoft.DataProtection/backupVaults/backupJobs/read | Get Jobs list |
-> | Microsoft.DataProtection/backupVaults/backupJobs/enableProgress/action | Get Job details |
-> | Microsoft.DataProtection/backupVaults/backupPolicies/write | Creates Backup Policy |
-> | Microsoft.DataProtection/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
-> | Microsoft.DataProtection/backupVaults/backupPolicies/read | Returns details of the Backup Policy |
-> | Microsoft.DataProtection/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
-> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
-> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
-> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
-> | Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
-> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/undelete/action | Perform undelete of soft-deleted Backup Instance. Backup Instance moves from SoftDeleted to ProtectionStopped state. |
-> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/read | Get soft-deleted Backup Instance in a Backup Vault by name |
-> | Microsoft.DataProtection/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
-> | Microsoft.DataProtection/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
-> | Microsoft.DataProtection/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | Microsoft.DataProtection/locations/checkNameAvailability/action | Checks if the requested BackupVault Name is Available |
-> | Microsoft.DataProtection/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | Microsoft.DataProtection/locations/checkFeatureSupport/action | Validates if a feature is supported |
-> | Microsoft.DataProtection/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | Microsoft.DataProtection/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | Microsoft.DataProtection/operations/read | Operation returns the list of Operations for a Resource Provider |
-> | Microsoft.DataProtection/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Create ResourceGuard operation creates an Azure resource of type 'ResourceGuard' |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | The Get ResourceGuard operation gets an object representing the Azure resource of type 'ResourceGuard' |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResouceGuard operation updates an Azure resource of type 'ResourceGuard' |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard operation request info |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
 
 ## Microsoft.Features
 
@@ -891,63 +694,6 @@ Azure service: [Azure portal](/azure/azure-portal/)
 > | Microsoft.Portal/usersettings/delete | Removes the Cloud Shell user settings. |
 > | Microsoft.Portal/usersettings/write | Create or update Cloud Shell user setting. |
 > | Microsoft.Portal/usersettings/read | Reads the Cloud Shell user settings. |
-
-## Microsoft.Purview
-
-Azure service: [Microsoft Purview](/purview/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Purview/register/action | Register the subscription for Microsoft Purview provider. |
-> | Microsoft.Purview/unregister/action | Unregister the subscription for Microsoft Purview provider. |
-> | Microsoft.Purview/setDefaultAccount/action | Sets the default account for the scope. |
-> | Microsoft.Purview/removeDefaultAccount/action | Removes the default account for the scope. |
-> | Microsoft.Purview/accounts/read | Read account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/write | Write account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/delete | Delete account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/listkeys/action | List keys on the account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/addrootcollectionadmin/action | Add root collection admin to account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/move/action | Move account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/kafkaConfigurations/read | Read Kafka Configurations. |
-> | Microsoft.Purview/accounts/kafkaConfigurations/write | Create or update Kafka Configurations. |
-> | Microsoft.Purview/accounts/kafkaConfigurations/delete | Delete Kafka Configurations. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/read | Read Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/write | Write Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/delete | Delete Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/validate/action | Validate Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/operationResults/read | Monitor Private Endpoint Connection Proxy async operations. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/read | Read Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/write | Create or update Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/delete | Delete Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privatelinkresources/read | Read Account Link Resources. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the catalog. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the catalog. |
-> | Microsoft.Purview/checkConsent/read | Resolve the scope the Consent is granted. |
-> | Microsoft.Purview/checknameavailability/read | Check if name of purview account resource is available for Microsoft Purview provider. |
-> | Microsoft.Purview/consents/read | Read Consent Resource. |
-> | Microsoft.Purview/consents/write | Create or Update a Consent Resource. |
-> | Microsoft.Purview/consents/delete | Delete the Consent Resource. |
-> | Microsoft.Purview/getDefaultAccount/read | Gets the default account for the scope. |
-> | Microsoft.Purview/locations/operationResults/read | Monitor async operations. |
-> | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Purview provider. |
-> | Microsoft.Purview/policies/read | Read Policy Resource. |
-> | **DataAction** | **Description** |
-> | Microsoft.Purview/accounts/data/read | Permission is deprecated. |
-> | Microsoft.Purview/accounts/data/write | Permission is deprecated. |
-> | Microsoft.Purview/accounts/scan/read | Permission is deprecated. |
-> | Microsoft.Purview/accounts/scan/write | Permission is deprecated. |
-> | Microsoft.Purview/attributeBlobs/read | Read Attribute Blob. |
-> | Microsoft.Purview/attributeBlobs/write | Write Attribute Blob. |
-> | Microsoft.Purview/policyElements/read | Read Policy Element. |
-> | Microsoft.Purview/policyElements/write | Create or update Policy Element. |
-> | Microsoft.Purview/policyElements/delete | Delete Policy Element. |
-> | Microsoft.Purview/purviewAccountBindings/read | Read Account Binding. |
-> | Microsoft.Purview/purviewAccountBindings/write | Create or update Account Binding. |
-> | Microsoft.Purview/purviewAccountBindings/delete | Delete Account Binding. |
 
 ## Microsoft.RecoveryServices
 
@@ -1218,6 +964,37 @@ Azure service: [Azure Resource Graph](/azure/governance/resource-graph/)
 > | Microsoft.ResourceGraph/resources/read | Submits a query on resources within specified subscriptions, management groups or tenant scope |
 > | Microsoft.ResourceGraph/resourcesHistory/read | List all snapshots of resources history within specified subscriptions, management groups or tenant scope |
 
+## Microsoft.ResourceHealth
+
+Diagnose and get support for service problems that affect your Azure resources.
+
+Azure service: [Azure Service Health](/azure/service-health/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ResourceHealth/events/action | Endpoint to fetch details for event |
+> | Microsoft.ResourceHealth/register/action | Registers the subscription for the Microsoft ResourceHealth |
+> | Microsoft.ResourceHealth/unregister/action | Unregisters the subscription for the Microsoft ResourceHealth |
+> | Microsoft.Resourcehealth/healthevent/action | Denotes the change in health state for the specified resource |
+> | Microsoft.ResourceHealth/AvailabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Gets the availability status for the specified resource |
+> | Microsoft.ResourceHealth/emergingissues/read | Get Azure services' emerging issues |
+> | Microsoft.ResourceHealth/events/read | Get Service Health Events for given subscription |
+> | Microsoft.ResourceHealth/events/fetchEventDetails/action | Endpoint to fetch details for event |
+> | Microsoft.ResourceHealth/events/listSecurityAdvisoryImpactedResources/action | Get Impacted Resources for a given event of type SecurityAdvisory |
+> | Microsoft.ResourceHealth/events/impactedResources/read | Get Impacted Resources for a given event |
+> | Microsoft.Resourcehealth/healthevent/Activated/action | Denotes the change in health state for the specified resource |
+> | Microsoft.Resourcehealth/healthevent/Updated/action | Denotes the change in health state for the specified resource |
+> | Microsoft.Resourcehealth/healthevent/Resolved/action | Denotes the change in health state for the specified resource |
+> | Microsoft.Resourcehealth/healthevent/InProgress/action | Denotes the change in health state for the specified resource |
+> | Microsoft.Resourcehealth/healthevent/Pending/action | Denotes the change in health state for the specified resource |
+> | Microsoft.ResourceHealth/impactedResources/read | Get Impacted Resources for given subscription |
+> | Microsoft.ResourceHealth/metadata/read | Gets Metadata |
+> | Microsoft.ResourceHealth/Notifications/read | Receives Azure Resource Manager notifications |
+> | Microsoft.ResourceHealth/Operations/read | Get the operations available for the Microsoft ResourceHealth |
+> | Microsoft.ResourceHealth/potentialoutages/read | Get Potential Outages for given subscription |
+
 ## Microsoft.Resources
 
 Deployment and management service for Azure that enables you to create, update, and delete resources in your Azure subscription.
@@ -1328,24 +1105,6 @@ Azure service: [Azure Managed Applications](/azure/azure-resource-manager/manage
 > | Microsoft.Solutions/locations/operationstatuses/read | read operationstatuses |
 > | Microsoft.Solutions/locations/operationstatuses/write | write operationstatuses |
 > | Microsoft.Solutions/operations/read | read operations |
-
-## Microsoft.Subscription
-
-Azure service: core
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Subscription/cancel/action | Cancels the Subscription |
-> | Microsoft.Subscription/rename/action | Renames the Subscription |
-> | Microsoft.Subscription/enable/action | Reactivates the Subscription |
-> | Microsoft.Subscription/aliases/write | Create subscription alias |
-> | Microsoft.Subscription/aliases/read | Get subscription alias |
-> | Microsoft.Subscription/aliases/delete | Delete subscription alias |
-> | Microsoft.Subscription/Policies/write | Create tenant policy |
-> | Microsoft.Subscription/Policies/default/read | Get tenant policy |
-> | Microsoft.Subscription/subscriptions/acceptOwnership/action | Accept ownership of Subscription |
-> | Microsoft.Subscription/subscriptions/acceptOwnershipStatus/read | Get the status of accepting ownership of Subscription |
 
 ## Next steps
 
