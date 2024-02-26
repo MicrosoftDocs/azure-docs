@@ -49,7 +49,7 @@ Depending on your environment, the cancel subscription experience allows you to:
 
 - Cancel a subscription
 - Turn off autorenewal for an associated support plan
-- Stop all Azure subscription resources
+- Stop all Azure subscription resources 
 
 If you have a support plan associated with the subscription, it appears in the cancellation process. Otherwise, it isn't shown.
 
