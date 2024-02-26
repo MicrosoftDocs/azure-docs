@@ -79,13 +79,8 @@ az group create \
     --location eastus
 ```
 > [!NOTE]
->For Kubernetes version 1.29 or higher, network observability is enabled with the AMA metrics profile and the AFEC flag (NetworkObservabilityPreview) until it reaches general availability.
+>For Kubernetes version 1.29 or higher, network observability is enabled with the [AMA metrics profile](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration) and the AFEC flag (NetworkObservabilityPreview) until it reaches general availability.
 >
->For Kubernetes versions older than 1.29, the **monitoring** profile is used. This approach isn't recommended. The **monitoring** profile is set to be deprecated.
->
->For versions older than **k8s 1.29**, network observability is enabled using the **--enable-network-observability** switch.
->
->For versions **k8s 1.29** or higher, ama-metrics must be enabled. For more information about enabling ama-metrics, see [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 
 ## Create AKS cluster
 
