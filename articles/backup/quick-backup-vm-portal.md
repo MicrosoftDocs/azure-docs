@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 # Quickstart: Back up a virtual machine in Azure
 
-This quickstart described how to enable backup on an existing Azure VM by using Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+This quickstart describes how to enable backup on an existing Azure VM by using the Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
 Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal.
 
