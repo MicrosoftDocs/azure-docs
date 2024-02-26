@@ -36,7 +36,7 @@ This article describes the differences between playbooks, workbooks, and noteboo
 |Resource  |Advantages  | Challenges |
 |---------|---------|---------|
 |**Playbooks**     |   <ul><li> Best for single, repeatable tasks </li><li>No coding knowledge required  </li></ul>      |    <ul><li>Not suitable for ad-hoc and complex chains of tasks </li><li>Not ideal for documenting and sharing evidence</li></ul>     | 
-|**Workbooks**     |   <ul><li>Best for a high-level view of Microsoft Sentinel data </li><li>No coding knowledge required</li></ul>       | <ul><li>Cannot integrate with external data </li></ul>    |
+|**Workbooks**     |   <ul><li>Best for a high-level view of Microsoft Sentinel data </li><li>No coding knowledge required</li></ul>       | <ul><li>Can't integrate with external data </li></ul>    |
 |**Notebooks**     |    <ul><li>Best for complex chains of repeatable tasks </li><li>Ad-hoc, more procedural control</li><li>Easier to pivot with interactive functionality </li><li>Rich Python libraries for data manipulation and visualization </li><li>Machine learning and custom analysis </li><li>Easy to document and share analysis evidence </li></ul>        |   <ul><li> High learning curve and requires coding knowledge </li></ul>   |
 
 ## Related content
