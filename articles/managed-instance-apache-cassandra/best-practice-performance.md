@@ -1,11 +1,11 @@
 ---
 title: Best practices for optimal performance in Azure Managed Instance for Apache Cassandra
 description: Learn about best practices to ensure optimal performance from Azure Managed Instance for Apache Cassandra
-author: TheovanKraay
+author: IriaOsara
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 04/05/2023
-ms.author: thvankra
+ms.author: iriaosara
 keywords: azure performance cassandra
 ---
 
@@ -103,7 +103,7 @@ If the CPU is only high for a few nodes, but low for the others, it indicates a 
 
 
 > [!NOTE]
-> Currently changing SKU is only supported via ARM template deployment. You can deploy/edit ARM template, and replace SKU with one of the following.
+> Changing SKU is supported via Azure Portal, Azure CLI and ARM template deployment. You can deploy/edit ARM template, and replace SKU with one of the following.
 >
 > - Standard_E8s_v4
 > - Standard_E16s_v4
@@ -120,6 +120,8 @@ If the CPU is only high for a few nodes, but low for the others, it indicates a 
 > - Standard_L8as_v3
 > - Standard_L16as_v3
 > - Standard_L32as_v3
+>
+> Please note that currently, we do not support transitioning across SKU families. For instance, if you currently possess a `Standard_DS13_v2` and are interested in upgrading to a larger SKU such as `Standard_DS14_v2`, this option is not available. However, you can open a support ticket to request an upgrade to the higher SKU.
 
 
 
