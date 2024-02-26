@@ -164,6 +164,9 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     kubectl get workspace workspace-falcon-7b -w
     ```
 
+    > [!NOTE]
+    > As you track the live resource changes in your workspace, note that machine readiness can take up to 10 minutes, and workspace readiness up to 20 minutes.
+
 3. Check your service and get the service IP address using the `kubectl get svc` command.
 
     ```azurecli-interactive
