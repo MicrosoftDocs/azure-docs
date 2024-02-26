@@ -28,9 +28,9 @@ All Microsoft Sentinel built-in roles grant read access to the data in your Micr
 
 - [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) can view data, incidents, workbooks, and other Microsoft Sentinel resources.
 
-- [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) can, in addition to the permissions for Microsoft Sentinel Reader, manage incidents  like assign and dismiss incidents.
+- [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) can, in addition to the permissions for Microsoft Sentinel Reader, manage incidents like assign, dismiss, and change incidents.
 
-- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the permissions for Microsoft Sentinel Responder, install and update solutions from content hub, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
+- [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the permissions for Microsoft Sentinel Responder, install and update solutions from content hub, and create and edit Microsoft Sentinel resources like workbooks, analytics rules, and more.
 
 - [**Microsoft Sentinel Playbook Operator**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) can list, view, and manually run playbooks.
 
@@ -64,7 +64,7 @@ Users with particular job requirements might need to be assigned other roles or 
 
 - **Allow guest users to assign incidents**
 
-    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) to the user, in addition to the **Microsoft Sentinel Responder** role. The Directory Reader role isn't an Azure role but a Microsoft Entra role, and that regular (nonguest) users have this role assigned by default.
+    If a guest user needs to be able to assign incidents, you need to assign the [**Directory Reader**](../active-directory/roles/permissions-reference.md#directory-readers) role to the user, in addition to the **Microsoft Sentinel Responder** role. The Directory Reader role isn't an Azure role but a Microsoft Entra role, and regular (nonguest) users have this role assigned by default.
 
 - **Create and delete workbooks**
 
@@ -124,7 +124,7 @@ More roles might be required depending on the data you ingest or monitor. For ex
 
 ## Resource-based access control
 
-You might have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you might want to provide a nonsecurity operations (non-SOC) team with access to the Windows event data for the servers they own.
+You might have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you might want to provide a team outside of security operations with access to the Windows event data for the servers they own.
 
 In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Microsoft Sentinel workspace or specific Microsoft Sentinel features. This method is also known as setting up resource-context RBAC. For more information, see [Manage access to Microsoft Sentinel data by resource](resource-context-rbac.md).
 
