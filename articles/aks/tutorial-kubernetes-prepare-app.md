@@ -64,7 +64,7 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Use [azd][] to clone the sample application to your development environment.
+1. Use the Azure Developer CLI ([azd][]) to clone the sample application to your development environment.
 
     ```azurecli
     azd init --template aks-store-demo
@@ -174,7 +174,7 @@ You can use [Docker Compose][docker-compose] to automate building container imag
 
 ### Docker
 
-1. Create the container image, download the Redis image, and start the application using the `docker compose` command.
+1. Create the container image, download the Redis image, and start the application using the `docker compose` command:
 
     ```console
     docker compose -f docker-compose-quickstart.yml up -d
@@ -232,9 +232,9 @@ Since you validated the application's functionality, you can stop and remove the
     ```
 
 
-### [AZD](#tab/azure-azd)
+### [Azure Developer CLI](#tab/azure-azd)
 
-When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and clean up of your applications and clusters. 
+When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters. 
 
 ---
 ## Next steps
@@ -253,9 +253,9 @@ In the next tutorial, you learn how to store container images in an ACR.
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
 
-### [AZD](#tab/azure-azd)
+### [Azure Developer CLI](#tab/azure-azd)
 
-In this tutorial, you cloned a sample application using AZD.  You learned how to:
+In this tutorial, you cloned a sample application using AZD. You learned how to:
 
 > [!div class="checklist"]
 > * Clone a sample azd template from GitHub.

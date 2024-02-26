@@ -29,19 +29,19 @@ In this tutorial, part four of seven, you deploy a sample application into a Kub
 
 ## Before you begin
 
-In previous tutorials, you packaged an application into a container image, uploaded the image to Azure Container Registry, and created a Kubernetes cluster. To complete this tutorial, you need the pre-created `aks-store-quickstart.yaml` Kubernetes manifest file. This file download was included with the application source code in a previous tutorial. Make sure you cloned the repo and changed directories into the cloned repo. If you haven't completed these steps and want to follow along, start with [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app].
+In previous tutorials, you packaged an application into a container image, uploaded the image to Azure Container Registry, and created a Kubernetes cluster. To complete this tutorial, you need the precreated `aks-store-quickstart.yaml` Kubernetes manifest file. This file was downloaded in the application source code from [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app]. 
 
 ### [Azure CLI](#tab/azure-cli)
 
-This tutorial requires Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires Azure CLI version 2.0.53 or later. Check your version with `az --version`. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+This tutorial requires Azure PowerShell version 5.9.0 or later. Check your version with `Get-InstalledModule -Name Az`. To install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-This tutorial requires Azure Developer CLI version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
+This tutorial requires Azure Developer CLI (AZD) version 1.5.1 or later. Check your version with `azd version`. To install or upgrade, see [Install Azure Developer CLI][azure-azd-install].
 
 ---
 
@@ -57,7 +57,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`:
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
 
     ```azurecli-interactive
     vi aks-store-quickstart.yaml
@@ -89,7 +89,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`:
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
 
     ```azurepowershell-interactive
     vi aks-store-quickstart.yaml
@@ -116,7 +116,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD does not require a container registry step.
+AZD doesn't require a container registry step since it's in the template.
 
 ---
 
@@ -182,7 +182,7 @@ Deployment in AZD in broken down into multiple stages represented by hooks. Run 
 
 When you first run azd up, you're prompted to select which Subscription and Region to host your Azure resources.
 
-You can change this later inside the `.azure/<your-env-name>/.env` file.
+You can update these variables for `AZURE_LOCATION` and `AZURE_SUBSCRIPTION_ID` from inside the `.azure/<your-env-name>/.env` file.
 
 ---
 
@@ -198,7 +198,7 @@ When the application runs, a Kubernetes service exposes the application front en
     kubectl get service store-front --watch
     ```
 
-    Initially, the `EXTERNAL-IP` for the *store-front* service shows as *pending*.
+    Initially, the `EXTERNAL-IP` for the *store-front* service shows as *pending*:
 
     ```output
     store-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
@@ -214,21 +214,21 @@ When the application runs, a Kubernetes service exposes the application front en
 
 3. View the application in action by opening a web browser to the external IP address of your service.
 
-    :::image type="content" source="learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
+    :::image type="content" source="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
 If the application doesn't load, it might be an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If you can't pull the container images, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
-### Azure Portal
+### Azure portal
 
-Navigate to your Azure Portal to find your deployment information.
+Navigate to your Azure portal to find your deployment information.
 
-1. Open your [Resource Group][azure-rg] on the Azure Portal.
+1. Open your [Resource Group][azure-rg] on the Azure portal
 1. Navigate to the Kubernetes service for your cluster
 1. Select `Services and Ingress` under `Kubernetes Resources`
-1. Copy the External IP shown in the column for store-front.
-1. Paste the IP into your browser to visit your store page.
+1. Copy the External IP shown in the column for store-front
+1. Paste the IP into your browser and visit your store page
 
-    :::image type="content" source="learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
+    :::image type="content" source="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
 ## Next steps
 
