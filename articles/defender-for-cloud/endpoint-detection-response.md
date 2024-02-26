@@ -219,4 +219,5 @@ After the process is completed, it can take up to 24 hours until your machine ap
 
 ## Next step
 
-[Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+> [!div class="nextstepaction"]
+> [Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
