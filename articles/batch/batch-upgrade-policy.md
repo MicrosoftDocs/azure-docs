@@ -33,7 +33,7 @@ When upgrading images, VMs in Azure Batch Pool will follow roughly the same work
 However, there will be a difference for Batch to handle upgrades if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process. Thus, We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* feature.
 
 > [!Note]
-> If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2023-11-01 or later. If you are using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
+> If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2024-02-01 or later. If you are using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
 
 ## Supported OS images
 Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
@@ -64,7 +64,7 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 The following example describes how to create a pool with Auto OS Upgrade via REST API:
 
 ```http
-PUT https://management.azure.com/subscriptions/<subscriptionid>/resourceGroups/<resourcegroupName>/providers/Microsoft.Batch/batchAccounts/<batchaccountname>/pools/<poolname>?api-version=2023-11-01
+PUT https://management.azure.com/subscriptions/<subscriptionid>/resourceGroups/<resourcegroupName>/providers/Microsoft.Batch/batchAccounts/<batchaccountname>/pools/<poolname>?api-version=2024-02-01
 ```
 
 Request Body
@@ -215,7 +215,7 @@ public async Task CreateUpgradePolicyPool()
 
 - Will my tasks be disrupted if I enabled Auto OS Upgrade?
 
-  Tasks will not be disrupted when *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. Otherwise, node will upgrade when it receives a new OS version, regardless of whether it is currently running a task or not. So we strongly advise enabling *automaticOSUpgradePolicy.osRollingUpgradeDeferral*.
+  Tasks will not be disrupted when *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. In that case, the upgrade will be postponed until node becomes idle. Otherwise, node will upgrade when it receives a new OS version, regardless of whether it is currently running a task or not. So we strongly advise enabling *automaticOSUpgradePolicy.osRollingUpgradeDeferral*.
 
 ## Next steps
 
