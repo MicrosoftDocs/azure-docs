@@ -36,6 +36,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Consider dispose transaction as soon as possible after commit completes (especially if using ConcurrentQueue).
 * Do not perform any blocking code inside a transaction.
 * When [string](/dotnet/api/system.string) is used as the key for a reliable dictionary, the sorting order uses [default string comparer CurrentCulture](/dotnet/api/system.string.compare#system-string-compare(system-string-system-string)). Note that the CurrentCulture sorting order is different from [Ordinal string comparer](/dotnet/api/system.stringcomparer.ordinal). 
+* Do not dispose or cancel a committing transaction. This is not supported and could crash the host process.
 
 Here are some things to keep in mind:
 

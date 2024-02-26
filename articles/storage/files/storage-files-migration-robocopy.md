@@ -215,6 +215,18 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
 
+### Estimating storage transaction charges
+
+As you begin your migration to Azure Files, RoboCopy copies your files and folders into Azure. Depending on your billing model for Azure Files, transaction charges might apply. See [Understanding billing](understanding-billing.md).
+
+If you're using a pay-as-you-go billing model for standard Azure file shares, it might be difficult to estimate the number of transactions your migration will generate.
+
+- It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
+- In order to minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
+- Copying the same file twice might not result in the same number of transactions. Processing an item migrated in a previous copy run might result in only a few read transactions. In contrast, changes to metadata or content between copy runs might require a larger number of transactions to update the target. Each file in your namespace might have unique requirements, resulting in a different number of transactions.
+
+It's advisable to run some initial tests on your own data to better understand how many transactions are incurred. This will give you a better idea of the total number of transactions a file migration might generate. 
+
 ## Next steps
 
 The following articles will help you understand advanced options and best practices.

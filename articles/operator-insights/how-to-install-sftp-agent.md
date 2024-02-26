@@ -73,9 +73,9 @@ The VM used for the SFTP agent should be set up following best practice for secu
   - Access to the certificate and private key for the service principal that you create during this procedure
   - Access to the directory for secrets that you create on the VM during this procedure.
   
-## Acquire the agent RPM
+## Download the RPM for the agent
 
-A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+Download the RPM for the SFTP agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2254734](https://go.microsoft.com/fwlink/?linkid=2254734).
 
 ## Set up authentication to Azure
 
@@ -178,16 +178,17 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-1. Additionally to this, the public IP of the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
     ```
     <Public IP>   login.microsoftonline.com
     ````
+
 ## Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
+1. Install the RPM:  `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
 1. Change to the configuration directory: `cd /etc/az-sftp-uploader`
 1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
 1. Edit the *config.yaml* file and fill out the fields. Start by filling out the parameters that don't depend on the type of Data Product.  Many parameters are set to default values and don't need to be changed.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:

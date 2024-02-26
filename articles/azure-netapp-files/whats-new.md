@@ -4,7 +4,6 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 11/27/2023
@@ -14,6 +13,22 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## February 2024
+
+
+* [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
+
+    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You still must register the feature before using it for the first time.
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md#requirements-and-considerations) volume size increase beyond 30% default limit
+
+    For capacity and resources planning purposes the Azure NetApp Files large volume feature has a [volume size increase limit of up to 30% of the lowest provisioned size](large-volumes-requirements-considerations.md#requirements-and-considerations). This volume size increase limit is now adjustable beyond this 30% (default) limit via a support ticket. For more information, see [Resource limits](azure-netapp-files-resource-limits.md). 
+    
 
 ## January 2024
 

@@ -257,4 +257,4 @@ What you learned:
 Learn how to optimize CDN performance in the following articles:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Optimize Azure CDN for the type of content delivery.](cdn-optimization-overview.md)

@@ -6,7 +6,6 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.devlang: java
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 07/13/2023
 ms.author: greglin
 ms.custom: template-how-to, devx-track-java

@@ -33,7 +33,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
+- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET](https://dotnet.microsoft.com/download/dotnet)
 
 ### [.NET](#tab/net)
 
@@ -57,9 +57,6 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - Python Application using Python 3.7+
 
 ---
-
-> [!TIP]
->  We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
@@ -128,13 +125,14 @@ pip install azure-monitor-opentelemetry
 ---
 
 ### Enable Azure Monitor Application Insights
+
 To enable Azure Monitor Application Insights, you make a minor modification to your application and set your "Connection String." The Connection String tells your application where to send the telemetry the Distro collects, and it's unique to you.
 
 #### Modify your Application
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
+Add `UseAzureMonitor()` to your application startup. This is in your `program.cs` class.
 
 ```csharp
 // Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
@@ -143,7 +141,7 @@ using Azure.Monitor.OpenTelemetry.AspNetCore;
 // Create a new WebApplicationBuilder instance.
 var builder = WebApplication.CreateBuilder(args);
 
-// Add the OpenTelemetry NuGet package to the application's services and configure OpenTelemetry to use Azure Monitor.
+// Add OpenTelemetry and configure it to use Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 // Build the application.
@@ -156,19 +154,23 @@ app.Run();
 ##### [.NET](#tab/net)
 
 Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
+
 ```csharp
 // Create a new tracer provider builder and add an Azure Monitor trace exporter to the tracer provider builder.
 // It is important to keep the TracerProvider instance active throughout the process lifetime.
+// See https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace#tracerprovider-management
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter();
 
 // Add an Azure Monitor metric exporter to the metrics provider builder.
 // It is important to keep the MetricsProvider instance active throughout the process lifetime.
+// See https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics#meterprovider-management
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddAzureMonitorMetricExporter();
 
 // Create a new logger factory.
 // It is important to keep the LoggerFactory instance active throughout the process lifetime.
+// See https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs#logger-management
 var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddOpenTelemetry(options =>
@@ -237,6 +239,7 @@ input()
 ---
 
 #### Copy the Connection String from your Application Insights Resource
+
 > [!TIP]
 > If you don't already have one, now is a great time to [Create an Application Insights Resource](create-workspace-resource.md#create-a-workspace-based-resource). Here's when we recommend you [create a new Application Insights Resource versus use an existing one](create-workspace-resource.md#when-to-use-a-single-application-insights-resource).
 
@@ -263,12 +266,13 @@ To paste your Connection String, select from the following options:
   B. Set via Configuration File - Java Only (Recommended)
   
   Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.19.jar` with the following content:
-    
+
    ```json
    {
      "connectionString": "<Your Connection String>"
    }
    ```
+
   Replace `<Your Connection String>` in the preceding JSON with *your* unique connection string.
 
   C. Set via Code - ASP.NET Core, Node.js, and Python Only (Not recommended)
@@ -276,7 +280,8 @@ To paste your Connection String, select from the following options:
   See [Connection String Configuration](opentelemetry-configuration.md#connection-string) for an example of setting Connection String via code.
 
   > [!NOTE]
-  > If you set the connection string in more than one place, we adhere to the following precendence:
+  > If you set the connection string in more than one place, we adhere to the following precedence:
+  >
   > 1. Code
   > 2. Environment Variable
   > 3. Configuration File
@@ -292,14 +297,7 @@ Application Insights is now enabled for your application. All the following step
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
-> [!TIP]
-> Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
-
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
-
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
-
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 
 ## Next steps
 
@@ -354,3 +352,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]

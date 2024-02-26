@@ -67,9 +67,6 @@ By adding more storage, organizations can handle large data sets to enable analy
  
 To request storage greater than 4 TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type **Service and Subscription limit (quotas)**.
 
-> [!NOTE]
-> Due to an issue with billing metrics for storage, customers who opt for more than 4 TB of storage capacity won't be billed for storage until the issue is resolved.
-
 ## December 2023
 
 ### Azure Health Data Services

@@ -8,7 +8,6 @@ metadata:
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
   
   ms.service: notification-hubs
-  ms.workload: mobile
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
   ms.date: 06/05/2023

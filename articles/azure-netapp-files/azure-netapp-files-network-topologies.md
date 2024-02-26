@@ -4,7 +4,6 @@ description: Describes guidelines that can help you design an effective network 
 services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: ramakk
@@ -74,7 +73,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   West US 2
 *	West US 3 
 
-<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes (preview)](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
 * Australia Central
 * Australia Central 2
@@ -206,7 +205,7 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 > To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
 
 >[!NOTE]
->If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
+>If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a regionally VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
 
 ## Azure native environments
 

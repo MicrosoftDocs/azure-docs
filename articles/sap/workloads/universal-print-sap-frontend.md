@@ -4,15 +4,12 @@ description: Enabling SAP front-end printing with Universal Print
 services: virtual-machines-linux,virtual-machines-windows
 author: msftrobiro
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/31/2024
 ms.author: robiro
-
 ---
 
 # SAP front-end printing with Universal Print
