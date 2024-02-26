@@ -273,71 +273,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 
 ### Deploy an NGINX web server
 
-# [kubectl](#tab/kubectl)
-
-1. Create an NGINX web server using the `kubectl create deployment nginx` command.
-
-    ```bash-interactive
-    kubectl create deployment nginx --image=nginx:latest --replicas=3
-    ```
-
-2. View the pod resources using the `kubectl get pods` command.
-
-    ```bash-interactive
-    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
-    ```
-
-    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
-
-    ```output
-    NAME                     IPs                                NODE                                READY
-    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
-    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
-    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
-    ```
-
-# [YAML](#tab/yaml)
-
-1. Create an NGINX web server using the following YAML manifest.
-
-    ```yml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      labels:
-        app: nginx
-      name: nginx
-    spec:
-      replicas: 3
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - image: nginx:latest
-            name: nginx
-    ```
-
-2. View the pod resources using the `kubectl get pods` command.
-
-    ```bash-interactive
-    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
-    ```
-
-    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
-
-    ```output
-    NAME                     IPs                                NODE                                READY
-    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
-    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
-    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
-    ```
-
----
+The application routing addon is the recommended way for ingress in an AKS cluster. For more information about the application routing addon and an example of how to deploy an application with the addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md)
 
 ## Expose the workload via a `LoadBalancer` type service
 
