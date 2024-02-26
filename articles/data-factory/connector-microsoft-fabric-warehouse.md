@@ -98,6 +98,7 @@ These properties are supported for the linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **Warehouse**. |Yes |
+| endpoint | The endpoint of Microsoft Fabric Warehouse server. | Yes |
 | workspaceId | The Microsoft Fabric workspace ID. | Yes |
 | artifactId | The Microsoft Fabric Warehouse object ID. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
@@ -116,6 +117,7 @@ You can also store service principal key in Azure Key Vault.
     "properties": {
         "type": "Warehouse",
         "typeProperties": {
+            "endpoint": "<Microsoft Fabric Warehouse server endpoint>",
             "workspaceId": "<Microsoft Fabric workspace ID>",
             "artifactId": "<Microsoft Fabric Warehouse object ID>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
@@ -184,6 +186,7 @@ To copy data from Microsoft Fabric Warehouse, set the **type** property in the C
 | sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
+| queryTimeout | Specifies the timeout for query command execution. Default is 120 minutes. | No |
 | isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed value is **Snapshot**. If not specified, the database's default isolation level is used. For more information, see [system.data.isolationlevel](/dotnet/api/system.data.isolationlevel). | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Microsoft Fabric Warehouse. <br>Allowed values are: **None** (default), and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from a Microsoft Fabric Warehouse is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
@@ -380,7 +383,7 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recom
 - If your source data store and format isn't originally supported by COPY statement, use the **[Staged copy by using COPY statement](#staged-copy-by-using-copy-statement)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into COPY statement compatible format, stores the data in Azure Blob storage, then calls COPY statement to load data into Microsoft Fabric Warehouse.
 
 >[!TIP]
->When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance, as loading data from storage is powered by the Azure Synapse engine.
+>When using COPY statement with Azure Integration Runtime, effective [Data Integration Units (DIU)](copy-activity-performance-features.md#data-integration-units) is always 2. Tuning the DIU doesn't impact the performance.
 
 ### Direct copy by using COPY statement
 
@@ -414,7 +417,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Specifies the default values for each target column in Microsoft Fabric Warehouse.  The default values in the property overwrite the DEFAULT constraint set in the data warehouse, and identity column cannot have a default value. | No |
-| additionalOptions | Additional options that will be passed to a Microsoft Fabric Warehouse COPY statement directly in "With" clause in [COPY statement](/sql/t-sql/statements/copy-into-transact-sql). Quote the value as needed to align with the COPY statement requirements. | No |
+| additionalOptions | Additional options that will be passed to a Microsoft Fabric Warehouse COPY statement directly in "With" clause in [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?source=recommendations&view=fabric&preserve-view=true). Quote the value as needed to align with the COPY statement requirements. | No |
 
 ```json
 "activities":[
@@ -479,7 +482,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServerToSQLDataWarehouseViaCOPYstatement",
+        "name": "CopyFromSQLServerToMicrosoftFabricWarehouseViaCOPYstatement",
         "type": "Copy",
         "inputs": [
             {
