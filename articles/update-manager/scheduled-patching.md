@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 02/03/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -279,7 +279,7 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 | ---------- | ------------- |
 | Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |  
 | Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.| 
-| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15-25 minutes after a reboot to complete the reboot operation before marking the reboot as failed. |
+| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15 minutes for Azure VMs and 25 minutes for Arc servers after a reboot to complete the reboot operation before marking it as failed. |
 
 #### [Linux](#tab/linux-maintenance)
 
