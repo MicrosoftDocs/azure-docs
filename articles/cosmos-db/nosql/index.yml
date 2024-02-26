@@ -17,7 +17,9 @@ landingContent:
   - title: About API for NoSQL 
     linkLists:
       - linkListType: concept
-        links:    
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
           - text: Model document data
             url: modeling-data.md   
           - text: Change feed
