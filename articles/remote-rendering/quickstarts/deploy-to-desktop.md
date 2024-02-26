@@ -76,7 +76,7 @@ Building in standalone mode does not produce a Visual Studio solution, but inste
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
-  ![A screenshot showing the Visual Studio configuration and debugger mode](./media/unity-deploy-config-pc.png)
+  ![A screenshot showing the Visual Studio configuration and debugger mode.](./media/unity-deploy-config-pc.png)
 1. Build the solution.
 
 ---
