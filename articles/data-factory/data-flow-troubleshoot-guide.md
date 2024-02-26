@@ -82,7 +82,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-AzureDataExplorer-InvalidOperation
 
 - **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
-- **Cause**: Operation is not supported.
+- **Cause**: Operation isn't supported.
 - **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Azure Data Explorer.
 
 ### Error code: DF-AzureDataExplorer-ReadTimeout
@@ -100,7 +100,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Blob-FunctionNotSupport
 
 - **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Disable these account features if you would like to use this endpoint.
-- **Cause**: Azure Blob Storage events, soft delete or automatic snapshot is not supported in data flows if the Azure Blob Storage linked service is created with service principal or managed identity authentication.
+- **Cause**: Azure Blob Storage events, soft delete or automatic snapshot isn't supported in data flows if the Azure Blob Storage linked service is created with service principal or managed identity authentication.
 - **Recommendation**: Disable Azure Blob Storage events, soft delete or automatic snapshot feature on the Azure Blob account, or use key authentication to create the linked service.
 
 ### Error code: DF-Blob-InvalidAccountConfiguration
@@ -190,7 +190,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Cosmos-ShortTypeNotSupport
 
 - **Message**: Short data type is not supported in Azure Cosmos DB.
-- **Cause**: The short data type is not supported in the Azure Cosmos DB instance.
+- **Cause**: The short data type isn't supported in the Azure Cosmos DB instance.
 - **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ### Error code: DF-CSVWriter-InvalidQuoteSetting 
@@ -239,11 +239,11 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Any column value of alternate Key can't be NULL. 
 - **Cause**: Your alternate key column value can't be null. 
-- **Recommendation**: Confirm that your column value of your alternate key is not NULL. 
+- **Recommendation**: Confirm that your column value of your alternate key isn't NULL. 
 
 ### Error code: DF-Dynamics-TooMuchAlternateKey 
 
-- **Cause**: One lookup field with more than one alternate key reference is not valid. 
+- **Cause**: One lookup field with more than one alternate key reference isn't valid. 
 - **Recommendation**: Check your schema mapping and confirm that each lookup field has a single alternate key. 
 
 ### Error code: DF-Excel-DifferentSchemaNotSupport
@@ -431,7 +431,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Explicitly broadcasted dataset using left/right option should be small enough to fit in node's memory. You can choose broadcast option 'Off' in join/exists/lookup transformation to avoid this issue or use an integration runtime with higher memory.
 - **Cause**: The size of the broadcasted table far exceeds the limits of the node memory.
-- **Recommendation**: The broadcast left/right option should be used only for smaller dataset size which can fit into node's memory, so make sure to configure the node size appropriately or turn off the broadcast option.
+- **Recommendation**: The broadcast left/right option should be used only for smaller dataset size, which can fit into node's memory, so make sure to configure the node size appropriately or turn off the broadcast option.
 
 ### Error code: DF-Executor-OutOfMemorySparkError
 
@@ -479,19 +479,19 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-StoreIsNotDefined
 
-- **Message**: The store configuration is not defined. This error is potentially caused by invalid parameter assignment in the pipeline.
+- **Message**: The store configuration isn't defined. This error is potentially caused by invalid parameter assignment in the pipeline.
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
 ### Error code: DF-Executor-StringValueNotInQuotes
 
 - **Message**: Column operands are not allowed in literal expressions.
-- **Cause**: The value for a string parameter or an expected string value is not enclosed in single quotes.
+- **Cause**: The value for a string parameter or an expected string value isn't enclosed in single quotes.
 - **Recommendation**: Near the mentioned line numbers in the data flow script, ensure the value for a string parameter or an expected string value is enclosed in single quotes.
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 
-- **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
+- **Message**: Implicit cartesian product for INNER join isn't supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
 - **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key.
 - **Recommendation**: For non-equality based joins, use CROSS JOIN.
 
@@ -780,7 +780,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SAPODP-ObjectInvalid
 
-- **Cause**: The object name is not found or not released.
+- **Cause**: The object name isn't found or not released.
 - **Recommendation**: Check the object name and make sure it is valid and already released.
 
 ### Error code: DF-SAPODP-ObjectNameMissed
@@ -814,10 +814,10 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-StageAuthInvalid
 
 - **Message**: Invalid client secret provided
-- **Cause**: The service principal certificate credential of the staging storage is not correct.
+- **Cause**: The service principal certificate credential of the staging storage isn't correct.
 - **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the authentication setting of your staging storage is correct.
 - **Message**: Failed to authenticate the request to storage
-- **Cause**: The key of your staging storage is not correct.
+- **Cause**: The key of your staging storage isn't correct.
 - **Recommendation**: Check whether the test connection is successful in your staging storage linked service, and confirm the key of your staging Azure Blob Storage is correct.
 
 ### Error code: DF-SAPODP-StageBlobPropertyInvalid
@@ -829,19 +829,19 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-StageContainerInvalid
 
 - **Message**: Unable to create Azure Blob container
-- **Cause**: The input container is not existed in your staging storage.
+- **Cause**: The input container doesn't exist in your staging storage.
 - **Recommendation**: Input a valid container name for the staging storage. Reselect another existed container name or create a new container manually with your input name.
 
 ### Error code: DF-SAPODP-StageContainerMissed
 
 - **Message**: Container or file system is required for staging storage.
-- **Cause**: Your container or file system is not specified for staging storage.
+- **Cause**: Your container or file system isn't specified for staging storage.
 - **Recommendation**: Specify the container or file system for the staging storage.
 
 ### Error code: DF-SAPODP-StageFolderPathMissed
 
 - **Message**: Folder path is required for staging storage
-- **Cause**: Your staging storage folder path is not specified.
+- **Cause**: Your staging storage folder path isn't specified.
 - **Recommendation**: Specify the staging storage folder.
 
 ### Error code: DF-SAPODP-StageGen2PropertyInvalid
@@ -853,7 +853,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
 
 - **Message**: Read from staging storage failed: Staging storage auth not support service principal cert.
-- **Cause**: The service principal certificate credential is not supported for the staging storage.
+- **Cause**: The service principal certificate credential isn't supported for the staging storage.
 - **Recommendation**: Change your authentication to not use the service principal certificate credential.
 
 ### Error code: DF-SAPODP-StageStorageTypeInvalid
@@ -881,7 +881,7 @@ This section lists common error codes and messages reported by mapping data flow
   | Cause analysis | Recommendation |
   | :--- | :--- |
   | Your SAP server is shut down. | Check your SAP server is started. |
-  | Your IP or port of the self-hosted integration runtime is not in SAP network security rule. | Check your IP or port of self-hosted integration runtime is in your SAP network security rule. |
+  | Your IP or port of the self-hosted integration runtime isn't in SAP network security rule. | Check your IP or port of self-hosted integration runtime is in your SAP network security rule. |
   | Self-hosted integration runtime proxy issue. | Check your self-hosted integration runtime proxy. |
   | Incorrect parameters input (e.g. wrong SAP server name or IP). | Check your input parameters: SAP server name, IP. |
 
@@ -904,7 +904,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-SourceNotSupportDelta
 
 - **Message**: Source .* does not support deltas
-- **Cause**: The ODP context/ODP name you specified does not support delta.
+- **Cause**: The ODP context/ODP name you specified doesn't support delta.
 - **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/2752413).
 
 ### Error code: DF-SAPODP-SAPI-LIMITATION
@@ -1005,7 +1005,7 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: DF-SQLDW-StagingStorageNotSupport
 
 - **Message**: Staging Storage with partition DNS enabled is not supported if enable staging. Please uncheck enable staging in sink using Synapse Analytics.
-- **Cause**: Staging storage with partition DNS enabled is not supported if you enable staging.
+- **Cause**: Staging storage with partition DNS enabled isn't supported if you enable staging.
 - **Recommendations**: Uncheck **Enable staging** in sink when using Azure Synapse Analytics.
 
 ### Error code: DF-SQLDW-DataTruncation
@@ -1016,30 +1016,30 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 
 ### Error code: DF-Synapse-DBNotExist
 
-- **Cause**: The database does not exist.
+- **Cause**: The database doesn't exist.
 - **Recommendation**: Check if the database exists.
 
 ### Error code: DF-Synapse-InvalidDatabaseType
 
 - **Message**: Database type is not supported.
-- **Cause**: The database type is not supported.
+- **Cause**: The database type isn't supported.
 - **Recommendation**: Check the database type and change it to the proper one.
 
 ### Error code: DF-Synapse-InvalidFormat
 
 - **Message**: Format is not supported.
-- **Cause**: The format is not supported.
+- **Cause**: The format isn't supported.
 - **Recommendation**: Check the format and change it to the proper one.
 
 ### Error code: DF-Synapse-InvalidOperation
 
-- **Cause**: The operation is not supported.
+- **Cause**: The operation isn't supported.
 - **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Workspace DB.
 
 ### Error code: DF-Synapse-InvalidTableDBName
 
 - **Message**: The table/database name is not a valid name for tables/databases. Valid names only contain alphabet characters, numbers and _.
-- **Cause**: The table/database name is not valid.
+- **Cause**: The table/database name isn't valid.
 - **Recommendation**: Change a valid name for the table/database. Valid names only contain alphabet characters, numbers and `_`.
 
 ### Error code: DF-Synapse-StoredProcedureNotSupported
@@ -1087,8 +1087,8 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: DF-Xml-UnsupportedExternalReferenceResource
 
 - **Message**: External reference resource in xml data file is not supported.
-- **Cause**: The external reference resource in the XML data file is not supported.
-- **Recommendation**: Update the XML file content when the external reference resource is not supported now.
+- **Cause**: The external reference resource in the XML data file isn't supported.
+- **Recommendation**: Update the XML file content when the external reference resource isn't supported now.
 
 ### Error code: GetCommand OutputAsync failed
 
@@ -1190,7 +1190,7 @@ You may encounter the following issues before the improvement, but after the imp
  You are affected if you are in the following conditions:
  - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
  - The first row has more than 128 characters. 
- - The row delimiter in data files is not `\n`.
+ - The row delimiter in data files isn't `\n`.
 
  Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
 
