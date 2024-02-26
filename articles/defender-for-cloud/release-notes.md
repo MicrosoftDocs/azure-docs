@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 02/07/2024
+ms.date: 02/26/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -29,6 +29,10 @@ If you're looking for items older than six months, you can find them in the [Arc
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Security policy management now available across clouds
+
+The security policy management solution previously release ( in Preview) for Azure is now also available for AWS and GCP environments.  With this release, you can [manage recommendations provided by MCSB](manage-mcsb.md), [assign custom compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud and [create custom security recommendations for your AWS and GCP environments using a new and simplified wizard](create-custom-recommendations), helping security admins streamline the management of security policies across clouds environments. 
 
 ### Cloud support for Defender for Containers
 
