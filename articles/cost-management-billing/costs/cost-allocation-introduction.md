@@ -45,8 +45,8 @@ Subscriptions are a way of grouping Azure resources that might or might not shar
 
 You can view and manage your subscriptions in the Azure portal, PowerShell, CLI, or REST API. In the Azure portal, you can also use tools like Cost Management and Advisor to monitor and optimize your subscription costs.
 
-- [Best Practices - Subscriptions](/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions)
-- [Organize Subscriptions](/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
+- [Best Practices - Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions)
+- [Organize Subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
 
 ### Resource Groups
 
@@ -86,7 +86,7 @@ For more information, watch the [Cost Management setup, organization, and taggin
 
 ## Tags
 
-Tags are key-value pairs that you can apply to Azure resources to group and allocate costs based on business needs. They're a great way to augment the resources and usage data with business context. You can create [Azure policies](../governance/policy/tutorials/create-and-manage.md) to ensure that all your resources are tagged in a certain way to comply with your tagging strategy.
+Tags are key-value pairs that you can apply to Azure resources to group and allocate costs based on business needs. They're a great way to augment the resources and usage data with business context. You can create [Azure policies](../../governance/policy/tutorials/create-and-manage.md) to ensure that all your resources are tagged in a certain way to comply with your tagging strategy.
 
 However, even with a comprehensive tagging mechanism in place, you might find that some usage records are missing tags because not all Azure resources emit tags in their usage. To ensure all usage records are tagged, enable tag inheritance in Cost Management to apply subscription and resource group tags to underlying child resources. You don't need to rely on resources emitting tags in their usage or tag every resource for your cost allocation needs.
 
@@ -104,8 +104,8 @@ For more information about how to manage and allocate shared costs, see [Allocat
 
 To learn more about defining your tagging strategy, read the following articles:
 
-- [Define your tagging strategy](/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
-- [Develop your naming and tagging strategy for Azure resources](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+- [Define your tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
+- [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 - [Naming & Tracking Conventions Tagging Template](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FCloudAdoptionFramework%2Fmaster%2Fready%2Fnaming-and-tagging-conventions-tracking-template.xlsx)
-- [Resource naming and tagging decision guide](/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
+- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
 - [Group and allocate costs using tag inheritance](enable-tag-inheritance.md)
