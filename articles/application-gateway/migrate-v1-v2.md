@@ -31,8 +31,8 @@ This article primarily helps with the configuration migration. Client traffic mi
 * An existing Application Gateway V1 Standard.
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-* Ensure that there is no existing Application gateway with the provided Appgw V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
-* If Public IP is provided ensure that its in succeeded state.If not provided and AppGwResourceGroupName is provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription.
+* Ensure that there is no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+* If Public IP is provided ensure that its in succeeded state.If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGWResourceGroupName in the V1 subscription.
 * Ensure that no other operation is planned on the V1 gateway or any of its associated resources during migration.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -70,8 +70,7 @@ There are two options for you depending on your local PowerShell environment set
 
 To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
 
-#### Install using the Install-Script method
-
+#### Install using the Install-Script method (recommended)
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
 
 Run the script with the following command to get the latest version:
@@ -114,11 +113,11 @@ To run the script:
 4. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
    ```
-   AzureAppGwMigration.ps1
+   AzureAppGWMigration.ps1
     -resourceId <V1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
-    -AppGwResourceGroupName <resource group name you want to use>
+    -AppGWResourceGroupName <resource group name you want to use>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
@@ -140,9 +139,9 @@ To run the script:
 
    * **subnetAddressRange: [String]:  Required**: This parameter is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new V2 gateway. The address space must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it uses the existing one (make sure the subnet is either empty, contains only V2 Gateway if any, and has enough available IPs).
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended. 
-   * **AppGwResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
+   * **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
  > [!NOTE]
-> Ensure that there is no existing Application gateway with the provided Appgw V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+> Ensure that there is no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
      This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
@@ -193,7 +192,7 @@ To run the script:
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
    * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway.If public Ip resource name is provided, ensure that it exists in succeeded state.
-      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.If AppGwResourceGroupName is provided and public IP is not provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription
+      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.If AppGWResourceGroupName is provided and public IP is not provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGWResourceGroupName in the V1 subscription
 
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
@@ -207,7 +206,7 @@ To run the script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -AppGwResourceGroupName "MyResourceGroup" `
+      -AppGWResourceGroupName "MyResourceGroup" `
       -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
@@ -225,6 +224,7 @@ To run the script:
 * If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * NTLM and Kerberos authentication isn't supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
+* WAFv2 will be created in old WAF config mode, migration to WAF policy is required.
 
 ## Traffic migration
 
