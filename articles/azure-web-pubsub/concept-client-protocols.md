@@ -29,6 +29,17 @@ Here is a general authorization workflow:
 1. The application server returns the JWT and the service URL to the client.
 1. The client tries to connect to the Web PubSub service by using the URL and the JWT that's returned from the application server.
 
+You could also configure additional properties for the client connection when generating the access token by specifying special claims inside the JWT token:
+
+| Property | Claim type | Claim value | Notes |
+| --- | ---| --- |
+| The `userId` that the client connection belongs to | `sub` | `{userId}`` | It is the [user](./key-concepts.md#terms) this connection belongs to. You could use `SendToUser` to send messages to the connections belonging to this user |
+| The lifetime of the token | `exp` | the expiration time of the token | |
+| The [permissions](#permissions) the client connection initially has | `role` | List of roles as listed in [permissions](#permissions) | |
+| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | List of groups the client joins initially | |
+
+[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for the clients. 
+
 <a name="simple_client"></a>
 
 ## The simple WebSocket client
