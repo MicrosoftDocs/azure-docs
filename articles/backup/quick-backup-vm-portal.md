@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
-description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
+description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
 ms.date: 02/26/2024
 ms.topic: quickstart
 ms.devlang: azurecli
