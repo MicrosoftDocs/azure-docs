@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 12/03/2023
+ms.date: 02/26/2024
 ---
 
 # Protect your APIs with Defender for APIs
@@ -13,6 +13,8 @@ ms.date: 12/03/2023
 Defender for APIs in Microsoft Defender for Cloud offers full lifecycle protection, detection, and response coverage for APIs.
 
 Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
+
+This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can [enable Defender for APIs within an API Management instance](../api-management/protect-with-defender-for-apis.md) in the Azure portal.
 
 Learn more about the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud.
 
@@ -28,20 +30,35 @@ Learn more about the [Microsoft Defender for APIs](defender-for-apis-introductio
 
 - Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API Management.
 
-> [!NOTE]
-> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can [enable Defender for APIs within an API Management instance](../api-management/protect-with-defender-for-apis.md) in the Azure portal.
+- You must select a plan that grants entitlement appropriate for the API traffic volume in your subscription to receive the most optimal pricing. By default, subscriptions are opted into "Plan 1", which can lead to unexpected overages if your subscription has API traffic higher than the [one million API calls entitlement](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/18).
 
 ## Enable the Defender for APIs plan
+
+When selecting a plan, consider these points:
+
+- Defender for APIs protects only those APIs that are onboarded to Defender for APIs. This means you can activate the plan at the subscription level, and complete the second step of onboarding by fixing the onboarding recommendation. (For more information about onboarding, see the [onboarding guide](defender-for-apis-deploy.md#enable-the-defender-for-apis-plan)).
+- Defender for APIs has five pricing plans, each with a different entitlement limit and monthly fee. The billing is done at the subscription level.  
+- Billing is applied to the entire subscription based on the total amount of API traffic monitored over the month for the subscription. 
+- The API traffic counted towards the billing is reset to 0 at the start of each month (every billing cycle). 
+- The overages are computed on API traffic exceeding the entitlement limit per plan selection during the month for your entire subscription.
+
+To select the best plan for your subscription from the Microsoft Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/), follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
+
+> [!NOTE]
+> The Defender for Cloud pricing page will be updated with the pricing information and pricing calculators by end of March 2024. In the meantime, use this document to select the correct Defender for APIs entitlements and enable the plan.
 
 1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
 
 1. Select the subscription that contains the managed APIs that you want to protect.
 
-1. In the **APIs** plan, select **On**. Then select **Save**:
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/select-environment-settings.png" alt-text="Screenshot that shows where to select Environment settings." lightbox="media/defender-for-apis-entitlement-plans/select-environment-settings.png":::
+   
+1. Select **Details** under the pricing column for the APIs plan.     
 
-    :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Screenshot that shows how to turn on the Defender for APIs plan in the portal." lightbox="media/defender-for-apis-deploy/enable-plan.png":::
-
-1. Select **Save**.
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/select-api-details.png" alt-text="Screenshot that shows where to select API details." lightbox="media/defender-for-apis-entitlement-plans/select-api-details.png":::
+ 
+1. Select the plan that is suitable for your subscription. 
+1. Select **Save**. 
 
 > [!NOTE]
 > After enabling Defender for APIs, onboarded APIs take up to 50 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 40 minutes of onboarding.
@@ -73,6 +90,33 @@ Learn more about the [Microsoft Defender for APIs](defender-for-apis-introductio
 
     :::image type="content" source="media/defender-for-apis-deploy/fix-resources-confirm.png" alt-text="Screenshot that confirms that remediation was successful." lightbox="media/defender-for-apis-deploy/fix-resources-confirm.png":::
 
+## Selecting the optimal plan based on historical Azure API Management API traffic usage
+
+You must select a plan that grants entitlement appropriate for the API traffic volume in your subscription to receive the most optimal pricing. By default, subscriptions are opted into **Plan 1**, which can lead to unexpected overages if your subscription has API traffic higher than the [one million API calls entitlement](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/18). 
+
+**To estimate the monthly API traffic in Azure API Management:** 
+
+1. Navigate to the Azure API Management portal and select **Metrics** under the Monitoring menu bar item.  
+
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/select-metrics.png" alt-text="Screenshot that shows where to select metrics." lightbox="media/defender-for-apis-entitlement-plans/select-metrics.png":::
+
+1. Select the time range as **Last 30 days**.
+1. Select and set the following parameters:
+
+    1. Scope: **Azure API Management Service Name** 
+    1. Metric Namespace: **API Management service standard metrics**
+    1. Metric = **Requests**
+    1. Aggregation = **Sum**
+    
+1. After setting the above parameters, the query will automatically run, and the total number of requests for the past 30 days appears at the bottom of the screen. Iin the screenshot example, the query results in 414 total number of requests.
+
+    :::image type="content" source="media/defender-for-apis-entitlement-plans/metrics-results.png" alt-text="Screenshot that shows metrics results." lightbox="media/defender-for-apis-entitlement-plans/metrics-results.png":::
+
+    > [!NOTE]
+    > These instructions are for calculating the usage per Azure API management service. To calculate the estimated traffic usage for *all* API management services within the Azure subscription, change the **Scope** parameter to each Azure API management service within the Azure subscription, re-run the query, and sum the query results. 
+
+If you don't have access to run the metrics query, reach out to your internal Azure API Management administrator or your Microsoft account manager.  
+
 ## Track onboarded API resources
 
 After onboarding the API resources, you can track their status in the Defender for Cloud portal > **Workload protections** > **API security**:
@@ -85,4 +129,5 @@ You can also navigate to other collections to learn about what types of insights
 
 ## Next steps
 
-[Review](defender-for-apis-posture.md) API threats and security posture.
+- [Review](defender-for-apis-posture.md) API threats and security posture.
+- [Investigate API findings, recommendations, and alerts](defender-for-apis-posture.md). 
