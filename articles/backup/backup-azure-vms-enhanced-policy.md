@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 02/19/2024
 ms.reviewer: sharrai
 ms.service: backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell

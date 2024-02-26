@@ -330,11 +330,11 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different domain than the storage account can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity and credentials (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
+Non-domain-joined VMs or VMs that are joined to a different domain than the storage account can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain, and must provide explicit credentials (username and password).
 
 To mount a file share from a non-domain-joined VM, the user must either:
 
-- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity’s user name in Microsoft Entra Domain Services, or
+- Provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity’s user name in Microsoft Entra Domain Services, or
 - Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
 
 Using one of these approaches will allow the client to contact the domain controller in the Microsoft Entra Domain Services domain to request and receive Kerberos tickets.

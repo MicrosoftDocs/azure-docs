@@ -24,20 +24,22 @@ If you want to move VMs to an availability zone in a different region, review [t
 
 Support for zone-to-zone disaster recovery is currently limited to the following regions:
 
-| Americas | Europe | Middle East | Africa | APAC |
-|--------|--------------|-------------|--------|--------------|
-| Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
-| US Gov Virginia | West Europe | | | East Asia |
-| Central US | North Europe | UAE North | | Japan East |
-| South Central US | Germany West Central | | | Korea Central |
-| East US | Norway East | | | Australia East |
-| East US 2 | France Central | | | Central India |
-| West US 2 | Switzerland North | | | China North 3 |
-| West US 3 | Sweden Central (managed access) | | |  |
-| Brazil South | Poland Central | | | |
-| | Italy North | | | |
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+| Brazil South | France Central | Israel Central  | South Africa North | Australia East |
+| Canada Central | Germany West Central  | Qatar Central  | | Central India |
+| Central US | Italy North  | UAE North | | China North 3  |
+| East US | North Europe | | | East Asia  |
+| East US 2 | Norway East | | | Japan East |
+| South Central US | Poland Central  | | | Korea Central |
+| US Gov Virginia | Sweden Central  | | | Southeast Asia |
+| West US 2 | Switzerland North | | | |
+| West US 3 | UK South | | | |
+|| West Europe ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
+
+Learn more about [currently supported availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 > [!Note]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).

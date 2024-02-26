@@ -1807,7 +1807,7 @@
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/resource-group-insights.md",
-            "redirect_url": "/azure/azure-monitor/insights/resource-group-insights",
+            "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
             "redirect_document_id": true
         },
         {
@@ -6607,6 +6607,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/monitor-reference.md",
             "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/resource-group-insights.md",
+            "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
             "redirect_document_id": false
         }
     ]
