@@ -33,7 +33,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Security policy management now available across clouds
 
-The security policy management solution previously release ( in Preview) for Azure is now also available for AWS and GCP environments.  With this release, you can [manage recommendations provided by MCSB](manage-mcsb.md), [assign custom compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud and [create custom security recommendations for your AWS and GCP environments using a new and simplified wizard](create-custom-recommendations), helping security admins streamline the management of security policies across clouds environments. 
+February 27, 2024
+
+The security policy management solution, initially released in Preview for Azure, is now  released in Preview also for AWS and GCP environments. With this release, you can [manage recommendations provided by MCSB](manage-mcsb.md), [assign custom compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud, and [create custom security recommendations for your AWS and GCP environments using a new and simplified wizard](create-custom-recommendations), helping security admins streamline the management of security policies across clouds environments. 
 
 ### Cloud support for Defender for Containers
 
@@ -90,9 +92,9 @@ See the [list of security recommendations](recommendations-reference.md).
 
 January 31, 2024
 
-A new insight for Azure DevOps repositories has been added to the Cloud Security Explorer to indicate whether repositories are active. This insight indicates that the code repository is not archived or disabled, meaning that write access to code, builds, and pull requests is still available for users. Archived and disabled repositories might be considered lower priority as the code is not typically used in active deployments.
+A new insight for Azure DevOps repositories has been added to the Cloud Security Explorer to indicate whether repositories are active. This insight indicates that the code repository is not archived or disabled, meaning that write access to code, builds, and pull requests is still available for users. Archived and disabled repositories might be considered lower priority as the code isn't typically used in active deployments.
 
-To test out the query through Cloud Security Explorer, use [this query link](https://ms.portal.azure.com#view/Microsoft_Azure_Security/SecurityGraph.ReactView/query/%7B%22type%22%3A%22securitygraphquery%22%2C%22version%22%3A2%2C%22properties%22%3A%7B%22source%22%3A%7B%22type%22%3A%22datasource%22%2C%22properties%22%3A%7B%22sources%22%3A%5B%7B%22type%22%3A%22entity%22%2C%22properties%22%3A%7B%22source%22%3A%22azuredevopsrepository%22%7D%7D%5D%2C%22conditions%22%3A%7B%22type%22%3A%22conditiongroup%22%2C%22properties%22%3A%7B%22operator%22%3A%22and%22%2C%22conditions%22%3A%5B%7B%22type%22%3A%22insights%22%2C%22properties%22%3A%7B%22name%22%3A%226b8f221b-c0ce-48e3-9fbb-16f917b1c095%22%7D%7D%5D%7D%7D%7D%7D%7D%7D)
+To test out the query through Cloud Security Explorer, use [this query link](https://ms.portal.azure.com#view/Microsoft_Azure_Security/SecurityGraph.ReactView/query/%7B%22type%22%3A%22securitygraphquery%22%2C%22version%22%3A2%2C%22properties%22%3A%7B%22source%22%3A%7B%22type%22%3A%22datasource%22%2C%22properties%22%3A%7B%22sources%22%3A%5B%7B%22type%22%3A%22entity%22%2C%22properties%22%3A%7B%22source%22%3A%22azuredevopsrepository%22%7D%7D%5D%2C%22conditions%22%3A%7B%22type%22%3A%22conditiongroup%22%2C%22properties%22%3A%7B%22operator%22%3A%22and%22%2C%22conditions%22%3A%5B%7B%22type%22%3A%22insights%22%2C%22properties%22%3A%7B%22name%22%3A%226b8f221b-c0ce-48e3-9fbb-16f917b1c095%22%7D%7D%5D%7D%7D%7D%7D%7D%7D).
 
 ### Deprecation of security alerts and update of security alerts to informational severity level
 
