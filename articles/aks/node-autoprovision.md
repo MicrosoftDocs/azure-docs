@@ -73,7 +73,6 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - Disk encryption sets
 - CustomCATrustCertificates
 - [Start Stop mode](./start-stop-cluster.md)
--[ Cost Analysis](../cost-management-billing/understand/plan-manage-costs.md) (new preview feature)
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) (deprecated)
 - [HTTP proxy](./http-proxy.md)
 - [OutboundType](./egress-outboundtype.md) mutation (all OutboundTypes are supported, you just cannot change them once created)
