@@ -594,8 +594,6 @@ items:
     href: essentials/platform-logs-overview.md
   - name: Activity log
     href: essentials/activity-log.md
-  - name: Activity log insights
-    href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
   - name: Stream monitoring data
@@ -1033,8 +1031,8 @@ items:
   - name: Overview
     displayName: insights
     href: insights/insights-overview.md
-  - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md
+  - name: Activity log insights
+    href: essentials/activity-log-insights.md
 - name: Visualize
   items:
   - name: Workbooks
@@ -1119,6 +1117,8 @@ items:
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Grafana
     href: visualize/grafana-plugin.md
   - name: Dashboards

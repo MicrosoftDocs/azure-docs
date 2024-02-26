@@ -17,6 +17,8 @@ This article lists the permissions for the Azure resource providers in the Monit
 
 ## Microsoft.AlertsManagement
 
+Analyze all of the alerts in your Log Analytics repository.
+
 Azure service: [Azure Monitor](/azure/azure-monitor/)
 
 > [!div class="mx-tableFixed"]
@@ -90,6 +92,8 @@ Azure service: [Azure Managed Grafana](/azure/managed-grafana/)
 > | Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role |
 
 ## Microsoft.Insights
+
+Full observability into your applications, infrastructure, and network.
 
 Azure service: [Azure Monitor](/azure/azure-monitor/)
 
@@ -1450,6 +1454,8 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | microsoft.operationalinsights/workspaces/views/delete | Delete a workspace view. |
 
 ## Microsoft.OperationsManagement
+
+A simplified management solution for any enterprise.
 
 Azure service: [Azure Monitor](/azure/azure-monitor/)
 
