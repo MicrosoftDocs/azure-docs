@@ -18,7 +18,9 @@ This article shows you how to statically provisioning volumes for dual-protocol 
 
 * You must have already created a dual-protocol volume. See [create a dual-protocol volume for Azure NetApp Files][azure-netapp-files-volume-dual-protocol].
 
-For information about provisioning SMB volumes statically or dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service][azure-netapp-smb]. For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service][azure-netapp-nfs].
+For information about provisioning SMB volumes statically or dynamically, see [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service][azure-netapp-smb].
+
+For information about provisioning NFS volumes statically or dynamically, see [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service][azure-netapp-nfs].
 
 ## Provision a dual-protocol volume in Azure Kubernetes Service
 
