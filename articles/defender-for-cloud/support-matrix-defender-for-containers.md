@@ -8,6 +8,16 @@ ms.date: 12/14/2023
 ms.custom: references_regions
 ---
 
+---
+title: Containers support matrix in Defender for Cloud
+description: Review support requirements for container capabilities in Microsoft Defender for Cloud.
+ms.topic: limits-and-quotas
+author: dcurwin
+ms.author: dacurwin
+ms.date: 12/14/2023
+ms.custom: references_regions
+---
+
 # Containers support matrix in Defender for Cloud
 
 > [!CAUTION]
@@ -235,7 +245,7 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 ### Defender agent limitations
 
-The Defender agent is currently not supported on ARM64 nodes.
+The Defender agent in AKS V1.28 and beyond is not supported on ARM64 nodes.
 
 ### Network restrictions
 
