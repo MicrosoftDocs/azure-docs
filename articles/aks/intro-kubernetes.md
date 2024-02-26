@@ -123,7 +123,7 @@ The application routing addon is the recommended way to configure an Ingress con
 
 * SSL termination with certificates stored in Azure Key Vault.
 
-For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on][app-routing.md].
+For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Development tooling integration
 
