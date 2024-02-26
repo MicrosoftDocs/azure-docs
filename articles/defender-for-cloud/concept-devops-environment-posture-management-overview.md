@@ -2,8 +2,6 @@
 title: DevOps environment posture management overview
 description: Learn how to discover security posture violations in DevOps environments 
 ms.date: 10/17/2023
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: conceptual
 ---
 

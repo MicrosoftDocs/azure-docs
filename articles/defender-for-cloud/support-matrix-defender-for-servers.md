@@ -37,7 +37,7 @@ Validate the following endpoints are configured for outbound access so that Azur
 This table summarizes Azure cloud support for Defender for Servers features.
 
 | **Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet** |
---- | --- | --- | ---
+|--- | --- | --- | --- |
 | [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA |
 | [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA |
 | [Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | GA | GA | GA |
@@ -61,7 +61,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br> Available on: Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>Not available on: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
-| [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ | Yes |
+| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
 | [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
@@ -86,7 +86,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ <br> ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
-| [Fileless security alerts](alerts-reference.md#alerts-windows) | - | - | Yes |
+| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | - | - | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
 | [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
@@ -111,7 +111,7 @@ The following table shows feature support for AWS and GCP machines.
 |--|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
-| [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ |
+| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
 | [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |

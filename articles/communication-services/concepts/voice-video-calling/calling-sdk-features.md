@@ -2,11 +2,11 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK capabilities limitations features for video and audio.
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: micahvivion
 ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -156,7 +156,7 @@ For example, this iframe allows both camera and microphone access:
 
 **The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
 
-## Limits to the number of simultaneous video streams
+## Supported number of incoming video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
@@ -169,14 +169,20 @@ The Azure Communication Services Calling SDK supports the following streaming co
 While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Supported video resolutions
-The Azure Communicaton Services Calling SDK support up to the following video resolutions:
+The Azure Communication Services Calling SDK support up to the following video resolutions:
 
 | Maximum video resolution | WebJS | iOS | Android | Windows |
 | ------------- | ----- | ----- | ------- | ------- |
 | **Receiving video** | 1080P | 1080P | 1080P   | 1080P   |
 | **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
 
-The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters.
+The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters. Read 
+
+## Number of participants on a call support
+- Up to 350 users can join a group call, Room or Teams + ACS call. The maximum number of users that can join through WebJS calling SDK or Teams web client is capped at 100 participants, the remaining calling end point will need to join using Android, iOS, or Windows calling SDK or related Teams desktop or mobile client apps.
+- Once the call size reaches 100+ participants in a call, only the top 4 most dominant speakers that have their video camera turned can be seen.
+- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos).
+- When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
 
 ## Calling SDK timeouts
 The following timeouts apply to the Communication Services Calling SDKs:

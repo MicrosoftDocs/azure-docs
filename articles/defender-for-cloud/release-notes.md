@@ -20,19 +20,15 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
-## February 2024
+## March 2024
 
 |Date | Update |
 |----------|----------|
-| February 28 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
-| February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
-| February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
-| February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
-| February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+| March 28 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
 
 ### New endpoint detection and response recommendations
 
-February 28 2024
+March 28 2024
 
 The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported. These new recommendations discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
 
@@ -55,6 +51,22 @@ These public preview recommendations are now deprecated.
 | [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA |
 
 The current generally available recommendations are still supported and will be until August 2024.
+
+## February 2024
+
+|Date | Update |
+|----------|----------|
+| February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
+| February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
+| February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
+| February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
+| February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Cloud support for Defender for Containers
+
+February 26, 2024
+
+Azure Kubernetes Service (AKS) threat detection features in Defender for Containers are now fully supported in commercial, Azure Government, and Azure China 21Vianet clouds. [Review](support-matrix-defender-for-containers.md#azure) supported features.
 
 ### New version of Defender Agent for Defender for Containers
 
@@ -216,12 +228,12 @@ We have added nine new Azure security recommendations aligned with the Microsoft
 
 |Recommendation | Description  | Severity |
 |----------|----------|----------|
-| [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference.md#identityandaccess-recommendations) | Disabling local authentication methods improves security by ensuring that Cognitive Services accounts require Azure Active Directory identities exclusively for authentication. Learn more at: <https://aka.ms/cs/auth>. (Related policy: [Cognitive Services accounts should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f71ef260a-8f18-47b7-abcb-62d0673d94dc)). | Low |
+| [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference.md#identity-and-access-recommendations) | Disabling local authentication methods improves security by ensuring that Cognitive Services accounts require Azure Active Directory identities exclusively for authentication. Learn more at: <https://aka.ms/cs/auth>. (Related policy: [Cognitive Services accounts should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f71ef260a-8f18-47b7-abcb-62d0673d94dc)). | Low |
 | [Cognitive Services should use private link](recommendations-reference.md#data-recommendations) | Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](https://go.microsoft.com/fwlink/?linkid=2129800). (Related policy: [Cognitive Services should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcddd188c-4b82-4c48-a19d-ddf74ee66a01)). | Medium |
 | [Virtual machines and virtual machine scale sets should have encryption at host enabled](recommendations-reference.md#compute-recommendations) | Use encryption at host to get end-to-end encryption for your virtual machine and virtual machine scale set data. Encryption at host enables encryption at rest for your temporary disk and OS/data disk caches. Temporary and ephemeral OS disks are encrypted with platform-managed keys when encryption at host is enabled. OS/data disk caches are encrypted at rest with either customer-managed or platform-managed key, depending on the encryption type selected on the disk. Learn more at <https://aka.ms/vm-hbe>. (Related policy: [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc4d8e41-e223-45ea-9bf5-eada37891d87)). | Medium |
 | [Azure Cosmos DB should disable public network access](recommendations-reference.md#data-recommendations) | Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. [Learn more](/azure/cosmos-db/how-to-configure-private-endpoints#blocking-public-network-access-during-account-creation). (Related policy: [Azure Cosmos DB should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f797b37f7-06b8-444c-b1ad-fc62867f335a)). | Medium |
 | [Cosmos DB accounts should use private link](recommendations-reference.md#data-recommendations) | Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](/azure/cosmos-db/how-to-configure-private-endpoints). (Related policy: [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7)). | Medium |
-| [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](recommendations-reference.md#identityandaccess-recommendations) | Disabling local authentication methods improves security by ensuring that VPN Gateways use only Azure Active Directory identities for authentication. Learn more about [Azure AD authentication](/azure/vpn-gateway/openvpn-azure-ad-tenant). (Related policy: [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f21a6bc25-125e-4d13-b82d-2e19b7208ab7)). | Medium |
+| [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](recommendations-reference.md#identity-and-access-recommendations) | Disabling local authentication methods improves security by ensuring that VPN Gateways use only Azure Active Directory identities for authentication. Learn more about [Azure AD authentication](/azure/vpn-gateway/openvpn-azure-ad-tenant). (Related policy: [VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f21a6bc25-125e-4d13-b82d-2e19b7208ab7)). | Medium |
 | [Azure SQL Database should be running TLS version 1.2 or newer](recommendations-reference.md#data-recommendations) | Setting TLS version to 1.2 or newer improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2 or newer. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities. (Related policy: [Azure SQL Database should be running TLS version 1.2 or newer](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f32e6bbec-16b6-44c2-be37-c5b672d103cf)). | Medium |
 | [Azure SQL Managed Instances should disable public network access](recommendations-reference.md#data-recommendations) | Disabling public network access (public endpoint) on Azure SQL Managed Instances improves security by ensuring that they can only be accessed from inside their virtual networks or via Private Endpoints. Learn more about [public network access](https://aka.ms/mi-public-endpoint). (Related policy: [Azure SQL Managed Instances should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9dfea752-dd46-4766-aed1-c355fa93fb91)). | Medium |
 | [Storage accounts should prevent shared key access](recommendations-reference.md#data-recommendations) | Audit requirement of Azure Active Directory (Azure AD) to authorize requests for your storage account. By default, requests can be authorized with either Azure Active Directory credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over shared Key, and is recommended by Microsoft. (Related policy: [Storage accounts should prevent shared key access](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54)). |Medium |
@@ -338,7 +350,7 @@ The following alert is being released for preview:
 |----|----|----|----|
 | **Malicious blob was downloaded from a storage account (Preview)**<br>Storage.Blob_MalwareDownload | The alert indicates that a malicious blob was downloaded from a storage account. Potential causes may include malware that was uploaded to the storage account and not removed or quarantined, thereby enabling a threat actor to download it, or an unintentional download of the malware by legitimate users or applications. <br>Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen2 or premium block blobs) storage accounts with the new Defender for Storage plan with the Malware Scanning feature enabled. | Lateral Movement | High, if Eicar - low |
 
-See the [extension-based alerts in Defender for Storage](alerts-reference.md#alerts-azurestorage).
+See the [extension-based alerts in Defender for Storage](alerts-reference.md#alerts-for-azure-storage).
 
 For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
