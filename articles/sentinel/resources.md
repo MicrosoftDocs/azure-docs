@@ -13,6 +13,7 @@ This article describes the differences between playbooks, workbooks, and noteboo
 
 ## Compare by persona
 
+The following table compares Microsoft Sentinel playbooks, workbooks, and notebooks by the user persona:
 
 |Resource  |Description  |
 |---------|---------|
@@ -22,6 +23,7 @@ This article describes the differences between playbooks, workbooks, and noteboo
 
 ## Compare by use
 
+The following table compares Microsoft Sentinel playbooks, workbooks, and notebooks by use case:
 
 |Resource  |Description  |
 |---------|---------|
@@ -32,6 +34,7 @@ This article describes the differences between playbooks, workbooks, and noteboo
 
 ## Compare by advantages and challenges
 
+The following table compares the advantages and disadvantages of playbooks, workbooks, and notebooks in Microsoft Sentinel:
 
 |Resource  |Advantages  | Challenges |
 |---------|---------|---------|
