@@ -41,10 +41,8 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.5.0 is now available
+          - text: CycleCloud 8.6.0 is now available
             url: release-notes.md
-          - text: CycleCloud 7.x will be retired on September 30 2023
-            url: how-to/cyclecloud7-retirement-guide.md
           - text: Node Health Checks are now supported
             url: how-to/healthcheck.md
           - text: CycleCloud supports Confidential VMs and Trusted Platform Launch for nodes

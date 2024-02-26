@@ -34,7 +34,7 @@ Image = Windows 2022 DataCenter
 When an exact version is not specified, CycleCloud automatically uses the latest released version of the image for the region that the node is in.
 
 > [!NOTE]
-If you are using a custom (non-standard) image that was created with Jetpack, you can set `AwaitInstallation=true` on the node, specifying that the image supports sending status messages back to CycleCloud. This will allow for more accurate representations of the node's state within CycleCloud.
+> If you are using a custom (non-standard) image that was created with Jetpack, you can set `AwaitInstallation=true` on the node, specifying that the image supports sending status messages back to CycleCloud. This will allow for more accurate representations of the node's state within CycleCloud.
 
 CycleCloud currently includes the following images:
 
