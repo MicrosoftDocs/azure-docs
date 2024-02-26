@@ -31,14 +31,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
 
-### Security policy management now available across clouds
+### Updated security policy management now available across clouds
 
 February 27, 2024
 
 The security policy management solution and new experience initially released in Preview for Azure, is expanding its support for AWS and GCP environments. This release includes: 
-- [updated experience for custom recommendations (benchmark) on AWS and GCP](manage-mcsb)
-- support and same experience for [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud
-- [interface applied to for creating custom recommendations](create-custom-recommendations.md) in AWS and GCP. 
+- support for [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud for Azure, AWS and GCP.
+- [Extended the interface experience for custom recommendations (benchmark) for AWS and GCP](manage-mcsb)
+- Experience applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
+
 
 ### Cloud support for Defender for Containers
 
