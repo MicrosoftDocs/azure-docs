@@ -38,6 +38,10 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
+## Azure Data Factory Studio
+
+You can monitor all of your Azure Data Factory pipeline runs natively in the Azure Data Factory Studio user experience. To open the monitoring experience, select **Launch Studio** from your data factory page in the Azure portal. If you're already in Azure Data Factory Studio, select **Monitor** from the left menu. For more information about monitoring in Azure Data Factory Studio, see [Visually monitor Azure Data Factory](monitor-visually).
+
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. 
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
