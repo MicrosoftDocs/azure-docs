@@ -17,7 +17,7 @@ By default, AKS clusters use [kubenet][kubenet] and create a virtual network and
 
 With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
 
-Note that this article is only introducing traditional CNI, for [Azure CNI Overlay][azure-cni-overlay] and [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], check the relative documents instead.  
+Note that this article is only introducing traditional Azure CNI. For [Azure CNI Overlay][azure-cni-overlay] and [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], check the relative documents instead.  
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ Although it's technically possible to specify a service address range within the
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
   
-  But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod.
+  But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod. This is because the [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation] implements [Microsoft Azure Container Networking][github-azure-container-networking] infrastructure, which gives end-to-end experience. Hence, it eliminates the use of [`ip-masq-agent`][ip-masq-agent], which is still used by traditional Azure CNI.  
 
 * **Can I configure per-pod network policies?**
 
@@ -178,6 +178,8 @@ Learn more about networking in AKS in the following articles:
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
+[github-azure-container-networking]: https://github.com/Azure/azure-container-networking
+[ip-masq-agent]: https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
