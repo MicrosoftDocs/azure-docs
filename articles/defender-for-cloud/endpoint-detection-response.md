@@ -1,13 +1,15 @@
 ---
-title: Review and remediate endpoint detection and response  recommendations (agentless)
-description: Learn how to use Defender for Cloud recommendations to identify if an endpoint detection and response solution are installed on your virtual machine. You can also identify if there are any gaps in your security configuration and remediate the gaps if they exist.
+title: Review and remediate endpoint detection and response recommendations (agentless)
+description: Identify and remediate security gaps in endpoint detection and response solutions on your virtual machine with Defender for Cloud recommendations.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.date: 02/26/2024
+ai-usage: ai-assisted
+#customer intent: As a user, I want to learn how to review and remediate endpoint detection and response recommendations in order to ensure the security of my virtual machine.
 ---
 
-# Review and remediate endpoint detection and response  recommendations (agentless)
+# Review and remediate endpoint detection and response recommendations (agentless)
 
 Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
@@ -215,6 +217,6 @@ When Defender for Cloud finds misconfigurations in your endpoint detection and r
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab. 
 
-## Next steps
+## Next step
 
 [Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
