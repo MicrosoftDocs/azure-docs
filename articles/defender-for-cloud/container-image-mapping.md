@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: ignite-2023
 ---
 
-# Map Container Images from Code to Cloud
+# Map container images from code to cloud
 
 When a vulnerability is identified in a container image stored in a container registry or running in a Kubernetes cluster, it can be difficult for a security practitioner to trace back to the CI/CD pipeline that first built the container image and identify a developer remediation owner. With DevOps security capabilities in Microsoft Defender Cloud Security Posture Management (CSPM), you can map your cloud-native applications from code to cloud to easily kick off developer remediation workflows and reduce the time to remediation of vulnerabilities in your container images.
 
