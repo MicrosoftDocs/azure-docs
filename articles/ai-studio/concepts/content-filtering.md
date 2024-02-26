@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -29,7 +29,7 @@ The content filtering models have been trained and tested on the following langu
 You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
 
 ## How to create a content filter? 
-For any model deployment in Azure AI Studio, you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  To create a content filter, you could go to **Build**, choose one of your projects, then select **Content filters** in the left navigation bar, and create a content filter. 
+For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  To create a content filter, you could go to **Build**, choose one of your projects, then select **Content filters** in the left navigation bar, and create a content filter. 
 
 :::image type="content" source="../media/content-safety/content-filter/create-content-filter.png" alt-text="Screenshot of create content filter." lightbox="../media/content-safety/content-filter/create-content-filter.png":::
 
@@ -70,8 +70,8 @@ The default content filtering configuration is set to filter at the medium sever
 
 <sup>1</sup> For Azure OpenAI models, only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning off content filters. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-### More filters for Gen-AI scenarios
-You could also enable filters for Gen-AI scenarios: jailbreak risk detection and protected material detection. 
+### More filters for generative AI scenarios
+You could also enable filters for generative AI scenarios: jailbreak risk detection and protected material detection. 
 
 :::image type="content" source="../media/content-safety/content-filter/additional-models.png" alt-text="Screenshot of additional models." lightbox="../media/content-safety/content-filter/additional-models.png":::
 

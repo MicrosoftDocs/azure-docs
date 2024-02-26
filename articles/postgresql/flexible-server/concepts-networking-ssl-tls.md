@@ -62,16 +62,39 @@ For testing, you can also use the **openssl** command directly, for example:
 ```bash
 openssl s_client -connect localhost:5432 -starttls postgres
 ```
-This prints out a lot of low-level protocol information, including the TLS version, cipher, and so on. Note that you must use the option -starttls postgres, or otherwise this command reports that no SSL is in use. This requires at least OpenSSL 1.1.1. 
+This command prints numerous low-level protocol information, including the TLS version, cipher, and so on. You must use the option -starttls postgres, or otherwise this command reports that no SSL is in use. Using this command requires at least OpenSSL 1.1.1. 
 
 > [!NOTE]  
 > To enforce **latest, most secure TLS version** for connectivity protection from client to Azure Database for PostgreSQL flexible server set **ssl_min_protocol_version** to **1.3**. That would **require** clients connecting to your Azure Database for PostgreSQL flexible server instance to use **this version of the protocol only** to securely communicate. However, older clients, since they don't support this version, may not be able to communicate with the server.
 
+## Configuring SSL on the Client
+
+By default, PostgreSQL doesn't perform any verification of the server certificate. This means that it's possible to spoof the server identity (for example by modifying a DNS record or by taking over the server IP address) without the client knowing. All SSL options carry overhead in the form of encryption and key-exchange, so there's a trade-off that has to be made between performance and security.
+In order to prevent spoofing, SSL certificate verification on the client must be used.
+There are many connection parameters for configuring the client for SSL. Few important to us are:
+1. **ssl**.  Connect using SSL. This property doesn't need a value associated with it. The mere presence of it specifies a SSL connection. However, for compatibility with future versions, the value "true" is preferred.  In this mode, when establishing an SSL connection the client driver validates the server's identity preventing "man in the middle" attacks. It does this by checking that the server certificate is signed by a trusted authority, and that the host you're connecting to is the same as the hostname in the certificate.
+2. **sslmode**. If you require encryption and want the connection to fail if it can't be encrypted then set  **sslmode=require**.  This ensures that the server is configured to accept SSL connections for this Host/IP address and that the server recognizes the client certificate. In other words if the server doesn't accept SSL connections or the client certificate isn't recognized the connection will fail. Table below list values for this setting:
+
+| SSL Mode | Explanation | 
+|----------|-------------|
+|disable   | Encryption isn't used|
+|allow     | Encryption is used if f server settings require\enforce it|
+|prefer    | Encryption is used if server settings allow for it|
+|require   | Encryption is used. This ensures that the server is configured to accept SSL connections for this Host IP address and that the server recognizes the client certificate.|
+|verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
+|verify-full| Encryption is used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
+
+3. **sslcert**, **sslkey** and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+
+> [!NOTE]  
+> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
+
+For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
 
 ## Cipher Suites
 
 A **cipher suite** is a set of cryptographic algorithms. TLS/SSL protocols use algorithms from a cipher suite to create keys and encrypt information. 
-A cipher suite is displayed as a long string of seemingly random information — but each segment of that string contains essential information. Generally, this data string is made up of several key components:
+A cipher suite is displayed as a long string of seemingly random information—but each segment of that string contains essential information. Generally, this data string is made up of several key components:
 - Protocol (that is, TLS 1.2 or TLS 1.3)
 - Key exchange or agreement algorithm
 - Digital signature (authentication) algorithm
