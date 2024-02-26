@@ -343,9 +343,9 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-DriverError
 
-- **Message**: INT96 is legacy timestamp type, which is not supported by ADF Dataflow. Consider upgrading the column type to the latest types.
+- **Message**: INT96 is a legacy timestamp type, which is not supported by ADF Dataflow. Consider upgrading the column type to the latest types.
 - **Cause**: Driver error.
-- **Recommendation**: INT96 is a legacy timestamp type that's not supported by Azure Data Factory data flow. Consider upgrading the column type to the latest type.
+- **Recommendation**: INT96 is a legacy timestamp type that's Azure Data Factory data flow doesn't support. Consider upgrading the column type to the latest type.
 
 ### Error code: DF-Executor-FieldNotExist
 
@@ -431,7 +431,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Explicitly broadcasted dataset using left/right option should be small enough to fit in node's memory. You can choose broadcast option 'Off' in join/exists/lookup transformation to avoid this issue or use an integration runtime with higher memory.
 - **Cause**: The size of the broadcasted table far exceeds the limits of the node memory.
-- **Recommendation**: The broadcast left/right option should be used only for smaller dataset size, which can fit into node's memory, so make sure to configure the node size appropriately or turn off the broadcast option.
+- **Recommendation**: The broadcast left/right option should only be used for smaller dataset sizes, which can fit into the node's memory. Make sure to configure the node size appropriately or turn off the broadcast option.
 
 ### Error code: DF-Executor-OutOfMemorySparkError
 
@@ -456,7 +456,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Job aborted due to stage failure. Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
 - **Cause**: Data flow activity run failed because of transient network issues or one node in spark cluster ran out of memory.
 - **Recommendation**: Use the following options to solve this problem:
-  - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
+  - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the following picture.
 
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::
 
@@ -479,7 +479,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-StoreIsNotDefined
 
-- **Message**: The store configuration isn't defined. This error is potentially caused by invalid parameter assignment in the pipeline.
+- **Message**: The store configuration isn't defined. This error can be caused by invalid parameter assignment in the pipeline.
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
@@ -491,7 +491,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 
-- **Message**: Implicit cartesian product for INNER join isn't supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
+- **Message**: Implicit cartesian product for INNER join isn't supported. Use CROSS JOIN instead. Columns used in join should create a unique key for rows.
 - **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key.
 - **Recommendation**: For non-equality based joins, use CROSS JOIN.
 
@@ -910,7 +910,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-SAPI-LIMITATION
 
 - **Message**: Error Number 518, Source .* not found, not released or not authorized
-- **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
+- **Cause**: Check if your context is the SAP Service API (SAPI). If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
 - **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/2646092).
 
 ### Error code: DF-SAPODP-KeyColumnsNotSpecified
@@ -968,7 +968,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SQLDW-IncorrectLinkedServiceConfiguration
 
 - **Message**: The linked service is incorrectly configured as type 'Azure Synapse Analytics' instead of 'Azure SQL Database'. Please create a new linked service of type 'Azure SQL Database'<br>
-Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL DW)' for linked service type 'Azure Synapse Analytics'.
+Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL Data Warehouse)' for linked service type 'Azure Synapse Analytics'.
 - **Cause**: The linked service is incorrectly configured as type **Azure Synapse Analytics** instead of **Azure SQL Database**. 
 - **Recommendation**: Create a new linked service of type **Azure SQL Database**, and check that the given database is of type Dedicated SQL pool (formerly SQL DW) for linked service type **Azure Synapse Analytics**.
 
