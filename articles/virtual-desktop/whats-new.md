@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 02/01/2023
+ms.date: 02/27/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,16 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## February 2024
+
+Here's what changed in February 2024:
+
+### Azure Virtual Desktop for Azure Stack HCI now generally available 
+
+Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Microsoft Cloud to your datacenters. Bringing the benefits of Azure Virtual Desktop and Azure Stack HCI together, Azure Virtual Desktop for Azure Stack HCI lets organizations securely run virtualized desktops and apps on-premises in their datacenter and at the edges of their organization. This versatility is especially useful for organizations with data residency and proximity requirements or latency-sensitive workloads.
+
+For more information, see [Azure Virtual Desktop for Azure Stack HCI now available!](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-for-azure-stack-hci-now-available/ba-p/4038030)
 
 ## January 2024
 
