@@ -680,7 +680,7 @@ print(response)
 }],
 ```
 
-#### [Azure AIServices resource + SAS authentication](#tab/resource)
+#### [Azure AIServices resource + SAS authentication](#tab/resource-sas)
 
 ```json
 "dataSources": [
@@ -693,7 +693,7 @@ print(response)
 }],
 ```	
 
-#### [Azure AIServices resource + Managed Identities](#tab/resource)
+#### [Azure AIServices resource + Managed Identities](#tab/resource-mi)
 
 ```json
 "dataSources": [
