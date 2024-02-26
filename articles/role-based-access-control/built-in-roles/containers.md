@@ -285,11 +285,11 @@ List cluster user credentials action.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | List clusterUser credential(preview) |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | List clusterUser credential(preview) |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -348,39 +348,39 @@ Lets you manage all resources under cluster/namespace, except update or delete r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/authorization.k8s.io/localsubjectaccessreviews/write | Writes localsubjectaccessreviews |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/pods/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/rolebindings/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/roles/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/services/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/authorization.k8s.io/localsubjectaccessreviews/write | Writes localsubjectaccessreviews |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/pods/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/rolebindings/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/rbac.authorization.k8s.io/roles/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/services/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -467,7 +467,7 @@ Lets you manage all resources in the cluster.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -522,35 +522,35 @@ Lets you view all resources in cluster/namespace, except secrets.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/read | Reads daemonsets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/deployments/read | Reads deployments |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/replicasets/read | Reads replicasets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/read | Reads statefulsets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/read | Reads cronjobs |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/jobs/read | Reads jobs |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/configmaps/read | Reads configmaps |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/endpoints/read | Reads endpoints |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/read | Reads daemonsets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/deployments/read | Reads deployments |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/read | Reads ingresses |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/read | Reads networkpolicies |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/read | Reads replicasets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/read | Reads ingresses |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/read | Reads persistentvolumeclaims |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/pods/read | Reads pods |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Reads replicationcontrollers |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Reads replicationcontrollers |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/serviceaccounts/read | Reads serviceaccounts |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/services/read | Reads services |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/deployments/read | Reads deployments |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/replicasets/read | Reads replicasets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/jobs/read | Reads jobs |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/configmaps/read | Reads configmaps |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/endpoints/read | Reads endpoints |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/deployments/read | Reads deployments |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/read | Reads replicasets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/pods/read | Reads pods |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/services/read | Reads services |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -633,36 +633,36 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/pods/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/services/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/deployments/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/replicasets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/batch/jobs/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/configmaps/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/endpoints/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events.k8s.io/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/events/read | Reads events |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/deployments/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/namespaces/read | Reads namespaces |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/pods/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/secrets/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/serviceaccounts/* |  |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/services/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1673,8 +1673,8 @@ Role definition to authorize any user/service to create connectedClusters resour
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
-> | [Microsoft.Kubernetes](../permissions/containers.md#microsoftkubernetes)/connectedClusters/read | Read connectedClusters |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/read | Read connectedClusters |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1726,10 +1726,10 @@ Can create, update, get, list and delete Kubernetes Extensions, and get extensio
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/containers.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
