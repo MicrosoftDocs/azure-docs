@@ -7,13 +7,13 @@ ms.service: dev-box
 ms.topic: concept-article
 ms.date: 02/24/2024
 
-# Customer intent: As a platform admin, I want to understand what makes an ADE template AZD compatible, so that I can customize my ADE template (environment definitions).
+# Customer intent: As a platform engineer, I want to understand how to use ADE and AZD together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
 # Use Azure Developer CLI templates with Azure Deployment Environments
 
-In this article, you learn how Azure Developer CLI compatible templates differ from ADE environment definitions.
+In this article, you learn how to use the Azure Developer CLI (azd) with Azure Deployment Environments (ADE) to provision application infrastructure and deploy application code to the new infrastructure.
 
 ## What is the Azure Developer CLI?
 
@@ -99,6 +99,7 @@ To get help with AZD compatibility, see [Make your project compatible with Azure
 
 ## Related content
 
+- [Add and configure an environment definition](./configure-environment-definition.md)
 - [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
 - [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create)
 - [Supported Azure compute services (host)](/azure/developer/azure-developer-cli/supported-languages-environments) 
