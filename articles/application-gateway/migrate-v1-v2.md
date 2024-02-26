@@ -1,6 +1,6 @@
 ---
 title: Migrate from V1 to V2 - Azure Application Gateway
-description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2
+description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -31,7 +31,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 * An existing Application Gateway V1 Standard.
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-* Ensure that there is no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+* Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
 * If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 * Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 
@@ -54,7 +54,7 @@ An Azure PowerShell script is provided in this document. It performs the followi
 
 ## Downloading the script
 
-You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available, which includes major updates and  bug fixes. It is recommended to use this stable version.
+You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available, which includes major updates and  bug fixes. It's recommended to use this stable version.
 
 
 ## Using the script
@@ -82,7 +82,7 @@ This command also installs the required Az modules.
 #### Install using the script directly
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
-Version 1.0.11 is the new version of the migration script which includes major bug fixes. It is recommended to use this stable version.
+Version 1.0.11 is the new version of the migration script which includes major bug fixes. It's recommended to use this stable version.
 
 #### How to check the version of the downloaded script
 To check the version of the downloaded script the steps are as follows:
@@ -141,7 +141,7 @@ To run the script:
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended. 
    * **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
  > [!NOTE]
-> Ensure that there is no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
      This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
@@ -194,8 +194,8 @@ To run the script:
    * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
       If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address is not provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 
-   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
+   * **validateMigration: [switch]: Optional**. Use this parameter to enable the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter to enable the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 
 5. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
