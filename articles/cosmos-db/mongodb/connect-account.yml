@@ -106,4 +106,4 @@ relatedContent:
   - text: Connect to an Azure Cosmos DB account using Studio 3T
     url: connect-using-mongochef.md
   - text: Use Robo 3T with Azure Cosmos DB's API for MongoDB
-    url: connect-using-robomongo.md)
+    url: connect-using-robomongo.md
