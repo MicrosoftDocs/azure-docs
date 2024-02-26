@@ -797,7 +797,7 @@
         - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
         - name: Use managed identities to access data
-          href: ../managed-identity-based-authentication.ymll
+          href: ../managed-identity-based-authentication.yml
         - name: Migrate to passwordless authentication
           href: migrate-passwordless.md
           displayName: msi, managed service identity, aad, azure active directory, identity
