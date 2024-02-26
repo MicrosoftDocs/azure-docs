@@ -30,11 +30,11 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
   
-  For more guidance, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
+  For more information, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 #### Scenario 2: Using debug sessions with parallel activities
 
-  When triggering a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This situation can lead to cluster failure problems while running because of resource issues, such as being out of memory.<br/>
+  When you trigger a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This situation can lead to cluster failure problems while running because of resource issues, such as being out of memory.<br/>
   
   To submit a run with the appropriate integration runtime configuration defined in the pipeline activity after publishing the changes, select **Trigger Now** or **Debug** > **Use Activity Runtime**.
 
@@ -42,7 +42,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Transient issues with microservices involved in the execution can cause the run to fail.<br/>
   
-  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](concepts-pipelines-activities.md#activity-json).
+  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more information, see [Activity Policy](concepts-pipelines-activities.md#activity-json).
 
 
 ## Common error codes and messages 
@@ -83,7 +83,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
 - **Cause**: Operation isn't supported.
-- **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Azure Data Explorer.
+- **Recommendation**: Change **Update method** configuration as delete, update, and upsert are not supported in Azure Data Explorer.
 
 ### Error code: DF-AzureDataExplorer-ReadTimeout
 
@@ -99,9 +99,9 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Blob-FunctionNotSupport
 
-- **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Disable these account features if you would like to use this endpoint.
+- **Message**: This endpoint does not support BlobStorageEvents, SoftDelete, or AutomaticSnapshot. Disable these account features if you would like to use this endpoint.
 - **Cause**: Azure Blob Storage events, soft delete or automatic snapshot isn't supported in data flows if the Azure Blob Storage linked service is created with service principal or managed identity authentication.
-- **Recommendation**: Disable Azure Blob Storage events, soft delete or automatic snapshot feature on the Azure Blob account, or use key authentication to create the linked service.
+- **Recommendation**: Disable Azure Blob Storage events, soft delete, or automatic snapshot feature on the Azure Blob account, or use key authentication to create the linked service.
 
 ### Error code: DF-Blob-InvalidAccountConfiguration
 
@@ -323,7 +323,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Broadcast has a default timeout of 60 seconds on debug runs and 300 seconds on job runs. The stream chosen for broadcast is too large to produce data within this limit.
 - **Recommendation**: Check the **Optimize** tab on your data flow transformations for join, exists, and lookup. The default option for broadcast is **Auto**. If **Auto** is set, or if you're manually setting the left or right side to broadcast under **Fixed**, you can either set a larger Azure integration runtime (IR) configuration or turn off broadcast. For the best performance in data flows, we recommend that you allow Spark to broadcast by using **Auto** and use a memory-optimized Azure IR.
 
-  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. The more frequent occurences of the error are because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
+  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. The more frequent occurence of the error is because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
 
 - **Message**: Broadcast join timeout error. You can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance, then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
@@ -363,9 +363,9 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Possible causes are,
     - The linked service is incorrectly configured as type 'Azure Blob Storage' instead of 'Azure DataLake Storage Gen2' and it has 'Hierarchical namespace' enabled. Create a new linked service of type 'Azure DataLake Storage Gen2' for the storage account in question.
-    - Certain scenarios with any combinations of 'Clear the folder', non-default 'File name option', 'Key' partitioning may fail with a Blob linked service on a 'Hierarchical namespace' enabled storage account. You can disable these dataflow settings (if enabled) and try again in case you do not want to create a new Gen2 linked service.
+    - Certain scenarios with any combinations of 'Clear the folder', nondefault 'File name option', 'Key' partitioning may fail with a Blob linked service on a 'Hierarchical namespace' enabled storage account. You can disable these dataflow settings (if enabled) and try again in case you do not want to create a new Gen2 linked service.
 - **Cause**: Delete operation on the Azure Data Lake Storage Gen2 account failed since its linked service is incorrectly configured as Azure Blob Storage.
-- **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account. If that's not feasible, some known scenarios like **Clear the folder**, non-default **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
+- **Recommendation**: Create a new Azure Data Lake Storage Gen2 linked service for the storage account. If that's not feasible, some known scenarios like **Clear the folder**, nondefault **File name option**, **Key** partitioning in any combinations may fail with an Azure Blob Storage linked service on a hierarchical namespace enabled storage account. You can disable these data flow settings if you enabled them and try again.
 
 ### Error code: DF-Executor-InternalServerError
 
@@ -633,7 +633,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-MSSQL-InvalidAuthConfiguration
 
-- **Message**: Only one of the three auth methods (Key, ServicePrincipal and MI) can be specified.
+- **Message**: Only one of the three auth methods (Key, ServicePrincipal, and MI) can be specified.
 - **Cause**: An invalid authentication method is provided in the MSSQL linked service.
 - **Recommendation**: You can only specify one of the three authentication methods (Key, ServicePrincipal and MI) in the related MSSQL linked service.
 
@@ -678,7 +678,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Failed to execute dataflow with invalid run mode.
 - **Cause**: Possible causes are:
     1. Only the read mode `fullLoad` can be specified when `enableCdc` is false.
-    1. Only the run mode `incrementalLoad` or `fullAndIncrementalLoad` can be specified when `enableCdc` is true.
+    1. Only the run modes `incrementalLoad` or `fullAndIncrementalLoad` can be specified when `enableCdc` is true.
     1. Only `fullLoad`, `incrementalLoad` or `fullAndIncrementalLoad` can be specified.
 - **Recommendation**: Reconfigure the activity and run again. If the issue persists, contact Microsoft support for further assistance.
 
@@ -852,7 +852,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SAPODP-StageStorageServicePrincipalCertNotSupport
 
-- **Message**: Read from staging storage failed: Staging storage auth not support service principal cert.
+- **Message**: Read from staging storage failed: Staging storage auth doesn't support service principal cert.
 - **Cause**: The service principal certificate credential isn't supported for the staging storage.
 - **Recommendation**: Change your authentication to not use the service principal certificate credential.
 
