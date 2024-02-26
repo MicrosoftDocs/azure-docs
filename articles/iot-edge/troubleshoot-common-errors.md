@@ -76,7 +76,7 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 #### Cause
 
 * By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
-* If using a snap installation of IoT Edge, the Docker configuration file is not in the default location. See solution option 3.
+* If using a snap installation of IoT Edge, the Docker configuration file is a different location. See solution option 3.
 
 #### Solution
 
@@ -125,9 +125,7 @@ Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as w
 
 If IoT Edge is installed as a snap, use the `--container-engine-config-file` parameter to specify the location of the Docker configuration file. For example, if the Docker configuration file is located at `/var/snap/docker/current/config/daemon.json`, run the following command: `iotedge check --container-engine-config-file '/var/snap/docker/current/config/daemon.json'`.
 
-Currently, the warning message continues to appear in the output of *iotedge check* even after you've set the the configuration file location. Check reports the error because the IoT Edge snap doesn't have read access to the Docker snap. If you use *iotedge check* in your release process, you can suppress the the warning message by using the `--ignore container-engine-dns container-engine-logrotate` parameter.
-
-```bash
+Currently, the warning message continues to appear in the output of *iotedge check* even after you've set the configuration file location. Check reports the error because the IoT Edge snap doesn't have read access to the Docker snap. If you use *iotedge check* in your release process, you can suppress the the warning message by using the `--ignore container-engine-dns container-engine-logrotate` parameter.
 
 ### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
 
@@ -278,7 +276,7 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 
 #### Cause
 
-The IoT Edge runtime enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
+The IoT Edge runtime enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it rejects the message with a 404 error message.
 
 #### Solution
 

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/09/2024
+ms.date: 02/26/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -260,7 +260,6 @@ sudo snap connect azure-iot-edge:run-iotedge
 
 # Connect IoT Edge to Docker
 
-sudo snap connect azure-iot-edge:docker-executables docker:docker-executables
 sudo snap connect azure-iot-edge:docker docker:docker-daemon
 ```
 
