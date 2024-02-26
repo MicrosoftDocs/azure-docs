@@ -135,6 +135,10 @@ To deploy a `war` instead of a `jar`, change the `package` value.
         package: my/target/*.war
 ```
 
+# [TomCat](#tab/tomcat)
+
+TODO
+
 # [Node.js](#tab/nodejs)
 
 Build and deploy a Node.js app to Azure using the app's publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.

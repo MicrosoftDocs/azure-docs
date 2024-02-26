@@ -28,7 +28,7 @@ When you enable continuous deployment, the app creation wizard automatically pic
 
 | Basic authentication selection | Authentication method |
 |-|-|
-|Disable| [User-assigned identity (OpenID Connect)](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions) |
+|Disable| [User-assigned identity (OpenID Connect)](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions) (recommended) |
 |Enable| [Basic authentication](configure-basic-auth-disable.md) |
 
 > [!NOTE]
@@ -46,7 +46,7 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 ## Set up a GitHub Actions workflow manually
 
-You can also deploy a workflow without using the Deployment Center.
+You can also deploy a workflow without using the Deployment Center. In that case you need to perform 3 steps:
 
 1. [Generate deployment credentials](#1-generate-deployment-credentials)
 1. [Configure the GitHub secret](#2-configure-the-github-secret)
@@ -54,57 +54,13 @@ You can also deploy a workflow without using the Deployment Center.
 
 ### 1. Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with a user-defined managed identity, and the easiest way for that is by [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md)  instead and selecting **User-assigned managed identity**.
+The recommended way to authenticate with Azure App Services for GitHub Actions is with OpenID Connect. This is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
 
-> [!NOTE]
-> Authentication using a user-assigned managed identity is currently in preview. 
-
-Alternatively, you can authenticate with a service principal, OpenID Connect, or a publish profile. 
-
-# [Publish profile](#tab/applevel)
-
-> [!NOTE]
-> Publish profile requires [basic authentication](configure-basic-auth-disable.md) to be enabled.
-
-A publish profile is an app-level credential. Set up your publish profile as a GitHub secret. 
-
-1. Go to your app service in the Azure portal. 
-
-1. On the **Overview** page, select **Get Publish profile**.
-
-1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
-
-> [!NOTE]
-> As of October 2020, Linux web apps needs the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
-
-# [Service principal](#tab/userlevel)
-
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
-
-```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor \
-                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --json-auth
-```
-
-In the previous example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following JSON snippet. Copy this JSON object for later.
-
-```output 
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+Alternatively, you can authenticate with a User-assigned Managed Identity, a service principal, or a publish profile. 
 
 # [OpenID Connect](#tab/openid)
 
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
+The below runs you through the steps for creating an active directory application, service principal, and federated credentials using Azure CLI statements. To learn how to create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
 1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
@@ -154,13 +110,79 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
         ]
     }     
     ```
-    
-To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
+# [User-assigned Managed Identity](#tab/userMI)
+
+For configuring a user-defined managed identity, the easiest way for that is by [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) instead and selecting **User-assigned managed identity**.
+
+> [!NOTE]
+> Authentication using a user-assigned managed identity is currently in preview. 
+
+# [Publish profile](#tab/applevel)
+
+> [!NOTE]
+> Publish profile requires [basic authentication](configure-basic-auth-disable.md) to be enabled.
+
+A publish profile is an app-level credential. Set up your publish profile as a GitHub secret. 
+
+1. Go to your app service in the Azure portal. 
+
+1. On the **Overview** page, select **Get Publish profile**.
+
+1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
+
+> [!NOTE]
+> As of October 2020, Linux web apps needs the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
+
+# [Service principal](#tab/userlevel)
+
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
+                            --json-auth
+```
+
+In the previous example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following JSON snippet. Copy this JSON object for later.
+
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
+
+> [!IMPORTANT]
+> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 ---
 
 ### 2. Configure the GitHub secret
 
+
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the [Azure/login](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
+
+# [User-assigned Managed Identity](#tab/userMI)
+
+If you followed the steps at [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) and selected **User-assigned managed identity**, the GitHub secret will be filled out for you.
 
 # [Publish profile](#tab/applevel)
 
@@ -190,22 +212,6 @@ When you configure the GitHub workflow file later, you use the secret for the in
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-# [OpenID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the [Azure/login](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
 ---
 
 ### 3. Add the workflow file to your GitHub repository
@@ -222,6 +228,14 @@ To deploy your code to an App Service app, you use the [azure/webapps-deploy@v3]
 
 The following examples show the part of the workflow that builds the web app, in different supported languages.
 
+# [OpenID Connect](#tab/openid)
+
+[!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
+
+# [User-assigned Managed Identity](#tab/userMI)
+
+If you followed the steps at [configuring GitHub Actions deployment directly in the portal](deploy-continuous-deployment.md) and selected **User-assigned managed identity**, the GitHub workflow file will be created for you. You can find it in the `.github/workflows` folder of your repository.
+
 # [Publish profile](#tab/applevel)
 
 [!INCLUDE [deploy-github-actions-publish-profile](includes/deploy-github-actions/deploy-github-actions-publish-profile.md)]
@@ -229,10 +243,6 @@ The following examples show the part of the workflow that builds the web app, in
 # [Service principal](#tab/userlevel)
 
 [!INCLUDE [deploy-github-actions-service-principal](includes/deploy-github-actions/deploy-github-actions-service-principal.md)]
-
-# [OpenID Connect](#tab/openid)
-
-[!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
 
 -----
 

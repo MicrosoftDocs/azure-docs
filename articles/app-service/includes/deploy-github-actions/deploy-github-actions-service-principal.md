@@ -145,6 +145,10 @@ jobs:
         az logout
 ```
 
+# [TomCat](#tab/tomcat)
+
+TODO
+
 # [Node.js](#tab/nodejs)
 
 Build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
