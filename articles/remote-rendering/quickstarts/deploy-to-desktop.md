@@ -32,7 +32,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 # [Standalone](#tab/UnityStandalone)
 
-1. In the standalone build VR support is automatically disabled. No steps are needed here.
+In the standalone build VR support is automatically disabled. No steps are needed here.
 
 # [UWP](#tab/UnityUWP)
 
@@ -40,7 +40,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **XR Plugin Management** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
 1. Disable **OpenXR**.\
-    ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2020 and later](./media/unity-2020-disable-xr.png)
+    ![A screenshot showing the Project Settings menu with a disabled "OpenXR" setting.](./media/unity-2020-disable-xr.png)
 
 ---
 
@@ -51,7 +51,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Open *File > Build Settings*.
 1. Change *Platform* to **PC, Mac & Linux Standalone**
 1. Set *Target Platform* to **Windows**.\
-  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'PC, Mac & Linux Standalone', and the setting 'Target Platform' being 'Windows' in Unity 2021 and later.](./media/unity-2021-build-settings-pc-standalone.png)
+  ![A screenshot showing the Build Menu with the settings set for a standalone build.](./media/unity-2021-build-settings-pc-standalone.png)
 1. Select **Switch Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the *.exe* should be stored.
 
@@ -59,7 +59,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
-  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2021 and later.](./media/unity-2021-build-settings-pc.png)
+  ![A screenshot showing the Build Menu with the settings set for a UWP build.](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
@@ -76,7 +76,7 @@ Building in standalone mode does not produce a Visual Studio solution, but inste
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
-  ![A screenshot showing the Visual Studio and highlighting the 'Solution Configurations' being Release, the 'Solution Platforms' being 'x86' and the 'Debugger mode' being 'Local Machine'.](./media/unity-deploy-config-pc.png)
+  ![A screenshot showing the Visual Studio configuration and debugger mode](./media/unity-deploy-config-pc.png)
 1. Build the solution.
 
 ---

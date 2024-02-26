@@ -75,7 +75,7 @@ You now have an ETL file that you can open in WPA.
 
 To record a trace on a HoloLens, boot up your device and enter its IP address into a browser to open up the *Device Portal*.
 
-![Device Portal](./media/wpr-hl.png)
+![Device Portal](./media/wpr-hololens.png)
 
 1. On the left, navigate to *Performance > Performance Tracing*.
 1. Select **Custom profiles**

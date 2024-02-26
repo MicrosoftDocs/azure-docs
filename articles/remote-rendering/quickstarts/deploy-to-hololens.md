@@ -33,7 +33,7 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
-    ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2021 and later.](./media/unity-2021-build-settings-hl.png)
+    ![A screenshot showing the Build Menu with the settings set for a UWP build in Unity 2021 or later.](./media/unity-2021-build-settings-hololens.png)
 1. Select **Switch Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
 
@@ -41,7 +41,7 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform**\
-    ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button in Unity 2020.](./media/unity-2020-build-settings-hl.png)
+    ![A screenshot showing the Build Menu with the settings set for a UWP build in Unity 2020.](./media/unity-2020-build-settings-hololens.png)
 1. Select **Switch Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
 
@@ -52,7 +52,7 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 1. Open the generated **Quickstart.sln** with Visual Studio
 1. Change the configuration to **Release** and **ARM64**
 1. Switch the debugger mode to **Remote Machine**\
-    ![A screenshot showing the Visual Studio and highlighting the 'Solution Configurations' being Release, the 'Solution Platforms' being 'ARM64' and the 'Debugger mode' being 'Remote Windows Debugger'.](media/unity-deploy-config.png)
+    ![A screenshot showing the Visual Studio configuration and debugger mode.](media/unity-deploy-config.png)
 1. Build the solution
 1. In the Solution Explorer, select the 'Quickstart' project
     1. Go to *Properties*

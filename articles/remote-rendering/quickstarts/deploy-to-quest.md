@@ -46,7 +46,7 @@ Make sure your Quest device is connected to the PC and side-loading APKs via `ad
 1. Change *Platform* to **Android**
 1. If you want to be able to debug the APK, enable *Development Build*.
 1. Select **Switch Platform**
-    ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Android', the 'Switch Platform' button, and the setting 'Development Build' in Unity 2020.](media/unity-deploy-config-android.png)
+    ![A screenshot showing the Build Menu with the settings set for an Android build in Unity.](media/unity-deploy-config-android.png)
 1. When pressing **Build** (or 'Build And Run'), you're asked to select a folder where the APK should be stored.
 1. Once the APK file is finished, it needs to be deployed to your device using `adb`.
 1. Open a command prompt, navigate to the APK file and run `adb install <YourFileName.apk>`
