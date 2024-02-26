@@ -31,7 +31,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 * An existing Application Gateway V1 Standard.
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-* Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+* Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
 * If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 * Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 
@@ -141,7 +141,7 @@ To run the script:
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended. 
    * **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
  > [!NOTE]
-> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
 
      This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
@@ -224,7 +224,7 @@ To run the script:
 * If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * NTLM and Kerberos authentication isn't supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
-* WAFv2 will be created in old WAF config mode, migration to WAF policy is required.
+* WAFv2 is created in old WAF config mode; migration to WAF policy is required.
 
 ## Traffic migration
 
