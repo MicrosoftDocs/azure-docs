@@ -57,7 +57,8 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
       "Actions": [
         "Microsoft.Authorization/denyAssignments/read",
         "Microsoft.Authorization/roleAssignments/read",
-        "Microsoft.Authorization/roleDefinitions/read"
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.Authorization/checkAccess/read"
       ],
       "NotActions": [],
       "DataActions": [],
