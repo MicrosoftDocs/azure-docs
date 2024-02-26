@@ -35,7 +35,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 February 27, 2024
 
-The security policy management solution, initially released in Preview for Azure, is now  released in Preview also for AWS and GCP environments. With this release, you can [manage recommendations provided by MCSB](manage-mcsb.md), [assign custom compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud, and [create custom security recommendations for your AWS and GCP environments using a new and simplified wizard](create-custom-recommendations), helping security admins streamline the management of security policies across clouds environments. 
+The security policy management solution, initially released in Preview for Azure, is now  released in Preview also for AWS and GCP environments. With this release, you can [manage recommendations provided by MCSB](manage-mcsb.md), [assign custom compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud, and [create custom security recommendations for your AWS and GCP environments using a new and simplified wizard](create-custom-recommendations), helping security admins streamline security policy management across clouds. 
 
 ### Cloud support for Defender for Containers
 
