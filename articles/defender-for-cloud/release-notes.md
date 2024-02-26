@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| February 27 | [Security policy management now available across clouds](#security-policy-management-now-available-across-clouds) |
 | February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
