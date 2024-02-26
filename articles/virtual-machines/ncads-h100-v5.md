@@ -11,13 +11,9 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-#  NCads H100 v5-series  (Preview)
+#  NCads H100 v5-series 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
-> [!IMPORTANT]
-> The NCads H100 v5 Series is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
-
 
 The NCads H100 v5 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
 
@@ -75,7 +71,7 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator: Not available during preview.
+You can [use the pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your Azure VMs costs.
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
