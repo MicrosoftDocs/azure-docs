@@ -31,7 +31,7 @@ Microsoft Security DevOps uses the following Open Source tools:
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
-- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository.
+- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository. This includes setting "id-token: write" permissions in the GitHub Workflow for federation with Defender for Cloud.
 
 ## Configure the Microsoft Security DevOps GitHub action
 
@@ -71,7 +71,11 @@ Microsoft Security DevOps uses the following Open Source tools:
         # MSDO runs on windows-latest.
         # ubuntu-latest also supported
         runs-on: windows-latest
-
+    
+        permissions:
+          contents: read
+          id-token: write
+    
         steps:
 
           # Checkout your code repository to scan
