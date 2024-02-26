@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.date: 01/05/2024
 ---
 
-# Troubleshoot mapping data flows in Azure Data Factory
+# Troubleshoot mapping data flows in Azure Data Factory (ADF)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -232,8 +232,8 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-DELTA-KeyColumnMissed
 
 - **Message**: Key column(s) should be specified for non-insertable operations.
-- **Cause**: Key column(s) are missed for non-insertable operations.
-- **Recommendation**: To have non-insertable operations, specify key column(s) on delta sink.
+- **Cause**: Key columns are missed for non-insertable operations.
+- **Recommendation**: To have non-insertable operations, specify key columns on delta sink.
 
 ### Error code: DF-Dynamics-InvalidNullAlternateKeyColumn 
 
@@ -487,7 +487,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Column operands are not allowed in literal expressions.
 - **Cause**: The value for a string parameter or an expected string value is not enclosed in single quotes.
-- **Recommendation**: Near the mentioned line number(s) in the data flow script, ensure the value for a string parameter or an expected string value is enclosed in single quotes.
+- **Recommendation**: Near the mentioned line numbers in the data flow script, ensure the value for a string parameter or an expected string value is enclosed in single quotes.
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 
@@ -526,7 +526,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 -	**Message**: Data flow script cannot be parsed.
 -	**Cause**: The data flow script has parsing errors.
--	**Recommendation**: Check for errors (example: missing symbol(s), unwanted symbol(s)) near mentioned line number(s) in the data flow script.
+-	**Recommendation**: Check for errors (example: missing symbols, unwanted symbols) near mentioned line numbers in the data flow script.
 
 ### Error code: DF-Executor-IncorrectQuery
 
@@ -536,8 +536,8 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-ParameterParseError
 -	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameter(s) could be one of the causes.
--	**Cause**: Parsing errors in given parameter(s).
--	**Recommendation**: Check the parameter(s) having errors, ensure the usage of appropriate function(s), and honor the datatype(s) given.
+-	**Cause**: Parsing errors in given parameters.
+-	**Recommendation**: Check the parameters having errors, ensure the usage of appropriate functions, and honor the datatypes given.
 
 ### Error code: DF-File-InvalidSparkFolder
 
@@ -548,7 +548,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-GEN2-InvalidAccountConfiguration
 
 - **Message**: Either one of account key or SAS token or tenant/spnId/spnCredential/spnCredentialType or userAuth or miServiceUri/miServiceToken should be specified.
-- **Cause**: An invalid credential is provided in the ADLS Gen2 linked service.
+- **Cause**: An invalid credential is provided in the Azure Data Lake Storage (ADLS) Gen2 linked service.
 - **Recommendation**: Update the ADLS Gen2 linked service to have the right credential configuration.
 
 ### Error code: DF-GEN2-InvalidAuthConfiguration
@@ -590,7 +590,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Hive-InvalidDataType
 
 - **Message**: Unsupported Column(s).
-- **Cause**: Unsupported Column(s) are provided.
+- **Cause**: Unsupported Columns are provided.
 - **Recommendation**: Update the column of input data to match the data type supported by the Hive.
 
 ### Error code: DF-Hive-InvalidGen2StagingConfiguration
@@ -612,7 +612,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-JSON-WrongDocumentForm
 
 - **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json file(s). Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
-- **Cause**: Wrong document form is selected to parse JSON file(s).
+- **Cause**: Wrong document form is selected to parse JSON files.
 - **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
 
 ### Error code: DF-MICROSOFT365-CONSENTPENDING
@@ -652,7 +652,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-MSSQL-InvalidDataType
 
 - **Message**: Unsupported field(s).
-- **Cause**: Unsupported field(s) are provided.
+- **Cause**: Unsupported fields are provided.
 - **Recommendation**: Modify the input data column to match the data type supported by MSSQL.
 
 ### Error code: DF-MSSQL-InvalidFirewallSetting
@@ -775,8 +775,8 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Cause**: Mostly you have hidden column settings in your SAP table. When you use SAP mapping data flow to read data from SAP server, it returns all the schema (columns, including hidden ones), but returned data do not contain related values. So, data misalignment happened and led to parse value issue or wrong data value issue.  
 - **Recommendation**: There are two recommendations for this issue： 
-    1. Remove hidden settings from the related column(s) through SAP GUI.   
-    2. If you want to keep existed SAP settings unchanged, use hidden feature (manually add DSL property `enableProjection:true` in script) in SAP mapping data flow to filter the hidden column(s) and continue to read data.  
+    1. Remove hidden settings from the related columns through the SAP user interface.   
+    2. If you want to keep existed SAP settings unchanged, use hidden feature (manually add DSL property `enableProjection:true` in script) in SAP mapping data flow to filter the hidden columns and continue to read data.  
 
 ### Error code: DF-SAPODP-ObjectInvalid
 
@@ -888,7 +888,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-DependencyNotFound
 - **Message**: Could not load file or assembly 'sapnco, Version=*
 - **Cause**: You don't download and install SAP .NET connector on the machine of the self-hosted integration runtime.
-- **Recommendation**: Follow [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md) to set up the self-hosted integration runtime for the SAP CDC connector.
+- **Recommendation**: Follow [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md) to set up the self-hosted integration runtime for the SAP Change Data Capture (CDC) connector.
 
 ### Error code: DF-SAPODP-NoAuthForFunctionModule
 - **Message**: No REF authorization for function module RODPS_REPL_CONTEXT_GET_LIST
@@ -935,8 +935,8 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Snowflake-IncompatibleDataType
 
 - **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
-- **Cause**: The column(s) type of input data which is string is different from the related column(s) type in the Snowflake sink transformation which is VARIANT.
-- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data column(s) is JSON or XML or other string, use a parse transformation before the Snowflake sink transformation to covert value into struct, map or array type.
+- **Cause**: The column's type of input data which is string is different from the related column's type in the Snowflake sink transformation which is VARIANT.
+- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data columns is JSON or XML or other string, use a parse transformation before the Snowflake sink transformation to covert value into struct, map or array type.
 
 ### Error code: DF-Snowflake-InvalidDataType
 
