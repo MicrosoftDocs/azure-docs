@@ -633,6 +633,51 @@ print(response)
 ```
 ---
 
+> [!IMPORTANT]
+> The `"dataSources"` object's content varies depending on which Azure resource type and authentication method you're using. See the following reference:
+
+#### [Azure OpenAI resource](#tab/resource)
+
+```json
+"dataSources": [
+{
+    "type": "AzureComputerVisionVideoIndex",
+    "parameters": {
+    "endpoint": "<your_computer_vision_endpoint>",
+    "computerVisionApiKey": "<your_computer_vision_key>",
+    "indexName": "<name_of_your_index>",
+    "videoUrls": ["<your_video_SAS_URL>"]
+    }
+}],
+```
+
+#### [Azure AIServices resource + SAS authentication](#tab/resource)
+
+```json
+"dataSources": [
+{
+    "type": "AzureComputerVisionVideoIndex",
+    "parameters": {
+    "indexName": "<name_of_your_index>",
+    "videoUrls": ["<your_video_SAS_URL>"]
+    }
+}],
+```	
+
+#### [Azure AIServices resource + Managed Identities](#tab/resource)
+
+```json
+"dataSources": [
+{
+    "type": "AzureComputerVisionVideoIndex",
+    "parameters": {
+        "indexName": "<name_of_your_index>",
+        "documentAuthenticationKind": "managedidentity",
+    }
+}],
+```	
+---
+
 ### Output
 
 The chat responses you receive from the model should include information about the video. The API response should look like the following.
