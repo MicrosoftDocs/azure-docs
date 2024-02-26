@@ -42,7 +42,7 @@ The following [standard columns](log-standard-columns.md) are common to all tabl
 
 ### Excluded tables
 
-Some tables are free from data ingestion charges altogether, including [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage), and [Operation](/azure/azure-monitor/reference/tables/operation). This information will always be indicated by the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion.
+Some tables are free from data ingestion charges altogether, including [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage), and [Operation](/azure/azure-monitor/reference/tables/operation). This information will always be indicated by the [_IsBillable](log-standard-columns.md#_isbillable) column, which indicates whether a record was excluded from billing for data ingestion, retention and archive.
 
 ### Charges for other solutions and services
 

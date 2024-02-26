@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 2/21/2024
+ms.date: 2/22/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -30,7 +30,9 @@ At this time, the side by side migration feature supports migrations to App Serv
 ### Azure Public
 
 - East Asia
+- North Europe
 - West Central US
+- West US 2
 
 The following App Service Environment configurations can be migrated using the side by side migration feature. The table gives the App Service Environment v3 configuration when using the side by side migration feature based on your existing App Service Environment.
 
@@ -169,7 +171,9 @@ The new default outbound to the internet public addresses are given so you can a
 
 ### Redirect customer traffic and complete migration
 
-The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. You can do this review using the IPs associated with your App Service Environment v3 from the IP generation steps. Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3. Changes are effective immediately. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
+The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Your App Service Environment v2 frontends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+
+Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the frontends that were created during the migration. Changes are effective immediately. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
 
 > [!IMPORTANT]
 > During the preview, in some cases there may be up to 20 minutes of downtime when you complete the final step of the migration. This downtime is due to the DNS change. The downtime is expected to be removed once the feature is generally available. If you have a requirement for zero downtime, you should wait until the side by side migration feature is generally available. During preview, however, you can still use the side by side migration feature to migrate your dev environments to App Service Environment v3 to learn about the migration process and see how it impacts your workloads.

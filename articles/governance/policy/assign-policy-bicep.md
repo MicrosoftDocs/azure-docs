@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Bicep file"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using a Bicep file.
-ms.date: 02/20/2024
+ms.date: 02/23/2024
 ms.topic: quickstart
 ms.custom: subject-bicepqs, devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ In this quickstart, you use a Bicep file to create a policy assignment that vali
 
 ## Review the Bicep file
 
-The Bicep file creates a policy assignment for a resource group scope and assigns the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json). For a list of available built-in policies, see [Azure Policy samples](./samples/index.md).
+The Bicep file creates a policy assignment for a resource group scope and assigns the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
 
 Create the following Bicep file as _policy-assignment.bicep_.
 
@@ -100,6 +100,8 @@ Get-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights' |
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
 ```
 
+For more information, go to [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) and [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -110,6 +112,8 @@ az provider show \
 
 az provider register --namespace Microsoft.PolicyInsights
 ```
+
+The Azure CLI commands use a backslash (`\`) for line continuation to improve readability. For more information, go to [az provider](/cli/azure/provider).
 
 ---
 
@@ -146,7 +150,7 @@ az deployment group create \
   --template-file policy-assignment.bicep
 ```
 
-The `rgname` variable uses an expression to get your resource group's name used in the deployment command. The Azure CLI commands use a backslash (`\`) for line continuation to improve readability.
+The `rgname` variable uses an expression to get your resource group's name used in the deployment command.
 
 - `name` is the deployment name displayed in the output and in Azure for the resource group's deployments.
 - `resource-group` is the name of your resource group where the policy is assigned.
@@ -174,6 +178,8 @@ SubscriptionId     : {subscriptionId}
 PolicyAssignmentId : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks
 Properties         : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementation.Policy.PsPolicyAssignmentProperties
 ```
+
+For more information, go to [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -208,6 +214,8 @@ The output is verbose but resembles the following example:
   }
 ]
 ```
+
+For more information, go to [az policy assignment](/cli/azure/policy/assignment).
 
 ---
 
@@ -258,6 +266,8 @@ ComplianceState          : NonCompliant
 AdditionalProperties     : {[complianceReasonCode, ]}
 ```
 
+For more information, go to [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -270,9 +280,7 @@ policyid=$(az policy assignment show \
 az policy state list --resource $policyid --filter "(isCompliant eq false)"
 ```
 
-The `policyid` variable uses an expression to get the policy assignment's ID.
-
-The `filter` parameter limits the output to non-compliant resources.
+The `policyid` variable uses an expression to get the policy assignment's ID. The `filter` parameter limits the output to non-compliant resources.
 
 The `az policy state list` output is verbose, but for this article the `complianceState` shows `NonCompliant`.
 
@@ -282,6 +290,8 @@ The `az policy state list` output is verbose, but for this article the `complian
 "effectiveParameters": "",
 "isCompliant": false,
 ```
+
+For more information, go to [az policy state](/cli/azure/policy/state).
 
 ---
 
