@@ -18,15 +18,15 @@ This article describes how to enable disaster recovery of Azure virtual machines
 >Only crash consistent recovery points are supported for storage spaces direct clusters.
 
 
-[Storage spaces direct (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is software-defined storage, which provides a way to create [guest clusters](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) on Azure.  A guest cluster in Microsoft Azure is a failover cluster comprised of IaaS virtual machines. It allows hosted virtual machine workloads to fail over across guest clusters, achieving higher availability SLA for applications, than a single Azure virtual machine can provide. It is useful in scenarios where a virtual machine hosts a critical application like SQL or scale-out file server.
+[Storage spaces direct (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is software-defined storage, which provides a way to create [guest clusters](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) on Azure.  A guest cluster in Microsoft Azure is a failover cluster comprised of IaaS virtual machines. It allows hosted virtual machine workloads to fail over across guest clusters, achieving higher availability SLA for applications than a single Azure virtual machine can provide. It is useful in scenarios where a virtual machine hosts a critical application like SQL or scale-out file server.
 
 ## Disaster recovery with storage spaces direct
 
 In a typical scenario, you may have virtual machines guest cluster on Azure for higher resiliency of your application like Scale out file server. While this can provide your application higher availability, you would like to protect these applications using Site Recovery for any region level failure. Site Recovery replicates the data from one region to another Azure region and brings up the cluster in disaster recovery region in an event of failover.
 
-Below diagram shows a two-node Azure virtual machine failover cluster using storage spaces direct.
+Following diagram shows a two-node Azure virtual machine failover cluster using storage spaces direct.
 
-![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
+![Screenshot of storage spaces.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
 
 - Two Azure virtual machines in a Windows Failover Cluster and each virtual machine have two or more data disks.
@@ -37,8 +37,8 @@ Below diagram shows a two-node Azure virtual machine failover cluster using stor
 **Disaster Recovery Considerations**
 
 1. When you are setting up [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) for the cluster, keep witness in the Disaster Recovery region.
-2. If you are going to fail over the virtual machines to the subnet on the disaster recovery region, which is different from the source region then cluster IP address needs to be change after failover.  To change IP of the cluster, you need to use the Site Recovery [recovery plan script.](./site-recovery-runbook-automation.md)</br>
-[Sample script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) to execute command inside virtual machine using custom script extension 
+2. If you are going to fail over the virtual machines to the subnet on the disaster recovery region, which is different from the source region, then cluster IP address needs to be changed after failover.  To change IP of the cluster, you need to use the Site Recovery [recovery plan script.](./site-recovery-runbook-automation.md)</br>
+[Sample script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) to execute command inside virtual machine using custom script extension.
 
 ### Enabling Site Recovery for S2D cluster:
 
@@ -61,7 +61,7 @@ A recovery plan supports the sequencing of various tiers in a multi-tier applica
 ### Adding virtual machines to failover groups
 
 1.	Create a recovery plan by adding the virtual machines.
-2.	Select on 'Customize' to group the virtual machines. By default, all virtual machines are part of `Group 1`.
+2.	Select **Customize** to group the virtual machines. By default, all virtual machines are part of `Group 1`.
 
 
 ### Add scripts to the recovery plan
@@ -71,9 +71,9 @@ For your applications to function correctly, you might need to do some operation
 
 ### Failover of the virtual machines 
 
-Both the nodes of the virtual machines need to be fail over using the Site Recovery [recovery plan](./site-recovery-create-recovery-plans.md) 
+Both the nodes of the virtual machines need to be failed over using the Site Recovery [recovery plan](./site-recovery-create-recovery-plans.md).
 
-![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
+![Screeshot showing storagespacesdirect protection.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
 ## Run a test failover
 1.	In the Azure portal, select your Recovery Services vault.
