@@ -42,6 +42,8 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 
 ### Register the `DisableSSHPreview` feature flag
 
+To use the **Disable** SSH feature, perform the following steps to register and enable it in your subscription.
+
 1. Register the `DisableSSHPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
     ```azurecli-interactive

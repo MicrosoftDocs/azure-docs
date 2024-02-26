@@ -21,7 +21,7 @@ ms.custom: template-how-to
 **Known issue reference:** This regression is a known issue introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815).<br>
 **Recommended workaround:** Updating Google Chrome to the latest version.<br>
   
-### Chrome Mobile Android
+## Chrome Mobile Android
 
 ### Chrome M115 - No outgoing video in Group and Azure Communication Services-Microsoft Teams calls
 **Browser version:** Google Chrome version 115 (Jul 2023) installed on Android devices.<br>
@@ -67,10 +67,11 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 <br>
 
 ### Some Android devices (A326U, A125U and A215U) failing call scenarios except for group calls
-**Browser versions:** 
+**Devices affected:** 
 - Samsung Galaxy A32 (Model A326U)
 - Samsung Galaxy A12 (Model A125U)
 - Samsung Galaxy A21 (Model A215U)<br>
+
 **Description:**  Many specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, can't recover and fails on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.<br>
     
 ### Rotation of a device can create poor video quality - Google Pixel 3a, Google Pixel 5
@@ -87,7 +88,7 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 **Description:** When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.<br>
 
 
-## iOS Chrome
+## Chrome Mobile iOS
 
 ### No outgoing and incoming audio when switching browser to background or locking the device - fixed in iOS version 16.4+
 **iOS version:** All iOS versions up to iOS 16.3.<br>

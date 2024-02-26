@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/19/2024
+ms.date: 02/26/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,19 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.5         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.5         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.6         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.6         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.6
+
+*Published: February 26, 2024*
+
+In this release, we've made the following changes:
+
+- Bug fixes for issues reported by users and internal telemetry.
+
+>[!IMPORTANT]
+>Starting with verison 10.9.6, the macOS client only supports macOS 12, 13, and 14.
 
 ## Updates for version 10.9.5
 
