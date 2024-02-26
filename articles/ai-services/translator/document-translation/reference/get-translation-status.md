@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 02/09/2024
 ---
 
 # Get translation status
@@ -27,7 +27,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -60,7 +60,7 @@ The following are the possible HTTP status codes that a request returns.
 |401|Unauthorized. Check your credentials.|
 |404|Resource isn't found.|
 |500|Internal Server Error.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Get translation status response
 
@@ -72,8 +72,8 @@ The following information is returned in a successful response.
 |--- |--- |--- |
 |`id`|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
-|lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|lastActionDateTimeUtc|string|Date time in which the operation's status was updated.|
+|status|String|List of possible statuses for job or document: <br>&bullet; Canceled<br>&bullet; Cancelling<br>&bullet; Failed<br>&bullet; NotStarted<br>&bullet; Running<br>&bullet; Succeeded<br>&bullet; ValidationFailed|
 |summary|StatusSummary|Summary containing the listed details.|
 |summary.total|integer|Total count.|
 |summary.failed|integer|Failed count.|
@@ -87,10 +87,10 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|string|Enums containing high-level error codes. Possible values:<br>&bullet; InternalServerError<br>&bullet; InvalidArgument<br>&bullet; InvalidRequest<br>&bullet; RequestRateTooHigh<br>&bullet; ResourceNotFound<br>&bullet; ServiceUnavailable<br>&bullet; Unauthorized|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be `documents` or `document id` for an invalid document.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(it can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error(it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` for invalid document.|
@@ -144,4 +144,4 @@ Status code: 401
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)

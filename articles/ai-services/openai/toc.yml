@@ -203,6 +203,20 @@ items:
          href: ./assistants-reference-messages.md
        - name: Runs
          href: ./assistants-reference-runs.md     
+    - name: Azure OpenAI On Your Data API Reference
+      items:
+        - name: Azure OpenAI On Your Data
+          href: ./references/on-your-data.md
+        - name: Data source - Azure AI Search
+          href: ./references/azure-search.md
+        - name: Data source - Azure Cosmos DB for MongoDB vCore
+          href: ./references/cosmos-db.md
+        - name: Data source - Azure Machine Learning index
+          href: ./references/azure-machine-learning.md
+        - name: Data source - Elasticsearch
+          href: ./references/elasticsearch.md
+        - name: Data source - Pinecone
+          href: ./references/pinecone.md
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 

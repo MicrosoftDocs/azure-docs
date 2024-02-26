@@ -68,7 +68,7 @@ The first step of the support request process is to select an issue type. You'll
 > [!IMPORTANT]
 > In most cases, you'll need to specify a subscription. Be sure to choose the subscription where you are experiencing the problem. The support engineer assigned to your case will only be able to access resources in the subscription you specify. The access requirement serves as a point of confirmation that the support engineer is sharing information to the right audience, which is a key factor for ensuring the security and privacy of customer data. For details on how Azure treats customer data, see [Data Privacy in the Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/privacy/).
 >
-> If the issue applies to multiple subscriptions, you can mention additional subscriptions in your description, or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later. However, the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control). If you don't have the required access for a subscription, we won't be able to work on it as part of your request.
+> If the issue applies to multiple subscriptions, you can mention additional subscriptions in your description, or by [sending a message](how-to-manage-azure-support-request.yml#send-a-message) later. However, the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control). If you don't have the required access for a subscription, we won't be able to work on it as part of your request.
 
 :::image type="content" source="media/how-to-create-azure-support-request/support-request-problem-description.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
@@ -84,7 +84,7 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. Complete the **Problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. Complete the **Problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.yml#file-upload-guidelines).
 
 1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. For details about the types of files we might collect, see [Advanced diagnostic information logs](#advanced-diagnostic-information-logs).
 
@@ -141,7 +141,7 @@ To learn more about self-help support options in Azure, watch this video:
 
 Follow these links to learn more:
 
-- [How to manage an Azure support request](how-to-manage-azure-support-request.md)
+- [How to manage an Azure support request](how-to-manage-azure-support-request.yml)
 - [Azure support ticket REST API](/rest/api/support)
 - Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
 - Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -25,13 +25,13 @@ Azure AI Content Safety is a content moderation service that helps detect harmfu
 
 Create an Azure Content Safety connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **Settings** > **Connections**.
+1. Go to **AI project settings** > **Connections**.
 1. Select **+ New connection**.
 1. Complete all steps in the **Create a new connection** dialog box. You can use an Azure AI hub resource or Azure AI Content Safety resource. An Azure AI hub resource that supports multiple Azure AI services is recommended. 
 
 ## Build with the Content Safety tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Content Safety (Text)** to add the Content Safety tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/content-safety-tool.png" alt-text="Screenshot of the Content Safety tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/content-safety-tool.png":::
@@ -75,8 +75,6 @@ You can use the following parameters as inputs for this tool:
 | ---- | ---- | ----------- | 
 | action_by_category | string | A binary value for each category: *Accept* or *Reject*. This value shows if the text meets the sensitivity level that you set in the request parameters for that category. | 
 | suggested_action | string | An overall recommendation based on the four categories. If any category has a *Reject* value, the `suggested_action` is *Reject* as well. |
-
-
 
 ## Next steps
 
