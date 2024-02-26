@@ -34,7 +34,7 @@ If you're still in the early testing phases for inference models, we recommend d
 
 ### Specific model version
 
-As your use of Azure OpenAI evolves, and you start to build and integrate with applications you might want to manually control model updates. You can first test and validate that your application behavior is consistent for your use case before  upgrading.
+As your use of Azure OpenAI evolves, and you start to build and integrate with applications you might want to manually control model updates. You can first test and validate that your application behavior is consistent for your use case before upgrading.
 
 When you select a specific model version for a deployment, this version remains selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will automatically upgrade to the default version at the time of retirement.
 
