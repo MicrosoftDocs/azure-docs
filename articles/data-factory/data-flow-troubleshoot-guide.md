@@ -125,7 +125,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Failed to delete data from Azure Cosmos DB after 3 times retry.
 - **Cause**: The throughput on the Azure Cosmos DB collection is small and leads to meeting throttling or row data not existing in Azure Cosmos DB.
-- **Recommendation**: Take the following actions to solve this problem:
+- **Recommendation**: To solve this problem, take the following actions:
     - If the error is 404, make sure that the related row data exists in the Azure Cosmos DB collection.
     - If the error is throttling, increase the Azure Cosmos DB collection throughput or set it to the automatic scale.
     - If the error is request timed out, set 'Batch size' in the Azure Cosmos DB sink to smaller value, for example 1000.
@@ -203,7 +203,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Column delimiter is required for parse.
 - **Cause**: The column delimiter is missed.
-- **Recommendation**: In your CSV settings, confirm that you have the column delimiter which is required for parse.
+- **Recommendation**: In your CSV settings, confirm that you have the column delimiter, which is required for parse.
 
 ### Error code: DF-Delimited-InvalidConfiguration
 
@@ -233,7 +233,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Key column(s) should be specified for non-insertable operations.
 - **Cause**: Key column(s) are missed for non-insertable operations.
-- **Recommendation**: Specify key column(s) on delta sink to have non-insertable operations.
+- **Recommendation**: To have non-insertable operations, specify key column(s) on delta sink.
 
 ### Error code: DF-Dynamics-InvalidNullAlternateKeyColumn 
 
@@ -276,19 +276,19 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Excel sheet name and index cannot exist at the same time.
 - **Cause**: The Excel sheet name and index are provided at the same time.
-- **Recommendation**: Check the parameter value and specify the sheet name or index to read the Excel data.
+- **Recommendation**: To read the Excel data, check the parameter value and specify the sheet name or index.
 
 ### Error code: DF-Excel-WorksheetConfigMissed
 
 - **Message**: Excel sheet name or index is required.
 - **Cause**: An invalid Excel worksheet configuration is provided.
-- **Recommendation**: Check the parameter value and specify the sheet name or index to read the Excel data.
+- **Recommendation**: To read the Excel data, check the parameter value and specify the sheet name or index.
 
 ### Error code: DF-Excel-WorksheetNotExist
 
 - **Message**: Excel worksheet does not exist.
 - **Cause**: An invalid worksheet name or index is provided.
-- **Recommendation**: Check the parameter value and specify a valid sheet name or index to read the Excel data.
+- **Recommendation**: To read the Excel data, check the parameter value and specify a valid sheet name or index.
 
 ### Error code: DF-Executor-AcquireStorageMemoryFailed
 
@@ -319,13 +319,13 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-BroadcastTimeout
 
-- **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
+- **Message**: Broadcast join timeout error. Make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds on debug runs and 300 seconds on job runs. The stream chosen for broadcast is too large to produce data within this limit.
 - **Recommendation**: Check the **Optimize** tab on your data flow transformations for join, exists, and lookup. The default option for broadcast is **Auto**. If **Auto** is set, or if you're manually setting the left or right side to broadcast under **Fixed**, you can either set a larger Azure integration runtime (IR) configuration or turn off broadcast. For the best performance in data flows, we recommend that you allow Spark to broadcast by using **Auto** and use a memory-optimized Azure IR.
 
-  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. That's because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
+  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. The more frequent occurences of the error are because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
 
-- **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance, then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
+- **Message**: Broadcast join timeout error. You can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance, then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
 - **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files aren't typically good choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
