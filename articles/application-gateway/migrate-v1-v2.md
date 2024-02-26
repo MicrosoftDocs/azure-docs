@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 02/26/2024
 ms.author: greglin
 ---
 
@@ -32,18 +32,18 @@ This article primarily helps with the configuration migration. Client traffic mi
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 * Ensure that there is no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
-* If Public IP is provided ensure that its in succeeded state.If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGWResourceGroupName in the V1 subscription.
-* Ensure that no other operation is planned on the V1 gateway or any of its associated resources during migration.
+* If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
+* Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
->Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.This is not a mandatory step for version 1.0.11 & above of the migration script.
+>Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context. This is not a mandatory step for version 1.0.11 & above of the migration script.
 
 > [!IMPORTANT]
->A new stable version of the migration script , version 1.0.11 is available now , which contains important bug fixes and updates.Use this version to avoid potential issues.
+>A new stable version of the migration script, version 1.0.11 is available now, which contains important bug fixes and updates.Use this version to avoid potential issues.
 
 ## Configuration migration 
 
@@ -54,7 +54,7 @@ An Azure PowerShell script is provided in this document. It performs the followi
 
 ## Downloading the script
 
-You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available ,which includes major updates and  bug fixes .It is recommended to use this stable version.
+You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available, which includes major updates and  bug fixes. It is recommended to use this stable version.
 
 
 ## Using the script
@@ -82,12 +82,12 @@ This command also installs the required Az modules.
 #### Install using the script directly
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
-Version 1.0.11 is the new version of the migration script which includes major bug fixes.It is recommended to use this stable version.
+Version 1.0.11 is the new version of the migration script which includes major bug fixes. It is recommended to use this stable version.
 
 #### How to check the version of the downloaded script
 To check the version of the downloaded script the steps are as follows:
 * Extract the contents of the NuGet package.
-* Open the  .PS1 file in the folder and check the .VERSION on top to confirm the version of the downloaded script
+* Open the  `.PS1` file in the folder and check the `.VERSION` on top to confirm the version of the downloaded script
 ```
 <#PSScriptInfo
 .VERSION 1.0.10
@@ -106,7 +106,7 @@ To run the script:
 
 2. Use `Import-Module Az` to import the Az modules.
 
-3. Run the `Set-AzContext` cmdlet ,to set the active Azure context to the correct subscription.This is an important step because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
+3. Run the `Set-AzContext` cmdlet, to set the active Azure context to the correct subscription. This is an important step because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
    ```
    Set-AzContext -Subscription '<V1 application gateway SubscriptionId>'
    ```
@@ -125,7 +125,7 @@ To run the script:
     -validateMigration -enableAutoScale
    ```
  > [!NOTE]
-> During migration don't attempt any other operation on the V1 gateway or any of its associated resources.
+> During migration don't attempt any other operation on the V1 gateway or any associated resources.
 
    Parameters for the script:
    * **resourceId: [String]: Required**: This parameter is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
@@ -191,8 +191,8 @@ To run the script:
 
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
-   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway.If public Ip resource name is provided, ensure that it exists in succeeded state.
-      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.If AppGWResourceGroupName is provided and public IP is not provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGWResourceGroupName in the V1 subscription
+   * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
+      If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address is not provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
