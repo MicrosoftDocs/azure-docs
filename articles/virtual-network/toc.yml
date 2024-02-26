@@ -117,7 +117,7 @@
     - name: Optimize network throughput
       href: virtual-network-optimize-network-bandwidth.md
     - name: View and modify hostnames
-      href: virtual-networks-viewing-and-modifying-hostnames.md
+      href: virtual-networks-viewing-and-modifying-hostnames.yml
     - name: Logs
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
