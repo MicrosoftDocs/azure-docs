@@ -4,7 +4,8 @@ items:
   topicHref: /azure/index
   items:
     - name: Networking
-      tocHref: /azure/networking
+      tocHref: /azure/networking/
+      topicHref: /azure/networking/
       - name: Network Watcher
         tocHref: /azure/virtual-machines/extensions/
-        topicHref: /azure/network-watcher/index
+        topicHref: /azure/network-watcher/
