@@ -1,20 +1,20 @@
 --- 
-title: External storage solutions for Azure VMware Solution (preview)
+title: External storage solutions for Azure VMware Solution
 description: Learn about external storage solutions for Azure VMware Solution private cloud.
 ms.topic: how-to
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-vmware
-ms.date: 12/12/2023
+ms.date: 2/26/2024
 ms.custom: engagement-fy23
 --- 
 
-# External storage solutions (preview) 
+# External storage solutions
 
 > [!NOTE] 
 > By using Pure Cloud Block Store, you agree to the following [Microsoft supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is advised NOT to run production workloads with preview features. 
 
-## External storage solutions for Azure VMware Solution (preview) 
+## External storage solutions for Azure VMware Solution 
 
 Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offers VMware vSAN as the primary storage option. However, a significant requirement with on-premises VMware deployments is external storage, especially block storage. Providing the same consistent external block storage architecture in the cloud is crucial for some customers. Some workloads can't be migrated or deployed to the cloud without consistent external block storage. As a key principle of Azure VMware Solution is to enable customers to continue to use their investments and their favorite VMware solutions running on Azure, we engaged storage providers with similar goals. 
 
