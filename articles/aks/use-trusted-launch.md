@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 02/20/2024
+ms.date: 02/26/2024
 
 ---
 
@@ -186,6 +186,12 @@ To disable vTPM on an AKS cluster, run the following command:
 ```azurecli-interactive
 az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup --name mynodepool --disable-secure-boot --disable-vtpm
 ```
+
+## Attestation
+
+**TO BE COMPLETED BY MICHAEL WITHROW**
+There are two methods achieve attestation with trusted launch - using Microsoft Defender for Cloud or self-attestation. 
+**TO BE COMPLETED BY MICHAEL WITHROW**
 
 ## Next steps
 
