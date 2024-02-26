@@ -1,12 +1,12 @@
 ---
 title: Azure Communication Services - known issues
 description: Learn more about Azure Communication Services
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 06/30/2021
+ms.author: micahvivion
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: devx-track-js
@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 # Known issues in the SDKs and APIs
 
-This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
+These articles provide information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).

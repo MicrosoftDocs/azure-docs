@@ -497,7 +497,7 @@ Azure service: [API Management](/azure/api-management/)
 
 Fast, scalable parameter storage for app configuration.
 
-Azure service: core
+Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -550,101 +550,51 @@ Azure service: core
 > | Microsoft.AppConfiguration/configurationStores/snapshots/write | Creates or updates a snapshot in the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/snapshots/archive/action | Modifies archival state for an existing snapshot in the configuration store. |
 
-## Microsoft.AVS
+## Microsoft.Communication
 
-Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.AVS/register/action | Register Subscription for Microsoft.AVS resource provider. |
-> | Microsoft.AVS/unregister/action | Unregister Subscription for Microsoft.AVS resource provider. |
-> | Microsoft.AVS/checkNameAvailability/read | Checks if the privateCloud Name is available |
-> | Microsoft.AVS/locations/checkNameAvailability/read | Checks if the privateCloud Name is available |
-> | Microsoft.AVS/locations/checkQuotaAvailability/read | Checks if quota is available for the subscription |
-> | Microsoft.AVS/locations/checkTrialAvailability/read | Checks if trial is available for the subscription |
-> | Microsoft.AVS/operations/read | Lists operations available on Microsoft.AVS resource provider. |
-> | Microsoft.AVS/privateClouds/register/action | Registers the Microsoft Microsoft.AVS resource provider and enables creation of Private Clouds. |
-> | Microsoft.AVS/privateClouds/write | Creates or updates a PrivateCloud resource. |
-> | Microsoft.AVS/privateClouds/read | Gets the settings for the specified PrivateCloud. |
-> | Microsoft.AVS/privateClouds/delete | Delete a specific PrivateCloud. |
-> | Microsoft.AVS/privateClouds/addOns/read | Read addOns. |
-> | Microsoft.AVS/privateClouds/addOns/write | Write addOns. |
-> | Microsoft.AVS/privateClouds/addOns/delete | Delete addOns. |
-> | Microsoft.AVS/privateClouds/addOns/operationStatuses/read | Read addOns operationStatuses. |
-> | Microsoft.AVS/privateClouds/authorizations/read | Gets the authorization settings for a PrivateCloud cluster. |
-> | Microsoft.AVS/privateClouds/authorizations/write | Create or update a PrivateCloud authorization resource. |
-> | Microsoft.AVS/privateClouds/authorizations/delete | Delete a specific PrivateCloud authorization. |
-> | Microsoft.AVS/privateClouds/clusters/read | Gets the cluster settings for a PrivateCloud cluster. |
-> | Microsoft.AVS/privateClouds/clusters/write | Create or update a PrivateCloud cluster resource. |
-> | Microsoft.AVS/privateClouds/clusters/delete | Delete a specific PrivateCloud cluster. |
-> | Microsoft.AVS/privateClouds/clusters/datastores/read | Get the datastore properties in a private cloud cluster. |
-> | Microsoft.AVS/privateClouds/clusters/datastores/write | Create or update datastore in private cloud cluster. |
-> | Microsoft.AVS/privateClouds/clusters/datastores/delete | Delete datastore in private cloud cluster. |
-> | Microsoft.AVS/privateclouds/clusters/datastores/operationresults/read | Read privateClouds/clusters/datastores operationresults. |
-> | Microsoft.AVS/privateClouds/clusters/datastores/operationstatuses/read | Read privateClouds/clusters/datastores operationstatuses. |
-> | Microsoft.AVS/privateclouds/clusters/operationresults/read | Reads privateClouds/clusters operationresults. |
-> | Microsoft.AVS/privateClouds/clusters/operationstatuses/read | Reads privateClouds/clusters operationstatuses. |
-> | Microsoft.AVS/privateClouds/globalReachConnections/delete | Delete globalReachConnections. |
-> | Microsoft.AVS/privateClouds/globalReachConnections/write | Write globalReachConnections. |
-> | Microsoft.AVS/privateClouds/globalReachConnections/read | Read globalReachConnections. |
-> | Microsoft.AVS/privateClouds/globalReachConnections/operationStatuses/read | Read globalReachConnections operationStatuses. |
-> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/read | Gets the hcxEnterpriseSites for a PrivateCloud. |
-> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/write | Create or update a hcxEnterpriseSites. |
-> | Microsoft.AVS/privateClouds/hcxEnterpriseSites/delete | Delete a specific hcxEnterpriseSites. |
-> | Microsoft.AVS/privateClouds/hostInstances/read | Gets the hostInstances for a PrivateCloud. |
-> | Microsoft.AVS/privateClouds/hostInstances/write | Create or update a hostInstances. |
-> | Microsoft.AVS/privateClouds/hostInstances/delete | Delete a specific hostInstances. |
-> | Microsoft.AVS/privateClouds/operationresults/read | Reads privateClouds operationresults. |
-> | Microsoft.AVS/privateClouds/operationstatuses/read | Reads privateClouds operationstatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/delete | Delete dhcpConfigurations. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/write | Write dhcpConfigurations. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/read | Read dhcpConfigurations. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/operationStatuses/read | Read dhcpConfigurations operationStatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/delete | Delete dnsServices. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/write | Write dnsServices. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/read | Read dnsServices. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsServices/operationStatuses/read | Read dnsServices operationStatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/delete | Delete dnsZones. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/write | Write dnsZones. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/read | Read dnsZones. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/dnsZones/operationStatuses/read | Read dnsZones operationStatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/gateways/read | Read gateways. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/delete | Delete portMirroringProfiles. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/write | Write portMirroringProfiles. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/read | Read portMirroringProfiles. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/portMirroringProfiles/operationStatuses/read | Read portMirroringProfiles operationStatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/segments/delete | Delete segments. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/segments/write | Write segments. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/segments/read | Read segments. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/segments/operationStatuses/read | Read segments operationStatuses. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/virtualMachines/read | Read virtualMachines. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/delete | Delete vmGroups. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/write | Write vmGroups. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/read | Read vmGroups. |
-> | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/operationStatuses/read | Read vmGroups operationStatuses. |
-> | **DataAction** | **Description** |
-> | Microsoft.AVS/privateClouds/listAdminCredentials/action | Lists the AdminCredentials for privateClouds. |
-> | Microsoft.AVS/privateClouds/rotateVcenterPassword/action | Rotate Vcenter password for the PrivateCloud. |
-> | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
-> | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
-
-## Microsoft.DataCatalog
-
-Get more value from your enterprise data assets.
-
-Azure service: [Data Catalog](/azure/data-catalog/)
+Azure service: [Azure Communication Services](/azure/communication-services/overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.DataCatalog/checkNameAvailability/action | Checks catalog name availability for tenant. |
-> | Microsoft.DataCatalog/register/action | Registers subscription with Microsoft.DataCatalog resource provider. |
-> | Microsoft.DataCatalog/unregister/action | Unregisters subscription from Microsoft.DataCatalog resource provider. |
-> | Microsoft.DataCatalog/catalogs/read | Get properties for catalog or catalogs under subscription or resource group. |
-> | Microsoft.DataCatalog/catalogs/write | Creates catalog or updates the tags and properties for the catalog. |
-> | Microsoft.DataCatalog/catalogs/delete | Deletes the catalog. |
-> | Microsoft.DataCatalog/operations/read | Lists operations available on Microsoft.DataCatalog resource provider. |
+> | Microsoft.Communication/Register/Action | Registers Microsoft.Communication resource provider |
+> | Microsoft.Communication/Unregister/Action | Unregisters Microsoft.Communication resource provider |
+> | Microsoft.Communication/CheckNameAvailability/action | Checks if a name is available |
+> | Microsoft.Communication/CommunicationServices/Read | Reads communication services |
+> | Microsoft.Communication/CommunicationServices/Write | Writes communication services |
+> | Microsoft.Communication/CommunicationServices/Delete | Deletes communication services |
+> | Microsoft.Communication/CommunicationServices/ListKeys/action | Reads the keys for a communication service |
+> | Microsoft.Communication/CommunicationServices/RegenerateKey/action | Regenerates the primary or secondary key for a communication service |
+> | Microsoft.Communication/CommunicationServices/LinkNotificationHub/action | Links an Azure Notification Hub to the communication service |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
+> | Microsoft.Communication/EmailServices/read | Get the EmailService and its properties. |
+> | Microsoft.Communication/EmailServices/write | Get the EmailService and its properties. |
+> | Microsoft.Communication/EmailServices/delete | Operation to delete a EmailService. |
+> | Microsoft.Communication/EmailServices/verifiedExchangeOnlineDomains/action | List Verified Domains from the exchange online tenant. |
+> | Microsoft.Communication/EmailServices/Domains/read | Get the email Domain and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/write | Add a new Domain under the parent EmailService resource or update an existing Domain resource. |
+> | Microsoft.Communication/EmailServices/Domains/delete | Operation to delete a Domain resource. |
+> | Microsoft.Communication/EmailServices/Domains/InitiateVerification/action | Initiate verification of Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/CancelVerification/action | Cancel verification of Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/RevokeVerification/action | Revoke existing verified status of a Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | List all valid sender usernames for a domains resource. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | Get the email SenderUsername and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/write | Add a new SenderUsername under the parent Domain resource or update an existing SenderUsername resource. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/delete | Operation to delete a SenderUsername resource. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/read | List all suppression lists for a domains resource. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/read | Get the suppression list and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/delete | Operation to delete a suppressio lists. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/delete | Operation to delete an address from a suppression list. |
+> | Microsoft.Communication/Locations/OperationStatuses/read | Reads the status of an async operation |
+> | Microsoft.Communication/Locations/OperationStatuses/write | Writes the status of an async operation |
+> | Microsoft.Communication/Operations/read | Reads operations |
+> | Microsoft.Communication/RegisteredSubscriptions/read | Reads registered subscriptions |
 
 ## Microsoft.EventGrid
 
@@ -856,6 +806,108 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/events/receive/action | Receive events from namespace topics |
 > | Microsoft.EventGrid/topicSpaces/subscribe/action | Subscribe to a topic space |
 > | Microsoft.EventGrid/topicSpaces/publish/action | Publish to a topic space |
+
+## Microsoft.EventHub
+
+Receive telemetry from millions of devices.
+
+Azure service: [Event Hubs](/azure/event-hubs/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.EventHub/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
+> | Microsoft.EventHub/checkNameAvailability/action | Checks availability of namespace under given subscription. |
+> | Microsoft.EventHub/register/action | Registers the subscription for the EventHub resource provider and enables the creation of EventHub resources |
+> | Microsoft.EventHub/unregister/action | Registers the EventHub Resource Provider |
+> | Microsoft.EventHub/availableClusterRegions/read | Read operation to list available pre-provisioned clusters by Azure region. |
+> | Microsoft.EventHub/clusters/read | Gets the Cluster Resource Description |
+> | Microsoft.EventHub/clusters/write | Creates or modifies an existing Cluster resource. |
+> | Microsoft.EventHub/clusters/delete | Deletes an existing Cluster resource. |
+> | Microsoft.EventHub/clusters/namespaces/read | List namespace Azure Resource Manager IDs for namespaces within a cluster. |
+> | Microsoft.EventHub/clusters/operationresults/read | Get the status of an asynchronous cluster operation. |
+> | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Get list of Cluster metrics Resource Descriptions |
+> | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Deletes the VNet rules in EventHub Resource Provider for the specified VNet |
+> | Microsoft.EventHub/namespaces/write | Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated. |
+> | Microsoft.EventHub/namespaces/read | Get the list of Namespace Resource Description |
+> | Microsoft.EventHub/namespaces/Delete | Delete Namespace Resource |
+> | Microsoft.EventHub/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
+> | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
+> | Microsoft.EventHub/namespaces/updateState/action | UpdateNamespaceState |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.EventHub/namespaces/joinPerimeter/action | Action to Join the Network Security Perimeter. This action is used to perform linked access by NSP RP. |
+> | Microsoft.EventHub/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
+> | Microsoft.EventHub/namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
+> | Microsoft.EventHub/namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted.  |
+> | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Get the Connection String to the Namespace |
+> | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
+> | Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | Checks availability of namespace alias under given subscription. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/write | Creates or Updates the Disaster Recovery configuration associated with the namespace. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/read | Gets the Disaster Recovery configuration associated with the namespace. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/delete | Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/breakPairing/action | Disables Disaster Recovery and stops replicating changes from primary to secondary namespaces. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/failover/action | Invokes a GEO DR failover and reconfigures the namespace alias to point to the secondary namespace. |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/read | Get Disaster Recovery Primary Namespace's Authorization Rules |
+> | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action | Gets the authorization rules keys for the Disaster Recovery primary namespace |
+> | Microsoft.EventHub/namespaces/eventhubs/write | Create or Update EventHub properties. |
+> | Microsoft.EventHub/namespaces/eventhubs/read | Get list of EventHub Resource Descriptions |
+> | Microsoft.EventHub/namespaces/eventhubs/Delete | Operation to delete EventHub Resource |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/action | Operation to update EventHub. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule. |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read |  Get the list of EventHub Authorization Rules |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write | Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated. |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/delete | Operation to delete EventHub Authorization Rules |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/listkeys/action | Get the Connection String to EventHub |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
+> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/write | Create or Update ConsumerGroup properties. |
+> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/read | Get list of ConsumerGroup Resource Descriptions |
+> | Microsoft.EventHub/namespaces/eventHubs/consumergroups/Delete | Operation to delete ConsumerGroup Resource |
+> | Microsoft.EventHub/namespaces/ipFilterRules/read | Get IP Filter Resource |
+> | Microsoft.EventHub/namespaces/ipFilterRules/write | Create IP Filter Resource |
+> | Microsoft.EventHub/namespaces/ipFilterRules/delete | Delete IP Filter Resource |
+> | Microsoft.EventHub/namespaces/messagingPlan/read | Gets the Messaging Plan for a namespace.<br>This API is deprecated.<br>Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions..<br>This operation is not supported on API version 2017-04-01. |
+> | Microsoft.EventHub/namespaces/messagingPlan/write | Updates the Messaging Plan for a namespace.<br>This API is deprecated.<br>Properties exposed via the MessagingPlan resource are moved to the (parent) Namespace resource in later API versions..<br>This operation is not supported on API version 2017-04-01. |
+> | Microsoft.EventHub/namespaces/networkruleset/read | Gets NetworkRuleSet Resource |
+> | Microsoft.EventHub/namespaces/networkruleset/write | Create VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/networkruleset/delete | Delete VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/networkrulesets/read | Gets NetworkRuleSet Resource |
+> | Microsoft.EventHub/namespaces/networkrulesets/write | Create VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/write | Create NetworkSecurityPerimeterAssociationProxies |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/read | Get NetworkSecurityPerimeterAssociationProxies |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/delete | Delete NetworkSecurityPerimeterAssociationProxies |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/reconcile/action | Reconcile NetworkSecurityPerimeterAssociationProxies |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/read | Get Network Security Perimeter Configurations |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile Network Security Perimeter Configurations |
+> | Microsoft.EventHub/namespaces/operationresults/read | Get the status of Namespace operation |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
+> | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/operationstatus/read | Get the status of an asynchronous private endpoint operation |
+> | Microsoft.EventHub/namespaces/privateEndpointConnections/read | Get Private Endpoint Connection |
+> | Microsoft.EventHub/namespaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
+> | Microsoft.EventHub/namespaces/privateEndpointConnections/delete | Removes Private Endpoint Connection |
+> | Microsoft.EventHub/namespaces/privateEndpointConnections/operationstatus/read | Get the status of an asynchronous private endpoint operation |
+> | Microsoft.EventHub/namespaces/privateLinkResources/read | Gets the resource types that support private endpoint connections |
+> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get list of Namespace diagnostic settings Resource Descriptions |
+> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Get list of Namespace diagnostic settings Resource Descriptions |
+> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Get list of Namespace logs Resource Descriptions |
+> | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Get list of Namespace metrics Resource Descriptions |
+> | Microsoft.EventHub/namespaces/schemagroups/write | Create or Update SchemaGroup properties. |
+> | Microsoft.EventHub/namespaces/schemagroups/read | Get list of SchemaGroup Resource Descriptions |
+> | Microsoft.EventHub/namespaces/schemagroups/delete | Operation to delete SchemaGroup Resource |
+> | Microsoft.EventHub/namespaces/virtualNetworkRules/read | Gets VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/virtualNetworkRules/write | Create VNET Rule Resource |
+> | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | Delete VNET Rule Resource |
+> | Microsoft.EventHub/operations/read | Get Operations |
+> | Microsoft.EventHub/sku/read | Get list of Sku Resource Descriptions |
+> | Microsoft.EventHub/sku/regions/read | Get list of SkuRegions Resource Descriptions |
+> | **DataAction** | **Description** |
+> | Microsoft.EventHub/namespaces/messages/send/action | Send messages |
+> | Microsoft.EventHub/namespaces/messages/receive/action | Receive messages |
+> | Microsoft.EventHub/namespaces/schemas/read | Retrieve schemas |
+> | Microsoft.EventHub/namespaces/schemas/write | Write schemas |
+> | Microsoft.EventHub/namespaces/schemas/delete | Delete schemas |
 
 ## Microsoft.HealthcareApis
 
@@ -1079,6 +1131,60 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/workflows/triggers/histories/resubmit/action | Resubmits the workflow trigger. |
 > | Microsoft.Logic/workflows/versions/read | Reads the workflow version. |
 > | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
+
+## Microsoft.NotificationHubs
+
+Send push notifications to any platform from any back end.
+
+Azure service: [Notification Hubs](/azure/notification-hubs/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.NotificationHubs/register/action | Registers the subscription for the NotificationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
+> | Microsoft.NotificationHubs/unregister/action | Unregisters the subscription for the NotificationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
+> | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Checks whether or not a given Namespace resource name is available within the NotificationHub service. |
+> | Microsoft.NotificationHubs/CheckNamespaceAvailability/read | Checks whether or not a given Namespace resource name is available within the NotificationHub service. |
+> | Microsoft.NotificationHubs/Namespaces/write | Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated. |
+> | Microsoft.NotificationHubs/Namespaces/read | Get the list of Namespace Resource Description |
+> | Microsoft.NotificationHubs/Namespaces/delete | Delete Namespace Resource |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | Get the list of Namespaces Authorization Rules description. |
+> | Microsoft.NotificationHubs/Namespaces/CheckNotificationHubAvailability/action | Checks whether or not a given NotificationHub name is available inside a Namespace. |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | Get the Connection String to the Namespace |
+> | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | Namespace Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | Create a Notification Hub and Update its properties. Its properties mainly include PNS Credentials. Authorization Rules and TTL |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | Get list of Notification Hub Resource Descriptions |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/delete | Delete Notification Hub Resource |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | Get the list of Notification Hub Authorization Rules |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/action | Get All Notification Hub PNS Credentials. This includes, WNS, MPNS, APNS, GCM and Baidu credentials |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/debugSend/action | Send a test push notification to 10 matched devices. |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/write | Create Notification Hub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/read | Get the list of Notification Hub Authorization Rules |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | Delete Notification Hub Authorization Rules |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | Get the Connection String to the Notification Hub |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | Notification Hub Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/read | Get list of Namespace metrics Resource Descriptions |
+> | Microsoft.NotificationHubs/Namespaces/NotificationHubs/vapidkeys/read | Get new pair of VAPID keys for a Notification Hub |
+> | Microsoft.NotificationHubs/Namespaces/operations/read | Returns a list of supported operations for Notification Hubs namespaces provider |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/operationstatus/read | Get the status of an asynchronous private endpoint operation |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnections/read | Get Private Endpoint Connection |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnections/delete | Removes Private Endpoint Connection |
+> | Microsoft.NotificationHubs/namespaces/privateEndpointConnections/operationstatus/read | Removes Private Endpoint Connection |
+> | Microsoft.NotificationHubs/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get Namespace diagnostic settings |
+> | Microsoft.NotificationHubs/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Create or Update Namespace diagnostic settings |
+> | Microsoft.NotificationHubs/namespaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Namespace |
+> | Microsoft.NotificationHubs/operationResults/read | Returns operation results for Notification Hubs provider |
+> | Microsoft.NotificationHubs/operations/read | Returns a list of supported operations for Notification Hubs provider |
+> | Microsoft.NotificationHubs/resourceTypes/read | Gets a list of the resource types for Notification Hubs |
 
 ## Microsoft.Relay
 
