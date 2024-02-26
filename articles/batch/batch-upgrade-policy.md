@@ -6,7 +6,7 @@ ms.date: 10/30/2023
 ms.custom: 
 ---
 
-# Create an Azure Batch pool with Auto OS Upgrade
+# Create an Azure Batch pool with Automatic Operation System (OS) Upgrade
 
 > [!IMPORTANT]
 > - Support for pools with Auto OS Upgrade in Azure Batch is currently in public preview, and is currently controlled by an account-level feature flag. If you want to use this feature, please start a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and provide your batch account to request its activation.
@@ -24,13 +24,13 @@ Auto OS Upgrade is used to implement an automatic operating system upgrade strat
 - **Flexibility.** Auto OS Upgrade allows you to configure your automatic operating system upgrade strategy, including percentage-based upgrade coordination and rollback support. This means you can customize your upgrade strategy to meet your specific performance and availability requirements.
 - **Control.** Auto OS Upgrade provides you with control over your operating system upgrade strategy to ensure secure, workload-aware upgrade deployments. You can tailor your policy configurations to meet the specific needs of your organization.
 
-In summary, the use of Auto OS Upgrade helps you achieve automatic operating system upgrades, leading to improved security, minimized availability disruptions, and greater control and flexibility for your workloads. This is crucial for maintaining the health and security of compute resources.
+In summary, the use of Auto OS Upgrade helps improve security, minimize availability disruptions, and provide both greater control and flexibility for your workloads.
 
 ## How does Auto OS Upgrade work?
 
 When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work).
 
-However, there will be a difference for Batch to handle upgrades if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'. When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process. Thus, We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* feature.
+However, if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true', when an upgrade becomes available while a batch node is actively running tasks the upgrade will be delayed until all tasks have been completed on the node.
 
 > [!Note]
 > If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2024-02-01 or later. If you are using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
