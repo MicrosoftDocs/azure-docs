@@ -92,7 +92,7 @@ This procedure walks you through creating a VNet and site-to-site and ExpressRou
    $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
    $VNetASN = 65515
    ```
-3. Create a virtual network including the `GatewaySubnet`. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
+3. Create a virtual network including the `GatewaySubnet`. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.yml#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > The **GatewaySubnet** must be a /27 or a shorter prefix, such as /26 or /25.

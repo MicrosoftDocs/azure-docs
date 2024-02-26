@@ -84,4 +84,4 @@ In this task, you delete an IP address range from an address space. First, delet
 ## Next steps
 
 - [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md)
-- [Create, change, or delete a virtual network](manage-virtual-network.md)
+- [Create, change, or delete a virtual network](manage-virtual-network.yml)

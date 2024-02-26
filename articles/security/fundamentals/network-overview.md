@@ -275,7 +275,7 @@ For internal name resolution, you have two options:
 Learn more:
 
 * [Virtual network overview](../../virtual-network/virtual-networks-overview.md)
-* [Manage DNS Servers used by a virtual network](../../virtual-network/manage-virtual-network.md#change-dns-servers)
+* [Manage DNS Servers used by a virtual network](../../virtual-network/manage-virtual-network.yml#change-dns-servers)
 
 For external name resolution, you have two options:
 
