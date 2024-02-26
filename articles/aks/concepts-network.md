@@ -209,7 +209,7 @@ The application routing addon is the recommended way to configure an Ingress con
 
 * Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
 
-* Integration with Azure DNS for public and private zone management
+* Integration with Azure DNS for public and private zone management.
 
 * SSL termination with certificates stored in Azure Key Vault.
 
