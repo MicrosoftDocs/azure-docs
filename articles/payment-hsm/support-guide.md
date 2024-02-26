@@ -4,7 +4,6 @@ description: Azure Payment HSM Service support guide
 services: payment-hsm
 author: msmbaldwin
 
-tags: azure-resource-manager
 ms.service: payment-hsm
 ms.topic: article
 ms.date: 01/30/2024

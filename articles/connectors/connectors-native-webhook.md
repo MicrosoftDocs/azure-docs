@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/09/2024
-tags: connectors
 ---
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps

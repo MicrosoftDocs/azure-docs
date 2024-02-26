@@ -1,0 +1,57 @@
+items:
+- name: Azure Operator 5G Core documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator 5G Core?
+    href: overview-product.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Get access to Azure Operator 5G 
+    href: quickstart-subscription.md
+  - name: Configure a network function
+    href: quickstart-configure-network-function.md
+  - name: Azure Kubernetes Service (AKS)
+    expanded: false
+    items:
+      - name: Deploy a network function on Azure Kubernetes Services
+        href: quickstart-deploy-network-functions.md
+      - name: Deploy observability for Azure Kubernetes Services
+        href: quickstart-deploy-observability.md
+  - name: Nexus Azure Kubernetes Service (NAKS)
+    expanded: false
+    items:
+      - name: Deploy a network function on Nexus Azure Kubernetes Services
+        href: quickstart-deploy-network-functions.md
+      - name: Deploy observability for Nexus Azure Kubernetes services
+        href: quickstart-deploy-observability.md
+  - name: Delete a network function/cluster
+    href: quickstart-delete-network-function-cluster.md
+- name: Tutorials
+  items: 
+  - name: Configure a network function
+    href: tutorial-configure-network-function.md
+- name: Concepts
+  items:
+  - name: Security
+    href: concept-security.md
+  - name: Centralized lifecycle management
+    href: concept-centralized-lifecycle-management.md
+  - name: Deployment order for clusters, network functions and observability
+    href: concept-deployment-order.md
+  - name: Observability and analytics
+    href: concept-observability-analytics.md
+- name: How-to guides
+  items:
+  - name: Complete the prerequisite tasks to deploy Nexus Azure Kubernetes Services
+    href: how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
+  - name: Complete the prerequisite tasks to deploy Azure Kubernetes Services
+    href: how-to-complete-prerequisites-deploy-azure-kubernetes-service.md
+  - name: Deploy Azure Operator 5G Core
+    href: how-to-deploy-5g-core.md
+  - name: Monitor the deployment status
+    href: how-to-monitor-deployment-status.md
+  - name: Perform health and configuration checks post-deployment
+    href: how-to-perform-checks-post-deployment.md

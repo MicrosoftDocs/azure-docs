@@ -5,7 +5,7 @@ description: Learn guidelines to migrate your Azure HDInsight cluster to a newer
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/08/2023
+ms.date: 02/21/2024
 ---
 # Migrate HDInsight cluster to a newer version
 

@@ -66,6 +66,8 @@ The recognize action can be used for many reasons, here are a few examples of ho
 
 ## Known limitation
 - In-band DTMF is not supported, use RFC 2833 DTMF instead.
+- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
 
 ## Next steps
 - Check out our how-to guide to learn how you can [gather user input](../../how-tos/call-automation/recognize-action.md).

@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/22/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -116,7 +116,7 @@ When you complete the steps in this section, you have a shared private link that
 
 1. On the **Shared Private Access** page, select **+ Add Shared Private Access**.
 
-1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
+1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID**.
 
 1. If you select the first option (recommended), the portal helps you pick the appropriate Azure resource and fills in other properties, such as the group ID of the resource and the resource type.
 
@@ -266,7 +266,7 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has Azure role-based access control (RBAC) permissions on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
+Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has a role assignment on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
 
 This section assumes manual approval and the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
 
@@ -282,11 +282,11 @@ This section assumes manual approval and the portal for this step, but you can a
 
 After the private endpoint is approved, Azure AI Search creates the necessary DNS zone mappings in the DNS zone that's created for it.
 
-The private endpoint link on the page only resolves to the private link definition in Azure AI Search if there's shared tenancy between Azure AI Search backend private link and the Azure PaaS resource.
+Although the private endpoint link on the **Networking** page is active, it won't resolve. 
 
 :::image type="content" source="media/search-indexer-howto-secure-access/private-endpoint-link.png" alt-text="Screenshot of the private endpoint link in the Azure PaaS networking page.":::
 
-A status message of `"The access token is from the wrong issuer"` and `must match the tenant associated with this subscription` appears because the backend private endpoint resource is provisioned in a Microsoft-managed tenant, while the linked resource (Azure AI Search) is in your tenant. It's by design you can't access the private endpoint resource by selecting the private endpoint connection link. 
+Selecting the link produces an error. A status message of `"The access token is from the wrong issuer"` and `must match the tenant associated with this subscription` appears because the backend private endpoint resource is provisioned by Microsoft in a Microsoft-managed tenant, while the linked resource (Azure AI Search) is in your tenant. It's by design you can't access the private endpoint resource by selecting the private endpoint connection link. 
 
 Follow the instructions in the next section to check the status of your shared private link.
 
