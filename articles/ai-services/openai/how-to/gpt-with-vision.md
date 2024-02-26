@@ -450,6 +450,35 @@ Follow these steps to set up a video retrieval system and integrate it with your
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
+>[!IMPORTANT]
+>Vision enhancement for Video requires access to an Azure Blob storage container containing the video files to analyze. Access to the Videos can be provided either by a SAS Url, or by configuring a Managed Identity on the Azure AIServices resource and granting read access to the blob storage.
+
+### Configure Managed Identity on Azure AIService resource and grant access to Azure Blob storage
+#### using System Assigned Identities
+Enable System Assigned Identities on your Azure AIServices resource following these steps:
+1. From your AIServices resource in Azure Portal select Resource Management ==> Identity and toggle the status to ON
+2. Assign Storage Blob Data Read access to the AIServices resource: From the Identity page, select 'Azure role assignments', and then 'Add role assignment' with the following settings:
+- scope: storage
+- subscription: your subscription
+- Resource: the Azure Blob Storage resource
+- Role: Storage Blob Data Reader
+3. Save your settings.
+
+#### using User Assigned Identities
+To use a User Assigned Identity follow these steps:
+1. Create a new Managed Identity resource in Azure Portal
+2. Navigate to the new resource, then to 'Azure Role Assignments'
+3. Add a 'New Role Assignment' with the following settings:
+- scope: storage
+- subscription: your subscription
+- Resource: the Azure Blob Storage resource
+- Role: Storage Blob Data Reader
+
+4. Save your new configuration
+5. Navigate to your AIServices resurcce "Identity" page,
+6. Select the User Assigned Tab, then click "+Add" to select the newly created Managed Identity.
+7. Save your configuration.
+
 > [!TIP]
 > If you prefer, you can carry out the below steps using a Jupyter notebook instead: [Video chat completions notebook](https://github.com/Azure-Samples/azureai-samples/blob/main/scenarios/GPT-4V/video/video_chatcompletions_example_restapi.ipynb). 
 
