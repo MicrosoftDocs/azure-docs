@@ -37,7 +37,7 @@ To monitor different components of each SAP system, there are corresponding prov
 > [!NOTE]
 > This automation framework currently supports deployment automation of Azure monitor for SAP resource, [OS (Linux) provider](../monitor/about-azure-monitor-sap-solutions.md#os-linux-data) to monitor the Azure VMs, and [HA Pacemaker cluster provider](../monitor/about-azure-monitor-sap-solutions.md#ha-pacemaker-cluster-data) to monitor the high availability clusters in the SAP system.
 
-The [key components](../monitor/about-azure-monitor-sap-solutions#what-is-the-architecture) of the Azure monitor for SAP resource created in the workload zone resource group would include:
+The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the-architecture) of the Azure monitor for SAP resource created in the workload zone resource group would include:
 - Azure monitor for SAP resource
 - Managed Resource group with in the Azure monitor for SAP that includes:
     - Azure functions resource
