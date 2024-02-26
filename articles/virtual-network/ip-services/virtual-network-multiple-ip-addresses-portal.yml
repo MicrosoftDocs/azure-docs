@@ -47,7 +47,7 @@ prerequisites:
     - |
       An existing Azure virtual machine. For more information about creating a virtual machine, see [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md). 
     
-      - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
+        - The example used in this article is named **myVM**. Replace this value with your virtual machine name.     
 
       > [!NOTE]
       > Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../../virtual-machines/windows/multiple-nics.md).
