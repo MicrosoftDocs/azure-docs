@@ -1,10 +1,10 @@
 ---
-title: DELL XE4 SFF for OT monitoring in SMB deployments - Microsoft Defender for IoT
-description: Learn about the DELL XE4 SFF appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
+title: DELL XE4 SFF for OT monitoring in SMB/ L500 deployments - Microsoft Defender for IoT
+description: Learn about the DELL XE4 SFF appliance when used for OT monitoring with Microsoft Defender for IoT in SMB/ L500 deployments.
 ms.date: 02/25/2024
 ms.topic: reference
 ---
-<!-- description when used in for - which word to remove, check all other HW descriptions for same typo-->
+
 # DELL XE4 SFF
 
 This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines. The DELL XE4 SFF is also available for the on-premises management console. <!-- remove?-->
@@ -109,8 +109,8 @@ Optional modules for port expansion include:
 |Intel 1 GB Single Port PCIe Network card (half height) |540-BBMO |1 |
 |Intel X710 Dual Port 10 GbE SFP+ Adapter | 540-BDQZ |1|
 
-### Set up the Dell XE4 BIOS
-<!-- is this h3 heading?-->
+## Set up the Dell XE4 BIOS
+
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
 If any of the steps are missing in the BIOS, make sure that the hardware matches the specifications above.
 Set up the Dell XE4 BIOS to achieve optimal performance for sensors.
@@ -140,8 +140,8 @@ Set up the Dell XE4 BIOS to achieve optimal performance for sensors.
     1. Go to -> System setup options -> Power Menu -> Block Sleep
 
     1. Enable “Block Sleep”
-<!-- is this h3 heading?-->
-### Dell XE4 Software Setup
+
+## Dell XE4 Software Setup
 
 This procedure describes how to install Defender for IoT software on the Dell XE4. The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
