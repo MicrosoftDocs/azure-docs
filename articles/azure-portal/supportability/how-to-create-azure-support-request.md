@@ -31,7 +31,7 @@ To create a support request without a subscription, for example a Microsoft Entr
 > [!IMPORTANT]
 > If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
 
-If a support request requires confirmation or release of account-specific information, changes to account information, or operations such as subscription ownership transfer or cancelation, you must be an [account billing administrator](/azure/cost-management-billing/manage/add-change-subscription-administrator) for the subscription.
+If a support request requires confirmation or release of account-specific information, changes to account information, or operations such as subscription ownership transfer or cancelation, you must be an [account billing administrator](/azure/cost-management-billing/manage/add-change-subscription-administrator#determine-account-billing-administrator) for the subscription.
 
 ### Open a support request from the global header
 
