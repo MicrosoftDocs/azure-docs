@@ -7,9 +7,7 @@ ms.author: pafarley
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 11/08/2023
-ms.custom: 
 manager: nitinme
-keywords: 
 ---
 
 # Content Credentials

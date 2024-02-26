@@ -34,6 +34,11 @@ This article shows you how to use Azure CNI networking for dynamic allocation of
 * Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 * AKS Engine and DIY clusters aren't supported.
 * Azure CLI version `2.37.0` or later.
+* If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
+
+    ```azurecli-interactive
+    az aks enable-addons --addons monitoring --name <cluster-name> --resource-group <resource-group-name>
+    ```
 
 ## Plan IP addressing
 
@@ -76,23 +81,24 @@ location="westcentralus"
 az group create --name $resourceGroup --location $location
 
 # Create our two subnet network 
-az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+az network vnet create -resource-group $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
 ```
 
-Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`.
+Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id` and enabling the monitoring add-on.
 
 ```azurecli-interactive
 clusterName="myAKSCluster"
 subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create -n $clusterName -g $resourceGroup -l $location \
+az aks create --name $clusterName --resource-group $resourceGroup --location $location \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
-    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
+    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
+    --enable-addons monitoring
 ```
 
 ### Adding node pool
@@ -191,3 +197,4 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-internal]: ingress-internal-ip.md
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
 [azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons

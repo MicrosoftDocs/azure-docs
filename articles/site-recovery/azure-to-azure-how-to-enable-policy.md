@@ -144,4 +144,4 @@ If the VMs show up as noncompliant, it might be because policy evaluation happen
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

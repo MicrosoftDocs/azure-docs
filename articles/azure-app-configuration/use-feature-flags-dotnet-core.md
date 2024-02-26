@@ -2,13 +2,8 @@
 title: Tutorial for using feature flags in a .NET app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/11/2023
@@ -35,7 +30,7 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
-To access the .NET feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
+To access the .NET feature manager, your app must have references to the `Microsoft.Azure.AppConfiguration.AspNetCore` and `Microsoft.FeatureManagement.AspNetCore` NuGet packages.
 
 The .NET feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET supports, including the local `appsettings.json` file or environment variables.
 

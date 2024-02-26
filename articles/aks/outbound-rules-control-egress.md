@@ -180,6 +180,28 @@ There are two options to provide access to Azure Monitor for containers:
 | **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
 | **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
 | **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
+| **`<cluster-region-name>.ingest.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used by Azure Monitor managed service for Prometheus metrics ingestion.|
+| **`<cluster-region-name>.handler.control.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
+
+#### Microsoft Azure operated by 21Vianet required FQDN / application rules
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
+| **`*.ods.opinsights.azure.cn`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.cn`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`global.handler.control.monitor.azure.cn`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for accessing the control service. |
+| **`<cluster-region-name>.handler.control.monitor.azure.cn`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
+
+#### Azure US Government required FQDN / application rules
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
+| **`*.ods.opinsights.azure.us`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.us`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`global.handler.control.monitor.azure.us`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for accessing the control service. |
+| **`<cluster-region-name>.handler.control.monitor.azure.us`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
 
 ### Azure Policy
 

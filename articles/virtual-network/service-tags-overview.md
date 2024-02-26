@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 1/26/2023
 ms.author: allensu
 ---
@@ -44,7 +43,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>**Note**: This tag represents the Azure API Management service endpoint for control plane per region. The tag enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service.  | Inbound | Yes | Yes |
 | **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | Yes |
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
-| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
+| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | Yes |
 | **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
@@ -68,7 +67,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDevOps** | Azure DevOps. | Inbound | Yes | Yes |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>**Note**: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. | Inbound | No | Yes |
 | **AzureEventGrid** | Azure Event Grid. | Both | No | Yes |
-| **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | Yes | Yes |
+| **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | *Frontend* service tag contains the IP addresses that clients use to reach Front Door. You can apply the **AzureFrontDoor.Frontend** service tag when you want to control the outbound traffic that can connect to services behind Azure Front Door. *Backend* service tag contains the IP addresses that Azure Front Door uses to access your origins. You can apply this service tag when you [configure security for your origins](../frontdoor/origin-security.md). *FirstParty* is a special tag reserved for a select group of Microsoft services hosted on Azure Front Door. | Both | Yes | Yes |
 | **AzureHealthcareAPIs**  | The IP addresses covered by this tag can be used to restrict access to Azure Health Data Services. | Both | No | Yes |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | Yes |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | Yes | Yes |

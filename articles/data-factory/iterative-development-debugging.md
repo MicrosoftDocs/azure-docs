@@ -7,8 +7,6 @@ ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: authoring
 ms.custom: synapse
-services: data-factory
-ms.workload: data-services
 author: kromerm
 ms.author: makromer
 ---

@@ -2,7 +2,8 @@
 title: Notification Hubs bindings for Azure Functions
 description: Understand how to use Azure Notification Hub binding in Azure Functions.
 ms.topic: reference
-ms.devlang: csharp, fsharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, fsharp, javascript
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ---

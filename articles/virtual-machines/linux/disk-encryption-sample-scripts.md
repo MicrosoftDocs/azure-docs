@@ -3,19 +3,22 @@ title: Azure Disk Encryption sample scripts
 description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 03/29/2023
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
+ms.date: 02/20/2024
+ms.custom: devx-track-azurepowershell, linux-related-content
 ---
 
 # Azure Disk Encryption sample scripts for Linux VMs
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.  
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
 > [!NOTE]
 > All scripts refer to the latest, non-AAD version of ADE, except where noted.

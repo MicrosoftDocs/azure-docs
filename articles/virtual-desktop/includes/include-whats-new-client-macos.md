@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 02/26/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,39 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.6         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.6         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.6
+
+*Published: February 26, 2024*
+
+In this release, we've made the following changes:
+
+- Bug fixes for issues reported by users and internal telemetry.
+
+>[!IMPORTANT]
+>Starting with verison 10.9.6, the macOS client only supports macOS 12, 13, and 14.
+
+## Updates for version 10.9.5
+
+*Published: December 12, 2023*
+
+In this release, we've made the following changes:
+
+- Resolved some of the top crashes reported by customers from our telemetry.
+- Fixed microphone redirection on macOS 14.
+- Sorted out daylight savings time issues for time zone redirection scenarios.
+- Added watermarking support for Azure Virtual Desktop scenarios.
+- Resolved an issue that caused workspace resource icons to be partially obscured by a white or black rectangle. If you encounter this issue, you can force a workspace refresh by selecting **Help** > **Troubleshooting** > **Force Refresh All Workspaces**.
+
+## Updates for version 10.9.4
+
+*Published: October 20, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused printer redirection to not work for connections between macOS Sonoma and Windows 10 or later.
 
 ## Updates for version 10.9.3
 

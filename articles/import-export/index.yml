@@ -6,11 +6,9 @@ summary: Use Azure Import/Export to securely import large amounts of data to Azu
 metadata:
   title: Azure Import/Export documentation
   description: Azure Import/Export Documentation to securely import/export large amounts of data to and from Azure datacenters by shipping physical disks. # < 160 chars.
-  services: storage
   ms.service: azure-storage
   ms.subservice: storage
   ms.topic: landing-page 
-  ms.collection: collection
   author: v-dalc 
   ms.author: alkohli
   ms.date: 01/08/201

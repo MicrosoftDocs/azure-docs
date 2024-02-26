@@ -2,7 +2,7 @@
 title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.author: allensu
 ms.date: 12/05/2023
@@ -10,7 +10,7 @@ author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
+# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 
 Learn how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using the Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) Fully Qualified Domain Name (FQDN) tag that restricts outbound traffic from the AKS cluster. This article shows how you can configure your AKS Cluster traffic rules through Azure firewall.
 
@@ -266,14 +266,14 @@ If you don't have user-assigned identities, follow the steps in this section. If
     The output should resemble the following example output:
 
     ```output
-     {                                  
+     {
        "clientId": "<client-id>",
         "clientSecretUrl": "<clientSecretUrl>",
-        "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+        "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
        "location": "eastus",
       "name": "myIdentity",
        "principalId": "<principal-id>",
-      "resourceGroup": "aks-egress-rg",                       
+      "resourceGroup": "aks-egress-rg",
        "tags": {},
        "tenantId": "<tenant-id>",
         "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
@@ -292,11 +292,11 @@ If you don't have user-assigned identities, follow the steps in this section. If
    {
       "clientId": "<client-id>",
      "clientSecretUrl": "<clientSecretUrl>",
-     "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+     "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity",
       "location": "westus2",
       "name": "myKubeletIdentity",
      "principalId": "<principal-id>",
-      "resourceGroup": "aks-egress-rg",                       
+      "resourceGroup": "aks-egress-rg",
       "tags": {},
      "tenantId": "<tenant-id>",
      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"

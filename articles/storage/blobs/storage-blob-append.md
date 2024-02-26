@@ -8,7 +8,8 @@ ms.author: pauljewell
 ms.date: 09/01/2023
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-csharp, devx-track-dotnet, devguide-csharp
 ---
 

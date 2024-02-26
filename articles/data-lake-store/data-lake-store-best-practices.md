@@ -2,7 +2,6 @@
 title: Best practices for using Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
 services: data-lake-store
-documentationcenter: ''
 author: sachinsbigdata
 manager: mtillman
 

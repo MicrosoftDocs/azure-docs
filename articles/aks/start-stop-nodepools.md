@@ -17,6 +17,7 @@ You might not need to continuously run your AKS workloads. For example, you migh
 * Spot node pools are supported.
 * Stopped node pools can be upgraded.
 * The cluster and node pool must be running.
+* You can't stop node pools from clusters which use the [Node Autoprovisioning (NAP)](node-autoprovision.md) feature.
 
 ## Before you begin
 

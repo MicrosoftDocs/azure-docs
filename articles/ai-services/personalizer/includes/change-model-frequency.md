@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 08/25/2020
+ms.date: 01/19/2024
 ---
 ### Change the model update frequency
 

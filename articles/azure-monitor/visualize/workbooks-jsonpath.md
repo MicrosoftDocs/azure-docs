@@ -2,7 +2,6 @@
 title: Azure Monitor workbooks - Transform JSON data with JSONPath
 description: Use JSONPath in Azure Monitor workbooks to transform the JSON data results to a different data format. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023

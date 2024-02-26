@@ -1,14 +1,13 @@
 ---
-title: Migrate to Resource Manager with PowerShell 
+title: Migrate to Resource Manager with PowerShell
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks, and storage accounts from classic to Azure Resource Manager by using Azure PowerShell commands
 author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/14/2023
-ms.author: oriwolman 
+ms.author: oriwolman
 ms.custom: devx-track-azurepowershell compute-evergreen, devx-track-arm-template
 ---
 

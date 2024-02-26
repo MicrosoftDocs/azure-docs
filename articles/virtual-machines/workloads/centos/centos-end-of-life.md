@@ -4,7 +4,7 @@ description: Understand your options for moving CentOS workloads
 author: chasecrum
 ms.service: virtual-machines
 ms.subservice:
-ms.custom: devx-track-linux, linux-related-content
+ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 12/1/2023

@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.date: 10/20/2023
 ---
 

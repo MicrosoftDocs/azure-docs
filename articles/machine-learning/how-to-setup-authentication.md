@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
 services: machine-learning
 author: meyetman
-ms.author: meyetman 
+ms.author: meyetman
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 01/05/2024
 ms.topic: how-to
-ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: has-adal-ref, subject-rbac-steps, cliv2, sdkv2
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows

@@ -27,7 +27,7 @@
       href: quickstart-wordpress.md
     - name: Deploy a custom container
       href: quickstart-custom-container.md
-    - name: Use ARM template
+    - name: Deploy using ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
 - name: Deployment and configuration
@@ -74,8 +74,6 @@
               href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
-        - name: Use cloud sync
-          href: deploy-content-sync.md
     - name: Authentication for deployment
       href: deploy-authentication-types.md
     - name: Set deployment credentials
@@ -147,8 +145,8 @@
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
-      href: tutorial-connect-overview.md
-    - name: Connect to database (tutorials)
+      href: tutorial-connect-overview.md   
+    - name: Connect to database (tutorials)  
       items:
         - name: ASP.NET Core with SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
@@ -163,7 +161,7 @@
         - name: Java with Spring Data
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md
+          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -172,16 +170,20 @@
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to Azure AI services with secrets in Key Vault
-              items: 
-              - name: Use .NET
-                href: tutorial-connect-msi-key-vault.md
-              - name: Use JavaScript
-                href: tutorial-connect-msi-key-vault-javascript.md    
-              - name: Use PHP
-                href: tutorial-connect-msi-key-vault-php.md
-            - name: Connect to Logic Apps
-              href: tutorial-send-email.md
+            - name: Secrets in app settings
+              items:
+                - name: Connect to Logic Apps
+                  href: tutorial-send-email.md
+            - name: Secrets in Key Vault
+              items:
+              - name: Connect to Azure AI services
+                items: 
+                - name: Use .NET
+                  href: tutorial-connect-msi-key-vault.md
+                - name: Use JavaScript
+                  href: tutorial-connect-msi-key-vault-javascript.md    
+                - name: Use PHP
+                  href: tutorial-connect-msi-key-vault-php.md                            
     - name: Connect by using app identity
       items:
         - name: Managed identity overview
@@ -287,8 +289,6 @@
       href: configure-basic-auth-disable.md
     - name: Security
       items:
-        - name: Security recommendations
-          href: security-recommendations.md
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
         - name: About OS and runtime patching

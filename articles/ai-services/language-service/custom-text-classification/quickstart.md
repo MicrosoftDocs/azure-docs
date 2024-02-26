@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
+ms.custom: language-service-custom-classification, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 

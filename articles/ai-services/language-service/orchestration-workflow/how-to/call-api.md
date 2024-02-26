@@ -9,8 +9,9 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.devlang: csharp, python
-ms.custom: language-service-clu, ignite-fall-2021
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: language-service-clu
 ---
 
 # Query deployment for intent predictions

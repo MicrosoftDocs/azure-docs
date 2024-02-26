@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner
 ---
 
 # Supported Named Entity Recognition (NER) entity categories and entity types

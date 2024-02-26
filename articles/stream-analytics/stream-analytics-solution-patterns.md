@@ -4,7 +4,6 @@ description: Learn about common solution patterns for Azure Stream Analytics, su
 author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/21/2019
 ---
