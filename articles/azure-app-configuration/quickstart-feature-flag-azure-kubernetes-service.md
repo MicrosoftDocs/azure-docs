@@ -18,7 +18,7 @@ In this quickstart, you will add feature management capability to an ASP.NET Cor
 
 ## Prerequisites
 
-Finish the [Create an application](./quickstart-azure-kubernetes-service.md/#create-an-application) section in quickstart.
+Finish the [Create an application](./quickstart-azure-kubernetes-service.md#create-an-application) section in quickstart.
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -99,9 +99,9 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
     The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
 
-1. [Containerize the application](./quickstart-azure-kubernetes-service.md/#containerize-the-application) and [Push the image to Azure Container Registry](./quickstart-azure-kubernetes-service.md/#push-the-image-to-azure-container-registry). 
+1. [Containerize the application](./quickstart-azure-kubernetes-service.md#containerize-the-application) and [Push the image to Azure Container Registry](./quickstart-azure-kubernetes-service.md#push-the-image-to-azure-container-registry). 
 
-1. [Deploy the application](./quickstart-azure-kubernetes-service.md/#deploy-the-application)
+1. [Deploy the application](./quickstart-azure-kubernetes-service.md#deploy-the-application)
 
 ## Use App Configuration Kubernetes Provider
 
@@ -219,17 +219,17 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Refresh the browser. The page shows updated content.
 
-    ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-nobeta.png)
+    ![Screenshot showing Kubernetes Provider after using configMap without feature flag.](./media/quickstarts/kubernetes-provider-feature-flag-nobeta.png)
 
 1. Update the **Beta** feature flag in your App Configuration store. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. After refreshing the browser a few times, you will see the updated content once the ConfigMap is updated in 30 seconds.
 
-    ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-home.png)
+    ![Screenshot showing Kubernetes Provider after using configMap with feature flag enabled.](./media/quickstarts/kubernetes-provider-feature-flag-home.png)
 
 1. Select the **Beta** menu. It will bring you to the beta website that you enabled dynamically.
 
-    ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-beta.png)
+    ![Screenshot showing beta page Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-beta.png)
 
 ## Clean up resources
 
