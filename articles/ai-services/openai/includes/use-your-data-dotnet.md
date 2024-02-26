@@ -24,9 +24,9 @@ using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
-string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
-string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
@@ -44,9 +44,9 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         {
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
-                AZURE_AI_SEARCH_ENDPOINT = new Uri(AZURE_AI_SEARCH_ENDPOINT),
-                Key = AZURE_AI_SEARCH_API_KEY,
-                IndexName = AZURE_AI_SEARCH_INDEX,
+                SearchEndpoint = new Uri(searchEndpoint),
+                Key = searchKey,
+                IndexName = searchIndex,
             },
         }
     },
@@ -130,9 +130,9 @@ using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-string AZURE_AI_SEARCH_ENDPOINT = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
-string AZURE_AI_SEARCH_API_KEY = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
-string AZURE_AI_SEARCH_INDEX = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 string deploymentName = GetEnvironmentVariable("AZURE_OPEN_AI_DEPLOYMENT_ID");
 
 
@@ -151,9 +151,9 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         {
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
-                AZURE_AI_SEARCH_ENDPOINT = new Uri(AZURE_AI_SEARCH_ENDPOINT),
-                Key = AZURE_AI_SEARCH_API_KEY,
-                IndexName = AZURE_AI_SEARCH_INDEX,
+                SearchEndpoint = new Uri(searchEndpoint),
+                Key = searchKey,
+                IndexName = searchIndex,
             },
         }
     }
