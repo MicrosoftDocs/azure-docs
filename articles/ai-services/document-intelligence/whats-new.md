@@ -27,6 +27,32 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > [!IMPORTANT]
 > Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the 2023-07-31 API version.
 
+## February 2024
+
+The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
+
+* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently only available in the following Azure regions:
+
+  * **East US**
+  * **West US2**
+  * **West Europe**
+ 
+* [Custom Models](concept-custom.md)
+  * Custom models now support cell level confidence to custom models. 
+  * Custom models support office file types, specifically, Word, PPT, and excel for classification.
+* [Invoice model](concept-invoice.md)
+  * Support for new locales (`ar`, `bg`, `mk`, `ry`, `sr`, `uk`, `ru`, `he`, `gr`, `ta`, `th`)
+  * Support for new currency codes (`BAM`, `BGN`,`ILS`,`MKD`, `RUB`,`THB`,`TRY`, `UAH`,`VND`)
+  * Tax items support expansion (`de`,`es`,`pt`,`en-CA`)
+* [ID model](concept-id-document.md)
+  * Expanded field support for EU IDs and driver licenses
+* [NEW Mortgage model](concept-mortgage.md)
+  * New trio of prebuilts meant for mortgage automation (1003 EULA, 1008 underwriting, closing disclosure) 
+* [NEW Credit/Debit card model](concept-credit-card.md)
+  * New prebuilt to extract information from bank cards. 
+* [NEW Marrige certificatel](concept-marrige-certificate.md)
+  * New prebuilt to extract information from marriage certificates. 
+    
 ## December 2023
 
 The [Document Intelligence client libraries](sdk-overview-v4-0.md) targeting REST API **2023-10-31-preview** are now available for use!
