@@ -15,17 +15,41 @@ ms.author: memontic
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
+- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [VS Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/en-us/download))
+
 ## Setting up
 
 ### Create the .NET project
 
 #### [Visual Studio](#tab/visual-studio)
 
-In Visual Studio, create a new project, then select `Console App (.NET Framework) for C#`.
+To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
+
+Press <kbd>Ctrl</kbd>+<kbd>F7</kbd> to compile your code.
 
 #### [VS Code](#tab/vs-code)
 
-To create your project, follow the steps at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0).
+To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
+
+Build and run your program by running the following commands in the VS Code Terminal (View > Terminal).
+```console
+dotnet build
+dotnet run
+```
+
+#### [.NET CLI](#tab/dotnet-cli)
+
+First, create your project.
+```console
+dotnet new console -o AdvancedMessagingQuickstart
+```
+
+Next, navigate to your project directory and build your project.
+
+```console
+cd AdvancedMessagingQuickstart
+dotnet build
+```
 
 ---
 
@@ -42,7 +66,14 @@ Install the Azure.Communication.Messages NuGet package to your C# project.
 # [VS Code](#tab/vs-code)
 
 1. Open the VS Code terminal ( `View` > `Terminal` )
-2. Install the package by running the following command:
+2. Install the package by running the following command.
+```console
+dotnet add package Azure.Communication.Messages
+```
+
+#### [.NET CLI](#tab/dotnet-cli)
+
+Install the package by running the following command.
 ```console
 dotnet add package Azure.Communication.Messages
 ```
@@ -136,10 +167,13 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Code examples
 
+Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
+
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+TODO add another bullet for template
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
 
@@ -170,7 +204,7 @@ var channelRegistrationId = new Guid("<your channel registration id GUID>");
 
 ### Set recipient list
 
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
+You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
 For this quickstart, this phone number may be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
@@ -192,9 +226,20 @@ var recipientList = new List<string> { "+14255550199" };
 
 ### Start sending messages between a business and a WhatsApp user
 
-Communication between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+
+
+
+Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
+
+Even if is an active conversation, a business can only send template messages until the user sends a message to the business. Only then can the business send text or media messages to the user. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+
+| Type of message | Ability for businees to send message to user |
+|--|--|
+| Template | After consent is obtained from the user. See [Messaging Policy](../../../../../concepts/sms/messaging-policy.md) |
+| Text | After the user sends any message to the business  |
+| Media | After the user sends any message to the business |
 
 #### (Option 1) Initiate conversation from business - Send a templated message
 Initiate a conversation by sending a template message.
@@ -211,20 +256,27 @@ string templateLanguage = "en_us";
 var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ```
 
-For more examples of how to assemble your MessageTemplate and how to create your own template, see [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md).    
-For further requirements on templates, refer to the guidelines in the WhatsApp Business Platform API references [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/), [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components), and [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates). 
+For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
+- [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md). 
+   
+For further WhatsApp requirements on templates, refer to the following resources:
+- WhatsApp Business Platform API references [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
+- [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
+- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
 
 
 Assemble then send the template message:
 ```csharp
-var templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
+var templateContent = 
+    new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
 
-Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendAsync(templateContent);
+Response<SendMessageResult> sendTemplateMessageResult = 
+    await notificationMessagesClient.SendAsync(templateContent);
 ```
 
 Now, the user needs to respond to template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
 
-> [!NOTE]
+> [!IMPORTANT]
 > The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
 
 #### (Option 2) Initiate conversation from user
@@ -236,7 +288,9 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 
 ### Send a text message to a WhatsApp user
- To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-a-whatsapp-user).
+
+> [!IMPORTANT]
+> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
 
@@ -250,7 +304,9 @@ Response<SendMessageResult> sendTextMessageResult =
 ```
 
 ### Send a media message to a WhatsApp user
-To send a media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-business-and-a-whatsapp-user).
+
+> [!IMPORTANT]
+> To send a media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 To send a media message, provide a URI to an image.
 As an example, create a URI:
@@ -275,6 +331,29 @@ To send a text or media message to a WhatsApp user, there must be an active conv
 If you do not have an active conversation, for the purposes of this quickstart, it is suggested to add a wait between sending the template message and sending the text message. This will give you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
   
 If successful, you will recieve 3 messages on the user's WhatsApp account.
+
+#### [Visual Studio](#tab/visual-studio)
+
+1. Press <kbd>Ctrl</kbd>+<kbd>F7</kbd> to compile your code.
+1. Press <kbd>Ctrl</kbd>+<kbd>F5</kbd> to run the program without debugging.
+
+#### [VS Code](#tab/vs-code)
+
+Build and run your program by running the following commands in the VS Code Terminal (View > Terminal).
+```console
+dotnet build
+dotnet run
+```
+
+#### [.NET CLI](#tab/dotnet-cli)
+
+Build and run your program.
+```console
+dotnet build
+dotnet run
+```
+
+---
 
 ## Sample code
 
