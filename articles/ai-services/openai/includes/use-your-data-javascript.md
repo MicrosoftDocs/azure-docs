@@ -40,9 +40,9 @@ const { DefaultAzureCredential } = require("@azure/identity")
 // Set the Azure and AI Search values from environment variables
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
-const AZURE_AI_SEARCH_ENDPOINT = process.env["AZURE_AI_SEARCH_ENDPOINT"];
-const AZURE_AI_SEARCH_API_KEY = process.env["AZURE_AI_SEARCH_API_KEY"];
-const AZURE_AI_SEARCH_INDEX = process.env["AZURE_AI_SEARCH_INDEX"];
+const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
+const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
 const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
 async function main() {
@@ -60,9 +60,9 @@ async function main() {
         {
           type: "AzureCognitiveSearch",
           parameters: {
-            endpoint: AZURE_AI_SEARCH_ENDPOINT,
-            key: AZURE_AI_SEARCH_API_KEY,
-            indexName: AZURE_AI_SEARCH_INDEX,
+            endpoint: searchEndpoint,
+            key: searchKey,
+            indexName: searchIndex,
           },
         },
       ],

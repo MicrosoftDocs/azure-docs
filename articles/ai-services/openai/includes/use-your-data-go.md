@@ -54,11 +54,11 @@ ms.date: 08/29/2023
    	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
    
    	// Azure AI Search configuration
-   	AZURE_AI_SEARCH_INDEX := os.Getenv("AZURE_AI_SEARCH_INDEX")
-   	AZURE_AI_SEARCH_ENDPOINT := os.Getenv("AZURE_AI_SEARCH_ENDPOINT")
+   	searchIndex := os.Getenv("AZURE_AI_SEARCH_INDEX")
+   	searchEndpoint := os.Getenv("AZURE_AI_SEARCH_ENDPOINT")
    	searchAPIKey := os.Getenv("AZURE_AI_SEARCH_API_KEY")
    
-   	if azureOpenAIKey == "" || modelDeploymentID == "" || azureOpenAIEndpoint == "" || AZURE_AI_SEARCH_INDEX == "" || AZURE_AI_SEARCH_ENDPOINT == "" || searchAPIKey == "" {
+   	if azureOpenAIKey == "" || modelDeploymentID == "" || azureOpenAIEndpoint == "" || searchIndex == "" || searchEndpoint == "" || searchAPIKey == "" {
    		fmt.Fprintf(os.Stderr, "Skipping example, environment variables missing\n")
    		return
    	}
@@ -89,8 +89,8 @@ ms.date: 08/29/2023
    				//
    				// Quote from here: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data
    				Parameters: &azopenai.AzureCognitiveSearchChatExtensionParameters{
-   					Endpoint:  &AZURE_AI_SEARCH_ENDPOINT,
-   					IndexName: &AZURE_AI_SEARCH_INDEX,
+   					Endpoint:  &searchEndpoint,
+   					IndexName: &searchIndex,
    					Authentication: &azopenai.OnYourDataAPIKeyAuthenticationOptions{
    						Key: &searchAPIKey,
    					},
