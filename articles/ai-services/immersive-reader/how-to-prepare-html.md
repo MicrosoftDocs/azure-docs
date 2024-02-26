@@ -13,7 +13,7 @@ ms.author: sharmas
 
 # How to prepare HTML content for Immersive Reader
 
-This article shows you how to structure your HTML and retrieve the content, so that Immersive Reader can use it.
+This article shows you how to structure your HTML and retrieve the content, so that your Immersive Reader application can use it.
 
 ## Prepare the HTML content
 

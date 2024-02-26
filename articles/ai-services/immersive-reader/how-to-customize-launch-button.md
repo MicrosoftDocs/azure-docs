@@ -14,11 +14,11 @@ ms.author: sharmas
 
 # How to customize the Immersive Reader button
 
-This article demonstrates how to customize the button that launches the Immersive Reader to fit the needs of your application.
+This article demonstrates how to customize the button that launches the Immersive Reader, to fit the needs of your application.
 
 ## Add the Immersive Reader button
 
-The Immersive Reader SDK provides default styling for the button that launches the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling.
+The [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) provides default styling for the button that launches the Immersive Reader. To enable this styling, use the `immersive-reader-button` class attribute.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -26,7 +26,7 @@ The Immersive Reader SDK provides default styling for the button that launches t
 
 ## Customize the button style
 
-Use the `data-button-style` attribute to set the style of the button. The allowed values are `icon`, `text`, and `iconAndText`. The default value is `icon`.
+To set the style of the button, use the `data-button-style` attribute. The allowed values are `icon`, `text`, and `iconAndText`. The default value is `icon`.
 
 ### Icon button
 
@@ -60,7 +60,7 @@ Use the following code to render both the button and the text.
 
 ## Customize the button text
 
-Configure the language and the alt text for the button using the `data-locale` attribute. The default language is English.
+To configure the language and the alt text for the button, use the `data-locale` attribute. The default language is English.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
@@ -68,7 +68,7 @@ Configure the language and the alt text for the button using the `data-locale` a
 
 ## Customize the size of the icon
 
-The size of the Immersive Reader icon can be configured using the `data-icon-px-size` attribute. This sets the size of the icon in pixels. The default size is 20 px.
+To configure the size of the Immersive Reader icon, use the `data-icon-px-size` attribute. This sets the size of the icon in pixels. The default size is 20 px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>

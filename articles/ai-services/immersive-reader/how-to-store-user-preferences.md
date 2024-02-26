@@ -40,7 +40,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## Load user preferences
 
-Pass in the user's preferences to the Immersive Reader app using the `-preferences` option. A trivial example to store and load the user's preferences is as follows:
+Pass in the user's preferences to the Immersive Reader app by using the `-preferences` option. A trivial example to store and load the user's preferences is as follows:
 
 ```typescript
 const storedUserPreferences = localStorage.getItem("USER_PREFERENCES");
