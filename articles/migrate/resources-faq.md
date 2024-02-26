@@ -4,7 +4,7 @@ description: Get answers to common questions about the Azure Migrate service.
 author: MaryMichael-MS
 ms.author: v-michaelar
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 02/27/2022
 ms.custom: engagement-fy23
 ---
 
