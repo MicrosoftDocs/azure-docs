@@ -271,7 +271,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/communication-services/quickstarts/voice-video-calling/get-started-live-stream.md",
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/get-started-live-stream.md",
             "redirect_url": "/azure/communication-services/",
             "redirect_document_id": false
         }
