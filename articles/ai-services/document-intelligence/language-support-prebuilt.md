@@ -156,6 +156,18 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
 | &bullet; Chinese (simplified (`zh-hans`)) | China (`zh-hans-cn`)|
 | &bullet; Chinese (traditional (`zh-hant`)) | Hong Kong SAR (`zh-hant-hk`), Taiwan (`zh-hant-tw`)|
+| &bullet; Arabic (`ar`) | Arabic (`ar`)|
+| &bullet; Bulgarian (`bg`) | Bulgaria (`bg`)|
+| &bullet; Greek (`el`) | Greece (`el`)|
+| &bullet; Hebrew (`he`) | Hebrew (`he`)|
+| &bullet; Macedonian (`mk`) | Macedonia (`mk`)|
+| &bullet; Russian (`ru`) | Russia (`ru`)|
+| &bullet; Serbian (Cyrillic) (`sr-cyrl`) | Serbia (`sr`)|
+| &bullet; Hebrew (`he`) | Hebrew (`he`)|
+| &bullet; Thai (`th`) | Thailand (`th`)|
+| &bullet; Turkish (`tr`) | Turkey (`tr`)|
+| &bullet; Ukrainian (`uk`) | Ukraine (`uk`)|
+| &bullet; Vietnamese (`vi`) | Vietnam (`vi`)|
 
 ### [Supported Currency Codes](#tab/currency)
 
@@ -189,6 +201,16 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; SEK | Swedish Krona (`se`) |
 | &bullet; TWD | New Taiwan Dollar (`tw`) |
 | &bullet; USD | United States Dollar (`us`) |
+| &bullet; BAM | Bosnian Convertible Mark (`ba`) |
+| &bullet; BGN | Bulgarian Lev (`bg`) |
+| &bullet; ILS | Israeli New Shekel (`il`) |
+| &bullet; MKD | Macedonian Denar (`mk`) |
+| &bullet; RUB | Russian Ruble (`ru`) |
+| &bullet; THB | Thai Baht (`th`) |
+| &bullet; TRY | Turkish Lira (`tr`) |
+| &bullet; UAH | Ukrainian Hryvnia (`ua`) |
+| &bullet; VND | Vietnamese Dong (`vn`) |
+
 
 ---
 :::moniker-end
