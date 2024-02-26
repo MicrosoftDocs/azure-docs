@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  10/13/2023
+  ms.date:  2/23/2024
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -181,16 +181,6 @@ sections:
 
       - question: Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
         answer: Yes. Use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it doesn't exceed the limit of four ExpressRoute circuits per virtual network. To access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway doesn't provide transitive routing between its connected circuits.
-
-      - question: Why does Azure VMware Solution use a Public 4-byte Autonomous System Number (ASN)?
-        answer: Azure VMware Solution uses the officially registered Public 4-byte ASNs to ensure there is never a conflict with your on-premises use of Private ASNs in the customer's routing path to Azure VMware Solution.
-
-      - question: How can I use ExpressRoute to connect to Azure VMware Solution if the on-premises ExpressRoute-carrier partners/ISPs don't support 4-byte ASN?
-        answer: |
-          The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
-
-          > [!NOTE]
-          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. Also design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.
