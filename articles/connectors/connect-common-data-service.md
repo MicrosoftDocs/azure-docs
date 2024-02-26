@@ -24,7 +24,7 @@ ms.custom: engagement-fy23
 > Since October 2023, the legacy version became unavailable for new workflows. Existing workflows continue 
 > to work, but you *must* use the current Dataverse connector operations for new workflows. A timeline for
 > the shutdown date for the legacy actions and triggers will be announced. For more information, see 
-> [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](https://learn.microsoft.com/en-us/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
+> [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](https://learn.microsoft.com/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
 
 To create and run automated workflows that create and manage rows in your [Microsoft Dataverse database](/powerapps/maker/common-data-service/data-platform-intro), you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/). These workflows can create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
