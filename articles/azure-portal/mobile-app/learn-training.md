@@ -1,13 +1,13 @@
 ---
 title: Learn about Azure in the Azure mobile app
 description: The Microsoft Learn features in the Azure mobile app help you learn Azure skills anytime, anywhere.
-ms.date: 02/06/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 ---
 
 # Learn about Azure in the Azure mobile app
 
-The Microsoft Learn features on the Azure mobile app are designed to help you learn Azure skills anytime, anywhere. Browse and view the most popular Azure modules, such as Azure fundamentals, Azure security, and Azure AI. Access the Azure certification page, Azure Learn landing page, Azure Q&A, and other useful pages.
+The Microsoft Learn features on the Azure mobile app are designed to help you learn anytime, anywhere. Browse and view the most popular Azure modules, with training on fundamentals, security, AI, and more. Access the Azure certification page, Azure Learn landing page, Q&A, and other useful pages.
 
 In this article, we'll walk through some of the features you can use to access training content and grow your Azure skills, right from within the app. With the Azure mobile app, you can learn Azure at your own pace and convenience.
 
