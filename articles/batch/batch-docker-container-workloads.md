@@ -4,11 +4,13 @@ description: Learn how to run and scale apps from container images on Azure Batc
 ms.topic: how-to
 ms.date: 01/19/2024
 ms.devlang: csharp
-# ms.devlang: csharp, python
 ms.custom: devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
 

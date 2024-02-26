@@ -7,7 +7,7 @@ ms.topic: overview
 author: SudheeshGH
 ms.author: sunaray
 ms.custom: mvc, references_regions
-ms.date: 01/10/2024
+ms.date: 02/12/2024
 ---
 
 # Azure Database for MySQL - Flexible Server deployment model
@@ -30,11 +30,11 @@ Azure Database for MySQL flexible server is a fully managed production-ready dat
 The flexible server deployment option offers three compute tiers: Burstable, General Purpose, and Business Critical. Each tier offers different compute and memory capacity to support your database workloads. You can build your first app on a burstable tier for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Compute and Storage](concepts-compute-storage.md) for details.
 
 Flexible servers are best suited for
-- Ease of deployments, simplified scaling, and low database management overhead for functions like backups, high availability, security, and monitoring
-- Application developments requiring community version of MySQL with better control and customizations
-- Production workloads with same-zone, zone-redundant high availability and managed maintenance windows
-- Simplified development experience 
-- Enterprise grade security, compliance, and privacy
+- Ease of deployment, simplified scaling, and low database management overhead for functions such as backups, high availability, security, and monitoring.
+- Application developments requiring community version of MySQL with better control and customizations.
+- Production workloads with same-zone, zone-redundant high availability, and managed maintenance windows.
+- Simplified development experience.
+- Enterprise grade security, compliance, and privacy.
 
 For latest updates on Azure Database for MySQL flexible server, refer to [What's new in Azure Database for MySQL flexible server](whats-new.md).
 
@@ -73,7 +73,7 @@ For more information, see [Scheduled Maintenance](concepts-maintenance.md).
 
 The Azure Database for MySQL flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured between 1-35 days. All backups are encrypted using AES 256-bit encryption.
 
-See [Backup concepts](concepts-backup-restore.md) to learn more.
+For more information, see [Backup concepts](concepts-backup-restore.md).
 
 ## Network Isolation
 
@@ -89,13 +89,13 @@ You have two networking options to connect to Azure Database for MySQL flexible 
 
 - **Public access (allowed IP addresses)** – You can deploy your Azure Database for MySQL flexible server instance with a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase "allowed IP addresses" refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
 
-See [Networking concepts](concepts-networking.md) to learn more.
+For more information, see [Networking concepts](concepts-networking.md).
 
 ## Adjust performance and scale within seconds
 
 Azure Database for MySQL flexible server is available in three service tiers: Burstable, General Purpose, and Business Critical. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full-compute capacity continuously. General Purpose and Business Critical are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Azure Database for MySQL flexible server enables you to provision additional IOPS up to 80 K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume.
 
-See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
+For more information, see [Compute and Storage concepts](concepts-compute-storage.md).
 
 ## Scale out your read workload with up to 10 read replicas
 
@@ -119,7 +119,7 @@ For more information, see [Data-in replication concepts](concepts-data-in-replic
 
 ## Stop/Start server to optimize cost
 
-Azure Database for MySQL flexible server allows you to stop and start servers on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for 30 days unless restarted sooner.
+Azure Database for MySQL flexible server allows you to stop and start servers on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This functionality can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for 30 days unless restarted sooner.
 
 For more information, see [Server concepts](concept-servers.md).
 
@@ -127,7 +127,7 @@ For more information, see [Server concepts](concept-servers.md).
 
 Azure Database for MySQL flexible server uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
-Azure Database for MySQL flexible server encrypts data in-motion with transport layer security enforced by default. Azure Database for MySQL flexible server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 are denied. You can disable TSL/SSL enforcement by setting the require_secure_transport server parameter and then can setting the minimum tls_version for your server.
+Azure Database for MySQL flexible server encrypts data in-motion with transport layer security enforced by default. Azure Database for MySQL flexible server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 are denied. You can disable TSL/SSL enforcement by setting the require_secure_transport server parameter and then setting the minimum tls_version for your server.
 
 For more information, see [how to use encrypted connections to Azure Database for MySQL flexible server instances](how-to-connect-tls-ssl.md).
 
@@ -164,7 +164,7 @@ To migrate from Azure Database for MySQL single server to Azure Database for MyS
 
 For more information, see [Select the right tools for migration to Azure Database for MySQL flexible server](../../mysql/how-to-decide-on-right-migration-tools.md).
 
-## Azure regions
+### Azure regions
 
 One advantage of running your workload in Azure is its global reach. Azure Database for MySQL flexible server is available today in the following Azure regions:
 
@@ -174,14 +174,14 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China East 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| China North 3 | :heavy_check_mark:  | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| China North 3 | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia (Hong Kong SAR) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -196,17 +196,18 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Norway East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Qatar Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: 
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| UAE Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |

@@ -147,7 +147,7 @@ We provide an `evaluate` function call with the following interface for running 
 
 ```python
 result = evaluate( 
-    evaluation_name="my-qa-eval-with-flow", #name your evaluation to view in AI studio
+    evaluation_name="my-qa-eval-with-flow", #name your evaluation to view in AI Studio
     target=myflow, # pass in a flow that you want to run then evaluate results on 
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
@@ -174,7 +174,7 @@ Alternatively if you already have a test dataset and *don't need to run a flow* 
 
 ```python
 result = evaluate( 
-    evaluation_name="my-qa-eval-with-data", #name your evaluation to view in AI studio
+    evaluation_name="my-qa-eval-with-data", #name your evaluation to view in AI Studio
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
     metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity"] #optional superset over default set of metrics

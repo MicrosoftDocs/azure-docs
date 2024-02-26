@@ -7,7 +7,6 @@ manager: femila
 editor: jwargo
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article

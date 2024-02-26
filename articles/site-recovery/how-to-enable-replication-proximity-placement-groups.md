@@ -12,6 +12,9 @@ ms.date: 08/01/2023
 
 # Replicate virtual machines running in a proximity placement group to another region
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 
 [Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 

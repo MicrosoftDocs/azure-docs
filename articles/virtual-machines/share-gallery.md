@@ -5,13 +5,11 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.custom: template-how-to , devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # Share gallery resources across subscriptions and tenants with RBAC

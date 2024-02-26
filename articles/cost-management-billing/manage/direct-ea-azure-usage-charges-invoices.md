@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2024
+ms.date: 02/14/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -14,9 +14,6 @@ ms.reviewer: sapnakeshari
 
 This article explains how partner administrators of indirect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
-> [!NOTE]
->On February 15, 2024, the Azure Enterprise portal is retiring for EA enrollments in the Azure Government cloud. The Azure Enterprise portal is already retired for EA enrollments in the  commercial cloud. Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
->
 Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY]

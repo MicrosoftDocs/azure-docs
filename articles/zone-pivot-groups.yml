@@ -485,13 +485,13 @@ groups:
   - id: java
     title: Java
 - id: function-worker-process
-  title: .NET Azure Functions worker process 
-  prompt: Choose how to run   
+  title: .NET Azure Functions process model
+  prompt: Choose your .NET mode   
   pivots: 
-  - id: in-proc
-    title: In-process
   - id: isolated
-    title: Isolated worker process
+    title: Isolated worker model
+  - id: in-proc
+    title: In-process model
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -1198,7 +1198,7 @@ groups:
   - id: platform-linux
     title: Linux
   - id: platform-windows
-    title: Windows
+    title: Windows code
   - id: platform-windows-container
     title: Windows container
 # Owner: msangapu
@@ -1225,7 +1225,7 @@ groups:
   title: App Service Java hosting
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-quarkus
+  - id: java-maven-javase
     title: Embed your own server
   - id: java-maven-tomcat
     title: To a Tomcat server
@@ -1565,6 +1565,14 @@ groups:
     title: Web
   - id: platform-mobile
     title: Mobile
+- id: acs-plat-web-native
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-native
+    title: Native
 - id: acs-plat-web-ios-android-windows
   title: Platform
   prompt: Choose a platform
@@ -2853,6 +2861,16 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Dev Box
+- id: azure-virtual-desktop-windows-clients
+  title: Remote Desktop clients for Windows
+  prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
+  pivots:
+  - id: remote-desktop-msi
+    title: Remote Desktop client (MSI)
+  - id: avd-store
+    title: Azure Virtual Desktop Store app
+  - id: rd-store
+    title: Remote Desktop Store app
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -2998,4 +3016,26 @@ groups:
   - id: programming-language-typescript
     title: TypeScript
   - id: programming-language-portal
-    title: Azure Portal
+    title: Azure portal
+# Owner: pauljewell
+- id: azure-blob-storage-quickstart-options
+  title: Quickstart interaction type
+  prompt: Choose how you'd like to interact with the quickstart
+  pivots:
+  - id: blob-storage-quickstart-scratch
+    title: Build from scratch
+  - id: blob-storage-quickstart-template
+    title: Start with a template
+# Owner: sloanster
+- id: acs-web-safari-chrome-firefox-known-issues
+  title: Knowns issues
+  prompt: Choose a platform
+  pivots:
+  - id: all-browsers
+    title: All browsers
+  - id: safari-browser
+    title: Safari browser
+  - id: chrome-browser
+    title: Chrome browser
+  - id: firefox-browser
+    title: Firefox browser

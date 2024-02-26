@@ -1,10 +1,9 @@
 ---
 title: Manage backup policies for Azure NetApp Files | Microsoft Docs
-description: Describes how to modify or suspend a backup policy for Azure NetApp Files volumes. 
+description: Describes how to modify or suspend a backup policy for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: anfdocs

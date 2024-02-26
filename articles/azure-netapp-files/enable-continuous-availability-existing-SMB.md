@@ -1,10 +1,9 @@
 ---
 title: Enable Continuous Availability on existing Azure NetApp Files SMB volumes | Microsoft Docs
-description: Describes how to enable SMB Continuous Availability on existing Azure NetApp Files SMB volume.  
+description: Describes how to enable SMB Continuous Availability on existing Azure NetApp Files SMB volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: anfdocs

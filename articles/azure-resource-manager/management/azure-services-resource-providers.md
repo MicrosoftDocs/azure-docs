@@ -303,7 +303,7 @@ The resource providers for storage services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.ClassicStorage | Classic deployment model storage |
-| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
+| Microsoft.ElasticSan | [Elastic SAN](../../storage/elastic-san/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |

@@ -11,7 +11,7 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 author: cephalin
 ms.author: cephalin
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo
 ai-usage: ai-assisted
 ---
 

@@ -7,7 +7,6 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
 ms.date: 09/25/2023
 ---

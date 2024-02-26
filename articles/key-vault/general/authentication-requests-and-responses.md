@@ -4,12 +4,11 @@ description: Learn how Azure Key Vault uses JSON-formatted requests and response
 services: key-vault
 author: mbaldwin
 manager: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
