@@ -61,8 +61,7 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
-
-   [`func new`](functions-core-tools-reference.md#func-new) creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    [`func new`](functions-core-tools-reference.md#func-new) creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 You may find the [Azure Functions Core Tools reference](functions-core-tools-reference.md) helpful.
 
