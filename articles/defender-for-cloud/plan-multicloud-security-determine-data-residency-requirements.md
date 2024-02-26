@@ -7,24 +7,17 @@ ms.author: dacurwin
 ms.date: 10/03/2022
 ---
 
-# Determine data residency requirements
+# Determine plan and agents requirments
 
 This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
 
 ## Goal
 
-Identify data residency constraints as you plan your multicloud deployment.
+Identify what plans to enable and requirements for each plan.
 
 ## Get started
 
-When designing business solutions, data residency (the physical or geographic location of an organization’s data) is often top of mind due to compliance requirements. For example, the European Union’s General Data Protection Regulation (GDPR) requires all data collected on citizens to be stored in the EU, for it to be subject to European privacy laws.
-
-- As you plan, consider these points around data residency:
-- When you create connectors to protect multicloud resources, the connector resource is hosted in an Azure resource group that you choose when you set up the connector. Select this resource group in accordance with your data residency requirements.  
-When data is retrieved from AWS/GCP, it’s stored in either GDPR-EU, or US:
-
-  - Defender for Cloud looks at the region in which the data is stored in the AWS/GCP cloud and matches that.
-  - Anything in the EU is stored in the EU region. Anything else is stored in the US region.
+When protecting assets across cloud, you need to identify what plans to enable for your desired protection, as well as installing agent components if and as needed by each plan.
 
 ## Agent considerations
 
