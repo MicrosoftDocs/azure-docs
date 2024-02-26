@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Configure Azure monitor for SAP with SAP Deployment Automation Framework
 
-Monitoring the performance and availability of SAP systems on Azure is simplified through [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md). It collects and analyzes metrics and logs from your the applications, databases, operating systems, and Azure resources. Several customers use Azure Monitor for SAP to visualize and troubleshoot issues, set alerts and notifications, and optimize your SAP workloads on Azure.
+Monitoring the performance and availability of SAP systems on Azure is simplified through [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md). It collects and analyzes metrics and logs from your SAP applications, databases, operating systems, and Azure resources. Several customers use Azure Monitor for SAP to visualize and troubleshoot issues, set alerts and notifications, and optimize your SAP workloads on Azure.
 
 By integrating Azure Monitor for SAP and SAP Deployment Automation Framework, you can achieve a faster, easier, and more reliable deployment and operation of your SAP systems on Azure. You can use the automation framework to provision and configure the SAP systems, and Azure Monitor for SAP to monitor and optimize the performance and availability of those SAP systems.
 
