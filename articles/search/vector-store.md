@@ -193,11 +193,13 @@ All vector indexing and query requests target an index. Endpoints are usually on
 | `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin [API keys](search-security-api-keys.md) or a [Search Contributor role](search-security-rbac.md#built-in-roles-used-in-search). |
 | `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index or data refresh. For queries, read rights are sufficient, and available through query API keys or a data reader role. For data refresh, admin rights are required. |
 
-#### How to connect to Azure AI Search
+### How to connect to Azure AI Search
 
-1. [Start with the Azure portal](https://portal.azure.com). Azure subscribers, or the person who created the search service, can manage the search service in the Azure portal. An Azure subscription requires Contributor or above permissions to create or delete services. This permission level is sufficient for fully managing a search service in the Azure portal.
+1. [Make sure you have permissions](search-security-rbac.md) or an [API access key](search-security-api-keys.md). Unless you're querying an existing index, you need admin rights or a contributor role assignment to manage and view content on a search service.
 
-1. Try other clients for programmatic access. We recommend the quickstarts and samples for first steps:
+1. [Start with the Azure portal](https://portal.azure.com). The person who created the search service can view and manage the search service, including granting access to others through the **Access control (IAM)** page.
+
+1. Move on to other clients for programmatic access. We recommend the quickstarts and samples for first steps:
 
    + [Quickstart: REST](search-get-started-vector.md)
    + [Vector samples](https://github.com/Azure/azure-search-vector-samples/blob/main/README.md)
