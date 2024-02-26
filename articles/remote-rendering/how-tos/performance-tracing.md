@@ -44,7 +44,7 @@ While ETL traces can be created on any Windows device (local PC, HoloLens, cloud
 
 ## Recording a trace on a local PC
 
-Use traces on PC to either get familiar with the tools or if you have an issue where the hardware restrictions of the HoloLens aren't relevant. Otherwise you can skip to the [Recording a trace on a HoloLens](#Recording-a-trace-on-a-HoloLens) section. Especially ARR performance issues should only be traced directly on a HoloLens.
+Use traces on PC to either get familiar with the tools or if you have an issue where the hardware restrictions of the HoloLens aren't relevant. Otherwise you can skip to the [Recording a trace on a HoloLens](#recording-a-trace-on-a-hololens) section. Especially ARR performance issues should only be traced directly on a HoloLens.
 
 ### WPR configuration
 
@@ -60,7 +60,7 @@ Use traces on PC to either get familiar with the tools or if you have an issue w
 
 Afterwards your WPR configuration should look like this:
 
-![WPR configuration](./media/wpr.png)
+![WPR configuration.](./media/wpr.png)
 
 ### Recording
 
@@ -74,7 +74,7 @@ You now have an ETL file that you can open in WPA.
 
 To record a trace on a HoloLens, boot up your device and enter its IP address into a browser to open up the *Device Portal*.
 
-![Device Portal](./media/wpr-hololens.png)
+![Device Portal.](./media/wpr-hololens.png)
 
 1. On the left, navigate to *Performance > Performance Tracing*.
 1. Select **Custom profiles**.
@@ -122,7 +122,7 @@ Windows Performance Analyzer is the standard tool to open ETL files and inspect 
 
 To get started with ARR tracing, the following pieces are good to know.
 
-![Performance graph](./media/wpa-graph.png)
+![Performance graph.](./media/wpa-graph.png)
 
 The image shows a table of tracing data and a graph representation of the same data.
 
@@ -134,7 +134,7 @@ All **columns to the left of the yellow bar** are interpreted as **keys**. Keys 
 
 The columns in the middle have no special meaning.
 
-![Events view](./media/wpa-event-view.png)
+![Events view.](./media/wpa-event-view.png)
 
 In the *Generic Events View Editor* you can configure all the columns to display, the aggregation mode, sorting and which columns are used as keys or for graphing. In the example image, **Field 2** is enabled and Field 3 - 6 are disabled. Field 2 is typically the first *custom data* field of an ETW event and thus for ARR "FrameStatistics" events, which represent some network latency value. Enable other "Field" columns to see further values of this event.
 
@@ -142,7 +142,7 @@ In the *Generic Events View Editor* you can configure all the columns to display
 
 To properly analyze a trace, you need to figure out your own workflow, and preferred data display. However, to be able to get a quick overview over the ARR-specific events, we include Windows Software Protection Platform profile and presets files in the folder *Tools/ETLProfiles*. To load a full profile, select *Profiles > Apply...* from the WPA menu bar, or open the *My Presets* panel (*Window > My Presets*) and select *Import*. The former sets up a complete WPA configuration as in the image below this paragraph. The latter only makes presets for the various view configurations available and allow you to quickly open a view to look at a specific piece of ARR event data.
 
-![Presets](./media/wpa-arr-trace.png)
+![Presets.](./media/wpa-arr-trace.png)
 
 The image shows views of various ARR-specific events plus a view of the overall CPU utilization.
 
