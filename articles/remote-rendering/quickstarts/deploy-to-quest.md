@@ -38,18 +38,18 @@ Your Quest 2 / Quest Pro device must be set up for [Developer Mode](https://deve
 
 You need to have the [Android SDK](https://developer.android.com/studio) installed, so that tools like the [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb) are available. You should also make sure the path to these binaries are in your `PATH` environment variable.
 
-Make sure your Quest device is connected to the PC and side-loading APKs via `adb` works.
+Make sure your Quest device is connected to the PC and side-loading Android Packages (APKs) via `adb` works.
 
 ## Build the sample project
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Android**
+1. Change *Platform* to **Android**.
 1. If you want to be able to debug the APK, enable *Development Build*.
-1. Select **Switch Platform**
+1. Select **Switch Platform**.
     ![A screenshot showing the Build Menu with the settings set for an Android build.](media/unity-deploy-config-android.png)
 1. When pressing **Build** (or 'Build And Run'), you're asked to select a folder where the APK should be stored.
 1. Once the APK file is finished, it needs to be deployed to your device using `adb`.
-1. Open a command prompt, navigate to the APK file and run `adb install <YourFileName.apk>`
+1. Open a command prompt, navigate to the APK file, and run `adb install <YourFileName.apk>`.
 
 ## Launch the sample project
 

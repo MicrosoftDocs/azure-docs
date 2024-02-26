@@ -34,7 +34,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 In the standalone build VR support is automatically disabled. No steps are needed here.
 
-# [UWP](#tab/UnityUWP)
+# [Universal Windows Platform (UWP)](#tab/UnityUWP)
 
 1. Open *Edit > Project Settings...*
 1. Select **XR Plugin Management** in the menu to the left.
@@ -49,7 +49,7 @@ In the standalone build VR support is automatically disabled. No steps are neede
 # [Standalone](#tab/UnityStandalone)
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **PC, Mac & Linux Standalone**
+1. Change *Platform* to **PC, Mac & Linux Standalone**.
 1. Set *Target Platform* to **Windows**.\
   ![A screenshot showing the Build Menu with the settings set for a standalone build.](./media/unity-2021-build-settings-pc-standalone.png)
 1. Select **Switch Platform**.
@@ -58,7 +58,7 @@ In the standalone build VR support is automatically disabled. No steps are neede
 # [UWP](#tab/UnityUWP)
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**\
+1. Change *Platform* to **Universal Windows Platform**.\
   ![A screenshot showing the Build Menu with the settings set for a UWP build.](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
@@ -69,7 +69,7 @@ In the standalone build VR support is automatically disabled. No steps are neede
 
 # [Standalone](#tab/UnityStandalone)
 
-Building in standalone mode does not produce a Visual Studio solution, but instead a simple *.exe* file. So no additional building is necessary here.
+Building in standalone mode doesn't produce a Visual Studio solution, but instead a simple *.exe* file. No second building step is necessary here.
 
 # [UWP](#tab/UnityUWP)
 
@@ -85,7 +85,7 @@ Building in standalone mode does not produce a Visual Studio solution, but inste
 
 # [Standalone](#tab/UnityStandalone)
 
-Simply run the *.exe* file which was produced in the build step.
+Run the *.exe* file, which was produced in the build step.
 
 # [UWP](#tab/UnityUWP)
 
