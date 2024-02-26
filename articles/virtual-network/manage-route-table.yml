@@ -361,7 +361,8 @@ procedureSection:
         In the network watcher menu bar, choose **Next hop**.
       - |
         In the **Network Watcher | Next hop** page:
-        :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of add a route page for a route table.":::   
+          :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of add a route page for a route table.":::   
+        
         | Setting | Value |
         |--|--|
         | Subscription | Select the **subscription** the source VM is in. |
