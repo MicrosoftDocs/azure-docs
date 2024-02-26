@@ -543,7 +543,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Failed to read footer for file.
 - **Cause**: Folder *_spark_metadata* is created by the structured streaming job.
-- **Recommendation**: Delete *_spark_metadata* folder if it exists. For more information, refer to this [article](https://forums.databricks.com/questions/12447/javaioioexception-could-not-read-footer-for-file-f.html).
+- **Recommendation**: Delete *_spark_metadata* folder if it exists.
 
 ### Error code: DF-GEN2-InvalidAccountConfiguration
 
