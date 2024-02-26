@@ -1,13 +1,13 @@
 ---
 title: How to migrate to OpenAI Python v1.x
 titleSuffix: Azure OpenAI Service
-description: Learn about migrating to the latest release of the OpenAI Python library with Azure OpenAI
+description: Learn about migrating to the latest release of the OpenAI Python library with Azure OpenAI.
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 02/26/2024
 manager: nitinme
 ---
 
@@ -17,7 +17,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Updates
 
-- This is a completely new version of the OpenAI Python API library.
+- This is a new version of the OpenAI Python API library.
 - Starting on November 6, 2023 `pip install openai` and `pip install openai --upgrade` will install `version 1.x` of the OpenAI Python library.
 - Upgrading from `version 0.28.1` to `version 1.x` is a breaking change, you'll need to test and update your code.  
 - Auto-retry with backoff if there's an error
@@ -259,7 +259,7 @@ print(completion.model_dump_json(indent=2))
 
 ## Use your data
 
-For the full configuration steps that are required to make these code examples work, please consult the [use your data quickstart](../use-your-data-quickstart.md).
+For the full configuration steps that are required to make these code examples work, consult the [use your data quickstart](../use-your-data-quickstart.md).
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
