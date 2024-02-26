@@ -102,7 +102,7 @@ Malware Scanning is charged on a per-gigabyte basis for scanned data. To ensure 
 By default, the limit is set to 5,000 GB per month per storage account. Once this threshold is exceeded, scanning will cease for the remaining blobs, with a 20-GB confidence interval. For configuration details, refer to [configure Defender for Storage](../storage/common/azure-defender-storage-configure.md).
 
 > [!IMPORTANT]
-> Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day in accordance with the pricing scheme available on the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+> Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day in accordance with the pricing scheme available on the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Malware scanning will also incur additional charges for other Azure services - Azure Storage read operations, Azure Storage blob indexing and Azure Event Grid notifications.
 
 ### Enablement at scale with granular controls
 

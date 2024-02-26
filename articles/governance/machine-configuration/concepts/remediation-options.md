@@ -32,6 +32,8 @@ delivers configurations automatically or on-demand.
 There are three available assignment types when guest assignments are created. The property is
 available as a parameter of machine configuration definitions that support `DeployIfNotExists`.
 
+**The  [assignmentType property][05] property is case sensitive**
+
 |    Assignment type    |                                                                                       Behavior                                                                                        |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Audit`               | Report on the state of the machine, but don't make changes.                                                                                                                           |
