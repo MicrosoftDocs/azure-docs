@@ -73,5 +73,5 @@ Before creating your request, review the details and diagnostic files that you'r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to manage an Azure support request](../azure-portal/supportability/how-to-manage-azure-support-request.md).
+> [Learn how to manage an Azure support request](../azure-portal/supportability/how-to-manage-azure-support-request.yml).
 

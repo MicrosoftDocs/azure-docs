@@ -18,7 +18,7 @@
 - name: Getting started
   items:
     - name: Well-architected considerations
-      href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+      href: /azure/well-architected/service-guides/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Plan your implementation
       href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Windows container considerations
@@ -159,7 +159,7 @@
     - name: Overview
       href: best-practices.md
     - name: Baseline architecture for an AKS cluster
-      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+      href: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: High availability disaster recovery
       items:
         - name: Overview
@@ -322,7 +322,7 @@
             - name: Defender for Containers overview
               href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Enable Defender for Containers
-              href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: ../defender-for-cloud/defender-for-containers-enable.md?pivots=defender-for-container-aks&toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Confidential Containers overview
               href: confidential-containers-overview.md
             - name: Deploy Confidential Containers with default policy
@@ -744,7 +744,7 @@
         - name: Create containerized app with Draft
           href: draft.md
         - name: Build Django app with PostgreSQL
-          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Build Java app with WebSphere Liberty or Open Liberty
           href: howto-deploy-java-liberty-app.md
         - name: Build Java app with WebLogic Server
@@ -754,7 +754,7 @@
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Azure API Management
-          href: ../api-management/api-management-kubernetes.md
+          href: ../api-management/api-management-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Deploy Kubernetes applications
           items:
             - name: Deploy Kubernetes applications from Azure Marketplace
@@ -774,7 +774,7 @@
             - name: Deploy and run workflows with the Dapr extension
               href: dapr-workflow.md
             - name: Troubleshoot the Dapr extension
-              href: dapr-troubleshooting.md
+              href: /troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Deploy Intelligent Apps on AKS
@@ -786,11 +786,11 @@
     - name: DevOps
       items:
         - name: Azure DevOps Project
-          href: ../devops-project/azure-devops-project-aks.md
+          href: ../devops-project/azure-devops-project-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: CI/CD with Azure Pipelines
-          href: ../aks/devops-pipeline.md
+          href: devops-pipeline.md
         - name: GitHub Actions for Kubernetes
-          href: ../aks/kubernetes-action.md
+          href: kubernetes-action.md
         - name: Configure automated deployments
           href: automated-deployments.md
         - name: Jenkins continuous deployment
