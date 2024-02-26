@@ -23,7 +23,7 @@ In this release, we've made the following changes:
 - Bug fixes for issues reported by users and internal telemetry.
 
 >[!IMPORTANT]
->Starting with verison 10.9.6, the macOS client only supports macOS 12, 13, and 14.
+>Starting with verison 10.9.6, the macOS client only supports macOS 12 and later.
 
 ## Updates for version 10.9.5
 
