@@ -36,6 +36,20 @@ ms.author: lajanuar
 
 The Document Intelligence receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
 
+**Supported document types:**
+
+* Thermal receipts
+* Credit Card 
+* Gas
+* Parking
+* Hotel
+* Transportation
+* Communication
+* Entertainment
+* Flight
+* Training
+* Pharmacy/Medical
+
 ## Receipt data extraction
 
 Receipt digitization encompasses the transformation of various types of receipts, including scanned, photographed, and printed copies, into a digital format for streamlined downstream processing. Examples include expense management, consumer behavior analysis, tax automation, etc. Using Document Intelligence with OCR (Optical Character Recognition) technology can extract and interpret data from these diverse receipt formats. Document Intelligence processing simplifies the conversion process but also significantly reduces the time and effort required, thereby facilitating efficient data management and retrieval.
