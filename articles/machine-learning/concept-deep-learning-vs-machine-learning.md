@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
-ms.date: 11/04/2022
-ms.custom: contperf-fy21q1,contperfq1, contperf-fy23q2
+ms.date: 01/19/2024
+ms.custom: engagement-fy23
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
@@ -19,7 +19,7 @@ This article explains deep learning vs. machine learning and how they fit into t
 
 For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./v1/algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
-Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-foundation-models.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
+Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-model-catalog.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
 
 ## Deep learning, machine learning, and AI
 
@@ -79,7 +79,7 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 
 ### Object detection
 
-Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
+Deep learning has been applied in many object detection use cases. Object detection is used to identify objects in an image (such as cars or people) and provide specific location for each object with a bounding box.
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 

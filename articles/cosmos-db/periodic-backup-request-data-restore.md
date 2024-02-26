@@ -8,7 +8,6 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: ignite-2022
 ---
 
 # Request data restoration from an Azure Cosmos DB backup
@@ -27,7 +26,7 @@ You should have the following details before requesting a restore:
 - If one or more containers are deleted, you should provide the Azure Cosmos DB account name, database names, and the container names. And specify if a container with the same name exists.
 - If you've accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups. **Before you create a support request to restore the data, make sure to [increase the backup retention](periodic-backup-modify-interval-retention.md) for your account to at least seven days. It’s best to increase your retention within 8 hours of this event.** This way the Azure Cosmos DB support team has enough time to restore your account.
 
-In addition to Azure Cosmos DB account name, database names, container names, you should specify the point in time to use for data restoration. It's important to be as precise as possible to help us determine the best available backups at that time. **It is also important to specify the time in UTC.**
+In addition to Azure Cosmos DB account name, database names, container names, you should specify the point in time to use for data restoration. It's important to be as precise as possible to help us determine the best available backups at that time. **It is also important to specify the time in UTC**. If you want to restore the account **without network access**, please do mention in the ticket.
 
 The following screenshot illustrates how to create a support request for a container(collection/graph/table) to restore data by using Azure portal. Provide other details such as type of data, purpose of the restore, time when the data was deleted to help us prioritize the request.
 
@@ -76,7 +75,7 @@ After the restore operation completes, you may want to know the source account d
 
 Use the following steps to get the restore details from Azure portal:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the restored account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the restored account.
 
 1. Open the **Tags** page.
 
@@ -103,6 +102,7 @@ $parameters = @{
 }
 Get-AzCosmosDBAccount @parameters
 ```
+
 
 ---
 

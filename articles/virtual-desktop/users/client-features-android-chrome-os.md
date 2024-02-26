@@ -76,7 +76,7 @@ To remove an account you no longer want to use:
 
 ### Set orientation
 
-You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 and Windows Server 2012 R2 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
+You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
 
 To set the orientation:
 

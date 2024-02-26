@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 10/15/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Azure Data Protection with Veeam
@@ -47,7 +47,7 @@ As you plan your Azure Storage strategy with Veeam, it's recommended to review t
 
 ### Veeam Backup & Replication
 
-Veeam Backup & Replication supports [object storage as a destination](https://helpcenter.veeam.com/docs/backup/hyperv/object_storage_repository.html) for long-term data storage or for [archiving purpose](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_blob_storage_archive_tier.html). Veeam Backup for Azure repository can also be added as external repository for more flexible restore options. Learn how to [configure Veeam Backup & Replication with Azure Blob](https://helpcenter.veeam.com/docs/backup/hyperv/new_object_repository_azure_type.html). Veeam manages the data lifecycle of stored objects, [review considerations and limitations for using Azure Blob with Veeam Products](https://www.veeam.com/kb4241).
+Veeam Backup & Replication supports [object storage as a destination](https://helpcenter.veeam.com/docs/backup/hyperv/object_storage_repository.html) for long-term data storage or for [archiving purpose](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_blob_storage_archive_tier.html). Veeam Backup for Azure repository can also be added as external repository for more flexible restore options. Learn how to [configure Veeam Backup & Replication with Azure Blob](https://www.veeam.com/backup-azure.html). Veeam manages the data lifecycle of stored objects, [review considerations and limitations for using Azure Blob with Veeam Products](https://www.veeam.com/kb4241).
 ### Veeam Backup for Microsoft 365
 
 Veeam Backup for Microsoft 365 supports object storage as primary repository as well as Azure archive storage for long term retention and backup archive. Learn how to configure an [Azure object storage repository in Veeam Backup for M365](https://helpcenter.veeam.com/docs/vbo365/guide/adding_azure_storage.html). Veeam manages the data lifecycle of stored objects, [review considerations and limitations for using Azure Blob with Veeam Products](https://www.veeam.com/kb4241).

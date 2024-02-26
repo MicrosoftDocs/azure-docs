@@ -1,16 +1,9 @@
 ---
 title: Configure AD DS LDAP over TLS for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure AD DS LDAP over TLS for Azure NetApp Files, including root CA certificate management. 
+description: Describes how to configure AD DS LDAP over TLS for Azure NetApp Files, including root CA certificate management.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.author: anfdocs
@@ -37,12 +30,12 @@ If you do not have a root CA certificate, you need to generate one and export it
 
 3. Export the root CA certificate.  
     Root CA certificates can be exported from the Personal or Trusted Root Certification Authorities directory, as shown in the following examples:   
-    ![screenshot that shows personal certificates](../media/azure-netapp-files/personal-certificates.png)   
-    ![screenshot that shows trusted root certification authorities](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+    ![screenshot that shows personal certificates](./media/configure-ldap-over-tls/personal-certificates.png)   
+    ![screenshot that shows trusted root certification authorities](./media/configure-ldap-over-tls/trusted-root-certification-authorities.png)    
 
     Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
 
-    ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
+    ![Certificate Export Wizard](./media/configure-ldap-over-tls/certificate-export-wizard.png)
 
 ## Enable LDAP over TLS and upload root CA certificate 
 
@@ -50,11 +43,11 @@ If you do not have a root CA certificate, you need to generate one and export it
 
 2. In the **Join Active Directory** or **Edit Active Directory** window that appears, select the **LDAP over TLS** checkbox to enable LDAP over TLS for the volume. Then select **Server root CA Certificate** and upload the [generated root CA certificate](#generate-and-export-root-ca-certificate) to use for LDAP over TLS.  
 
-    ![Screenshot that shows the LDAP over TLS option](../media/azure-netapp-files/ldap-over-tls-option.png)
+    ![Screenshot that shows the LDAP over TLS option](./media/configure-ldap-over-tls/ldap-over-tls-option.png)
 
     Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
 
-    ![Screenshot that shows certificate information](../media/azure-netapp-files/certificate-information.png)
+    ![Screenshot that shows certificate information](./media/configure-ldap-over-tls/certificate-information.png)
 
 If you uploaded an invalid certificate, and you have existing AD configurations, SMB volumes, or Kerberos volumes, an error similar to the following occurs:
 
@@ -77,4 +70,4 @@ Disabling LDAP over TLS stops encrypting LDAP queries to Active Directory (LDAP 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
-
+* [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md)

@@ -4,7 +4,7 @@ description: Use the Azure portal to create a lab, create a virtual machine in t
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/22/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

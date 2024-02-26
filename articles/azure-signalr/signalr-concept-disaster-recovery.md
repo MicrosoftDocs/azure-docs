@@ -11,31 +11,34 @@ ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure SignalR Service
 
-Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
-Your service instance is always running in one region and doesn't fail over to another region when there's a region-wide outage.
+Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already provides 99.9% availability, however it's still a regional service.
+When there's a region-wide outage, your service instance doesn't fail over to another region because it's always running in the one region.
 
-Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them aren't available.
-With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so in this document.
+For regional disaster recovery, we recommend the following two approaches:
+
+- **Enable Geo-Replication** (Easy way). This feature handles regional failover for you automatically. When enabled, there's only one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints in Service SDK**. Our service SDK supports multiple SignalR service instances and automatically switches to other instances when some of them are unavailable. With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so **in this document**.
+
 
 ## High available architecture for SignalR service
 
-In order to have cross region resiliency for SignalR service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
+To ensure cross region resiliency for SignalR service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
 When app servers connect to multiple service instances, there are two roles, primary and secondary.
-Primary is an instance who is taking online traffic and secondary is a fully functional but backup instance for primary.
-In our SDK implementation, negotiate only returns primary endpoints so in normal case clients only connect to primary endpoints.
+Primary is an instance responsible for receiving online traffic, while secondary serves as a fallback instance that is fully functional.
+In our SDK implementation, negotiate only returns primary endpoints, so clients only connect to primary endpoints in normal cases.
 But when primary instance is down, negotiate returns secondary endpoints so client can still make connections.
 Primary instance and app server are connected through normal server connections but secondary instance and app server are connected through a special type of connection called weak connection.
-The main difference of a weak connection is that it doesn't accept client connection routing, because secondary instance is located in another region. Routing a client to another region isn't an optimal choice (increases latency).
+One distinguishing characteristic of a weak connection is that it's unable to accept client connection routing due to the location of secondary instance in another region. Routing a client to another region isn't an optimal choice (increases latency).
 
 One service instance can have different roles when connecting to multiple app servers.
-One typical setup for cross region scenario is to have two (or more) pairs of SignalR service instances and app servers.
+One typical setup for cross region scenario is to have two or more pairs of SignalR service instances and app servers.
 Inside each pair app server and SignalR service are located in the same region, and SignalR service is connected to the app server as a primary role.
 Between each pairs app server and SignalR service are also connected, but SignalR becomes a secondary when connecting to server in another region.
 
 With this topology, message from one server can still be delivered to all clients as all app servers and SignalR service instances are interconnected.
-But when a client is connected, it's always routed to the app server in the same region to achieve optimal network latency.
+But when a client is connected, it routes to the app server in the same region to achieve optimal network latency.
 
-Below is a diagram that illustrates such topology:
+The following diagram illustrates such topology:
 
 ![Diagram shows two regions each with an app server and a SignalR service, where each server is associated with the SignalR service in its region as primary and with the service in the other region as secondary.](media/signalr-concept-disaster-recovery/topology.png)
 
@@ -57,7 +60,7 @@ If you have multiple endpoints, you can set them in multiple config entries, eac
 Azure:SignalR:ConnectionString:<name>:<role>
 ```
 
-Here `<name>` is the name of the endpoint and `<role>` is its role (primary or secondary).
+In the ConnectionString, `<name>` is the name of the endpoint and `<role>` is its role (primary or secondary).
 Name is optional but it's useful if you want to further customize the routing behavior among multiple endpoints.
 
 #### Through code
@@ -144,7 +147,7 @@ Follow the steps to trigger the failover:
 
 ## Next steps
 
-In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
+In this article, you learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
 
 For scaling scenarios such as sharding that uses multiple instances together to handle large number of connections read [how to scale multiple instances](signalr-howto-scale-multi-instances.md).
 

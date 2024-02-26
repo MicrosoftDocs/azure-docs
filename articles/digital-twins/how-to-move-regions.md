@@ -7,13 +7,13 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/23/2022
 ms.topic: how-to
-ms.custom: subject-moving-resources, contperf-fy22q2
+ms.custom: subject-moving-resources
 ms.service: digital-twins
-#Customer intent: As an Azure service administrator, I want to move my Azure Digital Twins instance to another region.
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
+#Customer intent: As an Azure service administrator, I want to move my Azure Digital Twins instance to another region.
 ---
 
 # Move an Azure Digital Twins instance to a different Azure region
@@ -125,7 +125,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Microsoft Entra app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 

@@ -7,7 +7,7 @@
         "relativeLinkPrefix": "/azure/active-directory/external-identities"
     },
     "inclusionCriteria": {
-        "omitPullRequestTitles" : true,
+        "omitPullRequestTitles" : false,
         "minAdditionsToFile" : 10,
         "maxFilesChanged": 50,
         "labels": [

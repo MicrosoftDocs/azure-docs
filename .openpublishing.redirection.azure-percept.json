@@ -10,10 +10,10 @@
             "redirect_url": "/previous-versions/azure/azure-percept/index",
             "redirect_document_id": false
         },
-        { 
+        {
             "source_path_from_root": "/articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
             "redirect_url": "/previous-versions/azure/azure-percept/index",
-            "redirect_document_id": false   
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-percept/studio/azure-percept-studio-overview.md",
@@ -314,8 +314,16 @@
             "source_path_from_root": "/articles/azure-percept/index.yml",
             "redirect_url": "/previous-versions/azure/azure-percept/index",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/advanced-development-cloud.md",
+            "redirect_url": "/azure/azure-percept/overview-advanced-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/advanced-development-local.md",
+            "redirect_url": "/azure/azure-percept/overview-advanced-code",
+            "redirect_document_id": false
         }
-
     ]
 }
-

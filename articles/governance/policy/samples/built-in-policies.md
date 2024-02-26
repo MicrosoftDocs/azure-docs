@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 06/21/2023
+ms.date: 02/22/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,8 +12,7 @@ This page is an index of Azure Policy built-in policy definitions.
 The name of each built-in links to the policy definition in the Azure portal. Use the link in the
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
-**category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+**category** property in **metadata**. To go to a specific **category**, use <kbd>Ctrl</kbd>-<kbd>F</kbd> for your browser's search feature.
 
 ## API for FHIR
 
@@ -78,6 +77,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Stack Edge
 
 [!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+
+## Azure Update Manager
+
+[!INCLUDE [azure-policy-reference-policies-azure-update-manager](../../../../includes/policy/reference/bycat/policies-azure-update-manager.md)]
 
 ## Backup
 
@@ -150,6 +153,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
+
+## ElasticSan
+
+[!INCLUDE [azure-policy-reference-policies-elasticsan](../../../../includes/policy/reference/bycat/policies-elasticsan.md)]
 
 ## Event Grid
 
@@ -251,6 +258,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
 
+## Resilience
+
+[!INCLUDE [azure-policy-reference-policies-resilience](../../../../includes/policy/reference/bycat/policies-resilience.md)]
+
 ## Search
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -258,6 +269,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Security Center
 
 [!INCLUDE [azure-policy-reference-policies-security-center](../../../../includes/policy/reference/bycat/policies-security-center.md)]
+
+## Security Center - Granular Pricing
+
+[!INCLUDE [azure-policy-reference-policies-security-center---granular-pricing](../../../../includes/policy/reference/bycat/policies-security-center---granular-pricing.md)]
 
 ## Service Bus
 
@@ -279,9 +294,17 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
 
+## SQL Managed Instance
+
+[!INCLUDE [azure-policy-reference-policies-sql-managed-instance](../../../../includes/policy/reference/bycat/policies-sql-managed-instance.md)]
+
 ## SQL Server
 
 [!INCLUDE [azure-policy-reference-policies-sql-server](../../../../includes/policy/reference/bycat/policies-sql-server.md)]
+
+## Stack HCI
+
+[!INCLUDE [azure-policy-reference-policies-stack-hci](../../../../includes/policy/reference/bycat/policies-stack-hci.md)]
 
 ## Storage
 
@@ -299,13 +322,9 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
 
-## Update Management Center
+## VirtualEnclaves
 
-[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
-
-## Video Analyzers
-
-[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
+[!INCLUDE [azure-policy-reference-policies-virtualenclaves](../../../../includes/policy/reference/bycat/policies-virtualenclaves.md)]
 
 ## VM Image Builder
 

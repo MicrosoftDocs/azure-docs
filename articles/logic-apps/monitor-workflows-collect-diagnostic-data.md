@@ -7,8 +7,8 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/26/2023
-# As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
+ms.date: 01/10/2024
+# Customer intent: As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
 # Monitor and collect diagnostic data for workflows in Azure Logic Apps
@@ -64,7 +64,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
   * [Permission to purchase - Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing#permission-to-purchase)
 
-  * [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
+  * [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 * The destination resource for where you want to send diagnostic data:
 

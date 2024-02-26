@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -33,33 +33,18 @@ IntDiv(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    divide: IntDiv(10, 2),
-    negativeResult: IntDiv(10, -2),
-    positiveResult: IntDiv(-10, -2),
-    resultOne: IntDiv(10, 10),
-    divideZero: IntDiv(10, 0),
-    divideDecimal: IntDiv(10, 0.1)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intdiv/query.sql" highlight="2-7":::
 
-```json
-[
-  {
-    "divide": 5,
-    "negativeResult": -5,
-    "positiveResult": 5,
-    "resultOne": 1
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intdiv/result.json":::
 
 ## Remarks
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Arc resource bridge (preview) security overview 
-description: Security information about Azure resource bridge (preview).
+title: Azure Arc resource bridge security overview 
+description: Understand security configuration and considerations for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 11/03/2023
 ---
 
-# Azure Arc resource bridge (preview) security overview
+# Azure Arc resource bridge security overview
 
-This article describes the security configuration and considerations you should evaluate before deploying Azure Arc resource bridge (preview) in your enterprise.
+This article describes the security configuration and considerations you should evaluate before deploying Azure Arc resource bridge in your enterprise.
 
 ## Using a managed identity
 
-By default, an Azure Active Directory system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
+By default, a Microsoft Entra system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge. Azure Arc resource bridge currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
 
 ## Identity and access control
 
-Azure Arc resource bridge (preview) is represented as a resource in a resource group inside an Azure subscription. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge (preview).
+Azure Arc resource bridge is represented as a resource in a resource group inside an Azure subscription. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc resource bridge.
 
 Users and applications who are granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or Administrator role to the resource group can make changes to the resource bridge, including deploying or deleting cluster extensions.
 
@@ -33,6 +33,6 @@ The [activity log](../../azure-monitor/essentials/activity-log.md) is an Azure p
 
 ## Next steps
 
-- Understand [system requirements](system-requirements.md) and [network requirements](network-requirements.md) for Azure Arc resource bridge (preview).
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
+- Understand [system requirements](system-requirements.md) and [network requirements](network-requirements.md) for Azure Arc resource bridge.
+- Review the [Azure Arc resource bridge overview](overview.md) to understand more about features and benefits.
 - Learn more about [Azure Arc](../overview.md).

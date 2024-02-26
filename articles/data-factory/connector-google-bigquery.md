@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/11/2022
+ms.date: 01/05/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -25,7 +25,7 @@ This Google BigQuery connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -82,9 +82,9 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| clientId | ID of the application used to generate the refresh token. | No |
-| clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) and [this community blog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| clientId | ID of the application used to generate the refresh token. | Yes |
+| clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) and [this community blog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 The minimum scope required to obtain an OAuth 2.0 refresh token is `https://www.googleapis.com/auth/bigquery.readonly`. If you plan to run a query that might return large results, other scope might be required. For more information, refer to this [article](https://cloud.google.com/bigquery/docs/writing-results#large-results). 
 
@@ -121,7 +121,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | Yes |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
@@ -226,5 +226,5 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

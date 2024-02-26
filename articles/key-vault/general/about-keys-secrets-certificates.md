@@ -3,12 +3,11 @@ title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 04/18/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -47,7 +46,7 @@ The Azure Key Vault resource provider supports two resource types: vaults and ma
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
 Azure Cloud | .vault.azure.net | .managedhsm.azure.net
-Azure China Cloud | .vault.azure.cn | Not supported
+Microsoft Azure operated by 21Vianet Cloud | .vault.azure.cn | Not supported
 Azure US Government | .vault.usgovcloudapi.net | Not supported
 Azure German Cloud | .vault.microsoftazure.de | Not supported
 
@@ -83,7 +82,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 -   **signature-value** - output of a signature algorithm, encoded using Base64URL  
 -   **base64URL** - a Base64URL [RFC4648] encoded binary value  
 -   **boolean** - either true or false  
--   **Identity** - an identity from Azure Active Directory (Azure AD).  
+-   **Identity** - an identity from Microsoft Entra ID.  
 -   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
 
 ## Objects, identifiers, and versioning

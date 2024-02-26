@@ -1,19 +1,18 @@
 ---
-title: Create a Linux VM in Azure with multiple NICs 
+title: Create a Linux VM in Azure with multiple NICs
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
-ms.workload: infrastructure
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 04/06/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article details how to create a VM with multiple NICs with the Azure CLI.
 
@@ -84,7 +83,7 @@ Create a VM with [az vm create](/cli/azure/vm). The following example creates a 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -164,12 +163,12 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../../azure-resource-manager/templates/copy-resources.md). 
+Read more about [creating multiple instances using *copy*](../../azure-resource-manager/templates/copy-resources.md).
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `myNic2`, etc. The following shows an example of appending the index value:
 
 ```json
-"name": "[concat('myNic', copyIndex())]", 
+"name": "[concat('myNic', copyIndex())]",
 ```
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/template-samples.md).

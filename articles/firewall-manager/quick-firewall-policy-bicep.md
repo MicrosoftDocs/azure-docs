@@ -4,7 +4,7 @@ description: In this quickstart, you deploy an Azure Firewall and a firewall pol
 services: firewall-manager
 author: vhorne
 ms.author: victorh
-ms.date: 07/05/2022
+ms.date: 09/28/2023
 ms.topic: quickstart
 ms.service: firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
@@ -91,7 +91,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the firewall, delete the resource group. This removes the firewall and all the related resources.
+When you no longer need the resources that you created with the firewall, delete the resource group. The firewall and all the related resources are deleted.
 
 
 # [CLI](#tab/CLI)

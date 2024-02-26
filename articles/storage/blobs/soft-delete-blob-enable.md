@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Enable soft delete for blobs to protect blob data from accidental deletes or overwrites.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -118,7 +117,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
     For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
-3. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
+3. Obtain storage account authorization by using either a storage account key, a connection string, or Microsoft Entra ID. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -153,7 +152,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 3. Connect to your storage account. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
 
    > [!NOTE]
-   > The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+   > The example presented in this article show Microsoft Entra authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
 4. To enable soft delete with Azure CLI, call the `az storage fs service-properties update` command, specifying the retention period in days.
 

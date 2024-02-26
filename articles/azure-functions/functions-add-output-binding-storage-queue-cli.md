@@ -3,8 +3,9 @@ title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other, devx-track-azurepowershell, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 

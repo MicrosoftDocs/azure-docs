@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: balapv 
+ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, seoapril2019, seodec18, ignite-2022
+ms.custom: UpdateFrequency5
 monikerRange: 'azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # How Azure Machine Learning works: Architecture and concepts (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article applies to the first version (v1) of the Azure Machine Learning CLI & SDK. For version two (v2), see  [How Azure Machine Learning works (v2)](../concept-azure-machine-learning-v2.md).
 
@@ -125,7 +125,7 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 
 
 > [!NOTE]
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 
 ### Git tracking and integration
 

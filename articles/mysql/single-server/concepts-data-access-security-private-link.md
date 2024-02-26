@@ -92,7 +92,7 @@ Clients can connect to the private endpoint from the same VNet, [peered VNet](..
 Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the Azure Database for MySQL from an Azure VM in a peered VNet.
 
 ### Connecting from an Azure VM in VNet-to-VNet environment
-Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a Azure Database for MySQL from an Azure VM in a different region or subscription.
+Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to an Azure Database for MySQL from an Azure VM in a different region or subscription.
 
 ### Connecting from an on-premises environment over VPN
 To establish connectivity from an on-premises environment to the Azure Database for MySQL, choose and implement one of the options:

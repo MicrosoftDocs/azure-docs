@@ -2,16 +2,20 @@
 title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
+
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
@@ -104,6 +108,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
+| {OIDC:IdToken} | The `id token`  query string parameter. | N/A |
 
 Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
 
@@ -117,6 +122,17 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:app_session} | A query string parameter. | A3C5R |
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
+
+## SAML key-value parameters
+
+In a SAML authentication request, any parameter name that's included in the request, but isn’t specific to the protocol (such as SAMLRequest) can be mapped to a claim in the user journey. For example, the request may include a custom parameter such as `username`. This applies to both SP-Initiated and IDP-Initiated SAML requests.
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {SAML-KV:username} | A query string or POST body parameter. | username@domain.com |
+| {SAML-KV:loyalty_number} |  A query string or POST body parameter. | 1234 |
+| {SAML-KV:any custom query string} |  A query string or POST body parameter. | N/A |
+
 
 ## SAML
 
@@ -173,7 +189,7 @@ You can use claims resolvers with the following elements:
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
 |Application Insights technical profile |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[Microsoft Entra](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OAuth2](oauth2-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -38,41 +38,15 @@ Returns a boolean expression.
 
 The following example checks objects of various types using the function.  
   
-```sql
-SELECT VALUE {
-    booleanIsNull: IS_NULL(true),
-    numberIsNull: IS_NULL(15),  
-    stringIsNull: IS_NULL("AdventureWorks"),   
-    nullIsNull: IS_NULL(null),  
-    objectIsNull: IS_NULL({price: 85.23}),   
-    arrayIsNull: IS_NULL(["red", "blue", "yellow"]),  
-    populatedObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.quantity),
-    invalidObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.size),
-    nullObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.vendor)
-}
-```  
-  
-```json
-[
-  {
-    "booleanIsNull": false,
-    "numberIsNull": false,
-    "stringIsNull": false,
-    "nullIsNull": true,
-    "objectIsNull": false,
-    "arrayIsNull": false,
-    "populatedObjectPropertyIsNull": false,
-    "invalidObjectPropertyIsNull": false,
-    "nullObjectPropertyIsNull": true
-  }
-]
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-null/query.sql" highlight="2-10":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-null/result.json":::
 
 ## Remarks
 
-- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_OBJECT`](is-object.md)

@@ -11,16 +11,16 @@ ms.topic: conceptual
 # Event handlers destinations in Event Grid on Kubernetes
 An event handler is any system that exposes an endpoint and is the destination for events sent by Event Grid. An event handler receiving an event acts upon it and uses the event payload to execute some logic, which might lead to the occurrence of new events.
 
-The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update) version.
+The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) version.
 
-In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-premises or anywhere that Event Grid can reach. 
+In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-premises or anywhere that Event Grid can reach.
 
 [!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
 
-* Azure App Service on Kubernetes with Azure Arc. 
-* Azure Functions on Kubernetes with Azure Arc. 
+* Azure App Service on Kubernetes with Azure Arc.
+* Azure Functions on Kubernetes with Azure Arc.
 * Azure Logic Apps on Kubernetes with Azure Arc.
 
 In addition to Webhooks, Event Grid on Kubernetes can send events to the following destinations **hosted on Azure**:
@@ -34,15 +34,15 @@ In addition to Webhooks, Event Grid on Kubernetes can send events to the followi
 
 
 ## Feature parity
-Event Grid on Kubernetes offers a good level of feature parity with Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you can use Azure Event Grid's [REST api version 2020-10-15-preview](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions) as a reference when managing event subscriptions on Event Grid on Kubernetes.
+Event Grid on Kubernetes offers a good level of feature parity with Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you can use Azure Event Grid's [REST api version 2020-10-15-preview](/rest/api/eventgrid/controlplane-preview/event-subscriptions) as a reference when managing event subscriptions on Event Grid on Kubernetes.
 
-1. Use [REST api version 2020-10-15-preview](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions).
+1. Use [REST api version 2020-10-15-preview](/rest/api/eventgrid/controlplane-preview/event-subscriptions).
 2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
 3. There's no [dead letter location](../manage-event-delivery.md#set-dead-letter-location) support. That means that you can't use ``properties.deadLetterDestination`` in your event subscription payload.
 4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
-5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.  
-6. Labels ([properties.labels](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they aren't available.
-7. [Delivery with resource identity](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update#deliverywithresourceidentity) isn't supported. So, all properties for [Event Subscription Identity](/rest/api/eventgrid/controlplane-version2023-06-01-preview/event-subscriptions/create-or-update#eventsubscriptionidentity) aren't supported.
+5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.
+6. Labels ([properties.labels](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they aren't available.
+7. [Delivery with resource identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#deliverywithresourceidentity) isn't supported. So, all properties for [Event Subscription Identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#eventsubscriptionidentity) aren't supported.
 8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) isn't supported yet.
 
 ## Event filtering in event subscriptions
@@ -74,18 +74,18 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `WebHook` and provide:
 
-* **endpointUrl**: Azure Event Grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key. 
+* **endpointUrl**: Azure Event Grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key.
 
    ```json
     {
-    	"properties": {
-    		"destination": {
-    			"endpointType": "WebHook",
-    			"properties": {
-    				"endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
-    			}
-    		}
-    	}
+      "properties": {
+        "destination": {
+          "endpointType": "WebHook",
+          "properties": {
+            "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
+          }
+        }
+      }
     }
    ```
 
@@ -134,16 +134,16 @@ To publish to a Service Bus topic, set the `endpointType` to `serviceBusTopic` a
 * **resourceId**: resource ID for the specific Service Bus topic.
 
     ```json
-        {
+    {
+      "properties": {
+        "destination": {
+          "endpointType": "serviceBusTopic",
           "properties": {
-            "destination": {
-              "endpointType": "serviceBusTopic",
-              "properties": {
-                "resourceId": "<Azure Resource ID of your Service Bus topic>"
-              }
-            }
+            "resourceId": "<Azure Resource ID of your Service Bus topic>"
           }
         }
+      }
+    }
     ```
 
 ## Storage Queues
@@ -154,19 +154,20 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
 * **resourceID**: Azure resource ID of the storage account that contains the queue.
 
     ```json
-        {
+    {
+      "properties": {
+        "destination": {
+          "endpointType": "storageQueue",
           "properties": {
-            "destination": {
-              "endpointType": "storageQueue",
-              "properties": {
-                "queueName": "<your-storage-queue-name>",
-                "resourceId": "<Azure Resource ID of your Storage account>"
-              }
-            }
+            "queueName": "<your-storage-queue-name>",
+            "resourceId": "<Azure Resource ID of your Storage account>"
           }
         }
+      }
+    }
     ```
 
 ## Next steps
-* Add [filter configuration](filter-events.md) to your event subscription to select the events to be delivered. 
+
+* Add [filter configuration](filter-events.md) to your event subscription to select the events to be delivered.
 * To learn about schemas supported by Event Grid on Azure Arc for Kubernetes, see [Event Grid on Kubernetes - Event schemas](event-schemas.md).

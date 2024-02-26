@@ -84,13 +84,13 @@ Learn more about the [TokenRequiredDelegate](/dotnet/api/microsoft.azure.spatial
     };
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```csharp
     this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>

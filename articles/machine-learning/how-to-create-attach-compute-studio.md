@@ -3,14 +3,14 @@ title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to manage training and deployment compute resources (compute targets) for machine learning.
 services: machine-learning
-author: vijetajo 
+author: vijetajo
 ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: compute
 ms.date: 08/11/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ---
 # Manage compute resources for model training and deployment in studio
 
@@ -45,7 +45,7 @@ To see all compute targets for your workspace, use the following steps:
 
 You can create compute instances and compute clusters in your workspace, using the Azure Machine Learning SDK, CLI, or studio:
 
-* [Compute instance](how-to-create-manage-compute-instance.md)
+* [Compute instance](how-to-create-compute-instance.md)
 * [Compute cluster](how-to-create-attach-compute-cluster.md)
 
 In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
@@ -84,7 +84,7 @@ To detach your compute use the following steps:
 
 ## Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ## Next steps
 

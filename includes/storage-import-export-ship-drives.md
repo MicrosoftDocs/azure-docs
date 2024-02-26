@@ -4,7 +4,7 @@ description: include file
 author: alkohli
 services: storage
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 04/08/2019
 ms.author: alkohli

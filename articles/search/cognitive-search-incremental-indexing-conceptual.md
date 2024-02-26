@@ -1,33 +1,39 @@
 ---
 title: Incremental enrichment concepts (preview)
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
-
-author: HeidiSteen    
+author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/21/2023
+ms.date: 02/16/2024
 ---
 
-# Incremental enrichment and caching in Azure Cognitive Search
+# Incremental enrichment and caching in Azure AI Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Although caching is billable (it uses Azure Storage), the overall cost of enrichment is reduced because the costs of storage are less than image extraction and AI processing.
+*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur pay-as-you-go processing charges for API calls to Azure AI services. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Although caching is billable (it uses Azure Storage), the overall cost of enrichment is reduced because the costs of storage are less than image extraction and AI processing.
 
 When you enable caching, the indexer evaluates your updates to determine whether existing enrichments can be pulled from the cache. Image and text content from the document cracking phase, plus skill outputs that are upstream or orthogonal to your edits, are likely to be reusable.
 
-After performing the incremental enrichments as indicated by the skillset update, refreshed results are written back to the cache, and also to the search index or knowledge store.
+After skillset processing is finished, the refreshed results are written back to the cache, and also to the search index or knowledge store.
+
+## Limitations
+
+> [!CAUTION]
+> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
 
 ## Cache configuration
 
-Physically, the cache is stored in a blob container in your Azure Storage account, one per indexer. Each indexer is assigned a unique and immutable cache identifier that corresponds to the container it is using.
+Physically, the cache is stored in a blob container in your Azure Storage account, one per indexer. Each indexer is assigned a unique and immutable cache identifier that corresponds to the container it's using.
 
-The cache is created when you specify the "cache" property and run the indexer. Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply. 
+The cache is created when you specify the "cache" property and run the indexer. Only enriched content can be cached. If your indexer doesn't have an attached skillset, then caching doesn't apply. 
 
-The following example illustrates an indexer with caching enabled. See [Enable enrichment caching](search-howto-incremental-index.md) for full instructions. Notice that when adding the cache property, use preview API version, 2020-06-30-Preview or later, on the request.
+The following example illustrates an indexer with caching enabled. See [Enable enrichment caching](search-howto-incremental-index.md) for full instructions. Notice that when adding the cache property, use a [preview API version](/rest/api/searchservice/search-service-api-versions#preview-versions), 2020-06-30-Preview or later, on the request.
 
 ```json
 POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30-Preview
@@ -48,7 +54,7 @@ POST https://[search service name].search.windows.net/indexers?api-version=2020-
 
 ## Cache management
 
-The lifecycle of the cache is managed by the indexer. If an indexer is deleted, its cache is also deleted. If the "cache" property on the indexer is set to null or the connection string is changed, the existing cache is deleted on the next indexer run. 
+The lifecycle of the cache is managed by the indexer. If an indexer is deleted, its cache is also deleted. If the `cache` property on the indexer is set to null or the connection string is changed, the existing cache is deleted on the next indexer run. 
 
 While incremental enrichment is designed to detect and respond to changes with no intervention on your part, there are parameters you can use to invoke specific behaviors:
 
@@ -61,17 +67,17 @@ While incremental enrichment is designed to detect and respond to changes with n
 
 ### Prioritize new documents
 
-The "cache" property includes an "enableReprocessing" parameter. It's used to control processing over incoming documents already represented in the cache. When true (default), documents already in the cache are reprocessed when you rerun the indexer, assuming your skill update affects that doc. 
+The cache property includes an `enableReprocessing` parameter. It's used to control processing over incoming documents already represented in the cache. When true (default), documents already in the cache are reprocessed when you rerun the indexer, assuming your skill update affects that doc. 
 
-When false, existing documents are not reprocessed, effectively prioritizing new, incoming content over existing content. You should only set "enableReprocessing" to false on a temporary basis. Having "enableReprocessing" set to true most of the time ensures that all documents, both new and existing, are valid per the current skillset definition.
+When false, existing documents aren't reprocessed, effectively prioritizing new, incoming content over existing content. You should only set enableReprocessing to false on a temporary basis. Having enableReprocessing set to true most of the time ensures that all documents, both new and existing, are valid per the current skillset definition.
 
 <a name="Bypass-skillset-checks"></a>
 
 ### Bypass skillset evaluation
 
-Modifying a skill and reprocessing of that skill typically go hand in hand. However, some changes to a skill should not result in reprocessing (for example, deploying a custom skill to a new location or with a new access key). Most likely, these are peripheral modifications that have no genuine impact on the substance of the skill output itself. 
+Modifying a skill and reprocessing of that skill typically go hand in hand. However, some changes to a skill shouldn't result in reprocessing (for example, deploying a custom skill to a new location or with a new access key). Most likely, these are peripheral modifications that have no genuine impact on the substance of the skill output itself. 
 
-If you know that a change to the skill is indeed superficial, you should override skill evaluation by setting the "disableCacheReprocessingChangeDetection" parameter to true:
+If you know that a change to the skill is indeed superficial, you should override skill evaluation by setting the `disableCacheReprocessingChangeDetection` parameter to true:
 
 1. Call [Update Skillset](/rest/api/searchservice/update-skillset) and modify the skillset definition.
 1. Append the "disableCacheReprocessingChangeDetection=true" parameter on the request.
@@ -88,7 +94,7 @@ PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-versi
 
 ### Bypass data source validation checks
 
-Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change should not invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the "ignoreResetRequirement" parameter on the [data source update](/rest/api/searchservice/update-data-source). Setting this parameter to true allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
+Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change shouldn't invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the `ignoreResetRequirement` parameter on the [data source update](/rest/api/searchservice/update-data-source). Setting this parameter to true allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
 
 ```http
 PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement
@@ -134,7 +140,7 @@ POST https://[search service name].search.windows.net/indexers/[indexer name]/re
 
 Once you enable a cache, the indexer evaluates changes in your pipeline composition to determine which content can be reused and which needs reprocessing. This section enumerates changes that invalidate the cache outright, followed by changes that trigger incremental processing. 
 
-An invalidating change is one where the entire cache is no longer valid. An example of an invalidating change is one where your data source is updated. Here is the complete list of changes to any part of the indexer pipeline that would invalidate your cache:
+An invalidating change is one where the entire cache is no longer valid. An example of an invalidating change is one where your data source is updated. Here's the complete list of changes to any part of the indexer pipeline that would invalidate your cache:
 
 + Changing the data source type
 + Changing data source container
@@ -154,7 +160,7 @@ An invalidating change is one where the entire cache is no longer valid. An exam
 
 ## Changes that trigger incremental processing
 
-Incremental processing evaluates your skillset definition and determines which skills to rerun, selectively updating the affected portions of the document tree. Here is the complete list of changes resulting in incremental enrichment:
+Incremental processing evaluates your skillset definition and determines which skills to rerun, selectively updating the affected portions of the document tree. Here's the complete list of changes resulting in incremental enrichment:
 
 + Changing the skill type (the OData type of the skill is updated)
 + Skill-specific parameters are updated, for example a URL, defaults, or other parameters
@@ -175,12 +181,7 @@ REST API version `2020-06-30-Preview` or later provides incremental enrichment t
 
 + [Reset Skills (api-version=2020-06-30)](/rest/api/searchservice/preview-api/reset-skills)
 
-+ [Update Data Source](/rest/api/searchservice/update-data-source), when called with a preview API version, provides a new parameter named "ignoreResetRequirement", which should be set to true when your update action should not invalidate the cache. Use "ignoreResetRequirement" sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
-
-## Limitations
-
-> [!CAUTION]
-> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
++ [Update Data Source](/rest/api/searchservice/update-data-source), when called with a preview API version, provides a new parameter named "ignoreResetRequirement", which should be set to true when your update action shouldn't invalidate the cache. Use "ignoreResetRequirement" sparingly as it could lead to unintended inconsistency in your data that won't be detected easily.
 
 ## Next steps
 

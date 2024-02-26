@@ -36,7 +36,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, and 8 </br> *Hybrid Worker extension would follow support timelines of the OS vendor.|
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, and 8 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
  
 
 ### Other Requirements
@@ -974,7 +974,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 #### [Azure CLI](#tab/cli)
 
-You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](https://learn.microsoft.com/cli/azure/what-is-azure-cli).
+You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](/cli/azure/what-is-azure-cli).
 
 Follow the steps mentioned below as an example:
 
@@ -1015,7 +1015,7 @@ Follow the steps mentioned below as an example:
    ```powershell-interactive
        New-AzAutomationHybridRunbookWorkerGroup -AutomationAccountName "Contoso17" -Name "RunbookWorkerGroupName" -ResourceGroupName "ResourceGroup01" 
    ```
-1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `hybridRunbookWorkerGroupName`. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
+1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as the name of the Hybrid Worker. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
 
     ```azurepowershell
       New-AzAutomationHybridRunbookWorker -AutomationAccountName "Contoso17" -Name "RunbookWorkerName" -HybridRunbookWorkerGroupName "RunbookWorkerGroupName" -VmResourceId "VmResourceId" -ResourceGroupName "ResourceGroup01" 

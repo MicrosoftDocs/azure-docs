@@ -10,18 +10,18 @@ ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
 ms.date: 06/19/2023
-ms.custom: data4ml
+ms.custom: data4ml, devx-track-azurecli
 ---
 
 # Manage imported data assets (preview)
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to manage imported data assets from a life-cycle perspective. We learn how to modify or update auto delete settings on the data assets imported into a managed datastore (`workspacemanagedstore`) that Microsoft manages for the customer.
 
 > [!NOTE]
 > Auto delete settings capability, or lifecycle management, is currently offered only through the imported data assets in managed datastore, also known as `workspacemanagedstore`.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Modifying auto delete settings
 

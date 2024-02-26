@@ -5,12 +5,15 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822, devx-track-azurecli
+ms.custom: GGAL-freshness822, devx-track-azurecli, linux-related-content
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 03/31/2023
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
 
@@ -94,7 +97,7 @@ You can store sensitive data in a protected configuration, which is encrypted an
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789          
+      "timestamp":123456789
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -283,7 +286,7 @@ You can deploy Azure VM extensions by using Azure Resource Manager templates. Th
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
       "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
-      ]  
+      ]
     }
   }
 }
@@ -434,7 +437,7 @@ sudo ls -l /var/lib/waagent/custom-script/download/0/
 To troubleshoot, first check the Linux Agent log and ensure that the extension ran:
 
 ```bash
-sudo cat /var/log/waagent.log 
+sudo cat /var/log/waagent.log
 ```
 
 Look for the extension execution. It looks something like:

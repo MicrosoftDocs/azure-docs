@@ -240,4 +240,4 @@ To delete a test in the Azure portal:
 
 - [Create and manage test runs](./how-to-create-manage-test-runs.md)
 - [Identify performance bottlenecks with Azure Load Testing in the Azure portal](./quickstart-create-and-run-load-test.md)
-- [Set up automated load testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md)
+- [Set up automated load testing with CI/CD](./quickstart-add-load-test-cicd.md)

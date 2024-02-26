@@ -61,7 +61,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Brendan O’Flaherty - CEO**
 
-[Learn more](https://www.cpacket.com/azure-gateway-load-balancer/)
+[Learn more](https://www.cpacket.com/)
 
 ### F5
 
@@ -90,8 +90,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 “Glasnostic is proud to be a partner for Azure Gateway Load Balancer. With Azure’s new Gateway Load Balancer, using Glasnostic to make applications reliable and secure couldn’t be any easier. Adding Glasnostic as an NVA to your Azure deployments provides you instantly with the holistic visibility and control you need to optimize performance, maximize reliability and enforce security.” 
 
 **Tobias Kunze - Co-founder & CEO** 
-
-[Learn more](https://glasnostic.com/blog/announcing-glasnostic-for-azure-gwlb)
 
 ### Palo Alto Networks
 

@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows
 
@@ -50,7 +50,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 

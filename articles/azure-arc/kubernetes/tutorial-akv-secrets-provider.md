@@ -1,8 +1,8 @@
 ---
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
-ms.custom: ignite-2022, devx-track-azurecli
-ms.date: 04/21/2023
+ms.custom: devx-track-azurecli
+ms.date: 02/09/2024
 ms.topic: how-to
 ---
 
@@ -24,7 +24,7 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
 - A cluster with a supported Kubernetes distribution that has already been [connected to Azure Arc](quickstart-connect-cluster.md). The following Kubernetes distributions are currently supported for this scenario:
   - Cluster API Azure
   - Azure Kubernetes Service (AKS) clusters on Azure Stack HCI
-  - AKS hybrid clusters provisioned from Azure
+  - AKS enabled by Azure Arc
   - Google Kubernetes Engine
   - OpenShift Kubernetes Distribution
   - Canonical Kubernetes Distribution
@@ -33,18 +33,14 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
   - Azure Red Hat OpenShift
 - Ensure you've met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the `k8s-extension` Azure CLI extension.
 
-> [!TIP]
-> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
-
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 
 You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying an ARM template.
 
-> [!TIP]
-> If the cluster is behind an outbound proxy server, ensure that you connect it to Azure Arc using the [proxy configuration](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) option before installing the extension.
+Only one instance of the extension can be deployed on each Azure Arc-enabled Kubernetes cluster.
 
 > [!TIP]
-> Only one instance of the extension can be deployed on each Azure Arc-enabled Kubernetes cluster.
+> If the cluster is behind an outbound proxy server, ensure that you connect it to Azure Arc using the [proxy configuration](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) option before installing the extension.
 
 ### Azure portal
 
@@ -284,7 +280,7 @@ Before you move on to the next section, take note of the following properties:
 Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed through a service principal. Follow these steps to provide an identity that can access your Key Vault.
 
 1. Follow the steps [to create a service principal in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Take note of the Client ID and Client Secret generated in this step.
-1. Provide Azure Key Vault GET permission to the created service principal by [following these steps](../../key-vault/general/assign-access-policy.md).
+1. Next, [ensure Azure Key Vault has GET permission to the created service principal](../../key-vault/general/assign-access-policy.md#assign-an-access-policy).
 1. Use the client ID and Client Secret from the first step to create a Kubernetes secret on the connected cluster:
 
    ```bash
@@ -297,7 +293,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
    kubectl label secret secrets-store-creds secrets-store.csi.k8s.io/used=true
    ```
 
-1. Create a SecretProviderClass with the following YAML, filling in your values for key vault name, tenant ID, and objects to retrieve from your AKV instance:
+1. Create a `SecretProviderClass` with the following YAML, filling in your values for key vault name, tenant ID, and objects to retrieve from your AKV instance:
 
    ```yml
    # This is a SecretProviderClass example using service principal to access Keyvault
@@ -310,6 +306,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
      parameters:
        usePodIdentity: "false"
        keyvaultName: <key-vault-name>
+       cloudName:                           # Defaults to AzurePublicCloud
        objects:  |
          array:
            - |
@@ -318,6 +315,8 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
              objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
        tenantId: <tenant-Id>                # The tenant ID of the Azure Key Vault instance
    ```
+
+   For use with national clouds, change `cloudName` to `AzureUSGovernmentCloud` for Azure Government, or to `AzureChinaCloud` for Microsoft Azure operated by 21Vianet.
 
 1. Apply the SecretProviderClass to your cluster:
 
@@ -382,7 +381,7 @@ The following configuration settings are frequently used with the Azure Key Vaul
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
 | enableSecretRotation | false | Boolean type. If `true`, periodically updates the pod mount and Kubernetes Secret with the latest content from external secrets store |
-| rotationPollInterval | 2 m | If `enableSecretRotation` is `true`, specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
+| rotationPollInterval | 2 m | If `enableSecretRotation` is `true`, this setting specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
 | syncSecret.enabled | false | Boolean input. In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. If `true`, `SecretProviderClass` allows the `secretObjects` field to define the desired state of the synced Kubernetes Secret objects. |
 
 These settings can be specified when the extension is installed by using the `az k8s-extension create` command:
@@ -397,7 +396,7 @@ You can also change these settings after installation by using the `az k8s-exten
 az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --name akvsecretsprovider --configuration-settings secrets-store-csi-driver.enableSecretRotation=true secrets-store-csi-driver.rotationPollInterval=3m secrets-store-csi-driver.syncSecret.enabled=true
 ```
 
-You can use other configuration settings as needed for your deployment. For example, to change the kubelet root directory while creating a cluster, modify the az k8s-extension create command:
+You can use other configuration settings as needed for your deployment. For example, to change the kubelet root directory while creating a cluster, modify the `az k8s-extension create` command:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
@@ -430,7 +429,7 @@ kubectl delete secret secrets-store-creds
 
 ## Reconciliation and troubleshooting
 
-The Azure Key Vault Secrets Provider extension is self-healing. If somebody tries to change or delete an extension component that was deployed when the extension was installed, that component will be reconciled to its original state. The only exceptions are for Custom Resource Definitions (CRDs). If CRDs are deleted, they won't be reconciled. To restore deleted CRDs, use the `az k8s-extension create` command again with the existing extension instance name.
+The Azure Key Vault Secrets Provider extension is self-healing. If somebody tries to change or delete an extension component that was deployed when the extension was installed, that component is reconciled to its original state. The only exceptions are for Custom Resource Definitions (CRDs). If CRDs are deleted, they won't be reconciled. To restore deleted CRDs, use the `az k8s-extension create` command again with the existing extension instance name.
 
 For more information about resolving common issues, see the open source troubleshooting guides for [Azure Key Vault provider for Secrets Store CSI driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/) and [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
 

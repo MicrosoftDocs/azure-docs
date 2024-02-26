@@ -22,7 +22,7 @@ This article describes how you can use your Automation account to enable [Change
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Change Tracking and Inventory
 

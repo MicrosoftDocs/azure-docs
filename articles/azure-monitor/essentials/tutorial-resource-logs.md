@@ -4,7 +4,7 @@ description: Learn how to configure diagnostic settings to send resource logs fr
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 11/08/2021
+ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 
@@ -67,7 +67,7 @@ Browse through the available queries. Identify one to run and select **Run**. Th
 :::image type="content" source="media/tutorial-resource-logs/query-results.png" lightbox="media/tutorial-resource-logs/query-results.png"alt-text="Screenshot that shows the results of a sample log query.":::
 
 ## Next steps
-Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
+Once you're collecting monitoring data for your Azure resources, see your different options for creating alert rules to be proactively notified when Azure Monitor identifies interesting information.
 
 > [!div class="nextstepaction"]
-> [Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md)
+> [Create alert rules for an Azure resource](../alerts/alert-options.md)

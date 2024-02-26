@@ -114,6 +114,6 @@
             "source_path": "articles/aks/deployment-center-launcher.md",
             "redirect_url": "/previous-versions/azure/aks/deployment-center-launcher",
             "redirect_document_id": false
-          }          
+          }
     ]
-  }
+}

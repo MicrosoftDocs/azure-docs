@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 07/21/2022
+ms.date: 01/04/2024
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 

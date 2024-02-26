@@ -4,8 +4,8 @@ description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 09/17/2021 
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell
@@ -28,7 +28,7 @@ For information on the Azure Disk backup region availability, supported scenario
 
 A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault.Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault.Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurepowershell-interactive
 $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore

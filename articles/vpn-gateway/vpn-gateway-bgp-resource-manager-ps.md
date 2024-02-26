@@ -5,14 +5,13 @@ description: Learn how to configure BGP for VPN gateways using PowerShell.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 07/12/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
-
 ---
 # How to configure BGP for VPN Gateway: PowerShell
 
-This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using Azure PowerShell. You can also create this configuration using the [Azure portal](bgp-howto.md) or [CLI](bgp-how-to-cli.md) steps.
+This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using Azure PowerShell. If you aren't familiar with this type of configuration, you may find it easier to use the [Azure portal](bgp-howto.md) version of this article.
 
 BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
 
@@ -112,7 +111,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 
 #### 2. Create the VPN gateway with the AS number
 
-Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway, and also an additional parameter *-Asn* to set the ASN (AS Number) for TestVNet1. If you don't set the ASN parameter, ASN 65515 is assigned. Creating a gateway can take a while (45 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway, and also an additional parameter *-Asn* to set the ASN (AS Number) for TestVNet1. Make sure to specify the *-Asn* parameter. If you don't set the -Asn parameter, ASN 65515 (which does not work for this configuration) is assigned by default. Creating a gateway can take a while (45 minutes or more to complete).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
@@ -163,7 +162,7 @@ To establish a cross-premises connection, you need to create a *local network ga
 
 Before proceeding, make sure you enabled BGP for the VPN gateway in the previous section.
 
-### Step 1 - Create and configure the local network gateway
+### Step 1: Create and configure the local network gateway
 
 #### 1. Declare your variables
 
@@ -199,7 +198,7 @@ Create the local network gateway. Notice the two additional parameters for the l
 New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-### Step 2 - Connect the VNet gateway and local network gateway
+### Step 2: Connect the VNet gateway and local network gateway
 
 #### 1. Get the two gateways
 
@@ -251,7 +250,7 @@ This section adds a VNet-to-VNet connection with BGP, as shown in the Diagram 4.
 
 The following instructions continue from the previous steps. You must first complete the steps in the [Enable BGP for the VPN gateway](#enablebgp) section to create and configure TestVNet1 and the VPN gateway with BGP.
 
-### Step 1 - Create TestVNet2 and the VPN gateway
+### Step 1: Create TestVNet2 and the VPN gateway
 
 It's important to make sure that the IP address space of the new virtual network, TestVNet2, doesn't overlap with any of your VNet ranges.
 
@@ -314,7 +313,7 @@ Create the VPN gateway with the AS number. You must override the default ASN on 
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN
 ```
 
-### Step 2 - Connect the TestVNet1 and TestVNet2 gateways
+### Step 2: Connect the TestVNet1 and TestVNet2 gateways
 
 In this example, both gateways are in the same subscription. You can complete this step in the same PowerShell session.
 

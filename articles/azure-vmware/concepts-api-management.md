@@ -3,7 +3,7 @@ title: Concepts - API Management
 description: Learn how API Management protects APIs running on Azure VMware Solution virtual machines (VMs)
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/25/2022
+ms.date: 11/28/2023
 ms.custom: engagement-fy23
 ---
 
@@ -41,7 +41,7 @@ Use [Azure Application Gateway](../api-management/api-management-howto-integrate
 
 * Provide an easy way to switch access to API Management from the public internet on and off.
 
-The deployment diagram below shows consumers that can be internal or external, with each type accessing the same or different APIs.
+The following deployment diagram shows consumers that can be internal or external, with each type accessing the same or different APIs.
 
 In an internal deployment, APIs get exposed to the same API Management instance. In front of API Management, Application Gateway gets deployed with Azure Web Application Firewall (WAF) capability activated. Also deployed, a set of HTTP listeners and rules to filter the traffic, exposing only a subset of the backend services running on Azure VMware Solution.
 

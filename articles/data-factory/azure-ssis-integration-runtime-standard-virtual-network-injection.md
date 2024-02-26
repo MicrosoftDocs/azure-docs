@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for standard injection of 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -180,7 +180,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|-------|
     | <b>Azure Public</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.clouddatahub.net_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.windows.net_</li><li>_\*.table.core.windows.net_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.io_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.windows.net_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_gcs.prod.monitoring.core.windows.net_</li><li>_prod.warmpath.msftcloudes.com_</li><li>_azurewatsonanalysis-prod.core.windows.net_</li></ul></li></ul> |
     | <b>Azure Government</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.us_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.usgovcloudapi.net_</li><li>_\*.table.core.usgovcloudapi.net_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.us_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.usgovcloudapi.net_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_fairfax.warmpath.usgovcloudapi.net_</li><li>_azurewatsonanalysis.usgovcloudapp.net_</li></ul></li></ul> |
-    | <b>Azure China 21Vianet</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.cn_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.chinacloudapi.cn_</li><li>_\*.table.core.chinacloudapi.cn_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.cn_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.chinacloudapi.cn_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_mooncake.warmpath.chinacloudapi.cn_</li><li>_azurewatsonanalysis.chinacloudapp.cn_</li></ul></li></ul> |
+    | <b>Microsoft Azure operated by 21Vianet</b> | <ul><li><b>Azure Data Factory (Management)</b><ul><li>_\*.frontend.datamovement.azure.cn_</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>_\*.blob.core.chinacloudapi.cn_</li><li>_\*.table.core.chinacloudapi.cn_</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>_\*.azurecr.cn_</li></ul></li><li><b>Event Hubs (Logging)</b><ul><li>_\*.servicebus.chinacloudapi.cn_</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>_mooncake.warmpath.chinacloudapi.cn_</li><li>_azurewatsonanalysis.chinacloudapp.cn_</li></ul></li></ul> |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 
@@ -267,7 +267,7 @@ Make sure that the resource quota for your subscription is enough for these reso
 
   If your data source is an Azure service, please check whether you've configured it with virtual network service endpoints. If that's the case, the traffic from Azure-SSIS IR to your data source will switch to use the private IP addresses managed by Azure services and adding your own static public IP addresses to the firewall's allowlist for your data source won't take effect.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

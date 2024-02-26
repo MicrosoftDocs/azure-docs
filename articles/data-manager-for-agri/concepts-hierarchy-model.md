@@ -5,19 +5,18 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 08/22/2023
 ms.custom: template-concept
 ---
 
 # Hierarchy model to organize agriculture related data
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
-:::image type="content" source="./media/data-model.png" alt-text="Screenshot showing farm hierarchy model.":::
+:::image type="content" source="./media/data-model-v-2.png" alt-text="Screenshot showing farm hierarchy model.":::
+:::image type="content" source="./media/management-zones.png" alt-text="Screenshot showing management zones.":::
 
 ## Understanding farm hierarchy
 
@@ -27,16 +26,15 @@ To generate actionable insights data related to growers, farms, and fields shoul
 
 ### Farm
 * Farms are logical entities. A farm is a collection of fields. 
-* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example Contoso Inc is the Party that has farms in Oregon and Idaho.
+* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example, Contoso Inc is the Party that has farms in Oregon and Idaho.
 
 ### Field
-* Fields denote a stable boundary that is in general agnostic to seasons and other temporal constructs. For example, field could be the boundary denoted in government records.
+* Fields denote a stable geometry that is in general agnostic to seasons and other temporal constructs. For example, field could be the geometry denoted in government records.
 * Fields are multi-polygon. For example, a road might divide the farm in two or more parts.
-* Fields are multi-boundary.
 
 ### Seasonal field
-* This is the most important construct in the farming world. A seasonal fields definition includes the following things
-     * Boundary
+* Seasonal field is the most important construct in the farming world. A seasonal fields definition includes the following things
+     * geometry
      * Season 
      * Crop
 * A seasonal field is associated with a field or a farm
@@ -44,13 +42,8 @@ To generate actionable insights data related to growers, farms, and fields shoul
 * A seasonal field is associated with one season. If a farmer cultivates across multiple seasons, they have to create one seasonal field per season.
 * It's multi-polygon. Same crop can be planted in different areas within the farm.
 
-
-### Boundary
-* Boundary represents the geometry of a field or a seasonal field.
-* It's represented as a multi-polygon GeoJSON consisting of vertices (lat/long).
-
 ### Season
-* Season represents the temporal aspect of farming. It is a function of local agronomic practices, procedures and weather.
+* Season represents the temporal aspect of farming. It's a function of local agronomic practices, procedures and weather.
 
 ### Crop
 * Crop entity provides the phenotypic details of the planted crop.

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/07/2023
+ ms.date: 11/27/2023
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -27,4 +27,4 @@ Considerations:
 * To move to the new SKUs, your VPN gateway must be in the Resource Manager deployment model.
 * If you have a classic VPN gateway, you must continue using the older legacy SKUs for that gateway, however, you can resize between the legacy SKUs. You can't change to the new SKUs.
 * When you change from a legacy SKU to a new SKU, you'll have connectivity downtime.
-* When changing to a new gateway SKU, the public IP address for your VPN gateway changes. This happens even if you specify the same public IP address object that you used previously.
+* When changing to a new gateway SKU, the public IP address for your VPN gateway changes. This happens even if you specified the same public IP address object that you used previously.

@@ -1,11 +1,10 @@
 ---
 title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
-services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -26,7 +25,7 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule occurs daily at 12:00 AM in the time zone of the replicated VM's geography. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Starting with [Update Rollup 35](site-recovery-whats-new.md#updates-march-2019), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
+> Starting with [Update Rollup 35](site-recovery-whats-new-archive.md#updates-march-2019), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
 
 Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
@@ -467,7 +466,7 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
-  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
 
@@ -475,9 +474,9 @@ If you can't enable automatic updates, see the following common errors and recom
 
 - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Azure Active Directory application can access the recovery services resource.
+  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Microsoft Entra application can access the recovery services resource.
 
-- **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
+- **Error**: Run As account is not found. Either one of these was deleted or not created - Microsoft Entra Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
 
   **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md).
 
@@ -495,4 +494,3 @@ If you can't enable automatic updates, see the following common errors and recom
 ## Next steps
 
 [Learn more](./how-to-migrate-run-as-accounts-managed-identity.md) on how to migrate the authentication type of the Automation accounts to Managed Identities.
-

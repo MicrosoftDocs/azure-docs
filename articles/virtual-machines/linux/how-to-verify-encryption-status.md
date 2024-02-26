@@ -1,30 +1,29 @@
 ---
 title: Verify encryption status for Linux - Azure Disk Encryption
 description: This article provides instructions on verifying the encryption status from the platform and OS levels.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
-ms.author: mamccrea
+ms.author: jushiman
 ms.date: 04/11/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
-# Verify encryption status for Linux 
+# Verify encryption status for Linux
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-The scope of this article is to validate the encryption status of a virtual machine by using different methods: the Azure portal, PowerShell, the Azure CLI, or the operating system of the virtual machine (VM). 
+The scope of this article is to validate the encryption status of a virtual machine by using different methods: the Azure portal, PowerShell, the Azure CLI, or the operating system of the virtual machine (VM).
 
 You can validate the encryption status during or after the encryption, by either:
 
-- Checking the disks attached to a particular VM. 
+- Checking the disks attached to a particular VM.
 - Querying the encryption settings on each disk, whether the disk is attached or unattached.
 
 This scenario applies for Azure Disk Encryption dual-pass and single-pass extensions. Linux distributions are the only environment for this scenario.
 
->[!NOTE] 
+>[!NOTE]
 >We're using variables throughout the article. Replace the values accordingly.
 
 ## Portal
@@ -45,10 +44,10 @@ Another way to validate the encryption status is by looking at the **Disk settin
 
 ![Encryption status for OS disk and data disks](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
->[!NOTE] 
+>[!NOTE]
 > This status means the disks have encryption settings stamped, not that they were actually encrypted at the OS level.
 >
-> By design, the disks are stamped first and encrypted later. If the encryption process fails, the disks may end up stamped but not encrypted. 
+> By design, the disks are stamped first and encrypted later. If the encryption process fails, the disks may end up stamped but not encrypted.
 >
 > To confirm if the disks are truly encrypted, you can double check the encryption of each disk at the OS level.
 
@@ -72,7 +71,7 @@ In a single pass, the encryption settings are stamped on each of the disks (OS a
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
-$VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}  
+$VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  $Sourcedisk = Get-AzDisk -ResourceGroupName ${RGNAME} -DiskName $VM.StorageProfile.OsDisk.Name
  Write-Host "============================================================================================================================================================="
  Write-Host "Encryption Settings:"
@@ -343,7 +342,7 @@ sudo lsblk
 
 ![OS crypt layer for a partition](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-You can get more details by using the following **lsblk** variant. 
+You can get more details by using the following **lsblk** variant.
 
 You'll see a **crypt** type layer that is mounted by the extension. The following example shows logical volumes and normal disks having **crypto\_LUKS FSTYPE**.
 

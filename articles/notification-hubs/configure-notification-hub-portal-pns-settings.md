@@ -5,7 +5,6 @@ services: notification-hubs
 author: sethmanheim
 manager: femila
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: quickstart
 ms.date: 06/30/2023
 ms.author: sethm
@@ -20,7 +19,8 @@ Azure Notification Hubs provides a push engine that's easy to use and that scale
 
 In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal. [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) includes instructions for using the Azure CLI.
 
-[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
+> [!NOTE]
+> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
 
 If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md).
 

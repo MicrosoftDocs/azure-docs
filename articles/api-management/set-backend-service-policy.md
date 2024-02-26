@@ -11,7 +11,7 @@ ms.author: danlep
 ---
 
 # Set backend service
-Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
+Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to a URL or [backend](backends.md) specified in the policy.
 
 > [!NOTE]
 > Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
@@ -29,7 +29,7 @@ Use the `set-backend-service` policy to redirect an incoming request to a differ
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |base-url|New backend service base URL. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier (name) of the backend to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier (name) of the [backend](backends.md) to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution. Policy expressions are allowed.|No|N/A|
 |sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. Policy expressions are allowed. |No|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service. Specifies the partition key of a Service Fabric service. Policy expressions are allowed. |No|N/A|
@@ -73,7 +73,7 @@ In this example the `set-backend-service` policy routes requests based on the ve
 
 Initially the backend service base URL is derived from the API settings. So the request URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` becomes `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` where `http://contoso.com/api/10.4/` is the backend service URL specified in the API settings.
 
-When the [<choose\>](choose-policy.md) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.
+When the [<choose\>](choose-policy.md) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-15&subscription-key=abcdef`.
 
 If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
 

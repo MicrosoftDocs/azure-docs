@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the disk you'd like to snapshot.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the disk you'd like to snapshot.
 1. On your disk, select **Create a Snapshot**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Screenshot. Your disk's blade, with **+Create snapshot** highlighted, as that is what you must select.":::

@@ -10,4 +10,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of the page. The v4 model is currently in preview and is designed to have a more flexible and intuitive experience for JavaScript and TypeScript developers. Learn more about the differences between v3 and v4 in the [upgrade guide](../articles/azure-functions/functions-node-upgrade-v4.md).
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of the page. The v4 model is generally available and is designed to have a more flexible and intuitive experience for JavaScript and TypeScript developers. Learn more about the differences between v3 and v4 in the [migration guide](../articles/azure-functions/functions-node-upgrade-v4.md).

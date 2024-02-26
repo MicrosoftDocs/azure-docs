@@ -1,20 +1,20 @@
 ---
 title: Enable Profiler for Azure Cloud Services | Microsoft Docs
-description: Profile live Azure Cloud Services with Application Insights Profiler.
+description: Profile Azure Cloud Services in real time with Application Insights Profiler.
 ms.topic: conceptual
-ms.custom:
-ms.date: 07/15/2022
+ms.custom: engagement
+ms.date: 09/22/2023
 ---
 
 # Enable Profiler for Azure Cloud Services
 
-Receive performance traces for your instance of [Azure Cloud Services](../../cloud-services-extended-support/overview.md) by enabling the Application Insights Profiler. Profiler is installed on your instance of Azure Cloud Services via the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md).
+You can receive performance traces for your instance of [Azure Cloud Services](../../cloud-services-extended-support/overview.md) by enabling the Application Insights Profiler. Profiler is installed on your instance of Azure Cloud Services via the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md).
 
-In this article, you:
-
-- Enable your instance of Azure Cloud Services to send diagnostics data to Application Insights.
-- Configure the Azure Diagnostics extension within your solution to install Profiler.
-- Deploy your service and generate traffic to view Profiler traces.
+In this guide, you learn how to:
+> [!div class="checklist"]
+> - Enable your instance of Azure Cloud Services to send diagnostics data to Application Insights.
+> - Configure the Azure Diagnostics extension within your solution to install Profiler.
+> - Deploy your service and generate traffic to view Profiler traces.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Add the following `SinksConfig` section as a child element of `WadCfg`:
 ```
 
 > [!NOTE]
-> The instrumentation keys that are used by the application and the `ApplicationInsightsProfiler` sink must match each other.
+> The instrumentation keys that are used by the application and the `ApplicationInsightsProfiler` sink must match.
 
 Deploy your service with the new Diagnostics configuration. Application Insights Profiler is now configured to run on your instance of Azure Cloud Services.
 

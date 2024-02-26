@@ -1,6 +1,6 @@
 ---
-title: Authorize request to Web PubSub resources with Azure AD from managed identities
-description: This article provides information about authorizing request to Web PubSub resources with Azure AD from managed identities
+title: Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities
+description: This article provides information about authorizing request to Web PubSub resources with Microsoft Entra ID from managed identities
 author: terencefan
 
 ms.author: tefa
@@ -9,8 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize request to Web PubSub resources with Azure AD from managed identities
-Azure Web PubSub Service supports Azure Active Directory (Azure AD) authorizing requests from [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+# Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities
+
+Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 This article shows how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from a managed identity.
 
@@ -27,6 +28,7 @@ This is an example for configuring `System-assigned managed identity` on a `Virt
 1. Click the **Save** button to confirm the change.
 
 ### How to create user-assigned managed identities
+
 - [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
 
 ### How to configure managed identities on other platforms
@@ -41,12 +43,13 @@ This is an example for configuring `System-assigned managed identity` on a `Virt
 
 - [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
 
-## Add role assignments on Azure portal  
+## Add role assignments on Azure portal
 
-This sample shows how to assign a `Web PubSub Service Owner` role to a system-assigned identity over a Web PubSub resource. 
+This sample shows how to assign a `Web PubSub Service Owner` role to a system-assigned identity over a Web PubSub resource.
 
 > [!Note]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
+
 1. Open [Azure portal](https://portal.azure.com/), navigate to your Web PubSub resource.
 
 1. Click **Access Control (IAM)** to display access control settings for the Azure Web PubSub.
@@ -77,15 +80,16 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a system-as
 
 1. Click **Select** to confirm the selection.
 
-2. Click **Next**.
+1. Click **Next**.
 
    ![Screenshot of assigning role to managed identities.](./media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png)
 
-3. Click **Review + assign** to confirm the change.
+1. Click **Review + assign** to confirm the change.
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.
-To learn more about how to assign and manage Azure role assignments, see these articles:
+> To learn more about how to assign and manage Azure role assignments, see these articles:
+
 - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
@@ -105,6 +109,6 @@ We officially support 4 programming languages:
 
 See the following related articles:
 
-- [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
-- [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
+- [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
+- [Authorize request to Web PubSub resources with Microsoft Entra ID from Azure applications](howto-authorize-from-application.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

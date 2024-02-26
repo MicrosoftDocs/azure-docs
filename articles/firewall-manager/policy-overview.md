@@ -68,8 +68,7 @@ With inheritance, any changes to the parent policy are automatically applied dow
 ## Built-in high availability
 
 High availability is built in, so there's nothing you need to configure.
-
-Azure Firewall Policy is replicated to a paired Azure region. For example, if one Azure region goes down, Azure Firewall policy becomes active in the paired Azure region. The paired region is automatically selected based on the region where the policy is created. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
+You can create an Azure Firewall Policy object in any region and link it globally to multiple Azure Firewall instances under the same Azure AD tenant. If the region where you create the Policy goes down and has a paired region, the ARM object metadata automatically fails over to the secondary region. During the failover, or if the single-region with no pair remains in a failed state, you cannot modify the Azure Firewall Policy object. However, the Azure Firewall instances linked to the Firewall Policy continue to operate. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Pricing
 

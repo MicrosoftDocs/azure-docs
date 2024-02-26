@@ -4,9 +4,8 @@ description: Learn how to control when automatic OS image upgrades are rolled ou
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 11/22/2022
-ms.author: jushiman 
+ms.author: jushiman
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #pmcontact: PPHILLIPS
 ---
@@ -94,14 +93,15 @@ For more information, see [configurationAssignments](/azure/templates/microsoft.
 
 ```json
 { 
-  "type": "Microsoft.Maintenance/configurationAssignments", 
-  "apiVersion": "2021-09-01-preview", 
-  "name": "string", 
-  "location": "string", 
-  "properties": { 
-    "maintenanceConfigurationId": "string", 
-    "resourceId": "string" 
-  } 
+"type": "Microsoft.Maintenance/configurationAssignments",
+"apiVersion": "2021-09-01-preview",
+"name": "[variables('maintenanceConfigurationAssignmentName')]",
+"location": "string (e.g. westeurope)", 
+"scope": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+"properties": {
+  "maintenanceConfigurationId": "Resource Id of the Maintenance Configuration"
+  "resourceId": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+}
 }
 ```
 

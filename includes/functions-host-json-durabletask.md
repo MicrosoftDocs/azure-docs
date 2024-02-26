@@ -33,6 +33,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
       "useLegacyPartitionManagement": true,
+      "useTablePartitionManagement": false,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
@@ -59,7 +60,8 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useAppLease": true,
     "useGracefulShutdown": false,
-    "maxEntityOperationBatchSize": 50
+    "maxEntityOperationBatchSize": 50,
+    "storeInputsInOrchestrationHistory": false
   }
  }
 }
@@ -120,7 +122,9 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
 |useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
+|useTablePartitionManagement|false|When set to `true`, uses a partition management algorithm designed to reduce costs for Azure Storage V2 accounts. Available starting in v2.10.0.  **This feature is currently in preview and not yet compatible with the Consumption plan.**|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 |maxEntityOperationBatchSize(2.6.1)|**Consumption plan**: 50 <br> **Dedicated/Premium plan**: 5000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable/durable-functions-perf-and-scale.md#entity-operation-batching). If set to 1, batching is disabled, and each operation message is processed by a separate function invocation.|
+|storeInputsInOrchestrationHistory|false|When set to `true`, tells the Durable Task Framework to save activity inputs in the history table. This enables the displaying of activity function inputs when querying orchestration history.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

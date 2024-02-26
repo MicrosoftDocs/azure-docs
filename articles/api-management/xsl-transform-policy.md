@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/28/2023
+ms.date: 01/02/2024
 ms.author: danlep
 ---
 
@@ -33,7 +33,7 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |parameter|Used to define variables used in the transform|No|
-|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
+|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt).|Yes|
 
 
 ## Usage
@@ -45,6 +45,7 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 ### Usage notes
 
 - This policy can only be used once in a policy section.
+- Currently, this policy supports XSLT version 1.0.
 
 ## Examples
 

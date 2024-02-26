@@ -1,13 +1,14 @@
 ---
 title: Provision Web App that uses Azure Cache for Redis using Bicep
 description: Use Bicep to deploy web app with Azure Cache for Redis.
-author: mijacobs
-ms.service: app-service
+author: flang-msft
+ms.service: cache
 ms.custom: devx-track-bicep
 ms.topic: conceptual
 ms.date: 05/24/2022
-ms.author: mijacobs 
+ms.author: franlanglois 
 ---
+
 # Create a Web App plus Azure Cache for Redis using Bicep
 
 In this article, you use Bicep to deploy an Azure Web App that uses Azure Cache for Redis, as well as an App Service plan.

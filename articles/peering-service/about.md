@@ -1,13 +1,13 @@
 ---
 title: Azure Peering Service overview
-description: Learn about Azure Peering Service.
-services: peering-service
+description: Learn about Azure Peering Service concepts and features to optimize network connectivity with Microsoft's global network.
 author: halkazwini
+ms.author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.date: 01/19/2023
-ms.author: halkazwini
-ms.custom: template-overview, engagement-fy23
+ms.date: 09/27/2023
+
+#CustomerIntent: As an administrator, I want learn about Azure Peering Service so I can optimize the connectivity to Microsoft.
 ---
 
 # Azure Peering Service overview
@@ -18,7 +18,7 @@ With Peering Service, customers can select a well-connected partner service prov
 
 :::image type="content" source="./media/about/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud.":::
 
-Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service connection in the Azure portal. 
+Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network and BGP route monitoring by registering the Peering Service connection in the Azure portal. 
 
 To use Peering Service, customers aren't required to register with Microsoft. The only requirement is to contact a [Peering Service partner](location-partners.md) to get the service. To opt in for Peering Service telemetry, customers must register for it in the Azure portal.
 
@@ -59,7 +59,7 @@ Enterprises looking for internet-first access to the cloud or considering SD-WAN
 - Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
-- Route analytics and statistics: Events for BGP route anomalies (leak or hijack detection) and suboptimal routing.
+- Route analytics and statistics: Events for BGP route anomalies and suboptimal routing.
 
 ### Robust, reliable peering
 
@@ -93,33 +93,36 @@ The following routing technique is preferred:
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze customer traffic and routing, and it provides the following capabilities: 
+Service monitoring is offered to analyze user traffic and routing. The following metrics are available in the Azure portal to track the performance and availability of your Peering Service connection:  
 
--  **Internet BGP route anomalies detection**
-          
-   This service is used to detect and alert for any route anomaly events like route hijacks to the customer prefixes.
+- **Ingress and egress traffic rates**
 
--  **Customer latency**
+- **BGP session availability**
 
-   This service monitors the routing performance between the customer's location and Microsoft. 
-   
-   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customers can view the latency reports for different geographic locations.
+- **Packet drops**
 
-   Monitoring captures the events if there's any service degradation.
+- **Flap events**
+
+- **Latency**
+
+- **Prefix events**
 
     :::image type="content" source="./media/about/peering-service-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
+    
+### Onboarding a Peering Service connection
 
-### Traffic protection
+To onboard a Peering Service connection:
 
-Routing happens only via a preferred path that's defined when the customer is registered with Peering Service.
+- Work with internet service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
 
-Microsoft guarantees to route the traffic via preferred paths even if malicious activity is detected.
+- Ensure the [connectivity provider](location-partners.md) is partnered with Microsoft for Peering Service. 
 
-BGP route anomalies are reported in the Azure portal, if any.
+## FAQ
 
-## Next steps
+For frequently asked questions about Peering Service, see [Azure Peering Service frequently asked questions (FAQ)](faq.yml).
 
-- To learn about Peering Service connections, see [Peering Service connections](connection.md).
-- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
+## Related content
+
 - To register Peering Service, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).
+- To learn about Peering Service connections, see [Peering Service connections](connection.md).
+- To find a service provider partner, see [Peering Service partners](location-partners.md).

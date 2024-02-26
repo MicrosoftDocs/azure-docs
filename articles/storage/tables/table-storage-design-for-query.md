@@ -2,12 +2,11 @@
 title: Design Azure Table storage for queries
 description: Design tables for queries in Azure Table storage. Choose an appropriate partition key, optimize queries, and sort data for the Table service.
 services: storage
-author: tamram
-ms.author: tamram
-ms.service: storage
+author: akashdubey-ms
+ms.author: akashdubey
+ms.service: azure-table-storage
 ms.topic: article
 ms.date: 05/19/2023
-ms.subservice: tables
 ---
 # Design for querying
 Table service solutions may be read intensive, write intensive, or a mix of the two. This article focuses on the things to bear in mind when you are designing your Table service to support read operations efficiently. Typically, a design that supports read operations efficiently is also efficient for write operations. However, there are additional considerations to bear in mind when designing to support write operations, discussed in the article [Design for data modification](table-storage-design-for-modification.md).

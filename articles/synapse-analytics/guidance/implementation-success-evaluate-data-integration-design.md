@@ -76,7 +76,7 @@ When you execute a pipeline by using Azure IR, it's serverless in nature and so 
 A secured data platform is one of the key requirements of every organization. You should thoroughly plan security for the entire platform rather than individual components. Here are some security guidelines for Azure Synapse pipeline solutions.
 
 - Secure data movement to the cloud by using [Azure Synapse private endpoints](https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463).
-- Use Azure Active Directory (Azure AD) [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for authentication.
+- Use Microsoft Entra [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for authentication.
 - Use Azure role-based access control (RBAC) and [Synapse RBAC](../security/synapse-workspace-synapse-rbac.md) for authorization.
 - Store credentials, secrets, and keys in Azure Key Vault rather than in the pipeline. For more information, see [Use Azure Key Vault secrets in pipeline activities](../../data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities.md).
 - Connect to on-premises resources via Azure ExpressRoute or VPN over private endpoints.

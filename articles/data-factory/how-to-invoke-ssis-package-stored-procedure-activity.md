@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
@@ -326,5 +326,5 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     ```
 
 
-## Next steps
+## Related content
 You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

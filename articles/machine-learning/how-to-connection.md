@@ -10,20 +10,20 @@ ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
 ms.date: 06/19/2023
-ms.custom: data4ml, devx-track-python
+ms.custom: data4ml, devx-track-azurecli
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
 ---
 
 # Create connections (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to connect to data sources located outside of Azure, to make that data available to Azure Machine Learning services. Azure connections serve as key vault proxies, and interactions with connections are actually direct interactions with an Azure key vault. Azure Machine Learning connections store username and password data resources securely, as secrets, in a key vault. The key vault RBAC controls access to these data resources. For this data availability, Azure supports connections to these external sources:
 - Snowflake DB
 - Amazon S3
 - Azure SQL DB
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

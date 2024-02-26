@@ -1,13 +1,12 @@
 ---
 title: Establishing a FinOps culture
 description: This article helps you understand the Establishing a FinOps culture capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.subservice: common
+ms.subservice: finops
 ms.reviewer: micflan
 ---
 

@@ -59,15 +59,25 @@ An active Azure subscription. If you don't have an Azure subscription, [create a
 
 ## Create an in-store analytics application
 
-Create the application by completing the following steps:
+To create your IoT Central application:
 
-1. Sign in to the [Azure IoT Central](https://aka.ms/iotcentral) build site with a Microsoft personal, work, or school account. 
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. On the left pane, select **Build**, and then select the **Retail** tab.
+1. Enter the following information:
 
-1. Under **In-store analytics - checkout**, select **Create app**.
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **In-store Analytics - Checkout** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
 
-To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 
@@ -103,17 +113,17 @@ To create a custom theme:
 
 To update the application image:
 
-1. Select **Application** > **Management**. 
+1. Select **Application** > **Management**.
 
-1. Select **Change**, and then select an image to upload as the application image. 
+1. Select **Change**, and then select an image to upload as the application image.
 
 1. Select **Save**.
 
-   The image appears on the application tile on the **My Apps** page of the [Azure IoT Central application manager](https://aka.ms/iotcentral) site.
+   The image appears on the application tile on the **My Apps** page of the [Azure IoT Central My apps](https://apps.azureiotcentral.com/myapps) site.
 
 ### Create the device templates
 
-By creating device templates, you and the application operators can configure and manage devices. You can build a custom template, import an existing template file, or import a template from the Azure IoT device catalog. After you create and customize a device template, use it to connect real devices to your application.
+By creating device templates, you and the application operators can configure and manage devices. You can build a custom template, import an existing template file, or import a template from the device catalog. After you create and customize a device template, use it to connect real devices to your application.
 
 Optionally, you can use a device template to generate simulated devices for testing.
 
@@ -125,7 +135,7 @@ In this section, you add a device template for RuuviTag sensors to your applicat
 
 1. Select **New** to create a new device template.
 
-1. Search for and then select the **RuuviTag Multisensor** device template in the Azure IoT device catalog.
+1. Search for and then select the **RuuviTag Multisensor** device template in the device catalog.
 
 1. Select **Next: Review**.
 

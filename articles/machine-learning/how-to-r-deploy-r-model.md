@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 # How to deploy a registered R model to an online (real time) endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 In this article, you'll learn how to deploy an R model to a managed endpoint (Web API) so that your application can score new data against the model in near real-time. 
 

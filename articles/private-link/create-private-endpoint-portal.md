@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
 description: In this quickstart, learn how to create a private endpoint using the Azure portal.
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 06/13/2023
-ms.author: allensu
+ms.author: abell
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
@@ -25,7 +25,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure App Services web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
+- An Azure App Services web app with a Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes referred to as the Elastic Premium plan) app service plan, deployed in your Azure subscription.  
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     

@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Cosmos DB for NoSQL resources using using PowerShell
-description: Manage Azure Cosmos DB for NoSQL resources using using PowerShell. 
+title: Manage Azure Cosmos DB for NoSQL resources using PowerShell
+description: Manage Azure Cosmos DB for NoSQL resources using PowerShell.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Cosmos DB for NoSQL resources using PowerShell
@@ -19,7 +19,7 @@ The following guide describes how to use PowerShell to script and automate manag
 > [!NOTE]
 > Samples in this article use [Az.CosmosDB](/powershell/module/az.cosmosdb) management cmdlets. See the [Az.CosmosDB](/powershell/module/az.cosmosdb) API reference page for the latest changes.
 
-For cross-platform management of Azure Cosmos DB, you can use the `Az` and `Az.CosmosDB` cmdlets with [cross-platform PowerShell](/powershell/scripting/install/installing-powershell), as well as the [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](quickstart-dotnet.md#create-account).
+For cross-platform management of Azure Cosmos DB, you can use the `Az` and `Az.CosmosDB` cmdlets with [cross-platform PowerShell](/powershell/scripting/install/installing-powershell), as well as the [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](how-to-create-account.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

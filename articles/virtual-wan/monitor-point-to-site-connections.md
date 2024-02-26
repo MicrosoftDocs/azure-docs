@@ -6,7 +6,7 @@ services: virtual-wan
 author: siddomala
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 07/28/2023
 ms.author: siddomala
 ---
 
@@ -153,51 +153,120 @@ The Azure workbook is now ready to be created. We'll use a mix of built-in funct
 
 ## Example queries
 
-The following section shows example queries.
+The following section shows example log queries to run in your Log Analytics workspace. 
 
-### P2S User successful connections with IP
+### P2S successful connections with IP
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-successful-connections-ips.png" alt-text="Screenshot shows query for P2S successful connections with IP.":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"
+| project splitted=split(Message, "Username=")
+| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
+| project user=split(col2, " ")
+| mv-expand username=user[0]
+| project ['user']
+```
+
+> [!NOTE]
+> For some of these queries, the usernames may be obfuscated due to privacy reasons. 
+>
 
 ### EAP (Extensible Authentication Protocol) authentication succeeded
 
-:::image type="content" source="./media/monitor-point-to-site-connections/eap-authentication.png" alt-text="Screenshot shows query for EAP Authentication metrics." lightbox="./media/monitor-point-to-site-connections/eap-authentication.png":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "EAP authentication succeeded" and Message has "Username={UserName}"
+| project Message, MessageFields = split(Message, " "), Userinfo = split (Message, "Username=")
+| mv-expand MessageId=MessageFields[2], user=split(Userinfo[1]," ")
+| project MessageId, Message, Userinfo[1]
+```
 
 ### P2S VPN user info
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-vpn-user.png" alt-text="Screenshot shows query for P2S VPN User Info." lightbox="./media/monitor-point-to-site-connections/p2s-vpn-user.png" :::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Username={UserName}"
+| project Message, MessageFields = split(Message, " "), Userinfo = split (Message, "Username=")
+| mv-expand MessageId=MessageFields[2], Username=Userinfo[1]
+| project MessageId, Message, Username;
+```
 
 ### P2S VPN successful connections per user
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-connections-per-user.png" alt-text="Screenshot shows query for P2S VPN successful connections." lightbox="./media/monitor-point-to-site-connections/p2s-connections-per-user.png":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
+| project splitted=split(Message, "Username=")
+| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
+| project user=split(col2, " ")
+| mv-expand username=user[0]
+| project-away ['user']
+| summarize count() by tostring(username)
+| sort by count_ desc
+```
 
 ### P2S VPN connections
 
-:::image type="content" source="./media/monitor-point-to-site-connections/all-p2s-connections.png" alt-text="Screenshot shows query for P2S VPN connections." lightbox="./media/monitor-point-to-site-connections/all-p2s-connections.png" :::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog"
+| project TimeGenerated, OperationName, Message, Resource, ResourceGroup
+| sort by TimeGenerated asc
+```
 
 ### Successful P2S VPN connections
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-successful-connections.png" alt-text="Screenshot shows query for successful P2S VPN connections." lightbox="./media/monitor-point-to-site-connections/p2s-successful-connections.png" :::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
+| project TimeGenerated, Resource, Message
+```
 
 ### Failed P2S VPN connections
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-failed-connections.png" alt-text="Screenshot shows query for failed P2S VPN connections." lightbox="./media/monitor-point-to-site-connections/p2s-failed-connections.png" :::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection failed"
+| project TimeGenerated, Resource, Message
+```
 
 ### VPN connection count by P2SDiagnosticLog
 
-:::image type="content" source="./media/monitor-point-to-site-connections/vpn-connection-count.png" alt-text="Screenshot shows query for VPN connection count." lightbox="./media/monitor-point-to-site-connections/vpn-connection-count.png":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"| count
+```
 
 ### IKEDiagnosticLog
 
-:::image type="content" source="./media/monitor-point-to-site-connections/ike-diagnostics.png" alt-text="Screenshot shows query for IKEDiagnosticLog." lightbox="./media/monitor-point-to-site-connections/ike-diagnostics.png":::
+```kusto
+AzureDiagnostics
+| where Category == "IKEDiagnosticLog"
+| project TimeGenerated, OperationName, Message, Resource, ResourceGroup
+| sort by TimeGenerated asc 
+```
 
 ### Additional IKE diagnostics details
 
-:::image type="content" source="./media/monitor-point-to-site-connections/additional-ikes.png" alt-text="Screenshot shows query for IKE Diagnostic details." lightbox="./media/monitor-point-to-site-connections/additional-ikes.png":::
+```kusto
+AzureDiagnostics
+| where Category == "IKEDiagnosticLog"
+| extend Message1=Message
+| parse Message with * "Remote " RemoteIP ":" * "500: Local " LocalIP ":" * "500: " Message2
+| extend Event = iif(Message has "SESSION_ID", Message2, Message1)
+| project TimeGenerated, RemoteIP, LocalIP, Event, Level
+| sort by TimeGenerated asc
+```
 
 ### P2S VPN statistics
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-vpn-stats.png" alt-text="Screenshot shows query for P2S VPN statistics." lightbox="./media/monitor-point-to-site-connections/p2s-vpn-stats.png":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Statistics"
+| project Message, MessageFields = split (Message, " ")
+| mv-expand MessageId=MessageFields[2]
+| project MessageId, Message;
+```
 
 ## Next steps
 

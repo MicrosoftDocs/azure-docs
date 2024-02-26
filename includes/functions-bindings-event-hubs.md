@@ -11,23 +11,23 @@ ms.author: cshoe
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
+
+In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
 ---
 
 The functionality of the extension varies depending on the extension version:
 
 # [Extension v5.x+](#tab/extensionv5/in-process)
+
+_This section describes using a [class library](../articles/azure-functions/functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
@@ -37,11 +37,15 @@ This extension version is available by installing the [NuGet package], version 5
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 
+_This section describes using a [class library](../articles/azure-functions/functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
+
 Supports the original Event Hubs binding parameter type of [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 Add the extension to your project by installing the [NuGet package], version 3.x or 4.x.
 
 # [Functions v1.x](#tab/functionsv1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
 
 Version 1.x of the Functions runtime doesn't require an extension. 
 
@@ -59,33 +63,15 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Version 1.x of the Functions runtime doesn't support running in an isolated worker process. 
 
-# [Extension v5.x+](#tab/extensionv5/csharp-script)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
-
-# [Extension v3.x+](#tab/extensionv3/csharp-script)
-
-Supports the original Event Hubs binding parameter type of [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata).
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
-
-# [Functions v1.x](#tab/functionsv1/csharp-script)
-
-Version 1.x of the Functions runtime doesn't require an extension. 
-
 ---
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
-The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
 # [Bundle v3.x](#tab/extensionv5)
 
@@ -106,6 +92,95 @@ You can install this version of the extension in your function app by registerin
 Version 1.x of the Functions runtime doesn't require extension bundles. 
 
 ---
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [Isolated worker model](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+---
+
+Choose a version to see binding type details for the mode and version.
+
+# [Extension v5.x+](#tab/extensionv5/in-process)
+
+The Event Hubs extension supports parameter types according to the table below.
+
+ Binding scenario | Parameter types |
+|-|-|
+| Event Hubs trigger (single event) | [Azure.Messaging.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[BinaryData] |
+| Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |
+| Event Hubs output (single event) | [Azure.Messaging.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[BinaryData]|
+| Event Hubs output (multiple events) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single event types |
+
+<sup>1</sup> Events containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+# [Extension v3.x+](#tab/extensionv3/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.EventHubs] namespace. Newer types from [Azure.Messaging.EventHubs] are exclusive to **Extension v5.x+**.
+
+This version of the extension supports parameter types according to the table below.
+
+ Binding scenario | Parameter types |
+|-|-|
+| Event Hubs trigger (single message) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
+| Event Hubs trigger (batch) | `EventData[]`<br/>`string[]` |
+| Event Hubs output  | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
+
+<sup>1</sup> Events containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+# [Functions v1.x](#tab/functionsv1/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.EventHubs] namespace. Newer types from [Azure.Messaging.EventHubs] are exclusive to **Extension v5.x+**.
+
+This version of the extension supports parameter types according to the table below.
+
+ Binding scenario | Parameter types |
+|-|-|
+| Event Hubs trigger (single event) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
+| Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |
+| Event Hubs output  | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
+
+<sup>1</sup> Events containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+# [Extension v5.x+](#tab/extensionv5/isolated-process)
+
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.EventHubs] is in preview.
+
+**Event Hubs trigger**
+
+[!INCLUDE [functions-bindings-event-hubs-trigger-dotnet-isolated-types](./functions-bindings-event-hubs-trigger-dotnet-isolated-types.md)]
+
+**Event Hubs output binding**
+
+[!INCLUDE [functions-bindings-event-hubs-output-dotnet-isolated-types](./functions-bindings-event-hubs-output-dotnet-isolated-types.md)]
+
+# [Extension v3.x+](#tab/extensionv3/isolated-process)
+
+Earlier versions of the extension in the isolated worker process only support binding to strings and JSON serializable types. Additional options are available to  **Extension v5.x+**.
+
+# [Functions v1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support the isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
+
+---
+
+[Azure.Messaging.EventHubs.EventData]: /dotnet/api/azure.messaging.eventhubs.eventdata
+[Microsoft.Azure.EventHubs.EventData]: /dotnet/api/microsoft.azure.eventhubs.eventdata
+
+[upgrade your application to Functions 4.x]: ../articles/azure-functions/migrate-version-1-version-4.md
 
 ::: zone-end
 
@@ -148,7 +223,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 
 |Property  |Default | Description |
 |---------|---------|---------|
-| maxEventBatchSize| 10| The maximum number of events included in a batch for a single invocation. Must be at least 1.|
+| maxEventBatchSize<sup>2</sup>| 100 | The maximum number of events included in a batch for a single invocation. Must be at least 1.|
 | minEventBatchSize<sup>1</sup>|  1| The minimum number of events desired in a batch.  The minimum applies only when the function is receiving multiple events and must be less than `maxEventBatchSize`.<br/>The minimum size isn't strictly guaranteed.  A partial batch is dispatched when a full batch can't be prepared before the `maxWaitTime` has elapsed.  Partial batches are also likely for the first invocation of the function after scaling takes place.|
 | maxWaitTime<sup>1</sup>| 00:01:00| The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minEventBatchSize` is larger than 1 and is otherwise ignored. If less than `minEventBatchSize` events were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 10 minutes.<br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.  When scaling takes place, the first invocation with a partial batch may occur more quickly or may take up to twice the configured wait time.|
 | batchCheckpointFrequency| 1| The number of batches to process before creating  a checkpoint for the event hub.|
@@ -166,6 +241,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
 <sup>1</sup> Using `minEventBatchSize` and `maxWaitTime` requires [v5.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.3.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package, or a later version.
+
+<sup>2</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package.  In earlier versions, this was 10.
 
 The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
 
@@ -230,3 +307,8 @@ For a reference of host.json in Azure Functions 1.x, see [host.json reference fo
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
 [extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
 [Update your extensions]: ../articles/azure-functions/functions-bindings-register.md
+
+[Microsoft.Azure.EventHubs]: /dotnet/api/microsoft.azure.eventhubs
+[Azure.Messaging.EventHubs]: /dotnet/api/azure.messaging.eventhubs
+
+[C# scripting]: ../articles/azure-functions/functions-reference-csharp.md

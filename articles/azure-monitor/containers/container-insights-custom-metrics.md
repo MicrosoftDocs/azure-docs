@@ -2,8 +2,8 @@
 title: Custom metrics collected by Container insights
 description: Describes the custom metrics collected for a Kubernetes cluster by Container insights in Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 09/28/2022 
+ms.custom: devx-track-azurecli
+ms.date: 02/15/2024
 ms.reviewer: viviandiec
 ---
 
@@ -14,8 +14,8 @@ Container insights collects [custom metrics](../essentials/metrics-custom-overvi
 - Pin performance charts in Azure portal dashboards.
 - Take advantage of [metric alerts](../alerts/alerts-types.md#metric-alerts).
 
-> [!NOTE]
-> This article describes collection of custom metrics from Kubernetes clusters. You can also collect Prometheus metrics as described in [Collect Prometheus metrics with Container insights](container-insights-prometheus.md).
+> [!IMPORTANT]
+> These metrics will no longer be collected starting May 31, 2024 as described in [Container insights recommended alerts (custom metrics) (preview) retirement moving up to 31 May 2024](https://azure.microsoft.com/updates/container-insights-recommended-alerts-custom-metrics-preview-retirement-moving-up-to-31-may-2024). See [Enable Prometheus and Grafana](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) to enable collection of Prometheus metrics.
 
 ## Use custom metrics
 Custom metrics collected by Container insights can be accessed with the same methods as custom metrics collected from other data sources, including [metrics explorer](../essentials/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-types.md#metric-alerts).
@@ -81,10 +81,7 @@ This process assigns the *Monitoring Metrics Publisher* role to the cluster's se
 
 ### Prerequisites
 
-Before you update your cluster:
-
-- See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
-- Confirm that you're a member of the [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the AKS cluster resource to enable collection of custom performance metrics for nodes and pods. This requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
+Before you update your cluster, confirm that you're a member of the [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the AKS cluster resource to enable collection of custom performance metrics for nodes and pods. This requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
 
 ### Enablement options
 Use one of the following methods to enable custom metrics for either a single cluster or all clusters in your subscription.

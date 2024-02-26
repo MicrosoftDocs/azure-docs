@@ -5,7 +5,7 @@ description: Learn how to change IP address prefixes and configure BGP Settings 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---

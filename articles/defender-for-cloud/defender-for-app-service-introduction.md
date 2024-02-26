@@ -29,7 +29,7 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 | Release state:               | General availability (GA)                                                                                                                                                                      |
 | Pricing:                     | Microsoft Defender for App Service is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [The supported App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are:<br>• Free plan<br>• Basic Service plan<br>• Standard Service plan<br>• Premium v2 Service Plan<br>• Premium v3 Service Plan<br>• App Service Environment v1<br>• App Service Environment v2<br>• App Service Environment v3|
-| Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                     |
+| Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)                                                     |
 
 ## What are the benefits of Microsoft Defender for App Service?
 
@@ -75,7 +75,7 @@ Dangling DNS protection is available whether your domains are managed with Azure
 
 Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
-For a full list of the App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
+For a full list of the App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-for-azure-app-service).
 
 > [!NOTE]
 > Defender for Cloud might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender for Cloud hasn't monitored traffic to your website since the dangling DNS protection was enabled (because there won't be logs to help identify the custom domain).
@@ -90,5 +90,5 @@ In this article, you learned about Microsoft Defender for App Service.
 For related material, see the following articles:
 
 - To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
-- For a list of the Microsoft Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
+- For a list of the Microsoft Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-for-azure-app-service).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).

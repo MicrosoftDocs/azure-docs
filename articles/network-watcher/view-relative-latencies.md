@@ -5,7 +5,6 @@ services: network-watcher
 author: halkazwini
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/20/2022
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, engagement-fy23

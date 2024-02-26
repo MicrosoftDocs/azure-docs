@@ -4,8 +4,8 @@ description: Learn how to start virtual machines in a specific order by using Az
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Define the startup order for DevTest Lab VMs with Azure Automation

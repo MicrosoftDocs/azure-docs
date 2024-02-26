@@ -6,17 +6,26 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 01/25/2023
-ms.subservice: blobs
+ms.date: 12/19/2023
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
 # Create and manage blob leases with Python
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the client library to acquire, renew, release, and break blob leases.
+
+To learn about leasing a blob using asynchronous APIs, see [Lease blobs asynchronously](#lease-blobs-asynchronously).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with a blob lease. To learn more, see the authorization guidance for the following REST API operation:
+    - [Lease Blob](/rest/api/storageservices/lease-blob#authorization)
 
 ## About blob leases
 
@@ -38,7 +47,7 @@ You can also acquire a lease on a blob by creating an instance of [BlobClient](/
 
 The following example acquires a 30-second lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_acquire_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs.py" id="Snippet_acquire_blob_lease":::
 
 ## Renew a lease
 
@@ -50,7 +59,7 @@ To renew a lease, use the following method:
 
 The following example renews a lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_renew_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs.py" id="Snippet_renew_blob_lease":::
 
 ## Release a lease
 
@@ -62,7 +71,7 @@ You can release a lease by using the following method:
 
 The following example releases the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_release_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs.py" id="Snippet_release_blob_lease":::
 
 ## Break a lease
 
@@ -74,7 +83,32 @@ You can break a lease by using the following method:
 
 The following example breaks the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_break_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs.py" id="Snippet_break_blob_lease":::
+
+## Lease blobs asynchronously
+
+The Azure Blob Storage client library for Python supports leasing blobs asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to lease a blob using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient, BlobLeaseClient
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that acquires the blob lease. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs_async.py" id="Snippet_create_client_async":::
+
+1. Add code to acquire a blob lease. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `acquire_lease` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs_async.py" id="Snippet_acquire_blob_lease":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
 [!INCLUDE [storage-dev-guide-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-blob-lease.md)]
 
@@ -90,7 +124,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_lease_blobs_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

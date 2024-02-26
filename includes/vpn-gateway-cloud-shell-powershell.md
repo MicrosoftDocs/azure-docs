@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/14/2023
  ms.author: cherylmc
-ms.custom: include file, devx-track-azurepowershell
+ms.custom: include file
 ---
 
 This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell. Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.

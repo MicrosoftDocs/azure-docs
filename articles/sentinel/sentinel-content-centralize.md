@@ -66,10 +66,7 @@ These changes to the content hub and the Microsoft Sentinel GitHub repo will com
 
 ## When is this change coming?
 
-> [!IMPORTANT]
-> The centralization change has been delayed.
-
-The centralization change in the Microsoft Sentinel portal was expected to go live in all Microsoft Sentinel workspaces in Q2 2023 and has now been delayed. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
+The centralization changes have been released! The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
 
 The change to the **Next Steps** tab has already been completed. 
 
@@ -126,7 +123,7 @@ Here's an example of an analytics rule before and after the centralization chang
 
 - After you run the tool to reinstate the analytics rule template, the source changes to the solution that it's reinstated from.
 
-  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Azure Active Directory solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
+  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Microsoft Entra solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
 
 ## Action needed
 

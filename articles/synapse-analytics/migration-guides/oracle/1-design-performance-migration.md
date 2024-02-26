@@ -3,8 +3,6 @@ title: "Design and performance for Oracle migrations"
 description: Learn how Oracle and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
@@ -300,7 +298,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | LONG RAW | Not supported. Map to VARBINARY(MAX). |
 | NCHAR | NCHAR |
 | NVARCHAR2 | NVARCHAR |
-| NUMBER | NUMBER |
+| NUMBER | FLOAT |
 | NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
 | NUMERIC | NUMERIC |
 | ORD media data types | Not supported |

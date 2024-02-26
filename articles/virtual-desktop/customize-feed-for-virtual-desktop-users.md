@@ -3,10 +3,9 @@ title: Customize feed for Azure Virtual Desktop users - Azure
 description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/16/2020
+ms.date: 02/01/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Customize the feed for Azure Virtual Desktop users
 
@@ -26,13 +25,14 @@ You can change the display name for a remote desktop for your users by setting i
 >[!NOTE]
 >The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop application groups.
 
-To add or change a session host's friendly name, use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
+
 
 ## Customize the display name for a RemoteApp
 
 You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
 
-To retrieve a list of published RemoteApps for an application group, run the following PowerShell cmdlet:
+To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
 ```powershell
 Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
@@ -121,7 +121,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 ## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
+Now that you've customized the feed for users, you can sign in to an Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
  * [Connect with Windows](./users/connect-windows.md)
  * [Connect with the web client](./users/connect-web.md)

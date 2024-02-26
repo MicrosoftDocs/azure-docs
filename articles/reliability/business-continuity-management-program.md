@@ -25,9 +25,9 @@ For example:
 
 ## Shared responsibility model
 
-Many of the offerings Azure provides require customers to set up disaster recovery in multiple regions and aren't the responsibility of Microsoft. Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these cases, recovery and replication must be configured by the customer. 
+Many of the offerings Azure provides require you to set up disaster recovery in multiple regions and aren't the responsibility of Microsoft. Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these cases, you are responsible for configuring recovery and replication. 
 
-Microsoft does ensure that the baseline infrastructure and platform services are available. But in some scenarios, usage requires the customer to duplicate their deployments and storage in a multi-region capacity, if they opt to. These examples illustrate the shared responsibility model. It's a fundamental pillar in your business continuity and disaster recovery strategy.
+Microsoft does ensure that the baseline infrastructure and platform services are available. But in some scenarios, usage demands that you duplicate your deployments and storage in a multi-region capacity, if you choose to. These examples illustrate the shared responsibility model. It's a fundamental pillar in your business continuity and disaster recovery strategy.
 
 ### Division of responsibility
 
@@ -35,7 +35,7 @@ In any on-premises datacenter, you own the whole stack. As you move assets to th
 
 ![A visual showing what responsibilities belong to the cloud customer versus the cloud provider.](./media/shared-responsibility-model.png)
 
-A good example of the shared responsibility model is the deployment of virtual machines. If a customer wants to set up *cross-region replication* for resiliency if there's region failure, they must deploy a duplicate set of virtual machines in an alternate enabled region. Azure doesn't automatically replicate these services over if there's a  failure. It's the customer's responsibility to deploy necessary assets. The customer must have a process to manually change primary regions, or they must use a traffic manager to detect and automatically fail over.
+A good example of the shared responsibility model is the deployment of virtual machines. If you want to set up *cross-region replication* for resiliency if there's region failure, you must deploy a duplicate set of virtual machines in an alternate enabled region. Azure doesn't automatically replicate these services over if there's a failure. It's your responsibility to deploy necessary assets. You must have a process to manually change primary regions, or you must use a traffic manager to detect and automatically fail over.
 
 Customer-enabled disaster recovery services all have public-facing documentation to guide you. For an example of public-facing documentation for customer-enabled disaster recovery, see [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-disaster-recovery.md).
 
@@ -68,9 +68,9 @@ Each service is required to complete Business Continuity Disaster Recovery recor
 
 - **Recovery plan and test**: Azure requires every service to have a detailed recovery plan and to test that plan as if the service has failed because of catastrophic outage. The recovery plans are required to be written so that someone with similar skills and access can complete the tasks. A written plan avoids relying on subject matter experts being available.
 
-   Testing is done in several ways, including self-test in a production or near-production environment, and as part of Azure full-region down drills in canary region sets. These enabled regions are identical to production regions but can be disabled without affecting customers. Testing is considered integrated because all services are affected simultaneously.
+   Testing is done in several ways, including self-test in a production or near-production environment, and as part of Azure full-region down drills in canary region sets. These enabled regions are identical to production regions but can be disabled without affecting your services. Testing is considered integrated because all services are affected simultaneously.
 
-- **Customer enablement**: When the customer is responsible for setting up disaster recovery, Azure is required to have public-facing documentation guidance. For all such services, links are provided to documentation and details about the process.
+- **Customer enablement**: When you are responsible for setting up disaster recovery, Azure is required to have public-facing documentation guidance. For all such services, links are provided to documentation and details about the process.
 
 ## Verify your business continuity compliance
 
@@ -84,12 +84,11 @@ To ensure services can similarly recover in a true region-down scenario, &quot;p
 
 During these tests, Azure uses the same production process for detection, notification, response, and recovery. No individuals are expecting a drill, and engineers relied on for recovery are the normal on-call rotation resources. This timing avoids depending on subject matter experts who might not be available during an actual event.
 
-Included in these tests are services where the customer is responsible for setting up disaster recovery following Microsoft public-facing documentation. Service teams create customer-like instances to show that customer-enabled disaster recovery works as expected and that the instructions provided are accurate.
+Included in these tests are services where you are responsible for setting up disaster recovery following Microsoft public-facing documentation. Service teams create customer-like instances to show that customer-enabled disaster recovery works as expected and that the instructions provided are accurate.
 
 For more information on certifications, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the section on compliance.
 
 ## Next steps
 
-- [Azure services and regions that support availability zones](availability-zones-service-support.md)
-- [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
-- [Quickstart templates](https://aka.ms/azqs)
+- [Cross-region replication](./cross-region-replication-azure.md)
+- [Reliability guidance overview for Microsoft Azure products and services](./reliability-guidance-overview.md)

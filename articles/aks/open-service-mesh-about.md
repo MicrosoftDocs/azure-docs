@@ -14,6 +14,9 @@ OSM runs an Envoy-based control plane on Kubernetes and can be configured with [
 
 Microsoft started the OSM project, but it's now governed by the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/).
 
+> [!NOTE]
+> With the retirement of [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) by the Cloud Native Computing Foundation (CNCF), we recommend identifying your OSM configurations and migrating them to an equivalent Istio configuration. For information about migrating from OSM to Istio, see [Migration guidance for Open Service Mesh (OSM) configurations to Istio](open-service-mesh-istio-migration-guidance.md).
+
 ## Enable the OSM add-on
 
 OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep template][osm-bicep]. The OSM add-on provides a fully supported installation of OSM that's integrated with AKS.
@@ -26,6 +29,8 @@ OSM can be added to your Azure Kubernetes Service (AKS) cluster by enabling the 
 > | 1.24.0 or greater         | 1.2.5                 |
 > | Between 1.23.5 and 1.24.0 | 1.1.3                 |
 > | Below 1.23.5              | 1.0.0                 |
+>
+> Older versions of OSM may not be available for install or be actively supported if the corresponding AKS version has reached end of life. You can check the [AKS Kubernetes release calendar](./supported-kubernetes-versions.md#aks-kubernetes-release-calendar) for information on AKS version support windows.
 
 ## Capabilities and features
 
@@ -41,9 +46,9 @@ OSM provides the following capabilities and features:
 - Configure weighted traffic controls between two or more services for A/B testing or canary deployments.
 - Collect and view KPIs from application traffic.
 - Integrate with external certificate management.
-- Integrate with existing ingress solutions such as [NGINX][nginx], [Contour][contour], and [Web Application Routing][web-app-routing].
+- Integrate with existing ingress solutions such as [NGINX][nginx], [Contour][contour], and [Application Routing][app-routing].
 
-For more information on ingress and OSM, see [Using ingress to manage external access to services within the cluster][osm-ingress] and [Integrate OSM with Contour for ingress][osm-contour]. For an example of how to integrate OSM with ingress controllers using the `networking.k8s.io/v1` API, see [Ingress with Kubernetes Nginx ingress controller][osm-nginx]. For more information on using Web Application Routing, which automatically integrates with OSM, see [Web Application Routing][web-app-routing].
+For more information on ingress and OSM, see [Using ingress to manage external access to services within the cluster][osm-ingress] and [Integrate OSM with Contour for ingress][osm-contour]. For an example of how to integrate OSM with ingress controllers using the `networking.k8s.io/v1` API, see [Ingress with Kubernetes Nginx ingress controller][osm-nginx]. For more information on using Application Routing, which automatically integrates with OSM, see [Application Routing][app-routing].
 
 ## Limitations
 
@@ -72,5 +77,5 @@ After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep t
 [osm-ingress]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/
 [osm-contour]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_contour
 [osm-nginx]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
-[web-app-routing]: web-app-routing.md
+[app-routing]: app-routing.md
 [istio-about]: istio-about.md

@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Before you begin, make sure that:
@@ -19,3 +19,4 @@ Before you begin, make sure that:
   * Microsoft Partner Network (MPN). Learn more about [Microsoft Partner Network](https://partner.microsoft.com/commercial#).
 
 * Ensure that you have owner or contributor access to the subscription to create a device order.
+

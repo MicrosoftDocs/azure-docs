@@ -26,7 +26,7 @@ Private Link for Application Gateway allows you to connect workloads over a priv
 Private Link allows you to extend private connectivity to Application Gateway via a Private Endpoint in the following scenarios:
 -	VNet in the same or different region from Application Gateway
 -	VNet in the same or different subscription from Application Gateway
--	VNet in the same or different subscription and the same or different Azure AD tenant from Application Gateway
+-	VNet in the same or different subscription and the same or different Microsoft Entra tenant from Application Gateway
 
 You may also choose to block inbound public (Internet) access to Application Gateway and allow access only via private endpoints. Inbound management traffic still needs to be allowed to application gateway. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#network-security-groups)
 

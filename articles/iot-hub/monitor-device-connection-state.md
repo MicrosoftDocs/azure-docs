@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: reference
 ms.service: iot-hub
-ms.date: 10/18/2022
+ms.date: 01/05/2024
 ---
 
 # Monitor device connection status
@@ -56,15 +56,12 @@ Device connection state events are available for devices connecting using either
 
 Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging topics. Over AMQP these operations equate to attaching or transferring a message on the appropriate link paths.
 
-IoT Hub doesn't report each individual device connect and disconnect, but rather publishes the current connection state taken at a periodic 60-second snapshot. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state during the 60-second window.
-
 ### Event Grid limitations
 
 Using Event Grid to monitor your device status comes with the following limitations:
 
 * Event Grid doesn't report each individual device connect and disconnect event. Instead, it polls for device status every 60 seconds and publishes the most recent connection state if there was a state change. For this reason, state change reports may be delayed up to one minute and individual state changes may be unreported if multiple events happen within the 60-second window.
-* Devices that use MQTT start reporting device status automatically. However, devices that use AMQP need [cloud-to-device link](iot-hub-amqp-support.md#invoke-cloud-to-device-messages-service-client) before they can report device status.
-* The IoT C SDK doesn't have a connect method. Customers must send telemetry to begin reporting accurate device connection states.
+* Devices that use AMQP need [cloud-to-device link](iot-hub-amqp-support.md#invoke-cloud-to-device-messages-service-client) before they can report device status.
 * Event Grid exposes a public endpoint that can't be hidden.
 
 If any of these limitations affect your ability to use Event Grid for device status monitoring, then you should consider building a custom device heartbeat pattern instead.

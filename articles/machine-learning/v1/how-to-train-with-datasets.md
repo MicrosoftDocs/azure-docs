@@ -10,14 +10,16 @@ author: ynpandey
 ms.reviewer: ssalgado
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1
 #Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 ---
 
 # Train models with Azure Machine Learning datasets 
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 

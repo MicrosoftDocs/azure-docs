@@ -1,104 +1,55 @@
 ---
-title: TimestampToDateTime in Azure Cosmos DB query language
-description: Learn about SQL system function TimestampToDateTime in Azure Cosmos DB.
-author: seesharprun
+title: TimestampToDateTime
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the timestamp as a date and time value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 10/27/2022
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
 
-# TimestampToDateTime (Azure Cosmos DB)
+# TimestampToDateTime (NoSQL query)
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Converts the specified timestamp value to a DateTime.
-  
+Converts the specified timestamp to a date and time value.
+
 ## Syntax
-  
+
 ```sql
-TimestampToDateTime (<Timestamp>)
+TimestampToDateTime(<numeric_expr>)
 ```
 
 ## Arguments
 
-### Timestamp
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
 
-A signed numeric value, the current number of milliseconds that have elapsed since the Unix epoch. In other words, the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns the UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
-  
-For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`.
+
+## Examples
+
+The following example converts the ticks to a date and time value.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/timestamptodatetime/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/timestamptodatetime/result.json":::
 
 ## Remarks
 
-TimestampToDateTime will return `undefined` if the timestamp value specified is invalid.
+- This function returns `undefined` if the timestamp value specified is invalid.
 
-## Examples
-  
-The following example converts the value `1,594,227,912,345` from milliseconds to a date and time of **July 8, 2020, 5:05 PM UTC**.
+## Related content
 
-```sql
-SELECT TimestampToDateTime(1594227912345) AS DateTime
-```
-
-```json
-[
-  {
-    "DateTime": "2020-07-08T17:05:12.3450000Z"
-  }
-]
-```
-
-This next example uses the timestamp from an existing item in a container. The item's timestamp is expressed in seconds.
-
-```json
-{
-  "id": "8cc56bd4-5b8d-450b-a576-449836171398",
-  "type": "reading",
-  "data": "temperature",
-  "value": 35.726545156,
-  "_ts": 1605862991
-}
-```
-
-To use the `_ts` value, you must multiply the value by 1,000 since the timestamp is expressed in seconds.
-
-```sql
-SELECT 
-  TimestampToDateTime(r._ts * 1000) AS timestamp, 
-  r.id 
-FROM 
-  readings r
-```
-
-```json
-[
-  {
-    "timestamp": "2020-11-20T09:03:11.0000000Z",
-    "id": "8cc56bd4-5b8d-450b-a576-449836171398"
-  }
-]
-```
-
-## Next steps
-
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`TicksToDateTime`](tickstodatetime.md)

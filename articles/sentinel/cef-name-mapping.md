@@ -5,7 +5,6 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -46,7 +45,7 @@ For more information, see [Connect your external solution using Common Event For
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | Any information about the direction the observed communication has taken. Valid values: <br>- `0` = Inbound <br>- `1` = Outbound |
 | deviceDnsDomain | DeviceDnsDomain | The DNS domain part of the full qualified domain name (FQDN) |
 |DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
-| deviceExternalID | DeviceExternalID | A name that uniquely identifies the device generating the event. |
+| deviceExternalId | deviceExternalId | A name that uniquely identifies the device generating the event. |
 | deviceFacility | DeviceFacility | The facility generating the event.|
 | deviceInboundInterface | DeviceInboundInterface |The interface on which the packet or data entered the device.  |
 | deviceNtDomain | DeviceNtDomain | The Windows domain of the device address |

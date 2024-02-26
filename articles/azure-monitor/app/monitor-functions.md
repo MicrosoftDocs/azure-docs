@@ -3,7 +3,7 @@ title: Monitor applications running on Azure Functions with Application Insights
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python
-ms.date: 06/23/2023
+ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
 
@@ -147,7 +147,7 @@ To collect custom telemetry from services such as Redis, Memcached, and MongoDB,
 ## Next steps
 
 * Read more instructions and information about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md).
-* Get an overview of [distributed tracing](distributed-tracing-telemetry-correlation.md).
+* Get an overview of [distributed tracing](distributed-trace-data.md).
 * See what [Application Map](./app-map.md?tabs=net) can do for your business.
 * Read about [requests and dependencies for Java apps](./java-in-process-agent.md).
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).

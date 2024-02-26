@@ -1,13 +1,17 @@
 ---
 title: Azure Event Grid - Monitor data reference (push delivery)
-description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery of events. 
+description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery of events.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 04/28/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Monitor data reference for Azure Event Grid's push event delivery
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's push delivery. 
+
+[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
 
 ## Metrics
 
@@ -138,7 +142,7 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 | NetworkAccess | String | Allowed values are: <br>- `PublicAccess` - when connecting via public IP<br>- `PrivateAccess` - when connecting via private link |
 | ClientIpAddress | String | Source IP of incoming requests |
 | TlsVersion | String | The transport layer security (TLS) version used by the client connection. Possible values are: **1.0**, **1.1** and **1.2** |
-| Authentication/Type | String | The type of secret used for authentication when publishing messages. <br>-`Key` – request uses the SAS key<br>- `SASToken` – request uses a SAS token generated from SAS key<br>- `AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token<br>- `Unknown` – None of the above authentication types. OPTIONS requests have this authentication type |
+| Authentication/Type | String | The type of secret used for authentication when publishing messages. <br>-`Key` – request uses the SAS key<br>- `SASToken` – request uses a SAS token generated from SAS key<br>- `AADAccessToken` – Microsoft Entra ID issued JSON Web Token (JWT) token<br>- `Unknown` – None of the above authentication types. OPTIONS requests have this authentication type |
 | Authentication/ObjectId | String | ObjectId of the service principal used when the authentication type is set to `AADAccessToken` |
 | OperationResult | String | Result of the publish. Possible values are: <br>- Success<br>- Unauthorized<br>- Forbidden<br>- RequestEntityTooLarge<br>- BadRequest<br>- InternalServerError |
 | TotalOperations | String | These traces aren't emitted for each publish request. An aggregate for each unique combination of above values is emitted every minute |

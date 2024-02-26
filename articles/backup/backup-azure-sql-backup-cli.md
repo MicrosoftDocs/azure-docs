@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 08/11/2022
 ms.service: backup
 ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up SQL databases in Azure VM using Azure CLI

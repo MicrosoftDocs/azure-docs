@@ -48,7 +48,7 @@ Use the following table to find the correct cord specifications for your region:
 |China|250|10|RVV300/500 3X0.75|GB 2099.1|C13|2000|
 |Colombia|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Costa Rica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Côte D'Ivoire (Ivory Coast)|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Côte D'Ivoire|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Croatia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Cyprus|250|5|H05VV-F 3x0.75|BS1363  SS145/A|C13|1800|
 |Czech Republic|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -89,7 +89,6 @@ Use the following table to find the correct cord specifications for your region:
 |Lithuania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Luxembourg|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Macao Special Administrative Region|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
-|Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Malaysia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malta|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Mauritius|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
@@ -105,6 +104,7 @@ Use the following table to find the correct cord specifications for your region:
 |New Zealand|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
 |Nicaragua|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Nigeria|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|North Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Norway|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Oman|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Pakistan|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|

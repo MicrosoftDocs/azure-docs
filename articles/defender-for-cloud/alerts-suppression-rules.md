@@ -1,5 +1,5 @@
 ---
-title: Suppressing false positives or other unwanted security alerts - Microsoft Defender for Cloud
+title: Suppressing false positives or other unwanted security alerts
 description: This article explains how to use Microsoft Defender for Cloud's suppression rules to hide unwanted security alerts, such as false positives
 ms.date: 01/09/2023
 ms.topic: how-to
@@ -16,7 +16,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |----|:----|
 |Release state:|General availability (GA)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What are suppression rules?
 
@@ -60,6 +60,9 @@ You can also select the **Suppression rules** button in the Security Alerts page
 
 :::image type="content" source="media/alerts-suppression-rules/create-new-suppression-rule.png" alt-text="Screenshot of the Create suppression rule button in the Suppression rules page.":::
 
+> [!NOTE]
+> For some alerts, suppression rules are not applicable for certain entities. If the rule is not available, a message will display at the end of the **Create a suppression rule** process.
+
 ## Edit a suppression rule
 
 To edit a rule you've created from the suppression rules page:
@@ -92,7 +95,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For details and usage examples, see the [API documentation](/rest/api/defenderforcloud/).
+For details and usage examples, see the [API documentation](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2020-01-01&preserve-view=true).
 
 ## Next steps
 

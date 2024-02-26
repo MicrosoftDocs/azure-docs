@@ -1,8 +1,8 @@
 ---
 title: Working with the Microsoft Sentinel solution for SAP® applications across multiple workspaces
 description: This article discusses working with Microsoft Sentinel solution for SAP® applications across multiple workspaces in different scenarios.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
 ms.date: 03/22/2023
 ---

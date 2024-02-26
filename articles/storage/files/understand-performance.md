@@ -2,11 +2,10 @@
 title: Understand Azure Files performance
 description: Learn about the factors that can impact Azure file share performance and how to optimize performance for your workload.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 07/06/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Understand Azure Files performance
@@ -25,7 +24,7 @@ Before reading this article, it's helpful to understand some key terms relating 
 
 -   **IO operations per second (IOPS)**
 
-    IOPS measures the number of read and write operations per second. Standard Azure file shares offer up to 20,000 IOPS per share/volume and up to 1,000 IOPS per file, while premium shares can achieve up to 100,000 IOPS per share/volume and up to 8,000 IOPS per file.
+    IOPS, or input/output operations per second, measures the number of file system operations per second. The term "IO" is interchangable with the terms "operation" and "transaction" in the Azure Files documentation.
 
 -   **I/O size**
 
@@ -33,7 +32,7 @@ Before reading this article, it's helpful to understand some key terms relating 
 
 -  **Throughput**
 
-    Throughput measures the number of bits read from or written to the storage per second, and is measured in mebibytes per second (MiB/s). Standard Azure file shares offer up to 300 MiB/s per share/volume and up to 60 MiB/s per file. Premium shares offer up to 10 GiB/s per share/volume and 300 MiB/s per file (up to 1 GiB/s with SMB multichannel). To calculate throughput, multiply IOPS by I/O size. For example, 10,000 IOPS * 1 MiB I/O size = 10 GiB/s, while 10,000 IOPS * 4 KiB I/O size = 38 MiB/s.
+    Throughput measures the number of bits read from or written to the storage per second, and is measured in mebibytes per second (MiB/s). To calculate throughput, multiply IOPS by I/O size. For example, 10,000 IOPS * 1 MiB I/O size = 10 GiB/s, while 10,000 IOPS * 4 KiB I/O size = 38 MiB/s.
 
 -  **Latency**
 
@@ -55,8 +54,6 @@ The following table summarizes the expected performance targets between standard
 |-----------------------------------------------|--------------|-------------|
 | Write latency (single-digit milliseconds)     | Yes          | Yes         |
 | Read latency (single-digit milliseconds)      | No           | Yes         |
-| Throughput > 300 MiB/s                         | No           | Yes         |
-| IOPS > 20,000                                 | No           | Yes         |
 
 Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
 
@@ -77,13 +74,11 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Latency sensitivity:** Are users opening files or interacting with virtual desktops that run on Azure Files? These are examples of workloads that are sensitive to read latency and also have high visibility to end users. These types of workloads are more suitable for premium Azure file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small I/O size).
 
-- **Maximum and average IOPS:** Is the workload 100% reads, 100% writes, or a mix such as 60%/40%? Do you need more than 20,000 IOPS at peak? Write I/O intensive workloads that don't exceed 20,000 IOPS and aren't using large I/O size (64 KiB or greater) can achieve single-digit millisecond latency on a standard file share. Read I/O with high queue depth (64) can also achieve single-digit latency on standard file shares.
-
-- **Throughput:** If the workload uses larger block size or more IOPS that will cause throughput requirements to exceed 300 MiB/s per share or 60 MiB/s per file, then you should choose a premium file share over standard.
+- **IOPS and throughput requirements:** Premium file shares support larger IOPS and throughput limits than standard file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
 
 - **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
 
-- **Workload parallelization:** For parallel supported workloads that use multiple threads and clients, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
+- **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, premium file shares provide a clear advantage over standard file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
 - **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
 
@@ -135,23 +130,23 @@ Azure Files is best suited for multi-threaded applications. The easiest way to u
 This table breaks down the time needed (in milliseconds) to create a single 16 KiB file on an Azure file share, based on a single-thread application that's writing in 4 KiB block sizes. 
 
 | **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
-|------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
-| Thread 1         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+|-------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
+| Thread 1          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 In this example, it would take approximately 14 ms to create a single 16 KiB file from the six operations. If a single-threaded application wants to move 10,000 files to an Azure file share, that translates to 140,000 ms (14 ms * 10,000) or 140 seconds because each file is moved sequentially one at a time. Keep in mind that the time to service each request is primarily determined by how close the compute and storage are located to each other, as discussed in the previous section.
 
 By using eight threads instead of one, the above workload can be reduced from 140,000 ms (140 seconds) down to 17,500 ms (17.5 seconds). As the table below shows, when you're moving eight files in parallel instead of one file at a time, you can move the same amount of data in 87.5% less time.
 
 | **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
-|------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
-| Thread 1         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 2         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 3         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 4         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 5         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 6         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 7         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
-| Thread 8         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+|-------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
+| Thread 1          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 2          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 3          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 4          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 5          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 6          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 7          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
+| Thread 8          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 ## See also
 - [Troubleshoot Azure file shares performance issues](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json)

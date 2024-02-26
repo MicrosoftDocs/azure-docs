@@ -2,14 +2,13 @@
 title: Azure VMs high availability for SAP NW on SLES with Azure NetApp Files| Microsoft Docs
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 06/20/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 01/17/2024
 ms.author: radeltch
 ---
 
@@ -126,17 +125,50 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 * Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 * Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers).
 
-## Deploy Linux VMs manually via Azure portal
+## Prepare infrastructure
+
+The resource agent for SAP Instance is included in SUSE Linux Enterprise Server for SAP Applications. An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
+
+### Deploy Linux VMs manually via Azure portal
 
 This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
-Deploy virtual machines for SAP ASCS, ERS, and application server instances. Choose a suitable SLES image that is supported with your SAP system. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
+Deploy virtual machines with SLES for SAP Applications image. Choose a suitable version of SLES image that is supported for SAP system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
+
+### Configure Azure load balancer
+
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
+
+#### [Azure portal](#tab/lb-portal)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-ascs-ers-portal.md)]
+
+#### [Azure CLI](#tab/lb-azurecli)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-ascs-ers-azurecli.md)]
+
+#### [PowerShell](#tab/lb-powershell)
+
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
+
+---
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+
+> [!NOTE]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+> [!IMPORTANT]
+>
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Disable ID mapping (if using NFSv4.1)
 
 The instructions in this section are only applicable, if using Azure NetApp Files volumes with NFSv4.1 protocol. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
-1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
 
     > [!IMPORTANT]
     > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
@@ -172,56 +204,7 @@ The instructions in this section are only applicable, if using Azure NetApp File
 
 ## Setting up (A)SCS
 
-In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
-
-### Deploy Azure Load Balancer manually via Azure portal
-
-After you deploy the VMs for your SAP system, create a load balancer. Use VMs created for SAP ASCS/ERS instances in the backend pool.
-
-1. Create load balancer (internal, standard):
-   1. Create the frontend IP addresses
-      1. IP address 10.1.1.20 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         2. Enter the name of the new frontend IP pool (for example **frontend.QAS.ASCS**)
-         3. Set the Assignment to Static and enter the IP address (for example **10.1.1.20**)
-         4. Click OK
-      2. IP address 10.1.1.21 for the ASCS ERS
-         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   2. Create a single back-end pool:
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **backend.QAS**).
-      3. Select **NIC** for Backend Pool Configuration.
-      4. Select **Add a virtual machine**.
-      5. Select the virtual machines of the ASCS cluster.
-      6. Select **Add**.
-      7. Select **Save**.
-   3. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         2. Enter the name of the new health probe (for example **health.QAS.ASCS**)
-         3. Select TCP as protocol, port 620**00**, keep Interval 5  
-         4. Click OK
-      2. Port 621**01** for ASCS ERS
-            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
-   4. Load-balancing rules
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         2. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
-         3. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
-         4. Select **HA ports**
-         5. Increase idle timeout to 30 minutes
-         6. **Make sure to enable Floating IP**
-         7. Click OK
-         * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
-
-> [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
-
-> [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
-
-> [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+Next, you'll prepare and install the SAP ASCS and ERS instances.
 
 ### Create Pacemaker cluster
 
@@ -262,7 +245,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 2. **[A]** Update SAP resource agents  
 
-   A patch for the resource-agents package is required to use the new configuration, that is described in this article. You can check, if the patch is already installed with the following command
+   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command
 
    ```bash
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
@@ -622,7 +605,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 9. **[1]** Create the SAP cluster resources.
 
-   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+   #### [ENSA1](#tab/ensa1)
 
    ```bash
    sudo crm configure property maintenance-mode="true"
@@ -663,17 +648,24 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col_sap_QAS_no_both -5000: g-QAS_ERS g-QAS_ASCS
    sudo crm configure location loc_sap_QAS_failover_to_ers rsc_sap_QAS_ASCS00 rule 2000: runs_ers_QAS eq 1
    sudo crm configure order ord_sap_QAS_first_start_ascs Optional: rsc_sap_QAS_ASCS00:start rsc_sap_QAS_ERS01:stop symmetrical=false
+
+   sudo crm_attribute --delete --name priority-fencing-delay
       
    sudo crm node online anftstsapcl1
    sudo crm configure property maintenance-mode="false"
    ```
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   #### [ENSA2](#tab/ensa2)
 
-   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
+   > [!NOTE]
+   > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+   >
+   > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 
    ```bash
    sudo crm configure property maintenance-mode="true"
+
+   sudo crm configure property priority-fencing-delay=30
       
    # If using NFSv3
    sudo crm configure primitive rsc_sap_QAS_ASCS00 SAPInstance \
@@ -681,7 +673,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
        op monitor interval=11 timeout=60 on-fail=restart \
        params InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
        AUTOMATIC_RECOVER=false \
-       meta resource-stickiness=5000
+       meta resource-stickiness=5000 priority=100
       
    # If using NFSv4.1
    sudo crm configure primitive rsc_sap_QAS_ASCS00 SAPInstance \
@@ -689,7 +681,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
        op monitor interval=11 timeout=105 on-fail=restart \
        params InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
        AUTOMATIC_RECOVER=false \
-       meta resource-stickiness=5000
+       meta resource-stickiness=5000 priority=100
       
    # If using NFSv3
    sudo crm configure primitive rsc_sap_QAS_ERS01 SAPInstance \
@@ -713,7 +705,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure property maintenance-mode="false"
    ```
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+   ---
+
+If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
 > [!NOTE]
 > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals. For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).
@@ -963,473 +957,7 @@ Follow these steps to install an SAP application server.
 
 ## Test the cluster setup
 
-The following tests are a copy of the test cases in the [best practices guides of SUSE][suse-ha-guide]. They're copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
-
-1. Test HAGetFailoverConfig, HACheckConfig, and HACheckFailoverConfig
-
-   Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
-
-   ```bash
-   anftstsapcl1:qasadm 52> sapcontrol -nr 00 -function HAGetFailoverConfig
-   07.03.2019 20:08:59
-   HAGetFailoverConfig
-   OK
-   HAActive: TRUE
-   HAProductVersion: SUSE Linux Enterprise Server for SAP Applications 12 SP3
-   HASAPInterfaceVersion: SUSE Linux Enterprise Server for SAP Applications 12 SP3 (sap_suse_cluster_connector 3.1.0)
-   HADocumentation: https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
-   HAActiveNode: anftstsapcl1
-   HANodes: anftstsapcl1, anftstsapcl2
-   
-   anftstsapcl1:qasadm 54> sapcontrol -nr 00 -function HACheckConfig
-   07.03.2019 23:28:29
-   HACheckConfig
-   OK
-   state, category, description, comment
-   SUCCESS, SAP CONFIGURATION, Redundant ABAP instance configuration, 2 ABAP instances detected
-   SUCCESS, SAP CONFIGURATION, Redundant Java instance configuration, 0 Java instances detected
-   SUCCESS, SAP CONFIGURATION, Enqueue separation, All Enqueue server separated from application server
-   SUCCESS, SAP CONFIGURATION, MessageServer separation, All MessageServer separated from application server
-   SUCCESS, SAP CONFIGURATION, ABAP instances on multiple hosts, ABAP instances on multiple hosts detected
-   SUCCESS, SAP CONFIGURATION, Redundant ABAP SPOOL service configuration, 2 ABAP instances with SPOOL service detected
-   SUCCESS, SAP STATE, Redundant ABAP SPOOL service state, 2 ABAP instances with active SPOOL service detected
-   SUCCESS, SAP STATE, ABAP instances with ABAP SPOOL service on multiple hosts, ABAP instances with active ABAP SPOOL service on multiple hosts detected
-   SUCCESS, SAP CONFIGURATION, Redundant ABAP BATCH service configuration, 2 ABAP instances with BATCH service detected
-   SUCCESS, SAP STATE, Redundant ABAP BATCH service state, 2 ABAP instances with active BATCH service detected
-   SUCCESS, SAP STATE, ABAP instances with ABAP BATCH service on multiple hosts, ABAP instances with active ABAP BATCH service on multiple hosts detected
-   SUCCESS, SAP CONFIGURATION, Redundant ABAP DIALOG service configuration, 2 ABAP instances with DIALOG service detected
-   SUCCESS, SAP STATE, Redundant ABAP DIALOG service state, 2 ABAP instances with active DIALOG service detected
-   SUCCESS, SAP STATE, ABAP instances with ABAP DIALOG service on multiple hosts, ABAP instances with active ABAP DIALOG service on multiple hosts detected
-   SUCCESS, SAP CONFIGURATION, Redundant ABAP UPDATE service configuration, 2 ABAP instances with UPDATE service detected
-   SUCCESS, SAP STATE, Redundant ABAP UPDATE service state, 2 ABAP instances with active UPDATE service detected
-   SUCCESS, SAP STATE, ABAP instances with ABAP UPDATE service on multiple hosts, ABAP instances with active ABAP UPDATE service on multiple hosts detected
-   SUCCESS, SAP STATE, SCS instance running, SCS instance status ok
-   SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version (anftstsapvh_QAS_00), SAPInstance includes is-ers patch
-   SUCCESS, SAP CONFIGURATION, Enqueue replication (anftstsapvh_QAS_00), Enqueue replication enabled
-   SUCCESS, SAP STATE, Enqueue replication state (anftstsapvh_QAS_00), Enqueue replication active
-   
-   anftstsapcl1:qasadm 55> sapcontrol -nr 00 -function HACheckFailoverConfig
-   07.03.2019 23:30:48
-   HACheckFailoverConfig
-   OK
-   state, category, description, comment
-   SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
-   ```
-
-2. Manually migrate the ASCS instance
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rscsap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Starting anftstsapcl1
-   ```
-
-   Run the following commands as root to migrate the ASCS instance.
-
-   ```bash
-   anftstsapcl1:~ # crm resource migrate rsc_sap_QAS_ASCS00 force
-   INFO: Move constraint created for rsc_sap_QAS_ASCS00
-   
-   anftstsapcl1:~ # crm resource unmigrate rsc_sap_QAS_ASCS00
-   INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
-   
-   # Remove failed actions for the ERS that occurred as part of the migration
-   anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-3. Test HAFailoverToNode
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following commands as \<sapsid>adm to migrate the ASCS instance.
-
-   ```bash
-   anftstsapcl1:qasadm 53> sapcontrol -nr 00 -host anftstsapvh -user qasadm <password> -function HAFailoverToNode ""
-   
-   # run as root
-   # Remove failed actions for the ERS that occurred as part of the migration
-   anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   # Remove migration constraints
-   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
-   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-4. Simulate node crash
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following command as root on the node where the ASCS instance is running
-
-   ```bash
-   anftstsapcl2:~ # echo b > /proc/sysrq-trigger
-   ```
-
-   If you use SBD, Pacemaker shouldn't automatically start on the killed node. The status after the node is started again should look like this.
-
-   ```bash
-   Online:
-   Online: [ anftstsapcl1 ]
-   OFFLINE: [ anftstsapcl2 ]
-   
-   Full list of resources:
-   
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   
-   Failed Actions:
-   * rsc_sap_QAS_ERS01_monitor_11000 on anftstsapcl1 'not running' (7): call=166, status=complete, exitreason='',
-    last-rc-change='Fri Mar  8 18:26:10 2019', queued=0ms, exec=0ms
-   ```
-
-   Use the following commands to start Pacemaker on the killed node, clean the SBD messages, and clean the failed resources.
-
-   ```bash
-   # run as root
-   # list the SBD device(s)
-   anftstsapcl2:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
-   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405b730e31e7d5a4516a2a697dcf;/dev/disk/by-id/scsi-36001405f69d7ed91ef54461a442c676e;/dev/disk/by-id/scsi-360014058e5f335f2567488882f3a2c3a"
-   
-   anftstsapcl2:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e11 -d /dev/disk/by-id/scsi-36001405f69d7ed91ef54461a442c676e -d /dev/disk/by-id/scsi-360014058e5f335f2567488882f3a2c3a message anftstsapcl2 clear
-   
-   anftstsapcl2:~ # systemctl start pacemaker
-   anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00
-   anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Full list of resources:
-   
-    Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-5. Test manual restart of ASCS instance
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as <sapsid\>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. If using enqueue server 1 architecture, the enqueue lock is expected to be lost in this test. If using enqueue server 2 architecture, the enqueue will be retained.
-
-   ```bash
-   anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
-   ```
-
-   The ASCS instance should now be disabled in Pacemaker
-
-   ```text
-   rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Stopped (disabled)
-   ```
-
-   Start the ASCS instance again on the same node.
-
-   ```bash
-   anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
-   ```
-
-   The enqueue lock of transaction su01 should be lost, if using enqueue server replication 1 architecture and the back-end should have been reset. Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-6. Kill message server process
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following commands as root to identify the process of the message server and kill it.
-
-   ```bash
-   anftstsapcl2:~ # pgrep ms.sapQAS | xargs kill -9
-   ```
-
-   If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
-
-   ```bash
-   anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ASCS00
-   anftstsapcl2:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-7. Kill enqueue server process
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   ```
-
-   Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
-
-   ```bash
-   #If using ENSA1
-   anftstsapcl1:~ # pgrep en.sapQAS | xargs kill -9
-   #If using ENSA2
-   anftstsapcl1:~ # pgrep -f enq.sapQAS | xargs kill -9
-   ```
-
-   The ASCS instance should immediately fail over to the other node, in the case of ENSA1. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
-
-   ```bash
-   anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ASCS00
-   anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-8. Kill enqueue replication server process
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
-
-   ```bash
-   anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
-   ```
-
-   If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process, and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
-
-   ```bash
-   anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
-   ```
-
-   Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-9. Kill enqueue sapstartsrv process
-
-   Resource state before starting the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
-
-   Run the following commands as root on the node where the ASCS is running.
-
-   ```bash
-   anftstsapcl2:~ # pgrep -fl ASCS00.*sapstartsrv
-   #67625 sapstartsrv
-   
-   anftstsapcl2:~ # kill -9 67625
-   ```
-
-   The sapstartsrv process should always be restarted by the Pacemaker resource agent. Resource state after the test:
-
-   ```text
-   Resource Group: g-QAS_ASCS
-        fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-        vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-        rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
-    Resource Group: g-QAS_ERS
-        fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-        vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-        rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
+Thoroughly test your Pacemaker cluster. [Execute the typical failover tests](./high-availability-guide-suse.md#test-the-cluster-setup).
 
 ## Next steps
 

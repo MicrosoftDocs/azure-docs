@@ -7,9 +7,10 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: overview
 ms.date: 03/20/2023
-ms.custom: template-overview
-
-# As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
+ms.custom:
+  - template-overview
+  - ignite-2023
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
 ---
 
 # Device infrastructure and connectivity
@@ -90,7 +91,7 @@ An IoT device can use one of several network protocols when it connects to an Io
 - HTTPS
 
 > [!NOTE]
-> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
+> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 To learn more about how to choose a protocol for your devices to connect to the cloud, see:
 
@@ -99,7 +100,7 @@ To learn more about how to choose a protocol for your devices to connect to the 
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 
-Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [What is the OPC Publisher?](../industrial-iot/overview-what-is-opc-publisher.md)
+Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [Microsoft OPC Publisher and Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/readme.md).
 
 ## Connection patterns
 

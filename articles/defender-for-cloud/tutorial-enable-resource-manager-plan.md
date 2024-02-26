@@ -1,6 +1,5 @@
 ---
-title: Protect your resources with the Resource Manager plan - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your resources with the Resource Manager plan
 description: Learn how to enable the Defender for Resource Manager plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -8,7 +7,9 @@ ms.date: 06/29/2023
 
 # Protect your resources with Defender for Resource Manager
 
-Defender for Resource Manager in Microsoft Defender for Cloud is the deployment and management service for Azure. [Azure Resource Manager](../azure-resource-manager/management/overview.md) provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Defender for Cloud runs advanced security analytics to detect threats and alerts you about suspicious activity.
 
 Learn more about [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md).
 

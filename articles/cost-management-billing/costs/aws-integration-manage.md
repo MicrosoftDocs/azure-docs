@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 11/30/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -130,7 +130,7 @@ There are two ways to get permissions to access AWS linked accounts costs:
 
 By default, the AWS connector creator is the owner of all the objects that the connector created. Including, the AWS consolidated account and the AWS linked account.
 
-In order to be able to Verify the connector settings you will need at least a contributor role, reader can not Verify connector settings
+In order to be able to Verify the connector settings you will need at least a contributor role because a reader can't Verify connector settings
 
 ### Collection failed with AssumeRole
 
@@ -153,19 +153,19 @@ This error means that Cost Management is unable to see the Cost and Usage report
 
 **Error code:** _AccessDeniedListReports_
 
-This error means that Cost Management is unable to list the object in the S3 bucket where the CUR is located. AWS IAM policy requires a permission on the bucket and on the objects in the bucket. See [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+This error means that Cost Management is unable to list the object in the S3 bucket where the CUR is located. AWS IAM policy requires a permission on the bucket and on the objects in the bucket. See [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws).
 
 ### Collection failed with Access Denied - Download report
 
 **Error code:** _AccessDeniedDownloadReport_
 
-This error means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+This error means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws) section.
 
 ### Collection failed since we did not find the Cost and Usage Report
 
 **Error code:** _FailedToFindReport_
 
-This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws) section.
 
 ### Unable to create or verify connector due to Cost and Usage Report definitions mismatch
 

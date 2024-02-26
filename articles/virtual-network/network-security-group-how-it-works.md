@@ -26,13 +26,13 @@ Reference the previous picture, along with the following text, to understand how
 
 For inbound traffic, Azure processes the rules in a network security group associated to a subnet first, if there's one, and then the rules in a network security group associated to the network interface, if there's one. This process includes intra-subnet traffic as well.
 
-- **VM1**: The security rules in *NSG1* are processed, since it's associated to *Subnet1* and *VM1* is in *Subnet1*. Unless you've created a rule that allows port 80 inbound, the [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) default security rule denies the traffic. The traffic doesn't get evaluated by NSG2 because it's associated with the network interface. If *NSG1* allows port 80 in its security rule, *NSG2* processes the traffic. To allow port 80 to the virtual machine, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet.
+- **VM1**: The security rules in *NSG1* are processed, since it's associated to *Subnet1* and *VM1* is in *Subnet1*. Unless you've created a rule that allows port 80 inbound, the [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) default security rule denies the traffic. This blocked traffic then doesn't get evaluated by NSG2 because it's associated with the network interface. However if *NSG1* allows port 80 in its security rule, then *NSG2* processes the traffic. To allow port 80 to the virtual machine, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet.
 
 - **VM2**: The rules in *NSG1* are processed because *VM2* is also in *Subnet1*. Since *VM2* doesn't have a network security group associated to its network interface, it receives all traffic allowed through *NSG1* or is denied all traffic denied by *NSG1*. Traffic is either allowed or denied to all resources in the same subnet when a network security group is associated to a subnet.
 
 - **VM3**: Since there's no network security group associated to *Subnet2*, traffic is allowed into the subnet and processed by *NSG2*, because *NSG2* is associated to the network interface attached to *VM3*.
 
-- **VM4**: Traffic is allowed to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is allowed through a subnet and network interface if they don't have a network security group associated to them.
+- **VM4**: Traffic is blocked to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them.
 
 ## Outbound traffic
 

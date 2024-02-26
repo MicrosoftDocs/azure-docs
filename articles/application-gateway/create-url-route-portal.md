@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway works as expected.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal, select **Create a resource**.
 2. Select **Windows Server 2016 Datacenter** in the Popular list.
 3. Enter these values for the virtual machine:

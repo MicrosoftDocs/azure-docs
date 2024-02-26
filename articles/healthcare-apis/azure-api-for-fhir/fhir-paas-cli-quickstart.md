@@ -6,12 +6,14 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure CLI
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 

@@ -15,12 +15,12 @@ ms.subservice: calling
 # Call Recording overview
 
 > [!NOTE]
->  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
+>  Call Recording for [Teams interoperability](../call-automation/call-automation-teams-interop.md) is now in Public Preview.
 
 Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
 
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
-For example, you can record 1:1 or 1:N scenarios for audio and video calls enabled by [Calling Client SDK](./calling-sdk-features.md). 
+For example, you can record 1:1 or 1:N audio and video calls:
 
 ![Diagram showing a call that it's being recorded.](../media/call-recording-client.png)
 
@@ -28,7 +28,7 @@ But also, you can use Call Recording to record complex PSTN or VoIP inbound and 
 Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 
-![Diagram showing call recording architecture using calling client sdk.](../media/call-recording-with-call-automation.png)
+![Diagram showing call recording architecture.](../media/call-recording-with-call-automation.png)
 
 ## Call Recording that supports your business needs
 Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can use unmixed audio format to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
@@ -109,7 +109,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 
 ```typescript
 {
-  "resourceId": <string>,           // stable resource id of the ACS resource recording
+  "resourceId": <string>,           // stable resource id of the Azure Communication Services resource recording
   "callId": <string>,               // id of the call
   "chunkDocumentId": <string>,      // object identifier for the chunk this metadata corresponds to
   "chunkIndex": <number>,           // index of this chunk with respect to all chunks in the recording
@@ -146,9 +146,12 @@ Many countries/regions and states have laws and regulations that apply to call r
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the Azure Communication Services User Identity in the `participants` array with your internal user identities to identify participants in a call. 
 
 ## Next steps
-For more information, see the following articles:
 
-- Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+> [!div class="nextstepaction"]
+> [Get started with Call Recording](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+
+Here are some articles of interest to you:
+
 - Learn more about call recording [Insights](../analytics/insights/call-recording-insights.md) and [Logs](../analytics/logs/recording-logs.md)
 - Learn more about [Call Automation](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Learn more about [Video Calling](../../quickstarts/voice-video-calling/get-started-with-video-calling.md).

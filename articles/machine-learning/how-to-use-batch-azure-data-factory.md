@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
 # Run batch endpoints from Azure Data Factory
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
@@ -33,7 +33,7 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 ## Authenticating against batch endpoints
 
-Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling.
 
 You can use a service principal or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
 
@@ -53,10 +53,10 @@ You can use a service principal or a [managed identity](../active-directory/mana
 
 # [Using a Service Principal](#tab/sp)
 
-1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
-1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
+1. Create a service principal following the steps at [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
+1. Take note of the client secret **Value** that is generated. This is only displayed once.
+1. Take note of the `client ID` and the `tenant id` in the **Overview** pane of the application.
 1. Grant access for the service principal you created to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.

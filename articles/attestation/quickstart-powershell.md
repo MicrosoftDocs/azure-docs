@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 
@@ -68,7 +68,7 @@ New-AzResourceGroup -Name $attestationResourceGroup -Location $location
 ```
 
  > [!NOTE]
-   > Once an attestation provider is created in this resource group, an Azure AD user must have **Attestation Contributor** role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
+   > Once an attestation provider is created in this resource group, a Microsoft Entra user must have **Attestation Contributor** role on the provider to perform operations like policy configuration/ policy signer certificates management. These permissions can also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
 ## Create and manage an attestation provider
 
@@ -76,13 +76,13 @@ New-AzAttestation creates an attestation provider.
 
 ```powershell
 $attestationProvider = "<attestation provider name>" 
-New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
+New-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
 PolicySignerCertificateFile is a file specifying a set of trusted signing keys. If a filename is specified for the PolicySignerCertificateFile parameter, attestation provider can be configured only with policies in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
 
 ```powershell
-New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
+New-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
 For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policy-signer-examples.md).
@@ -90,7 +90,7 @@ For PolicySignersCertificateFile sample, see [examples of policy signer certific
 Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
 ```azurepowershell
-Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
+Get-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
 ```
 
 The above command should produce output in this format: 
@@ -110,22 +110,22 @@ TagsTable:
 Attestation providers can be deleted using the Remove-AzAttestation cmdlet.  
 
 ```powershell
-Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+Remove-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
 ## Policy management
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+In order to manage policies, a Microsoft Entra user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
- To perform these actions, an Azure AD user must have **Attestation Contributor** role on the attestation provider. These permissions can also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
+ To perform these actions, a Microsoft Entra user must have **Attestation Contributor** role on the attestation provider. These permissions can also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+In order to read policies, a Microsoft Entra user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permissions can also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
+ To perform this action, a Microsoft Entra user must have **Attestation Reader** role on the attestation provider. The read permissions can also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
 
 These PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 

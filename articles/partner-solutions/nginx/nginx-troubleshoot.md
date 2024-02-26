@@ -7,8 +7,6 @@ ms.author: franlanglois
 ms.topic: conceptual
 ms.date: 01/18/2023
 
-ms.custom: event-tier1-build-2022
-
 ---
 
 # Troubleshooting NGINXaaS integration with Azure
@@ -27,10 +25,21 @@ You can get support for your NGINXaaS deployment through a **New Support request
 
 ## Troubleshooting
 
+### Marketplace purchase errors
+
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
+
 ### Unable to create an NGINXaaS resource as not a subscription owner  
 
 The NGINXaaS integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Next steps
 
-Learn about [managing your instance](nginx-manage.md) of NGINXaaS.
+- Learn about [managing your instance](nginx-manage.md) of NGINXaaS.
+- Get started with NGINXaaS – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview)

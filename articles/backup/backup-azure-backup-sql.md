@@ -2,11 +2,11 @@
 title: Back up SQL Server to Azure as a DPM workload
 description: An introduction to backing up SQL Server databases by using the Azure Backup service
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/26/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
-ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Back up SQL Server to Azure as a DPM workload
@@ -15,7 +15,7 @@ This article describes how to back up and restore the SQL Server databases using
 
 Azure Backup helps you to back up SQL Server databases to Azure via an Azure account. If you don't have one, you can create a free account in just a few minutes. For more information, see [Create your Azure free account](https://azure.microsoft.com/pricing/free-trial/).
 
-## SQL Server database backup workflow
+## Backup flow for SQL Server database
 
 To back up a SQL Server database to Azure and to recover it from Azure:
 
@@ -42,16 +42,16 @@ To back up a SQL Server database to Azure and to recover it from Azure:
   * DPM supports multi-site cluster configurations for an instance of SQL Server.
 * When you protect databases that use the Always On feature, DPM has the following limitations:
   * DPM will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
-    * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
+    * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. If only the primary replica is available, then the backup should occur on the primary replica.
     * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
     * Primary - Backups should always occur on the primary replica.
     * Any Replica - Backups can happen on any of the availability replicas in the availability group. The node to be backed up from will be based on the backup priorities for each of the nodes.
-  * Note the following:
-    * Backups can happen from any readable replica -  that is, primary, synchronous secondary, asynchronous secondary.
-    * If any replica is excluded from backup, for example **Exclude Replica** is enabled or is marked as not readable, then that replica won't be selected for backup under any of the options.
-    * If multiple replicas are available and readable, then the node with the highest backup priority will be selected for backup.
-    * If the backup fails on the selected node, then the backup operation fails.
-    * Recovery to the original location isn't supported.
+    >[!Note]
+    >- Backups can happen from any readable replica -  that is, primary, synchronous secondary, asynchronous secondary.
+    >- If any replica is excluded from backup, for example **Exclude Replica** is enabled or is marked as not readable, then that replica won't be selected for backup under any of the options.
+    >- If multiple replicas are available and readable, then the node with the highest backup priority will be selected for backup.
+    >- If the backup fails on the selected node, then the backup operation fails.
+    >- Recovery to the original location isn't supported.
 * SQL Server 2014 or above backup issues:
   * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Microsoft Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). DPM can't be used to protect this configuration.
   * There are some known issues with "Prefer secondary" backup preference for the SQL Always On option. DPM always takes a backup from secondary. If no secondary can be found, then the backup fails.

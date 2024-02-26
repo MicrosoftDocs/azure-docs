@@ -67,7 +67,7 @@ output vnetResult object = existingVNet
 
 Open the file in Visual Studio Code. You'll notice that Visual Studio Code identifies a syntax error. The first parameter declaration is marked with red squiggles to indicate an error.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-visual-studio-code-error.png" alt-text="Screenshot of Visual Studio Code showing error in syntax.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-visual-studio-code-error.png" alt-text="Screenshot of Visual Studio Code with red squiggles highlighting a syntax error in a Bicep file.":::
 
 The lines marked with an error are:
 
@@ -83,7 +83,7 @@ parameter storageAccountType string = 'Standard_LRS'
 
 When you hover over `parameter`, you see an error message.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of error message in Visual Studio Code.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of a detailed error message displayed in Visual Studio Code when hovering over a syntax error in a Bicep file.":::
 
 The message states: _This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration._ If you attempt to deploy this file, you'll get the same error message from the deployment command.
 
@@ -127,11 +127,11 @@ You see an error message that indicates preflight validation failed. You also ge
 
 Because the error was caught in preflight, no deployment exists in the history.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/no-deployment.png" alt-text="Screenshot of portal with no deployment in the history.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/no-deployment.png" alt-text="Screenshot of Azure portal's deployment history section showing no deployments for a Bicep file.":::
 
 But, the failed deployment exists in the Activity Log.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/preflight-activity-log.png" alt-text="Screenshot of activity log with error.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/preflight-activity-log.png" alt-text="Screenshot of Azure portal's activity log displaying a preflight validation error for a Bicep file deployment.":::
 
 You can open details of the log entry to see the error message.
 
@@ -165,7 +165,7 @@ The deployment starts but fails with a message that the virtual network wasn't f
 
 Notice in the portal that the deployment appears in the history.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/view-deployment-history.png" alt-text="Screenshot of deployment history in portal.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/view-deployment-history.png" alt-text="Screenshot of Azure portal's deployment history section showing a failed deployment for a Bicep file.":::
 
 You can open the entry in the deployment history to get details about the error. The error also exists in the activity log.
 
@@ -179,7 +179,7 @@ The Bicep file attempts to reference a virtual network that doesn't exist in you
   'Standard_ZRS'
   'Premium_LRS'
 ])
-parameter storageAccountType string = 'Standard_LRS'
+param storageAccountType string = 'Standard_LRS'
 
 @description('Prefix for storage name.')
 param prefixName string

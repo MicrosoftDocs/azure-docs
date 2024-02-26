@@ -4,7 +4,7 @@ description: Learn how to connect to lab virtual machines (VMs) through a browse
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/14/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

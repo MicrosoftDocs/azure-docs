@@ -2,13 +2,12 @@
 title: Security recommendations for Queue Storage
 titleSuffix: Azure Storage
 description: Learn about security recommendations for Queue Storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
-author: tamram
+author: akashdubey-ms
 services: storage
-ms.author: tamram
+ms.author: akashdubey
 ms.date: 05/12/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: security-recommendations
 ---
 
@@ -24,7 +23,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Azure AD-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
+| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Microsoft Entra ID-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
 | Enable advanced threat protection for all of your storage accounts | [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Microsoft Defender for Cloud when anomalous activities occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations for how to investigate and remediate threats. For more information, see [Protect your Azure Storage accounts](../../defender-for-cloud/defender-for-storage-introduction.md). | [Yes](../../defender-for-cloud/implement-security-recommendations.md) |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access queue data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
 
@@ -32,9 +31,9 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Use Azure Active Directory (Azure AD) to authorize access to queue data | Azure AD provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md). | - |
-| Keep in mind the principle of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC | When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
-| Secure your account access keys with Azure Key Vault | Microsoft recommends using Azure AD to authorize requests to Azure Storage. However, if you must use Shared Key authorization, then secure your account keys with Azure Key Vault. You can retrieve the keys from the key vault at runtime, instead of saving them with your application. | - |
+| Use Microsoft Entra ID to authorize access to queue data | Microsoft Entra ID provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md). | - |
+| Keep in mind the principle of least privilege when assigning permissions to a Microsoft Entra security principal via Azure RBAC | When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
+| Secure your account access keys with Azure Key Vault | Microsoft recommends using Microsoft Entra ID to authorize requests to Azure Storage. However, if you must use Shared Key authorization, then secure your account keys with Azure Key Vault. You can retrieve the keys from the key vault at runtime, instead of saving them with your application. | - |
 | Regenerate your account keys periodically | Rotating the account keys periodically reduces the risk of exposing your data to malicious actors. | - |
 | Keep in mind the principle of least privilege when assigning permissions to a SAS | When creating a SAS, specify only those permissions that are required by the client to perform its function. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
 | Have a revocation plan in place for any SAS that you issue to clients | If a SAS is compromised, you will want to revoke that SAS as soon as possible. To revoke a user delegation SAS, revoke the user delegation key to quickly invalidate all signatures associated with that key. To revoke a service SAS that is associated with a stored access policy, you can delete the stored access policy, rename the policy, or change its expiry time to a time that is in the past. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).  | - |

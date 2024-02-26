@@ -2,12 +2,11 @@
 title: Attach a managed data disk to a Windows VM - Azure 
 description: How to attach a managed data disk to a Windows VM by using the Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
-ms.subservice: disks
 
 ---
 # Attach a managed data disk to a Windows VM by using the Azure portal
@@ -34,6 +33,10 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 1. Select the Windows **Start** menu inside the running VM and enter **diskmgmt.msc** in the search box. The **Disk Management** console opens.
 1. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
 1. Verify the new disk is selected and then select **OK** to initialize it.
+
+    > [!NOTE]
+    > If your disk is two tebibytes (TiB) or larger, you must use GPT partitioning. If it's under two TiB, you can use either MBR or GPT.
+
 1. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
 1. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
 1. Close **Disk Management**.

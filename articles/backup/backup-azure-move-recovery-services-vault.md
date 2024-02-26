@@ -2,12 +2,12 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 02/11/2022
-ms.custom: references_regions 
+ms.date: 01/04/2024
+ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups
@@ -22,7 +22,7 @@ All public regions and sovereign regions are supported, except France South, Fra
 
 - During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Only admin subscription has the permissions to move a vault.
-- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state must be enabled. To move a vault to a different Azure AD, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md) and [Recovery Service vault FAQs](./backup-azure-backup-faq.yml).
+- For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state must be enabled. To move a vault to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md) and [Recovery Service vault FAQs](./backup-azure-backup-faq.yml).
 - You must have permission to perform write operations on the target resource group.
 - Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it can't be changed.
 - You can move only one Recovery Services vault, per region, at a time.
@@ -145,7 +145,7 @@ The above steps should help ensure that your resources are being backed up in th
 
 ### Back up Azure File Share after moving across regions
 
-Azure Backup offers [a snapshot management solution](./backup-afs.md) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, if you move your Storage Accounts along with the file shares across regions or create new file shares in the new region, see to the following sections to ensure that they are protected by Azure Backup.
+Azure Backup offers [a snapshot management solution](./backup-afs.md) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, To move your Storage Accounts along with the file shares across regions or create new file shares in the new region, see the following sections to ensure that they are protected by Azure Backup.
 
 #### Prepare to move Azure File Share
 
@@ -248,7 +248,7 @@ To protect workloads in a new vault, the current protection and data will need t
 
 **Stop and delete current protection on the old vault:**
 
-1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete.
+1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete.
 
 2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 

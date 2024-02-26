@@ -64,7 +64,7 @@ Unit tests should execute as much of the application code that can modify the st
 	When a request is made to add the an employee "John Smith"
     And the active secondary replica "222" is promoted to primary
     And a request is made to get all employees
-	Then the request should should return the "John Smith" employee
+	Then the request should return the "John Smith" employee
 ```
 
 This test asserts that the data being captured on one replica is available to a secondary replica when it is promoted to primary. Assuming that a reliable collection is the backing store for the employee data, Aa potential failure that could be caught with this test is if the application code did not execute `CommitAsync` on the transaction to save the new employee. In that case, the second request to get employees would not return employee added by the first request.

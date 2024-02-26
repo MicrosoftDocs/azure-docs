@@ -2,11 +2,10 @@
 title: Share an Azure managed disk across VMs
 description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 02/20/2024
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Share an Azure managed disk
@@ -15,13 +14,13 @@ ms.subservice: disks
 
 Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
 
+Shared disks require a cluster manager, like Windows Server Failover Cluster (WSFC), or Pacemaker, that handles cluster node communication and write locking. Shared managed disks don't natively offer a fully managed file system that can be accessed using SMB/NFS.
+
 ## How it works
 
 VMs in the cluster can read or write to their attached disk based on the reservation chosen by the clustered application using [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR is an industry standard used by applications running on Storage Area Network (SAN) on-premises. Enabling SCSI PR on a managed disk allows you to migrate these applications to Azure as-is.
 
 Shared managed disks offer shared block storage that can be accessed from multiple VMs, these are exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
-
-Shared managed disks don't natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC), or Pacemaker, that handles cluster node communication and write locking.
 
 ## Limitations
 
@@ -131,16 +130,16 @@ The following formulas explain how the performance attributes can be set, since 
 - DiskIOPSReadWrite (Read/write disk IOPS):
     - Has a baseline minimum IOPS of 100, for disks 100 GiB and smaller.
         - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
-    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 400,000.
 - DiskMB/sReadWrite (Read/write disk throughput)
     - The minimum throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minimum MB/s you can set is 1.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 10,000 MB/s.
 - DiskIOPSReadOnly (Read-only disk IOPS)
     - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
-    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 400,000.
 - DiskMB/sReadOnly (Read-only disk throughput)
     - The minimum throughput (MB/s) for this attribute is 1. For DiskMB/sReadOnly, the baseline doesn't increase with IOPS.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 10,000 MB/s.
 
 #### Examples
 

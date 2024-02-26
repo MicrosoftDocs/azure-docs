@@ -1,19 +1,20 @@
 ---
 title: Understand migration for Azure Monitor alerts
 description: Understand how the alerts migration works and troubleshoot problems.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
+
 # Understand migration options to newer alerts
 
-Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 
 This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes solutions for some common problems.
 
 > [!IMPORTANT]
-> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](./monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Activity log alerts (including Service health alerts) and log search alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](./monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 > [!NOTE]
 > If your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
@@ -27,7 +28,7 @@ Customers that are interested in manually migrating their remaining alerts can a
 Before you can create new metric alerts on guest metrics, the guest metrics must be sent to the Azure Monitor logs store. Follow these instructions to create alerts:
 
 - [Enabling guest metrics collection to log analytics](../agents/agent-data-sources.md)
-- [Creating log alerts in Azure Monitor](./alerts-log.md)
+- [Creating log search alerts in Azure Monitor](./alerts-log.md)
 
 There are more options to collect guest metrics and alert on them, [learn more](../agents/agents-overview.md).
 
@@ -199,7 +200,7 @@ Any user who has the built-in role of Monitoring Contributor at the subscription
 
 ## Common problems and remedies
 
-After you [trigger the migration](alerts-using-migration-tool.md), you'll receive email at the addresses you provided to notify you that migration is complete or if any action is needed from you. This section describes some common problems and how to deal with them.
+After you trigger the migration, you'll receive email at the addresses you provided to notify you that migration is complete or if any action is needed from you. This section describes some common problems and how to deal with them.
 
 ### Validation failed
 
@@ -220,5 +221,4 @@ As part of the migration, new metric alerts and new action groups will be create
 
 ## Next steps
 
-- [How to use the migration tool](alerts-using-migration-tool.md)
 - [Prepare for the migration](alerts-prepare-migration.md)

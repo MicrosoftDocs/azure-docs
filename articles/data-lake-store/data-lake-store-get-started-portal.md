@@ -111,7 +111,7 @@ Click the ellipsis icon against a file, and from the pop-up menu, click the acti
 
 ## Secure your data
 
-You can secure the data stored in your Data Lake Storage Gen1 account using Azure Active Directory and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
+You can secure the data stored in your Data Lake Storage Gen1 account using Microsoft Entra ID and access control (ACLs). For instructions on how to do that, see [Securing data in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 
 ## Delete your account
 

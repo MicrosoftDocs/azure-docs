@@ -1,27 +1,26 @@
 ---
 title: Assign an Azure role for access to table data
 titleSuffix: Azure Storage
-description: Learn how to assign permissions for table data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
+description: Learn how to assign permissions for table data to a Microsoft Entra security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Microsoft Entra ID.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: how-to
 ms.date: 03/03/2022
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Assign an Azure role for access to table data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access table data in Azure Storage.
+Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access table data in Azure Storage.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. A Microsoft Entra security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To learn more about using Azure AD to authorize access to table data, see [Authorize access to tables using Azure Active Directory](authorize-access-azure-active-directory.md).
+To learn more about using Microsoft Entra ID to authorize access to table data, see [Authorize access to tables using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 ## Assign an Azure role
 
@@ -81,7 +80,7 @@ To learn how to use an Azure Resource Manager template to assign an Azure role, 
 
 Keep in mind the following points about Azure role assignments in Azure Storage:
 
-- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or table.
+- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Microsoft Entra ID. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or table.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a table.
 
 ## Next steps

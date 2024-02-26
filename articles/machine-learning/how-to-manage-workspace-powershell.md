@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 01/26/2023
+ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
@@ -145,7 +145,7 @@ Get-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup
 
 ## Delete a workspace
 
-[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
 To delete a workspace after it's no longer needed, use the following command:
 

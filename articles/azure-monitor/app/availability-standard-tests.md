@@ -2,14 +2,14 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ---
 
 # Standard test
 
 A Standard test is a type of availability test that checks the availability of a website by sending a single request. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
 
-To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
+To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
 
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
@@ -67,7 +67,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-### Azure China
+### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -133,7 +133,7 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-diagnostics.md).
+To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics).
 
 Select the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code-level diagnostics.
 

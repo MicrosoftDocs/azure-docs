@@ -78,7 +78,7 @@ Until you activate your sensor, the sensor's status will show as **Pending Activ
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 > [!NOTE]
-> Sites and zones configured on the Azure portal are not synchronized with [sites and zones configured on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
+> Sites and zones configured on the Azure portal are not synchronized with [sites and zones configured on an on-premises management console](legacy-central-management/sites-and-zones-on-premises.md).
 >
 > If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and an on-premises management console to manage locally-managed sensors.
 

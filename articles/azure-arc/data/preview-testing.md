@@ -7,9 +7,9 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/14/2022
+ms.date: 12/06/2023
 ms.topic: conceptual
-ms.custom: references_regions, event-tier1-build-2022
+ms.custom: references_regions
 #Customer intent: As a data professional, I want to validate upcoming releases.
 ---
 
@@ -198,6 +198,6 @@ When you deploy with this method, the most recent pre-release version will alway
 
 At this time, pre-release testing is supported for certain customers and partners that have established agreements with Microsoft. Participants have points of contact on the product engineering team. Email your points of contact with any issues that are found during pre-release testing.
 
-## Next steps
+## Related content
 
 [Release notes - Azure Arc-enabled data services](release-notes.md)

@@ -76,7 +76,7 @@ The following steps describe the actions to enable Hyper-V on Windows Server usi
 
 2. On the **Before you begin** page, select **Next**.
 3. On the **Select installation type** page, keep the default selection of Role-based or feature-based installation and then select **Next**.
-4. On the **Select destination server** page, select Select a server from the server pool.   The current server is already selected.  Select **Next**.
+4. On the **Select destination server** page, select a server from the server pool.   The current server is already selected.  Select **Next**.
 5. On the **Select server roles** page, select **Hyper-V**.  
 6. The **Add Roles and Features Wizard** pop-up appears.  Select **Include management tools (if applicable)**.  Select the **Add Features** button.
 7. On the **Select server roles** page, select **Next**.
@@ -237,10 +237,6 @@ Perform the following steps to verify your nested VM configuration:
 
     Learn more about the [supported guest operating systems in Hyper-V](/virtualization/hyper-v-on-windows/about/supported-guest-os).
 
-- There's a known issue with caching of the windowing library in older Linux distributions.
-
-    Create another desktop session, manually clear the cache for the windowing library, and then restart.
-
 ### Hyper-V doesn't start with error `The virtual machine is using processor-specific xsave features not supported`
 
 - This error can happen when a lab user leaves the Hyper-V VM in the saved state. You can right-select the VM in Hyper-V Manager and select **Delete saved state**.
@@ -257,7 +253,7 @@ It's recommended that Hyper-V VMs have their [automatic shutdown action set to s
 Increase the number vCPUs and memory that is assigned to the Hyper-V VM in Hyper-V Manager. The total number of vCPUs can't exceed the number of cores of the host VM (lab VM). If you're using variable memory, the default option, increase the minimum amount of memory assigned to the VM. The maximum amount of assigned memory (if using variable memory) can exceed the amount of memory of the host VM. This allows greater flexibility when having to complete intensive operations on just one of the Hyper-V VMs.
 
 If you're using the Medium (Nested Virtualization) VM size for the lab, consider using the Large (Nested Virtualization) VM size instead to have more compute resources for each lab VM.
- 
+
 ### Internet connectivity isn't working for nested VMs
 
 - Confirm that you followed the previous steps for enabling nested virtualization. Consider using the PowerShell script option.
@@ -268,8 +264,8 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 - Check the network adapter settings for the Hyper-V VM:
 
-    - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
-    - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
+  - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
+  - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
 
 > [!NOTE]
 > The ping command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
@@ -278,8 +274,6 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 Now that you've configured nested virtualization on the template VM, you can [create nested virtual machines with Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v). See [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
 
-You can further configure your lab:
-
-- [Add lab users](./how-to-configure-student-usage.md)
-- [Set quota hours](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Configure a lab schedule](tutorial-setup-lab.md#add-a-lab-schedule)
+- [Add lab users](how-to-manage-lab-users.md)
+- [Set quota hours](how-to-manage-lab-users.md#set-quotas-for-users)
+- [Configure a lab schedule](./how-to-create-schedules.md)

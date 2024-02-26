@@ -6,11 +6,10 @@ summary: Docker is a popular container management and imaging platform that allo
 metadata:
   title: Docker on Azure documentation
   description: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.
-  services: multiple
   ms.service: container-instances
   ms.topic: landing-page
-  author: georgewallace
-  ms.author: gwallace
+  author: akashdubey-ms
+  ms.author: akashdubey
   ms.date: 03/08/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -40,7 +39,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Docker Azure site
-            url: https://docs.docker.com/docker-for-azure/why/
+            url: https://docs.docker.com/build/cache/backends/azblob/
           - text: Docker Azure driver
             url: https://docs.docker.com/machine/drivers/azure/
           - text: Learn about Docker

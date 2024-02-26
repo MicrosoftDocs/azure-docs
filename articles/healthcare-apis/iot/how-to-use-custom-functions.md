@@ -3,21 +3,17 @@ title: How to use custom functions with the MedTech service device mapping - Azu
 description: Learn how to use custom functions with MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
 # How to use custom functions with the MedTech service device mapping
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions can also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
 
-Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions may also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
-
-> [!TIP]
-> You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
+You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR&reg; destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 ## Function signature
 
@@ -32,7 +28,7 @@ The signature indicates the valid types for the arguments. If an invalid type is
 > [!IMPORTANT]
 > When math-related functions are done, the end result must be able to fit within a [C# long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
 
-As stated previously, these functions may only be used when specifying **JmesPath** as the expression language. By default, the expression language is **JsonPath**. The expression language can be changed when defining the expression. 
+As stated previously, these functions can only be used when specifying **JmesPath** as the expression language. By default, the expression language is **JsonPath**. The expression language can be changed when defining the expression. 
 
 For example:
 
@@ -52,7 +48,7 @@ This example uses the [insertString](#insertstring) expression to generate the p
 
 ## Literal values
 
-Constant values may be supplied to functions.
+Constant values can be supplied to functions.
 
 - Numeric values should be enclosed within backticks: \`
   - Example: add(\`10\`, \`10\`)
@@ -63,10 +59,10 @@ For more information, see the [JMESPath specification](https://jmespath.org/spec
 
 ## Exception handling
 
-Exceptions may occur at various points within the device data processing lifecycle. Here are the various points where exceptions can occur:
+Exceptions can occur at various points within the device data processing lifecycle. Here are the various points where exceptions can occur:
 
-|Action|When|Exceptions that may occur during parsing of the device mapping|Outcome|
-|------|----|--------------------------------------------------------------|-------|
+|Action|When|Exceptions that can occur during parsing of the device mapping|Outcome|
+|------|----|----------------------------------------------------------------|-------|
 |**Device mapping parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse the device mapping.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
 |**Device mapping parsing**|Each time a new batch of device messages are received, the device mapping is loaded and parsed.|Failure to parse any expressions.|System attempts to reload and parse the latest device mapping until parsing succeeds. No new device messages are processed until parsing is successful.|
 |**Function execution**|Each time a function is executed against device data within a device message.|Input device data doesn't match that of the function signature.|System stops processing that device message. The device message isn't retried.|
@@ -216,21 +212,10 @@ Examples:
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service custom functions within the device mapping.
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-For an overview of the MedTech service device mapping, see
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

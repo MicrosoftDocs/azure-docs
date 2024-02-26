@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.date: 02/12/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
@@ -105,7 +105,7 @@ Run an assessment as follows:
      - Cost estimates are based on the duration specified.
     - Default is 31 days per month/24 hours per day.
    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
-   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription. If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 1. Select **Save** if you make changes.
 
 1. In **Assess Servers**, select **Next**.
@@ -139,13 +139,12 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VM assessment**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
+2. In **Assessments**, select an assessment to open it. 
+4. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+   - The Azure readiness graph displays the status of the VM.
+   - The Supportability section displays the distribution by OS license support status and the distribution by Windows Server version.
+   - The Savings option section displays the estimated savings on moving to Azure.
 
-    ![Screenshot of Assessment summary.](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
-3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
- 
- 
 ### Review readiness
 
 1. Select **Azure readiness**.
@@ -192,6 +191,12 @@ Confidence ratings are as follows.
 81%-100% | 5 stars
 
 [Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+
+### Review issues
+
+In the Assessment report, you can see a list of errors if there are any issues faced by the assessment service for any VM. To troubleshoot the issues, select **Details** in the **Issues** column to view errors corresponding to a VM. A context pane will open with detailed information about the errors. Use this information to resolve the issues.
+
+![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
 ## Next steps
 

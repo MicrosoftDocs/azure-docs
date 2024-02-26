@@ -2,8 +2,8 @@
 title: Deploy SAP Change Requests (CRs) and configure authorization
 titleSuffix: Microsoft Sentinel
 description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 03/10/2023
 ---
@@ -133,10 +133,7 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
     In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::
-
-    > [!CAUTION]
-    > If an error occurs at this step, then you need to configure the SAP transport management system before proceeding any further. [**See this article for instructions**](configure-transport.md).
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
 
 1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
 

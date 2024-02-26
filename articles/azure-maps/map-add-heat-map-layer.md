@@ -1,8 +1,8 @@
 ---
 title: Add a heat map layer to a map | Microsoft Azure Maps
 description: Learn how to create a heat map and customize heat map layers using the Azure Maps Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/06/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -53,8 +53,7 @@ The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map 
 :::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
 <!------------------------------------------------------
-<iframe height='500' scrolling='no' title='Simple Heat Map Layer' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------------------------>
 
 ## Customize the heat map layer
@@ -84,8 +83,7 @@ The [Heat Map Layer Options] sample shows how the different options of the heat 
 :::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
 
 <!------------------------------------------------------
-<iframe height='700' scrolling='no' title='Heat Map Layer Options' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Heat Map Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result]
 ------------------------------------------------------>
 
 ## Consistent zoomable heat map
@@ -101,10 +99,7 @@ The [Consistent zoomable Heat Map] sample shows how to create a heat map where t
 :::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
 
 <!------------------------------------------------------
-<iframe height="500" scrolling="no" title="Consistent zoomable heat map" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable heat map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------>
 
 The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters`, which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.

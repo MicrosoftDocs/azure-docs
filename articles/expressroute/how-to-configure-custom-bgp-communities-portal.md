@@ -1,5 +1,5 @@
 ---
-title: 'Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal (Preview)'
+title: 'Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal'
 description: Learn how to apply or update BGP community value for a new or an existing virtual network using the Azure portal.
 services: expressroute
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 ms.author: duau
 ---
 
-# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal (Preview)
+# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal
 
 BGP communities are groupings of IP prefixes tagged with a community value. This value can be used to make routing decisions on the router's infrastructure. You can apply filters or specify routing preferences for traffic sent to your on-premises from Azure with BGP community tags. This article explains how to apply a custom BGP community value for your virtual networks using the Azure portal. Once configured, you can view the regional BGP community value and the custom community value of your virtual network. This value will be used for outbound traffic sent over ExpressRoute when originating from that virtual network.
 

@@ -63,7 +63,7 @@ Create a dedicated host group and add a role assignment to the host group with t
    > * Each fault domain needs a dedicated host to be placed in it and Service Fabric managed clusters require five fault domains. Therefore, at least five dedicated hosts should be present in each dedicated host group.
 
 
-3. The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles.md#all). This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
+3. The [sample ARM deployment template for Dedicated Host Group](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-ADH) used in the previous step also adds a role assignment to the host group with contributor access. For more information on Azure roles, see [Azure built-in roles - Azure RBAC](../role-based-access-control/built-in-roles.md). This role assignment is defined in the resources section of template with Principal ID determined from the first step and a role definition ID. 
 
    ```JSON
       "variables": {  
@@ -157,7 +157,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
             {  
                   "code": "QuotaExceeded",  
                   "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
-            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://learn.microsoft.com/azure/azure-supportability/per-vm-quota-requests)” 
+            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](/azure/azure-supportability/per-vm-quota-requests)” 
                 }
       ```
 ## Next steps

@@ -58,7 +58,7 @@ When creating multiple profiles using templates, the CLI, and PowerShell, follow
 
 ## [ARM templates](#tab/templates)
 
-See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
+See the autoscale section of the [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
 
 There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
@@ -68,8 +68,8 @@ There is no specification in the template for end time. A profile will remain ac
 The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday and end just after midnight on Saturday morning.
 
 Use the following command to deploy the template:
-` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
-where *VMSS1-autoscale.json* is the the file containing the JSON object below.
+`az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
+where *VMSS1-autoscale.json* is the file containing the JSON object below.
 
 ``` JSON
 {
@@ -192,7 +192,7 @@ where *VMSS1-autoscale.json* is the the file containing the JSON object below.
 
 The CLI can be used to create multiple profiles in your autoscale settings.
 
-See the [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest) for the full set of autoscale CLI commands.
+See the [Autoscale CLI reference](/cli/azure/monitor/autoscale) for the full set of autoscale CLI commands.
 
 The following steps show how to create a recurring autoscale profile using the CLI.
 
@@ -267,7 +267,7 @@ az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607
 
 PowerShell can be used to create multiple profiles in your autoscale settings.
 
-See the [PowerShell Az.Monitor Reference ](https://learn.microsoft.com/powershell/module/az.monitor/#monitor) for the full set of autoscale PowerShell commands.
+See the [PowerShell Az.Monitor Reference](/powershell/module/az.monitor/#monitor) for the full set of autoscale PowerShell commands.
 
 The following steps show how to create an autoscale profile using PowerShell.
 
@@ -415,10 +415,10 @@ $DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -Ma
 
 ## Next steps
 
-* [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
-* [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
-* [PowerShell Az PowerShell module.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
-* [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Autoscale CLI reference](/cli/azure/monitor/autoscale)
+* [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
+* [PowerShell Az PowerShell module.Monitor Reference](/powershell/module/az.monitor/#monitor)
+* [REST API reference. Autoscale Settings](/rest/api/monitor/autoscale-settings).
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)

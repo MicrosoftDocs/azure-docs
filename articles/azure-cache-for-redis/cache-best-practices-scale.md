@@ -45,7 +45,7 @@ For more information on scaling and memory, depending on your tier see either:
 
 ## Minimizing your data helps scaling complete quicker
 
-If preserving the data in the cache isn't a requirement, consider flushing the data prior to scaling. Flushing the cache helps the scaling operation complete more quickly so the new capacity is available sooner.
+If preserving the data in the cache isn't a requirement, consider flushing the data prior to scaling. Flushing the cache helps the scaling operation complete more quickly so the new capacity is available sooner. See more details on [how to initiate flush operation.](cache-administration.md#flush-data-preview)
 
 ## Scaling Enterprise tier caches
 

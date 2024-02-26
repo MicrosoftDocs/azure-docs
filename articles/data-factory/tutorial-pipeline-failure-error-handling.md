@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 01/09/2023
+ms.date: 10/20/2023
 ---
 
 # Errors and Conditional execution
@@ -16,7 +16,7 @@ ms.date: 01/09/2023
 
 ## Conditional paths
 
-Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
+Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables the user to take a different path based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
 
 |  Name | Explanation |
 |  --- | --- |
@@ -202,7 +202,7 @@ You can add multiple activities for error handling.
 
 
 
-## Next steps
+## Related content
 
 [Data Factory metrics and alerts](monitor-metrics-alerts.md)
 

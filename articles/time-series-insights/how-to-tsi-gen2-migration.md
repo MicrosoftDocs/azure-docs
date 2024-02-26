@@ -4,7 +4,6 @@ description: How to migrate Azure Time Series Insights Gen 2 environments to Azu
 ms.service: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 3/15/2022
 ms.custom: tvilutis
@@ -258,7 +257,7 @@ events
 
 #### GetEvents with filter
 
- ```TSQ
+```TSQ
 {
   "getEvents": {
     "timeSeriesId": [

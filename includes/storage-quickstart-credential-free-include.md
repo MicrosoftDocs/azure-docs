@@ -2,19 +2,19 @@
 title: "include file"
 description: "include file"
 services: storage
-author: alexwolfmsft
-ms.service: storage
+author: pauljewellmsft
+ms.service: azure-storage
 ms.topic: include
-ms.date: 09/09/2022
-ms.author: alexwolf
+ms.date: 01/30/2024
+ms.author: pauljewell
 ms.custom: include file
 ---
 
-## Authenticate to Azure and authorize access to blob data
+### Authenticate to Azure and authorize access to blob data
 
 [!INCLUDE [storage-quickstart-passwordless-auth-intro](storage-quickstart-passwordless-auth-intro.md)]
 
-## [Passwordless (Recommended)](#tab/managed-identity)
+### [Passwordless (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
@@ -22,11 +22,13 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
-### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+#### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](assign-roles.md)]
 
-### Sign-in and connect your app code to Azure using DefaultAzureCredential
+#### Sign in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
@@ -56,7 +58,7 @@ You can authorize access to data in your storage account using the following ste
     > [!NOTE]
     > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
-## [Connection String](#tab/connection-string)
+### [Connection String](#tab/connection-string)
 
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
@@ -65,7 +67,7 @@ A connection string includes the storage account access key and uses it to autho
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 
-### Configure your storage connection string
+#### Configure your storage connection string
 
 After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
@@ -83,9 +85,7 @@ After you add the environment variable in Windows, you must start a new instance
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-### Configure the connection string
-
-The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section, and uses the connection string to construct a service client object.
+The code below retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
 
 Add following code to the end of the `Program.cs` file:
 

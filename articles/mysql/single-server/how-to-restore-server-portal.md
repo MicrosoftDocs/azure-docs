@@ -3,8 +3,8 @@ title: Backup and restore - Azure portal - Azure Database for MySQL
 description: This article describes how to restore a server in Azure Database for MySQL using the Azure portal.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
@@ -37,7 +37,7 @@ While creating a server through the Azure portal, the **Pricing Tier** window is
 For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 The backup retention period can be changed on a server through the following steps:
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your Azure Database for MySQL server. This action opens the **Overview** page.
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
 In the screenshot below it has been increased to 34 days.
@@ -48,9 +48,9 @@ In the screenshot below it has been increased to 34 days.
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the following section. 
 
 ## Point-in-time restore
-Azure Database for MySQL allows you to restore the server back to a point-in-time and into to a new copy of the server. You can use this new server to recover your data, or have your client applications point to this new server.
+Azure Database for MySQL allows you to restore the server back to a point-in-time and into a new copy of the server. You can use this new server to recover your data, or have your client applications point to this new server.
 
-For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server. Point-in-time restore is at the server level, not at the database level.
+For example, if a table was accidentally dropped at noon today, you could restore it to the time just before noon and retrieve the missing table and data from that new copy of the server. Point-in-time restore is at the server level, not at the database level.
 
 The following steps restore the sample server to a point-in-time:
 1. In the Azure portal, select your Azure Database for MySQL server. 
@@ -64,8 +64,8 @@ The following steps restore the sample server to a point-in-time:
    :::image type="content" source="./media/how-to-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restore information":::
    - **Restore point**: Select the point-in-time you want to restore to.
    - **Target server**: Provide a name for the new server.
-   - **Location**: You cannot select the region. By default it is same as the source server.
-   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
+   - **Location**: You cannot select the region. By default, it is the same as the source server.
+   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is the same as the source server. 
 
 4. Click **OK** to restore the server to restore to a point-in-time. 
 
@@ -77,7 +77,7 @@ Additionally, after the restore operation finishes, there are two server paramet
 *   time_zone - This value to set to DEFAULT value **SYSTEM**
 *   event_scheduler - The event_scheduler is set to **OFF** on the restored server
 
-You will need to copy over the value from teh primary server and set it on the restored server by reconfiguring the [server parameter](how-to-server-parameters.md)
+You will need to copy over the value from the primary server and set it on the restored server by reconfiguring the [server parameter](how-to-server-parameters.md)
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
@@ -90,7 +90,7 @@ If you configured your server for geographically redundant backups, a new server
  
 2. Provide the subscription, resource group, and name of the new server. 
 
-3. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
+3. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo-redundant backups enabled.
    
    :::image type="content" source="./media/how-to-restore-server-portal/3-geo-restore.png" alt-text="Select data source.":::
     

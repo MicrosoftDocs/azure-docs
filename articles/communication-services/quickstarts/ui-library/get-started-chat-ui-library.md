@@ -15,7 +15,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services UI Library to quickly integrate communication experiences into your applications. In this quickstart, learn how to integrate UI Library chat composites into an application and set up the experience for your app users.
 
-Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to ACS chat services, and updates participant's presence automatically. As a developer, you need to worry about where in your app's user experience you want the chat experience to launch and only create the ACS resources as required.
+Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services, and updates participant's presence automatically. As a developer, you need to worry about where in your app's user experience you want the chat experience to launch and only create the Azure Communication Services resources as required.
 
 ::: zone pivot="platform-web"
 

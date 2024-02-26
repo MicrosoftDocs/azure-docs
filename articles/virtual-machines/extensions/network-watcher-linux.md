@@ -1,17 +1,20 @@
 ---
-title: Network Watcher Agent VM extension - Linux 
+title: Network Watcher Agent VM extension - Linux
 description: Deploy the Network Watcher Agent virtual machine extension on Linux virtual machines.
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: halkazwini
 author: halkazwini
+ms.author: halkazwini
 ms.collection: linux
 ms.date: 06/29/2023
-ms.custom: template-concept, engagement-fy23, devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines (VMs), such as capturing network traffic on demand, and other advanced functionality.
 
@@ -28,17 +31,19 @@ The Network Watcher Agent extension can be configured for the following Linux di
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16+ |
-| Debian | 7 and 8 |
-| Red Hat | 6.10, 7 and 8+ |
-| Oracle Linux | 6.10, 7 and 8+ |
-| SUSE Linux Enterprise Server | 12 and 15 |
-| OpenSUSE Leap | 42.3+ |
-| CentOS | 6.10 and 7 |
+| AlmaLinux  | 9.2 |
 | Azure Linux | 2.0 |
+| CentOS | 6.10 and 7 |
+| Debian | 7 and 8 |
+| OpenSUSE Leap | 42.3+ |
+| Oracle Linux | 6.10, 7 and 8+ |
+| Red Hat Enterprise Linux (RHEL) | 6.10, 7, 8 and 9.2 |
+| Rocky Linux | 9.1 |
+| SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3 and SP4) |
+| Ubuntu | 16+ |
 
 > [!NOTE]
-> - Red Hat Enterprise Linux (RHEL) 6.X and Oracle Linux 6.x have reached their end-of-life (EOL). RHEL 6.10 has available [extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) through [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+> - Red Hat Enterprise Linux 6.X and Oracle Linux 6.x have reached their end-of-life (EOL). RHEL 6.10 has available [extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) through [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 > - Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) through [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
 
 ### Internet connectivity
@@ -114,4 +119,3 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 ### Support
 
 If you need more help at any point in this article, you can refer to the [Network Watcher documentation](../../network-watcher/index.yml), or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure Support, see the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
-

@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 04/13/2023
 ms.service: backup
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Blob backup
@@ -95,6 +95,14 @@ This article provides troubleshooting information to address issues you encounte
 **Error message**: The restore point isn't available in backup vault. 
 
 **Recommendation**: Ensure that the restore point ID is correct and the restore point didn't get deleted based on the backup retention settings. For a recent recovery point, ensure that the corresponding backup job is complete. We recommend you triggering the operation again using a valid restore point. If the issue persists, contact Microsoft support.
+
+### UserErrorContainerNotFoundForPointInTimeRestore
+
+**Error code**: `UserErrorContainerNotFoundForPointInTimeRestore`
+
+**Error message**: A container selected for the restore was not found in the storage account for the selected point in time. 
+
+**Recommendation**: Use specific container restore or prefix match restore for containers that are present in the account. We also recommend enabling vaulted backup for your storage account to get comprehensive protection against deletion of containers. If you already have it configured, you can use a recovery point for performing recovery of deleted containers.
 
 ### UserErrorTargetContainersExistOnAccount
 

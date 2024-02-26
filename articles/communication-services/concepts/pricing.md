@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
 author: nmurav
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 09/11/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -22,7 +22,7 @@ Calling and screen-sharing services are charged on a per minute per participant 
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
-Calls charged with precision to a millisecond. For example, if a call lasts 30 seconds, the charge will be $0.02.
+Calls charged with precision to a millisecond. For example, if a call lasts 30 seconds, the charge will be $0.002.
 
 ### Pricing example: Group audio/video call using JS and iOS SDKs
 
@@ -85,13 +85,15 @@ Alice is a Dynamics 365 contact center agent, who makes an outbound call from Om
 
 - One participant on the VoIP leg (Alice) from Omnichannel for Customer Service client application x 10 minutes x $0.004 per participant leg per minute = $0.04
 - One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04
-- Omnichannel for Customer Service bot doesn't introduce extra ACS charges.
+- Omnichannel for Customer Service bot doesn't introduce extra Azure Communication Services charges.
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+For more information on Omnichannel for Customer Service pricing, see [pricing scenarios for voice calling](/dynamics365/customer-service/voice-channel-pricing-scenarios)
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
-Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
+Alice and Bob are on a VoIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
 
 - Alice used the JS SDK to build the app. They spoke for 10 minutes before calling Charlie on the PSTN number.
 - Once Bob escalated the call to Charlie on his PSTN number, the three of them spoke for another 10 minutes.
@@ -116,7 +118,7 @@ Asha calls your US toll-free number (acquired from Communication Services) from 
 **Cost calculations**
 
 - Inbound PSTN leg by Asha to toll-free number acquired from Communication Services x 10 minutes x $0.0220 per minute for receiving the call = $0.22
-- One participant on the VOIP leg (David) x 5 minutes x $0.004 per participant leg per minute = $0.02
+- One participant on the VoIP leg (David) x 5 minutes x $0.004 per participant leg per minute = $0.02
 
 Note that the service application that uses Call Automation SDK isn't charged to be part of the call. The additional monthly cost of leasing a US toll-free number isn't included in this calculation.
 
@@ -124,7 +126,7 @@ Note that the service application that uses Call Automation SDK isn't charged to
 
 ### Pricing example: Inbound PSTN call redirected to another external telephone number using Call Automation SDK
 
-Vlad dials your toll-free number (that you acquired from Communication Service) from his mobile phone. Your service application (built with Call Automation SDK) receives the call, and invokes the logic to redirect the call to a mobile phone number of Abraham using ACS direct routing. Abraham picks up the call and they talk with Vlad for 5 minutes.
+Vlad dials your toll-free number (that you acquired from Communication Service) from his mobile phone. Your service application (built with Call Automation SDK) receives the call, and invokes the logic to redirect the call to a mobile phone number of Abraham using Azure Communication Services direct routing. Abraham picks up the call and they talk with Vlad for 5 minutes.
 
 - Vlad was on the call as a PSTN endpoint for a total of 5 minutes.
 - Your service application was on the call for the entire 5 minutes of the call.
@@ -133,7 +135,7 @@ Vlad dials your toll-free number (that you acquired from Communication Service) 
 **Cost calculations**
 
 - Inbound PSTN leg by Vlad to toll-free number acquired from Communication Services x 5 minutes x $0.0220 per minute for receiving the call = $0.11
-- One participant on the ACS direct routing outbound leg (Abraham) from the service application to an SBC x 5 minutes x $0.004 per participant leg per minute = $0.02
+- One participant on the Azure Communication Services direct routing outbound leg (Abraham) from the service application to an SBC x 5 minutes x $0.004 per participant leg per minute = $0.02
 
 The service application that uses Call Automation SDK isn't charged to be part of the call. The additional monthly cost of leasing a US toll-free number isn't included in this calculation.
 

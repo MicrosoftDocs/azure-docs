@@ -14,7 +14,7 @@ ms.devlang: r
 
 # Interactive R development
  
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 This article shows how to use R on a compute instance in Azure Machine Learning studio, that runs an R kernel in a Jupyter notebook.
 
@@ -92,7 +92,7 @@ For data stored in a data asset [created in Azure Machine Learning](how-to-creat
 
         [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=configure-ml_client)]
     
-    1. Use this code to retrieve the asset. Make sure to replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
+    1. Use this code to retrieve the asset. Make sure to replace `<MY_NAME>` and `<MY_VERSION>` with the name and number of your data asset.
 
         > [!TIP]
         > In studio, select **Data** in the left navigation to find the name and version number of your data asset.

@@ -1,6 +1,6 @@
 ---
 title: Working with the change feed
-titleSuffix: Azure Cosmos DB 
+titleSuffix: Azure Cosmos DB
 description: Use Azure Cosmos DB change feed to track changes, process events, and keep other systems up-to-date.
 author: seesharprun
 ms.author: sidandrews
@@ -8,7 +8,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/09/2023
-ms.custom: seodec18, seo-nov-2020, ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Change feed in Azure Cosmos DB
@@ -65,7 +65,7 @@ Change feed is available for partition key ranges of an Azure Cosmos DB containe
 
 ### Sort order of items in change feed
 
-Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key, and there's no guaranteed order across the partition key values.
+Change feed items come in the order of their modification time. This sort order is guaranteed per partition key, and there's no guaranteed order across the partition key values.
 
 ### Change feed in multi-region Azure Cosmos DB accounts
 

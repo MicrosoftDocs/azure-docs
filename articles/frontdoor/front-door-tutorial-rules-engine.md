@@ -6,10 +6,10 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
-ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 06/06/2023
-ms.author: duau 
-# Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
+ms.author: duau
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI.
 ---
 
 # Tutorial: Configure your rules engine

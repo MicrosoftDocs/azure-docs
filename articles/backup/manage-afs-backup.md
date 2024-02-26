@@ -4,8 +4,9 @@ description: This article describes common tasks for managing and monitoring the
 ms.topic: conceptual
 ms.date: 11/03/2021
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+
 ---
 
 # Manage Azure file share backups

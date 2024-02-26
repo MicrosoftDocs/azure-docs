@@ -23,7 +23,7 @@ When you interact with an AKS cluster using the `kubectl` tool, a configuration 
 
 The [`az aks get-credentials`][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges these credentials into the *kubeconfig* file. You can use Azure RBAC to control access to these credentials. These Azure roles let you define who can retrieve the *kubeconfig* file and what permissions they have within the cluster.
 
-There are two Azure roles you can apply to an Azure Active Directory (Azure AD) user or group:
+There are two Azure roles you can apply to a Microsoft Entra user or group:
 
 - **Azure Kubernetes Service Cluster Admin Role**
 
@@ -36,13 +36,13 @@ There are two Azure roles you can apply to an Azure Active Directory (Azure AD) 
      * Downloads *kubeconfig* for *clusterUser* role.
 
 > [!NOTE]
-> On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a login. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
+> On clusters that use Microsoft Entra ID, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a login. Once logged in, users have access based on their Microsoft Entra user or group settings. Users with the *clusterAdmin* role have admin access.
 >
-> On clusters that don't use Azure AD, the *clusterUser* role has same effect of *clusterAdmin* role.
+> On clusters that don't use Microsoft Entra ID, the *clusterUser* role has same effect of *clusterAdmin* role.
 
 ## Assign role permissions to a user or group
 
-To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group using the following steps:
+To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Microsoft Entra user account or group using the following steps:
 
 1. Get the cluster resource ID using the [`az aks show`][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
 2. Use the [`az account show`][az-account-show] and [`az ad user show`][az-ad-user-show] commands to get your user ID.
@@ -65,16 +65,16 @@ az role assignment create \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
 
-If you want to assign permissions to an Azure AD group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than the *user*.
+If you want to assign permissions to a Microsoft Entra group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than the *user*.
 
-To get the object ID for a group, use the [`az ad group show`][az-ad-group-show] command. The following command gets the object ID for the Azure AD group named *appdev*:
+To get the object ID for a group, use the [`az ad group show`][az-ad-group-show] command. The following command gets the object ID for the Microsoft Entra group named *appdev*:
 
 ```azurecli-interactive
 az ad group show --group appdev --query objectId -o tsv
 ```
 
 > [!IMPORTANT]
-> In some cases, such as Azure AD guest users, the *user.name* in the account is different than the *userPrincipalName*.
+> In some cases, such as Microsoft Entra guest users, the *user.name* in the account is different than the *userPrincipalName*.
 >
 > ```azurecli-interactive
 > $ az account show --query user.name -o tsv
@@ -84,7 +84,7 @@ az ad group show --group appdev --query objectId -o tsv
 > user_contoso.com#EXT#@contoso.onmicrosoft.com
 > ```
 >
-> In this case, set the value of *ACCOUNT_UPN* to the *userPrincipalName* from the Azure AD user. For example, if your account *user.name* is *user\@contoso.com*, this action would look like the following example:
+> In this case, set the value of *ACCOUNT_UPN* to the *userPrincipalName* from the Microsoft Entra user. For example, if your account *user.name* is *user\@contoso.com*, this action would look like the following example:
 >
 > ```azurecli-interactive
 > ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
@@ -139,7 +139,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## Next steps
 
-For enhanced security on access to AKS clusters, [integrate Azure Active Directory authentication][aad-integration].
+For enhanced security on access to AKS clusters, [integrate Microsoft Entra authentication][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

@@ -31,7 +31,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |----|:----|
 |Release state:|Deprecated (Use [**Microsoft Defender for Containers**](defender-for-containers-introduction.md))|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What are the benefits of Microsoft Defender for Kubernetes?
 
@@ -45,7 +45,7 @@ Examples of security events that Microsoft Defenders for Kubernetes monitors inc
 - Creation of high privileged roles
 - Creation of sensitive mounts.
 
-For a full list of the cluster level alerts, see alerts with "K8S_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+For a full list of the cluster level alerts, see alerts with "K8S_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 ## FAQ - Microsoft Defender for Kubernetes
 

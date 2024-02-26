@@ -2,7 +2,7 @@
 title: Azure Diagnostics extension overview
 description: Use Azure Diagnostics for debugging, measuring performance, monitoring, and performing traffic analysis in cloud services, virtual machines, and service fabric.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 
 ---

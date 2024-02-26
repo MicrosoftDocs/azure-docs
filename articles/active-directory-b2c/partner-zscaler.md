@@ -1,18 +1,17 @@
 ---
 title: Tutorial - Configure Zscaler Private access with Azure Active Directory B2C 
-
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Zscaler.
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C authentication with Zscaler Private Access. I need to provide secure access to private applications and assets without the need for a virtual private network (VPN).
 ---
 
 # Tutorial: Configure Zscaler Private Access with Azure Active Directory B2C

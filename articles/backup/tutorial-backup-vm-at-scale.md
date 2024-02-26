@@ -5,8 +5,8 @@ ms.date: 02/27/2023
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Use Azure portal to back up multiple virtual machines

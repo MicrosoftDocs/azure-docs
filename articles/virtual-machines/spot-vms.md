@@ -1,11 +1,10 @@
 ---
-title: Use Azure Spot Virtual Machines 
+title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.reviewer: cynthn
@@ -53,7 +52,7 @@ The following VM sizes aren't supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 <a name="channel"></a>
 

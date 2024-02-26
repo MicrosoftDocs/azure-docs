@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 02/07/2024
 ms.author: nkondamudi
 ms.custom: references_regions
 ---
@@ -75,12 +75,12 @@ The following regions are supported as primary regions (Regions where you can re
 - Europe North
 - France Central
 - Japan West
-- US South
+- US South Central
 - Poland Central
 - Switzerland West
 
 > [!NOTE]
-> US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central and US West Central cannot be extended as a secondary region at this time.
+> US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central and US West Central cannot be extended as a secondary region at this time.
 
 ## Billing
 
@@ -92,7 +92,7 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ## Private link behavior with Multi-region replication
 
-The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the secondary region, it is recommended to create another private endpoint once the Managed HSM in the primary region is replicated to the Manged HSM in the secondary region.  This will redirect client requests to the Managed HSM closest to the client location. 
+The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the secondary region, it is recommended to create another private endpoint once the Managed HSM in the primary region is replicated to the Managed HSM in the secondary region.  This will redirect client requests to the Managed HSM closest to the client location. 
 
 Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in a secondary region (US West Central).
 

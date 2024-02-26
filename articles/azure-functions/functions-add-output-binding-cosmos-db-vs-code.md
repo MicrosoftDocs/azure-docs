@@ -1,11 +1,12 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-ms.date: 02/09/2023
+ms.date: 02/13/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.devlang: csharp, javascript, python
-ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, python
+ms.custom: mode-ui, vscode-azure-extension-update-completed, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -75,10 +76,10 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
     |Prompt| Selection|
     |--|--|
-    |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
-    |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you copied.|
+    |**Enter new app setting name**| Type `CosmosDbConnectionSetting`.|
+    |**Enter value for "CosmosDbConnectionSetting"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
 
-    This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
+    This creates an application setting named connection `CosmosDbConnectionSetting` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
 1. Press <kbd>F1</kbd> again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
 
@@ -94,13 +95,13 @@ Because you're using an Azure Cosmos DB output binding, you must have the corres
 
 Except for HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure Cosmos DB extension package to your project.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 ```command
-dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.10
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
-# [Isolated process](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 ```command
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB --version 3.0.9
+dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
 ```
 ---
 ::: zone-end
@@ -121,14 +122,7 @@ Now, you can add the Azure Cosmos DB output binding to your project.
 ::: zone pivot="programming-language-csharp"
 In a C# class library project, the bindings are defined as binding attributes on the function method. 
 
-# [In-process](#tab/in-process)
-Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
-
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db/HttpExample.cs" range="18-20":::
-
-The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that are written to your Azure Cosmos DB container when the function completes. Specific attributes indicate the names of the container and its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Open the *HttpExample.cs* project file and add the following classes:
 
@@ -138,9 +132,16 @@ The `MyDocument` class defines an object that gets written to the database. The 
 
 The `MultiResponse` class allows you to both write to the specified collection in the Azure Cosmos DB and return an HTTP success message. Because you need to return a `MultiResponse` object, you need to also update the method signature.
 
+# [In-process model](#tab/in-process)
+Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db/HttpExample.cs" range="18-20":::
+
+The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that are written to your Azure Cosmos DB container when the function completes. Specific attributes indicate the names of the container and its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
+
 ---
 
-Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionString`.
+Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.
 
 ::: zone-end
 
@@ -158,7 +159,7 @@ To create a binding, right-click (Ctrl+select on macOS) the *function.json* file
 | **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
 | **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
 | **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
-| **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
+| **Select setting from "local.setting.json"** | `CosmosDbConnectionSetting` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
@@ -170,9 +171,9 @@ A binding is added to the `bindings` array in your *function.json*, which should
     "direction": "out",
     "name": "outputDocument",
     "databaseName": "my-database",
-    "collectionName": "my-container",
+    "containerName": "my-container",
     "createIfNotExists": "false",
-    "connectionStringSetting": "CosmosDbConnectionString"
+    "connection": "CosmosDbConnectionSetting"
 }
 ```
 
@@ -196,7 +197,7 @@ To create a binding, right-select (Ctrl+select on macOS) the *function.json* fil
 | **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
 | **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
 | **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
-| **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
+| **Select setting from "local.setting.json"** | `CosmosDbConnectionSetting` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
@@ -208,9 +209,9 @@ A binding is added to the `bindings` array in your *function.json*, which should
     "direction": "out",
     "name": "outputDocument",
     "databaseName": "my-database",
-    "collectionName": "my-container",
+    "containerName": "my-container",
     "createIfNotExists": "false",
-    "connectionStringSetting": "CosmosDbConnectionString"
+    "connection": "CosmosDbConnectionSetting"
 }
 ```
 
@@ -220,10 +221,10 @@ Binding attributes are defined directly in the *function_app.py* file. You use t
 
 ```python
 @app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
-    collection_name="my-container", connection_string_setting="CosmosDbConnectionString")
+    container_name="my-container", connection="CosmosDbConnectionSetting")
 ```
 
-In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `collection_name` are the database and collection names that the binding writes to, and `connection_string_setting` is the name of an application setting that contains the connection string for the Storage account, which is in the CosmosDbConnectionString setting in the *local.settings.json* file.
+In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `container_name` are the database and collection names that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Azure Cosmos DB account, which is in the `CosmosDbConnectionSetting` setting in the *local.settings.json* file.
 
 ---
 
@@ -233,7 +234,13 @@ In this code, `arg_name` identifies the binding parameter referenced in your cod
 
 ::: zone pivot="programming-language-csharp"  
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Replace the existing Run method with the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
+
+# [In-process model](#tab/in-process)
 
 Add code that uses the `documentsOut` output binding object to create a JSON document. Add this code before the method returns.
 
@@ -258,8 +265,8 @@ public static async Task<IActionResult> Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
     [CosmosDB(
         databaseName: "my-database",
-        collectionName: "my-container",
-        ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
+        containerName: "my-container",
+        Connection = "CosmosDbConnectionSetting")]IAsyncCollector<dynamic> documentsOut,
     ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
@@ -288,12 +295,6 @@ public static async Task<IActionResult> Run(
     return new OkObjectResult(responseMessage);
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-Replace the existing Run method with the following code:
-
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
 
 ---
 
@@ -391,7 +392,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 @app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", collection_name="my-container" connection_string_setting="CosmosDbConnectionString")
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", container_name="my-container", connection="CosmosDbConnectionSetting")
 def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
     outputDocument: func.Out[func.Document]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')

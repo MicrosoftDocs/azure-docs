@@ -51,7 +51,7 @@ Azure Lab Services manages access to lab virtual machines at different levels:
 
 - Start or stop a lab VM. Azure Lab Services grants lab users permission to perform such actions on their own virtual machines. The service also controls access to the lab virtual machine connection information.
 
-- Register for a lab. Azure Lab Services offers two different access settings: restricted and nonrestricted. *Restricted access* means that Azure Lab Services verifies that lab users are added to the lab before allowing access. *Nonrestricted access* means that any user can register for a lab by using the lab registration link, if there's capacity in the lab. Nonrestricted access can be useful for hackathon events. For more information, see the [manage lab users](how-to-configure-student-usage.md#send-invitations-to-users) article.
+- Register for a lab. Azure Lab Services offers two different access settings: restricted and nonrestricted. *Restricted access* means that Azure Lab Services verifies that lab users are added to the lab before allowing access. *Nonrestricted access* means that any user can register for a lab by using the lab registration link, if there's capacity in the lab. Nonrestricted access can be useful for hackathon events. For more information, see the [manage lab users](how-to-manage-lab-users.md#send-invitations-to-users) article.
 
 - Virtual machine credentials. Lab virtual machines that are hosted in the lab have a username and password set by the creator of the lab. Alternately, the creator of the lab can allow registered users to choose their own password on first sign-in.
 

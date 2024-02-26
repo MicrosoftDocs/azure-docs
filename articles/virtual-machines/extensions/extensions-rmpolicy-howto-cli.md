@@ -4,7 +4,7 @@ description: Use Azure Policy to restrict VM extension deployments.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
@@ -15,7 +15,7 @@ ms.date: 04/11/2023
 
 If you want to prevent the installation of certain extensions on your Linux VMs, you can create an Azure Policy definition using the Azure CLI to restrict extensions for VMs within a resource group. To learn the basics of Azure VM extensions for Linux, see [Virtual machine extensions and features for Linux](./features-linux.md).
 
-This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a rules file
 
@@ -53,7 +53,7 @@ This example demonstrates how to deny the installation of disallowed VM extensio
 
 ## Create a parameters file
 
-You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions. 
+You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions.
 
 This example shows you how to create a parameter file for Linux VMs in Cloud Shell.
 

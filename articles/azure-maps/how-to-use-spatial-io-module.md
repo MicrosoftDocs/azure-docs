@@ -1,5 +1,6 @@
 ---
-title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
+title: How to use the Azure Maps spatial IO module
+titleSuffix: Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web SDK.
 author: eriklindeman
 ms.author: eriklind
@@ -13,7 +14,7 @@ ms.custom:
 
 # How to use the Azure Maps Spatial IO module
 
-The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
+The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
 - [Read and write spatial data]. Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, GeoJSON and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
 - Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK, and overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
@@ -59,6 +60,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
     import * as spatial from "azure-maps-spatial-io";
     ```
 
+    To learn more, see [How to use the Azure Maps map control npm package].
+
 ## Using the Spatial IO module
 
 1. Create a new HTML file.
@@ -81,8 +84,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <script type='text/javascript'>
 
@@ -111,7 +114,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </head>
 
     <body onload="GetMap()">
-        <div id="myMap"></div>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
     </body>
 
     </html>
@@ -141,12 +144,14 @@ You can load the Azure Maps spatial IO module using one of the two options:
     map.layers.add(layer);
     ```
 
-1. Your HTML code should now look like the following code. This sample demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map.
+1. Your HTML code should now look like the following code. This sample demonstrates how to display an XML file's feature data on a map.
+
+    > [!NOTE]
+    > This example uses [Route66Attractions.xml].
 
     ```html
     <!DOCTYPE html>
     <html>
-
     <head>
         <title>Spatial IO Module Example</title>
 
@@ -159,8 +164,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <!-- Add reference to the Azure Maps Spatial IO module. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -192,7 +197,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
                     map.layers.add(layer);
 
                     //Read an XML file from a URL or pass in a raw XML string.
-                    atlas.io.read('superCoolKmlFile.xml').then(r => {
+                    atlas.io.read('Route66Attractions.xml').then(r => {
                         if (r) {
                             //Add the feature data to the data source.
                             datasource.add(r);
@@ -210,21 +215,15 @@ You can load the Azure Maps spatial IO module using one of the two options:
             }
         </script>
     </head>
-
-    <body onload="GetMap()">
-        <div id="myMap"></div>
+    <body onload='GetMap()'>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
     </body>
-
     </html>
     ```
 
 1. Remember to replace `<Your Azure Maps Key>` with your subscription key. You should see results similar to the following image in your HTML file:
 
-    <center>
-
-    ![Spatial Data Example](./media/how-to-use-spatial-io-module/spatial-data-example.png)
-
-    </center>
+    :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" lightbox="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot showing the Spatial Data sample in a map.":::
 
 ## Next steps
 
@@ -253,16 +252,19 @@ Refer to the Azure Maps Spatial IO documentation:
 > [!div class="nextstepaction"]
 > [Azure Maps Spatial IO package]
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Add a map layer from the Open Geospatial Consortium (OGC)]: spatial-io-add-ogc-map-layer.md
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
-[Core IO operations]: spatial-io-core-operations.md
-[Connect to a WFS service]: spatial-io-connect-wfs-service.md
-[azure-maps-spatial-io]: https://www.npmjs.com/package/azure-maps-spatial-io
-[Azure Maps map control]: how-to-use-map-control.md
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
-[Leverage core operations]: spatial-io-core-operations.md
-[Supported data format details]: spatial-io-supported-data-format-details.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps map control]: how-to-use-map-control.md
 [Azure Maps Spatial IO package]: /javascript/api/azure-maps-spatial-io
+[azure-maps-spatial-io]: https://www.npmjs.com/package/azure-maps-spatial-io
+[Connect to a WFS service]: spatial-io-connect-wfs-service.md
+[Core IO operations]: spatial-io-core-operations.md
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md
+[Leverage core operations]: spatial-io-core-operations.md
+[Read and write spatial data]: spatial-io-read-write-spatial-data.md
+[Route66Attractions.xml]: https://samples.azuremaps.com/data/Gpx/Route66Attractions.xml
+[Spatial IO module]: https://www.npmjs.com/package/azure-maps-spatial-io
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Supported data format details]: spatial-io-supported-data-format-details.md

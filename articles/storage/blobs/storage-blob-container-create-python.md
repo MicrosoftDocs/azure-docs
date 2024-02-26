@@ -5,30 +5,29 @@ description: Learn how to create a blob container in your Azure Storage account 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 12/07/2023
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
 # Create a blob container with Python
 
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
+
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
-## Container names
+To learn about creating blob containers using asynchronous APIs, see [Create a container asynchronously](#create-a-container-asynchronously).
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+## Prerequisites
 
-- Container names can be between 3 and 63 characters long.
-- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
-- Two or more consecutive dash characters aren't permitted in container names.
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
+    - [Create Container](/rest/api/storageservices/create-container#authorization)
 
-The URI for a container is in this format:
-
-`https://accountname.blob.core.windows.net/containername`
+[!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
 ## Create a container
 
@@ -44,7 +43,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container from a `BlobServiceClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py" id="Snippet_create_container":::
 
 ## Create the root container
 
@@ -56,7 +55,33 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_root_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py" id="Snippet_create_root_container":::
+
+## Create a container asynchronously
+
+The Azure Blob Storage client library for Python supports creating a blob container asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to create a container using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient
+    from azure.core.exceptions import ResourceExistsError
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that creates the container. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py" id="Snippet_create_client_async":::
+
+1. Add code to create a container. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `create_container` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py" id="Snippet_create_container":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
 ## Resources
 
@@ -70,6 +95,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_container.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_container_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
