@@ -70,7 +70,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 1. Under **Encryption type**, select **Customer Managed Keys**, as shown in the following screenshot.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create a resource user experience](./media/encryption/encryption.png)
+   > ![Screenshot of create a resource user experience.](./media/encryption/encryption.png)
 
 ### Specify a key
 
