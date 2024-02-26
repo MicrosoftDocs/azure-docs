@@ -55,7 +55,7 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 
 The ECesv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM. If you require a local disk, please consider ECedsv5-series. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and critical applications that process sensitive and regulated data. 
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). This series currently supports the confidential tagged images Windows Server 2022, Windows 11, and Ubuntu 22.04 LTS.
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). 
 
 ### ECesv5-series specifications
 
