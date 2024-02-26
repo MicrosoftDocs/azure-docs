@@ -203,13 +203,15 @@ Each session host mounts application images from the file share. You need to con
    > Assigning the **Azure Virtual Desktop ARM Provider** service principal to the storage account grants the Azure Virtual Desktop service to all data inside the storage account. We recommended you only store apps to use with app attach in this storage account and rotate the access keys regularly.
 ::: zone-end
 
+::: zone pivot="app-attach"
 - For Azure Files with Active Directory Domain Services, you need to assign the [Storage File Data SMB Share Reader](../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) Azure role-based access control (RBAC) role as the [default share-level permission](../storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities), and [configure NTFS permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to give read access to each session host's computer object.
 
-::: zone pivot="app-attach"
    For more information about using Azure Files with session hosts that are joined to Microsoft Entra ID, Active Directory Domain Services, or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
+- For Azure Files with Active Directory Domain Services, you need to assign the [Storage File Data SMB Share Reader](../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) Azure role-based access control (RBAC) role as the [default share-level permission](../storage/files/storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities), and [configure NTFS permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to give read access to each session host's computer object.
+
    For more information about using Azure Files with session hosts that are joined to Active Directory Domain Services or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
 ::: zone-end
 
