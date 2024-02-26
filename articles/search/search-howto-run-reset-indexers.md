@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 02/26/2024
 ---
 
 # Run or reset indexers, skills, or documents
