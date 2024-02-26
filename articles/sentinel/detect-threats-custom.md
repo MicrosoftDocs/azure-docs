@@ -43,7 +43,9 @@ Analytics rules search for specific events or sets of events across your environ
 
 ---
 
-### Analytics rule wizard&mdash;General tab
+### Analytics rule wizard&mdash;General tab*
+
+\* In the Azure portal, stages are represented visually as tabs. In the Defender portal, they're represented visually as milestones on a timeline. See the screenshots below for examples.
 
 - Provide a unique **Name** and a **Description**.
 
@@ -64,7 +66,13 @@ Analytics rules search for specific events or sets of events across your environ
 
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
+   # [Azure portal](#tab/azure)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
+
+   # [Defender portal](#tab/defender)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/defender-general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
 
 ## Define the rule query logic and configure settings
 
