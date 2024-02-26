@@ -1,7 +1,7 @@
 ---
 title: Configure Asignio with Azure Active Directory B2C for multifactor authentication
 titleSuffix: Azure AD B2C
-description: Configure Azure Active Directory B2C with Asignio for multifactor authentication
+description: Learn how to configure Azure Active Directory B2C with Asignio for multifactor authentication
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.reviewer: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-# Customer intent: I'm a developer integrating Asignio with Azure AD B2C for multifactor authentication. I want to configure an application with Asignio and set it up as an identity provider (IdP) in Azure AD B2C, so I can provide a passwordless, soft biometric, and multifactor authentication experience to customers.
+# Customer intent: As a developer integrating Asignio with Azure AD B2C for multifactor authentication. I want to configure an application with Asignio and set it up as an identity provider (IdP) in Azure AD B2C, so I can provide a passwordless, soft biometric, and multifactor authentication experience to customers.
 ---
 
 # Configure Asignio with Azure Active Directory B2C for multifactor authentication

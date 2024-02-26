@@ -90,7 +90,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#x2705; |
 |[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Automation rules](automate-incident-handling-with-automation-rules.md)     |GA        |&#x2705; |&#x2705;| &#x2705;         |
 |[Automation rules health](monitor-automation-health.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
