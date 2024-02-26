@@ -67,7 +67,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     </div>
     ```
 
-1. Create a file named *mysettings.json* at the root of your project directory, and enter the following content.
+1. Create a *config* directory in the root of your project and add a *mysettings.json* file to it with the following content.
 
     ```json
     {
@@ -85,7 +85,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     // ... ...
 
     // Add a JSON configuration source 
-    builder.Configuration.AddJsonFile("mysettings.json"); 
+    builder.Configuration.AddJsonFile("config/mysettings.json"); 
 
     var app = builder.Build();
 
@@ -260,7 +260,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile*.
+2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
     ```yaml
     apiVersion: apps/v1
@@ -286,7 +286,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
             - containerPort: 80
             volumeMounts:
             - name: config-volume
-              mountPath: /app
+              mountPath: /app/config
           volumes:
           - name: config-volume 
             configMap: 
