@@ -27,11 +27,11 @@ Analytics rules search for specific events or sets of events across your environ
 
 # [Azure portal](#tab/azure)
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. In the action bar at the top, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Screenshot of Analytics screen in Azure portal" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query.png":::
 
 # [Defender portal](#tab/defender)
 
@@ -68,11 +68,13 @@ Analytics rules search for specific events or sets of events across your environ
 
    # [Azure portal](#tab/azure)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
    # [Defender portal](#tab/defender)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/defender-general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
+
+   ---
 
 ## Define the rule query logic and configure settings
 
@@ -82,7 +84,15 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - The example shown in this screenshot queries the *SecurityEvent* table to display a type of [failed Windows logon events](/windows/security/threat-protection/auditing/event-4625).
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
+   # [Azure portal](#tab/azure)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic.png" alt-text="Screenshot of rule logic screen of analytics rule wizard in the Azure portal." lightbox="media/tutorial-detect-threats-custom/set-rule-logic.png":::
+
+   # [Defender portal](#tab/defender)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/defender-set-rule-logic.png" alt-text="Screenshot of rule logic screen of analytics rule wizard in the Defender portal." lightbox="media/tutorial-detect-threats-custom/defender-set-rule-logic.png":::
+
+   ---
 
 - Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/essentials/activity-log.md).
 
@@ -98,7 +108,6 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
     >
 
-
     > [!NOTE]
     > **Rule query best practices**:
     >
@@ -111,7 +120,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 ### Alert enrichment
 
-- Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
+- Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** section.
 
     Learn more about [entities in Microsoft Sentinel](entities.md).
 
@@ -137,7 +146,15 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - In the **Query scheduling** section, set the following parameters:
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2-new.png":::
+   # [Azure portal](#tab/azure)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
+
+   # [Defender portal](#tab/defender)
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
+
+   ---
 
   - Set **Run query every** to control how often the query is run&mdash;as frequently as every 5 minutes or as infrequently as once every 14 days.
 
