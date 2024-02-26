@@ -37,7 +37,7 @@ February 27, 2024
 
 The security policy management solution and new experience initially released in Preview for Azure, is expanding its support for AWS and GCP environments. This release includes: 
 - support for [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud for Azure, AWS and GCP.
-- [Extended the interface experience for custom recommendations (benchmark) for AWS and GCP](manage-mcsb)
+- [Extended the interface experience for custom recommendations (benchmark) for AWS and GCP](manage-mcsb.md)
 - Experience applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
 
 
