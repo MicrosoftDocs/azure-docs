@@ -20,7 +20,7 @@ Azure Monitor is based on a [common monitoring data platform](data-platform.md) 
 > There is a cost for collecting and retaining most types of data in Azure Monitor. To minimize your cost, ensure that you don't collect any more data than you require and that your environment is configured to optimize your costs. See [Cost optimization in Azure Monitor](best-practices-cost.md) for a summary of recommendations.
 
 ## Azure resources
-Most resources in Azure generate the monitoring data described in the following table. Some services will also have additional data that can be collected by enabling other features of Azure Monitor. Regardless of the services that you're monitoring though, you should start by understanding and configuring collection of this data.
+Most resources in Azure generate the monitoring data described in the following table. Some services will also have additional data that can be collected by enabling other features of Azure Monitor (described in other sections in this article). Regardless of the services that you're monitoring though, you should start by understanding and configuring collection of this data.
 
 Create diagnostic settings for each of the following data types can be sent to a Log Analytics workspace, archived to a storage account, or streamed to an event hub to send it to services outside of Azure. See [Create diagnostic settings in Azure Monitor](essentials/create-diagnostic-settings.md).
 
@@ -28,15 +28,15 @@ Create diagnostic settings for each of the following data types can be sent to a
 |:---|:---|:---|
 |  Activity log | The Activity log provides insight into subscription-level events for Azure services including service health records and configuration changes. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations. Can be collected in Log Analytics workspace at no charge. See [Azure Monitor activity log](essentials/activity-log.md). |
 | Platform metrics | Platform metrics are numerical values that are automatically collected at regular intervals for different aspects of a resource. The specific metrics will vary for each type of resource.  | Collected automatically and stored in [Azure Monitor Metrics](./essentials/data-platform-metrics.md). View in metrics explorer or create a diagnostic setting to send it to other destinations. See [Azure Monitor Metrics overview](essentials/data-platform-metrics.md) and [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) for a list of metrics for different services. |
-| [Resource logs](essentials/resource-logs.md) | Provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. | You must create a diagnostic setting to collect resources logs. See [Azure resource logs](essentials/resource-logs.md) and [Supported services, schemas, and categories for Azure resource logs](essentials/resource-logs-schema.md) for details on each service. |
+| Resource logs | Provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. | You must create a diagnostic setting to collect resources logs. See [Azure resource logs](essentials/resource-logs.md) and [Supported services, schemas, and categories for Azure resource logs](essentials/resource-logs-schema.md) for details on each service. |
 
 
 ## Microsoft Entra ID
-Activity logs in Microsoft Entra ID are similar to the activity logs in Azure Monitor and can also use a diagnostic setting to be sent to a Log Analytics workspace, archived to a storage account, or streamed to an event hub to send it to services outside of Azure. 
+Activity logs in Microsoft Entra ID are similar to the activity logs in Azure Monitor and can also use a diagnostic setting to be sent to a Log Analytics workspace, archived to a storage account, or streamed to an event hub to send it to services outside of Azure. See [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings).
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
-| Activity logs | Enable you to assess many aspects of your Microsoft Entra ID environment, including history of sign-in activity and audit trail of changes made within a particular tenant, information about sign-ins and how your resources are used by your users, and activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations. See [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings). |
+| Activity logs | Enable you to assess many aspects of your Microsoft Entra ID environment, including history of sign-in activity, audit trail of changes made within a particular tenant, and activities performed by the provisioning service. | Collected automatically. View in the Azure portal or create a diagnostic setting to send it to other destinations.  |
 
 ## Virtual machines
 Azure virtual machines create the same activity logs and platform metrics as other Azure resources. In addition to this host data though, you need to monitor the guest operating system and the workloads running on it, which requires the [Azure Monitor agent](./agents/agents-overview.md) or [SCOM Managed Instance](./vm/scom-managed-instance-overview.md). The following table includes the most common data to collect from VMs. See [Monitor virtual machines with Azure Monitor: Collect data](./vm/monitor-virtual-machine-data-collection.md) for a more complete description of the different kinds of data you can collect from virtual machines.
@@ -57,8 +57,8 @@ Azure Kubernetes Service (AKS) clusters create the same activity logs and platfo
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
-| Cluster Metrics | Usage and performance data for the cluster, nodes, deployments, and workloads.  | Enable managed Prometheus for the cluster to send cluster metrics to an [Azure Monitor workspace](./essentials/azure-monitor-workspace-overview.md). See [Enable Prometheus and Grafana](./containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). See [Default Prometheus metrics configuration in Azure Monitor](containers/prometheus-metrics-scrape-default.md) for a list of metrics that are collected by default.  |
-| Logs | Standard Kubernetes logs including events for the cluster, nodes, deployments, and workloads. | Enable Container insights for the cluster to send container logs to a Log Analytics workspace. See [Enable Container insights](./containers/kubernetes-monitoring-enable.md#enable-container-insights). See [Configure data collection in Container insights using data collection rule](./containers/container-insights-data-collection-dcr.md) to configure which logs will be collected. |
+| Cluster Metrics | Usage and performance data for the cluster, nodes, deployments, and workloads.  | Enable managed Prometheus for the cluster to send cluster metrics to an [Azure Monitor workspace](./essentials/azure-monitor-workspace-overview.md). See [Enable Prometheus and Grafana](./containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) for onboarding and [Default Prometheus metrics configuration in Azure Monitor](containers/prometheus-metrics-scrape-default.md) for a list of metrics that are collected by default.  |
+| Logs | Standard Kubernetes logs including events for the cluster, nodes, deployments, and workloads. | Enable Container insights for the cluster to send container logs to a Log Analytics workspace. See [Enable Container insights](./containers/kubernetes-monitoring-enable.md#enable-container-insights) for onmboarding and [Configure data collection in Container insights using data collection rule](./containers/container-insights-data-collection-dcr.md) to configure which logs will be collected. |
 
 
 ## Application
@@ -67,13 +67,15 @@ Application monitoring in Azure Monitor is done with [Application Insights](/azu
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
-| Logs | Operational data about your application including page views, application requests, exceptions, and traces. Also includes dependency information between application components to support Application Map and telemetry correlation. | Application logs are stored in a Log Analytics workspace that you select as part of the onboarding process. See [Data Collection Basics of Azure Monitor Application Insights](app/opentelemetry-overview.md) for details about data collection and onboarding options. |
-| Metrics | Numeric data measuring the performance of your application and user requests measured over intervals of time. | Metric data is stored in both Azure Monitor Metrics and the Log Analytics workspace. See [Log-based and pre-aggregated metrics in Application Insights](app/pre-aggregated-metrics-log-metrics.md) for metrics that are collected and how to configure them. |
-| Traces | Traces are a series of related events tracking end to end requests through the components of your application. | Traces are stored in the Log Analytics workspace for the app. See [Explore .NET/.NET Core and Python trace logs in Application Insights](app/asp-net-trace-logs.md) to generate trace logs and [Profile production applications in Azure with Application Insights Profiler](profiler/profiler-overview.md) to configure performance tracing with Profiler. |
+| Logs | Operational data about your application including page views, application requests, exceptions, and traces. Also includes dependency information between application components to support Application Map and telemetry correlation. | Application logs are stored in a Log Analytics workspace that you select as part of the onboarding process. |
+| Metrics | Numeric data measuring the performance of your application and user requests measured over intervals of time. | Metric data is stored in both Azure Monitor Metrics and the Log Analytics workspace. |
+| Traces | Traces are a series of related events tracking end-to-end requests through the components of your application. | Traces are stored in the Log Analytics workspace for the app. |
 
 
 ## Custom sources
-For any monitoring data that you can't collect with the other methods described in this article, you can use the APIs in the following table to send data to Azure Monitor.
+For any monitoring data that you can't collect with the other methods described in this article, you can use the APIs in the following table to send data to Azure Monitor. See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
+
+"For more information about Application Insights, see https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview". There, customers will find the logic model diagram that contains the information they really want to know about App Insights.
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
