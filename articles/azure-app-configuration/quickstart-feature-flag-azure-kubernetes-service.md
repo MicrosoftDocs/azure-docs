@@ -18,13 +18,13 @@ In this quickstart, you will add feature management capability to an ASP.NET Cor
 
 ## Prerequisites
 
-Finish the [Create an application](./quickstart-azure-kubernetes-service.md#create-an-application) section in quickstart.
+Finish the tutorial: [Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 >
 
-## Create an application running in AKS
+## Use a feature flag
 
 In this section, you will use feature flags in a simple ASP.NET web application and run it in Azure Kubernetes Service (AKS). 
 
@@ -103,43 +103,15 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
 1. [Deploy the application](./quickstart-azure-kubernetes-service.md#deploy-the-application)
 
-## Use App Configuration Kubernetes Provider
+## Use Kubernetes Provider to load feature flags
 
-Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
+1. Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-### Setup the Azure App Configuration store
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
 
-Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-|**Key**|**Value**|
-|---|---|
-|Settings:FontColor|*Green*|
-|Settings:Message|*Hello from Azure App Configuration*|
-
-### Create a feature flag
-
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
-
-> [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
-
-### Setup the App Configuration Kubernetes Provider
-1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
-   
-    ```console
-    az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
-    ```
-
-1. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
-   
-    ```console
-    helm install azureappconfiguration.kubernetesprovider \
-         oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-         --namespace azappconfig-system \
-         --create-namespace
-    ```
-
-1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
+1. Update the *appConfigurationProvider.yaml* file located in the *Deployment* directory with the following content.
    
     ```yaml
     apiVersion: azconfig.io/v1
@@ -163,53 +135,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
           enabled: true
     ```
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Follow the steps in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) and update the `auth` section with the client ID of the user-assigned managed identity you created.
-    
-    > [!NOTE]
-    > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
-    >
-    > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
-    > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
-    > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
-
-1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in *Dockerfile* and the *config* directory you created before.
-   
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: aspnetapp-demo
-      labels:
-        app: aspnetapp-demo
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: aspnetapp-demo
-      template:
-        metadata:
-          labels:
-            app: aspnetapp-demo
-        spec:
-          containers:
-          - name: aspnetapp
-            image: myregistry.azurecr.io/aspnetapp:v1
-            ports:
-            - containerPort: 80
-            volumeMounts:
-            - name: config-volume
-              mountPath: /app/config
-            env:
-            - name: DOTNET_USE_POLLING_FILE_WATCHER
-            value: "true"
-          volumes:
-          - name: config-volume 
-            configMap: 
-              name: configmap-created-by-appconfig-provider
-              items:
-              - key: mysettings.json
-                path: mysettings.json
-    ```
+    > [!TIP]
+    > When no `selectors` is specified in `featureFlag` section, Kubernetes Provider doesn't load feature flags from your App Configuration store. The default refresh interval of feature flags is 30 seconds when `featureFlag.refresh` enabled. You can customize this behavior via the `featureFlag.refresh.interval` parameter.
 
 1. Run the following command to deploy the application to the AKS cluster.
 
@@ -247,13 +174,7 @@ In this quickstart, you:
 
 * Added feature management capability to an ASP.NET Core app running in Azure Kubernetes Service (AKS).
 * Connected your AKS cluster to your App Configuration store using the App Configuration Kubernetes Provider.
-* Created a ConfigMap with data from your App Configuration store.
+* Created a ConfigMap with key-values and feature flags from your App Configuration store.
 * Ran the application with dynamic configuration from your App Configuration store without changing your application code.
-
-To learn more about how to update your AKS workloads to dynamically refresh configuration, see the tutorial.
-
-> [!div class="nextstepaction"]
-> [Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
-
 
 To learn more about the Azure App Configuration Kubernetes Provider, see [Azure App Configuration Kubernetes Provider reference](./reference-kubernetes-provider.md).
