@@ -68,7 +68,7 @@ Analytics rules search for specific events or sets of events across your environ
 
    # [Azure portal](#tab/azure)
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
    # [Defender portal](#tab/defender)
 
