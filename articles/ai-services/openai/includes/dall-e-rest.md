@@ -26,7 +26,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 - An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
@@ -92,7 +92,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     The script makes a synchronous image generation API call.
 
-    #### [DALL-E 2](#tab/dalle2)
+    #### [DALL-E 2 (preview)](#tab/dalle2)
 
     ```python
     import requests
@@ -162,7 +162,7 @@ The output from a successful image generation API call looks like the following 
 } 
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -202,7 +202,7 @@ The system returns an operation status of `Failed` and the `error.code` value in
 }
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {
@@ -235,7 +235,7 @@ It's also possible that the generated image itself is filtered. In this case, th
 }
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```json
 {

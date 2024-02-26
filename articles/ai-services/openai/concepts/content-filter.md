@@ -314,7 +314,7 @@ For the protected material code model, the following additional information is r
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
-Annotations are currently available in the GA API version `2024-02-15` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
+Annotations are currently available in the GA API version `2024-02-01` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -588,7 +588,7 @@ violence  : @{filtered=False; severity=safe}
 
 ---
 
-For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using any preview API version starting from `2023-06-01-preview`, as well as the GA API version `2024-02-15`.
+For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using any preview API version starting from `2023-06-01-preview`, as well as the GA API version `2024-02-01`.
 
 ### Example scenario: An input prompt containing content that is classified at a filtered category and severity level is sent to the completions API
 

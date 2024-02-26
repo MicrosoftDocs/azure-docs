@@ -1039,7 +1039,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 } 
 ```
 
-### Request a generated image (DALL-E 2)
+### Request a generated image (DALL-E 2 preview)
 
 Generate a batch of images from a text caption.
 
@@ -1095,7 +1095,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
-### Get a generated image result (DALL-E 2)
+### Get a generated image result (DALL-E 2 preview)
 
 
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
@@ -1151,7 +1151,7 @@ Upon success the operation returns a `200` status code and an `OperationResponse
 }
 ```
 
-### Delete a generated image from the server (DALL-E 2)
+### Delete a generated image from the server (DALL-E 2 preview)
 
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 

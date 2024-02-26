@@ -25,7 +25,7 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Py
 - An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
@@ -72,7 +72,7 @@ Install the OpenAI Python SDK by using the following command:
 pip install openai
 ```
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 > [!IMPORTANT]
 > The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E 2 when used with Azure OpenAI. To access DALL-E 2 with Azure OpenAI use version `0.28.1`. Or, follow the [migration guide](/azure/ai-services/openai/how-to/migration?tabs=python%2Cdalle-fix) to use DALL-E 2 with OpenAI 1.x.
@@ -143,7 +143,7 @@ image.show()
 1. Change the value of `prompt` to your preferred text.
 1. Change the value of `model` to the name of your deployed DALL-E 3 model.
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 ```python
 import openai
