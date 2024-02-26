@@ -140,6 +140,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
   * [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md)  

@@ -95,7 +95,7 @@ For more information, see the following resources:
      
     # Uncomment the following lines according to the authentication type.
     # For system-assigned identity.
-    # credential = DefaultAzureCredential()
+    # cred = DefaultAzureCredential()
 
     # For user-assigned identity.
     # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')
