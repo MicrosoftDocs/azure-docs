@@ -1,10 +1,10 @@
 ---
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 02/21/2024
-ms.author: rwaller
+ms.author: sharmas
 ---
 
 ## Prerequisites
@@ -50,6 +50,9 @@ Add **Optional Features** by selecting check boxes, and then select **Next**.
 :::image type="content" source="../../media/python-install-2.png" alt-text="Screenshot of Install Python step 2 with optional features.":::
 
 Under **Advanced Options**, set the installation path as your root folder, for example, `C:\Python312`. Then select **Install**.
+
+> [!TIP]
+> When you set a custom installation path, the PATH variable might still point to the default installation path. Verify that the PATH points to the custom folder.
 
 :::image type="content" source="../../media/python-install-3.png" alt-text="Screenshot of Install Python step 3 with custom location.":::
 

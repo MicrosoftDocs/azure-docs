@@ -1,10 +1,10 @@
 ---
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 02/21/2024
-ms.author: rwaller
+ms.author: sharmas
 ---
 
 ## Prerequisites

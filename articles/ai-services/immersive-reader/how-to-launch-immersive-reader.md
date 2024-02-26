@@ -2,12 +2,12 @@
 title: "How to launch the Immersive Reader"
 titleSuffix: Azure AI services
 description: Learn how to launch the Immersive reader using JavaScript, Python, Android, or iOS.
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
 ms.date: 02/21/2024
-ms.author: rwaller
+ms.author: sharmas
 ms.custom: devx-track-js, devx-track-extended-java, devx-track-python
 zone_pivot_groups: immersive-reader-how-to-guides
 ---
