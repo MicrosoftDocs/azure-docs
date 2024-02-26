@@ -248,10 +248,10 @@ Document Intelligence supports optional features that can be enabled and disable
 
 |Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Figures|Sections|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|query fields|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓|✓| | | | | | | |O|O| |O|O|O| |
-|prebuilt-layout|✓|✓|✓|✓|✓|O|✓|✓|O|O| |O|O|O|✓|
+|prebuilt-read|✓|✓| | | | | | |O|O| | |O|O|O| |
+|prebuilt-layout|✓|✓|✓|✓|✓|✓|✓|O|O|O| |O|O|O|✓|
 |prebuilt-idDocument|✓| | | | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-invoice|✓| | |✓|✓|O| | | |O|O|✓|O|O|O|✓|
+|prebuilt-invoice|✓| | |✓|✓| | |O|O|O|✓|O|O|O|✓|
 |prebuilt-receipt|✓| | | | | | | |O|O|✓|O|O|O|✓|
 |prebuilt-healthInsuranceCard.us|✓| | | | | | | |O|O|✓|O|O|O|✓|
 |prebuilt-tax.us.w2|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
@@ -261,8 +261,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |prebuilt-tax.us.1099(Variations)|✓| | |✓| | | | |O|O|✓|O|O|O|✓|
 |prebuilt-contract|✓|✓|✓|✓| | | | |O|O|✓|O|O|O|✓|
 |{ customModelName }|✓|✓|✓|✓|✓| | | |O|O|✓|O|O|O|✓|
-|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓| | |O|O| |O|O|O| |
-|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | |  | | | |✓| | | | |
+|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓| | |✓|O|O| |O|O|O| |
+|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | | | |✓| | | | |
 
 ✓ - Enabled</br>
 O - Optional</br>
