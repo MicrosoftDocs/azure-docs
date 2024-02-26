@@ -29,7 +29,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
  GPT-4 is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
- GPT-4 Turbo with Vision is the version of GPT-4 that accepts imagea inputs.  It is available as the `vision-preview` model of `gpt-4`.
+ GPT-4 Turbo with Vision is the version of GPT-4 that accepts image inputs.  It is available as the `vision-preview` model of `gpt-4`.
 
 - `gpt-4`
 - `gpt-4-32k`
