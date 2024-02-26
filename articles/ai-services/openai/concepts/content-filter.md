@@ -290,10 +290,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Annotations (preview)
+## Annotations
 
-### Main content filters
-When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the main categories (hate and fairness, sexual, violence, and self-harm): 
+### Content filters
+
+When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the categories hate and fairness, sexual, violence, and self-harm:
 - content filtering category (hate, sexual, violence, self_harm)
 - the severity level (safe, low, medium or high) within each content category
 - filtering status (true or false).
@@ -302,7 +303,7 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models jailbreak risk, protected material text and protected material code:
+When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models: jailbreak risk, protected material text and protected material code:
 - category (jailbreak, protected_material_text, protected_material_code),
 - detected (true or false),
 - filtered (true or false).
@@ -313,7 +314,7 @@ For the protected material code model, the following additional information is r
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
-Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
+Annotations are currently available in the GA API version `2024-02-15` and in all preview versions starting from `2023-06-01-preview` for Completions and Chat Completions (GPT models). The following code snippet shows how to use annotations:
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -324,7 +325,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
+openai.api_version = "2023-06-01-preview" # API version required to use Annotations
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 response = openai.Completion.create(
@@ -344,7 +345,6 @@ print(response)
   "choices": [ 
     { 
       "content_filter_results": { 
-        "custom_blocklists": [], 
         "hate": { 
           "filtered": false, 
           "severity": "safe" 
@@ -389,7 +389,6 @@ print(response)
   "prompt_filter_results": [ 
     { 
       "content_filter_results": { 
-        "custom_blocklists": [], 
         "hate": { 
           "filtered": false, 
           "severity": "safe" 
@@ -435,7 +434,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
+openai.api_version = "2023-06-01-preview" # API version required to use Annotations
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 try:
@@ -589,7 +588,7 @@ violence  : @{filtered=False; severity=safe}
 
 ---
 
-For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
+For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using any preview API version starting from `2023-06-01-preview`, as well as the GA API version `2024-02-15`.
 
 ### Example scenario: An input prompt containing content that is classified at a filtered category and severity level is sent to the completions API
 
