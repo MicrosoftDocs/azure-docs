@@ -93,7 +93,7 @@ items:
       - name: NAT gateway
         href: configure-public-ip-nat-gateway.md
       - name: Virtual machine
-        href: configure-public-ip-vm.md
+        href: configure-public-ip-vm.yml
       - name: Firewall
         href: configure-public-ip-firewall.md
       - name: VPN gateway
