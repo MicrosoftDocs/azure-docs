@@ -29,7 +29,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMware VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled VMware vSphere VMs and install [Arc agent for Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled SCVMM VMs .
+- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMware VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled VMware vSphere VMs and install [Arc agent for Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled SCVMM VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server, Arc-enabled VMware vSphere VM or Arc-enabled SCVMM VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
  
 ### Supported operating systems
