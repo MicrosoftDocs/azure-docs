@@ -91,7 +91,7 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 To prepare your environment, you'll create sample data records and save them as Parquet data files. Parquet is used for illustration, but you can also use other formats such as CSV. In the subsequent cells, you'll see how you can create several Hyperspace indexes on this sample dataset and make Spark use them when running queries.
 
-The example records correspond to two datasets: department and employee. You should configure the "empLocation" and "deptLocation" paths so that on the storage account they point to your desired location to save generated data files.
+The example records correspond to two datasets: department and employee. You should configure the "emp_Location" and "dept_Location" paths so that on the storage account they point to your desired location to save generated data files.
 
 The output of running the following cell shows contents of our datasets as lists of triplets followed by references to dataFrames created to save the content of each dataset in our preferred location.
 
@@ -129,10 +129,10 @@ import spark.implicits._
 val empData: DataFrame = employees.toDF("empId", "empName", "deptId")
 val deptData: DataFrame = departments.toDF("deptId", "deptName", "location")
 
-val empLocation: String = "/<yourpath>/employees.parquet"       //TODO ** customize this location path **
-val deptLocation: String = "/<yourpath>/departments.parquet"     //TODO ** customize this location path **
-empData.write.mode("overwrite").parquet(empLocation)
-deptData.write.mode("overwrite").parquet(deptLocation)
+val emp_Location: String = "/<yourpath>/employees.parquet"       //TODO ** customize this location path **
+val dept_Location: String = "/<yourpath>/departments.parquet"     //TODO ** customize this location path **
+empData.write.mode("overwrite").parquet(emp_Location)
+deptData.write.mode("overwrite").parquet(dept_Location)
 ```
 
 ::: zone-end
@@ -217,10 +217,10 @@ var employeeSchema = new StructType(new List<StructField>()
 DataFrame empData = spark.CreateDataFrame(employees, employeeSchema); 
 DataFrame deptData = spark.CreateDataFrame(departments, departmentSchema); 
 
-string empLocation = "/<yourpath>/employees.parquet";       //TODO ** customize this location path **
-string deptLocation = "/<yourpath>/departments.parquet";     //TODO ** customize this location path **
-empData.Write().Mode("overwrite").Parquet(empLocation);
-deptData.Write().Mode("overwrite").Parquet(deptLocation);
+string emp_Location = "/<yourpath>/employees.parquet";       //TODO ** customize this location path **
+string dept_Location = "/<yourpath>/departments.parquet";     //TODO ** customize this location path **
+empData.Write().Mode("overwrite").Parquet(emp_Location);
+deptData.Write().Mode("overwrite").Parquet(dept_Location);
 
 ```
 
@@ -234,8 +234,8 @@ employees: Seq[(Int, String, Int)] = List((7369,SMITH,20), (7499,ALLEN,30), (752
 
 empData: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
-empLocation: String = /your-path/employees.parquet  
-deptLocation: String = /your-path/departments.parquet  
+emp_Location: String = /your-path/employees.parquet  
+dept_Location: String = /your-path/departments.parquet  
 ```
 
 Let's verify the contents of the Parquet files we created to make sure they contain expected records in the correct format. Later, we'll use these data files to create Hyperspace indexes and run sample queries.
@@ -245,9 +245,9 @@ Running the following cell produces an output that displays the rows in employee
 :::zone pivot = "programming-language-scala"
 
 ```scala
-// empLocation and deptLocation are the user defined locations above to save parquet files
-val empDF: DataFrame = spark.read.parquet(empLocation)
-val deptDF: DataFrame = spark.read.parquet(deptLocation)
+// emp_Location and dept_Location are the user defined locations above to save parquet files
+val empDF: DataFrame = spark.read.parquet(emp_Location)
+val deptDF: DataFrame = spark.read.parquet(dept_Location)
 
 // Verify the data is available and correct
 empDF.show()
@@ -276,9 +276,9 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user-defined locations above to save parquet files
-DataFrame empDF = spark.Read().Parquet(empLocation);
-DataFrame deptDF = spark.Read().Parquet(deptLocation);
+// emp_Location and dept_Location are the user-defined locations above to save parquet files
+DataFrame empDF = spark.Read().Parquet(emp_Location);
+DataFrame deptDF = spark.Read().Parquet(dept_Location);
 
 // Verify the data is available and correct
 empDF.Show();
@@ -781,8 +781,8 @@ The following cell enables Hyperspace and creates two DataFrames containing your
 // Enable Hyperspace
 spark.enableHyperspace
 
-val empDFrame: DataFrame = spark.read.parquet(empLocation)
-val deptDFrame: DataFrame = spark.read.parquet(deptLocation)
+val empDFrame: DataFrame = spark.read.parquet(emp_Location)
+val deptDFrame: DataFrame = spark.read.parquet(dept_Location)
 
 empDFrame.show(5)
 deptDFrame.show(5)
@@ -814,8 +814,8 @@ dept_DF.show(5)
 // Enable Hyperspace
 spark.EnableHyperspace();
 
-DataFrame empDFrame = spark.Read().Parquet(empLocation);
-DataFrame deptDFrame = spark.Read().Parquet(deptLocation);
+DataFrame empDFrame = spark.Read().Parquet(emp_Location);
+DataFrame deptDFrame = spark.Read().Parquet(dept_Location);
 
 empDFrame.Show(5);
 deptDFrame.Show(5);
@@ -1391,9 +1391,9 @@ val extraDepartments = Seq(
       (60, "Human Resources", "San Francisco"))
 
 val extraDeptData: DataFrame = extraDepartments.toDF("deptId", "deptName", "location")
-extraDeptData.write.mode("Append").parquet(deptLocation)
+extraDeptData.write.mode("Append").parquet(dept_Location)
 
-val deptDFrameUpdated: DataFrame = spark.read.parquet(deptLocation)
+val deptDFrameUpdated: DataFrame = spark.read.parquet(dept_Location)
 
 deptDFrameUpdated.show(10)
 
@@ -1431,9 +1431,9 @@ var extraDepartments = new List<GenericRow>()
 };
 	
 DataFrame extraDeptData = spark.CreateDataFrame(extraDepartments, departmentSchema);
-extraDeptData.Write().Mode("Append").Parquet(deptLocation);
+extraDeptData.Write().Mode("Append").Parquet(dept_Location);
 
-DataFrame deptDFrameUpdated = spark.Read().Parquet(deptLocation);
+DataFrame deptDFrameUpdated = spark.Read().Parquet(dept_Location);
 
 deptDFrameUpdated.Show(10);
 
