@@ -48,7 +48,6 @@ Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
 
 # [Azure portal](#tab/azure-portal)
 
-
 To view your payment HSMs in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
@@ -58,6 +57,13 @@ To view your payment HSMs in the Azure portal:
   :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
 1. You can select one of your payment HSMs to see its properties.
   :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Screenshot of the Azure portal displaying a specific payment HSM and its properties.":::
+
+Alternatively, you can view your network intefaces through the Virtual Network interface.
+
+1. From the [Azure portal](https://portal.azure.com), select "Virtual networks".
+1. Select your virtual network (for example, "myVNet").
+1. From the left-hand sidebar, select "Connected devices".
+  :::image type="content" source="./media/portal-view-network-interfaces.png" lightbox="./media/portal-view-network-interfaces.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
 
 ---
 
