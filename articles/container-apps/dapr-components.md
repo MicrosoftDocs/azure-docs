@@ -21,6 +21,51 @@ Dapr components in container apps are environment-level resources that:
 
 In this guide, you learn how to configure Dapr components for your Azure Container Apps services. 
 
+## Supported components
+
+The following table lists supported Dapr components in Azure Container Apps. Support for Dapr components is broken into two tiers: 
+- Tier 1: Azure Container Apps-managed components with the highest level of support
+- Tier 2: Built-in components that are supported, but with a lower SLA guarantee
+
+### State store components
+
+| Component | String | Support level |
+| --------- | ------ | ------------- |
+| Azure Blob Storage | `state.azure.blobstorage` |  |
+| Azure CosmosDB | `state.azure.cosmosdb` |  |
+| Azure Table Storage | `state.azure.tablestorage` |  |
+
+### Pub/sub components
+
+| Component | String | Support level |
+| --------- | ------ | ------------- |
+| Azure Service Bus | `pubsub.azure.servicebus` |  |
+| Azure Event Hubs | `pubsub.azure.eventhubs` |  |
+
+### Binding components
+
+| Component | String | Support level |
+| --------- | ------ | ------------- |
+| Azure Storage Queues | `bindings.azure.storagequeues` |  |
+| Azure Service Bus Queues | `bindings.azure.servicebusqueues` |  |
+| Azure Blob Storage | `bindings.azure.blobstorage` |  |
+| Azure Event Hubs | `bindings.azure.eventhubs` |  |
+| Azure SignalR | `bindings.azure.signalr` |  |
+| Azure Event Grid | `bindings.azure.eventgrid` |  |
+| Azure CosmosDB | `bindings.azure.cosmosdb` |  |
+
+### Secret store components
+
+| Component | String | Support level |
+| --------- | ------ | ------------- |
+| Azure Key Vault | `secretstores.azure.keyvault` |  |
+
+### Configuration store components
+
+| Component | String | Support level |
+| --------- | ------ | ------------- |
+| Azure App Config | `configuration.azure.appconfig` |  |
+
 ## Component schema
 
 In the Dapr open-source project, all components conform to the following basic [schema][dapr-component-spec].
