@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory)<br>- [Newly supported protocols](#newly-supported-protocols)|
+| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) |
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -48,12 +48,6 @@ The alert ID in the **Id** column on the Azure portal **Alerts** page now displa
 > [!NOTE]
 > If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
 
-### New setting to focus local networks in the device inventory 
-
-To better focus the Azure device inventory on devices that are in your OT scope, we've added the **ICS** toggle in the **Subnets** sensor setting. This toggle marks the subnet as a subnet with OT networks. [Learn more](configure-sensor-settings-portal.md#configure-subnets-in-the-azure-portal).
-
-:::image type="content" source="media/whats-new/ics-toggle.png" alt-text="Screenshot of the ICS Subnet toggle in the Azure portal Sensor settings." border="true":::
-
 ### Newly supported protocols
 
 We now support these protocols:
@@ -67,6 +61,18 @@ We now support these protocols:
 - Schneider NetManage
 
 [See the updated protocol list](concept-supported-protocols.md).
+
+### L60 hardware profile is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB (the minimum hardware profile is now [L100](ot-virtual-appliances.md)).
+
+To migrate from the L60 profile to a supported profile follow the [Back up and restore OT network sensor](back-up-restore-sensor.md) procedure.
+
+### New license renewal reminder in the Azure portal
+
+When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md). 
+
+:::image type="content" source="media/whats-new/license-renewal-note.png" alt-text="Screenshot of the license renewal reminder note." lightbox="media/whats-new/license-renewal-note.png":::
 
 ## January 2024
 

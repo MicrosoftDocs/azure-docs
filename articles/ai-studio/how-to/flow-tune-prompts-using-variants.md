@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -19,9 +19,9 @@ author: eric-urban
 
 In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
 
-Crafting a good prompt is a challenging task that requires a lot of creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
+Crafting a good prompt is a challenging task that requires much creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
 
-Variants can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
+Variants can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k. You can compare and find the best prompt and configuration that maximizes the model's accuracy, diversity, or coherence.
 
 ## Variants in Prompt flow
 
@@ -41,14 +41,14 @@ By utilizing different variants of prompts and settings, you can explore how the
 Benefits of using variants include:
 
 - **Enhance the quality of your LLM generation**: By creating multiple variants of the same LLM node with diverse prompts and configurations, you can identify the optimal combination that produces high-quality content aligned with your needs.
-- **Save time and effort**: Even slight modifications to a prompt can yield significantly different results. It's crucial to track and compare the performance of each prompt version. With variants, you can easily manage the historical versions of your LLM nodes, facilitating updates based on any variant without the risk of forgetting previous iterations. Variants save you time and effort in managing prompt tuning history.
+- **Save time and effort**: Even slight modifications to a prompt can yield different results. It's crucial to track and compare the performance of each prompt version. With variants, you can easily manage the historical versions of your LLM nodes, facilitating updates based on any variant without the risk of forgetting previous iterations. Variants save you time and effort in managing prompt tuning history.
 - **Boost productivity**: Variants streamline the optimization process for LLM nodes, making it simpler to create and manage multiple variations. You can achieve improved results in less time, thereby increasing your overall productivity.
 - **Facilitate easy comparison**: You can effortlessly compare the results obtained from different variants side by side, enabling you to make data-driven decisions regarding the variant that generates the best outcomes.
 
 
 ## How to tune prompts using variants?
 
-In this article, we'll use **Web Classification** sample flow as example.
+In this article, we use **Web Classification** sample flow as example.
 
 1. Open the sample flow and remove the **prepare_examples** node as a start.
 
@@ -130,7 +130,7 @@ To make sure all the variants can run successfully, and work as expected, you ca
 In this example, we configure variants for both **summarize_text_content** node and **classify_with_llm** node, so you have to run twice to test all the variants.
 
 1. Select the **Run** button on the top right.
-1. Select an LLM node with variants. The other LLM nodes will use the default variant.
+1. Select an LLM node with variants. The other LLM nodes use the default variant.
 2. Submit the flow run.
 3. After the flow run is completed, you can check the corresponding result for each variant.
 4. Submit another flow run with the other LLM node with variants, and check the outputs.
@@ -138,17 +138,17 @@ In this example, we configure variants for both **summarize_text_content** node 
 
 ### Evaluate variants
 
-When you run the variants with a few single pieces of data and check the results with the naked eye, it cannot reflect the complexity and diversity of real-world data, meanwhile the output isn't measurable, so it's hard to compare the effectiveness of different variants, then choose the best.
+When you run the variants with a few single pieces of data and check the results with the naked eye, it can't reflect the complexity and diversity of real-world data, meanwhile the output isn't measurable, so it's hard to compare the effectiveness of different variants, then choose the best.
 
 You can submit a batch run, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
 
-1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
+1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We use accuracy to evaluate the performance of variants.
 2. Select **Evaluate** on the top right of the page.
 3. A wizard for **Batch run & Evaluate** occurs. The first step is to select a node to run all its variants.
   
-    To test how well different variants work for each node in a flow, you need to run a batch run for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
+    To test how different variants work for each node in a flow, you need to run a batch run for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
 
-    For example, you can select **classify_with_llm** node to run all variants, the **summarize_text_content** node will use it default variant for this batch run.
+    For example, you can select **classify_with_llm** node to run all variants, the **summarize_text_content** node uses the default variant for this batch run.
 
 4. Next in **Batch run settings**, you can set batch run name, choose a runtime, upload the prepared data.
 5. Next, in **Evaluation settings**, select an evaluation method.

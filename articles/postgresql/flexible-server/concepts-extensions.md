@@ -184,6 +184,9 @@ The following extensions are available in Azure Database for PostgreSQL flexible
 |[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                                |Text search dictionary that removes accents                                                                                                                                |1.1        |1.1        |1.1        |1.1        |1.1        |1.1         |
 |[uuid-ossp](https://www.postgresql.org/docs/13/uuid-ossp.html)                              |Generate universally unique identifiers (UUIDs)                                                                                                                            |N/A        |1.1        |1.1        |1.1        |1.1        |1.1         |
 
+> [!NOTE]  
+> Several extensions listed as not applicable (N/A) for Postgres 16 are expected to be accessible in all regions by March 31, 2024.
+
 
 ## dblink and postgres_fdw
 

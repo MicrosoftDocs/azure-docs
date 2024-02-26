@@ -18,7 +18,13 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.38 - February 2024
 
-Download for [Windows](https://download.microsoft.com/download/e/a/7/ea70743f-0b72-4607-908b-5015fa6c052d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/0/9/8/0981cd23-37aa-4cb3-8965-368586ab9fd8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+Windows machines that try to upgrade to version 1.38 via Microsoft Update and encounter an error might fail to roll back to the previously installed version. As a result, the machine will appear "Disconnected" and won't be manageable from Azure. The update has been removed from the Microsoft Update Catalog while Microsoft investigates this behavior. Manual installations of the agent on new and existing machines aren't affected.
+
+If your machine was affected by this issue, you can repair the agent by downloading and installing the agent again. The agent will automatically discover the existing configuration and restore connectivity with Azure. You don't need to run `azcmagent connect`.
 
 ### New features
 

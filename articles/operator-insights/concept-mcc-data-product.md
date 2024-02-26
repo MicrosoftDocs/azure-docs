@@ -37,6 +37,15 @@ The following data types are provided for all Quality of Experience - Affirmed M
 
 - `edr` contains data from the Event Data Records (EDRs) written by the MCC network elements. EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
 - `edr-sanitized` contains data from the `edr` data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
+- `edr-validation`: This data type contains a subset of performance management statistics and provides you with the ability to optionally ingest a minimum number of PMstats tables for a data quality check.
+- `device`: This optional data type contains device data (for example, device model, make and capabilities) that the Data Product can use to enrich the MCC Event Data Records. To use this data type, you must upload the device reference data in a CSV file. The CSV must conform to the [Device reference schema for the Quality of Experience Affirmed MCC Data Product](device-reference-schema.md).
+- `enrichment`: This data type holds the enriched Event Data Records and covers multiple sub data types for precomputed aggregations targeted to accelerate specific dashboards, granularities, and queries. These multiple sub data types include:
+    - `agg-enrichment-5m`: contains enriched Event Data Records aggregated over five-minute intervals.
+    - `agg-enrichment-1h`: contains enriched Event Data Records aggregated over one-hour intervals.
+    - `enriched-flow-dcount`: contains precomputed counts used to report the unique IMSIs, MCCs, and Applications over time.
+- `location`: This optional data type contains data enriched with location information, if you have a source of location data. This covers the following sub data types.
+    - `agg-location-1h`: contains enriched location data aggregated over one-hour intervals.
+    - `enriched-loc-dcount`: contains precomputed counts used to report location data over time.
 
 ## Setup
 
