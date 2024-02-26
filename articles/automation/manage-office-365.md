@@ -48,9 +48,9 @@ To run Office 365 subscription services, you need an Office 365 service account 
 ## Connect to the Microsoft Entra online service
 
 >[!NOTE]
->To use the MSOnline module cmdlets, you must run them from Windows PowerShell. PowerShell Core does not support these cmdlets.
+>To use the Microsoft Graph PowerShell module cmdlets, you must run them from Windows PowerShell. PowerShell Core does not support these cmdlets.
 
-You can use the MSOnline module to connect to Microsoft Entra ID from the Office 365 subscription. The connection uses an Office 365 user name and password or uses multi-factor authentication (MFA). You can connect using the Azure portal or a Windows PowerShell command prompt (does not have to be elevated).
+You can connect to Microsoft Entra ID from the Office 365 subscription. The connection uses an Office 365 user name and password or uses multi-factor authentication (MFA). You can connect using the Azure portal or a Windows PowerShell command prompt (does not have to be elevated).
 
 A PowerShell example is shown below. For more information, see [Connect-MgGraph](/powershell/module/microsoft.graph.authentication/connect-mggraph).
 
