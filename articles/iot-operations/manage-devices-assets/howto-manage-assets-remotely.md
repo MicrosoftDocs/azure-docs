@@ -51,7 +51,7 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 
 # [Azure CLI](#tab/cli)
 
-Before you use the `az az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
+Before you use the `az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
 
 ```azurecli
 az login
