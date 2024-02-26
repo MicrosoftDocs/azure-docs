@@ -400,13 +400,13 @@ procedureSection:
         | Microsoft.Network/networkWatchers/nextHop/action                |   Gets the next hop from a VM                           |
 
 relatedContent:
-  - text: Create a route table using PowerShell sample scripts
-    url: owershell-samples.md
+#  - text: Create a route table using PowerShell sample scripts
+#    url: owershell-samples.md
   - text: Create a route table using Azure CLI sample scripts
     url: cli-samples.md
   - text: Create a rout table using Azure Resource Manager templates
     url: template-samples.md
-  #text: Create and assign Azure Policy definitions for virtual networks
-  #url: ./policy-reference.md
+  - text: Create and assign Azure Policy definitions for virtual networks
+    url: ./policy-reference.md
 
   

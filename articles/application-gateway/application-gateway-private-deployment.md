@@ -325,7 +325,7 @@ In the following example, we create a route table and associate it to the Applic
 
 To create a route table and associate it to the Application Gateway subnet:
 
-1.	[Create a route table](../virtual-network/manage-route-table.md#create-a-route-table):
+1.	[Create a route table](../virtual-network/manage-route-table.yml#create-a-route-table):
 
  ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
 

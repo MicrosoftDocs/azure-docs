@@ -133,7 +133,7 @@
       - name: Ansible
         href: /azure/developer/ansible/route-table-configure
       - name: Manage route tables
-        href: manage-route-table.md
+        href: manage-route-table.yml
     - name: Manage NICs
       href: virtual-network-network-interface.md
     - name: Manage virtual network
