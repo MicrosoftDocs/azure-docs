@@ -306,7 +306,7 @@
               href: custom-commands.md
               displayName: custom commands
             - name: Get the connection string
-              href: connect-account.md
+              href: connect-account.yml
             - name: Community tools
               items:
                 - name: Connect using Studio 3T
