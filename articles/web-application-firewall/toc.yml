@@ -128,8 +128,8 @@
        href: ./ag/configure-waf-custom-rules.md
      - name: Custom rule examples
        href: ./ag/create-custom-waf-rules.md
-     - name: Custom error response
-       href: ./ag/custom-error-response.md 
+     - name: Custom response error
+       href: ./ag/custom-response-error.md 
      - name: Bot protection
        href: ./ag/bot-protection.md
      - name: Associate a policy with an existing Application Gateway
