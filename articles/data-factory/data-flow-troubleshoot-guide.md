@@ -231,7 +231,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-DELTA-KeyColumnMissed
 
-- **Message**: Key column(s) should be specified for non-insertable operations.
+- **Message**: Key columns should be specified for non-insertable operations.
 - **Cause**: Key columns are missed for non-insertable operations.
 - **Recommendation**: To have non-insertable operations, specify key columns on delta sink.
 
@@ -393,13 +393,13 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-InvalidPartitionFileNames
 
-- **Message**: File names cannot have empty value(s) while file name option is set as per partition.
+- **Message**: File names cannot have empty values while file name option is set as per partition.
 - **Cause**: Invalid partition file names are provided.
 - **Recommendation**: Check your sink settings to have the right value of file names.
 
 ### Error code: DF-Executor-InvalidPath
 
-- **Message**: Path does not resolve to any file(s). Make sure the file/folder exists and is not hidden.
+- **Message**: Path does not resolve to any files. Make sure the file/folder exists and is not hidden.
 - **Cause**: An invalid file/folder path is provided, which can't be found or accessed.
 - **Recommendation**: Check the file/folder path, and make sure it is existed and can be accessed in your storage.
 
@@ -535,7 +535,7 @@ This section lists common error codes and messages reported by mapping data flow
 -	**Recommendation**: Check the syntactical correctness of the given query. Ensure to have a non-quoted query string when it is referenced as a pipeline parameter.
 
 ### Error code: DF-Executor-ParameterParseError
--	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameter(s) could be one of the causes.
+-	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameters could be one of the causes.
 -	**Cause**: Parsing errors in given parameters.
 -	**Recommendation**: Check the parameters having errors, ensure the usage of appropriate functions, and honor the datatypes given.
 
@@ -589,7 +589,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Hive-InvalidDataType
 
-- **Message**: Unsupported Column(s).
+- **Message**: Unsupported Columns.
 - **Cause**: Unsupported Columns are provided.
 - **Recommendation**: Update the column of input data to match the data type supported by the Hive.
 
@@ -611,7 +611,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-JSON-WrongDocumentForm
 
-- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json file(s). Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
+- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json files. Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
 - **Cause**: Wrong document form is selected to parse JSON files.
 - **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
 
@@ -651,7 +651,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-MSSQL-InvalidDataType
 
-- **Message**: Unsupported field(s).
+- **Message**: Unsupported fields.
 - **Cause**: Unsupported fields are provided.
 - **Recommendation**: Modify the input data column to match the data type supported by MSSQL.
 
@@ -916,7 +916,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-KeyColumnsNotSpecified
 
 
-- **Message**: Key column(s) should be specified for non-insertable operations (updates/deletes)
+- **Message**: Key columns should be specified for non-insertable operations (updates/deletes)
 - **Cause**: This error occurs when you skip selecting **Key Columns** in the sink table.
 - **Recommendations**: Allowing delete, upsert and update options requires a key column to be specified. Specify one or more columns for the row matching in sink.
 
