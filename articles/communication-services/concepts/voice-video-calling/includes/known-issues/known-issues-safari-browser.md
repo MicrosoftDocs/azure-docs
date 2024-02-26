@@ -108,7 +108,7 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 **Recommended workaround:** Consider updating to the latest iOS version.<br>
 
 
-## Safaro iPadOS Tablet
+## Safari iPadOS Tablet
 ___
 
 ### Rotation of a device can create poor video quality - Apple iPad 8 and Apple iPad X
