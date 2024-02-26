@@ -41,6 +41,9 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 
 ## Consolidating legacy agents
 
+>[!IMPORTANT]
+>The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
+
 Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](./azure-monitor-agent-migration.md#migrate-additional-services-and-features).
 
 If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
@@ -255,10 +258,9 @@ The Azure Monitoring Agent for Linux now officially supports various hardening s
 Currently supported hardening standards:
 - SELinux
 - CIS Lvl 1 and 2<sup>1</sup>
-
-On the roadmap
 - STIG
 - FIPs
+- FedRamp
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|

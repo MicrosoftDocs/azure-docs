@@ -21,7 +21,7 @@ Compliance Manager thus provides improvement actions and status across your clou
 
 ## Before you start
 
-- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, the MCSB plan is enabled
+- By default, when you enable Defender for Cloud on an Azure subscription, AWS account, or GCP plan, the MCSB plan is enabled.
 - You can add more non-default compliance standards when at least one paid plan is enabled in Defender for Cloud.
 - You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
@@ -130,13 +130,13 @@ The regulatory compliance has automated and manual assessments that might need t
 
     For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate.
 
- When you download one of these certification reports, you'll be shown the following privacy notice:
+ When you download one of these certification reports, you're shown the following privacy notice:
 
  _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
 
 ### Check compliance offerings status
 
-Transparency provided by the compliance offerings (currently in preview), allows you to view the certification status for each of the services provided by Microsoft prior to adding your product to the Azure platform.
+Transparency provided by the compliance offerings (currently in preview), allows you to view the certification status for each of the services provided by Microsoft before adding your product to the Azure platform.
 
 1. In the Defender for Cloud portal, open **Regulatory compliance**.
 
@@ -148,7 +148,7 @@ Transparency provided by the compliance offerings (currently in preview), allows
 
     :::image type="content" source="media/regulatory-compliance-dashboard/search-service.png" alt-text="Screenshot of the compliance offering screen with the search bar highlighted." lightbox="media/regulatory-compliance-dashboard/search-service.png":::
 
-## Continuously export compliance status 
+## Continuously export compliance status
 
 If you want to track your compliance status with other monitoring tools in your environment, Defender for Cloud includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hubs or a Log Analytics workspace. Learn more in [continuously export Defender for Cloud data](continuous-export.md).
 
@@ -169,7 +169,7 @@ Use continuous export data to an Azure Event Hubs or a Log Analytics workspace:
 
 Defender for Cloud's workflow automation feature can trigger Logic Apps whenever one of your regulatory compliance assessments changes state.
 
-For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You'll need to first create the logic app (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
+For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You need to first create the logic app (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Screenshot that shows how to use changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 

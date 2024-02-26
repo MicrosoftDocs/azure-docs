@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 06/07/2023
+  ms.date: 02/22/2024
   ms.author: banders
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -133,7 +133,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          The Cost Management + Billing team formally announced the retirement of the APIs with a timeline of Oct 2023. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
+          On May 1, 2024, Azure Enterprise Reporting APIs will be retired. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
@@ -328,10 +328,10 @@ sections:
           Today, policy does it; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
       - question: Where do I go to create a subscription?
         answer: |
-          Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure portal. You need to sign in to the Azure portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the **+ Add Subscription** link in Azure portal. However, once your account is entitled it might be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
+          Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure portal. Or, you must be an Enterprise Administrator. You need to sign in to the Azure portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the **+ Add Subscription** link in Azure portal. However, once your account is entitled it might be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
       - question: Who can create a subscription?
         answer: |
-          To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner in the Azure portal.
+          To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner or enterprise administrator in the Azure portal.
 
       - question: Why does my cost show as $0?
         answer: |

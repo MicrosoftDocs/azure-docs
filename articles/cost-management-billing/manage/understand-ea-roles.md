@@ -6,11 +6,15 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 02/16/2024
 ms.author: banders
 ---
 
 # Managing Azure Enterprise Agreement roles
+
+> [!NOTE]
+> Enterprise administrators have permissions to create new subscriptions under active enrollment accounts. For more information about creating new subscriptions, see [Add a new subscription](direct-ea-administration.md#add-a-subscription).
+
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign six distinct administrative roles:
 
@@ -84,6 +88,7 @@ Users with this role have the highest level of access to the Enrollment. They ca
 - Purchase Azure services, including reservations.
 - View usage across all accounts.
 - View unbilled charges across all accounts.
+- Create new subscriptions under active enrollment accounts.
 - View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
   - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
 
@@ -168,7 +173,7 @@ The following sections describe the limitations and capabilities of each role.
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
 |Purchase reservations|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✘|✔|✘|
+|Create and manage subscriptions and subscription permissions|✔|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
