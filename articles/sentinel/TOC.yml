@@ -1156,10 +1156,10 @@
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
-  - name: Compare playbooks, workbooks, and notebooks
-    href: resources.md
   - name: Service limits
     href: sentinel-service-limits.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
