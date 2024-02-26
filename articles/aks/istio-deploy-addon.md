@@ -1,19 +1,18 @@
 ---
-title: Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
-description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+title: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
+description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 04/09/2023
 ms.author: shasb
+author: shashankbarsin
 ---
 
-# Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+# Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 
 This article shows you how to install the Istio-based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
 For more information on Istio and the service mesh add-on, see [Istio-based service mesh add-on for Azure Kubernetes Service][istio-about].
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -25,44 +24,9 @@ export RESOURCE_GROUP=<resource-group-name>
 export LOCATION=<location>
 ```
 
-### Verify Azure CLI and aks-preview extension versions
-The add-on requires:
-* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][azure-cli-install].
-* `aks-preview` Azure CLI extension of version 0.5.163 or later installed
+### Verify Azure CLI version
 
-You can run `az --version` to verify above versions.
-
-To install the aks-preview extension, run the following command:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-
-### Register the _AzureServiceMeshPreview_ feature flag
-
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Install Istio add-on at the time of cluster creation
 
@@ -116,7 +80,7 @@ Confirm the `istiod` pod has a status of `Running`. For example:
 
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
-istiod-asm-1-17-74f7f7c46c-xfdtl   1/1     Running   0          2m
+istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
 ```
 
 ## Enable sidecar injection
@@ -124,17 +88,17 @@ istiod-asm-1-17-74f7f7c46c-xfdtl   1/1     Running   0          2m
 To automatically install sidecar to any new pods, annotate your namespaces:
 
 ```bash
-kubectl label namespace default istio.io/rev=asm-1-17
+kubectl label namespace default istio.io/rev=asm-1-18
 ```
 
 > [!IMPORTANT]
->  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-17`) is required.
+>  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-18`) is required.
 
 
 For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). Example:
 
 ```bash
-kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-17) -n foo
+kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-18) -n foo
 ```
 
 ## Deploy sample application
@@ -142,7 +106,7 @@ kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r as
 Use `kubectl apply` to deploy the sample application on the cluster:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.18/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 Confirm several deployments and services are created on your cluster. For example:
@@ -207,7 +171,7 @@ To test this sample application against ingress, check out [next-steps](#next-st
 Use `kubectl delete` to delete the sample application:
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.18/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 If you don't intend to enable Istio ingress on your cluster and want to disable the Istio add-on, run the following command:

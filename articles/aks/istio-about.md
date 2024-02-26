@@ -1,16 +1,15 @@
 ---
-title: Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+title: Istio-based service mesh add-on for Azure Kubernetes Service
 description: Istio-based service mesh add-on for Azure Kubernetes Service.
 ms.topic: article
 ms.date: 04/09/2023
 ms.author: shasb
+author: shashankbarsin
 ---
 
-# Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+# Istio-based service mesh add-on for Azure Kubernetes Service
 
 [Istio][istio-overview] addresses the challenges developers and operators face with a distributed or microservices architecture. The Istio-based service mesh add-on provides an officially supported and tested integration for Azure Kubernetes Service (AKS).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What is a Service Mesh?
 
@@ -50,6 +49,7 @@ Istio-based service mesh add-on for AKS has the following limitations:
 * Managed lifecycle of mesh on how Istio versions are installed and later made available for upgrades.
 * Istio doesn't support Windows Server containers.
 * Customization of mesh based on the following custom resources is blocked for now - `EnvoyFilter, ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`
+* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon.
 
 ## Next steps
 
