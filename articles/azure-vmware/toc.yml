@@ -173,7 +173,7 @@ items:
     href: connect-multiple-private-clouds-same-region.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
-    - name: Deploy Arc-enabled Azure VMware Solution
+    - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
       href: deploy-arc-for-azure-vmware-solution.md
     - name: Manage Arc-enabled Azure VMware Solution
       href: manage-arc-enabled-azure-vmware-solution.md

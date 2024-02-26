@@ -8,26 +8,30 @@ ms.date: 7/19/2023
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
-# Customer intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems of my virtual machines. 
+# Customer intent: As an IT manager, I want to understand the capabilities of Azure Monitor Agent to determine whether I can use the agent to collect the data I need from the operating systems of my virtual machines.
+
 ---
 
 # Azure Monitor Agent overview
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
 
-Here's a short **introduction to Azure Monitor agent video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)  
+Here's a short **introduction to Azure Monitor agent video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Benefits
-Using Azure Monitor agent, you get immediate benefits as shown below:  
+Using Azure Monitor agent, you get immediate benefits as shown below:
 
 :::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Snippet of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
 
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
   - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
-  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.  
+  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
 - **Simpler management** including efficient troubleshooting:
   - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
-  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time. 
+  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
   - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
 - **Security and Performance**
@@ -36,6 +40,9 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 - **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 
 ## Consolidating legacy agents
+
+>[!IMPORTANT]
+>The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
 
 Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](./azure-monitor-agent-migration.md#migrate-additional-services-and-features).
 
@@ -64,7 +71,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | On-premises servers (Azure Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
     | Windows 10, 11 desktops, workstations | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
     | Windows 10, 11 laptops | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
-    
+
 1. Define a data collection rule and associate the resource to the rule.
 
     The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
@@ -164,12 +171,12 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ## Supported operating systems
 
-The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system.  
+The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system.
 View [supported operating systems for Azure Arc Connected Machine agent](../../azure-arc/servers/prerequisites.md#supported-operating-systems), which is a prerequisite to run Azure Monitor agent on physical servers and virtual machines hosted outside of Azure (that is, on-premises) or in other clouds.
 
 ### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension | 
+| Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension |
 |:---|:---:|:---:|:---:|
 | Windows Server 2022                                      | ✓ | ✓ |   |
 | Windows Server 2022 Core                                 | ✓ |   |   |
@@ -182,7 +189,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
 | Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
 | Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ | 
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ |
 | Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | ✓<sup>1</sup> |   |
 | Windows 7 SP1<br>(Server scenarios only)                 |   | ✓<sup>1</sup> |   |
 | Azure Stack HCI                                          | ✓ | ✓ |   |
@@ -277,8 +284,8 @@ An agent is only required to collect data from the operating system and workload
 
 ### How can I be notified when data collection from the Log Analytics agent stops?
 
-Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
-          
+Use the steps described in [Create a new log search alert](../alerts/alerts-metric.md) to be notified when data collection stops. Use the following settings for the alert rule:
+
 - **Define alert condition**: Specify your Log Analytics workspace as the resource target.
 - **Alert criteria**:
    - **Signal Name**: *Custom log search*.
@@ -288,17 +295,17 @@ Use the steps described in [Create a new log alert](../alerts/alerts-metric.md) 
 - **Define alert details**:
    - **Name**: *Data collection stopped*.
    - **Severity**: *Warning*.
-          
-Specify an existing or new [action group](../alerts/action-groups.md) so that when the log alert matches criteria, you're notified if you have a heartbeat missing for more than 15 minutes.
-       
+
+Specify an existing or new [action group](../alerts/action-groups.md) so that when the log search alert matches criteria, you're notified if you have a heartbeat missing for more than 15 minutes.
+
 ### Will Azure Monitor Agent support data collection for the various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel?
 
-Review the list of [Azure Monitor Agent extensions currently available in preview](#supported-services-and-features). These extensions are the same solutions and services now available by using the new Azure Monitor Agent instead. 
+Review the list of [Azure Monitor Agent extensions currently available in preview](#supported-services-and-features). These extensions are the same solutions and services now available by using the new Azure Monitor Agent instead.
 
-You might see more extensions getting installed for the solution or service to collect extra data or perform transformation or processing as required for the solution or service. Then use Azure Monitor Agent to route the final data to Azure Monitor. 
-          
+You might see more extensions getting installed for the solution or service to collect extra data or perform transformation or processing as required for the solution or service. Then use Azure Monitor Agent to route the final data to Azure Monitor.
+
 The following diagram explains the new extensibility architecture.
-          
+
 :::image type="content" source="./media/azure-monitor-agent/extensibility-arch-new.png" lightbox="./media/azure-monitor-agent/extensibility-arch-new.png" alt-text="Diagram that shows extensions architecture.":::
 
 ### Is Azure Monitor Agent at parity with the Log Analytics agents?

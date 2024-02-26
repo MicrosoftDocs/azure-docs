@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -58,7 +58,8 @@ aoai_config = AzureOpenAIModelConfiguration.from_connection(
     "max_token": 300
 )
 ```
-`max_tokens` and `temperature` are optional, the default value for `max_tokens` is 300, the default value for `temperature` is 0.9
+
+The `max_tokens` and `temperature` parameters are optional. The default value for `max_tokens` is 300 and the default value for `temperature` is 0.9.
 
 ## Initialize simulator class 
 

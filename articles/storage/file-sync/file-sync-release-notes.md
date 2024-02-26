@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure File Sync
-description: Release notes for Azure File Sync which lets you centralize your organization's file shares in Azure Files.
+description: Release notes for Azure File Sync, which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
 ms.service: azure-file-storage
@@ -19,6 +19,8 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update|
+| V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update|
 | V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported - Flighting |
 | V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported |
 | V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on March 19, 2024 |
@@ -47,6 +49,18 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Version 17.1.0.0 (Security Update)
+The following release notes are for Azure File Sync version 17.1.0.0 (released February 13, 2024). This release contains a security update for the Azure File Sync agent.  These notes are in addition to the release notes listed for version 17.0.0.0. 
+
+### Improvements and issues that are fixed
+- Fixes an issue that might allow unauthorized users to create new files in locations they aren't allowed to. This is a security-only update. For more information about this vulnerability, see [CVE-2024-21397](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-21397).
+
+## Version 16.2.0.0 (Security Update)
+The following release notes are for Azure File Sync version 16.2.0.0 (released February 13, 2024). This release contains security updates for the Azure File Sync agent.  These notes are in addition to the release notes listed for version 16.0.0.0. 
+
+### Improvements and issues that are fixed
+- Fixes an issue that might allow unauthorized users to create new files in locations they aren't allowed to. This is a security-only update. For more information about this vulnerability, see [CVE-2024-21397](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-21397).
 
 ## Version 17.0.0.0 (Flighting)
 The following release notes are for Azure File Sync version 17.0.0.0 (released December 6, 2023). This release contains improvements for the Azure File Sync service and agent.
@@ -118,7 +132,7 @@ The following release notes are for Azure File Sync version 16.0.0.0 (released J
 
 ### Improvements and issues that are fixed
 - Improved Azure File Sync service availability
-	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](../files/files-redundancy.md).
+	- Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully use this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](../files/files-redundancy.md).
 - Immediately run server change enumeration to detect files changes that were missed on the server
 	- Azure File Sync uses the [Windows USN journal](/windows/win32/fileio/change-journals) feature on Windows Server to immediately detect files that were changed and upload them to the Azure file share. If files changed are missed due to journal wrap or other issues, the files will not sync to the Azure file share until the changes are detected. Azure File Sync has a server change enumeration job that runs every 24 hours on the server endpoint path to detect changes that were missed by the USN journal. If you don't want to wait until the next server change enumeration job runs, you can now use the Invoke-StorageSyncServerChangeDetection PowerShell cmdlet to immediately run server change enumeration on a server endpoint path.
 		

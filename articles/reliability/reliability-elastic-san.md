@@ -41,7 +41,7 @@ The latency differences between an elastic SAN on LRS and an elastic SAN on ZRS 
 
 ### Availability zone redeployment and migration
 
-To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's volumes, export them to managed disk snapshots, deploy an elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots (preview), see [Snapshot Azure Elastic SAN Preview volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md).
+To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's volumes, export them to managed disk snapshots, deploy an elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots (preview), see [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md).
 
 ## Disaster recovery and business continuity
 
@@ -61,5 +61,5 @@ Microsoft and its customers operate under the [Shared Responsibility Model](./av
 
 ## Next steps
 
-- [Plan for deploying an Elastic SAN Preview](../storage/elastic-san/elastic-san-planning.md)
-- [Snapshot Azure Elastic SAN Preview volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md)
+- [Plan for deploying an Elastic SAN](../storage/elastic-san/elastic-san-planning.md)
+- [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md)
