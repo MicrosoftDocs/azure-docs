@@ -20,7 +20,7 @@ Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-sta
 
 The price of an Azure Ultra Disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk.
 
-### Ultra disk size
+### Ultra Disk size
 
 The size of your Ultra Disk also determines what performance caps your disk has. You have granular control of how much IOPS and throughput your disk has, up to that size's performance cap. Pricing increases as you increase in size, as well as when you set higher IOPS and throughput. Ultra Disks offer up to 32-TiB per region per subscription by default, but support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support. 
 
@@ -38,19 +38,13 @@ The following table outlines the available disk sizes and performance caps. Pric
 |512     |153,600         |4,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |4,000         |
 
-### Ultra disk IOPS
+### Ultra Disk IOPS
 
-Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS per disk. The current maximum limit for IOPS for a single VM in generally available sizes is 80,000. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs. Pricing increases as you provision more IOPS.
+Pricing of an Azure Ultra Disk increases as you provision more IOPS to your disk. The minimum guaranteed IOPS per disk is 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provision a 4-GiB Ultra Disk, the minimum IOPS for that disk is 100, instead of four.
 
-The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4-GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
+### Ultra Disk throughput
 
-### Ultra disk throughput
-
-The throughput limit of a single ultra disk is 256-kB/s for each provisioned IOPS, up to a maximum of 4000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
-
-You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
-
-It's possible for a performance resize operation to fail because of a lack of performance bandwidth capacity.
+Pricing of an Ultra Disk increases as you increase the disk's throughput limit. The throughput limit of a single Ultra Disk is 256-kB/s for each provisioned IOPS, up to a maximum of 4000 MB/s per disk (where MB/s - 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
 
 ## Premium SSD v2
 
