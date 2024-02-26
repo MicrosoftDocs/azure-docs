@@ -63,7 +63,7 @@ Alternatively, you can view your network intefaces through the Virtual Network i
 1. From the [Azure portal](https://portal.azure.com), select "Virtual networks".
 1. Select your virtual network (for example, "myVNet").
 1. From the left-hand sidebar, select "Connected devices".
-  :::image type="content" source="./media/portal-view-network-interfaces.png" lightbox="./media/portal-view-network-interfaces.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
+  :::image type="content" source="./media/portal-view-network-interfaces.png" lightbox="./media/portal-view-network-interfaces.png" alt-text="Screenshot of the Azure portal displaying the network interfaces associated with a virtual network.":::
 
 ---
 
