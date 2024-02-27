@@ -1,6 +1,6 @@
 ---
-title: How to Deploy Azure Operator 5G Core
-description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI.
+title: How to Deploy Azure Operator 5G Core Preview
+description: Learn how to deploy Azure Operator 5G core Preview using Bicep Scripts, PowerShell, and Azure CLI.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -9,9 +9,9 @@ ms.date: 02/21/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Deploy Azure Operator 5G Core
+# Deploy Azure Operator 5G Core Preview
 
-Azure Operator 5G Core is deployed using the Azure Operator 5G Core Resource Provider (RP). Bicep scripts are bundled along with empty parameter files for each Mobile Packet Core resource. These resources are:
+Azure Operator 5G Core Preview is deployed using the Azure Operator 5G Core Resource Provider (RP). Bicep scripts are bundled along with empty parameter files for each Mobile Packet Core resource. These resources are:
 
 - Microsoft.MobilePacketCore/clusterServices - per cluster PaaS services
 - Microsoft.MobilePacketCore/amfDeployments - AMF/MME network function
@@ -27,8 +27,8 @@ Before you can successfully deploy Azure Operator 5G Core, you must:
 - [Register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
 
 Based on your deployment environments, complete one of the following:
-- [Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
-- [Prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service](how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
+- [Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
+- [Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
 
 
 ## Post cluster creation 
@@ -101,4 +101,4 @@ New-AzResourceGroupDeployment `
 ```
 ## Next step
 
-- [Monitor the  status of your Azure Operator 5G Core deployment](how-to-monitor-deployment-status.md)
+- [Monitor the  status of your Azure Operator 5G Core Preview deployment](how-to-monitor-deployment-status.md)

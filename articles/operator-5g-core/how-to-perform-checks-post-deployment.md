@@ -1,5 +1,5 @@
 ---
-title: Performing health checks post-deployment in Azure Operator 5G Core
+title: Performing health checks post-deployment in Azure Operator 5G Core Preview
 description: Learn how to ensure your deployment is running at its highest capacity by performing health checks post-deployment.
 author: HollyCl
 ms.author: HollyCl
@@ -12,9 +12,9 @@ ms.date: 02/21/2024
 ---
 
 
-# Perform health and configuration checks post-deployment in Azure Operator 5G Core
+# Perform health and configuration checks post-deployment in Azure Operator 5G Core Preview
 
-After Azure Operator 5G Core is deployed, you can perform health and configuration checks on the deployment. You must enable an ARC extension to monitor your deployment. 
+After Azure Operator 5G Core Preview is deployed, you can perform health and configuration checks on the deployment. You must enable an ARC extension to monitor your deployment. 
 
 ## Set up the Azure CLI
 
@@ -33,7 +33,7 @@ After Azure Operator 5G Core is deployed, you can perform health and configurati
 Enter the following command to configure the ARC:
 `az connectedk8s connect --name <ConnectedK8sName> --resource-group <ResourceGroupName>`
 
-## Deploy the Azure Operator 5G Core extension
+## Deploy the Azure Operator 5G Core Preview extension
 
 1. Enter the following commands to deploy the Azure Operator 5G Core extension:
 
@@ -62,7 +62,7 @@ az k8s-extension delete \
 --cluster-type connectedClusters \
 ```
 
-## Set permission for Azure Operator 5G Core extension to access metrics
+## Set permission for Azure Operator 5G Core Preview extension to access metrics
 
 By default, the fed-prometheus cluster can be reached only from a small set of predefined namespaces. You must add the newly created **ao5gc-monitor** to the allowlist to obtain observability metrics.
 
@@ -76,5 +76,5 @@ To add the namespace to fed-prometheus:
 
 ## Related content
 
-- [Monitor the  status of your Azure Operator 5G Core deployment](how-to-monitor-deployment-status.md)
-- [Observability and analytics in Azure Operator 5G Core](concept-observability-analytics.md)
+- [Monitor the  status of your Azure Operator 5G Core Preview deployment](how-to-monitor-deployment-status.md)
+- [Observability and analytics in Azure Operator 5G Core Preview](concept-observability-analytics.md)
