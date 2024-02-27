@@ -3049,5 +3049,3 @@ groups:
     title: Portal 
   - id: development-environment-azure-cli
     title: CLI
-  - id: development-environment-azure-powershell
-    title: PowerShell
