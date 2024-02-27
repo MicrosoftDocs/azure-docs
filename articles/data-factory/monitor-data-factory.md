@@ -44,7 +44,7 @@ There are several ways to monitor Azure Data Factory.
 
 ### Azure Data Factory Studio
 
-You can monitor all of your Data Factory pipeline runs natively in the Azure Data Factory Studio user experience. To open the monitoring experience, select **Launch Studio** from your Azure portal Data Factory page. If you're already in Azure Data Factory Studio, select **Monitor** from the left menu. For more information about monitoring in Azure Data Factory Studio, see [Visually monitor Azure Data Factory](monitor-visually).
+You can monitor all of your Data Factory pipeline runs natively in the Azure Data Factory Studio user experience. To open the monitoring experience, select **Launch Studio** from your Azure portal Data Factory page. If you're already in Azure Data Factory Studio, select **Monitor** from the left menu. For more information about monitoring in Azure Data Factory Studio, see [Visually monitor Azure Data Factory](monitor-visually.md).
 
 ### Azure portal
 
@@ -54,7 +54,7 @@ Some metrics appear on your Azure Data Factory **Overview** page in the Azure po
 
 You can monitor pipelines programmatically by using .NET, PowerShell, Python, or the REST API. For more information, see [Programmatically monitor Azure Data Factory](monitor-programmatically.md).
 
-### Monitor integration runtimes
+## Monitor integration runtimes
 
 Integration runtime is the compute infrastructure Data Factory uses to provide data integration capabilities across different network environments. Data Factory offers several types of integration runtimes:
 
@@ -81,9 +81,9 @@ For more information about the resource types for Azure Data Factory, see [Data 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 <!-- Add service-specific information about storing monitoring data here, if applicable. For example, SQL Server stores other monitoring data in its own databases. -->
-### Store Data Factory metrics and pipeline-run data
+### Store Data Factory metrics and pipeline run data
 
-Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor to route diagnostic logs if you want to keep the data for a longer time.
+Data Factory stores pipeline run data for only 45 days. Use Azure Monitor to route diagnostic logs if you want to keep the data for a longer time.
 
 - **Storage Account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use diagnostic settings to specify the retention time in days.
 - **Event Hub**: Stream the logs to Azure Event Hubs to become input to a partner service or custom analytics solution like Power BI.
@@ -231,7 +231,7 @@ The following table lists popular alert rules for Data Factory. This is just a r
 
 Notifications provide proactive alerting during or after execution of a pipeline.
 
-- [Send an email with an Azure Data Factory pipeline](how-to-send-mail.md) shows how to configure email notifications from pipeline alerts. 
+- [Send an email with an Azure Data Factory pipeline](how-to-send-email.md) shows how to configure email notifications from pipeline alerts.
 - [Send notifications to a Microsoft Teams channel from an Azure Data Factory pipeline](how-to-send-notifications-to-teams.md) shows how to configure notifications from pipeline alerts into Microsoft Teams. 
 
 <!-- ### Advisor recommendations. Required section. -->
