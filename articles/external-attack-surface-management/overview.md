@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 ## Discovery and inventory
 
-Microsoft's proprietary discovery technology recursively searches for infrastructure with observed connections to known legitimate assets to make inferences about that infrastructure's relationship to the organization and uncover previously unknown and unmonitored properties. These known legitimate assets are called discovery “seeds”; Defender EASM first discovers strong connections to these selected entities, recursing to unveil more connections and ultimately compile your Attack Surface.
+Microsoft's proprietary discovery technology recursively searches for infrastructure with observed connections to known legitimate assets to make inferences about that infrastructure's relationship to the organization and uncover previously unknown and unmonitored properties. These known legitimate assets are called discovery 'seeds'; Defender EASM first discovers strong connections to these selected entities, recursing to unveil more connections and ultimately compile your Attack Surface.
 
 Defender EASM includes the discovery of the following kinds of assets:
 
@@ -47,7 +47,7 @@ Customers can filter their inventory to surface the specific insights they care 
 
 ## User permissions 
 
-Users that have been assigned either Owner or Contributor roles can create, delete, and edit Defender EASM resources and the inventory assets within it. These roles can utilize all capabilities offered in the platform. Users that have been assigned the Reader role are able to view Defender EASM data, but are unable to create, delete or edit inventory assets or the resource itself.  
+Users that are assigned either Owner or Contributor roles can create, delete, and edit Defender EASM resources and the inventory assets within it. These roles can utilize all capabilities offered in the platform. Users that are assigned the Reader role are able to view Defender EASM data, but are unable to create, delete or edit inventory assets or the resource itself.  
 
 
 ## Data residency, availability and privacy
@@ -56,9 +56,9 @@ Microsoft Defender External Attack Surface Management contains both global data 
 
 For security purposes, Microsoft collects users' IP addresses when they log in. This data is stored for up to 30 days but may be stored longer if needed to investigate potential fraudulent or malicious use of the product.
 
-In the case of a region down scenario, only the customers in the affected region will experience downtime.
+In the case of a region down scenario, only the customers in the affected region experience downtime.
 
-The Microsoft compliance framework requires that all customer data be deleted within 180 days of that organization no longer being a customer of Microsoft.  This also includes storage of customer data in offline locations, such as database backups. Once a resource is deleted, it cannot be restored by our teams.  The customer data will be retained in our data stores for 75 days, however the actual resource cannot be restored.  After the 75 day period, customer data will be permanently deleted.  
+The Microsoft compliance framework requires that all customer data be deleted within 180 days of that organization no longer being a customer of Microsoft. This also includes storage of customer data in offline locations, such as database backups. Once a resource is deleted, it can't be restored by our teams. The customer data is retained in our data stores for 75 days, however the actual resource can't be restored.  After the 75 day period, customer data will be permanently deleted.  
 
 
 ## Next Steps
