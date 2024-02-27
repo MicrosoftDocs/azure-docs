@@ -416,7 +416,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via `TrackTrace()`. |
 
 > [!CAUTION]
-> Don't take a production dependency on Log Analytics tables until you see new telemetry records show up directly in Log Analytics. Initially, after you trigger the migration, new telemetry will continue to be ingested into the Classic Application Insights tables. The switch to writing new telemetry records directly into Log Analytics tables may take up to 24 hours. During this transition period, there is no interruption or loss of data, and telemetry will not be written to both systems simultaneously. Once the migration operation is complete, all new telemetry will only be recorded in the Log Analytics tables.
+> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Aim to switch to Log Analytics within 24 hours, avoiding data loss or double writing. Once done, Log Analytics solely captures new telemetry.
 
 ### Table schemas
 
