@@ -152,7 +152,7 @@
     href: enterprise-edge.md
   - name: Tutorials
     items:
-    - name: Azure Front Door
+    - name: Add a CDN
       href: front-door-manual.md
 - name: Hosting & development
   items:
