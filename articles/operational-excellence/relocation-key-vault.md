@@ -43,7 +43,7 @@ The virtual network service endpoints for Azure KeyVault restrict access to a sp
 
 1. Relocate the virtual network and subnets. For information on how to relocate a virtual network to another region, see [Relocate Azure Virtual Network to another region](./relocation-virtual-network.md).
 
-1. Configure Azure KeyVault network service endpoints in the target region.  To learn how to configure the service endpoints, see [Configure Azure KeyVault networking settings](/key-vault/general/how-to-azure-key-vault-network-security).
+1. Configure Azure KeyVault network service endpoints in the target region.  To learn how to configure the service endpoints, see [Configure Azure KeyVault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 
 ### Configure Azure Private Endpoint DNS
