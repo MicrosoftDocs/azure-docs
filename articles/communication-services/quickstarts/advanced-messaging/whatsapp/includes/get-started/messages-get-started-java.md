@@ -1,10 +1,10 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
-ms.date: 03/07/2024
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -15,7 +15,6 @@ ms.author: armohamed
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
-- In a terminal or command window, run `mvn -v` to check that Maven is installed
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
@@ -70,7 +69,6 @@ public class App
         // Quickstart code goes here.
     }
 }
-
 ```
 
 ## Object model
@@ -88,10 +86,14 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Code examples
 
+Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
+
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
-- [Send a template message to a WhatsApp user](#send-a-template-message-to-a-whatsapp-user)
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+  - [Send a template message to a WhatsApp User](#option-1-initiate-conversation-from-business---send-a-template-message)
+  - [Initiate conversation from user](#option-2-initiate-conversation-from-user)
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
 
@@ -101,27 +103,18 @@ There are a few different options available for authenticating a Message client:
 
 #### [Connection String](#tab/connection-string)
 
+For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
+
 To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
 To instantiate a Notification Message client, add the following code to the `main` method:
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
-String connectionString = // TODO - Should fetch from environment variable
+String connectionString = System.getenv("JAVA_HOME");
 
 NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
     .connectionString(connectionString)
-    .buildClient();
-```
-
-To instantiate a MessageTemplate Message client, add the following code to the `main` method:
-
-```java
-// You can get your connection string from your resource in the Azure portal.
-String connectionString = // TODO - Should fetch from environment variable
-
-MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
-    .connectionString("<CONNECTION_STRING>")
     .buildClient();
 ```
 
@@ -142,15 +135,6 @@ NotificationMessagesClient notificationClient =  new NotificationMessagesClientB
     .buildClient();
 ```
 
-```java
-// You can find your endpoint and access key from your resource in the Azure portal
-String endpoint = "https://<resource-name>.communication.azure.com/";
-MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
-    .endpoint(endpoint)
-    .credential(new DefaultAzureCredentialBuilder().build())
-    .buildClient();
-```
-
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
 NotificationMessage or MessageTemplate clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
@@ -164,18 +148,7 @@ NotificationMessagesClient notificationClient = new NotificationMessagesClientBu
     .buildClient();
 ```
 
-```java
-String endpoint = "https://<resource-name>.communication.azure.com";
-AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
-MessageTemplateClient messageTemplateClient = new MessageTemplateClientBuilder()
-    .endpoint(endpoint)
-    .credential(azureKeyCredential)
-    .buildClient();
-```
-
 ---
-
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
 ### Set channel registration ID   
 
@@ -184,8 +157,8 @@ The Channel Registration ID GUID was created during channel registration. You ca
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId.
-```csharp
-TODO
+```java
+String channelRegistrationId = "<your channel registration id GUID>";
 ```
 
 ### Set recipient list
@@ -205,89 +178,93 @@ List<String> recipients = new ArrayList<>();
 recipients.add("<Phone_Number e.g. '+14255550199');
 ```
 
-### Send a template message to a WhatsApp user
+### Start sending messages between a business and a WhatsApp user
 
-Template definition:
-```json
-{ 
-Name: sample_shipping_confirmation,
-Language: en_US
-[
-    {
-    "type": "BODY",
-    "text": "Your package has been shipped. It will be delivered in {{1}} business days."
-    },
-    {
-    "type": "FOOTER",
-    "text": "This message is from an unverified business."
-    }
-]
-}
-```
+Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+- The business sends a template message to the WhatsApp user.
+- The WhatsApp user sends any message to the business number.
+
+Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user has sent a message to the buisiness, is the business allowed to send text or media messages to the user for the duration of the conversation. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+
+#### (Option 1) Initiate conversation from business - Send a template message
+Initiate a conversation by sending a template message.
+
+First, create a MessageTemplate using the values for a template. 
+> [!NOTE]
+> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
+> If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
+
+Here's MessageTemplate creation using a default template, `sample_template`.   
+If `sample_template` is not available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
 ```java
-//Update Template Name and language according your template associate to your channel.
-MessageTemplate template = new MessageTemplate("sample_shipping_confirmation", "en_US");
+// Assemble the template content
+String templateName = "sample_template";
+String templateLanguage = "en_us";
+MessageTemplate messageTemplate = new MessageTemplate(templateName, templateLanguage);
 
-//Update template parameter type and value
-List<MessageTemplateValue> messageTemplateValues = new ArrayList<>();
-messageTemplateValues.add(new MessageTemplateText("Days", "5"));
-template.setValues(messageTemplateValues);
+// Assemble template message
+TemplateNotificationContent templateContent = new TemplateNotificationContent(channelRegistrationId, recipients, messageTemplate);
 
-//Update template parameter binding
-List<WhatsAppMessageTemplateBindingsComponent> components = new ArrayList<>();
-components.add(new WhatsAppMessageTemplateBindingsComponent("Days"));
-MessageTemplateBindings bindings =new WhatsAppMessageTemplateBindings()
-    .setBody(components);
-template.setBindings(bindings);
+// Send template message
+SendMessageResult result = notificationClient.send(templateContent);
 
-SendMessageResult result = notificationClient.send(
-    new TemplateNotificationContent(CHANNEL_ID, recipients, template));
-
+// Process result
 result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
 ```
 
+Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
+
+> [!IMPORTANT]
+> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
+
+#### (Option 2) Initiate conversation from user
+
+The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
+To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
+
+:::image type="content" source="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
+
 ### Send a text message to a WhatsApp user
 
-> [!NOTE]
-> Business can't start a conversation with a text message. It needs to be user initiated.
+> [!IMPORTANT]
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
+
+Assemble then send the text message:
 ```java
-        SendMessageResult result = notificationClient.send(
-            new TextNotificationContent("<CHANNEL_ID>", recipients, "Hello from ACS messaging"));
+// Assemble text message
+TextNotificationContent textContent = new TextNotificationContent("<CHANNEL_ID>", recipients, "“Thanks for your feedback.");
 
-        result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
+// Send text message
+SendMessageResult result = notificationClient.send(textContent);
 
+// Process result
+result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
 ```
 
 ### Send a media message to a WhatsApp user
 
-> [!NOTE]
-> Business can't start a conversation with a media message. It needs to be user initiated.
+> [!IMPORTANT]
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+To send a media message, provide a URI to an image.
+As an example, create a URI:
 ```java
-        String mediaUrl = "https://wallpapercave.com/wp/wp2163723.jpg";
-        SendMessageResult result = notificationClient.send(
-            new MediaNotificationContent("<CHANNEL_ID>", recipients, mediaUrl));
-
-        result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
-
+String mediaUrl = "https://aka.ms/acsicon1";
 ```
 
-TODO - Move this to Templates page
-### Get template list for a channel
+Assemble then send the media message:
 ```java
-        PagedIterable<MessageTemplateItem> response = messageTemplateClient.listTemplates("<CHANNEL_ID>");
+// Assemble media message
+MediaNotificationContent mediaContent = new MediaNotificationContent("<CHANNEL_ID>", recipients, mediaUrl);
 
-        response.stream().forEach(t -> {
-            WhatsAppMessageTemplateItem template = (WhatsAppMessageTemplateItem) t ;
-            System.out.println("===============================");
-            System.out.println("Template Name :: "+template.getName());
-            System.out.println("Template Language :: "+template.getLanguage());
-            System.out.println("Template Status :: "+template.getStatus());
-            System.out.println("Template Content :: "+template.getContent());
-            System.out.println("===============================");
-        });
+// Send media message
+SendMessageResult result = notificationClient.send(mediaContent);
+
+// Process result
+result.getReceipts().forEach(r -> System.out.println("Message sent to:"+r.getTo() + " and message id:"+ r.getMessageId()));
 ```
 
 ## Run the code

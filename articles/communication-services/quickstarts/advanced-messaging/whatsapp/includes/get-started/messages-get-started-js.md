@@ -1,10 +1,10 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
-ms.date: 03/07/2024
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -16,7 +16,7 @@ ms.author: armohamed
 - Active WhatsApp phone number to receive messages
 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
-- In a terminal or command window, run `node --version` to check that Node.js is installed
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
 
 ## Setting up
 
@@ -48,7 +48,6 @@ To set up an environment for sending messages, take the steps in the following s
        process.exit(1);
    });
    ```
-   
 
 In the following sections, you added all the source code for this quickstart to the **send-messages.js** file that you created.
 
@@ -65,17 +64,21 @@ The `--save` option lists the library as a dependency in your **package.json** f
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
-TODO:
-| Name                                        | Description                                                                                           |
-| --------------------------------------------|------------------------------------------------------------------------------------------------------ |
-|                                         |                                                                                            |
+| Name            | Description                                                                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------|
+| MessageClient   | This class connects to your Azure Communication Services resource. It is used to send the messages.         |
+| MessageTemplate | This class defines which template you will use and the content of the template properties for your message. |
 
 ## Code examples
+
+Follow these steps to add the necessary code snippets to the main function of your *send-messages.js* file.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
-- [Send a template message to a WhatsApp user](#send-a-template-message-to-a-whatsapp-user)
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+  - [Send a template message to a WhatsApp User](#option-1-initiate-conversation-from-business---send-a-template-message)
+  - [Initiate conversation from user](#option-2-initiate-conversation-from-user)
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
 
@@ -83,8 +86,9 @@ TODO:
 
 #### [Connection String](#tab/connection-string)
 
-The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. Use the `npm install` command to install the dotenv package. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string).
+For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
+The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. Use the `npm install` command to install the dotenv package. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string).
 
 ```typescript
 import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
@@ -93,8 +97,10 @@ import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-
 import * as dotenv from "dotenv";
 dotenv.config();
 
-// Quickstart code
+// Configure authentication by retrieving the environment variable
 const connectionString = process.env["COMMUNICATION_CONNECTION_STRING"];
+
+// Instantiate the client
 const client:MessagesServiceClient = MessageClient(connectionString);
 ```
 
@@ -115,9 +121,11 @@ The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/
 import { DefaultAzureCredential } from "@azure/identity";
 import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
 
-// Quickstart code
+// Configure authentication
 const endpoint = "https://<resource-name>.communication.azure.com";
 let credential = new DefaultAzureCredential();
+
+// Instantiate the client
 const client:MessagesServiceClient = MessageClient(endpoint, credential);
 ```
 
@@ -129,77 +137,93 @@ MessagesService clients can also be authenticated using an [AzureKeyCredential](
 import { AzureKeyCredential } from "@azure/core-auth";
 import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
 
-// Quickstart code
+// Configure authentication
 const endpoint = "https://<resource-name>.communication.azure.com";
 const credential = new AzureKeyCredential("<your-key-credential>");
+
+// Instantiate the client
 const client:MessagesServiceClient = MessageClient(endpoint, credential);
 ```
 
 ---
 
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../identity/service-principal.md).
-
 ### Set channel registration ID  
 
-TODO
+The Channel Registration ID GUID was created during [channel registration](../../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
+
+:::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
+
+Assign it to a variable called channelRegistrationId.
+```typescript
+const channelRegistrationId = "<your channel registration id GUID>";
+```
 
 ### Set recipient list
 
-TODO
+You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
+For this quickstart, this phone number may be your personal phone number.   
 
-### Send a template message to a WhatsApp user
+The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
-Template definition:
+The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
+
 ```json
-{ 
-    Name: sample_shipping_confirmation,
-    Language: en_US
-    [
-        {
-        "type": "BODY",
-        "text": "Your package has been shipped. It will be delivered in {{1}} business days."
-        },
-        {
-        "type": "FOOTER",
-        "text": "This message is from an unverified business."
-        }
-    ]
-}
+const recipientList = ["<to-phone-number>"];
 ```
 
+Example:
+```csharp
+// Example only
+const recipientList = ["+14255550199"];
+```
+
+### Start sending messages between a business and a WhatsApp user
+
+Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+- The business sends a template message to the WhatsApp user.
+- The WhatsApp user sends any message to the business number.
+
+Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user has sent a message to the buisiness, is the business allowed to send text or media messages to the user for the duration of the conversation. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+
+#### (Option 1) Initiate conversation from business - Send a template message
+Initiate a conversation by sending a template message.
+
+First, create a MessageTemplate using the values for a template. 
+> [!NOTE]
+> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
+> If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
+
+Here's MessageTemplate creation using a default template, `sample_template`.   
+If `sample_template` is not available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 ```typescript
-// Quickstart code
-const dayValue:MessageTemplateValue = {
-    kind: "text",
-    name: "Days",
-    text: "5"
-};
-
-const templateBindings:MessageTemplateBindings = {
-    kind: "whatsApp",
-    body: [
-        {
-            refValue: "Days"
-        }
-    ]
-};
-
+// Assemble the template content
 const template:MessageTemplate = {
-    name: "sample_shipping_confirmation",
-    language: "en_US",
-    bindings: templateBindings,
-    values: [dayValue]
+    name: "sample_template",
+    language: "en_US"
 };
+```
 
-const  result = await client.path("/messages/notifications:send").post({
+For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
+- [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) 
+   
+For further WhatsApp requirements on templates, refer to the WhatsApp Business Platform API references:
+- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
+- [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
+- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
+
+```typescript
+// Send template message
+const result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
-        channelRegistrationId: "<CHANNEl_ID>",
-        to: ["<to-phone-number-1>"],
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
         kind: "template",
         template: template
     }
 });
+
+// Process result
 if (result.status === "202") {
     const response:Send202Response = result as Send202Response;
     response.body.receipts.forEach((receipt) => {
@@ -210,22 +234,39 @@ if (result.status === "202") {
 }
 ```
 
+Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
+
+> [!IMPORTANT]
+> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
+
+#### (Option 2) Initiate conversation from user
+
+The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
+To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
+
+:::image type="content" source="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
+
 ### Send a text message to a WhatsApp user
 
-> [!NOTE]
-> Business can't start a conversation with a text message. It needs to be user initiated.
+> [!IMPORTANT]
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
+
+Assemble and send the media message:
 ```typescript
-const  result = await client.path("/messages/notifications:send").post({
+// Send text message
+const result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
-        channelRegistrationId: "<CHANNEl_ID>",
-        to: ["<to-phone-number-1>"],
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
         kind: "text",
-        content: "Hello World!!"
+        content: "Thanks for your feedback."
     }
 });
 
+// Process result
 if (result.status === "202") {
     const response:Send202Response = result as Send202Response;
     response.body.receipts.forEach((receipt) => {
@@ -238,20 +279,29 @@ if (result.status === "202") {
 
 ### Send a media message to a WhatsApp user
 
-> [!NOTE]
-> Business can't start a conversation with a media message. It needs to be user initiated.
+> [!IMPORTANT]
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+To send a media message, provide a URI to an image.
+As an example, create a URI:
+```csharp
+var uri = new Uri("https://aka.ms/acsicon1");
+```
+
+Assemble and send the media message:
 ```typescript
+// Send media message
 const  result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
     body: {
-        channelRegistrationId: "<CHANNEl_ID>",
-        to: ["<to-phone-number-1>"],
+        channelRegistrationId: channelRegistrationId,
+        to: recipientList,
         kind: "image",
-        mediaUri: "https://wallpapercave.com/wp/wp2163723.jpg"
+        mediaUri: uri
     }
 });
 
+// Process result
 if (result.status === "202") {
     const response:Send202Response = result as Send202Response;
     response.body.receipts.forEach((receipt) => {
@@ -260,24 +310,6 @@ if (result.status === "202") {
 } else {
     throw new Error("Failed to send message");
 }
-```
-
-TODO - Move this to Templates page
-### Get template list
-
-```typescript
-const response = 
-    await client.path("/messages/channels/{channelId}/templates", "<CHANNEl_ID>").get();
-
-if (response.status == "200") {
-    // The paginate helper creates a paged async iterator using metadata from the first page.
-    const items = paginate(client, response);
-
-    // We get an PageableAsyncIterator so we need to do `for await`.
-    for await (const item of items) {
-        console.log(JSON.stringify(item, null, 2));
-    }
-} 
 ```
 
 ## Run the code
