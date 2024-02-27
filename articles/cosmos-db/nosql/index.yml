@@ -99,7 +99,7 @@ landingContent:
     - linkListType: sample
       links:
         - text: Solution accelerators
-          url: ../solutions.md?pivots=api-mongodb
+          url: ../solutions.md?pivots=api-nosql
   - title: Get training
     linkLists:
       - linkListType: learn

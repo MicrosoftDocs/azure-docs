@@ -76,7 +76,7 @@
 - name: Samples
   items:
     - name: Solution accelerators
-      href: ../solutions.md?pivots=api-mongodb
+      href: ../solutions.md?pivots=api-nosql
     - name: .NET
       href: samples-dotnet.md
     - name: Java
