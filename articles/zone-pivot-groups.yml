@@ -3040,7 +3040,7 @@ groups:
   - id: firefox-browser
     title: Firefox browser
 # Owner: sudhirsneha
-- id: vmware-discovery-requirements
+- id: vmware-discovery-requirements 
   title: Requirements to discover and assess servers in VMware environment
   prompt: Choose support requirements
   pivots:
