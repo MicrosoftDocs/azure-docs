@@ -159,10 +159,10 @@ From `function.json`, here's the binding data:
 
 ### [Model v4](#tab/node-v4)
 
-<!--- Replace with the following when Node.js v4 is supported:
-[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
--->
-[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
+  <!--- Replace with the following when Node.js v4 is supported:
+  [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+  -->
+  [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 

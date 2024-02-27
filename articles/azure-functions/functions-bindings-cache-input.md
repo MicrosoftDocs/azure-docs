@@ -281,7 +281,7 @@ The `RedisInput` annotation supports these properties:
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-| function.json property |                         |
+| function.json property | Description                 |
 |------------------------|-------------------------|
 | `connectionStringSetting` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
