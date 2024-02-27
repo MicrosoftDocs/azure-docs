@@ -34,7 +34,7 @@ To replace an Azure File Sync server, follow the steps below.
 ## User cut-over
 7.	To redirect user access to the new Azure File Sync server, perform one of the following options:
     - Option #1: Rename the old server to a random name, then rename the new server to the same name as the old server. 
-    -	Option #2: Use [DFS Namespaces (DFS-N)](https://learn.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview) to redirect users to the new server.
+    -	Option #2: Use [DFS Namespaces (DFS-N)](/windows-server/storage/dfs-namespaces/dfs-overview) to redirect users to the new server.
 
 ## Old Azure File Sync server
 8.	Follow the steps in the [Deprovision or delete your Azure File Sync server endpoint](file-sync-server-endpoint-delete.md#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm) documentation to verify that all files have synced to the Azure file share prior to deleting the server endpoint(s) on the old server.
