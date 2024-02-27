@@ -140,7 +140,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **Can data or configuration losses occur by/during the migration?**
 
-   `stv1` to `stv2` migration involves updating the compute platform alone and the internal storage layer isn't changed. Hence all the configuration is safe during the migration process.
+   `stv1` to `stv2` migration involves updating the compute platform alone and the internal storage layer isn't changed. Hence all the configuration is safe during the migration process. This includes the system-assigned managed identity, which if enabled is preserved.
 
 - **How to confirm that the migration is complete and successful?**
 
@@ -201,6 +201,7 @@ After successful migration, update any network dependencies including DNS, firew
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new public IP is required for each switch.
    - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
+   - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
 
 - **Can I test the new gateway before switching the live traffic?**
 
@@ -223,6 +224,13 @@ After successful migration, update any network dependencies including DNS, firew
 - **Is there any impact on cost once we migrated to stv2?**
 
    The billing model remains the same for `stv2` and there won't be any more cost incurred after the migration.
+
+- **What RBAC permissions are required for the stv1 to stv2 migration?**
+
+   The user/process undertaking the migration would need [write access to the API Management instance](./api-management-role-based-access-control.md).
+   In addition, the following two permissions are required:
+   - Microsoft.Network/virtualNetworks/subnets/join/action
+   - Microsoft.Network/publicIPAddresses/join/action
 
 [!INCLUDE [api-management-migration-related-content](../../includes/api-management-migration-related-content.md)]
 

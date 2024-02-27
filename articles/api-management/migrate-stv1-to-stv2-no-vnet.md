@@ -19,7 +19,7 @@ If you need to migrate a *VNnet-injected* API Management instance to the `stv2` 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
 > [!CAUTION]
-> * This migration scenario causes temporary downtime. API requests will be unresponsive for approximately 15 minutes during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for approximately 45 minutes.
+> * This migration scenario may cause temporary downtime or prevent infrastructure configuration updates during migration. Review the [What happens during migration?](#what-happens-during-migration) section for details.
 > * Migration to `stv2` is not reversible.
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -43,53 +43,54 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 ## Migrate the instance to stv2 platform
 
-For an API Management instance that's not deployed in a VNet, migrate your instance using the **Platform migration** blade in the Azure portal, or invoke the Migrate to `stv2` REST API. 
+You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
+
+* **New virtual IP address (recommended)** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
+
+* **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
 
 #### [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Settings**, select **Platform migration**.
-1. On the **Platform migration** page, review guidance for the migration process, and prepare your environment. 
+1. On the **Platform migration** page, select one of the two migration options:
+
+    * **New virtual IP address (recommended)**. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+
+    * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
+
+        :::image type="content" source="media/migrate-stv1-to-stv2-no-vnet/platform-migration-portal.png" alt-text="Screenshot of API Management platform migration in the portal.":::
+
+1. Review guidance for the migration process, and prepare your environment. 
+
 1. After you've completed preparation steps, select **I have read and understand the impact of the migration process.** Select **Migrate**.
 
 #### [Azure CLI](#tab/cli)
 
 Run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
-
 > [!NOTE]
 > The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
-
 > [!NOTE]
 > The following script is written for the bash shell. To run the script in PowerShell, prefix the variable names with the `$` character. Example: `$APIM_NAME`.
 
 ```azurecli
-#!/bin/bash
-# Verify currently selected subscription
-az account show
-
-# View other available subscriptions
-az account list --output table
-
-# Set correct subscription, if needed
-az account set --subscription {your subscription ID}
-
-# Update these variables with the name and resource group of your API Management instance
-APIM_NAME={name of your API Management instance}
 RG_NAME={name of your resource group}
-
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
-
-# Call REST API to migrate to stv2 and preserve VIP address
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-05-01-preview" 
+# Call REST API to migrate to stv2 and change VIP address
+az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
+# Alternate call to migrate to stv2 and preserve VIP address
+# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 ```
 ---
 
-After you initiate the migration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
-
 ### Verify migration
 
-To verify that the migration was successful, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+
+### Update network dependencies
+
+On successful migration to a new VIP address, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
 
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
@@ -117,7 +118,7 @@ To verify that the migration was successful, check the [platform version](comput
 
 - **Can data or configuration losses occur by/during the migration?**
 
-   `stv1` to `stv2` migration involves updating the compute platform alone and the internal storage layer isn't changed. Hence all the configuration is safe during the migration process.
+   `stv1` to `stv2` migration involves updating the compute platform alone and the internal storage layer isn't changed. Hence all the configuration is safe during the migration process. This includes the system-assigned managed identity, which if enabled is preserved.
 
 - **How to confirm that the migration is complete and successful?**
 
@@ -185,5 +186,9 @@ To verify that the migration was successful, check the [platform version](comput
 - **Is there any impact on cost once we migrated to stv2?**
 
    The billing model remains the same for `stv2` and there won't be any more cost incurred after the migration.
+
+- **What RBAC permissions are required for the stv1 to stv2 migration?**
+
+   The user/process undertaking the migration would need [write access to the API Management instance](./api-management-role-based-access-control.md).
 
 [!INCLUDE [api-management-migration-related-content](../../includes/api-management-migration-related-content.md)]
