@@ -56,7 +56,7 @@ Although most of the configuration is for the cloud-based dev box network, end u
 |Azure Virtual Desktop session host virtual machine	|[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#session-host-virtual-machines) |Remote connectivity between dev boxes and the backend Azure Virtual Desktop service.|
 |Windows 365 service	|[Link](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service) |Provisioning and health checks.|
 
-## Endpoints
+## Required endpoints
 
 The following URLs and ports are required for the provisioning of dev boxes and the Azure Network Connection (ANC) health checks. All endpoints connect over port 443 unless otherwise specified.
 
