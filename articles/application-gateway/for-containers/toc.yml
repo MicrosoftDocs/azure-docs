@@ -48,7 +48,9 @@
      - name: SSL Offloading
        href: how-to-ssl-offloading-gateway-api.md
      - name: Traffic Splitting / Weighted Round Robin
-       href: how-to-traffic-splitting-gateway-api.md
+       href: how-to-traffic-splitting-gateway-api.
+    - name: URL redirect
+       href: how-to-url-redirect-gateway-api.md
      - name: URL rewrite
        href: how-to-url-rewrite-gateway-api.md
   - name: Ingress API
@@ -59,6 +61,8 @@
       href: how-to-multiple-site-hosting-ingress-api.md
     - name: SSL Offloading
       href: how-to-ssl-offloading-ingress-api.md
+    - name: URL redirect
+       href: how-to-url-redirect-ingress-api.md
     - name: URL rewrite
       href: how-to-url-rewrite-ingress-api.md
   - name: Troubleshoot
