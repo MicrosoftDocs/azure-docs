@@ -342,4 +342,4 @@ Connections using Service Principal Secrets are only available during local deve
 
 ## Related Content
 
-<!--At least one next step link.-->
+[Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)
