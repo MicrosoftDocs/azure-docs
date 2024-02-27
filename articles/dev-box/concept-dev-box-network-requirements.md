@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: conceptual
+ms.topic: concept
 ms.date: 02/16/2023
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box networking requirements so that developers can access the resources they need.
@@ -180,7 +180,7 @@ Changing the network routes of a dev box (at the network layer or at the dev box
 
 ## DNS requirements
 
-As part of the Microsoft Entra hybrid join requirements, your dev boxes must be able to join on-premises Active Directory. That requires that the dev boxes be able to resolve DNS records for your on-premises AD environment.
+As part of the Microsoft Entra hybrid join requirements, your dev boxes must be able to join on-premises Active Directory. Dev boxes must be able to resolve DNS records for your on-premises AD environment to join.
 
 Configure your Azure Virtual Network where the dev boxes are provisioned as follows:
 1.	Make sure that your Azure Virtual Network has network connectivity to DNS servers that can resolve your Active Directory domain.
@@ -219,11 +219,29 @@ Any device on which you use one of the Remote Desktop clients to connect to Azur
 
 These FQDNs and endpoints only correspond to client sites and resources. This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID or Office 365. Microsoft Entra FQDNs and endpoints can be found under ID 56, 59 and 125 in Office 365 URLs and IP address ranges.
 
-## Troubleshooting Logon issues
+## Troubleshooting 
 
-If the dev box user encounters logon problems and sees an error message indicating that the logon attempt failed, ensure you have enabled the PKU2U protocol on both the local PC and the session host.
+### Logon issues
 
-For more information about troubleshooting logon errors, see [Troubleshoot connections to Microsoft Entra joined VMs - Windows Desktop client](/azure/virtual-desktop/troubleshoot-azure-ad-connections#the-logon-attempt-failed).
+- **Logon attempt failed**
+
+  If the dev box user encounters logon problems and sees an error message indicating that the logon attempt failed, ensure you enabled the PKU2U protocol on both the local PC and the session host.
+
+  For more information about troubleshooting logon errors, see [Troubleshoot connections to Microsoft Entra joined VMs - Windows Desktop client](/azure/virtual-desktop/troubleshoot-azure-ad-connections#the-logon-attempt-failed).
+
+- **Group policy issues in hybrid environments**
+
+  If you're using a hybrid environment, you might encounter group policy issues. You can test whether the issue is related to group policy by temporarily excluding the dev box from the group policy.
+
+  For more information about troubleshooting group policy issues, see [Applying Group Policy troubleshooting guidance](/troubleshoot/windows-server/group-policy/applying-group-policy-troubleshooting-guidance).
+
+
+### IPv6 addressing issues
+
+If you're experiencing IPv6 issues, check that the *Microsoft.AzureActiveDirectory* service endpoint is not enabled on the virtual network or subnet. This service endpoint converts the IPv4 to IPv6.
+
+For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
 
 ## Related content
 
