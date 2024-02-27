@@ -21,7 +21,814 @@ Package v1 is the v1 version of the API.
 This document defines each of the resource types for `alb.networking.azure.io/v1`.
 
 ### Resource Types:
- the hierarchy.</p>
+<h3 id="alb.networking.azure.io/v1.AffinityType">AffinityType
+(<code>string</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.SessionAffinity">SessionAffinity</a>)
+</p>
+<div>
+<p>AffinityType defines the affinity type for the Service</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;application-cookie&#34;</p></td>
+<td><p>AffinityTypeApplicationCookie is a session affinity type for an application cookie</p>
+</td>
+</tr><tr><td><p>&#34;managed-cookie&#34;</p></td>
+<td><p>AffinityTypeManagedCookie is a session affinity type for a managed cookie</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.AlbConditionReason">AlbConditionReason
+(<code>string</code> alias)</h3>
+<div>
+<p>AlbConditionReason defines the set of reasons that explain
+why a particular condition type are raised by the Application Gateway for Containers resource.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
+are accepted by the controller.</p>
+</td>
+</tr><tr><td><p>&#34;Ready&#34;</p></td>
+<td><p>AlbReasonDeploymentReady indicates the Application Gateway for Containers resource
+deployment status.</p>
+</td>
+</tr><tr><td><p>&#34;InProgress&#34;</p></td>
+<td><p>AlbReasonInProgress indicates whether the Application Gateway for Containers resource
+is in the process of being created, updated or deleted.</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
+(<code>string</code> alias)</h3>
+<div>
+<p>AlbConditionType is a type of condition associated with an
+Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
+field.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource
+are accepted by the controller.</p>
+</td>
+</tr><tr><td><p>&#34;Deployment&#34;</p></td>
+<td><p>AlbConditionTypeDeployment indicates the deployment status of the Application Gateway for Containers resource.</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.AlbSpec">AlbSpec
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.ApplicationLoadBalancer">ApplicationLoadBalancer</a>)
+</p>
+<div>
+<p>AlbSpec defines the specifications for the Application Gateway for Containers resource.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>associations</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource are associated with.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.AlbStatus">AlbStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.ApplicationLoadBalancer">ApplicationLoadBalancer</a>)
+</p>
+<div>
+<p>AlbStatus defines the observed state of Application Gateway for Containers resource.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>conditions</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Condition">
+[]Kubernetes meta/v1.Condition
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Known condition types are:</p>
+<ul>
+<li>&ldquo;Accepted&rdquo;</li>
+<li>&ldquo;Ready&rdquo;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.ApplicationLoadBalancer">ApplicationLoadBalancer
+</h3>
+<div>
+<p>ApplicationLoadBalancer is the schema for the Application Gateway for Containers resource.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>metadata</code><br/>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Object&rsquo;s metadata.</p>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.AlbSpec">
+AlbSpec
+</a>
+</em>
+</td>
+<td>
+<p>Spec is the specifications for Application Gateway for Containers resource.</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>associations</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource are associated with.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.AlbStatus">
+AlbStatus
+</a>
+</em>
+</td>
+<td>
+<p>Status defines the current state of Application Gateway for Containers resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicy">BackendTLSPolicy
+</h3>
+<div>
+<p>BackendTLSPolicy is the schema for the BackendTLSPolicys API</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>metadata</code><br/>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Object&rsquo;s metadata.</p>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">
+BackendTLSPolicySpec
+</a>
+</em>
+</td>
+<td>
+<p>Spec is the BackendTLSPolicy specification.</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>targetRef</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CustomTargetRef">
+CustomTargetRef
+</a>
+</em>
+</td>
+<td>
+<p>TargetRef identifies an API object to apply policy to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>override</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">
+BackendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Override defines policy configuration that should override policy
+configuration attached below the targeted resource in the hierarchy.</p>
+<p>Override is currently not supported and will result in a validation error.
+Support for Override will be added in a future release.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>default</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">
+BackendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Default defines default policy configuration for the targeted resource.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<code>status</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyStatus">
+BackendTLSPolicyStatus
+</a>
+</em>
+</td>
+<td>
+<p>Status defines the current state of BackendTLSPolicy.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicyConditionReason">BackendTLSPolicyConditionReason
+(<code>string</code> alias)</h3>
+<div>
+<p>BackendTLSPolicyConditionReason defines the set of reasons that explain why a
+particular BackendTLSPolicy condition type is raised.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>BackendTLSPolicyReasonAccepted is used to set the BackendTLSPolicyConditionReason to Accepted
+When the given BackendTLSPolicy is correctly configured</p>
+</td>
+</tr><tr><td><p>&#34;InvalidBackendTLSPolicy&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn&rsquo;t Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidCertificateRef&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidCertificateRef is used when an invalid certificate is referenced</p>
+</td>
+</tr><tr><td><p>&#34;InvalidGroup&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidGroup is used when the group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidName is used when the name is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidSecret&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidSecret is used when the Secret is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidService&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidService is used when the Service is invalid</p>
+</td>
+</tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
+<td><p>BackendTLSPolicyReasonNoTargetReference is used when there&rsquo;s no target reference</p>
+</td>
+</tr><tr><td><p>&#34;OverrideNotSupported&#34;</p></td>
+<td><p>BackendTLSPolicyReasonOverrideNotSupported is used when the override isn&rsquo;t supported</p>
+</td>
+</tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
+<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
+</td>
+</tr><tr><td><p>&#34;SectionNamesNotPermitted&#34;</p></td>
+<td><p>BackendTLSPolicyReasonSectionNamesNotPermitted is used when the section names aren&rsquo;t permitted</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicyConditionType">BackendTLSPolicyConditionType
+(<code>string</code> alias)</h3>
+<div>
+<p>BackendTLSPolicyConditionType is a type of condition associated with a
+BackendTLSPolicy. This type should be used with the BackendTLSPolicyStatus.Conditions
+field.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>BackendTLSPolicyConditionAccepted is used to set the BackendTLSPolicyConditionType to Accepted</p>
+</td>
+</tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
+<td><p>BackendTLSPolicyConditionResolvedRefs is used to set the BackendTLSPolicyCondition to ResolvedRefs</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicyConfig">BackendTLSPolicyConfig
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>)
+</p>
+<div>
+<p>BackendTLSPolicyConfig defines the policy specification for the Backend TLS
+Policy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>CommonTLSPolicy</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CommonTLSPolicy">
+CommonTLSPolicy
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>CommonTLSPolicy</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sni</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sni is the server name to use for the TLS connection to the backend.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>ports</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyPort">
+[]BackendTLSPolicyPort
+</a>
+</em>
+</td>
+<td>
+<p>Ports specifies the list of ports where the policy is applied.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>clientCertificateRef</code><br/>
+<em>
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
+Gateway API .SecretObjectReference
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ClientCertificateRef is the reference to the client certificate to
+use for the TLS connection to the backend.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicyPort">BackendTLSPolicyPort
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a>)
+</p>
+<div>
+<p>BackendTLSPolicyPort defines the port to use for the TLS connection to the backend</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>port</code><br/>
+<em>
+int
+</em>
+</td>
+<td>
+<p>Port is the port to use for the TLS connection to the backend</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicy">BackendTLSPolicy</a>)
+</p>
+<div>
+<p>BackendTLSPolicySpec defines the desired state of BackendTLSPolicy</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>targetRef</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CustomTargetRef">
+CustomTargetRef
+</a>
+</em>
+</td>
+<td>
+<p>TargetRef identifies an API object to apply policy to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>override</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">
+BackendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Override defines policy configuration that should override policy
+configuration attached below the targeted resource in the hierarchy.</p>
+<p>Override is currently not supported and will result in a validation error.
+Support for Override will be added in a future release.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>default</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">
+BackendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Default defines default policy configuration for the targeted resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendTLSPolicyStatus">BackendTLSPolicyStatus
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicy">BackendTLSPolicy</a>)
+</p>
+<div>
+<p>BackendTLSPolicyStatus defines the observed state of BackendTLSPolicy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>conditions</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Condition">
+[]Kubernetes meta/v1.Condition
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Conditions describe the current conditions of the BackendTLSPolicy.</p>
+<p>Implementations should prefer to express BackendTLSPolicy conditions
+using the <code>BackendTLSPolicyConditionType</code> and <code>BackendTLSPolicyConditionReason</code>
+constants so that operators and tools can converge on a common
+vocabulary to describe BackendTLSPolicy state.</p>
+<p>Known condition types are:</p>
+<ul>
+<li>&ldquo;Accepted&rdquo;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.CommonTLSPolicy">CommonTLSPolicy
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicyConfig">BackendTLSPolicyConfig</a>)
+</p>
+<div>
+<p>CommonTLSPolicy is the schema for the CommonTLSPolicy API</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>verify</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CommonTLSPolicyVerify">
+CommonTLSPolicyVerify
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Verify provides the options to verify the backend certificate</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.CommonTLSPolicyVerify">CommonTLSPolicyVerify
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.CommonTLSPolicy">CommonTLSPolicy</a>)
+</p>
+<div>
+<p>CommonTLSPolicyVerify defines the schema for the CommonTLSPolicyVerify API</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>caCertificateRef</code><br/>
+<em>
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
+Gateway API .SecretObjectReference
+</a>
+</em>
+</td>
+<td>
+<p>CaCertificateRef is the CA certificate used to verify peer certificate of
+the backend.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>subjectAltName</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<p>SubjectAltName is the subject alternative name used to verify peer
+certificate of the backend.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.CustomTargetRef">CustomTargetRef
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
+</p>
+<div>
+<p>CustomTargetRef is a reference to a custom resource that isn&rsquo;t part of the
+Kubernetes core API.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>PolicyTargetReference</code><br/>
+<em>
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+Gateway API .PolicyTargetReference
+</a>
+</em>
+</td>
+<td>
+<p>
+(Members of <code>PolicyTargetReference</code> are embedded into this type.)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sectionNames</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>SectionNames is the name of the section within the target resource. When
+unspecified, this targetRef targets the entire resource. In the following
+resources, SectionNames is interpreted as the following:</p>
+<ul>
+<li>Gateway: Listener Name</li>
+<li>Service: Port Name</li>
+</ul>
+<p>If a SectionNames is specified, but does not exist on the targeted object,
+the Policy will fail to attach, and the policy implementation will record
+a <code>ResolvedRefs</code> or similar Condition in the Policy&rsquo;s status.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.FrontendTLSPolicy">FrontendTLSPolicy
+</h3>
+<div>
+<p>FrontendTLSPolicy is the schema for the FrontendTLSPolicy API</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>metadata</code><br/>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Object&rsquo;s metadata.</p>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>spec</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">
+FrontendTLSPolicySpec
+</a>
+</em>
+</td>
+<td>
+<p>Spec is the FrontendTLSPolicy specification.</p>
+<br/>
+<br/>
+<table>
+<tr>
+<td>
+<code>targetRef</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CustomTargetRef">
+CustomTargetRef
+</a>
+</em>
+</td>
+<td>
+<p>TargetRef identifies an API object to apply policy to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>default</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.FrontendTLSPolicyConfig">
+FrontendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Default defines default policy configuration for the targeted resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>override</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.FrontendTLSPolicyConfig">
+FrontendTLSPolicyConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Override defines policy configuration that should override policy
+configuration attached below the targeted resource in the hierarchy.</p>
 <p>Override is currently not supported and will result in a validation error.
 Support for Override will be added in a future release.</p>
 </td>
@@ -246,7 +1053,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe FrontendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -288,11 +1095,11 @@ vocabulary to describe FrontendTLSPolicy state.</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;2023-06&#34;</p></td>
-<td><p>PredefinedPolicy202306 is the name of the predefined Frontend TLS Policy for the policy "2023-06".</p>
+<td><p>PredefinedPolicy202306 is the name of the predefined Frontend TLS Policy for the policy &ldquo;2023-06&rdquo;.</p>
 </td>
 </tr><tr><td><p>&#34;2023-06-S&#34;</p></td>
-<td><p>PredefinedPolicy202306Strict is the name of the predefined Frontend TLS Policy for the policy "2023-06-S".
-This is a strict version of the policy "2023-06".</p>
+<td><p>PredefinedPolicy202306Strict is the name of the predefined Frontend TLS Policy for the policy &ldquo;2023-06-S&rdquo;.
+This is a strict version of the policy &ldquo;2023-06&rdquo;.</p>
 </td>
 </tr></tbody>
 </table>
@@ -327,7 +1134,7 @@ case insensitive. (See <a href="https://tools.ietf.org/html/rfc7230#section-3.2"
 <p>If multiple entries specify equivalent header names, the first entry with
 an equivalent name MUST be considered for a match. Subsequent entries
 with an equivalent header name MUST be ignored. Due to the
-case-insensitivity of header names, "foo" and "Foo" are considered
+case-insensitivity of header names, &ldquo;foo&rdquo; and &ldquo;Foo&rdquo; are considered
 equivalent.</p>
 </td>
 </tr>
@@ -353,14 +1160,14 @@ string
 <p>HTTPHeaderName is the name of an HTTP header.</p>
 <p>Valid values include:</p>
 <ul>
-<li>"Authorization"</li>
-<li>"Set-Cookie"</li>
+<li>&ldquo;Authorization&rdquo;</li>
+<li>&ldquo;Set-Cookie&rdquo;</li>
 </ul>
 <p>Invalid values include:</p>
 <ul>
-<li>":method" - ":" is an invalid character. This means that HTTP/2 pseudo
+<li>&rdquo;:method&rdquo; - &ldquo;:&rdquo; is an invalid character. This means that HTTP/2 pseudo
 headers aren&rsquo;t currently supported by this type.</li>
-<li>"/invalid" - "/ " is an invalid character</li>
+<li>&rdquo;/invalid&rdquo; - &ldquo;/ &rdquo; is an invalid character</li>
 </ul>
 </div>
 <h3 id="alb.networking.azure.io/v1.HTTPMatch">HTTPMatch
@@ -465,8 +1272,8 @@ string
 <em>(Optional)</em>
 <p>ReplacePrefixMatch specifies the value with which to replace the prefix
 match of a request during a rewrite or redirect. For example, a request
-to "/foo/bar" with a prefix match of "/foo" and a ReplacePrefixMatch
-of "/xyz" would be modified to "/xyz/bar".</p>
+to &ldquo;/foo/bar&rdquo; with a prefix match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch
+of &ldquo;/xyz&rdquo; would be modified to &ldquo;/xyz/bar&rdquo;.</p>
 <p>This matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
@@ -578,8 +1385,8 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 </tr><tr><td><p>&#34;ReplacePrefixMatch&#34;</p></td>
 <td><p>PrefixMatchHTTPPathModifier replaces any prefix path with the
 substitution value. For example, a path with a prefix
-match of "/foo" and a ReplacePrefixMatch substitution of "/bar"
-replace "/foo" with "/bar" in matching requests.</p>
+match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch substitution of &ldquo;/bar&rdquo;
+replace &ldquo;/foo&rdquo; with &ldquo;/bar&rdquo; in matching requests.</p>
 <p>This matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
@@ -683,8 +1490,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 set:
-- name: "my-header"
-value: "bar"</p>
+- name: &ldquo;my-header&rdquo;
+value: &ldquo;bar&rdquo;</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: bar</p>
@@ -709,8 +1516,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 add:
-- name: "my-header"
-value: "bar,baz"</p>
+- name: &ldquo;my-header&rdquo;
+value: &ldquo;bar,baz&rdquo;</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: foo,bar,baz</p>
@@ -735,7 +1542,7 @@ my-header1: foo
 my-header2: bar
 my-header3: baz</p>
 <p>Config:
-remove: ["my-header1", "my-header3"]</p>
+remove: [&ldquo;my-header1&rdquo;, &ldquo;my-header3&rdquo;]</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header2: bar</p>
@@ -1106,7 +1913,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe HealthCheckPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -1163,7 +1970,7 @@ Protocol
 </em>
 </td>
 <td>
-<p>Protocol should be one of "HTTP", "HTTPS"</p>
+<p>Protocol should be one of &ldquo;HTTP&rdquo;, &ldquo;HTTPS&rdquo;</p>
 </td>
 </tr>
 </tbody>
@@ -1545,8 +2352,8 @@ field.</p>
 <p>Conditions describe the current conditions of the IngressExtension.
 Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
-<li>"Errors"</li>
+<li>&ldquo;Accepted&rdquo;</li>
+<li>&ldquo;Errors&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -1955,8 +2762,8 @@ header in the response.</p>
 following rules:</p>
 <ul>
 <li>If redirect scheme is not-empty, the redirect port MUST be the well-known
-port associated with the redirect scheme. Specifically "http" to port 80
-and "https" to port 443. If the redirect scheme doesn&rsquo;t have a
+port associated with the redirect scheme. Specifically &ldquo;http&rdquo; to port 80
+and &ldquo;https&rdquo; to port 443. If the redirect scheme doesn&rsquo;t have a
 well-known port, the listener port of the Gateway SHOULD be used.</li>
 <li>If redirect scheme is empty, the redirect port MUST be the Gateway
 Listener port.</li>
@@ -2333,7 +3140,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe RoutePolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>

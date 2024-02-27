@@ -39,7 +39,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
   3. Under **Monitoring**, select **Diagnostic settings**.
   4. Select **Add diagnostic setting**.
-  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**. 
+  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**.
   6. Select **Save** to save your settings. See the following example:
 
       ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs.png)
@@ -104,6 +104,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
 Here an example of the access log emitted in JSON format to a storage account.
+
 ```JSON
 {
     "category": "TrafficControllerAccessLog",

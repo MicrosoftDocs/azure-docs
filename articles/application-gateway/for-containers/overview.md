@@ -40,17 +40,19 @@ For details about how Application Gateway for Containers accepts incoming reques
 ## Features and benefits
 
 Application Gateway for Containers offers some entirely new features at release, such as:
-- Traffic splitting / Weighted round robin 
+
+- Traffic splitting / Weighted round robin
 - Mutual authentication to the backend target
 - Kubernetes support for Ingress and Gateway API
 - Flexible [deployment strategies](#deployment-strategies)
 - Increased performance, offering near real-time updates to add or move pods, routes, and probes
 
-Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs. 
+Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
 
 ### Load balancing features
 
 Application Gateway for Containers supports the following features for traffic management:
+
 - Automatic retries
 - Autoscaling
 - Availability zone resiliency
@@ -78,13 +80,14 @@ Application Gateway for Containers supports the following features for traffic m
 There are two deployment strategies for management of Application Gateway for Containers:
 
 - **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
-   - **In Gateway API:** Every time you wish to create a new Gateway resource in Kubernetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway resource. Deletion of the Frontend resource is responsible by the Azure administrator and isn't deleted when the Gateway resource in Kubernetes is deleted.
+  - **In Gateway API:** Every time you wish to create a new Gateway resource in Kubernetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway resource. Deletion of the Frontend resource is responsible by the Azure administrator and isn't deleted when the Gateway resource in Kubernetes is deleted.
 - **Managed by ALB Controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
   - **In Gateway API:** Every time a Gateway resource is created referencing the ApplicationLoadBalancer resource, ALB Controller provisions a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway resource.
 
 ### Supported regions
 
 Application Gateway for Containers is currently offered in the following regions:
+
 - Australia East
 - Canada Central
 - Central India

@@ -33,13 +33,13 @@ The following table shows the list of cipher suites and minimum protocol version
 | **Minimum protocol version** | TLS 1.2 | TLS 1.2 |
 | **Enabled protocol versions** | TLS 1.2 | TLS 1.2 |
 | TLS_AES_256_GCM_SHA384 | &check; | &check; |
-| TLS_AES_128_GCM_SHA256 | &check; | &check; | 
+| TLS_AES_128_GCM_SHA256 | &check; | &check; |
 | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384	| &check;	| &check; |
 | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256	| &check;	| &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384	| &check;	| &check; |
 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256	| &check;	| &check; |
 | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384	| &check;	| &cross; |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256	| &check;	| &cross; | 
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256	| &check;	| &cross; |
 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384	| &check;	| &cross; |
 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | &check; | &cross; |
 | **Elliptical curves** | | |
@@ -87,7 +87,4 @@ EOF
 
 TLS policy is currently not supported for Ingress resources and will automatically be configured to use the default TLS policy `2023-06`.
 
-
 ---
-
-

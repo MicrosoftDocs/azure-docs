@@ -21,6 +21,7 @@ Before you start troubleshooting, determine the version of ALB Controller that i
 ```bash
 kubectl get deployment -n azure-alb-system -o wide
 ```
+
 Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
@@ -36,17 +37,19 @@ The ALB Controller version can be upgraded by running the `helm upgrade alb-cont
 > The latest ALB Controller version can be found in the [ALB Controller release notes](alb-controller-release-notes.md#latest-release-recommended).
 
 ## Collect ALB Controller logs
+
 Logs can be collected from the ALB Controller by using the _kubectl logs_ command referencing the ALB Controller pod.
 
 1. Get the running ALB Controller pod name
 
     Run the following kubectl command. Ensure you substitute your namespace if not using the default namespace of `azure-alb-system`:
+
     ```bash
     kubectl get pods -n azure-alb-system
     ```
-    
+
     You should see output similar to the following example. Pod names might differ slightly.
-   
+
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
@@ -54,18 +57,21 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
     | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
 
     ALB controller uses an election provided by controller-runtime manager to determine an active and standby pod for high availability.
-    
+
     Copy the name of each alb-controller pod (not the bootstrap pod, in this case, `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
 
     # [Linux](#tab/active-pod-linux)
+
     ```bash
     kubectl logs alb-controller-6648c5d5c-sdd9t -n azure-alb-system -c alb-controller | grep "successfully acquired lease"
     ```
 
     # [Windows](#tab/active-pod-windows)
+
     ```cli
     kubectl logs alb-controller-6648c5d5c-sdd9t -n azure-alb-system -c alb-controller| findstr "successfully acquired lease"
     ```
+
     ---
 
     You should see the following if the pod is primary: `successfully acquired lease azure-alb-system/alb-controller-leader-election`
@@ -73,13 +79,15 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
 2. Collect the logs
 
    Logs from ALB Controller will be returned in JSON format.
-    
+
     Execute the following kubectl command, replacing the name with the pod name returned in step 1:
+
     ```bash
     kubectl logs -n azure-alb-system alb-controller-6648c5d5c-sdd9t
     ```
-    
+
     Similarly, you can redirect the output of the existing command to a file by specifying the greater than (>) sign and the filename to write the logs to:
+
     ```bash
     kubectl logs -n azure-alb-system alb-controller-6648c5d5c-sdd9t > alb-controller-logs.json
     ```
@@ -89,7 +97,8 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
 ### Application Gateway for Containers returns 500 status code
 
 Scenarios in which you would notice a 500-error code on Application Gateway for Containers are as follows:
-1. __Invalid backend Entries__ : A backend is defined as invalid in the following scenarios:
+
+1. **Invalid backend Entries** : A backend is defined as invalid in the following scenarios:
     - It refers to an unknown or unsupported kind of resource. In this case, the HTTPRoute's status has a condition with reason set to `InvalidKind` and the message explains which kind of resource is unknown or unsupported.
     - It refers to a resource that doesn't exist. In this case, the HTTPRoute's status has a condition with reason set to `BackendNotFound` and the message explains that the resource doesn't exist.
     - It refers to a resource in another namespace when the reference isn't explicitly allowed by a ReferenceGrant (or equivalent concept). In this case, the HTTPRoute's status has a condition with reason set to `RefNotPermitted` and the message explains which cross-namespace reference isn't allowed.
@@ -157,4 +166,5 @@ status:
 #### Solution
 
 Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the quickstart guides:
+
 - [Quickstart: Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller)
