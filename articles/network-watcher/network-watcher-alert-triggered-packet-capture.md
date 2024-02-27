@@ -11,11 +11,11 @@ ms.custom: devx-track-azurepowershell
 
 # Monitor networks proactively with alerts and Azure Functions by using packet capture
 
-Azure Network Watcher packet capture creates capture sessions to track traffic in and out of virtual machines (VMs). The capture file can have a filter that you define to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
+The packet capture feature of Azure Network Watcher creates capture sessions to track traffic in and out of virtual machines (VMs). The capture file can have a filter that you define to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
 
 You can start this capability remotely from other automation scenarios, such as from Azure Functions. You can run proactive captures based on defined network anomalies. Other uses include gathering network statistics, getting information about network intrusions, and debugging client/server communications.
 
-Resources that are deployed in Azure run continuously. It's difficult to actively monitor the status of all resources at all times. For example, what happens if an problem occurs at 2:00 AM?
+Resources that are deployed in Azure run continuously. It's difficult to actively monitor the status of all resources at all times. For example, what happens if a problem occurs at 2:00 AM?
 
 By using Network Watcher alerts and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
@@ -43,16 +43,16 @@ Here's the workflow for packet capture:
 1. The packet capture runs on the VM and collects data.
 1. The packet capture file is uploaded to a storage account for review and diagnosis.
 
-To automate this process, you create and connect an alert on your VM to trigger when the incident occurs. You also create a function to call Network Watcher.
+To automate this process, you create and connect an alert on your VM to be triggered when the incident occurs. You also create a function to call Network Watcher.
 
 This scenario:
 
 - Creates an Azure function that starts a packet capture.
 - Creates an alert rule on a virtual machine and configures the alert rule to call the Azure function.
 
-## Create an Azure function app
+## Create an Azure function
 
-To create an Azure function to process the alert and create a packet capture, follow these steps:
+To create an Azure function to process the alert and create a packet capture, you first need to create a function app:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -66,7 +66,7 @@ To create an Azure function to process the alert and create a packet capture, fo
 
    - Under **Project Details**, select the subscription for which you want to create the function app and the resource group to contain the app.
    - Under **Instance Details**:
-      - For **Function app name**, enter the name of the function app. This name is appended by *.azurewebsites.net*.
+      - For **Function App name**, enter the name of the function app. This name is appended with *.azurewebsites.net*.
       - For **Do you want to deploy code or container image?**, select the mode of publishing: **Code** or **Container image**.
       - For **Runtime stack**, select a runtime stack.
       - For **Version**, select the version of the runtime stack.
@@ -81,7 +81,7 @@ To create an Azure function to process the alert and create a packet capture, fo
 
 1. Select **Review + create** to create the app.
 
-### Create an Azure function
+Now you can create a function:
 
 1. In the function app that you created, select **Functions**, and then select **Create** to open the **Create function** pane.
 
@@ -99,7 +99,7 @@ To create an Azure function to process the alert and create a packet capture, fo
 
 7. Update the [script](#add-powershell-to-the-function) and select **Save**.
 
-### Authentication
+### Configure authentication
 
 To use the PowerShell cmdlets, you must configure authentication in the function app. To configure authentication, you must configure environment variables and upload an encrypted key file to the function app.
 
@@ -133,7 +133,7 @@ Set up the following environment variables, which are necessary to access the va
 - `AzureTenant`
 - `AzureCredPassword`
 
-If you already have an application ID, use the `AzureClientID`, `AzureTenant`, and `AzureCredPassword` values of that application. If you don't have one, proceed to [Store the environment variables](#store-the-environment-variables).
+If you already have an application ID, use the `AzureClientID`, `AzureTenant`, and `AzureCredPassword` values of that application. If you don't have one, proceed to the [Store the environment variables](#store-the-environment-variables) section.
 
 #### AzureClientID
 
@@ -165,7 +165,7 @@ Get the tenant ID by running the following PowerShell cmdlet:
 
 #### AzureCredPassword
 
-The value of the `AzureCredPassword` environment variable is the value that you get from running the following PowerShell sample. This example is the same one that the preceding [Authentication](#authentication) section showed. The value that you need is the output of the `$Encryptedpassword` variable. This is the service principal password that you encrypted by using the PowerShell script.
+The value of the `AzureCredPassword` environment variable is the value that you get from running the following PowerShell sample. This sample is the same one that the preceding [Authentication](#authentication) section showed. The value that you need is the output of the `$Encryptedpassword` variable. This output is the service principal password that you encrypted by using the PowerShell script.
 
 ```powershell
 #Variables
@@ -316,7 +316,7 @@ if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
 
 ## Configure an alert on a VM
 
-You can configure alerts to notify individuals when a specific metric crosses a threshold that you assigned to it. In this example, the alert is on the Network Out Total metric that's sent, but you can trigger the alert for many other metrics.
+You can configure alerts to notify individuals when a specific metric crosses a threshold that you assigned to it. In this example, the alert is on the **Network Out Total** metric that's sent, but you can trigger the alert for many other metrics.
 
 ### Create the alert rule
 

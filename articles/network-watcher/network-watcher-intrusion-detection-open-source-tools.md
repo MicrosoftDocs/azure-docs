@@ -22,7 +22,7 @@ This article explains how to set up your environment to perform network intrusio
 
 Network Watcher gives you the packet captures for performing network intrusion detection. Suricata processes the packet captures and triggers alerts based on packets that match its rule set of threats. Suricata stores these alerts in a log file on your local machine.
 
-By using the Elastic Stack, you can index the logs that Suricata generates and then use them to create a Kibana dashboard. A dashboard gives a visual representation of the logs and a means to quickly gain insights to potential network vulnerabilities.  
+By using the Elastic Stack, you can index the logs that Suricata generates and then use them to create a Kibana dashboard. A dashboard provides a visual representation of the logs and a way to quickly gain insights to potential network vulnerabilities.
 
 :::image type="content" source="./media/network-watcher-intrusion-detection-open-source-tools/figure1.png" alt-text="Diagram that shows a simple web application scenario.":::
 
@@ -44,7 +44,7 @@ For other methods of installation, see the [Suricata installation quickstart gui
 
 ## Download the Emerging Threats rule set
 
-At this stage, you don't have any rules for Suricata to run. You can create your own rules if there are specific threats to your network that you want to detect. You can also use developed rule sets from various providers, such as Emerging Threats or Talos rules from Snort. In this article, you use the freely available Emerging Threats rule set.
+At this stage, you don't have any rules for Suricata to run. You can create your own rules if you want to detect specific threats to your network. You can also use developed rule sets from various providers, such as Emerging Threats or Talos rules from Snort. In this article, you use the freely available Emerging Threats rule set.
 
 Download the rule set and copy it into the directory:
 
@@ -70,11 +70,11 @@ tail -f /var/log/suricata/fast.log
 
 ## Set up the Elastic Stack
 
-Although logs that Suricata produces contain valuable information about what's happening on your network, these log files aren't the easiest to read and understand. By connecting Suricata with the Elastic Stack, you can create a Kibana dashboard to search, graph, analyze, and derive insights from your logs.
+Logs that Suricata produces contain valuable information about what's happening on your network, but these log files aren't the easiest to read and understand. By connecting Suricata with the Elastic Stack, you can create a Kibana dashboard to search, graph, analyze, and derive insights from your logs.
 
 ### Install Elasticsearch
 
-1. Elastic Stack version 5.0 and later requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, refer to [documentation on the Azure-supported Java Development Kits](/azure/developer/java/fundamentals/java-support-on-azure).
+1. Elastic Stack version 5.0 and later require Java 8. Run the command `java -version` to check your version. If you don't have Java installed, refer to [documentation on the Azure-supported Java Development Kits](/azure/developer/java/fundamentals/java-support-on-azure).
 
 1. Download the correct binary package for your system:
 

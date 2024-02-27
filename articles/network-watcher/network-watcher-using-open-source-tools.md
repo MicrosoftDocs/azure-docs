@@ -45,7 +45,7 @@ The resulting URL looks something like the following example: `http://storageacc
 
 ## Analyze packet captures
 
-CapAnalysis offers various options to visualize your packet capture. Each one provides analysis from a different perspective. With these visual summaries, you can understand your network traffic trends and quickly spot any unusual activity.t
+CapAnalysis offers various options to visualize your packet capture. Each one provides analysis from a different perspective. With these visual summaries, you can understand your network traffic trends and quickly spot any unusual activity.
 
 The following list describes a few of the CapAnalysis features:
 
