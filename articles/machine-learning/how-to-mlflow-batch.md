@@ -223,7 +223,7 @@ Output predictions are generated in the `predictions.csv` file as indicated in t
 
 The file is structured as follows:
 
-* There is one row per each data point that was sent to the model. For tabular data, there will be one row per each row per each input file. Then, the number of rows in the generated file (`predictions.csv`) equals to the sum of all the rows in all the processed files. For other data types, there is one row per each processed file.
+* There is one row per each data point that was sent to the model. For tabular data, it means that the file (`predictions.csv`) contains one row for every row present in each of the processed files. For other data types (e.g. images, audio, text), there is one row per each processed file.
 
 * The following columns are in the file (in order):
 
