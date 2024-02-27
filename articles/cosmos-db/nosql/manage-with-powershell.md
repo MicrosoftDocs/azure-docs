@@ -49,7 +49,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB account, in
 
 ### <a id="create-account"></a> Create an Azure Cosmos DB account
 
-This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.yml#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.yml#enable-service-managed-failover-for-your-azure-cosmos-db-account) and bounded-staleness [consistency policy](../consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"

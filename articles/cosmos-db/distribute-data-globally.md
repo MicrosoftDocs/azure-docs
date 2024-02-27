@@ -49,7 +49,7 @@ As you add and remove regions to and from your Azure Cosmos DB account, your app
 
 **Build highly available apps.** Running a database in multiple regions worldwide increases the availability of a database. If one region is unavailable, other regions automatically handle application requests. Azure Cosmos DB offers 99.999% read and write availability for multi-region databases.
 
-**Maintain business continuity during regional outages.** Azure Cosmos DB supports [service-managed failover](how-to-manage-database-account.yml#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
+**Maintain business continuity during regional outages.** Azure Cosmos DB supports [service-managed failover](how-to-manage-database-account.yml#enable-service-managed-failover-for-your-azure-cosmos-db-account) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
 
 **Scale read and write throughput globally.** You can enable every region to be writable and elastically scale reads and writes all around the world. The throughput that your application configures on an Azure Cosmos DB database or a container is provisioned across all regions associated with your Azure Cosmos DB account. The provisioned throughput is guaranteed up by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
@@ -62,7 +62,7 @@ Read more about global distribution in the following articles:
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [How to configure multi-region writes in your applications](how-to-multi-master.md)
 * [Configure clients for multihoming](how-to-manage-database-account.yml#configure-multiple-write-regions)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.yml#addremove-regions-from-your-database-account)
+* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for API for NoSQL accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Programmable consistency models in Azure Cosmos DB](consistency-levels.md)
 * [Choose the right consistency level for your application](./consistency-levels.md)

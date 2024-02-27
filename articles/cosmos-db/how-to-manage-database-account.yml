@@ -68,7 +68,7 @@ procedureSection:
 
             :::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Screenshot of the Replicate data globally menu, highlighting Configure regions and Save.":::
    - title: |
-        <a id="automatic-failover"></a>Enable service-managed failover for your Azure Cosmos DB account
+        Enable service-managed failover for your Azure Cosmos DB account
      summary: |
         The Service-Managed failover option allows Azure Cosmos DB to fail over to the region with the highest failover priority with no user action should a region become unavailable. When service-managed failover is enabled, region priority can be modified. Your account must have two or more regions to enable service-managed failover.
      steps:
@@ -107,7 +107,7 @@ procedureSection:
 
             :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Screenshot of the Service-Managed failover portal menu.":::
    - title: |
-        <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos DB account
+        Perform manual failover on an Azure Cosmos DB account
      summary: |
         > [!IMPORTANT]
          > The Azure Cosmos DB account must be configured for manual failover for this operation to succeed.
