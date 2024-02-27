@@ -25,7 +25,7 @@ The following table lists the maximum supported limits for a range of parameters
 | SIMs                   | 1000 per site |
 | SIM provisioning       | 1000 per API call |
 
-Your chosen service package may have lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
+Your chosen service package may define lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
 
 ## Azure Stack Edge virtual machine sizing
 
