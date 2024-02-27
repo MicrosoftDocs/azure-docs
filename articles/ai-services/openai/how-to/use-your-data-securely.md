@@ -174,7 +174,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an additional advanced option described in [later section](#create-shared-private-link).
+You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an additional advanced option described in [this section](#create-shared-private-link).
 
 ### Enable managed identity
 
