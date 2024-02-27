@@ -5,7 +5,7 @@ description: This article introduces the Azure OpenAI GPT-4 Turbo with Vision to
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 1/8/2024
+ms.date: 2/26/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -27,18 +27,26 @@ The prompt flow *Azure OpenAI GPT-4 Turbo with Vision* tool enables you to use y
 
 - An [Azure AI hub resource](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
 
-## Connection
 
-Set up connections to provisioned resources in prompt flow.
+## Build with the Azure OpenAI GPT-4 Turbo with Vision tool
 
-| Type        | Name     | API KEY  | API Type | API Version |
-|-------------|----------|----------|----------|-------------|
-| AzureOpenAI | Required | Required | Required | Required    |
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
+1. Select **+ More tools** > **Azure OpenAI GPT-4 Turbo with Vision** to add the Azure OpenAI GPT-4 Turbo with Vision tool to your flow.
+
+    :::image type="content" source="../../media/prompt-flow/azure-openai-gpt-4-vision-tool.png" alt-text="Screenshot of the Azure OpenAI GPT-4 Turbo with Vision tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/azure-openai-gpt-4-vision-tool.png":::
+
+1. Select the connection to to your Azure OpenAI Service. For example, you can select the **Default_AzureOpenAI** connection. For more information, see [Prerequisites](#prerequisites).
+1. Enter values for the Azure OpenAI GPT-4 Turbo with Vision tool input parameters described [here](#inputs).
+1. Add more tools to your flow as needed, or select **Run** to run the flow.
+1. The outputs are described [here](#outputs).
+
 
 ## Inputs
 
-| Name                   | Type        | Description                                                                                    | Required |
-|------------------------|-------------|------------------------------------------------------------------------------------------------|----------|
+The following are available input parameters:
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
 | connection             | AzureOpenAI | The Azure OpenAI connection to be used in the tool.                                              | Yes      |
 | deployment\_name       | string      | The language model to use.                                                                      | Yes      |
 | prompt                 | string      | Text prompt that the language model uses to generate its response.                    | Yes      |
@@ -51,6 +59,13 @@ Set up connections to provisioned resources in prompt flow.
 
 ## Outputs
 
+The following are available output parameters:
+
 | Return Type | Description                              |
 |-------------|------------------------------------------|
 | string      | The text of one response of conversation |
+
+## Next steps
+
+- [Learn more about how to create a flow](../flow-develop.md)
+
