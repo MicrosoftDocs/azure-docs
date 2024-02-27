@@ -39,7 +39,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 | Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
 | Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |
-| Backup over virtual network | Not supported. | Supported. |
+| Backups over VNet | Not supported. | Supported. |
 
 <!-- - No file copy errors due to file locks. -->
 
