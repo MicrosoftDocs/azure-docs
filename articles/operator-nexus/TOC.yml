@@ -36,7 +36,12 @@
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
-      href: concepts-observability.md
+      expanded: false
+      items:
+        - name: Observabilty
+          href: concepts-observability.md
+        - name: metrics
+          href: reference-operator-nexus-observability-metrics.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
