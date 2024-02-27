@@ -102,7 +102,7 @@ When trying to deploy Arc resource bridge, you might receive an error message si
 
 `"errorResponse": "{\n\"message\": \"Post \\\"https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview\\u0026releaseTrain=stable\\\": http2: server sent GOAWAY and closed the connection; LastStreamID=1, ErrCode=NO_ERROR, debug=\\\"\\\"\"\n}"`
 
-This occurs when there is a firewall or proxy with SSL/TLS inspection enabled blocking http2 calls from the machine used to deploy the resource bridge. To confirm this is the problem, run the following PS cmdlet to invoke the web request with http2 (requires Powershell version 7 or above), replacing the region in the URL and api-version (ex:2019-11-01) in the below example with what was in the error:
+This occurs when a firewall or proxy has SSL/TLS inspection enabled and blocks http2 calls from the machine used to deploy the resource bridge. To confirm this is the problem, run the following PowerShell cmdlet to invoke the web request with http2 (requires PowerShell version 7 or above), replacing the region in the URL and api-version (ex:2019-11-01) with values from the error:
 
 `Invoke-WebRequest -HttpVersion 2.0 -UseBasicParsing -Uri https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview"&"releaseTrain=stable -Method Post -Verbose`
 
