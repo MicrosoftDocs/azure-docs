@@ -28,9 +28,9 @@ See the following figure:
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:
 
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
 
@@ -40,17 +40,17 @@ See the following figure:
   
    This command creates the following on your cluster:
   
-   - a namespace called `test-infra`
-   - one service called `mtls-app` in the `test-infra` namespace
-   - one deployment called `mtls-app` in the `test-infra` namespace
-   - one config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-   - four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+   - A namespace called `test-infra`
+   - One service called `mtls-app` in the `test-infra` namespace
+   - One deployment called `mtls-app` in the `test-infra` namespace
+   - One config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+   - Four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway:
+Create a gateway
 
 ```bash
 kubectl apply -f - <<EOF
@@ -129,13 +129,13 @@ EOF
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful gateway creation:
 
 ```yaml
 status:
@@ -182,7 +182,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute resource.
+Once the gateway is created, create an HTTPRoute resource.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -201,13 +201,13 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify the status of the Application Gateway for Containers resource is successfully updated.
 
 ```yaml
 status:
@@ -271,13 +271,13 @@ spec:
 EOF
 ```
 
-Once the BackendTLSPolicy object has been created check the status on the object to ensure that the policy is valid.
+Once the BackendTLSPolicy object is created, check the status on the object to ensure that the policy is valid:
 
 ```bash
 kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml
 ```
 
-Example output of valid BackendTLSPolicy object creation.
+Example output of valid BackendTLSPolicy object creation:
 
 ```yaml
 status:
@@ -292,7 +292,7 @@ status:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')

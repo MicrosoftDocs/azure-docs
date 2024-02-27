@@ -24,9 +24,9 @@ Application Gateway for Containers enables you to set weights and shift traffic 
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
+3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
 
     ```bash
@@ -35,9 +35,9 @@ Application Gateway for Containers enables you to set weights and shift traffic 
   
    This command creates the following on your cluster:
 
-   - a namespace called `test-infra`
-   - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-   - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -109,7 +109,7 @@ EOF
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
@@ -162,7 +162,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute
+Once the gateway is created, create an HTTPRoute
 
 ```bash
 kubectl apply -f - <<EOF
@@ -185,7 +185,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 
 ```bash
 kubectl get httproute traffic-split-route -n test-infra -o yaml
@@ -225,7 +225,7 @@ status:
 
 ## Test Access to the Application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the command below to get the FQDN.
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
