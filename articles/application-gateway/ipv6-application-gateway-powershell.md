@@ -351,5 +351,5 @@ AllowApplicationGatewayIPv6   Microsoft.Network   Unregistered
 
 ## Next steps
 
-- [What is Azure Application Gateway v2](overview-v2.md).
+- [What is Azure Application Gateway v2?](overview-v2.md)
 - [Troubleshoot Bad Gateway](application-gateway-troubleshooting-502.md)
