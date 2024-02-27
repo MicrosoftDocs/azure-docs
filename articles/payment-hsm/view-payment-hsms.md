@@ -58,7 +58,7 @@ To view your payment HSMs in the Azure portal:
 1. You can select one of your payment HSMs to see its properties.
     :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Screenshot of the Azure portal displaying a specific payment HSM and its properties.":::
 
-Alternatively, you can view the network interfaces associated with your Virtual Network.
+To view the IP addresses of the host and management network interfaces, see the "connected devices" associated with your Virtual Network:
 
 1. From the [Azure portal](https://portal.azure.com), select "Virtual networks".
 1. Select your virtual network (for example, "myVNet").
