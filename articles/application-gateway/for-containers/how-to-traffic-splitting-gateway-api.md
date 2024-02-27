@@ -108,11 +108,13 @@ EOF
 ---
 
 Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
@@ -159,6 +161,7 @@ status:
 ```
 
 Once the gateway has been created, create an HTTPRoute
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -181,6 +184,7 @@ EOF
 ```
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+
 ```bash
 kubectl get httproute traffic-split-route -n test-infra -o yaml
 ```

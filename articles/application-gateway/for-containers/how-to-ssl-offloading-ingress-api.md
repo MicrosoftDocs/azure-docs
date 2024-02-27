@@ -87,7 +87,8 @@ RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOU
 FRONTEND_NAME='frontend'
 ```
 
-2. Create an Ingress
+2. Create an Ingress resource.
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -121,11 +122,13 @@ EOF
 ---
 
 When the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
 Example output of successful Ingress creation.
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

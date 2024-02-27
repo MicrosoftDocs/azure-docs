@@ -28,15 +28,17 @@ Application Gateway for Containers enables traffic routing based on URL path, qu
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing. 
+
+   ```bash
+   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   ```
   
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   This command creates the following on your cluster:
+
+   - a namespace called `test-infra`
+   - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -69,6 +71,7 @@ EOF
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
+
 1. Set the following environment variables
 
 ```bash
@@ -80,6 +83,7 @@ FRONTEND_NAME='frontend'
 ```
 
 2. Create a Gateway
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -107,11 +111,13 @@ EOF
 ---
 
 Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
@@ -206,6 +212,7 @@ EOF
 ```
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+
 ```bash
 kubectl get httproute http-route -n test-infra -o yaml
 ```
@@ -253,9 +260,11 @@ fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addres
 By using the curl command, we can validate three different scenarios:
 
 ### Path based routing
+
 In this scenario, the client request sent to http://frontend-fqdn/bar is routed to backend-v2 service.
 
 Run the following command:
+
 ```bash
 curl http://$fqdn/bar
 ```
@@ -263,9 +272,11 @@ curl http://$fqdn/bar
 Notice the container serving the request is backend-v2.
 
 ### Query string + header + path routing
+
 In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" is routed to backend-v2 service.
 
 Run the following command:
+
 ```bash
 curl http://$fqdn/some/thing?great=example -H "magic: foo"
 ```
@@ -273,9 +284,11 @@ curl http://$fqdn/some/thing?great=example -H "magic: foo"
 Notice the container serving the request is backend-v2.
 
 ### Default route
+
 If neither of the first two scenarios are satisfied, Application Gateway for Containers routes all other requests to the backend-v1 service.
 
 Run the following command:
+
 ```bash
 curl http://$fqdn/
 ```

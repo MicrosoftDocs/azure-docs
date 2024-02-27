@@ -34,14 +34,11 @@ A redirect sets the response status code returned to clients to understand the p
   - `Prefix` redirection type will redirect all requests starting with a defined value.  For example, a prefix of /shop would match /shop and any text after.  For example, /shop, /shop/checkout, and /shop/item-a would all redirect to /shop as well.
   - `Full` redirection type matches an exact value. For example, /shop could redirect to /store, but /shop/checkout wouldn't redirect to /store.
 
-
 The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
 
-[ ![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-gateway-api/url-redirect.png) ](./media/how-to-url-redirect-gateway-api/url-redirect.png#lightbox)
-
+[![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-gateway-api/url-redirect.png)](./media/how-to-url-redirect-gateway-api/url-redirect.png#lightbox)
 
 ## Prerequisites
-
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
@@ -65,39 +62,40 @@ The following figure illustrates an example of a request destined for _contoso.c
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-namespace: alb-test-infra
-    alb.networking.azure.io/alb-name: alb-test
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: listener-tls-secret
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1beta1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-namespace: alb-test-infra
+        alb.networking.azure.io/alb-name: alb-test
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+      - name: https-listener
+        port: 443
+        protocol: HTTPS
+        allowedRoutes:
+          namespaces:
+            from: Same
+        tls:
+          mode: Terminate
+          certificateRefs:
+          - kind : Secret
+            group: ""
+            name: listener-tls-secret
+    EOF
+    ```
 
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
@@ -105,59 +103,62 @@ EOF
 
 1. Set the following environment variables
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    ```
 
 2. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: listener-tls-secret
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1beta1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+      - name: https-listener
+        port: 443
+        protocol: HTTPS
+        allowedRoutes:
+          namespaces:
+            from: Same
+        tls:
+          mode: Terminate
+          certificateRefs:
+          - kind : Secret
+            group: ""
+            name: listener-tls-secret
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
 Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
@@ -226,6 +227,7 @@ EOF
 ```
 
 When the HTTPRoute resource is created, ensure the HTTPRoute resource shows _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute rewrite-example -n test-infra -o yaml
 ```
@@ -288,6 +290,7 @@ EOF
 ```
 
 When the HTTPRoute resource is created, ensure the HTTPRoute resource shows _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute rewrite-example -n test-infra -o yaml
 ```
@@ -358,6 +361,7 @@ EOF
 ```
 
 When the HTTPRoute resource is created, ensure the HTTPRoute resource shows _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute rewrite-example -n test-infra -o yaml
 ```
@@ -394,8 +398,6 @@ status:
       namespace: test-infra
   ```
 
-
-
 ## Test access to the application
 
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
@@ -412,6 +414,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com/ -v
 ```
 
 Via the response we should see:
+
 ```text
 * Added contoso.com:80:xxx.xxx.xxx.xxx to DNS cache
 * Hostname contoso.com was found in DNS cache
@@ -440,6 +443,7 @@ curl -k --resolve contoso.com:443:$fqdnIp https://contoso.com/summer-promotion -
 ```
 
 Via the response we should see:
+
 ```text
 > GET /summer-promotion HTTP/2
 > Host: contoso.com
