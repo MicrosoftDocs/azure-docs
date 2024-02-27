@@ -17,8 +17,8 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 - [What's new in 2024](#whats-new-in-2024)
     - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
-        - [Generally available: Azure VM Backup support for Ultra Disks and Premium SSD v2]
-        - [Private Preview: Azure Site Recovery support for Premium SSD v2]
+        - [Generally available: Azure VM Backup support for Ultra Disks and Premium SSD v2](#generally-available-azure-vm-backup-support-for-ultra-disks-and-premium-ssd-v2)
+        - [Private Preview: Azure Site Recovery support for Premium SSD v2](#private-preview-azure-site-recovery-support-for-premium-ssd-v2)
         - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
         - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
         - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
