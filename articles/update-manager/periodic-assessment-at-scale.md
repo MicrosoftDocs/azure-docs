@@ -4,7 +4,7 @@ description: This article shows how to manage update settings for your Windows a
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/12/2024
+ms.date: 02/27/2024
 ms.topic: conceptual
 ---
 
@@ -26,7 +26,7 @@ This article describes how to enable Periodic Assessment for your machines at sc
 You can monitor the compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
 
 > [!NOTE]
-> Currently, Periodic assessment policies don’t support specialized, migrated, and restored images. However, they work for both marketplace and generalized gallery images, and you need to provide **Contributor** role to the managed identity created during policy assignment. For more information, see [remediation failures for gallery images](troubleshoot.md#policy-remediation-tasks-are-failing-for-gallery-images-and-for-images-with-encrypted-disks). 
+> Currently, Periodic assessment policies don’t support specialized, migrated, and restored images. However, they work for both marketplace and generalized gallery images. If you are facing failures during remediation see, [remediation failures for gallery images](troubleshoot.md#policy-remediation-tasks-are-failing-for-gallery-images-and-for-images-with-encrypted-disks) for more information. 
 
 
 

@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/12/2024
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -55,15 +55,17 @@ To review the logs related to all actions performed by the extension, on Windows
 ## Policy remediation tasks are failing for gallery images and for images with encrypted disks
 
 ### Issue
-There are remediation failures for gallery images which have a reference to the gallery image in the VM mode. This is because it requires the read permission and it is currently not part of the VM Contributor role.
+There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it is currently not part of the Virtual Machine Contributor role.
+
+  :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/./media/troubleshoot/policy-remediation-failure-error.png":::
 
 ### Cause
-The VM Contributor role doesn’t have enough permissions.
+The Virtual Machine Contributor role doesn’t have enough permissions.
 
 ### Resolution
 -	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
 -	For any previous assignments if you are experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
--	Also, in scenarios where the Contributor role doesn’t work either for the linked resources (gallery image) or for the disk in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
+-	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
 ### Unable to generate periodic assessment for Arc-enabled servers
