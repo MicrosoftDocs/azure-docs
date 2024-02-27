@@ -26,9 +26,9 @@ Your Azure Cosmos DB account contains a unique DNS name and can be managed using
 - Azure Management SDKs
 - Azure REST API
 
-For more information, see [how to manage your Azure Cosmos DB account](how-to-manage-database-account.md).
+For more information, see [how to manage your Azure Cosmos DB account](how-to-manage-database-account.yml).
 
-For replicating your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single region or multiple write regions. For more information, see [how to add and remove Azure regions to your account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on an account.
+For replicating your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single region or multiple write regions. For more information, see [how to add and remove Azure regions to your account](how-to-manage-database-account.yml). You can configure the [default consistency](consistency-levels.md) level on an account.
 
 ## Elements in an Azure Cosmos DB account
 
@@ -139,6 +139,6 @@ Azure Cosmos DB items support the following operations. You can use any of the A
 
 Learn how to manage your Azure Cosmos DB account and other concepts:
 
-- [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.md)
+- [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.yml)
 - [Global distribution](distribute-data-globally.md)
 - [Consistency levels](consistency-levels.md)

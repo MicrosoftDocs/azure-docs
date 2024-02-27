@@ -706,7 +706,7 @@
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
-          href: ../how-to-manage-database-account.md
+          href: ../how-to-manage-database-account.yml
         - name: Using PowerShell
           href: manage-with-powershell.md
         - name: Using Azure CLI

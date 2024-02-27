@@ -19,7 +19,7 @@ This article describes how to access an Azure Cosmos DB database from Azure Syna
 
 Before you connect an Azure Cosmos DB database to your workspace, you'll need an:
 
-* Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](../../cosmos-db/how-to-manage-database-account.md).
+* Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](../../cosmos-db/how-to-manage-database-account.yml).
 * Existing Azure Synapse workspace, or create a new workspace by following the steps in [Quickstart: Create a Synapse workspace](../quickstart-create-workspace.md).
 
 ## Enable Synapse Link on an Azure Cosmos DB database account
