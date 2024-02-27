@@ -75,6 +75,8 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ## Enable the AI toolchain operator add-on on an AKS cluster
 
+The following sections describe how to create an AKS cluster with the AI toolchain operator add-on enabled and deploy a default hosted AI model.
+
 ### Create an AKS cluster with the AI toolchain operator add-on enabled
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
@@ -86,7 +88,12 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator` and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
-    az aks create --location ${AZURE_LOCATION} --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME} --enable-managed-identity --enable-oidc-issuer --enable-ai-toolchain-operator
+    az aks create --location ${AZURE_LOCATION} \
+        --resource-group ${AZURE_RESOURCE_GROUP} \
+        --name ${CLUSTER_NAME} \
+        --enable-managed-identity \
+        --enable-oidc-issuer \
+        --enable-ai-toolchain-operator
     ```
 
     > [!NOTE]
@@ -111,30 +118,49 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 3. Export environment variables for the MC resource group, principal ID identity, and KAITO identity using the following commands:
 
     ```azurecli-interactive
-    export MC_RESOURCE_GROUP=$(az aks show --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME} --query nodeResourceGroup -o tsv)
-    export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-${CLUSTER_NAME}" --resource-group "${MC_RESOURCE_GROUP}" --query 'principalId' -o tsv)
+    export MC_RESOURCE_GROUP=$(az aks show --resource-group ${AZURE_RESOURCE_GROUP} \
+        --name ${CLUSTER_NAME} \
+        --query nodeResourceGroup \
+        -o tsv)
+    export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-${CLUSTER_NAME}" \
+        --resource-group "${MC_RESOURCE_GROUP}" \
+        --query 'principalId' 
+        -o tsv)
     export KAITO_IDENTITY_NAME="ai-toolchain-operator-${CLUSTER_NAME}"
     ```
+
 ## Get the AKS OpenID Connect (OIDC) Issuer
+
 * Get the AKS OIDC Issuer URL and export it as an environment variable:
 
     ```azurecli-interactive
-    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" --name "${CLUSTER_NAME}" --query "oidcIssuerProfile.issuerUrl" -o tsv)
+    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" \
+        --name "${CLUSTER_NAME}" \
+        --query "oidcIssuerProfile.issuerUrl" \
+        -o tsv)
     ```
+
 ## Create role assignment for the service principal
+
 * Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
-    az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"
+    az role assignment create --role "Contributor" \
+        --assignee "${PRINCIPAL_ID}" \
+        --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"
     ```
 
 ## Establish a federated identity credential
 
-
 * Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
-    az identity federated-credential create --name "kaito-federated-identity" --identity-name "${KAITO_IDENTITY_NAME}" -g "${MC_RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system:kaito-gpu-provisioner" --audience api://AzureADTokenExchange
+    az identity federated-credential create --name "kaito-federated-identity" \
+        --identity-name "${KAITO_IDENTITY_NAME}" \
+        -g "${MC_RESOURCE_GROUP}" \
+        --issuer "${AKS_OIDC_ISSUER}" \
+        --subject system:serviceaccount:"kube-system:kaito-gpu-provisioner" \
+        --audience api://AzureADTokenExchange
     ```
 
 ## Verify that your deployment is running
@@ -144,6 +170,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     ```azurecli-interactive
     kubectl rollout restart deployment/kaito-gpu-provisioner -n kube-system
     ```
+
 2. Verify that the deployment is running using the `kubectl get` command:
 
     ```azurecli-interactive
