@@ -1,6 +1,6 @@
 ---
-title: Geo-disaster recovery - Azure Database for PostgreSQL - Flexible Server
-description: Learn about the concepts of Geo-disaster recovery with Azure Database for PostgreSQL - Flexible Server
+title: Geo-disaster recovery
+description: Learn about the concepts of Geo-disaster recovery with Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -8,7 +8,7 @@ ms.custom:
 ms.topic: conceptual
 ms.author: alkuchar
 author: AlicjaKucharczyk
-ms.date: 10/23/2023
+ms.date: 01/22/2024
 ---
 
 # Geo-disaster recovery in Azure Database for PostgreSQL - Flexible Server
@@ -17,7 +17,7 @@ ms.date: 10/23/2023
 
 If there's a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../../site-recovery/azure-to-azure-architecture.md).
 
-Flexible server provides features that protect data and mitigates downtime for your mission-critical databases during planned and unplanned downtime events. Built on top of the Azure infrastructure that offers robust resiliency and availability, flexible server offers business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - the recovery time objective (RTO), and data loss exposure - the recovery point objective (RPO). For example, your business-critical database requires stricter uptime than a test database.
+Azure Database for PostgreSQL flexible server provides features that protect data and mitigates downtime for your mission-critical databases during planned and unplanned downtime events. Built on top of the Azure infrastructure that offers robust resiliency and availability, Azure Database for PostgreSQL flexible server offers business continuity features that provide fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - the recovery time objective (RTO), and data loss exposure - the recovery point objective (RPO). For example, your business-critical database requires stricter uptime than a test database.
 
 ## Compare geo-replication with geo-redundant backup storage
 Both geo-replication with read replicas and geo-backup are solutions for geo-disaster recovery. However, they differ in the details of their offerings. To choose the right solution for your system, it's important to understand and compare their features.
@@ -43,7 +43,7 @@ For more information on geo-redundant backup and restore, see [geo-redundant bac
 
 ## Read replicas
 
-Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and can lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
+Cross region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using Azure Database for PostgreSQL flexible server's physical replication technology, and can lag the primary. Read replicas are supported in general purpose and memory optimized compute tiers.
 
 For more information on read replica features and considerations, see [Read replicas](/azure/postgresql/flexible-server/concepts-read-replicas).
 
@@ -58,7 +58,7 @@ For more information on unplanned downtime mitigation and recovery after regiona
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Database for PostgreSQL documentation](/azure/postgresql/)
+> [Azure Database for PostgreSQL flexible server documentation](/azure/postgresql/)
 
 > [!div class="nextstepaction"]
 > [Reliability in Azure](../../reliability/availability-zones-overview.md)

@@ -1,7 +1,7 @@
 ---
 title:  Estimate capacity for query and index workloads
 titleSuffix: Azure AI Search
-description: Adjust partition and replica computer resources in Azure AI Search, where each resource is priced in billable search units.
+description: Learn how capacity is structured and used in Azure AI Search, and how to estimate the resources needed for indexing and query workloads.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,17 +10,15 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 01/10/2024
 ---
 
 # Estimate and manage capacity of a search service
 
-Before you [create a search service](search-create-service-portal.md) and lock in a specific [pricing tier](search-sku-tier.md), take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
-
 In Azure AI Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
-Partitions are units of storage. Each new search service starts with one each, but you can adjust each unit independently to accommodate fluctuating workloads. Adding either unit is [billable](search-sku-manage-costs.md#billable-events).
+Partitions are units of storage. Each new search service starts with one each, but you can add or remove replicas and partitions independently to accommodate fluctuating workloads. Adding capacity increases the [cost of running a search service](search-sku-manage-costs.md#billable-events).
 
-The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
+The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). On a standard search service, the replicas and partitions are faster and larger than those of a basic service.
 
 Changing capacity isn't instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
 
@@ -38,7 +36,7 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 | Concept  | Definition|
 |----------|-----------|
 |*Search unit* | A single increment of total available capacity (36 units). It's also the billing unit for an Azure AI Search service. A minimum of one unit is required to run the service.|
-|*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
+|*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you have three copies of an index available for servicing query requests.|
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Shard* | A chunk of an index. Azure AI Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
 
@@ -52,11 +50,11 @@ In Azure AI Search, shard management is an implementation detail and nonconfigur
 
 + Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it's most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
 
-+ Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
++ Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micro" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
-## Approaching estimation
+## Estimation targets
 
-Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: content (a count of indexes on a service, for example) and storage. It's important to consider both because whichever limit you reach first is the effective limit.
+Capacity planning must include object limits (for example, the maximum number of indexes allowed on a service) and storage limits. The service tier determines [object and storage limits](search-limits-quotas-capacity.md). Whichever limit is reached first is the effective limit.
 
 Counts of indexes and other objects are typically dictated by business and engineering requirements. For example, you might have multiple versions of the same index for active development, testing, and production.
 
@@ -64,7 +62,7 @@ Storage needs are determined by the size of the indexes you expect to build. The
 
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
-Attributes on the index, such as enabling filters and sorting, will impact storage requirements. The use of suggesters also has storage implications. For more information, see [Attributes and index size](search-what-is-an-index.md#index-size).
+Attributes on the index, such as enabling filters and sorting, affect storage requirements. The use of suggesters also has storage implications. For more information, see [Attributes and index size](search-what-is-an-index.md#index-size).
 
 > [!NOTE]
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one tier to another.
@@ -77,7 +75,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
 + Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you could use [REST and Postman](search-get-started-rest.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
-+ Collect information about the index, such as size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
++ Collect information about the index, such as size. Features and attributes affect storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
 
   Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
@@ -99,7 +97,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
 
-1. Add replicas if you need high availability or if you experience slow query performance.
+1. Add replicas for high availability or to mitigate slow query performance.
 
    There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
 
@@ -109,7 +107,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 **Query volume considerations**
 
-Queries per second (QPS) is an important metric during performance tuning, but it's generally only a tier consideration if you expect high query volume at the outset.
+Queries per second (QPS) is an important metric during performance tuning, but for capacity planning, it becomes a consideration only if you expect high query volume at the outset.
 
 The Standard tiers can provide a balance of replicas and partitions. You can increase query turnaround by adding replicas for load balancing or add partitions for parallel processing. You can then tune for performance after the service is provisioned.
 

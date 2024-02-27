@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-entity-linking, ignite-fall-2021
+ms.custom: language-service-entity-linking
 ---
 
 # Entity linking language support 

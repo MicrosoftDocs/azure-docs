@@ -8,7 +8,6 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/22/2023
-ms.custom: ignite-2022
 ---
 
 # Troubleshoot issues with diagnostics queries

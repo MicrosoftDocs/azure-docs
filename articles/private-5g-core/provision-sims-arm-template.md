@@ -170,4 +170,5 @@ The following Azure resources are defined in the template.
 
 ## Next steps
 
-You can [Manage these SIMs](manage-existing-sims.md) using the Azure portal.
+- [Manage these SIMs](manage-existing-sims.md) using the Azure portal.
+- [Enable SUPI concealment](supi-concealment.md) if required.

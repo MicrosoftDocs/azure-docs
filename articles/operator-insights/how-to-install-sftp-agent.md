@@ -11,14 +11,14 @@ ms.date: 12/06/2023
 
 # Create and configure SFTP Ingestion Agents for Azure Operator Insights
 
-An SFTP Ingestion Agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights.
+An SFTP Ingestion Agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights Data Products.
 
 For more background, see [SFTP Ingestion Agent overview](sftp-agent-overview.md).
 
 ## Prerequisites
 
-- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where you install the agent.
-- You must have an Azure Operator Insights Data Product deployment.
+- You must deploy an Azure Operator Insights Data Product.
+- You must have an SFTP server containing the files to be uploaded to the Azure Operator Insights Data Product. This SFTP server must be accessible from the VM where you install the agent.
 - You must choose the number of agents and VMs on which to install the agents, using the guidance in the following section.
 
 ### Choosing agents and VMs
@@ -73,9 +73,9 @@ The VM used for the SFTP agent should be set up following best practice for secu
   - Access to the certificate and private key for the service principal that you create during this procedure
   - Access to the directory for secrets that you create on the VM during this procedure.
   
-## Acquire the agent RPM
+## Download the RPM for the agent
 
-A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+Download the RPM for the SFTP agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2254734](https://go.microsoft.com/fwlink/?linkid=2254734).
 
 ## Set up authentication to Azure
 
@@ -86,23 +86,30 @@ You must have a service principal with a certificate credential that can access 
 > [!IMPORTANT]
 > You might need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
-1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
 ### Prepare certificates
 
-It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
+The ingestion agent only supports certificate-based authentication for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
-1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+2. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+3. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
     - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
-1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
+4. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
     `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
-5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
+   > [!IMPORTANT]
+   > The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
+
+5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key:
+
+    `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
+
+6. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the command:
 
     `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
@@ -129,7 +136,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 7. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
 > [!TIP]
-> Use the Linux command `ssh-keyscan` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `sudo sh -c 'ssh-keyscan -H 10.213.0.6 >> /etc/ssh/ssh_known_hosts'`.
+> Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
 ## Configure the connection between the SFTP server and VM
 
@@ -160,31 +167,28 @@ If your agent VMs don't have access to public DNS, then you need to add entries 
 
 This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing,  you **cannot** use this workaround and must use public DNS.
 
-Create the following resources from a virtual network that is peered to your ingestion agents:
-
-- A Service Endpoint to Azure Storage
-- A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
-
-Steps:
-
+1. Create the following resources from a virtual network that is peered to your ingestion agents:
+    - A Service Endpoint to Azure Storage
+    - A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
-3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
-4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+1. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
+1. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
+1. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
     ```
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-5. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
     ```
     <Public IP>   login.microsoftonline.com
     ````
+
 ## Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
+1. Install the RPM:  `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
 1. Change to the configuration directory: `cd /etc/az-sftp-uploader`
 1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
 1. Edit the *config.yaml* file and fill out the fields. Start by filling out the parameters that don't depend on the type of Data Product.  Many parameters are set to default values and don't need to be changed.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:

@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 03/01/2023
 ms.author: helohr 
 ms.custom: devx-track-azurecli
-manager: femila
 ---
 # Configure a host pool as a validation environment
 

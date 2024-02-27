@@ -150,6 +150,7 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
+- [Apache Flink on HDInsight on AKS](/azure/hdinsight-aks/flink/flink-overview)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
 
 The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you're required to first import data into Apache Kafka with the Kafka Connect framework.

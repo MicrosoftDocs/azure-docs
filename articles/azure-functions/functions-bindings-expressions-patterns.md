@@ -4,7 +4,7 @@ description: Learn to create different Azure Functions binding expressions based
 
 ms.topic: reference
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ---
 

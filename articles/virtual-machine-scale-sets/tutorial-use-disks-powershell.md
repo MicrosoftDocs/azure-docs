@@ -72,6 +72,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "East US"
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
+  -OrchestrationMode "Flexible" `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `

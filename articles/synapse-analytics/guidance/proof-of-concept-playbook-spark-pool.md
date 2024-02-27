@@ -5,7 +5,6 @@ author: SnehaGunda
 ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/23/2022
 ---

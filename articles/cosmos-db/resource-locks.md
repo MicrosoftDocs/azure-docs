@@ -1,16 +1,16 @@
 ---
 title: Use locks to protect resources
 titleSuffix: Azure Cosmos DB
-description: Use Azure resource locks to prevent Azure Cosmos DB resources from being deleted or changed unintentionally. 
+description: Use Azure resource locks to prevent Azure Cosmos DB resources from being deleted or changed unintentionally.
 author: seesharprun
 ms.author: sidandrews
-ms.reviewer: mjbrown 
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.devlang: azurecli
 ms.date: 03/23/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Protect Azure Cosmos DB resources with locks

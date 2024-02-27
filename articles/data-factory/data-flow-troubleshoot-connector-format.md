@@ -6,8 +6,7 @@ ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
-ms.custom: ignite-2022
-ms.topic: troubleshooting 
+ms.topic: troubleshooting
 ms.date: 07/17/2023
 ---
 

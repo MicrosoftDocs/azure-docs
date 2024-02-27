@@ -6,6 +6,12 @@ ms.date: 09/29/2023
 ms.author: eur
 ---
 
+### February 2024 release
+
+#### Phrase list
+
+Added phrase list support for the following locales: ar-SA, de-CH, en-IE, en-ZA, es-US, id-ID, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE, th-TH, vi-VN, zh-HK, zh-TW.
+
 ### November 2023 release
 
 #### Introducing Bilingual Speech Modeling!
@@ -79,7 +85,7 @@ We encourage you to explore these improvements and consider potential issues for
 
 #### Whisper public preview
 
-Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#using-whisper-models) guide. 
+Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#use-a-whisper-model) guide. 
 
 > [!NOTE]
 > Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../../../openai/whisper-quickstart.md). 
@@ -105,31 +111,7 @@ Speech to text supports two new locales as shown in the following table. Refer t
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
-  | Language | Locale (BCP-47) | 
-  |--|--|
-  |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
-  |Chinese (Mandarin, Simplified)|`zh-CN`|
-  |English (Australia)|`en-AU`|
-  |English (Canada)|`en-CA` |
-  |English (India)|`en-IN` |
-  |English (United Kingdom)|`en-GB`|
-  |English (United States)|`en-US`|  
-  |French (Canada)|`fr-CA`| 
-  |French (France)|`fr-FR`|  
-  |German (Germany)|`de-DE`|
-  |Italian (Italy)|`it-IT`<sup>1</sup>|
-  |Japanese (Japan)|`ja-JP`|
-  |Korean (Korea)|`ko-KR`<sup>1</sup>|
-  |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
-  |Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
-  |Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
-  |Russian (Russia)|`ru-RU`<sup>1</sup>|
-  |Spanish (Mexico)|`es-MX` | 
-  |Spanish (Spain)|`es-ES` | 
-  |Tamil (India)|`ta-IN`<sup>1</sup> | 
-  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
-
-  <sup>1</sup> The language is in public preview for pronunciation assessment.
+ 
 
 ### May 2023 release
 
@@ -152,13 +134,13 @@ Speech to text supports two new locales as shown in the following table. Refer t
   - **Python**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L915).
   - **Swift**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L191).
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for the `de-AT` locales.
 
 ### January 2023 release
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for additional locales: `ar-BH`, `ar-DZ`, `ar-EG`, `ar-MA`, `ar-SA`, `ar-TN`, `ar-YE`, and `ja-JP`.
 

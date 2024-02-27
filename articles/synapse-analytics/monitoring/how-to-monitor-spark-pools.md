@@ -1,7 +1,6 @@
 ---
 title: How to monitor Apache Spark pools in Synapse Studio
 description: Learn how to monitor your Apache Spark pools by using Synapse Studio.
-services: synapse-analytics 
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to

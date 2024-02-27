@@ -2,6 +2,7 @@
 title: Configure Container insights data collection using data collection rule
 description: Describes how you can configure cost optimization and other data collection for Container insights using a data collection rule.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 12/19/2023
 ms.reviewer: aul
 ---
@@ -250,7 +251,7 @@ The settings for **collection frequency** and **namespace filtering** don't appl
 When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
 
 > [!NOTE]
-> If your familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
+> If you're familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
 
 | Stream | Container insights table |
 | --- | --- |

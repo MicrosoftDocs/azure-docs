@@ -7,8 +7,6 @@ ms.date: 02/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: contperf-fy21q2
-
 # Operator
 ---
 

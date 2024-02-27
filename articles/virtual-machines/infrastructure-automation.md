@@ -4,7 +4,6 @@ description: Learn how to use infrastructure automation tools such as Ansible, C
 author: ju-shim
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-ansible, devx-track-jenkins, devx-track-bicep
 ms.date: 09/21/2023
 ms.author: jushiman

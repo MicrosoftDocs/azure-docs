@@ -7,7 +7,7 @@ ms.author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 11/22/2023
+ms.date: 01/12/2024
 ---
 
 # Monitoring Azure Virtual WAN - Best practices
@@ -84,13 +84,13 @@ The following section details the configuration of metric-based alerts only. How
 
 ### ExpressRoute gateway
 
-This section of the article focuses on metric-based alerts. There are no diagnostic logs currently available for Virtual WAN ExpressRoute gateways. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
+The following section focuses on metric-based alerts. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
 
 **Design checklist - metric alerts**
 
-* Create alert rule for Bits Received Per Second.
+* Create alert rule for bits received per second.
 * Create alert rule for CPU overutilization.
-* Create alert rule for Packets per Second.
+* Create alert rule for packets per second.
 * Create alert rule for number of routes advertised to peer.
 * Count alert rule for number of routes learned from peer.
 * Create alert rule for high frequency in route changes.
@@ -100,13 +100,22 @@ This section of the article focuses on metric-based alerts. There are no diagnos
 |Create alert rule for Bits Received Per Second.|**Bits Received per Second** monitors the total amount of traffic received by the gateway from the MSEEs.<br><br>You might want to be alerted if the amount of traffic received by the gateway is at risk of hitting its maximum throughput, as this can lead to performance and connectivity issues. This allows you to act proactively by investigating the root cause of the increased gateway utilization or increasing the gateway’s maximum allowed throughput.<br><br>Choose the **Average** aggregation type and a **Threshold** value close to the maximum throughput provisioned for the gateway when configuring the alert rule.<br><br>Additionally, we recommend that you set an alert when the number of **Bits Received per Second** is near zero, as it might indicate an issue with the gateway or the MSEEs.<br><br>The maximum throughput of an ExpressRoute gateway is determined by number of scale units provisioned. To learn more about ExpressRoute gateway performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).|
 |Create alert rule for CPU overutilization.|When using ExpressRoute gateways, it's important to monitor the CPU utilization. Prolonged high utilization can affect performance and connectivity.<br><br>Use the **CPU utilization** metric to monitor this and create an alert for whenever the CPU utilization is **greater than** 80%, so you can investigate the root cause and ultimately increase the number of scale units, if needed. Choose the **Average** aggregation type when configuring the alert rule.<br><br>To learn more about ExpressRoute gateway performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).|
 |Create alert rule for packets received per second.|**Packets per second** monitors the number of inbound packets traversing the Virtual WAN ExpressRoute gateway.<br><br>You might want to be alerted if the number of **packets per second** is nearing the limit allowed for the number of scale units configured on the gateway.<br><br>Choose the Average aggregation type when configuring the alert rule. Choose a **Threshold** value close to the maximum number of **packets per second** allowed based on the number of scale units of the gateway. To learn more about ExpressRoute performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).<br><br>Additionally, we recommend that you set an alert when the number of **Packets per second** is near zero, as it might indicate an issue with the gateway or MSEEs.|
-|Create alert rule for number of routes advertised to peer. |**Count of Routes Advertised to Peers** monitors the number of routes advertised from the ExpressRoute gateway to the virtual hub router and to the Microsoft Enterprise Edge Devices.<br><br>We recommend that you configure an alert only on the two BGP peers displayed as **ExpressRoute Device** to identify when the count of advertised routes approaches the documented limit of **1000**. For example, configure the alert to be triggered when the number of routes advertised is **greater than 950**.<br><br>We also recommend that you configure an alert when the number of routes advertised to the Microsoft Edge Devices is **zero** in order to proactively detect any connectivity issues.<br><br>To add these alerts, select the **Count of Routes Advertised to Peers** metric, and then select the **Add filter** option and the **ExpressRoute** devices.|
-|Create alert rule for number of routes learned from peer.|**Count of Routes Learned from Peers** monitors the number of routes the ExpressRoute gateway learns from the virtual hub router and from the Microsoft Enterprise Edge Device.<br><br>We recommend that you configure an alert **only** on the two BGP peers displayed as **ExpressRoute Device** to identify when the count of learned routes approaches the [documented limit](../expressroute/expressroute-faqs.md#are-there-limits-on-the-number-of-routes-i-can-advertise) of 4000 for Standard SKU and 10,000 for Premium SKU circuits.<br><br>We also recommend that you configure an alert when the number of routes advertised to the Microsoft Edge Devices is **zero**. This can help in detecting when your on-premises has stopped advertising routes.  
+|Create alert rule for number of routes advertised to peer. |**Count of Routes Advertised to Peers** monitors the number of routes advertised from the ExpressRoute gateway to the virtual hub router and to the Microsoft Enterprise Edge Devices.<br><br>We recommend that you **add a filter** to **only** select the two BGP peers displayed as **ExpressRoute Device** and create an alert to identify when the count of advertised routes approaches the documented limit of **1000**. For example, configure the alert to be triggered when the number of routes advertised is **greater than 950**.<br><br>We also recommend that you configure an alert when the number of routes advertised to the Microsoft Edge Devices is **zero** in order to proactively detect any connectivity issues.<br><br>To add these alerts, select the **Count of Routes Advertised to Peers** metric, and then select the **Add filter** option and the **ExpressRoute** devices.|
+|Create alert rule for number of routes learned from peer.|**Count of Routes Learned from Peers** monitors the number of routes the ExpressRoute gateway learns from the virtual hub router and from the Microsoft Enterprise Edge Device.<br><br>We recommend that you add a filter to **only** select the two BGP peers displayed as **ExpressRoute Device** and create an alert to identify when the count of learned routes approaches the [documented limit](../expressroute/expressroute-faqs.md#are-there-limits-on-the-number-of-routes-i-can-advertise) of 4000 for Standard SKU and 10,000 for Premium SKU circuits.<br><br>We also recommend that you configure an alert when the number of routes advertised to the Microsoft Edge Devices is **zero**. This can help in detecting when your on-premises has stopped advertising routes.  
 |Create alert rule for high frequency in route changes.|**Frequency of Routes changes** shows the change frequency of routes being learned and advertised from and to peers, including other types of branches such as site-to-site and point-to-site VPN. This metric provides visibility when a new branch or more circuits are being connected/disconnected.<br><br>This metric is a useful tool when identifying issues with BGP advertisements, such as flaplings. We recommend that you to set an alert **if** the environment is **static** and BGP changes aren't expected. Select a **threshold value** that is **greater than 1** and an **Aggregation Granularity** of 15 minutes to monitor BGP behavior consistently.<br><br>If the environment is dynamic and BGP changes are frequently expected, you might choose not to set an alert otherwise in order to avoid false positives. However, you can still consider this metric for observability of your network.|
 
 ## Virtual hub
 
-We're working to support alerts based on virtual hub metrics soon. Currently, you can retrieve information for the Metrics, but alerting is unsupported. There are no diagnostic logs available for virtual hubs at this time.
+The following section focuses on metrics-based alerts for virtual hubs. 
+
+**Design checklist - metric alerts**
+
+* Create alert rule for BGP peer status
+
+|Recommendation | Description|
+|---|---|
+|Create alert rule to monitor BGP peer status.| Select the **BGP Peer Status** metric when creating the alert rule. Using a **static** threshold, choose the **Average** aggregation type and configure the alert to be triggered whenever the value is **less than 1**.<br><br> This will allow you to identify when the virtual hub router is having connectivity issues with ExpressRoute, Site-to-Site VPN, and Point-to-Site VPN gateways deployed in the hub.|
+
 
 ## Azure Firewall
 
@@ -121,6 +130,16 @@ This section of the article focuses on metric-based alerts. Azure Firewall offer
 |---|---|
 |Create alert rule for risk of SNAT port exhaustion.|Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend virtual machine scale instance. It’s important to estimate in advance the number of SNAT ports that will fulfill your organizational requirements for outbound traffic to the Internet. Not doing so increases the risk of exhausting the number of available SNAT ports on the Azure Firewall, potentially causing outbound connectivity failures.<br><br>Use the **SNAT port utilization** metric to monitor the percentage of outbound SNAT ports currently in use. Create an alert rule for this metric to be triggered whenever this percentage surpasses **95%** (due to an unforeseen traffic increase, for example) so you can act accordingly by configuring an additional public IP address on the Azure Firewall, or by using an [Azure NAT Gateway](../nat-gateway/nat-overview.md) instead. Use the **Maximum** aggregation type when configuring the alert rule.<br><br>To learn more about how to interpret the **SNAT port utilization** metric, see [Overview of Azure Firewall logs and metrics](../firewall/logs-and-metrics.md#metrics). To learn more about how to scale SNAT ports in Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).|
 |Create alert rule for firewall overutilization.|Azure Firewall maximum throughput differs depending on the SKU and features enabled. To learn more about Azure Firewall performance, see [Azure Firewall performance](../firewall/firewall-performance.md).<br><br>You might want to be alerted if your firewall is nearing its maximum throughput and troubleshoot the underlying cause, as this can have an impact in the firewall’s performance.<br><br> Create an alert rule to be triggered whenever the **Throughput** metric surpasses a value nearing the firewall’s maximum throughput – if the maximum throughput is 30Gbps, configure 25Gbps as the **Threshold** value, for example. The **Throughput** metric unit is **bits/sec**. Choose the **Average** aggregation type when creating the alert rule.
+
+## Resource Health Alerts
+
+You can also configure [Resource Health Alerts](../service-health/resource-health-alert-monitor-guide.md) via Service Health for the below resources. This ensures you are informed of the availability of your Virtual WAN environment, and this allows you to troubleshoot if networking issues are due to your Azure resources entering an unhealthy state, as opposed to issues from your on-premises environment. It is recommended to configure alerts when the resource status becomes degraded or unavailable. If the resource status does become degraded/unavailable, you can analyze if there are any recent spikes in the amount of traffic processed by these resources, the routes advertised to these resources, or the number of branch/VNet connections created. Please see [Azure Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) for additional info on limits supported in Virtual WAN. 
+
+* Microsoft.Network/vpnGateways
+* Microsoft.Network/expressRouteGateways
+* Microsoft.Network/azureFirewalls
+* Microsoft.Network/virtualHubs
+* Microsoft.Network/p2sVpnGateways
 
 ## Next steps
 

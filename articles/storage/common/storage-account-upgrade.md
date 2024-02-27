@@ -8,7 +8,7 @@ author: akashdubey-ms
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/11/2024
 ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
 ---
@@ -98,18 +98,6 @@ All storage accounts use a pricing model for blob storage based on the tier of e
 > For more information on the pricing model for storage accounts, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
 ### Estimate costs for your current usage patterns
-
-To estimate the cost of storing and accessing blob data in a general-purpose v2 storage account in a particular tier, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
-
-- Your Blob storage consumption, in gigabytes, including:
-  - How much data is being stored in the storage account?
-  - How does the data volume change on a monthly basis; does new data constantly replace old data?
-
-- The primary access pattern for your Blob storage data, including:
-  - How much data is being read from and written to the storage account?
-  - How many read operations versus write operations occur on the data in the storage account?
-
-To decide on the best access tier for your needs, it can be helpful to determine your blob data capacity, and how that data is being used. This can be best done by looking at the monitoring metrics for your account.
 
 To estimate the cost of storing and accessing blob data in a general-purpose v2 storage account in a particular tier, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
 

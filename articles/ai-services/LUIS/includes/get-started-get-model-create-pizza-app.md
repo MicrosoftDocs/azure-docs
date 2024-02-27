@@ -5,7 +5,7 @@ description: include file
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.date: 06/04/2020
+ms.date: 01/19/2024
 ms.subservice: azure-ai-luis
 ms.topic: include
 ms.custom: include file

@@ -69,4 +69,4 @@ Add more context to the map:
 [Web Mapping Services (WMS)]: https://www.opengeospatial.org/standards/wms
 [Show real-time traffic]: power-bi-visual-show-real-time-traffic.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-[weather radar tile service]: /rest/api/maps/render-v2/get-map-tile
+[weather radar tile service]: /rest/api/maps/render/get-map-tile

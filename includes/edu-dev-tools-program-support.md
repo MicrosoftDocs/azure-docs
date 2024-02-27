@@ -5,7 +5,7 @@ author: v-dihans
 ms.author: rymend
 ms.topic: include
 ms.date: 06/30/2020
-ms.prod: azure
+ms.service: azure
 ---
 
 If you need help with sign in, setup or using Azure Dev Tools for Teaching, go to [Subscriptions Support](https://azureforeducation.microsoft.com/institutions/Contact) and locate your region.

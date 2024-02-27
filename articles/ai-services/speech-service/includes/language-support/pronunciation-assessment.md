@@ -8,9 +8,11 @@ ms.author: eur
 
 | Language | Locale (BCP-47) | 
 |--|--|
+|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
 |Arabic (Saudi Arabia)|`ar-SA` |
 |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
+|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
 |English (India)|`en-IN` |

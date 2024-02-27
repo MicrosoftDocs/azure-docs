@@ -1,10 +1,10 @@
 ---
 title: Use LetsEncrypt.org certificates with Application Gateway
-description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway for AKS clusters. 
+description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway for AKS clusters.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -52,8 +52,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
       --namespace cert-manager \
       --version v1.10.1 \
       # --set installCRDs=true
-     
-    # To automatically install and manage the CRDs as part of your Helm release, 
+
+    # To automatically install and manage the CRDs as part of your Helm release,
     # you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
@@ -65,7 +65,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     The default challenge type in the following YAML is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Update `<YOUR.EMAIL@ADDRESS>` in the following YAML.
 
     ```bash
@@ -105,7 +105,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain). The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the tagged Ingress resource.
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example 'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash

@@ -102,7 +102,7 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.8|July 2021| Sept 15 2021|4.10 GA|
 |4.9|November 2021| February 1 2022|4.11 GA|
 |4.10|March 2022| June 21 2022|4.12 GA|
-|4.11|August 2022| March 2 2023|4.13 GA|
+|4.11|August 2022| March 2 2023|February 10 2024|
 |4.12|January 2023| August 19 2023|October 19 2024|
 |4.13|May 2023| December 15 2023|February 15 2025|
 

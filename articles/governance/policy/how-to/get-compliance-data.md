@@ -1,11 +1,9 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-author: davidsmatlak
 ms.date: 11/03/2022
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.author: davidsmatlak
 ---
 # Get compliance data of Azure resources
 

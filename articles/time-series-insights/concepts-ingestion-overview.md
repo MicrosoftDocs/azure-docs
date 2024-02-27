@@ -5,12 +5,9 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Gen2 data ingestion overview

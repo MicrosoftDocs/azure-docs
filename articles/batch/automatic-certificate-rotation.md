@@ -2,7 +2,7 @@
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that will automatically be renewed.
 ms.topic: conceptual
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 12/05/2023
 ---
 # Enable automatic certificate rotation in a Batch pool

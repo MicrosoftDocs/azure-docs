@@ -6,7 +6,7 @@ ms.topic: how-to
 author: jboback
 ms.author: jboback
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021, mode-other
+ms.custom: language-service-question-answering, mode-other
 ---
 
 # Create, test, and deploy a custom question answering project
@@ -97,5 +97,3 @@ You can create a question answering project from your own content, such as FAQs 
 If you will not continue to test custom question answering, you can delete the associated resource.
 
 ## Next steps
-
-

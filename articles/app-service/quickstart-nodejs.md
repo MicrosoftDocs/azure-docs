@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 07/17/2023
 ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022, devx-track-js, ai-video-demo
+ms.custom: mvc, devcenter, devdivchpfy22, devx-track-js, ai-video-demo
 ai-usage: ai-assisted
 ---
 
