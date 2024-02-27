@@ -13,7 +13,7 @@ author: msangapu-msft
 > Automatic scaling is available for all app types: Windows, Linux, and Windows container. Automatic scaling is not supported for deployment slot traffic.
 >
 
-Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
+Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
 
 A comparison of scale-out and scale in options available on App Service:
 
@@ -46,8 +46,6 @@ Here are a few scenarios where you should scale-out automatically:
 ## Enable automatic scaling
 
 __Maximum burst__ is the highest number of instances that your App Service Plan can increase to based on incoming HTTP requests. For Premium v2 & v3 plans, you can set a maximum burst of up to 30 instances. The maximum burst must be equal to or greater than the number of workers specified for the App Service Plan.
-
-
 
 > [!IMPORTANT]
 > [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
