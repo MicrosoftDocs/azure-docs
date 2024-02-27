@@ -37,7 +37,7 @@ A redirect sets the response status code returned to clients to understand the p
 
 The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
 
-[ ![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-rewrite-gateway-api/url-redirect.png) ](./media/how-to-url-rewrite-gateway-api/url-redirect.png#lightbox)
+[ ![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-gateway-api/url-redirect.png) ](./media/how-to-url-redirect-gateway-api/url-redirect.png#lightbox)
 
 
 ## Prerequisites
