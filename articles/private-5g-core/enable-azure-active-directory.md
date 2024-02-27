@@ -50,7 +50,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
+1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create the roles for your application with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
     - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating. For distributed tracing, you also need a **sas.user** role.
