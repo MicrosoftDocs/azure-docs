@@ -156,7 +156,10 @@ module.exports = async function (context, key) {
 
 ### [Model v4](#tab/nodejs-v4)
 
-Node.js v4 isn't yet supported by the Azure Cache for Redis extension.
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 ::: zone-end  
@@ -237,7 +240,10 @@ def main(key: str) -> str:
 ```
 ### [v2](#tab/python-v2)
 
-Python v2 isn't yet supported by the Azure Cache for Redis extension.
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 
 ---
 ::: zone-end  
@@ -248,24 +254,15 @@ Python v2 isn't yet supported by the Azure Cache for Redis extension.
 > [!NOTE]
 > All commands are supported for this binding.
 
-The way in which you define an output binding parameter depends on whether your C# functions runs [in-process](functions-dotnet-class-library.md) or in an [isolated worker process](dotnet-isolated-process-guide.md). 
+The way in which you define an output binding parameter depends on whether your C# functions runs [in-process](functions-dotnet-class-library.md) or in an [isolated worker process](dotnet-isolated-process-guide.md).
 
-### [In-process](#tab/in-process)
-
-The output binding is defined in one of these ways: 
+The output binding is defined this way: 
 
 | Definition | Example | Description |
 | ----- | ----- | ----- |
-| On the method | `[return: Redis(<ConnectionStringSetting>, <Command>)]` | An explicit `return` command returns a key value from the method that the binding uses to execute the command against the specific cache. |
-| On an `out` parameter | `[Redis(<ConnectionStringSetting>, <Command>)] out string <Return_Variable>` | The string variable retuned by the method is a key value that the binding uses to execute the command against the specific cache. |
+| On an `out` parameter | `[Redis(<Connection>, <Command>)] out string <Return_Variable>` | The string variable returned by the method is a key value that the binding uses to execute the command against the specific cache. |
 
-### [Isolated process](#tab/isolated-process)
- 
-The output binding is defined by placing this attribute on the method:
-
-`[RedisOutput(<ConnectionStringSetting>, <Command>)]`
-
-In this case, the type returned by the method is a key value that the binding uses to execute the command against the specific cache. 
+In this case, the type returned by the method is a key value that the binding uses to execute the command against the specific cache.
 
 When your function has multiple output bindings, you can instead apply the binding attribute to the property of a type that is a key value, which the binding uses to execute the command against the specific cache. For more information, see [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings). 
 
@@ -275,7 +272,7 @@ Regardless of the C# process mode, the same properties are supported by the outp
  
 | Attribute property | Description  |
 |--------------------| -------------|
-| `ConnectionStringSetting`  | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `Connection`  | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command`  | The redis-cli command to be executed on the cache, such as:  `DEL`.  |
 
 ::: zone-end  
@@ -288,7 +285,7 @@ The `RedisOutput` annotation supports these properties:
 | Property | Description                            |
 |----------|---------------------------------------------------|
 | `name` | The name of the specific input binding. |
-| `connectionStringSetting`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache, such as:  `DEL`. |
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
@@ -300,9 +297,9 @@ The following table explains the binding configuration properties that you set i
 | Property | Description                            |
 |----------|---------------------------------------------------|
 | `name` | The name of the specific input binding. |
-| `connectionStringSetting`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache, such as:  `DEL`. |
-::: zone-end  
+::: zone-end 
 
 See the [Example section](#example) for complete examples.
 
@@ -310,6 +307,39 @@ See the [Example section](#example) for complete examples.
 
 The output returns a string, which is the key of the cache entry on which apply the specific command. 
 
-## Next steps
+There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache. In the `appsettings`, this is how to configure each of the following types of client authentication, assuming the Connection was set to "Redis" in the function.
+
+### Connection string
+
+"Redis": "<cacheName>.redis.cache.windows.net:6380,password=..."
+
+### System-Assigned Managed Identity
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>"
+```
+
+### User-Assigned Managed Identity
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>",
+"Redis:clientId": "<clientId>"
+```
+
+### Service Principal Secret
+
+Connections using Service Principal Secrets are only available during local development.
+
+```JSON
+"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis:principalId": "<principalId>",
+"Redis:clientId": "<clientId>"
+"Redis:tenantId": "<tenantId>"
+"Redis:clientSecret": "<clientSecret>"
+```
+
+## Related Content
 
 <!--At least one next step link.-->

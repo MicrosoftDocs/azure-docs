@@ -562,9 +562,18 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 | Type | Description|
 |---|---|
-| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
-| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
-| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+| `string` | The channel message serialized as JSON (UTF-8 encoded for byte types) in the format that follows. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel into the given custom type. |
+
+JSON string format
+```json
+{
+  "SubscriptionChannel":"__keyspace@0__:*",
+  "Channel":"__keyspace@0__:mykey",
+  "Message":"set"
+}
+
+```
 
 ::: zone-end
 
@@ -572,23 +581,19 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 | Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
-| `byte[]`    | The message from the channel.                                                                                    |
-| `string`    | The message from the channel.                                                                                   |
+| `string`    | The channel message serialized as JSON (UTF-8 encoded for byte types) in the format that follows.                                                                           |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-::: zone-end
-::: zone pivot="programming-language-java"
+```json
+{
+  "SubscriptionChannel":"__keyspace@0__:*",
+  "Channel":"__keyspace@0__:mykey",
+  "Message":"set"
+}
 
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
+```
 
-::: zone-end
-::: zone pivot="programming-language-powershell"
 
-::: zone-end
-::: zone pivot="programming-language-python"
-
-::: zone-end
 
 ## Related content
 
