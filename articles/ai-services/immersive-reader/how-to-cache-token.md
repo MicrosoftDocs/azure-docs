@@ -1,7 +1,7 @@
 ---
 title: "Cache the authentication token"
 titleSuffix: Azure AI services
-description: Learn how to cache the authentication token in Immersive Reader.
+description: Learn how to cache the authentication token in the Immersive Reader app.
 author: sharmas
 manager: nitinme
 
@@ -18,7 +18,7 @@ This article demonstrates how to cache the authentication token in order to impr
 
 ## Using ASP.NET
 
-Import the `Microsoft.Identity.Client` NuGet package, which is used to acquire a token. For details, see [Install Identity Client NuGet package](client-libraries.md?pivots=programming-language-csharp#install-identity-client-nuget-package).
+Import the `Microsoft.Identity.Client` NuGet package, which is used to acquire a token. For details, see [Install Identity Client NuGet package](quickstarts/client-libraries.md?pivots=programming-language-csharp#install-identity-client-nuget-package).
 
 Create a confidential client application property.
 

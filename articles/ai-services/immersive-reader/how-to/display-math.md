@@ -14,13 +14,11 @@ ms.custom:
 
 # How to display math in the Immersive Reader
 
-The Immersive Reader can display math expressions when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)). 
-
-The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). To learn more, see [supported MIME types](../reference.md#supported-mime-types).
+The Immersive Reader can display math expressions when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
 
 ## Send math to the Immersive Reader
 
-In order to display math in the Immersive Reader app, supply a chunk containing MathML, and set the MIME type to `application/mathml+xml`.
+In order to display math in the Immersive Reader app, supply a [chunk](../reference.md#chunk) that contains MathML, and set the MIME type to `application/mathml+xml`. To learn more, see [supported MIME types](../reference.md#supported-mime-types).
 
 For example, see the following content:
 
@@ -51,7 +49,7 @@ For example, see the following content:
 </div>
 ```
 
-Then you could display your content by using the following JavaScript.
+You can then display your content by using the following JavaScript.
 
 ```javascript
 const data = {
@@ -72,4 +70,4 @@ When you launch the Immersive Reader, you should see:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Explore the Immersive Reader SDK reference](reference.md)
+> [Explore the Immersive Reader SDK reference](../reference.md)

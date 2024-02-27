@@ -34,7 +34,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## Configure the voice
 
-Set `voice` to either `male` or `female`. Not all languages support both voices. For more information, see the [Language Support](./language-support.md) page.
+Set `voice` to either `male` or `female`. Not all languages support both voices. For more information, see [Language support](./language-support.md).
 
 ```typescript
 const options = {
