@@ -567,7 +567,7 @@
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Generalizing a VM
       displayName: generalize sysprep deprovision 
-      href: generalize.md
+      href: generalize.yml
     - name: Linux custom images
       items:
       - name: Overview
