@@ -157,7 +157,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
 1. From the dropdown list, select the virtual switch you want to enable for Kubernetes compute traffic.
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.
 
-   If you select the **Azure Private MEC solution** or **SAP Digital Manufacturing for Edge Computing or another Microsoft partner** workload option for your environment, you must provide a contiguous range of a minimum of 6 IPv4 addresses (or more) for a 1-node configuration, and 7 IPv4 addresses (or more) for a two-node configuration.
+   If you select the **Azure Private MEC solution** or **SAP Digital Manufacturing for Edge Computing or another Microsoft partner** workload option for your environment, you must provide a contiguous range of a minimum of 6 IPv4 addresses (or more) for a 1-node configuration.
 
     If you select the **other workloads** option for an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 free, contiguous IPv4 addresses.
 
