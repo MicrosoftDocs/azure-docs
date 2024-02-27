@@ -22,11 +22,10 @@ If you require higher throughput for your scenario, please contact us to discuss
 |------------------------|-------------------|
 | PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
 | Bandwidth              | See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |
-| RAN                    | 200 per ASE |
+| RAN nodes (eNB/gNB)    | 200 per ASE |
 | UEs                    | 10,000 across all sites |
 | SIMs                   | 1000 per site |
 | SIM provisioning       | 1000 per API call |
-| Radios (gNB/eNB/CU)    | 20 per site |
 
 ## Azure Stack Edge virtual machine sizing
 
