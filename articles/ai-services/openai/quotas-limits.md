@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/27/2024
 ms.author: mbullwin
 ---
 
