@@ -46,6 +46,7 @@ To create an association resource, you first need to reference a subnet for Appl
 
 # [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
 To reference an existing subnet, execute the following command to set the variables for reference to the subnet in later steps.
+
 ```azurecli-interactive
 VNET_NAME='<name of the virtual network to use>'
 VNET_RESOURCE_GROUP='<the resource group of your VNET>'
@@ -75,6 +76,7 @@ az network vnet create \
 ---
 
 Enable subnet delegation for the Application Gateway for Containers service. The delegation for Application Gateway for Containers is identified by the _Microsoft.ServiceNetworking/trafficControllers_ resource type.
+
 ```azurecli-interactive
 az network vnet subnet update \
     --resource-group $VNET_RESOURCE_GROUP  \
