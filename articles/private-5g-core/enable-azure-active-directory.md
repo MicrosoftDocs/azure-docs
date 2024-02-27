@@ -129,7 +129,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
+    `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 

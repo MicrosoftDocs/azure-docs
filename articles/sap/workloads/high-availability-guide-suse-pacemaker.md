@@ -470,21 +470,13 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
 ### Set up an Azure shared disk SBD device
 
-1. **[A]** Install iSCSI package.
+1. **[A]** Enable the SBD services.
 
    ```bash
-   sudo zypper install open-iscsi
-   ```
-
-2. **[A]** Enable the iSCSI and SBD services.
-
-   ```bash
-   sudo systemctl enable iscsid
-   sudo systemctl enable iscsi
    sudo systemctl enable sbd
    ```
 
-3. **[A]** Make sure that the attached disk is available.
+2. **[A]** Make sure that the attached disk is available.
 
    ```bash
    # lsblk
@@ -507,7 +499,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
    ```
 
-4. **[A]** Retrieve the IDs of the attached disks.
+3. **[A]** Retrieve the IDs of the attached disks.
 
    ```bash
    # ls -l /dev/disk/by-id/scsi-* | grep sdc
@@ -517,7 +509,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
    The commands list device IDs for the SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
 
-5. **[1]** Create the SBD device.
+4. **[1]** Create the SBD device.
 
    Use the device ID from step 2 to create the new SBD devices on the first cluster node.
 
@@ -525,7 +517,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    # sudo sbd -d /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -1 60 -4 120 create
    ```
 
-6. **[A]** Adapt the SBD configuration.
+5. **[A]** Adapt the SBD configuration.
 
    a. Open the SBD config file.
 
@@ -548,13 +540,13 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
     > [!NOTE]
     > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
 
-7. Create the `softdog` configuration file.
+6. Create the `softdog` configuration file.
 
    ```bash
    echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    ```
 
-8. Load the module.
+7. Load the module.
 
    ```bash
    sudo modprobe -v softdog
