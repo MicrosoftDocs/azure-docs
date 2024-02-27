@@ -1,17 +1,17 @@
 ---
-title: Azure Elastic SAN Preview networking concepts
-description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
+title: Azure Elastic SAN networking concepts
+description: An overview of Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---
 
-# Learn about networking configurations for Elastic SAN Preview
+# Learn about networking configurations for Elastic SAN
 
-Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
 You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets can belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
@@ -82,4 +82,4 @@ iSCSI sessions can periodically disconnect and reconnect over the course of the 
 
 ## Next steps
 
-[Configure Elastic SAN networking Preview](elastic-san-networking.md)
+[Configure Elastic SAN networking](elastic-san-networking.md)

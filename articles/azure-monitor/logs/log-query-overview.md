@@ -15,7 +15,7 @@ Azure Monitor Logs is based on Azure Data Explorer, and log queries are written 
 Areas in Azure Monitor where you'll use queries include:
 
 - [Log Analytics](../logs/log-analytics-overview.md): Use this primary tool in the Azure portal to edit log queries and interactively analyze their results. Even if you intend to use a log query elsewhere in Azure Monitor, you'll typically write and test it in Log Analytics before you copy it to its final location.
-- [Log alert rules](../alerts/alerts-overview.md): Proactively identify issues from data in your workspace. Each alert rule is based on a log query that's automatically run at regular intervals. The results are inspected to determine if an alert should be created.
+- [Log search alert rules](../alerts/alerts-overview.md): Proactively identify issues from data in your workspace. Each alert rule is based on a log query that's automatically run at regular intervals. The results are inspected to determine if an alert should be created.
 - [Workbooks](../visualize/workbooks-overview.md): Include the results of log queries by using different visualizations in interactive visual reports in the Azure portal.
 - [Azure dashboards](../visualize/tutorial-logs-dashboards.md): Pin the results of any query into an Azure dashboard, which allows you to visualize log and metric data together and optionally share with other Azure users.
 - [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md): Use the results of a log query in an automated workflow by using a logic app workflow.

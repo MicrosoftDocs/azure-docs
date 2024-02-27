@@ -2,7 +2,6 @@
 title: Microsoft Defender for Cloud integration with Defender External attack surface management (EASM)
 description: Learn about Defender for Cloud integration with Defender External attack surface management (EASM)
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 03/05/2023
 ---
 

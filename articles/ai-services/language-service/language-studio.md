@@ -8,7 +8,6 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.date: 12/19/2023
 ms.topic: quickstart
-ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Get started with Language Studio

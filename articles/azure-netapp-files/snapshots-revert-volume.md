@@ -1,16 +1,9 @@
 ---
 title: Revert a volume using snapshot revert with Azure NetApp Files | Microsoft Docs
-description: Describes how to revert a volume to an earlier state using Azure NetApp Files. 
+description: Describes how to revert a volume to an earlier state using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/28/2023
 ms.author: anfdocs
@@ -36,14 +29,14 @@ The revert functionality is also available in configurations with volume replica
 
 1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
 
-    ![Screenshot that describes the right-click menu of a snapshot.](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+    ![Screenshot that describes the right-click menu of a snapshot.](./media/shared/snapshot-right-click-menu.png) 
 
 2. In the Revert Volume to Snapshot window, 
 type the name of the volume, and click **Revert**.   
 
     The volume is now restored to the point in time of the selected snapshot.
 
-![Screenshot that shows the Revert Volume to Snapshot window.](../media/azure-netapp-files/snapshot-revert-volume.png) 
+![Screenshot that shows the Revert Volume to Snapshot window.](./media/snapshots-revert-volume/snapshot-revert-volume.png) 
 
 ## Next steps
 

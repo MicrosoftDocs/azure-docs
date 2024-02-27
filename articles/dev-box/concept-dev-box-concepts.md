@@ -34,6 +34,12 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 [Azure Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#dev-centers) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
+## Catalogs
+
+The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process.Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
+
+To learn how to create reusable customization tasks, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
+
 ## Project
 
 In Dev Box, a project represents a team or business function within the organization. Each project is a collection of [pools](#dev-box-pool), and each pool represents a region or workload. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
@@ -59,14 +65,19 @@ When you're creating a network connection, you must choose the Active Directory 
 
 To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
 
-
 ## Azure regions for Dev Box
 
-Before setting up Dev Box, you need to choose the best regions for your organization. Check [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region) to help you decide on the regions you use. If the region you prefer isn’t available for Dev Box, choose a region within 500 miles.
-
-Your dev center and projects typically exist in the same region as your main office or IT management center.
+Before setting up Dev Box, you need to choose the best regions for your organization. 
+- Dev centers and projects typically exist in the same region as your main office or IT management center. 
+- Dev box pools can be in different regions, depending on the network connection they use. Developers should create dev boxes from a pool close to them for the least latency.
 
 The region of the virtual network specified in a network connection determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
+
+To help you decide on the regions to use, check:
+- [Dev Box availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) 
+- [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region). 
+
+If the region you prefer isn’t available for Dev Box, choose a region within 500 miles.
 
 ## Dev box pool
 

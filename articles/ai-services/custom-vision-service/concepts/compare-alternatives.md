@@ -9,7 +9,6 @@ ms.service: azure-ai-custom-vision
 ms.topic: conceptual
 ms.date: 12/04/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Compare Custom Vision to alternative Azure services

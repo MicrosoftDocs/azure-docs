@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-tags: connectors
 ---
 
 # Connect to Dynamics 365 from workflows in Azure Logic Apps (Deprecated)

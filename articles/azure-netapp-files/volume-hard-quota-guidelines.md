@@ -1,16 +1,9 @@
 ---
 title: What changing to volume hard quota means for your Azure NetApp Files service | Microsoft Docs
-description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.   
+description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.author: anfdocs
@@ -96,19 +89,19 @@ Windows clients can check the used and available capacity of a volume by using t
 
 The following examples show the volume capacity reporting in Windows *before* the changed behavior:
 
-![Screenshots that show example storage capacity of a volume before behavior change.](../media/azure-netapp-files/hard-quota-windows-capacity-before.png)
+![Screenshots that show example storage capacity of a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-windows-capacity-before.png)
 
 You can also use the `dir` command at the command prompt as shown below:
 
-![Screenshot that shows using a command to display storage capacity for a volume before behavior change.](../media/azure-netapp-files/hard-quota-command-capacity-before.png)
+![Screenshot that shows using a command to display storage capacity for a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-command-capacity-before.png)
 
 The following examples show the volume capacity reporting in Windows *after* the changed behavior:
 
-![Screenshots that show example storage capacity of a volume after behavior change.](../media/azure-netapp-files/hard-quota-windows-capacity-after.png)
+![Screenshots that show example storage capacity of a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-windows-capacity-after.png)
 
 The following example shows the `dir` command output:  
 
-![Screenshot that shows using a command to display storage capacity for a volume after behavior change.](../media/azure-netapp-files/hard-quota-command-capacity-after.png)
+![Screenshot that shows using a command to display storage capacity for a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-command-capacity-after.png)
 
 ##### Linux 
 
@@ -116,11 +109,11 @@ Linux clients can check the used and available capacity of a volume by using the
 
 The following example shows volume capacity reporting in Linux *before* the changed behavior:  
 
-![Screenshot that shows using Linux to display storage capacity for a volume before behavior change.](../media/azure-netapp-files/hard-quota-linux-capacity-before.png)
+![Screenshot that shows using Linux to display storage capacity for a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-linux-capacity-before.png)
 
 The following example shows volume capacity reporting in Linux *after* the changed behavior:  
 
-![Screenshot that shows using Linux to display storage capacity for a volume after behavior change.](../media/azure-netapp-files/hard-quota-linux-capacity-after.png)
+![Screenshot that shows using Linux to display storage capacity for a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-linux-capacity-after.png)
 
 
 ### Configure alerts using ANFCapacityManager
@@ -141,7 +134,7 @@ You can configure the following key alerting settings:
 
 The following illustration shows the alert configuration:  
 
-![Illustration that shows alert configuration by using ANFCapacityManager.](../media/azure-netapp-files/hard-quota-anfcapacitymanager-configuration.png)
+![Illustration that shows alert configuration by using ANFCapacityManager.](./media/volume-hard-quota-guidelines/hard-quota-anfcapacitymanager-configuration.png)
 
 After installing ANFCapacityManager, you can expect the following behavior: When an Azure NetApp Files capacity pool or volume is created, modified, or deleted, the Logic App will automatically create, modify, or delete a capacity-based Metric Alert rule with the name `ANF_Pool_poolname` or `ANF_Volume_poolname_volname`. 
 
@@ -161,9 +154,9 @@ You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-o
 2. Right-click the name of the volume that you want to resize or select the `…` icon at the end of the volume's row to display the context menu. 
 3. Use the context menu options to resize or delete the volume.   
 
-   ![Screenshot that shows context menu options for a volume.](../media/azure-netapp-files/hard-quota-volume-options.png) 
+   ![Screenshot that shows context menu options for a volume.](./media/volume-hard-quota-guidelines/hard-quota-volume-options.png) 
 
-   ![Screenshot that shows the Update Volume Quota window.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
+   ![Screenshot that shows the Update Volume Quota window.](./media/volume-hard-quota-guidelines/hard-quota-update-volume-quota.png) 
 
 In some cases, the hosting capacity pool does not have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) in 1-TiB increments or decrements. The capacity pool size cannot be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
 
@@ -171,9 +164,9 @@ In some cases, the hosting capacity pool does not have sufficient capacity to re
 2. Right-click the capacity pool name or select the `…` icon at the end of the capacity pool’s row to display the context menu.
 3. Use the context menu options to resize or delete the capacity pool.    
 
-   ![Screenshot that shows context menu options for a capacity pool.](../media/azure-netapp-files/hard-quota-pool-options.png) 
+   ![Screenshot that shows context menu options for a capacity pool.](./media/volume-hard-quota-guidelines/hard-quota-pool-options.png) 
 
-   ![Screenshot that shows the Resize Pool window.](../media/azure-netapp-files/hard-quota-update-resize-pool.png) 
+   ![Screenshot that shows the Resize Pool window.](./media/volume-hard-quota-guidelines/hard-quota-update-resize-pool.png) 
 
 
 ##### CLI or PowerShell
@@ -185,23 +178,23 @@ You can use the [Azure NetApp Files CLI tools](azure-netapp-files-sdk-cli.md#cli
 
 To manage Azure NetApp Files resources using Azure CLI, you can open the Azure portal and select the Azure **Cloud Shell** link in the top of the menu bar: 
 
-[ ![Screenshot that shows how to access Cloud Shell link.](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png#lightbox)
+[ ![Screenshot that shows how to access Cloud Shell link.](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-link.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-link.png#lightbox)
 
 This action will open the Azure Cloud Shell:
 
-[ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
+[ ![Screenshot that shows Cloud Shell window.](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-window.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-window.png#lightbox)
 
 The following examples use the commands to [show](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) and [update](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) the size of a volume:
  
-[ ![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
+[ ![Screenshot that shows using PowerShell to show volume size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-show.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-show.png#lightbox)
 
-[ ![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
+[ ![Screenshot that shows using PowerShell to update volume size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-update.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-update.png#lightbox)
 
 The following examples use the commands to [show](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) and [update](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) the size of a capacity pool:
 
-[ ![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
+[ ![Screenshot that shows using PowerShell to show capacity pool size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-show.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-show.png#lightbox) 
 
-[ ![Screenshot that shows using PowerShell to update capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png#lightbox)
+[ ![Screenshot that shows using PowerShell to update capacity pool size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-update.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-update.png#lightbox)
 
 #### Automated  
 
@@ -230,7 +223,7 @@ You can configure the following key capacity management setting:
 
 * **AutoGrow Percent Increase** - Percent of the existing volume size to automatically grow a volume if it reaches the specified **% Full Threshold**. A value of 0 (zero) will disable the AutoGrow feature. A value between 10 and 100 is recommended.
 
-    ![Screenshot that shows Set Volume Auto Growth Percent window.](../media/azure-netapp-files/hard-quota-volume-anfcapacitymanager-auto-grow-percent.png) 
+    ![Screenshot that shows Set Volume Auto Growth Percent window.](./media/volume-hard-quota-guidelines/hard-quota-volume-anfcapacitymanager-auto-grow-percent.png) 
 
 ## FAQ 
 

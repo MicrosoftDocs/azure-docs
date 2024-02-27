@@ -4,7 +4,6 @@ description: Get resources about mainframe migration, rehosting, and moving IBM 
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019

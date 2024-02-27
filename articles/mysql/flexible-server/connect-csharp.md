@@ -4,10 +4,10 @@ description: "This quickstart provides a C# (.NET) code sample you can use to co
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal 
-ms.author: shaithal 
+author: shreyaaithal
+ms.author: shaithal
 ms.devlang: csharp
-ms.custom: mvc, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-linux
+ms.custom: mvc, devx-track-csharp, mode-other, devx-track-dotnet, linux-related-content
 ms.date: 05/03/2023
 ---
 

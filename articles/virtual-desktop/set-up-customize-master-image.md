@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/21/2023
 ms.author: helohr
-manager: femila
 ---
 # Prepare and customize a VHD image for Azure Virtual Desktop
 

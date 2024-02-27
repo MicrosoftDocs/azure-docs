@@ -7,7 +7,6 @@ tags: azure-resource-manager
 ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
-ms.workload: infrastructure
 ms.date: 12/03/2023
 ---
 

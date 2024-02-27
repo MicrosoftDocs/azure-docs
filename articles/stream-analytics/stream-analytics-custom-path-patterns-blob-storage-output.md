@@ -6,7 +6,6 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/15/2023
-ms.custom: seodec18
 ---
 
 # Azure Stream Analytics custom blob output partitioning

@@ -4,7 +4,7 @@ description: include file
 services: load-balancer
 ms.service: sap-on-azure
 ms.topic: include
-ms.date: 01/16/2024
+ms.date: 01/24/2024
 author: dennispadia
 ms.author: depadia
 ---
@@ -22,9 +22,10 @@ Follow [create load balancer](../articles/load-balancer/quickstart-load-balancer
        - Protocol: TCP
        - Port: [for example: 625<instance-no.>]
        - Interval: 5
+       - Probe Threshold: 2
      - Idle timeout (minutes): 30
      - Check "Enable Floating IP"
 
 > [!NOTE]
 >
-> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/set-azloadbalancerprobeconfig) command.

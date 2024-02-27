@@ -14,7 +14,6 @@ ms.custom:
   - UpdateFrequency5
   - deploy
   - sdkv1
-  - event-tier1-build-2022
   - ignite-2023
 monikerRange: 'azureml-api-1'
 ---

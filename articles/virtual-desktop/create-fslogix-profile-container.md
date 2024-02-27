@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: helohr
-manager: femila
 ---
 # Create a profile container with Azure NetApp Files
 

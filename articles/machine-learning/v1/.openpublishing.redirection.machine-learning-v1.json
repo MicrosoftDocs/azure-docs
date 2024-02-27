@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v1/tutorial-power-bi-custom-model.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-automated-ml-v1.md",
         "redirect_url": "/azure/machine-learning/concept-automated-ml",
         "redirect_document_id": false

@@ -95,7 +95,7 @@ As you're setting up to investigate an incident, assemble the things you'll need
 
 :::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
-1.  Select **Tasks (Preview)** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
+1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
 
     Learn more about [using incident tasks](incident-tasks.md) to improve process standardization in your SOC.
 

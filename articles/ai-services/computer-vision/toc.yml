@@ -102,7 +102,7 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Vision SDK
+  - name: Image Analysis SDK
     items:
     - name: Overview
       href: sdk/overview-sdk.md
@@ -118,8 +118,14 @@ items:
     items:
     - name: Version 4.0
       items:
-      - name: Azure Image Analysis samples
-        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+      - name: Azure Image Analysis Java SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/java
+      - name: Azure Image Analysis Python SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/python
+      - name: Azure Image Analysis .NET SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/csharp
+      - name: Azure Image Analysis JavaScript SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/js
     - name: Version 3.2
       items:
       - name: Azure AI services .NET SDK samples
@@ -164,7 +170,7 @@ items:
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md
-      - name: Call the Multi-modal embeddings APIs (preview)
+      - name: Call the Multimodal embeddings APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API (preview)
         href: how-to/background-removal.md
@@ -198,7 +204,7 @@ items:
         href: concept-model-customization.md
       - name: Product Recognition (preview)
         href: concept-shelf-analysis.md
-      - name: Multi-modal embeddings (preview)
+      - name: Multimodal embeddings
         href: concept-image-retrieval.md
       - name: Background removal (preview)
         href: concept-background-removal.md
@@ -236,16 +242,18 @@ items:
     items:
     - name: Version 4.0
       items:
-      - name: Image Analysis REST API v4.0
+      - name: Image Analysis REST API v4.0 (Analyze and multimodal embeddings, GA)
         href: https://aka.ms/vision-4-0-ref
+      - name: Image Analysis REST API v4.0 (other features, preview)
+        href: https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/63ed8e8a5ddd171058e2e1f0
       - name: .NET
-        href: /dotnet/api/azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
-        href: /python/api/azure-ai-vision
-      - name: C++
-        href: /cpp/cognitive-services/vision
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/python
       - name: Java
-        href: /java/api/com.azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/java
+      - name: JavaScript
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/js
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
@@ -327,11 +335,7 @@ items:
     - name: Detect liveness in face
       href: Tutorials/liveness.md
     - name: Add users to a Face identification app
-      items:
-      - name: Best practices for enrolling users
-        href: enrollment-overview.md
-      - name: Build a React Native app to enroll users
-        href: Tutorials/build-enrollment-app.md
+      href: Tutorials/build-enrollment-app.md
   - name: Samples
     href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
 
@@ -345,6 +349,8 @@ items:
         href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
+    - name: Best practices for enrolling users
+      href: enrollment-overview.md
     - name: Code of conduct
       href: /legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context
     - name: Data privacy and security
@@ -368,13 +374,13 @@ items:
         href: /python/api/overview/azure/cognitiveservices-vision-face-readme
     - name: Client-side
       items:
-      - name: Java (Android)
-        href: https://aka.ms/liveness-sdk-java
+      - name: Kotlin (Android)
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
-        href: https://aka.ms/liveness-sdk-ios
-- name: Spatial Analysis
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
+- name: Video Analysis
   items:
-  - name: Spatial Analysis overview
+  - name: Video Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:

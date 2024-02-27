@@ -4,7 +4,6 @@ description: Monitor your running apps metrics
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-wellsjason
@@ -31,6 +30,9 @@ Container Apps provides these metrics.
 |Replica Restart Count| Number of replica restarts | RestartCount | n/a |
 
 The metrics namespace is `microsoft.app/containerapps`.
+
+> [!NOTE]
+> Replica Restart Count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
 
 ## Metrics snapshots
 
