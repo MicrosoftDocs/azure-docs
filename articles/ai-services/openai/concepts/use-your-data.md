@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 01/09/2023
+ms.date: 02/26/2024
 recommendations: false
 ms.custom: references_regions 
 ---
@@ -125,7 +125,12 @@ If you're using your own index, you will be prompted in the Azure OpenAI Studio 
 
 In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
 
-Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../reference.md#completions-extensions) using the `fieldsMapping` parameter.   
+Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
+
+### Search filter (API)
+
+If you want to implement additional value-based criteria for query execution, you can set up a search filter using the `filter` parameter in the [REST API](../references/azure-search.md).
+
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
 
@@ -232,7 +237,7 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 Data is ingested into Azure AI search using the following process:
 
-1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](../reference.md#start-an-ingestion-job-preview).  
+1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](/rest/api/azureopenai/ingestion-jobs).  
 
 2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
 
@@ -261,7 +266,7 @@ Use the following sections to learn how to improve the quality of responses give
 
 ### Runtime parameters
 
-You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You don't need to reingest your data when you update these parameters. 
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../references/on-your-data.md). You don't need to reingest your data when you update these parameters. 
 
 
 |Parameter name  | Description  |
@@ -274,7 +279,7 @@ You can modify the following additional settings in the **Data parameters** sect
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../references/on-your-data.md).
 
 :::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/system-message.png":::
 
