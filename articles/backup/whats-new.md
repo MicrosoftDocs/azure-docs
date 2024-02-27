@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/02/2024
+ms.date: 03/04/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -90,12 +90,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
 
-By using vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for up to *99 years*. If any data loss happens on the source account, you can trigger a restore operation to an alternate account and access your data. Additionally, you can use Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich alerting and reporting capabilities of Azure Backup.
+By using vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for up to *99 years*. If any data loss occurs on the source account, you can trigger a restore operation to an alternate account and access your data. Additionally, you can use Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich *Alerting* and *Reporting* capabilities of Azure Backup.
 
-If you're currently using snapshot-based backups, we recommend that you switch to vaulted backups for complete protection from different data loss scenarios. 
+If you're currently using snapshot-based backups, we recommend that you try vaulted backups (preview) for complete protection from different data loss scenarios.
 
 >[!Note]
->Switching to vaulted backups doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
+>Switching to vaulted backups (preview) doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
 
 For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
 

@@ -2,7 +2,7 @@
 title: About Azure File share backup
 description: Learn how to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/04/2024
 ms.service: backup
 ms.custom:
   - engagement-fy23
@@ -13,14 +13,15 @@ ms.author: v-abhmallick
 
 # About Azure File share backup
 
-Azure File share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. The simple, secure, and managed backup solution enables you to protect your enterprise file shares so that you can recover the data in case of any accidental or malicious deletion.
+Azure File share backup is a native, cloud-based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. The simple, secure, and managed backup solution enables you to perform *snapshot backup* and *vaulted backup (preview)* to protect your enterprise file shares so that you can recover the data in case of any accidental or malicious deletion.
 
 >[!Note]
 >Vaulted backup for Azure File share is currently in preview.
 
 ## Key benefits of Azure File share backup
 
-* **Comprehensive data protection**: The vaulted backup (preview) for Azure Files enables you to protect data from any type of data loss irrespective of the severity or blast radius. With offsite backups, there is no hard dependency on the availability of source data to continue your business operations.
+Protection of Azure File share provides the following benefits by using *Snapshot* and *Vaulted (preview)* backup tiers:
+
 * **Zero infrastructure**: No deployment is needed to configure protection for your file shares.
 * **Customized retention**: You can configure backups with daily/weekly/monthly/yearly retention according to your requirements.
 * **Built in management capabilities**: You can schedule backups and specify the desired retention period without the additional overhead of data pruning.
@@ -29,9 +30,13 @@ Azure File share backup is a native, cloud based backup solution that protects y
 * **Protection against accidental deletion of file shares**: Azure Backup enables the [soft delete feature](../storage/files/storage-files-prevent-file-share-deletion.md) on a storage account level with a retention period of 14 days. Even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for a configurable retention period, allowing the successful and complete recovery of source contents and snapshots with no data loss.
 * **Protection against accidental deletion of snapshots**: Azure Backup acquires a lease on the snapshots taken by scheduled/on-demand backup jobs. The lease acts as a lock that adds a layer of protection and secures the snapshots against accidental deletion.
 
+### Additional key benefit for vaulted backup (preview)
+
+**Comprehensive data protection**: The vaulted backup (preview) for Azure Files enables you to protect data from any type of data loss irrespective of the severity or blast radius. With offsite backups, there is no hard dependency on the availability of source data to continue your business operations.
+
 ## Architecture for Azure File share backup
 
-This section shows the backup flow for Azure File share.
+This section shows the backup flow for Azure File share by using the backup tiers - Snapshot tier and Vault-Standard tier (preview).
 
 **Choose a backup tier**:
 
@@ -66,12 +71,12 @@ This section shows the backup flow for Azure File share.
 
 6. You can restore the Azure File share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
-   If you have vaulted backup enabled and the snapshot corresponding to the selected recovery point is not found, restore will be triggered by using the backup data in the vault. You can restore the complete file share contents to an alternate location.
+   If you have vaulted backup (preview) enabled and the snapshot corresponding to the selected recovery point is not found, restore will be triggered by using the backup data in the vault. You can restore the complete file share contents to an alternate location.
 
 7. If you're using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure File share.
 
    >[!Note]
-   >Vaulted backup currently doesn't support restore to a file share registered with File sync service.
+   >Vaulted backup (preview) currently doesn't support restore to a file share registered with File sync service.
 
 8. The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. This allows you to monitor cloud backups for your file shares in a single dashboard. In addition, you can also configure alerts or email notifications when backup health is affected. Emails are sent via the Azure email service.
 
