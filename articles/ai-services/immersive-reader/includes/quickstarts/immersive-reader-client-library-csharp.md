@@ -3,12 +3,12 @@ title: Immersive Reader C# client library quickstart
 titleSuffix: Azure AI services
 description: Learn how to build a web app using C#, and add the Immersive Reader API functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 02/14/2024
-ms.author: rwaller
+ms.author: sharmas
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

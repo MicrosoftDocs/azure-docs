@@ -3,13 +3,13 @@ title: Immersive Reader Java (Android) client library quickstart
 titleSuffix: Azure AI services
 description: In this quickstart, you build an Android app using Java, and add the Immersive Reader API functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: guillasi
 ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 02/14/2024
 ms.custom: devx-track-java
-ms.author: rwaller
+ms.author: sharmas
 ---
 
 In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
