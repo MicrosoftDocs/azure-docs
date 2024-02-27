@@ -312,9 +312,20 @@ These example code snippets show you how to perform the following actions with t
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
- 
+
+::: zone pivot="blob-storage-quickstart-scratch
+
 > [!IMPORTANT]
 > Make sure you have the correct dependencies in pom.xml and the necessary directives for the code samples to work, as described in the [setting up](#setting-up) section.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The Azure Developer CLI template includes a file with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+
+::: zone-end
 
 ### Authenticate to Azure and authorize access to blob data
 
