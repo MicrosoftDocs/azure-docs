@@ -15,7 +15,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-The **Network Features** functionality isn't available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
+See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
 
 ## Options for network features 
 
@@ -108,6 +108,9 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
+
+>[!NOTE]
+>If you have enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
 
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 

@@ -47,6 +47,9 @@ This guide will help you get started with playing audio files to participants by
 |PlayFailed | 500 | 9999 | Unknown internal server error | 
 |PlayFailed | 500 | 8572 | Action failed due to play service shutdown. |
 
+## Known limitations
+- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
 
 ## Clean up resources
 
