@@ -320,12 +320,12 @@ items:
     items:
     - name: Troubleshoot assessment
       items:
-      - name: Common Issues
-        href: troubleshoot-assessment.md
-      - name: Supported Scenarios
-        href: troubleshoot-assessment-supported-scenarios.md
-      - name: FAQ
-        href: troubleshoot-assessment-faq.md
+        - name: Common Issues
+          href: troubleshoot-assessment.md
+        - name: Supported Scenarios
+          href: troubleshoot-assessment-supported-scenarios.md
+        - name: FAQ
+          href: troubleshoot-assessment-faq.md
   - name: Migrate
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
