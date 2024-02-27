@@ -15,7 +15,7 @@ ms.author: memontic
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
 - Active WhatsApp phone number to receive messages
 
-- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [VS Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/en-us/download))
+- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/en-us/download))
 
 ## Setting up
 
@@ -25,13 +25,13 @@ ms.author: memontic
 
 To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
 
-Press <kbd>Ctrl</kbd>+<kbd>F7</kbd> to compile your code.
+To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
 
-#### [VS Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
 To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
 
-Build and run your program by running the following commands in the VS Code Terminal (View > Terminal).
+Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
 ```console
 dotnet build
 dotnet run
@@ -63,9 +63,9 @@ Install the Azure.Communication.Messages NuGet package to your C# project.
 2. Search for the package `Azure.Communication.Messages`.   
 3. Install the latest release.
 
-# [VS Code](#tab/vs-code)
+# [Visual Studio Code](#tab/vs-code)
 
-1. Open the VS Code terminal ( `View` > `Terminal` )
+1. Open the Visual Studio Code terminal ( `View` > `Terminal` ).
 2. Install the package by running the following command.
 ```console
 dotnet add package Azure.Communication.Messages
@@ -131,7 +131,7 @@ Open a console window and enter the following command:
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [Linux](#tab/linux)
 
@@ -141,7 +141,7 @@ Edit your **`.bash_profile`**, and add the environment variable:
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 #### [macOS](#tab/macOS)
 Edit your **`.zshrc`**, and add the environment variable:
@@ -150,20 +150,20 @@ Edit your **`.zshrc`**, and add the environment variable:
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 ---
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
-| Name                        | Description                                                                                                 |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------|
-| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It is used to send the messages.         |
-| MessageTemplate             | This class defines which template you will use and the content of the template properties for your message. |
-| TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                     |
-| TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                         |
-| MediaNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.                        |
+| Name                        | Description                                                                                            |
+|-----------------------------|--------------------------------------------------------------------------------------------------------|
+| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
+| MessageTemplate             | This class defines which template you use and the content of the template properties for your message. |
+| TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
+| TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
+| MediaNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.                   |
 
 ## Code examples
 
@@ -233,7 +233,7 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user has sent a message to the buisiness, is the business allowed to send text or media messages to the user for the duration of the conversation. Once the 24 hour conversation window has expired, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations)
+Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user sends a message to the business, the business is allowed to send text or media messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
 
 #### (Option 1) Initiate conversation from business - Send a template message
 Initiate a conversation by sending a template message.
@@ -244,7 +244,7 @@ First, create a MessageTemplate using the values for a template.
 > If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
-If `sample_template` is not available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
+If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 ```csharp
 // Assemble the template content
 string templateName = "sample_template";
@@ -288,7 +288,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
+In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.".
 
 Assemble then send the text message:
 ```csharp
@@ -328,18 +328,18 @@ Response<SendMessageResult> sendMediaMessageResult =
 Build and run your program.  
 
 To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
-If you do not have an active conversation, for the purposes of this quickstart, it is suggested to add a wait between sending the template message and sending the text message. This will give you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
+If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
   
-If successful, you will recieve 3 messages on the user's WhatsApp account.
+If successful, you receive three messages on the user's WhatsApp account.
 
 #### [Visual Studio](#tab/visual-studio)
 
-1. Press <kbd>Ctrl</kbd>+<kbd>F7</kbd> to compile your code.
-1. Press <kbd>Ctrl</kbd>+<kbd>F5</kbd> to run the program without debugging.
+1. To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
+1. To run the program without debugging, press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
 
-#### [VS Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
-Build and run your program by running the following commands in the VS Code Terminal (View > Terminal).
+Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
 ```console
 dotnet build
 dotnet run
