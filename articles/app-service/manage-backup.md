@@ -36,7 +36,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
-| Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every three hourly backup retained.<br>- Days 15-30: every six hourly backup retained. | 0-30 days or indefinite. |
+| Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
 | Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |
 | Backup over virtual network | Not supported. | Supported. |
