@@ -137,9 +137,16 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
 ```
 
 ---
-
 ### Parameter file
 
+# [Bicep](#tab/bicep)
+```bicep
+param clusterName = 'MyCluster'
+param location = resourceGroup().location
+param CommitmentTire = 500
+param billingType = 'Cluster'
+
+# [JSON](#tab/json)
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
@@ -266,6 +273,19 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
 ---
 
 ### Parameter file
+
+# [Bicep Parameters file](#tab/bicep)
+
+param clusterName = 'MyCluster'
+param location = resourceGroup().location
+param keyVaultName = 'MyKeyVault'
+param keyName = 'MyKeyName'
+param keyVersion = 'desired version'
+param keyVaultUri = 'https://key-vault-name.vault.azure.net'
+
+
+
+# [JSON Parameters file](#tab/json)
 
 ```json
 {
