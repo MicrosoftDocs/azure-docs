@@ -38,36 +38,11 @@ For more information, see the following resources:
 - [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
 - [What is a vector database](/semantic-kernel/memories/vector-db)
 
-## Example scenarios
-
-The following scenarios describe only a couple examples for how you can use AI connectors in your workflow:
-
-### Create a knowledge base for your enterprise data 
-
-Azure Logic Apps provides [over 1,000 Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [natively running built-in connectors](/azure/logic-apps/connectors/built-in/reference/) for your workflow to securely connect with almost any data source, such as SharePoint, Oracle DB, Salesforce, OneDrive, Dropbox, SAP, IBM, and so on. Each connector provides operations, which include triggers, actions, or both, for you to use in your workflow.
-
-For example, you can select from many trigger types to make your automated workflow run on a schedule or based on specific events, such as the uploading of new documents to a SharePoint site. With so many operations for you to choose, you can create a knowledge base and easily build a document ingestion pipeline using vector embeddings for these documents in Azure AI Search.
-
-For more information, see the following resources:
-
-- [Vectors in Azure AI Search](../../search/vector-search-overview.md)
-- [What are embeddings](/semantic-kernel/memories/embeddings)
-- [Understand embeddings in Azure OpenAI](../../ai-services/openai/concepts/understand-embeddings.md)
-
-### Generate completions
-
-An Azure Logic Apps workflow can accept input, while Azure OpenAI Service can perform completion operations. These capabilities mean that your workflow can ingest real-time questions, generate answers about your data, or send automated responses using Azure OpenAI. You can immediately send the responses back to the client or to an approval workflow for verification.
-
-For more information, see the following resources:
-
-- [Introduction to prompt engineering](../../ai-services/openai/concepts/prompt-engineering.md)
-- [Learn how to generate or manipulate text](../../ai-services/openai/how-to/completions.md)
-
 ## Connector technical reference
 
 ### Azure OpenAI
 
-Azure OpenAI Service provides access to [OpenAI's powerful language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the Azure OpenAI connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
+Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the Azure OpenAI connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
@@ -104,7 +79,32 @@ For more information, see the following resources:
 
 Currently, the built-in connectors for Azure OpenAI and Azure AI Search provide only actions, not triggers. You can start your workflow with any trigger that fits your scenario or needs, and then [follow these general steps to add actions for Azure OpenAI, Azure AI Search, and other operations](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-## Example: Ingest data and create chat interactions
+## Scenarios
+
+The following scenarios describe only two of the many ways that you can use AI connector operations in your workflows:
+
+### Create a knowledge base for your enterprise data 
+
+Azure Logic Apps provides [over 1,000 Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [natively running built-in connectors](/azure/logic-apps/connectors/built-in/reference/) for your workflow to securely connect with almost any data source, such as SharePoint, Oracle DB, Salesforce, OneDrive, Dropbox, SAP, IBM, and so on. Each connector provides operations, which include triggers, actions, or both, for you to use in your workflow.
+
+For example, you can select from many trigger types to make your automated workflow run on a schedule or based on specific events, such as the uploading of new documents to a SharePoint site. With so many operations for you to choose, you can create a knowledge base and easily build a document ingestion pipeline using vector embeddings for these documents in Azure AI Search.
+
+For more information, see the following resources:
+
+- [Vectors in Azure AI Search](../../search/vector-search-overview.md)
+- [What are embeddings](/semantic-kernel/memories/embeddings)
+- [Understand embeddings in Azure OpenAI](../../ai-services/openai/concepts/understand-embeddings.md)
+
+### Generate completions
+
+An Azure Logic Apps workflow can accept input, while Azure OpenAI Service can perform completion operations. These capabilities mean that your workflow can ingest real-time questions, generate answers about your data, or send automated responses using Azure OpenAI. You can immediately send the responses back to the client or to an approval workflow for verification.
+
+For more information, see the following resources:
+
+- [Introduction to prompt engineering](../../ai-services/openai/concepts/prompt-engineering.md)
+- [Learn how to generate or manipulate text](../../ai-services/openai/how-to/completions.md)
+
+## Example scenario with sample code: Ingest data and create chat interactions
 
 This example shows how to use the Azure OpenAI and Azure AI Search connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
 
@@ -112,11 +112,11 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 [Requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites)
 
-### Sample link
+### Sample code
 
-[Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
+[Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
-### Video demonstration
+### Video demo
 
 [Learn how to build AI applications using logic apps](https://youtu.be/tiU5yCvMW9o?feature=shared)
 
