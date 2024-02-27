@@ -35,6 +35,8 @@ items:
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
       href: essentials/tutorial-resource-logs.md
+    - name: Create alerts
+      href: alerts/alert-options.md
   - name: Monitor applications with Application Insights
     items:
     - name: Application Insights overview
@@ -189,6 +191,8 @@ items:
       - name: Application Map
         displayName: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
         href: app/app-map.md
+      - name: Failures and Performance Views
+        href: app/failures-and-performance-views.md
       - name: Availability
         items:
         - name: Overview
@@ -354,6 +358,8 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
+      - name: Troubleshoot VM performance issues
+        href: /troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json
     - name: VM insights
       items:
       - name: Overview
@@ -486,6 +492,9 @@ items:
       items:
       - name: Overview
         displayName: Prometheus,remote-write
+        href: essentials/remote-write-prometheus.md
+      - name: Remote-write using Azure Monitor sidecar
+        displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write.md
       - name: Microsoft Entra authorization proxy
         displayName: Prometheus
@@ -512,24 +521,12 @@ items:
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
         href: containers/container-insights-private-link.md
-    - name: Query Prometheus metrics
-      items:
-      - name: Query using Grafana
-        items:
-        - name: Configure Grafana with managed system identity
-          displayName: Prometheus
-          href: essentials/prometheus-grafana.md
-        - name: Configure Grafana with Microsoft Entra ID
-          displayName: Prometheus
-          href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Query using Azure workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
       - name: Query using the API and PromQL
         displayName: Prometheus
         href: essentials/prometheus-api-promql.md        
-    - name: Disable monitoring
-      href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -548,8 +545,8 @@ items:
         href: containers/container-insights-reports.md
       - name: Custom metrics
         href: containers/container-insights-custom-metrics.md
-    - name: Log queries
-      href: containers/container-insights-log-query.md
+      - name: Log queries
+        href: containers/container-insights-log-query.md
     - name: View live data
       items:
       - name: Live Data overview
@@ -562,11 +559,13 @@ items:
       items:
       - name: Prometheus alert rules
         href: containers/container-insights-metric-alerts.md
-      - name: Log alert rules
+      - name: Log search alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
+    - name: Disable monitoring
+      href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
       items:
       - name: Prometheus
@@ -580,13 +579,10 @@ items:
     - name: Network Insights
       items:
       - name: Overview
-        displayName: Network Insights, Network
         href: ../network-watcher/network-insights-overview.md
-      - name: Topology
-        displayName: Network Insights, Network
+      - name: View network topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
-      - name: Troubleshooting
-        displayName: Network Insights, Network
+      - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
@@ -598,8 +594,6 @@ items:
     href: essentials/platform-logs-overview.md
   - name: Activity log
     href: essentials/activity-log.md
-  - name: Activity log insights
-    href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
   - name: Stream monitoring data
@@ -699,6 +693,8 @@ items:
         href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
+    - name: Configure Private Link for Azure Monitor Agent
+      href: agents/azure-monitor-agent-private-link.md
     - name: Migrate from Log Analytics Agent
       items:
       - name: Migration guidance
@@ -889,6 +885,8 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
         href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
+      - name: Get started
+        href: essentials/prometheus-get-started.md
       - name: Azure Monitor workspace
         items:
         - name: Overview
@@ -901,6 +899,9 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
+      - name: Remote-write from self-managed Prometheus
+        displayName: Prometheus
+        href: essentials/remote-write-prometheus.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -1030,8 +1031,8 @@ items:
   - name: Overview
     displayName: insights
     href: insights/insights-overview.md
-  - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md
+  - name: Activity log insights
+    href: essentials/activity-log-insights.md
 - name: Visualize
   items:
   - name: Workbooks
@@ -1116,6 +1117,8 @@ items:
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Grafana
     href: visualize/grafana-plugin.md
   - name: Dashboards
@@ -1247,7 +1250,7 @@ items:
           items:
           - name: Metric alert rules
             href: alerts/alerts-create-metric-alert-rule.md
-          - name: Log alert rules
+          - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules
             href: alerts/alerts-create-activity-log-alert-rule.md
@@ -1261,7 +1264,7 @@ items:
             href: alerts/alerts-metric-multiple-time-series-single-rule.md
           - name: Create alert rules using CLI, PowerShell, or ARM templates
             href: alerts/alerts-create-rule-cli-powershell-arm.md
-          - name: Optimize log alert queries
+          - name: Optimize log search alert queries
             href: alerts/alerts-log-query.md
         - name: Set up action groups
           href: alerts/action-groups.md
@@ -1320,6 +1323,8 @@ items:
       items:
         - name: Manage alert rules
           href: alerts/alerts-manage-alert-rules.md
+        - name: Monitor the health of log search alert rules
+          href: alerts/log-alert-rule-health.md
         - name: Manage alert instances
           href: alerts/alerts-manage-alert-instances.md
         - name: Update alerts for region moves
@@ -1328,7 +1333,7 @@ items:
       items:
       - name: Create a metric alert
         href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
+      - name: Create a log search alert
         href: alerts/tutorial-log-alert.md
     - name: Troubleshooting
       items:
@@ -1336,7 +1341,7 @@ items:
         href: alerts/alerts-troubleshoot.md
       - name: Troubleshoot metric alerts
         href: alerts/alerts-troubleshoot-metric.md
-      - name: Troubleshoot log alerts
+      - name: Troubleshoot log search alerts
         href: alerts/alerts-troubleshoot-log.md
       - name: Test notification troubleshooting guide
         href: alerts/test-action-group-errors.md
@@ -1360,7 +1365,7 @@ items:
         href: alerts/api-alerts.md
       - name: Upgrade from the legacy Log Analytics alerts API
         href: alerts/alerts-log-api-switch.md
-      - name: Edit log alerts created in previous versions
+      - name: Edit log search alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
   - name: AutoScale
     items:
@@ -1404,7 +1409,7 @@ items:
       href: agents/resource-manager-agent.md
     - name: Alerts
       items:
-      - name: Log alert rules
+      - name: Log search alert rules
         href: alerts/resource-manager-alerts-log.md
       - name: Metric alert rules
         href: alerts/resource-manager-alerts-metric.md
@@ -1442,9 +1447,9 @@ items:
     items:
       - name: Alerts payloads
         href: alerts/alerts-payload-samples.md
-      - name: Log alert rule queries with ADX and ARG
+      - name: Log search alert rule queries with ADX and ARG
         href: alerts/alerts-log-alert-query-samples.md
-      - name: Log alert payloads with webhooks
+      - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
   - name: Data collection rules
     href: essentials/data-collection-rule-samples.md

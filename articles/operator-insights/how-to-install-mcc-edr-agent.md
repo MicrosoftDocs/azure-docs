@@ -145,7 +145,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
+1. Install the RPM:  `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
 1. Change to the configuration directory: `cd /etc/az-mcc-edr-uploader`
 1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
 1. Edit the *config.yaml* and fill out the fields.  Most of them are set to default values and don't need to be changed.  The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
@@ -159,7 +159,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-            2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
+            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
 
             3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
 

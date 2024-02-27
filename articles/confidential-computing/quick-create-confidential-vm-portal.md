@@ -61,7 +61,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
+    i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
 
     j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).

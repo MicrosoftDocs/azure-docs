@@ -316,7 +316,7 @@ workspace = Workspace(
     )
 )
 
-workspace = ml_client.workspaces.begin_create_or_update(workspace)
+workspace = ml_client.workspaces.begin_update(workspace)
 ```
 
 # [Studio](#tab/azure-studio)
@@ -483,7 +483,7 @@ workspace = Workspace(
     )
 )
 
-workspace = ml_client.workspaces.begin_create_or_update(workspace)
+workspace = ml_client.workspaces.begin_update(workspace)
 ```
 
 # [Studio](#tab/azure-studio)

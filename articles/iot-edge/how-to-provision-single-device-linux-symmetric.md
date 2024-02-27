@@ -59,7 +59,7 @@ If you are using Visual Studio Code, there are helpful Azure IoT extensions that
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
@@ -231,7 +231,7 @@ Remove the IoT Edge runtime.
 sudo apt-get autoremove --purge aziot-edge
 ```
 
-Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files.
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flag deletes all the files associated with IoT Edge, including your configuration files.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash

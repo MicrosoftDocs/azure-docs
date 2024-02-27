@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -23,11 +23,11 @@ You can invoke the endpoint for real-time inference for chat, copilot, or anothe
 
 In this article, you learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you take are:
 
-- Test your flow and get it ready for deployment
-- Create an online deployment
-- Grant permissions to the endpoint
-- Test the endpoint
-- Consume the endpoint
+- Test your flow and get it ready for deployment.
+- Create an online deployment.
+- Grant permissions to the endpoint.
+- Test the endpoint.
+- Consume the endpoint.
 
 ## Prerequisites
 
@@ -196,7 +196,7 @@ See detailed guidance about how to grant permissions to the endpoint identity in
 
 ### Advanced settings - Outputs & Connections
 
-In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
+In this step, you can view all flow outputs, and specify which outputs to include in the response of the endpoint you deploy. By default all flow outputs are selected.
 
 You can also specify the connections used by the endpoint when it performs inference. By default they're inherited from the flow.
 
