@@ -186,7 +186,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
 
-> ## Microsoft.AzureArcData
+## Microsoft.AzureArcData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
