@@ -5,6 +5,7 @@ author: yelevin
 ms.topic: how-to
 ms.date: 02/22/2024
 ms.author: yelevin
+appliesto: Microsoft Sentinel in the Azure portal and Microsoft Defender portal
 ---
 
 # Visualize and monitor your data by using workbooks in Microsoft Sentinel
