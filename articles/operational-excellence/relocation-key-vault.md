@@ -3,9 +3,8 @@ title: Relocation guidance in Azure KeyVault
 description: Learn how to relocate Azure KeyVault to a new region
 author: anaharris-ms
 ms.author: anaharris
-ms.reviewer: anaharris
-ms.date: 01/18/2024
-ms.service:  key-vault
+ms.date: 02/27/2024
+ms.service: key-vault
 ms.topic: how-to
 ms.custom:
   - subject-relocation
@@ -13,7 +12,7 @@ ms.custom:
 
 # Relocate Azure KeyVault to another region
 
-This article shows you how to create a KeyVault in a new region, by manually coping each individual key, secret, or certificate from your existing KeyVault to the new KeyVault.
+This article shows you how to create a KeyVault in a new region by manually coping each secret or certificate from your existing KeyVault to the new KeyVault. It isn't possible to export a private key from an existing key vault, and will need to be recreated and used by the newly deployed service in the target region.
 
 
 ## Prerequisites
@@ -99,7 +98,7 @@ In the diagram below,
 
 **To redeploy your KeyVault to another region:**
 
-1. Back up each individual secret, key, and certificate in your vault by using one of the following two methods:
+1. Back up each individual secret and certificate in your vault by using one of the following two methods:
     - **Use encrypted backup**. With the backup command, your secrets are downloaded as an encrypted blob.  For step by step guidance, see [Azure KeyVault backup and restore](../key-vault/general/backup.md).
 
         >[!IMPORTANT]
@@ -120,7 +119,7 @@ In the diagram below,
 
 1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new KeyVault by following the steps in [Azure KeyVault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/azure/key-vault/secrets/quick-create-powershell) to import them to your new KeyVault.
 
-1. Before deleting your old KeyVault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the KeyVault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
+1. Before deleting your old KeyVault, verify that the new vault contains all of the required secrets and certificates. Ensure the KeyVault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
 
 ## Next steps
 

@@ -6,6 +6,8 @@ ms.topic: overview
 ms.date: 02/02/2024
 ms.author: anaharris
 ms.service: operational-excellence
+ms.custom:
+  - subject-relocation
 ---
 
 # Azure Operational Excellence documentation (Preview)
