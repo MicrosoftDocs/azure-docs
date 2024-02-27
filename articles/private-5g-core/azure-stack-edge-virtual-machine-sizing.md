@@ -1,14 +1,34 @@
 ---
-title: Azure Stack Edge virtual machine sizing
-description: Learn about the VMs that Azure Private 5G Core uses when running on an Azure Stack Edge device.
+title: Service limits and resource usage
+description: Learn about the limits and resource usage of your Azure Private 5G Core deployment when running on an Azure Stack Edge device.
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: reference
-ms.date: 09/29/2023
+ms.date: 02/27/2024
 ---
 
-# Azure Stack Edge virtual machine sizing
+# Service limits and resource usage
+
+This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs.
+
+## Service limits
+
+The following table lists the maximum supported a range of parameters in an Azure Private 5G Core deployment. While these are tested and supported limits, other factors may affect what is achievable. For example, usage patterns, UE types and third party network elements may impact one or more of these parameters. It is important to test the limits of your deployment before launching a live service.
+
+If you require higher throughput for your scenario, please contact us to discuss your needs.
+
+| Element                | Maximum supported |
+|------------------------|-------------------|
+| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
+| Bandwidth              | See [Azure Private 5G Core pricing](https://azure.microsoft.com/en-us/pricing/details/private-5g-core/). |
+| RAN                    | 200 per ASE |
+| UEs                    | 10,000 across all sites |
+| SIMs                   | 1000 per site |
+| SIM provisioning       | 1000 per API call |
+| Radios (gNB/eNB/CU)    | 20 per site |
+
+## Azure Stack Edge virtual machine sizing
 
 The following table lists the hardware resources that Azure Private 5G Core (AP5GC) uses when running on supported Azure Stack Edge (ASE) devices.
 
