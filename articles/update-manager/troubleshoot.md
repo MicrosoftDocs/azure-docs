@@ -57,7 +57,7 @@ To review the logs related to all actions performed by the extension, on Windows
 ### Issue
 There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it is currently not part of the Virtual Machine Contributor role.
 
-  :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/./media/troubleshoot/policy-remediation-failure-error.png":::
+  :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
 
 ### Cause
 The Virtual Machine Contributor role doesn’t have enough permissions.
