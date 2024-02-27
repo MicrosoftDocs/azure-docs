@@ -10,7 +10,7 @@ ms.date: 01/16/2024
 ms.custom: template-how-to-pattern
 ---
 
-# Add HSR third site to HANA Pacemaker cluster
+# Add an HSR third site to a HANA Pacemaker cluster
 
 This article describes requirements and setup of a third HANA replication site to complement an existing Pacemaker cluster. Both SUSE Linux Enterprise Server (SLES) and RedHat Enterprise Linux (RHEL) specifics are covered.
 
