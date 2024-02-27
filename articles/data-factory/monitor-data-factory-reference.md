@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Data Factory
 description: This article contains important reference material you need when you monitor Azure Data Factory.
-ms.date: 02/23/2024
+ms.date: 02/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
@@ -54,6 +54,9 @@ The following table lists the metrics available for the Microsoft.DataFactory/fa
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.DataFactory/factories](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datafactory-factories-metrics-include.md)]
 
+> [!NOTE]
+> Except for _PipelineElapsedTimeRuns_, only events from completed, triggered activity and pipeline runs are emitted. In-progress and debug runs aren't emitted. However, events from all SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools, via T-SQL on SQL Server Management Studio, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in Data Factory pipelines.
+
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 <!-- Use one of the following includes, depending on whether you have metrics with dimensions.
@@ -102,6 +105,9 @@ Microsoft.DataFactory/factories
 - [ADFSSISPackageExecutableStatistics](/azure/azure-monitor/reference/tables/ADFSSISPackageExecutableStatistics#columns)
 - [ADFSSISPackageExecutionComponentPhases](/azure/azure-monitor/reference/tables/ADFSSISPackageExecutionComponentPhases#columns)
 - [ADFSSISPackageExecutionDataStatistics](/azure/azure-monitor/reference/tables/ADFSSISPackageExecutionDataStatistics#columns)
+
+For detailed information about the attributes used by the Azure Monitor and Log Analytics schemas, see [Schema of logs and events](monitor-schema-logs-events.md).
+
 <!-- Example:
 ### Storage Accounts
 Microsoft.Storage/storageAccounts
