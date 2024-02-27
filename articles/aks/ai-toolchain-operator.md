@@ -17,7 +17,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 ## Before you begin
 
 * This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for AKS](./concepts-clusters-workloads.md).
-* For ***all hosted model inference files*** and recommended infrastructure setup, see the [KAITO GitHub repository](https://github.com/Azure/kaito).
+* For ***all hosted model inference images*** and recommended infrastructure setup, see the [KAITO GitHub repository](https://github.com/Azure/kaito).
 
 ## Prerequisites
 
@@ -88,9 +88,9 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     ```azurecli-interactive
     az aks create --location ${AZURE_LOCATION} --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME} --enable-managed-identity --enable-oidc-issuer --enable-ai-toolchain-operator
     ```
-    
+
     > [!NOTE]
-    > AKS creates a managed identity once you enable the AI toolchain operator add-on. The managed identity is used to access the AI toolchain operator workspace CRD. The AI toolchain operator workspace CRD is used to create and manage AI toolchain operator workspaces.
+    > AKS creates a managed identity once you enable the AI toolchain operator add-on. The managed identity is used to create GPU node pools in the managed AKS cluster. Proper permissions need to be set for it manually following the steps introduced in the following sections.
     >
     > AI toolchain operator enablement requires the enablement of OIDC issuer.
 
@@ -176,7 +176,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 4. Run the Falcon 7B model with a sample input of your choice using the following `curl` command:
 
     ```azurecli-interactive
-    curl -X POST "http://${SERVICE_IP}:80/chat" -H "accept: application/json" -H "Content-Type: application/json" -d '{"prompt":"YOUR_PROMPT_HERE"}'
+    kubectl run -it --rm --restart=Never curl --image=curlimages/curl -- curl -X POST http://$CLUSTERIP/chat -H "accept: application/json" -H "Content-Type: application/json" -d "{"prompt":"YOUR QUESTION HERE"}"
     ```
 
 ## Clean up resources
