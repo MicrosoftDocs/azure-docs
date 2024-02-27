@@ -10,7 +10,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/16/2024
+ms.date: 02/26/2024
 ---
 
 # How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server
