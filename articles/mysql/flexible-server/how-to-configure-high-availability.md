@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 author: VandhanaMehta
 ms.author: vamehta
-ms.custom: references_regions, event-tier1-build-2022
+ms.custom: references_regions
 ms.date: 05/24/2022
 ---
 

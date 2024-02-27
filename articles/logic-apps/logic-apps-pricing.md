@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 01/10/2024
-# As a logic apps developer, I want to learn and understand how usage metering, billing, and pricing work in Azure Logic Apps.
+# Customer intent: As a logic apps developer, I want to learn and understand how usage metering, billing, and pricing work in Azure Logic Apps.
 ---
 
 # Usage metering, billing, and pricing for Azure Logic Apps

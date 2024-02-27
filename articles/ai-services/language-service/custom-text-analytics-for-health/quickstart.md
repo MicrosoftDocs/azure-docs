@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-TA4H, ignite-fall-2021, mode-other, event-tier1-build-2022
+ms.custom: language-service-custom-TA4H, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
@@ -45,4 +45,3 @@ When you start to create your own custom Text Analytics for health projects, use
 * [Tag data](how-to/label-data.md)
 * [Train a model](how-to/train-model.md)
 * [Model evaluation](how-to/view-model-evaluation.md)
-

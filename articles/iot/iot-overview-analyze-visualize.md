@@ -8,8 +8,7 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 04/11/2023
 ms.custom: template-overview
-
-# As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
+# Customer intent: As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
 ---
 
 # Analyze and visualize your IoT data

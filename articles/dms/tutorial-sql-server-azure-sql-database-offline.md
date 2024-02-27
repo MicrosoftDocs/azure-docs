@@ -9,7 +9,6 @@ ms.date: 10/10/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 

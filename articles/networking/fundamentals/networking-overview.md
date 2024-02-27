@@ -5,7 +5,6 @@ services: networking
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 07/28/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23

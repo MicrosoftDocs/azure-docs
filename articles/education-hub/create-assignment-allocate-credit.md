@@ -2,7 +2,7 @@
 title: Create an assignment and allocate credit
 description: Explains how to create an assignment, allocate credit, and invite students to a course in the Azure Education Hub.
 author: rymend
-ms.author: v-denrea
+ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education

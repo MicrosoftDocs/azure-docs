@@ -90,7 +90,7 @@ landingContent:
             url: tutorial-autoscale-ps.md
 
 # Card
-  - title: Application Gateway for Containers (preview)
+  - title: Application Gateway for Containers
     linkLists:
       - linkListType: overview
         links:

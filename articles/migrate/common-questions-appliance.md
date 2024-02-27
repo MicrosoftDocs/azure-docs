@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: ignite-2022, engagement-fy24
+ms.custom: engagement-fy24
 ms.date: 08/24/2022
 ---
 

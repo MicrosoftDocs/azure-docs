@@ -15,6 +15,44 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
+## January 2024
+
+**Updates to Defender for IoT Firmware analysis since public preview in July 2023:**
+
+- **PDF report generator**: Addition of a **Download as PDF** capability on the **Overview page** that generates and downloads a PDF report of the firmware analysis results.
+
+:::image type="content" source="media/whats-new-firmware-analysis/overview-PDF-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-PDF-download.png":::
+
+- **Reduced analysis time**: Analysis time has been shortened by 30-80%, depending on image size.
+
+- **CODESYS libraries detection**: Defender for IoT Firmware analysis now detects the use of CODESYS libraries, which Microsoft recently identified as having high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
+
+- **Enhanced documentation**: Addition of documentation addressing the following concepts:
+    - [Azure role-based access control for Defender for IoT Firmware analysis](defender-iot-firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
+    - [Frequently asked questions](defender-iot-firmware-analysis-FAQ.md)
+
+- **Improved filtering for each report**: Each subtab report now includes more fine-grained filtering capabilities.
+
+- **Firmware metadata**: Addition of a collapsible tab with firmware metadata that is available on each page.
+
+:::image type="content" source="media/whats-new-firmware-analysis/overview-firmware-metadata.png" alt-text="Screenshot that shows the new metadata tab in the Overview page." lightbox="media/whats-new-firmware-analysis/overview-firmware-metadata.png":::
+
+- **Improved version detection**: Improved version detection of the following libraries:
+    - pcre
+    - pcre2
+    - net-tools
+    - zebra
+    - dropbear
+    - bluetoothd
+    - WolfSSL
+    - sqlite3
+
+- **Added support for file systems**: Defender for IoT Firmware analysis now supports extraction of the following file systems. For more information, see [Firmware analysis FAQs](defender-iot-firmware-analysis-FAQ.md#what-types-of-firmware-images-does-defender-for-iot-firmware-analysis-support):
+    - ISO
+    - RomFS
+    - Zstandard and non-standard LZMA implementations of SquashFS
+
+
 ## July 2023
 
 **Firmware analysis public preview announcement**
@@ -23,7 +61,7 @@ Microsoft Defender for IoT Firmware analysis is now available in public preview.
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
-:::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image.":::
+:::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/overview.png":::
 
 
 ## December 2022

@@ -10,7 +10,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to integrate TypingDNA with Azure AD B2C. I need to comply with Payment Services Directive 2 (PSD2) transaction requirements through keystroke dynamics and strong customer authentication.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to integrate TypingDNA with Azure AD B2C. I need to comply with Payment Services Directive 2 (PSD2) transaction requirements through keystroke dynamics and strong customer authentication.
 ---
 
 # Tutorial for configuring TypingDNA with Azure Active Directory B2C

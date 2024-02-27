@@ -6,7 +6,7 @@ metadata:
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
-  ms.date: 06/20/2023
+  ms.date: 02/08/2024
 title: Common questions about Defender for Storage
 summary: Get answers to common questions about Microsoft Defender for Storage.
 
@@ -14,6 +14,11 @@ summary: Get answers to common questions about Microsoft Defender for Storage.
 sections:
   - name: Ignored
     questions:
+      - question: |
+          Is malware scanning included in the free trial of Defender for Cloud?
+        answer: |
+          Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day. Defender for Cloud is free for the first 30 days. Any usage beyond 30 days is automatically charged as per the pricing scheme. [Learn more](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+  
       - question: |
           Is it possible to enable Defender for Storage on a resource level?
         answer: |

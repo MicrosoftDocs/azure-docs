@@ -186,6 +186,7 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 - In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
 
 
+For more information about performing a long term backup, visit the [how-to guide](../../backup/backup-azure-database-postgresql-flex.md).
 
 ## Frequently asked questions
 

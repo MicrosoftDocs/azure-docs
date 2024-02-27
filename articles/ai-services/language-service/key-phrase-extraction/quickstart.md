@@ -11,7 +11,7 @@ ms.date: 12/19/2023
 ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-key-phrase, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: language-service-key-phrase, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---

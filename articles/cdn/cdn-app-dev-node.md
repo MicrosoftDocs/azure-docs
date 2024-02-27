@@ -2,7 +2,6 @@
 title: Get started with the Azure CDN SDK for Node.js | Microsoft Docs
 description: Learn how to create a simple Node.js console application that demonstrates how to automate creation and management of Azure CDN profiles and endpoints.
 services: cdn
-documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa

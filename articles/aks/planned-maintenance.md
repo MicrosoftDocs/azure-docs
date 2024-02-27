@@ -5,18 +5,22 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/26/2024
+ms.date: 01/29/2024
 ms.author: nickoman
 author: nickomang
 ---
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster 
 
-Your AKS cluster has regular maintenance performed on it automatically. There are two types of regular maintenance - AKS initiated and those that you initiate. Planned Maintenance feature allows you to run both types of maintenance in a cadence of your choice thereby minimizing any workload impact. 
+Your AKS cluster has regular maintenance performed on it automatically. There are two types of regular maintenance - AKS initiated and those that you initiate. Planned Maintenance feature allows you to run both types of maintenance in a cadence of your choice, thereby minimizing any workload impact.
 
 AKS initiated maintenance refers to the AKS releases. These releases are weekly rounds of fixes and feature and component updates that affect your clusters. The type of maintenance that you initiate regularly are [cluster auto-upgrades][aks-upgrade] and [Node OS automatic security updates][node-image-auto-upgrade].
 
-There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
+This article describes the maintenance options availble and how to configure a maintenance schedule for your AKS clusters.
+
+## Overview
+
+There are currently three available maintenance schedule configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
 - `default` corresponds to a basic configuration that is used to control AKS releases, these releases can take up to two weeks to roll out to all regions from the initial time of shipping due to Azure Safe Deployment Practices (SDP). Choose `default` to schedule these updates in such a way that it's least disruptive for you. You can monitor the status of an ongoing AKS release by region from the [weekly releases tracker][release-tracker].  
 
@@ -24,17 +28,17 @@ There are currently three available configuration types: `default`, `aksManagedA
 
 - `aksManagedNodeOSUpgradeSchedule` controls when the node operating system security patching scheduled by your node OS auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default configuration. For more information on node OS auto-upgrade channel, see [Automatically patch and update AKS cluster node images][node-image-auto-upgrade]
 
-We recommend using `aksManagedAutoUpgradeSchedule` for all cluster upgrade scenarios and `aksManagedNodeOSUpgradeSchedule` for all node OS security patching scenarios, while `default` is meant exclusively for the AKS weekly releases. You can port `default` configurations to the `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
+We recommend using `aksManagedAutoUpgradeSchedule` for all cluster upgrade scenarios and `aksManagedNodeOSUpgradeSchedule` for all node OS security patching scenarios. The `default` option is meant exclusively for AKS weekly releases. You can switch the `default` configuration to the `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` configurations using the `az aks maintenanceconfiguration update` command.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you don't have an AKS cluster, for guidance on a designing an enterprise-scale implementation of AKS, see [Plan your AKS design][plan-aks-design].
 
 Be sure to upgrade Azure CLI to the latest version using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
 
 ## Creating a maintenance window
 
-To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name causes your maintenance window not to run.
+To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name prevents your maintenance window from running.
 
 > [!NOTE]
 > When using auto-upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
@@ -328,9 +332,7 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 - To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
 
 <!-- LINKS - Internal -->
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[plan-aks-design]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az_extension_add

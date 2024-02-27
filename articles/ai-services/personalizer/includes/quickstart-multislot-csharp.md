@@ -5,7 +5,6 @@ description: include file
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.custom: cog-serv-seo-aug-2020
 author: jcodella
 ms.author: jacodel
 ms.date: 01/19/2024

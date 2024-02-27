@@ -1,10 +1,9 @@
 ---
 title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
-description: Describes how to create a capacity pool so that you can create volumes within it.  
+description: Describes how to create a capacity pool so that you can create volumes within it.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/23/2023
 ms.author: anfdocs
@@ -37,7 +36,7 @@ Creating a capacity pool enables you to create volumes within it.
 
 1. Go to the management blade for your NetApp account, and then, from the navigation pane, click **Capacity pools**.  
     
-    ![Navigate to capacity pool](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
+    ![Navigate to capacity pool](./media/azure-netapp-files-set-up-capacity-pool/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Select **+ Add pools** to create a new capacity pool.   
     The New Capacity Pool window appears.
@@ -87,7 +86,7 @@ Creating a capacity pool enables you to create volumes within it.
             ```   
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
+    :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
 4. Select **Create**.
 
