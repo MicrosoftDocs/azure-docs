@@ -497,8 +497,6 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
-            - name: Use HTTP application routing add-on (retired)
-              href: http-application-routing.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer

@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/09/2024
+ms.date: 02/23/2024
 recommendations: false
 ---
 
@@ -42,6 +42,8 @@ When customizing the app, we recommend:
 - Clearly communicating how each setting you implement will affect the user experience.
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
+
+Sample source code for Azure OpenAI On Your Data web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as a sample only. Customers are responsible for all customization and implementation of their web apps using Azure OpenAI On Your Data. 
 
 ### Updating the web app
 
