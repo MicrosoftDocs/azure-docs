@@ -27,22 +27,22 @@ The run data extract command executes one or more predefined scripts to extract 
 
 The current list of supported commands are
 
-- SupportAssist/TSR collection for Dell troubleshooting\
+- [SupportAssist/TSR collection for Dell troubleshooting](#hardware-support-data-collection)\
   Command Name: `hardware-support-data-collection`\
   Arguments: Type of logs requested
   - `SysInfo` - System Information
   - `TTYLog` - Storage TTYLog data
   - `Debug` - debug logs
 
-- Collect Microsoft Defender for Endpoints (MDE) agent information\
+- [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
   Arguments: None
 
-- Collect MDE diagnostic support logs\
+- [Collect MDE diagnostic support logs](#collect-mde-support-diagnostics)\
   Command Name: `mde-support-diagnostics`\
   Arguments: None
 
-- Collect Dell Hardware Rollup Status\
+- [Collect Dell Hardware Rollup Status](#hardware-rollup-status)\
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
@@ -60,7 +60,11 @@ Specify multiple commands using json format in `--commands` option. Each `comman
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer than 10 minutes.
 
-This example executes the `hardware-support-data-collection` command and get `SysInfo` and `TTYLog` logs from the Dell Server.
+In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the [Viewing the output](#viewing-the-output) section for details on how to track command completion and view the output file.
+
+### Hardware Support Data Collection
+
+This example executes the `hardware-support-data-collection` command and get `SysInfo` and `TTYLog` logs from the Dell Server. The script executes a `racadm supportassist collect` command on the designated baremetal machine. The resulting tar.gz file contains the zipped extract command file outputs in `hardware-support-data-<timestamp>.zip`.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -70,41 +74,7 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --limit-time-seconds 600
 ```
 
-This example executes the `mde-agent-information` command without arguments.
-
-```azurecli
-az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
-  --subscription "subscription" \
-  --commands '[{"command":"mde-agent-information"}]' \
-  --limit-time-seconds 600
-```
-
-This example executes the `mde-support-diagnostics` command without arguments.
-
-```azurecli
-az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
-  --subscription "subscription" \
-  --commands '[{"command":"mde-support-diagnostics"}]' \
-  --limit-time-seconds 600
-```
-
-This example executes the `hardware-rollup-status` command without arguments.
-
-```azurecli
-az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
-  --subscription "subscription" \
-  --commands '[{"command":"hardware-rollup-status"}]' \
-  --limit-time-seconds 600
-```
-
-In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the **Viewing the output** section for details on how to track command completion and view the output file.
-
-## Viewing the output
-
-Sample output looks something like this. Note the provided link to the tar.gz zipped file from the command execution. The tar.gz file name identifies the file in the Storage Account of the Cluster Manager resource group. You can also use the link to directly access the output zip file. The tar.gz file also contains the zipped extract command file outputs in `hardware-support-data-<timestamp>.zip`. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+__`hardware-support-data-collection` Output__
 
 ```azurecli
 ====Action Command Output====
@@ -126,15 +96,48 @@ Percent Complete=[100]
 Deleting Job JID_814372800396
 Collection successfully exported to /hostfs/tmp/runcommand/hardware-support-data-2023-04-13T21:00:01.zip
 
-
 ================================
 Script execution result can be found in storage account:
 https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
 ```
 
+### Collect MDE Agent Information
+
 Data is collected with the `mde-agent-information` command and formatted as JSON
 to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file is found
-in the data extract zip file located in the storage account.
+in the data extract zip file located in the storage account. The script executes a
+sequence of `mdatp` commands on the designated baremetal machine.
+
+__Example JSON object collected__
+
+```
+{
+  "diagnosticInformation": {
+      "realTimeProtectionStats": $real_time_protection_stats,
+      "eventProviderStats": $event_provider_stats
+      },
+  "mdeDefinitions": $mde_definitions,
+  "generalHealth": $general_health,
+  "mdeConfiguration": $mde_config,
+  "scanList": $scan_list,
+  "threatInformation": {
+      "list": $threat_info_list,
+      "quarantineList": $threat_info_quarantine_list
+    }
+}
+```
+
+This example executes the `mde-agent-information` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"mde-agent-information"}]' \
+  --limit-time-seconds 600
+```
+
+__`mde-agent-information` Output__
 
 ```azurecli
 ====Action Command Output====
@@ -143,13 +146,26 @@ MDE agent is running, proceeding with data extract
 Getting MDE agent information for bareMetalMachine
 Writing to /hostfs/tmp/runcommand
 
-
 ================================
 Script execution result can be found in storage account:
  https://cmzhnh6bdsfsdwpbst.blob.core.windows.net/bmm-run-command-output/f5962f18-2228-450b-8cf7-cb8344fdss63b0-action-bmmdataextcmd.tar.gz?se=2023-07-26T19%3A07%3A22Z&sig=X9K3VoNWRFP78OKqFjvYoxubp65BbNTq%2BGnlHclI9Og%3D&sp=r&spr=https&sr=b&st=2023-07-26T15%3A07%3A22Z&sv=2019-12-12
 ```
 
+### Collect MDE Support Diagnostics
+
 Data collected from the `mde-support-diagnostics` command uses the MDE Client Analyzer tool to bundle information from `mdatp` commands and relevant log files.  The storage account `tgz` file will contain a `zip` file named `mde-support-diagnostics-<hostname>.zip`. The `zip` should be sent along with any support requests to ensure the supporting teams can use the logs for troubleshooting and root cause analysis, if needed.
+
+This example executes the `mde-support-diagnostics` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"mde-support-diagnostics"}]' \
+  --limit-time-seconds 600
+```
+
+__`mde-support-diagnostics` Output__
 
 ```azurecli
 ====Action Command Output====
@@ -190,8 +206,22 @@ Archive:  mde-support-diagnostics-rack1compute02.zip
 [...snip...]
 ```
 
+### Hardware Rollup Status
+
 Data is collected with the `hardware-rollup-status` command and formatted as JSON to `/hostfs/tmp/runcommand/rollupStatus.json`. The JSON file is found
 in the data extract zip file located in the storage account.
+
+This example executes the `hardware-rollup-status` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"hardware-rollup-status"}]' \
+  --limit-time-seconds 600
+```
+
+`hardware-rollup-status` Output
 
 ```azurecli
 ====Action Command Output====
@@ -199,8 +229,11 @@ Executing hardware-rollup-status command
 Getting rollup status logs for b37dev03a1c002
 Writing to /hostfs/tmp/runcommand
 
-
 ================================
 Script execution result can be found in storage account:
 https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea38-4394-9db1-21a0d392eff0-action-bmmdataextcmd.tar.gz?se=2023-09-19T18%3A47%3A17Z&sig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%3D&sp=r&spr=https&sr=b&st=2023-09-19T14%3A47%3A17Z&sv=2019-12-12
 ```
+
+## Viewing the Output
+
+Note the provided link to the tar.gz zipped file from the command execution. The tar.gz file name identifies the file in the Storage Account of the Cluster Manager resource group. You can also use the link to directly access the output zip file. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
