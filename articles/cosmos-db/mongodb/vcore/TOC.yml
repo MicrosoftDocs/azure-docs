@@ -83,4 +83,4 @@
 - name: Samples
   items:
     - name: Solution accelerators
-      href: ../solutions.md?pivots=api-nosql
+      href: ../../solutions.md?pivots=api-nosql
