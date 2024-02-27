@@ -11,7 +11,7 @@ ms.author: asabbour
 
 # Configure NGINX ingress controller to support Azure private DNS zone with application routing add-on
 
-This article demonstrates how configure an NGINX ingress controller to work with Azure internal load balancer and configure a private Azure DNS zone to enable DNS resolution for the private endpoints to resolve specific domains.
+This article demonstrates how to configure an NGINX ingress controller to work with Azure internal load balancer and configure a private Azure DNS zone to enable DNS resolution for the private endpoints to resolve specific domains.
 
 ## Before you begin
 
