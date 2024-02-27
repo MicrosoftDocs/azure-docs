@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: backup
-ms.date: 06/20/2023
+ms.date: 02/27/2024
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
@@ -200,10 +200,10 @@ Once the vault and policy creation are complete, you need to perform the followi
 	
    ```
 
-   As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Account Contributor** role. To assign the required role, run the following command:
+   As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Blob Data Contributor** role. To assign the required role, run the following command:
 
    ```azurecli
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $akscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $akscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
    ```
  
 

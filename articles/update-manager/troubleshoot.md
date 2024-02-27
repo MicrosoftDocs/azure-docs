@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/12/2024
+ms.date: 02/21/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -25,7 +25,7 @@ To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running and
 
 The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.Edp.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
 
-To review the logs related to all actions performed by the extension, check for more information in `/var/log/azure/Microsoft.CPlat.Core.Edp.LinuxPatchExtension/`. It includes the following two log files of interest:
+To review the logs related to all actions performed by the extension, check for more information in `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. It includes the following two log files of interest:
 
 * `<seq number>.core.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
 * `<Date and Time>_<Handler action>.ext.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.

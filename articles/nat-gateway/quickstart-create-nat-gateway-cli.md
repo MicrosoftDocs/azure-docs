@@ -57,7 +57,8 @@ az network nat gateway create \
     --resource-group test-rg \
     --name nat-gateway \
     --public-ip-addresses public-ip-nat \
-    --idle-timeout 10
+    --idle-timeout 10 \
+    --location eastus2
 ```
 
 ### Create virtual network
@@ -70,7 +71,8 @@ az network vnet create \
     --resource-group test-rg \
     --address-prefix 10.0.0.0/16 \
     --subnet-name subnet-1 \
-    --subnet-prefixes 10.0.0.0/24
+    --subnet-prefixes 10.0.0.0/24 \
+    --location eastus2
 ```
 
 ### Create bastion host subnet

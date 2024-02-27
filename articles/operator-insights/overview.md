@@ -42,8 +42,8 @@ We provide the following Data Products.
 
 |Data Product  |Purpose  |Supporting ingestion agent|
 |---------|---------|---------|
-|[Quality of Experience - Affirmed MCC Data Product](concept-mcc-data-product.md) | Analysis and insight from EDRs provided by Affirmed Networks Mobile Content Cloud (MCC) network elements| [MCC EDR ingestion agent](how-to-install-mcc-edr-agent.md)|
-| [Monitoring - Affirmed MCC Data Product](concept-monitoring-mcc-data-product.md) | Analysis and insight from performance management data (performance statistics) from Affirmed Networks MCC network elements| [SFTP ingestion agent](sftp-agent-overview.md) |
+|[Quality of Experience - Affirmed MCC Data Product](concept-mcc-data-product.md) | Analysis and insight from EDRs provided by Affirmed Networks Mobile Content Cloud (MCC) network elements| [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) configured to use EDRs as a source|
+| [Monitoring - Affirmed MCC Data Product](concept-monitoring-mcc-data-product.md) | Analysis and insight from performance management data (performance statistics) from Affirmed Networks MCC network elements| [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) configured to use SFTP as a source |
 
 If you prefer, you can provide your own ingestion agent to upload data to your chosen Data Product.
 

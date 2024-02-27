@@ -60,7 +60,7 @@ az arcappliance show --resource-group [REQUIRED] --name [REQUIRED]
 
 ## Manual upgrade
 
-Arc resource bridge can be manually upgraded from the management machine. You must meet all upgrade prerequisites before attempting to upgrade. The management machine must have the kubeconfig and appliance configuration files stored locally.
+Arc resource bridge can be manually upgraded from the management machine. You must meet all upgrade prerequisites before attempting to upgrade. The management machine must have the kubeconfig and [appliance configuration files](system-requirements.md#configuration-files) stored locally or you will not be able to run the upgrade.
 
 Manual upgrade generally takes between 30-90 minutes, depending on network speeds. The upgrade command takes your Arc resource bridge to the next appliance version, which might not be the latest available appliance version. Multiple upgrades could be needed to reach a [supported version](#supported-versions). You can check your appliance version by checking the Azure resource of your Arc resource bridge.
 

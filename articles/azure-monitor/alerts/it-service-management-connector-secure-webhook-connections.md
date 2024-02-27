@@ -11,7 +11,7 @@ ms.reviewer: nolavime
 
 This article shows you how to configure the connection between your IT Service Management (ITSM) product or service by using Secure Webhook.
 
-Secure Webhook is an updated version of [IT Service Management Connector (ITSMC)](./itsmc-overview.md). Both versions allow you to create work items in an ITSM tool when Azure Monitor sends alerts. The functionality includes metric, log, and activity log alerts.
+Secure Webhook is an updated version of [IT Service Management Connector (ITSMC)](./itsmc-overview.md). Both versions allow you to create work items in an ITSM tool when Azure Monitor sends alerts. The functionality includes metric, log search, and activity log alerts.
 
 ITSMC uses username and password credentials. Secure Webhook has stronger authentication because it uses Microsoft Entra ID. Microsoft Entra ID is Microsoft's cloud-based identity and access management service. It helps users sign in and access internal or external resources. Using Microsoft Entra ID with ITSM helps to identify Azure alerts (through the Microsoft Entra application ID) that were sent to the external system.
 

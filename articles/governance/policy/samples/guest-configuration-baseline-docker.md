@@ -2,6 +2,8 @@
 title: Reference - Azure Policy guest configuration baseline for Docker
 description: Details of the Docker baseline on Azure implemented through Azure Policy guest configuration.
 ms.date: 05/17/2022
+author: michaeltlombardi
+ms.author: mlombardi
 ms.topic: reference
 ms.custom: generated
 ---

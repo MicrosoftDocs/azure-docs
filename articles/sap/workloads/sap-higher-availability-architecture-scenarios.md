@@ -4,7 +4,6 @@ description: Utilize Azure infrastructure VM restart to achieve “higher availa
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

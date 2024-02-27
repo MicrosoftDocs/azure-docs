@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/06/2024
+ms.date: 02/22/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -70,6 +70,10 @@ standard, see
 |---|---|---|---|---|
 |Identity Management |IM-1 |Use centralized identity and authentication system |[Synapse Workspaces should have Microsoft Entra-only authentication enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6ea81a52-5ca7-4575-9669-eaa910b7edf8) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceDisableAadOnlyAuthentication_Audit.json) |
 |Identity Management |IM-1 |Use centralized identity and authentication system |[Synapse Workspaces should use only Microsoft Entra identities for authentication during workspace creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2158ddbe-fefa-408e-b43f-d4faef8ff3b8) |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynaspeWorkspaceAadOnlyAuthentication_Audit.json) |
+|Logging and Threat Detection |LT-1 |Enable threat detection capabilities |[Microsoft Defender for SQL should be enabled for unprotected Synapse workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd31e5c31-63b2-4f12-887b-e49456834fa1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/TdOnSynapseWorkspaces_Audit.json) |
+|Logging and Threat Detection |LT-2 |Enable threat detection for identity and access management |[Microsoft Defender for SQL should be enabled for unprotected Synapse workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd31e5c31-63b2-4f12-887b-e49456834fa1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/TdOnSynapseWorkspaces_Audit.json) |
+|Incident Response |IR-3 |Detection and analysis - create incidents based on high-quality alerts |[Microsoft Defender for SQL should be enabled for unprotected Synapse workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd31e5c31-63b2-4f12-887b-e49456834fa1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/TdOnSynapseWorkspaces_Audit.json) |
+|Incident Response |AIR-5 |Detection and analysis - prioritize incidents |[Microsoft Defender for SQL should be enabled for unprotected Synapse workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd31e5c31-63b2-4f12-887b-e49456834fa1) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/TdOnSynapseWorkspaces_Audit.json) |
 
 ## NIST SP 800-171 R2
 
