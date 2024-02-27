@@ -12,7 +12,7 @@ ms.custom:
 
 # Relocate Azure KeyVault to another region
 
-This article shows you how to create a KeyVault in a new region by manually coping each secret or certificate from your existing KeyVault to the new KeyVault. It isn't possible to export a private key from an existing key vault, and will need to be recreated and used by the newly deployed service in the target region.
+This article shows you how to create a KeyVault in a new region by manually coping each secret or certificate from your existing KeyVault to the new KeyVault. Because it isn't possible to export a private key from an existing key vault, you'll need to recreate the key for the newly deployed service in the target region.
 
 
 ## Prerequisites
