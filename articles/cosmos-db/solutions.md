@@ -1,5 +1,5 @@
 ---
-title: Sample solutions using AI
+title: Best practices and solutions using AI
 titleSuffix: Azure Cosmos DB
 description: Review solution accelerators using both Azure Cosmos DB and Azure OpenAI. The solutions integrate AI with vector search capabilities.
 author: seesharprun
@@ -7,12 +7,12 @@ ms.author: sidandrews
 ms.reviewer: wangwilliam
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 02/27/2024
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb
 ---
 
-# Sample solutions using AI and Azure Cosmos DB
+# Best practices and solutions using AI and Azure Cosmos DB
 
 ::: zone pivot="api-nosql"
 
