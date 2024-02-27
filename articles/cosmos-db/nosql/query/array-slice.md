@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a subset of an array expression using the index and length specified.
   
 ## Syntax
   
-```sql
+```nosql
 ARRAY_SLICE(<array_expr>, <numeric_expr_1> [, <numeric_expr_2>])  
 ```  
   
@@ -40,7 +41,7 @@ Returns an array expression.
   
 The following example shows how to get different slices of an array using the function.  
   
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-slice/query.sql" highlight="2-9":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/array-slice/query.sql" highlight="2-9":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-slice/result.json":::
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Operator 5G Core documentation
-summary: Learn how to securely deploy and manage  mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
+title: Azure Operator 5G Core Preview documentation
+summary: Learn how to securely deploy and manage  mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core Preview.
 
 metadata:
-  title: Azure Operator 5G Core documentation
-  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
+  title: Azure Operator 5G Core Preview documentation
+  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core Preview.
   ms.service: azure-operator-5g-core-operator-5g-core
   ms.topic: landing-page
   author: HollyCl
@@ -18,11 +18,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Operator 5G Core
+  - title: About Azure Operator 5G Core Preview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Operator 5G Core?
+          - text: What is Azure Operator 5G Core Preview?
             url: overview-product.md
       - linkListType: concept
         links:
@@ -32,11 +32,11 @@ landingContent:
            url: concept-security.md
       - linkListType: quickstart
         links:
-          - text: Get access to Azure Operator 5G Core
+          - text: Get access to Azure Operator 5G Core Preview
             url: quickstart-subscription.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure Operator 5G Core
+          - text: Deploy Azure Operator 5G Core Preview
             url: how-to-deploy-5g-core.md     
 # Card                   
   - title: Learn about network functions

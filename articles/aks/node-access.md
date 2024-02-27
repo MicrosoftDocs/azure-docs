@@ -172,6 +172,56 @@ To connect to another node in the cluster, use the `kubectl debug` command. For 
     >  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.224.0.62
     > ```
 
+## Use Host Process Container to access Windows node
+
+1. Create `hostprocess.yaml` with the following content and replacing `AKSWINDOWSNODENAME` with the AKS Windows node name.
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      labels:
+        pod: hpc
+      name: hpc
+    spec:
+      securityContext:
+        windowsOptions:
+          hostProcess: true
+          runAsUserName: "NT AUTHORITY\\SYSTEM"
+      hostNetwork: true
+      containers:
+        - name: hpc
+          image: mcr.microsoft.com/windows/servercore:ltsc2022 # Use servercore:1809 for WS2019
+          command:
+            - powershell.exe
+            - -Command
+            - "Start-Sleep 2147483"
+          imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: windows
+        kubernetes.io/hostname: AKSWINDOWSNODENAME
+      tolerations:
+        - effect: NoSchedule
+          key: node.kubernetes.io/unschedulable
+          operator: Exists
+        - effect: NoSchedule
+          key: node.kubernetes.io/network-unavailable
+          operator: Exists
+        - effect: NoExecute
+          key: node.kubernetes.io/unreachable
+          operator: Exists
+    ```
+
+2. Run `kubectl apply -f hostprocess.yaml` to deploy the Windows host process container (HPC) in the specified Windows node.
+
+3. Use `kubectl exec -it [HPC-POD-NAME] -- powershell`.
+
+4. You can run any PowerShell commands inside the HPC container to access the Windows node.
+
+> [!Note]
+>
+> You need to switch the root folder to `C:\` inside the HPC container to access the files in the Windows node.
+
 ## SSH using Azure Bastion for Windows
 
 If your Linux proxy node isn't reachable, using Azure Bastion as a proxy is an alternative. This method requires that you set up an Azure Bastion host for the virtual network in which the cluster resides. See [Connect with Azure Bastion][azure-bastion] for more details.
