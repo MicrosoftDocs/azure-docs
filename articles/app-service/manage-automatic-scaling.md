@@ -25,7 +25,6 @@ A comparison of scale-out and scale in options available on App Service:
 |Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale-out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |
 |Prewarmed instances	|No	|No	|Yes (default 1) |
 |Per-app maximum	|No	|No	|Yes|
-|Metric|?|?|automatic-scaling-instance-count (includes prewarmed instances)|
 
 ## How automatic scaling works
 
