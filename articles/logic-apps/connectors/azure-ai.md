@@ -118,7 +118,7 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 ### Video: Learn how to build AI applications using logic apps
 
-> [!VIDEO https://www.youtube.com/watch?v=tiU5yCvMW9o]
+:::video source="https://www.youtube.com/watch?v=tiU5yCvMW9o":::
 
 ### Data ingestion workflow
 
