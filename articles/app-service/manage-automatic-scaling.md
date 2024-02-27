@@ -172,7 +172,7 @@ If your web app returns a 5xx status, these endpoint pings may result in intermi
 
 ## How do I track the number of scaled-out instances during the AUtomatic Scaling event?
  
-**AutomaticScalingInstanceCount** metric will report the number of virtual machines on which the app is running including the the pre-warmed instance if it is deployed . This metric can also be used to track the maximum number of instances your web app scaled out during an Automatic Scaling event. This metric is available only for the apps that have Automatic Scaling enabled.
+**AutomaticScalingInstanceCount** metric will report the number of virtual machines on which the app is running including the the prewarmed instance if it is deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an Automatic Scaling event. This metric is available only for the apps that have Automatic Scaling enabled.
 
 <a name="Next Steps"></a>
 
