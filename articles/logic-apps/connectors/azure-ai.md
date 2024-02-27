@@ -79,7 +79,7 @@ Azure AI Search is platform for AI-powered information retrieval that helps deve
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch/). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
 
 ### Authentication
 
@@ -97,7 +97,7 @@ For more information, see the following resources:
 
 - [Authenticate requests to Azure AI services](../../ai-services/authentication.md)
 - [What is Microsoft Entra ID](/entra/fundamentals/whatis)
-- [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview.md)
+- [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../authenticate-with-managed-identity.md?tabs=standard)
 
 ## Example: Ingest data and create chat interactions
@@ -129,7 +129,7 @@ Each step in this pattern not only provides faster performance when run in a sta
 | 1 | Check for new data. | **When an HTTP request is received** | A trigger that polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. For example, an event might be a new file uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, a Request trigger operation waits for an HTTP call from another endpoint. |
 | 2 | Get the data's location. | **HTTP** | An action that gets the URL for the document in the specified storage system. |
 | 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
-| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview#tokens). |
+| 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview.md#tokens). |
 | 5 | Convert data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output to a JSON array. |
 | 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
 | 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings. |
