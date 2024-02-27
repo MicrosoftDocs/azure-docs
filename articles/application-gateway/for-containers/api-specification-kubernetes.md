@@ -524,19 +524,19 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 <tr>
 <td>/foo/bar</td>
 <td>/foo</td>
-<td><empty string></td>
+<td>&nbsp;</td>
 <td>/bar</td>
 </tr>
 <tr>
 <td>/foo/</td>
 <td>/foo</td>
-<td><empty string></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
 <td>/foo</td>
 <td>/foo</td>
-<td><empty string></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
