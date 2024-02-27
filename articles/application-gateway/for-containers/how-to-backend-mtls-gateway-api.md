@@ -54,7 +54,7 @@ Create a gateway:
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -98,7 +98,7 @@ az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $
 2. Create a Gateway
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -185,7 +185,7 @@ Once the gateway has been created, create an HTTPRoute resource.
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: https-route
