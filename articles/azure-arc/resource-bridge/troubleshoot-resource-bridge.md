@@ -96,8 +96,14 @@ When trying to deploy Arc resource bridge, you might see an error that contains 
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
 
-### .local not supported
+### Http2 server sent GOAWAY
 
+When trying to deploy Arc resource bridge, you might receive an error message similar to:
+
+`"errorResponse": "{\n\"message\": \"Post \\\"https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview\\u0026releaseTrain=stable\\\": http2: server sent GOAWAY and closed the connection; LastStreamID=1, ErrCode=NO_ERROR, debug=\\\"\\\"\"\n}"`
+This occurs when there is a firewall or proxy with SSL/TLS inspection enabled blocking http2 calls from the machine used to deploy the resource bridge. Please work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the management machine.
+
+### .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
 `"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
