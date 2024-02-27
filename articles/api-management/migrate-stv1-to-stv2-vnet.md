@@ -77,6 +77,9 @@ After you update the VNet configuration, the status of your API Management insta
 
 You can optionally migrate back to the original VNet and subnet you used in each region before migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
 
+> [!IMPORTANT]
+> If the VNet and subnet are locked (because other `stv1` platform-based API Management instances are deployed there) or the resource group where the original VNet is deployed has a [resource lock](../azure-resource-manager/management/lock-resources.md), make sure to remove the lock before migrating back to the original VNet and subnet. Wait for lock removal to complete before attempting the migration to the original subnet. [Learn more](api-management-using-with-internal-vnet.md#challenges-encountered-in-reassigning-api-management-instance-to-previous-subnet).
+
 ### Additional prerequisites
 
 * The original subnet and VNet, in each region where the API Management instance is deployed. A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.

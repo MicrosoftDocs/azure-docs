@@ -30,10 +30,14 @@ ms.author: mbullwin
 
 The following models support fine-tuning:
 
-- `gpt-35-turbo-0613`
-- `gpt-35-turbo-1106`
 - `babbage-002`
 - `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+
+Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
+
+:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model." lightbox="../media/fine-tuning/models.png":::
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
@@ -74,7 +78,7 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Create your training and validation datasets
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+The more training examples you have, the better. Fine tuning jobs will not proceed without at least 10 training examples, but such a small number are not enough to noticeably influence model responses. It is best practice to provide hundreds, if not thousands, of training examples to be successful.
 
 In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
@@ -94,7 +98,7 @@ In addition to the JSONL format, training and validation data files must be enco
 
 Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+The more training examples you have, the better. Fine tuning jobs will not proceed without at least 10 training examples, but such a small number are not enough to noticeably influence model responses. It is best practice to provide hundreds, if not thousands, of training examples to be successful.
 
 In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
@@ -136,7 +140,7 @@ The next step is to either choose existing prepared training data or upload new 
 For large data files, we recommend that you import from an Azure Blob  store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
 > [!NOTE]
-> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 100 MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 The following Python example uploads local training and validation files by using the Python SDK, and retrieves the returned file IDs.
 
@@ -182,7 +186,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
@@ -273,7 +277,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
@@ -471,7 +475,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-05-15"
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
@@ -495,7 +499,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-05-15"
 )
 
@@ -572,6 +576,10 @@ The result file is a CSV file that contains a header row and a row for each trai
 | `valid_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_mean_token_accuracy` | The percentage of tokens in the validation batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 
+You can also view the data in your results.csv file as plots in Azure OpenAI Studio. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
+
+Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data, that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
+
 ## Clean up your deployments, customized models, and training files
 
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
@@ -637,7 +645,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-12-01-preview"  
 )
 

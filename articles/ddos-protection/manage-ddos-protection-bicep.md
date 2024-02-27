@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: abell
-ms.date: 10/12/2022
+ms.date: 02/14/2024
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using Bicep

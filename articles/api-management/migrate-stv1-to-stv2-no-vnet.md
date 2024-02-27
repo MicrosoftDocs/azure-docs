@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 02/26/2024
 ms.author: danlep
 ---
 

@@ -172,4 +172,3 @@ Search-AzGraph -Query "ServiceHealthResources | where type =~ 'Microsoft.Resourc
 - Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ServiceHealthResources%0a%7c%20where%20type%20%3d%7e%20%27Microsoft.ResourceHealth%2fevents%27%0a%7c%20extend%20eventType%20%3d%20properties.EventType%2c%20status%20%3d%20properties.Status%2c%20description%20%3d%20properties.Title%2c%20trackingId%20%3d%20properties.TrackingId%2c%20summary%20%3d%20properties.Summary%2c%20priority%20%3d%20properties.Priority%2c%20impactStartTime%20%3d%20properties.ImpactStartTime%2c%20impactMitigationTime%20%3d%20todatetime(tolong(properties.ImpactMitigationTime))%0a%7c%20where%20properties.Status%20%3d%3d%20%27Active%27%20and%20tolong(impactStartTime)%20%3e%201%20and%20eventType%20%3d%3d%20%27ServiceIssue%27" target="_blank">portal.azure.cn</a>
 
 ---
-

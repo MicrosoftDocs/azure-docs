@@ -39,27 +39,19 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 
 ## Region support
 
-Azure Site Recovery allows you to perform global disaster recovery. You can replicate and recover VMs between any two Azure regions in the world. If you have concerns around data sovereignty, you may choose to limit replication within your specific geographic cluster. The various geographic clusters are as follows:
+Azure Site Recovery allows you to perform global disaster recovery. You can replicate and recover VMs between any two Azure regions in the world. If you have concerns around data sovereignty, you may choose to limit replication within your specific geographic cluster. 
 
-**Geographic cluster** | **Azure regions**
--- | --
-America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, West US 3, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central, UAE North (UAE is treated as part of the Europe geo cluster)
-Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Qatar Central
-JIO | JIO India West<br/><br/>Replication can't be done between JIO and non-JIO regions for Virtual Machines present in JIO subscriptions. This is because JIO subscriptions can have resources only in JIO regions.
-Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
-Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
-Germany    | Germany Central, Germany Northeast
-China | China East, China North, China North2, China East2
-Brazil | Brazil South
-Restricted Regions reserved for in-country/region disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers, UAE Central for UAE North customers.<br/><br/> To use restricted regions as your primary or recovery region, get yourselves allowlisted by raising a request [here](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions.
 
->[!NOTE]
->
+[See here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=site-recovery&regions=all) to find details on the various geographic clusters supported.
+
+> [!NOTE]
+> - **Support for restricted Regions reserved for in-country/region disaster recovery:** Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers, UAE Central for UAE North customers.<br/><br/> To use restricted regions as your primary or recovery region, get yourselves allowlisted by raising a request [here](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions.
+> <br>
 > - For **Brazil South**, you can replicate and fail over to these regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
 > - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. Brazil Southeast can only be used as a target region.
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region.
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region.
+
 
 ## Cache storage
 
@@ -364,7 +356,7 @@ SAS key rotation | Not Supported | If the SAS key for storage accounts is rotate
 Host Caching | Supported
 Hot add    | Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Only one disk can be hot added to an Azure VM at a time. Parallel addition of multiple disks isn't supported. |
 Hot remove disk    | Not supported | If you  remove data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Support. You must use [PowerShell](azure-to-azure-exclude-disks.md) to configure. |    Temporary disks are excluded by default.
+Exclude disk | Supported. You can use [PowerShell](azure-to-azure-exclude-disks.md) or navigate to **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.
 Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points aren't supported. |
 Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points aren't supported. |
 DRBD | Disks that are part of a DRBD setup aren't supported. |
