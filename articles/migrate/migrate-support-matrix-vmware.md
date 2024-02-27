@@ -32,9 +32,9 @@ Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You
 
 Learn more about [assessments](concepts-assessment-calculation.md).
 
-## VMware requirements
-
 ::: zone pivot="vmware-requirements"
+
+## VMware requirements
 
 VMware | Details
 --- | ---
@@ -43,9 +43,9 @@ Permissions | The Azure Migrate: Discovery and assessment tool requires a vCente
 
 :::zone-end
 
-## Server requirements
-
 ::: zone pivot="server-requirements"
+
+## Server requirements
 
 VMware | Details
 --- | ---
@@ -54,9 +54,9 @@ Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
 
 :::zone-end
 
-## Azure Migrate appliance requirements
-
 ::: zone pivot="migrate-appliance-requirements"
+
+## Azure Migrate appliance requirements
 
 Azure Migrate and Modernize uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a server in your VMware environment by using a VMware Open Virtualization Appliance template imported into vCenter Server. You can also use a [PowerShell script](deploy-appliance-script.md). Learn more about [appliance requirements for VMware](migrate-appliance.md#appliance---vmware).
 
@@ -67,9 +67,10 @@ Here are more requirements for the appliance:
 
 :::zone-end
 
-## Port access requirements
 
 ::: zone pivot="port-access-requirements"
+
+## Port access requirements
 
 Device | Connection
 --- | ---
@@ -79,9 +80,10 @@ ESXi hosts | For [discovery of software inventory](how-to-discover-applications.
 
 ::: zone-end
 
-## Software inventory requirements
 
 ::: zone pivot="software-inventory-requirements"
+
+## Software inventory requirements
 
 In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Migrate and Modernize. It allows you to identify and plan a migration path tailored for your on-premises workloads.
 
@@ -97,9 +99,9 @@ Discovery | Software inventory is performed from vCenter Server by using VMware 
 
 ::: zone-end
 
-## SQL Server instance and database discovery requirements
-
 ::: zone pivot="sql-server-instance-database-discovery-requirements"
+
+## SQL Server instance and database discovery requirements
 
 [Software inventory](how-to-discover-applications.md) identifies SQL Server instances. The appliance attempts to connect to the respective SQL Server instances through the Windows authentication or SQL Server authentication credentials in the appliance configuration manager by using this information. The appliance can connect to only those SQL Server instances to which it has network line of sight. Software inventory by itself might not need network line of sight.
 
@@ -306,9 +308,9 @@ Use the following sample scripts to create a login and provision it with the nec
 
 ::: zone-end
 
-## Web apps discovery requirements
-
 ::: zone pivot="web-apps-discovery"
+
+## Web apps discovery requirements
 
 [Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Migrate and Modernize discovers web apps on the server.
 
@@ -329,9 +331,10 @@ Required privileges | Local admin. | Root or sudo user.
 
 ::: zone-end
 
-## Dependency analysis requirements (agentless)
 
 ::: zone pivot="dependency-analysis-agentless-requirements"
+
+## Dependency analysis requirements (agentless)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
 
@@ -349,9 +352,9 @@ Discovery method |  Dependency information between servers is gathered by using 
 
 ::: zone-end
 
-## Dependency analysis requirements (agent-based)
-
 ::: zone pivot="dependency-analysis-agent-based-requirements"
+
+## Dependency analysis requirements (agent-based)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
 
