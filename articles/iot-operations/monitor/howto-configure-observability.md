@@ -6,7 +6,7 @@ ms.author: timlt
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/7/2023
+ms.date: 02/27/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.

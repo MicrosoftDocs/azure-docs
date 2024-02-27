@@ -4,7 +4,7 @@ description: How to clean up shared and data collection observability resources 
 author: timlt
 ms.author: timlt
 ms.topic: how-to
-ms.date: 02/04/2024
+ms.date: 02/27/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to clean up and remove
 # observability resources installed on my cluster, without removing the cluster. 

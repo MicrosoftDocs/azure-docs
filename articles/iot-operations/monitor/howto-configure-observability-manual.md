@@ -4,7 +4,7 @@ description: How to configure observability features manually in Azure IoT Opera
 author: timlt
 ms.author: timlt
 ms.topic: how-to
-ms.date: 02/04/2024
+ms.date: 02/27/2024
 
 # CustomerIntent: As an IT admin or operator, I want to monitor and visualize data
 # on the health of my industrial assets and edge environment.
