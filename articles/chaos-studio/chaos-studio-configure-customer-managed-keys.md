@@ -50,7 +50,7 @@ You can only configure customer-managed encryption keys when you create a new Ch
 The following code sample shows an example `PUT` command for creating or updating a Chaos Studio experiment resource to enable CMKs.
 
 > [!NOTE]
->The two parameters specific to CMK experiments are under the `CustomerDataStorage` block, in which we ask for the Subscription ID of the Azure Blob Storage account you want to use to store your experiment data and the name of the Blob Storage container to use or create.
+>The two parameters specific to CMK experiments are under the `CustomerDataStorage` block, in which we ask for the subscription ID of the Azure Blob Storage account that you want to use to store your experiment data and the name of the Blob Storage container to use or create.
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/<yourSubscriptionID>/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2023-10-27-preview
