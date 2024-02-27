@@ -76,7 +76,8 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Inventoy filters overview
+          - text: Inventory filters overview
+
             url: inventory-filters.md
           - text: Domain asset filters
             url: domain-asset-filters.md
