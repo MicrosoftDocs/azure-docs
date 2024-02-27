@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) Batch API document processing support for analyzing documents in storage blobs.
+title: Document Intelligence Batch API document processing support for analyzing documents in storage blobs.
 titleSuffix: Azure AI services
 description: The Batch API provides a simple interface to analyze documents with general, prebuilt, or custom models and returning the output results to your storage account.
 author: laujan

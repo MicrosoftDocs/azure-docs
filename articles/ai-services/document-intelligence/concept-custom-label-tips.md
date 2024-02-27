@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/29/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
@@ -35,7 +35,7 @@ This article highlights the best methods for labeling custom model datasets in t
 
 * The following video is the second of two presentations intended to help you build custom models with higher accuracy (the first presentation explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers)).
 
-* Here, we examine best practices for labeling your selected documents. With semantically relevant and consistent labeling, you should see an improvement in model performance.
+* We examine best practices for labeling your selected documents. With semantically relevant and consistent labeling, you should see an improvement in model performance.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB]
 
@@ -53,11 +53,11 @@ When labeling a large span of text, rather than mark each word in the span, hold
 
 ## Region labeling
 
-A second option for labeling larger spans of text is to use region labeling. When region labeling is used, the OCR results are populated in the value at training time. The difference between the shift select and region labeling is only in the visual feedback the shift labeling approach provides.
+A second option for labeling larger spans of text is to use region labeling. When region labeling is used, the `OCR` results are populated in the value at training time. The difference between the shift select and region labeling is only in the visual feedback the shift labeling approach provides.
 
 ## Label overlapping fields
 
-Overlapping fields are supported for fields and table cells. If you expect your analyze results to contain overlapping fields, you should add at least one sample to the training dataset with the specific field overlaps labeled. To label a overlapping field, use the region labeling feature to select the regions for each field. Both complete and partial overlaps are supported. Any single word in the document can only be labeled for two fields.
+Overlapping fields are supported for fields and table cells. If you expect your analyze results to contain overlapping fields, you should add at least one sample to the training dataset with the specific field overlaps labeled. To label an overlapping field, use the region labeling feature to select the regions for each field. Both complete and partial overlaps are supported. Any single word in the document can only be labeled for two fields.
 
 ## Field subtypes
 
