@@ -21,6 +21,8 @@
     href: flexible-server/concepts-reserved-pricing.md
   - name: Request quota increase
     href: flexible-server/how-to-request-quota-increase.md
+  - name: Resolve capacity errors
+    href: flexible-server/how-to-resolve-capacity-errors.md    
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql

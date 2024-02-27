@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 02/20/2024
+ms.date: 02/21/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,10 +25,11 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
-| [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | February 28, 2024 |
+| [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | March, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
@@ -45,6 +46,17 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Microsoft Security Code Analysis (MSCA) is no longer operational
+
+**Announcement date: February 26, 2024**
+
+**Estimated date for change: February 26, 2024**
+
+In February 2021, the deprecation of the MSCA task was communicated to all customers and has been past end of life support since [March 2022](https://devblogs.microsoft.com/premier-developer/microsoft-security-code-analysis/). As of February 26, 2024, MSCA is officially no longer operational.
+
+Customers can get the latest DevOps security tooling from Defender for Cloud through [Microsoft Security DevOps](azure-devops-extension.md) and additional security tooling through [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+
 
 ## Update recommendations to align with Azure AI Services resources
 
@@ -92,7 +104,7 @@ For details on the new API version, see [Microsoft Defender for Cloud REST APIs]
 
 **Announcement date: February 1, 2024**
 
-**Estimated date of change: February 2024**
+**Estimated date of change: March 2024**
 
 As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations, which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
 
@@ -109,12 +121,12 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 
 | Preliminary recommendation name | Estimated release date |
 |--|--|--|
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | March 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
 
 Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
 

@@ -16,6 +16,25 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2024
 
+* [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
+
+    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
+    
+    Azure NetApp Files now supports characters outside of the BMP using surrogate pair logic, where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are now supported in Azure NetApp Files.
+
+    To learn more about languages and special character handling in Azure NetApp Files volumes, see [Understand volume languages in Azure NetApp Files](understand-volume-languages.md).
+    
+    To learn more about file path lengths in relation to language and character handling in Azure NetApp Files volumes, see [Understand path lengths in Azure NetApp Files](understand-path-lengths.md).
+    
+
+* [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
+
+    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You still must register the feature before using it for the first time.
+
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md#requirements-and-considerations) volume size increase beyond 30% default limit
 
     For capacity and resources planning purposes the Azure NetApp Files large volume feature has a [volume size increase limit of up to 30% of the lowest provisioned size](large-volumes-requirements-considerations.md#requirements-and-considerations). This volume size increase limit is now adjustable beyond this 30% (default) limit via a support ticket. For more information, see [Resource limits](azure-netapp-files-resource-limits.md). 

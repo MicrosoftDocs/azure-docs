@@ -166,7 +166,7 @@ If you make any changes, be sure to select **Publish** to publish the device tem
 ### Create a new device template
 
 1. On the **Device templates** page, select **+ New** to create a new device template and follow the creation process.
-1. Create a custom device template or choose a device template from the Azure IoT device catalog.
+1. Create a custom device template or choose a device template from the device catalog.
 
 ## Explore simulated devices
 
