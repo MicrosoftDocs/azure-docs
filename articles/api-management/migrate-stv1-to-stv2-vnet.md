@@ -14,15 +14,16 @@ ms.author: danlep
 
 This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform when the instance is injected (deployed) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. For this scenario, migrate your instance by updating the VNet configuration settings. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
-If you need to migrate a *non-VNnet-injected* API Management instance to the `stv2` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
+If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
 > [!CAUTION]
-> * Migrating your API Management instance to the `stv2` platform is a long-running operation. Depending on your service configuration, you might have temporary downtime during migration, and you might need to update your network and DNS settings after migration to reach your API Management instance. Plan your migration accordingly.
+> * Migrating your API Management instance to the `stv2` platform is a long-running operation. 
+> * The VIP address of your instance will change. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-no-v2](../../includes/api-management-availability-premium-dev-standard-basic-no-v2.md)]
 
 ## What happens during migration?
 
@@ -40,14 +41,14 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 ## Prerequisites
 
-* An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance). The instance must be injected in a virtual network.
+* An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) The instance must be injected in a virtual network.
 
 * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
 
 > [!IMPORTANT]
-> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource, or migration won't succeed. In internal VNet mode, this public IP address is used only for management operations.
+> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource (or resources, if your API Management is deployed to multiple Azure regions), or migration won't succeed. In internal VNet mode, this public IP address is used only for Azure internal management operations and doesn't expose your instance to the internet.
 
 For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
@@ -55,7 +56,7 @@ For details, see [Prerequisites for network connections](api-management-using-wi
 
 Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration to use new network settings in each region where the instance is deployed. After that update completes, as an optional step, you can migrate back to the original VNets and subnets you used.
 
-You can also migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
+You can also migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md), available in the **Premium** tier.
 
 > [!IMPORTANT]
 > The VIP address(es) of your API Management instance will change. However, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and peered VNets to use the new VIP address(es).
@@ -97,10 +98,7 @@ You can optionally migrate back to the original VNet and subnet you used in each
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
 
-## Verify migration
-
-* To verify that the migration was successful, when the status changes to **Online**, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`. 
-* Additionally check the Network status to ensure connectivity of the instance to its dependencies. In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network** > **Network status**.
+[!INCLUDE [api-management-validate-migration-to-stv2](../../includes/api-management-validate-migration-to-stv2.md)]
 
 ## Update network dependencies
 
@@ -160,7 +158,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **What happens if the migration fails?**
 
-   If your API Management instance doesn't show the platform version as `stv2` and status as **Online** after you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is **Updating** for more than 2 hours), contact Azure support.
+   If your API Management instance doesn't show the platform version as `stv2` or `stv2.1` and status as **Online** after you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is **Updating** for more than 2 hours), contact Azure support.
 
 - **What functionality is not available during migration?**
 
@@ -169,7 +167,7 @@ After successful migration, update any network dependencies including DNS, firew
 
 - **How long will the migration take?**
 
-   The expected duration for the migration is approximately 45 minutes. The indicator to check if the migration was already performed is to check if Status of your instance is back to **Online** and not **Updating**. If it says **Updating** for more than 2 hours, contact Azure support.
+   The expected duration for a migration to a new VNet configuration is approximately 45 minutes. The indicator to check if the migration was already performed is to check if Status of your instance is back to **Online** and not **Updating**. If it says **Updating** for more than 2 hours, contact Azure support.
 
 - **Is there a way to validate the VNet configuration before attempting migration?**
 
@@ -182,8 +180,6 @@ After successful migration, update any network dependencies including DNS, firew
 - **Is there any change required in custom domain/private DNS zones?**
 
    With VNet-injected instances in internal mode, you'll need to update the private DNS zones to the new VNet IP address acquired after the migration. Pay attention to update non-Azure DNS zones, too (for example, your on-premises DNS servers pointing to API Management private IP address). However, in external mode, the migration process will automatically update the default domains if in use.
-   
-   
 
 - **My stv1 instance is deployed to multiple Azure regions (multi-region). How do I upgrade to stv2?**
 
