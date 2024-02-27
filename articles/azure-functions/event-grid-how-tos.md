@@ -36,6 +36,9 @@ https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionC
 ```
 ---
 
+>[!NOTE]  
+>There is a version of the Blob storage trigger that also uses event subscriptions. The endpoint URL for this kind of Blob storage trigger has a path of `/runtime/webhooks/blobs`, whereas the path for an Event Grid trigger would be `/runtime/webhooks/EventGrid`. For a comparison of options for processing blobs, see [Trigger on a blob container](storage-considerations.md#trigger-on-a-blob-container).
+
 ### System key
 
 The URL endpoint you construct includes the system key value. The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
