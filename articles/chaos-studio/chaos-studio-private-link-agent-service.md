@@ -66,7 +66,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 |-|-|-|-|
 |subscriptionID|True|String|GUID that represents an Azure subscription ID.|
 |resourceGroupName|True|String|String that represents an Azure resource group.|
-|CSPAResourceName|True|String|String that represents the name you want to give your Chaos Studio Private Access Resource.|
+|CSPAResourceName|True|String|String that represents the name you want to give your Chaos Studio Private Access resource.|
 |resourceLocation|True|String|Location where you want the resource to be hosted (must be a support region by Chaos Studio).|
 
 ## Create your virtual network, subnet, and private endpoint
@@ -133,7 +133,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 ```
 
 > [!NOTE]
-> The `PrivateAccessID` should exactly match the `resourceID` used to create the CSPA resource in the earlier section **Create a Chaos Studio Private Access resource**.
+> The `PrivateAccessID` value should exactly match the `resourceID` value that you used to create the CSPA resource in the earlier section **Create a Chaos Studio Private Access resource**.
 
 ## Restart the Azure Chaos Agent service in the VM
 
