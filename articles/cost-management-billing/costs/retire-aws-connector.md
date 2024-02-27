@@ -19,7 +19,7 @@ Until the Connector for AWS in Cost Management is officially removed, existing c
 On March 31, 2025, Azure will delete all remaining Connectors for AWS that customers - they'll no longer be available. AWS cost and usage data stored in the Cost Management service, including historical data gets removed then, also. All associated reports stop working then.
 
 
-![IMPORTANT]
+> [!IMPORTANT]
 > - Copies of the AWS CUR file you have stored in your S3 service in AWS will not be deleted.
 > - When you transition away from the Connector for AWS, remove the roles you have assigned to Microsoft account number `432263259397` in the AWS console. To review the permissions provided during the Connector for AWS set up, see [Set up and configure AWS Cost and Usage report integration](aws-integration-set-up-configure.md#use-the-create-a-new-role-wizard).
 

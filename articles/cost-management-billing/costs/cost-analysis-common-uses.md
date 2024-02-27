@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/15/2023
+ms.date: 02/26/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -54,7 +54,10 @@ You can add more customizations to the view.
 
 [![Forecast cost for a service](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
 
-## View your Azure and AWS costs together  
+## View your Azure and AWS costs together
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should to consider alternative solutions for AWS cost management reporting. On March 15, 2024, Azure disabled the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 To view Azure and AWS costs together, you use management group scopes in Azure.
 
