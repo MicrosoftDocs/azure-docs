@@ -475,9 +475,9 @@ Use the following steps to build the image:
    This command should produce output similar to the following example:
 
    ```output
-   /auxiliary/models/domain.yaml
    /auxiliary/models/model.properties
    /auxiliary/models/dbmodel.yaml
+   /auxiliary/models/model.yaml
    /auxiliary/models/archive.zip
    /auxiliary/models/appmodel.yaml
    /auxiliary/Dockerfile
