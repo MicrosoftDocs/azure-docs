@@ -50,7 +50,6 @@ __Maximum burst__ is the highest number of instances that your App Service Plan 
 
 
 > [!IMPORTANT]
-> Can this note be removed?!?! 
 > [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
 >
 
