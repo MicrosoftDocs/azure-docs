@@ -23,7 +23,7 @@ In this article, learn how to connect to data storage services on Azure with Azu
 
 Datastores securely connect to your storage service on Azure, and they avoid risk to your authentication credentials or the integrity of your original data store. A datastore stores connection information - for example, your subscription ID or token authorization - in the [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace. With a datastore, you can securely access your storage because you can avoid hard-coding connection information in your scripts. You can create datastores that connect to [these Azure storage solutions](#supported-data-storage-service-types).
 
-For information that describes how datastores fit with the Azure Machine Learning overall data access workflow, visit[Securely access data](concept-data.md#data-workflow) article.
+For information that describes how datastores fit with the Azure Machine Learning overall data access workflow, visit [Securely access data](concept-data.md#data-workflow) article.
 
 To learn how to connect to a data storage resource with a UI, visit [Connect to data storage with the studio UI](how-to-connect-data-ui.md#create-datastores).
 
