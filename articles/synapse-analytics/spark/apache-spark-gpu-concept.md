@@ -5,7 +5,7 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 4/10/2022
+ms.date: 02/27/2024
 ms.author: midesa
 ---
 
@@ -14,6 +14,11 @@ ms.author: midesa
 Azure Synapse Analytics now supports Apache Spark pools accelerated with graphics processing units (GPUs). 
 
 By using NVIDIA GPUs, data scientists and engineers can reduce the time necessary to run data integration pipelines, score machine learning models, and more. This article describes how GPU-accelerated pools can be created and used with Azure Synapse Analytics. This article also details the GPU drivers and libraries that are pre-installed as part of the GPU-accelerated runtime.
+
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](../spark/apache-spark-32-runtime.md) runtimes.
+> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> - Azure Synapse Runtime for Apache Spark 3.2 has reached its end of life (EOL) as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
 
 > [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
