@@ -421,17 +421,17 @@ As part of this RAG pipeline, there are are three steps at a high-level:
 
 1. Reformulate the user query into a list of search intents. This is done by making a call to the model with a prompt that includes instructions, the user question, and conversation history. Let's call this an *intent prompt*. 
 
-1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number document chunks are chosen. 
+1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number of document chunks are chosen. 
 
 3. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
 
-In total, there are two calls made to GPT: 
+In total, there are two calls made to the model: 
 
-* For the intent, the token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
 
-* For generation, the token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
 
-The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns gives the average total tokens used for generating a response. 
+The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
 
 | Model	| Generation prompt token count | Intent prompt | Token count | Response token count | Intent token count |
 |--|--|--|--|--|
@@ -454,7 +454,7 @@ And the following [parameters](#runtime-parameters).
 |Number of retrieved documents     | 5         |
 |Strictness     |     3    |
 |Chunk size     | 1024        |
-|Limit responses to ingested data     | True         |
+|Limit responses to ingested data?     | True         |
 
 These estimates will vary based on the values set for the above parameters. For example, if the number of retrieved documents is set to 10 and strictness is set to 1, the token count will go up. If returned responses aren't limited to the ingested data, there are fewer instructions given to the model and the number of tokens will go down.  
 
@@ -471,7 +471,7 @@ The table above shows the total number of tokens available for each model type. 
 
 
 
-* The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4,036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3,444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
+* The meta prompt: if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4,036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3,444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
 * User question and history: Variable but capped at 2,000 tokens.
 * Retrieved documents (chunks): The number of tokens used by the retrieved document chunks depends on multiple factors. The upper bound for this is the number of retrieved document chunks multiplied by the chunk size. It will, however, be truncated based on the tokens available tokens for the specific model being used after counting the rest of fields. 
 
