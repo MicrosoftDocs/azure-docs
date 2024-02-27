@@ -17,7 +17,7 @@ metadata:
 highlightedContent:
 # top-level single cards with predefined symbols
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
+
   items: 
     - title: Benefits of hybrid Licensing - Windows Server
       itemType: training
