@@ -29,7 +29,7 @@ To replace an Azure File Sync server, follow the steps below.
    
     For example, if the old server has 4 sever endpoints (4 sync groups), 4 server endpoints should be created on the new server.
   	 
-7.	Wait for the namespace download to complete to the new server. To monitor progress, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors.md#how-do-i-monitor-the-progress-of-a-current-sync-session).
+7.	Wait for the namespace download to complete to the new server. To monitor progress, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?tabs=portal1%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 ## User cut-over
 7.	To redirect user access to the new Azure File Sync server, perform one of the following options:
