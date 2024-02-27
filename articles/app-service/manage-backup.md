@@ -170,7 +170,7 @@ To restore a database that's included in a custom backup:
 
 For troubleshooting information, see [Why is my linked database not backed up](#why-is-my-linked-database-not-backed-up).
 
-## Back up and restore over Azure Virtual Network (preview)
+## Back up and restore over Azure Virtual Network
 
 With [custom backups](#create-a-custom-backup), you can back up your app's files and configuration data to a firewall-protected storage account if the following requirements are fulfilled:
 
@@ -318,7 +318,7 @@ The following table shows which app configuration is restored when you choose to
 
 A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
-When [backing up over an Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network-preview), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
+When [backing up over an Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
 
 #### Why is my linked database not backed up?
 
@@ -334,7 +334,7 @@ Automatic backups can't be restored if the backup size exceeds the maximum size.
 
 #### Can I use a storage account that has security features enabled?
 
-You can back up to a firewall-protected storage account if it's part of the same virtual network topology as your app. See [Back up and restore over Azure Virtual Network (preview)](#back-up-and-restore-over-azure-virtual-network-preview).
+You can back up to a firewall-protected storage account if it's part of the same virtual network topology as your app. See [Back up and restore over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network).
 
 #### How do I restore to an app in a different subscription?
 
