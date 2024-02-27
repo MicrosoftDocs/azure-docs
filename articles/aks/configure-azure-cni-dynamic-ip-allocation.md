@@ -179,22 +179,12 @@ Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
 * [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
-
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Enable the HTTP application routing add-on][aks-http-app-routing]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- LINKS - External -->
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
 
 <!-- LINKS - Internal -->
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
 [azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters
 [az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons

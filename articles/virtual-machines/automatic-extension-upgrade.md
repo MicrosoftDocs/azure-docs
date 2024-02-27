@@ -187,6 +187,59 @@ az vmss extension set \
     --enable-auto-upgrade true
 ```
 
+### ARM template for Virtual Machines
+The following example describes how to set automatic extension upgrades for an extension (Dependency Agent Extension in this example) on a Virtual Machine using Azure Resource Manager
+
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "location": "[resourceGroup().location]",
+    "name": "<extensionName>",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true,
+        "settings": {
+            "enableAMA": "true"
+        }
+    }
+}
+```
+
+### ARM template for Virtual Machine Scale Sets
+Use the following example to set automatic extension upgrade on the extension within the scale set model:
+
+```json
+{
+   "type": "Microsoft.Compute/virtualMachineScaleSets",
+   "apiVersion": "2023-09-01",
+   "name": "[variables('vmScaleSetName')]",
+   "location": "[resourceGroup().location]",
+   "properties": {
+   	    "virtualMachineProfile": {
+            "extensionProfile": {
+       	        "extensions": [{
+                     "name": "<extensionName>",
+                     "properties": {
+                          "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                          "type": "DependencyAgentWindows",
+                          "typeHandlerVersion": "9.5"
+                          "autoUpgradeMinorVersion": true,
+                          "enableAutomaticUpgrade": true,
+                     }
+                }]
+    	    }
+    	}
+    }
+}
+```
+
+
 ## Extension upgrades with multiple extensions
 
 A VM or Virtual Machine Scale Set can have multiple extensions with automatic extension upgrade enabled. The same VM or scale set can also have other extensions without automatic extension upgrade enabled.  

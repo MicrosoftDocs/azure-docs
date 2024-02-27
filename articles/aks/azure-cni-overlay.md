@@ -114,8 +114,8 @@ az aks create -n $clusterName -g $resourceGroup \
 
 ## Add a new nodepool to a dedicated subnet
 
-After your have created a cluster with Azure CNI Overlay, you can create another nodepool and assign the nodes to a new subnet of the same VNet.
-This approach can be usefull if you want to control the ingress or egress IPs of the host from/ towards targets in the same VNET or peered VNets.
+After you have created a cluster with Azure CNI Overlay, you can create another nodepool and assign the nodes to a new subnet of the same VNet.
+This approach can be useful if you want to control the ingress or egress IPs of the host from/ towards targets in the same VNET or peered VNets.
 
 ```azurecli-interactive
 clusterName="myOverlayCluster"
@@ -273,79 +273,15 @@ Once the cluster has been created, you can deploy your workloads. This article w
 
 ### Deploy an NGINX web server
 
-# [kubectl](#tab/kubectl)
-
-1. Create an NGINX web server using the `kubectl create deployment nginx` command.
-
-    ```bash-interactive
-    kubectl create deployment nginx --image=nginx:latest --replicas=3
-    ```
-
-2. View the pod resources using the `kubectl get pods` command.
-
-    ```bash-interactive
-    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
-    ```
-
-    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
-
-    ```output
-    NAME                     IPs                                NODE                                READY
-    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
-    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
-    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
-    ```
-
-# [YAML](#tab/yaml)
-
-1. Create an NGINX web server using the following YAML manifest.
-
-    ```yml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      labels:
-        app: nginx
-      name: nginx
-    spec:
-      replicas: 3
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - image: nginx:latest
-            name: nginx
-    ```
-
-2. View the pod resources using the `kubectl get pods` command.
-
-    ```bash-interactive
-    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
-    ```
-
-    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
-
-    ```output
-    NAME                     IPs                                NODE                                READY
-    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
-    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
-    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
-    ```
-
----
+The application routing addon is the recommended way for ingress in an AKS cluster. For more information about the application routing addon and an example of how to deploy an application with the addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Expose the workload via a `LoadBalancer` type service
 
 > [!IMPORTANT]
 > There are currently **two limitations** pertaining to IPv6 services in AKS.
 >
-> 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
-> 2. Prior to Kubernetes version 1.27, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6. This is no longer a limitation in kubernetes 1.27 or later.
+> - Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
+> - Prior to Kubernetes version 1.27, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6. This is no longer a limitation in kubernetes 1.27 or later.
 
 # [kubectl](#tab/kubectl)
 

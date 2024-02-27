@@ -48,25 +48,37 @@ If you're using an Identity Provider (IdP) other than Microsoft Entra ID to mana
 
 Azure Virtual Desktop currently doesn't support [external identities](../active-directory/external-identities/index.yml).
 
-## Service authentication
+## Authentication methods
+
+For users connecting to a remote session, there are three separate authentication points:
+
+- **Service authentication to Azure Virtual Desktop**: retrieving a list of resources the user has access to when accessing the client. The experience depends on the Microsoft Entra account configuration. For example, if the user has multifactor authentication enabled, the user is prompted for their user account and a second form of authentication, in the same way as accessing other services. 
+
+- **Session host**: when starting a remote session. A username and password is required for a session host, but this is seamless to the user if single sign-on (SSO) is enabled.
+
+- **In-session authentication**: connecting to other resources within a remote session.
+
+The following sections explain each of these authentication points in more detail.
+
+### Service authentication
 
 To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra account. Authentication happens whenever you subscribe to a workspace to retrieve your resources and connect to apps or desktops. You can use [third-party identity providers](../active-directory/devices/azureadjoin-plan.md#federated-environment) as long as they federate with Microsoft Entra ID.
 
 <a name='multi-factor-authentication'></a>
 
-### Multifactor authentication
+#### Multifactor authentication
 
 Follow the instructions in [Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) to learn how to enforce Microsoft Entra multifactor authentication for your deployment. That article will also tell you how to configure how often your users are prompted to enter their credentials. When deploying Microsoft Entra joined VMs, note the extra steps for [Microsoft Entra joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
-### Passwordless authentication
+#### Passwordless authentication
 
 You can use any authentication type supported by Microsoft Entra ID, such as [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
 
-### Smart card authentication
+#### Smart card authentication
 
 To use a smart card to authenticate to Microsoft Entra ID, you must first [configure AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication) or [configure Microsoft Entra certificate-based authentication](../active-directory/authentication/concept-certificate-based-authentication.md).
 
-## Session host authentication
+### Session host authentication
 
 If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports. Some clients might require a specific version to be used, which you can find in the link for each authentication type.
 
@@ -83,7 +95,7 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
 
-### Single sign-on (SSO)
+#### Single sign-on (SSO)
 
 SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Microsoft Entra joined or Microsoft Entra hybrid joined, it's recommended to enable [SSO using Microsoft Entra authentication](configure-single-sign-on.md). Microsoft Entra authentication provides other benefits including passwordless authentication and support for third-party identity providers.
 
@@ -91,15 +103,15 @@ Azure Virtual Desktop also supports [SSO using Active Directory Federation Servi
 
 Without SSO, the client will prompt users for their session host credentials for every connection. The only way to avoid being prompted is to save the credentials in the client. We recommend you only save credentials on secure devices to prevent other users from accessing your resources.
 
-### Smart card and Windows Hello for Business
+#### Smart card and Windows Hello for Business
 
 Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication, however Smart card and Windows Hello for Business can only use Kerberos to sign in. To use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct networking line-of-sight to the domain controller. You can get a line-of-sight by connecting directly within your corporate network, using a VPN connection or setting up a [KDC Proxy server](key-distribution-center-proxy.md).
 
-## In-session authentication
+### In-session authentication
 
 Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
-### In-session passwordless authentication
+#### In-session passwordless authentication
 
 Azure Virtual Desktop supports in-session passwordless authentication using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
 
@@ -113,7 +125,7 @@ When enabled, all WebAuthn requests in the session are redirected to the local P
 
 To access Microsoft Entra resources with Windows Hello for Business or security devices, you must enable the FIDO2 Security Key as an authentication method for your users. To enable this method, follow the steps in [Enable FIDO2 security key method](../active-directory/authentication/howto-authentication-passwordless-security-key.md#enable-fido2-security-key-method).
 
-### In-session smart card authentication
+#### In-session smart card authentication
 
 To use a smart card in your session, make sure you've installed the smart card drivers on the session host and enabled [smart card redirection](configure-device-redirections.md#smart-card-redirection). Review the [client comparison chart](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare#other-redirection-devices-etc) to make sure your client supports smart card redirection.
 

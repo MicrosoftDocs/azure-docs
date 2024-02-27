@@ -1690,8 +1690,6 @@
     - name: Windows
       displayName: Security baselines
       href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline?toc=/azure/virtual-machines/toc.json
-  - name: Recommendations
-    href: security-recommendations.md
   - name: Trusted launch
     items:
     - name: Overview
