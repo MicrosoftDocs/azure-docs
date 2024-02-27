@@ -5,7 +5,7 @@ services: azure-communication-services
 author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 02/02/2024
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -15,7 +15,7 @@ ms.author: memontic
 
 The sample template named `sample_template` takes no parameters.
 
-:::image type="content" source="./../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
+:::image type="content" source="./../media/template-messages/sample-template-details-azure-portal.png" lightbox="./../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
 
 Assemble the `MessageTemplate` by referencing the target template's name and language.
 
@@ -30,7 +30,7 @@ var sampleTemplate = new MessageTemplate(templateName, templateLanguage);
 
 Some templates take parameters. Only include the parameters that the template requires. Including parameters not in the template is invalid.
 
-:::image type="content" source="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
 
 In this sample, the body of the template has one parameter:
 ```
@@ -60,7 +60,7 @@ shippingConfirmationTemplate.Values.Add(threeDays);
 
 Templates can require various types of parameters such as text and images.
 
-:::image type="content" source="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
 
 In this sample, the header of the template requires an image:
 ```
@@ -111,7 +111,7 @@ movieTicketConfirmationTemplate.Bindings = bindings;
 
 This sample template uses a video in the header and two text parameters in the body.
 
-:::image type="content" source="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
+:::image type="content" source="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" lightbox="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
 
 Here, the header of the template requires a video:
 ```
@@ -156,7 +156,7 @@ happyHourAnnouncementTemplate.Bindings = bindings;
 
 This sample template uses a document in the header and three text parameters in the body.
 
-:::image type="content" source="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_flight_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_flight_confirmation.":::
 
 Here, the header of the template requires a document:
 ```
@@ -205,7 +205,7 @@ flightConfirmationTemplate.Bindings = bindings;
 
 This sample template adds two prefilled reply buttons to the message. It also includes one text parameter in the body.
 
-:::image type="content" source="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
+:::image type="content" source="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" lightbox="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
 
 Here, the body of the template requires one text parameter:
 ```
@@ -270,10 +270,10 @@ This sample template adds a button with a dynamic URL link to the message. It al
 If using the precreated sample template `sample_purchase_feedback`, you need to modify the URL Type of its button from `Static` to `Dynamic`.   
 Go to your [Message templates in the WhatsApp manager](https://business.facebook.com/wa/manage/message-templates/) and edit the template for `sample_purchase_feedback`. In the dropdown for URL Type, change it from `Static` to `Dynamic`. Include a sample URL if necessary.
 
-:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.pn" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 Now, if you view the template details in the Azure portal, you see:
-:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
+:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" lightbox="./../media/template-messages/sample-purchase-feedback-details-azure-portal.pn" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
 
 In this sample, the header of the template requires an image:
 ```

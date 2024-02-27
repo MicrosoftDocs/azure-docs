@@ -6,7 +6,7 @@ author: memontic-ms
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: memontic
-ms.date: 02/12/2024
+ms.date: 02/29/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java
