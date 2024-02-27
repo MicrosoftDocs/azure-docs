@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
@@ -20,7 +20,7 @@ In this guide, you'll learn how to call the v3.2 GA Read API to extract text fro
 
 ## Input requirements
 
-The **Read** call takes images and documents as its input. They have the following requirements:
+The **Read** API call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
@@ -57,7 +57,7 @@ By default, the service outputs the text lines in the left to right order. Optio
 
 :::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example" border="true" :::
 
-### Select page(s) or page ranges for text extraction
+### Select page(s) or page range(s) for text extraction
 
 By default, the service extracts text from all pages in the documents. Optionally, use the `pages` request parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
@@ -106,7 +106,7 @@ You call this operation iteratively until it returns with the **succeeded** valu
 When the **status** field has the `succeeded` value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
 > [!NOTE]
-> The data submitted to the `Read` operation are temporarily encrypted and stored at rest for a short duration, and then deleted. This lets your applications retrieve the extracted text as part of the service response.
+> The data submitted to the **Read** operation are temporarily encrypted and stored at rest for a short duration, and then deleted. This lets your applications retrieve the extracted text as part of the service response.
 
 ### Sample JSON output
 
@@ -185,11 +185,11 @@ See the following example of a successful JSON response:
 
 ### Handwritten classification for text lines (Latin languages only)
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
+The response includes a classification of whether each line of text is in handwritten style or not, along with a confidence score. This feature is only available for Latin languages. The following example shows the handwritten classification for the text in the image.
 
 :::image type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example" border="true" :::
 
 ## Next steps
 
 - Get started with the [OCR (Read) REST API or client library quickstarts](../quickstarts-sdk/client-library.md).
-- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- [Read 3.2 REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

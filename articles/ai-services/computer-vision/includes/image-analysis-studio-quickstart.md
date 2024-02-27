@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Image Analysis using Vision Studio"
+title: "Quickstart: Image Analysis 4.0 using Vision Studio"
 titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the Image Analysis service using Vision Studio.
 #services: cognitive-services
@@ -8,14 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: include
-ms.date: 06/13/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
 ## Prerequisites
 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Azure AI services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
-
 
 
 ## Analyze an image
@@ -27,12 +26,11 @@ ms.author: pafarley
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
 
 
-
 ## Next steps
 
 In this quickstart, you used Vision Studio to do a basic image analysis task. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
-> [Call the Analyze API](../how-to/call-analyze-image.md)
+> [Call the Analyze 4.0 API](../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
