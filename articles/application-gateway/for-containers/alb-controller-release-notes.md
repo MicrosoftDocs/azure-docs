@@ -19,13 +19,20 @@ The ALB Controller is a Kubernetes deployment that orchestrates configuration an
 Each release of ALB Controller has a documented helm chart version and supported Kubernetes cluster version.
 
 Instructions for new or existing deployments of ALB Controller are found in the following links:
+
 - [New deployment of ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments)
 - [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
 
 ## Latest Release (Recommended)
-0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario 
+
+| ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
+| ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.0.0| v1 | v1.26, v1.27, v1.28 | URL redirect for both Gateway and Ingress API, v1beta1 -> v1 of Gateway API, quality improvements<br/>Breaking Changes: TLS Policy for Gateway API [PolicyTargetReference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1alpha2.PolicyTargetReferenceWithSectionName)<br/>Listener is now referred to as [SectionName](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SectionName)<br/>Fixes: Request timeout of 3 seconds, [HealthCheckPolicy interval](https://github.com/Azure/AKS/issues/4086), [pod crash for missing API fields](https://github.com/Azure/AKS/issues/4087) |
 
 ## Release history
+
+0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario 
+
 0.6.2 - Skipped
 
 November 6, 2023 - 0.6.1 - Gateway / Ingress API - Header rewrite support, Ingress API - URL rewrite support, Ingress multiple-TLS listener bug fix,

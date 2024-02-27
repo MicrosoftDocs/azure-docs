@@ -1,17 +1,17 @@
 ---
 
-title: Application Gateway for Containers API Specification for Kubernetes (preview)
+title: Application Gateway for Containers API Specification for Kubernetes
 description: This article provides documentation for Application Gateway for Containers' API specification for Kubernetes.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 11/6/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Application Gateway for Containers API specification for Kubernetes (preview)
+# Application Gateway for Containers API specification for Kubernetes
 
 ## Packages
 
@@ -48,7 +48,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 (<code>string</code> alias)</h3>
 <div>
 <p>AlbConditionReason defines the set of reasons that explain
-why a particular condition type has been raised on the Application Gateway for Containers resource.</p>
+why a particular condition type are raised by the Application Gateway for Containers resource.</p>
 </div>
 <table>
 <thead>
@@ -59,7 +59,7 @@ why a particular condition type has been raised on the Application Gateway for C
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
-has been accepted by the controller.</p>
+are accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Ready&#34;</p></td>
 <td><p>AlbReasonDeploymentReady indicates the Application Gateway for Containers resource
@@ -87,7 +87,7 @@ field.</p>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource
-has been accepted by the controller.</p>
+are accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Deployment&#34;</p></td>
 <td><p>AlbConditionTypeDeployment indicates the deployment status of the Application Gateway for Containers resource.</p>
@@ -118,7 +118,7 @@ has been accepted by the controller.</p>
 </em>
 </td>
 <td>
-<p>Associations are subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource are associated with.</p>
 </td>
 </tr>
 </tbody>
@@ -152,8 +152,8 @@ has been accepted by the controller.</p>
 <em>(Optional)</em>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
-<li>"Ready"</li>
+<li>&ldquo;Accepted&rdquo;</li>
+<li>&ldquo;Ready&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -210,7 +210,7 @@ AlbSpec
 </em>
 </td>
 <td>
-<p>Associations are subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations are subnet resource IDs the Application Gateway for Containers resource are associated with.</p>
 </td>
 </tr>
 </table>
@@ -278,7 +278,7 @@ BackendTLSPolicySpec
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
 Gateway API .PolicyTargetReference
 </a>
 </em>
@@ -338,7 +338,7 @@ BackendTLSPolicyStatus
 (<code>string</code> alias)</h3>
 <div>
 <p>BackendTLSPolicyConditionReason defines the set of reasons that explain why a
-particular BackendTLSPolicy condition type has been raised.</p>
+particular BackendTLSPolicy condition type is raised.</p>
 </div>
 <table>
 <thead>
@@ -373,7 +373,7 @@ When the given BackendTLSPolicy is correctly configured</p>
 <td><p>BackendTLSPolicyReasonInvalidService is used when the Service is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>BackendTLSPolicyReasonNoTargetReference is used when there&rsquo;s no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
@@ -463,7 +463,7 @@ string
 <td>
 <code>clientCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -525,7 +525,7 @@ int
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
 Gateway API .PolicyTargetReference
 </a>
 </em>
@@ -599,7 +599,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe BackendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -657,7 +657,7 @@ CommonTLSPolicyVerify
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -892,7 +892,7 @@ When the given FrontendTLSPolicy is correctly configured</p>
 <td><p>FrontendTLSPolicyReasonInvalidPolicyType is used when the policy type is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>FrontendTLSPolicyReasonNoTargetReference is used when there&rsquo;s no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
@@ -1032,7 +1032,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe FrontendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -1089,7 +1089,7 @@ case insensitive. (See <a href="https://tools.ietf.org/html/rfc7230#section-3.2"
 <p>If multiple entries specify equivalent header names, the first entry with
 an equivalent name MUST be considered for a match. Subsequent entries
 with an equivalent header name MUST be ignored. Due to the
-case-insensitivity of header names, "foo" and "Foo" are considered
+case-insensitivity of header names, &ldquo;foo&rdquo; and &ldquo;Foo&rdquo; are considered
 equivalent.</p>
 </td>
 </tr>
@@ -1115,14 +1115,14 @@ string
 <p>HTTPHeaderName is the name of an HTTP header.</p>
 <p>Valid values include:</p>
 <ul>
-<li>"Authorization"</li>
-<li>"Set-Cookie"</li>
+<li>&ldquo;Authorization&rdquo;</li>
+<li>&ldquo;Set-Cookie&rdquo;</li>
 </ul>
 <p>Invalid values include:</p>
 <ul>
-<li>":method" - ":" is an invalid character. This means that HTTP/2 pseudo
-headers are not currently supported by this type.</li>
-<li>"/invalid" - "/ " is an invalid character</li>
+<li>&rdquo;:method&rdquo; - &ldquo;:&rdquo; is an invalid character. This means that HTTP/2 pseudo
+headers aren&rsquo;t currently supported by this type.</li>
+<li>&rdquo;/invalid&rdquo; - &ldquo;/ &rdquo; is an invalid character</li>
 </ul>
 </div>
 <h3 id="alb.networking.azure.io/v1.HTTPMatch">HTTPMatch
@@ -1195,10 +1195,10 @@ HTTPPathModifierType
 </em>
 </td>
 <td>
-<p>Type defines the type of path modifier. Additional types may be
+<p>Type defines the type of path modifier. More types may be
 added in a future release of the API.</p>
-<p>Note that values may be added to this enum, implementations
-must ensure that unknown values will not cause a crash.</p>
+<p>Values may be added to this enum, implementations
+must ensure unknown values won&rsquo;t cause a crash.</p>
 <p>Unknown values here must result in the implementation setting the
 Accepted Condition for the rule to be false</p>
 </td>
@@ -1227,15 +1227,15 @@ string
 <em>(Optional)</em>
 <p>ReplacePrefixMatch specifies the value with which to replace the prefix
 match of a request during a rewrite or redirect. For example, a request
-to "/foo/bar" with a prefix match of "/foo" and a ReplacePrefixMatch
-of "/xyz" would be modified to "/xyz/bar".</p>
-<p>Note that this matches the behavior of the PathPrefix match type. This
+to &ldquo;/foo/bar&rdquo; with a prefix match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch
+of &ldquo;/xyz&rdquo; would be modified to &ldquo;/xyz/bar&rdquo;.</p>
+<p>This matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
 ignored. For example, the paths <code>/abc</code>, <code>/abc/</code>, and <code>/abc/def</code> would all
-match the prefix <code>/abc</code>, but the path <code>/abcd</code> would not.</p>
+match the prefix <code>/abc</code>, but the path <code>/abcd</code> wouldn&rsquo;t.</p>
 <p>ReplacePrefixMatch is only compatible with a <code>PathPrefix</code> HTTPRouteMatch.
-Using any other HTTPRouteMatch type on the same HTTPRouteRule will result in
+Using any other HTTPRouteMatch type on the same HTTPRouteRule results in
 the implementation setting the Accepted Condition for the Route to <code>status: False</code>.</p>
 <table>
 <thead>
@@ -1286,19 +1286,19 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 <tr>
 <td>/foo/bar</td>
 <td>/foo</td>
-<td></td>
+<td><empty string></td>
 <td>/bar</td>
 </tr>
 <tr>
 <td>/foo/</td>
 <td>/foo</td>
-<td></td>
+<td><empty string></td>
 <td>/</td>
 </tr>
 <tr>
 <td>/foo</td>
 <td>/foo</td>
-<td></td>
+<td><empty string></td>
 <td>/</td>
 </tr>
 <tr>
@@ -1335,19 +1335,18 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;ReplaceFullPath&#34;</p></td>
-<td><p>FullPathHTTPPathModifier indicates that the full path will be replaced
-by the specified value.</p>
+<td><p>FullPathHTTPPathModifier replaces the full path with the specified value.</p>
 </td>
 </tr><tr><td><p>&#34;ReplacePrefixMatch&#34;</p></td>
-<td><p>PrefixMatchHTTPPathModifier indicates that any prefix path matches will be
-replaced by the substitution value. For example, a path with a prefix
-match of "/foo" and a ReplacePrefixMatch substitution of "/bar" will have
-the "/foo" prefix replaced with "/bar" in matching requests.</p>
-<p>Note that this matches the behavior of the PathPrefix match type. This
+<td><p>PrefixMatchHTTPPathModifier replaces any prefix path with the
+substitution value. For example, a path with a prefix
+match of &ldquo;/foo&rdquo; and a ReplacePrefixMatch substitution of &ldquo;/bar&rdquo;
+replace &ldquo;/foo&rdquo; with &ldquo;/bar&rdquo; in matching requests.</p>
+<p>This matches the behavior of the PathPrefix match type. This
 matches full path elements. A path element refers to the list of labels
 in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
 ignored. For example, the paths <code>/abc</code>, <code>/abc/</code>, and <code>/abc/def</code> would all
-match the prefix <code>/abc</code>, but the path <code>/abcd</code> would not.</p>
+match the prefix <code>/abc</code>, but the path <code>/abcd</code> wouldn&rsquo;t.</p>
 </td>
 </tr></tbody>
 </table>
@@ -1446,8 +1445,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 set:
-- name: "my-header"
-value: "bar"</p>
+- name: &ldquo;my-header&rdquo;
+value: &ldquo;bar&rdquo;</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: bar</p>
@@ -1472,8 +1471,8 @@ GET /foo HTTP/1.1
 my-header: foo</p>
 <p>Config:
 add:
-- name: "my-header"
-value: "bar,baz"</p>
+- name: &ldquo;my-header&rdquo;
+value: &ldquo;bar,baz&rdquo;</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header: foo,bar,baz</p>
@@ -1489,8 +1488,8 @@ my-header: foo,bar,baz</p>
 <td>
 <em>(Optional)</em>
 <p>Remove the given header(s) from the HTTP request before the action. The
-value of Remove is a list of HTTP header names. Note that the header
-names are case-insensitive (see
+value of Remove is a list of HTTP header names. Header names
+are case-insensitive (see
 <a href="https://datatracker.ietf.org/doc/html/rfc2616#section-4.2)">https://datatracker.ietf.org/doc/html/rfc2616#section-4.2)</a>.</p>
 <p>Input:
 GET /foo HTTP/1.1
@@ -1498,7 +1497,7 @@ my-header1: foo
 my-header2: bar
 my-header3: baz</p>
 <p>Config:
-remove: ["my-header1", "my-header3"]</p>
+remove: [&ldquo;my-header1&rdquo;, &ldquo;my-header3&rdquo;]</p>
 <p>Output:
 GET /foo HTTP/1.1
 my-header2: bar</p>
@@ -1558,8 +1557,8 @@ HealthCheckPolicySpec
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
-Gateway API .PolicyTargetReference
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+Gateway API PolicyTargetReference
 </a>
 </em>
 </td>
@@ -1650,7 +1649,7 @@ When the given HealthCheckPolicy is correctly configured</p>
 <td><p>HealthCheckPolicyReasonInvalidService is used when the Service is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>HealthCheckPolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>HealthCheckPolicyReasonNoTargetReference is used when there&rsquo;s no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>HealthCheckPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
@@ -1695,18 +1694,6 @@ field.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>
-<code>port</code><br/>
-<em>
-int32
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Port is the port to use for HealthCheck checks.</p>
-</td>
-</tr>
 <tr>
 <td>
 <code>protocol</code><br/>
@@ -1811,8 +1798,8 @@ target resource.</p>
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
-Gateway API .PolicyTargetReference
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+Gateway API PolicyTargetReference
 </a>
 </em>
 </td>
@@ -1885,7 +1872,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe HealthCheckPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -1942,7 +1929,7 @@ Protocol
 </em>
 </td>
 <td>
-<p>Protocol should be one of "HTTP", "HTTPS"</p>
+<p>Protocol should be one of &ldquo;HTTP&rdquo;, &ldquo;HTTPS&rdquo;</p>
 </td>
 </tr>
 </tbody>
@@ -1983,7 +1970,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>Errors is a list of errors relating to this setting</p>
+<p>Errors are a list of errors relating to this setting</p>
 </td>
 </tr>
 <tr>
@@ -2083,60 +2070,6 @@ IngressTimeouts
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressCertificate">IngressCertificate
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleTLS">IngressRuleTLS</a>)
-</p>
-<div>
-<p>IngressCertificate defines a certificate and private key to be used with TLS.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>type</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Type indicates where the Certificate is stored.
-Can be KubernetesSecret, or KeyVaultCertificate</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>name</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Name is the name of a KubernetesSecret containing the TLS cert and key</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>secretId</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>SecretID is the resource ID of a KeyVaultCertificate</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="alb.networking.azure.io/v1.IngressExtension">IngressExtension
 </h3>
 <div>
@@ -2191,7 +2124,7 @@ IngressExtensionSpec
 </td>
 <td>
 <em>(Optional)</em>
-<p>Rules defines the rules per host</p>
+<p>Rules define the rules per host</p>
 </td>
 </tr>
 <tr>
@@ -2248,7 +2181,7 @@ particular IngressExtension condition type has been raised.</p>
 <td><p>IngressExtensionReasonNoErrors indicates there are no validation errors</p>
 </td>
 </tr><tr><td><p>&#34;PartiallyAcceptedWithErrors&#34;</p></td>
-<td><p>IngressExtensionReasonPartiallyAccepted is used to set the IngressExtensionConditionAccepted to Accepted, but with non-fatal validation errors</p>
+<td><p>IngressExtensionReasonPartiallyAccepted is used to set the IngressExtensionConditionAccepted to Accepted, but with nonfatal validation errors</p>
 </td>
 </tr></tbody>
 </table>
@@ -2301,7 +2234,7 @@ field.</p>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Rules defines the rules per host</p>
+<p>Rules define the rules per host</p>
 </td>
 </tr>
 <tr>
@@ -2347,7 +2280,7 @@ field.</p>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Rules has detailed status information regarding each Rule</p>
+<p>Rules have detailed status information regarding each Rule</p>
 </td>
 </tr>
 <tr>
@@ -2378,8 +2311,8 @@ field.</p>
 <p>Conditions describe the current conditions of the IngressExtension.
 Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
-<li>"Errors"</li>
+<li>&ldquo;Accepted&rdquo;</li>
+<li>&ldquo;Errors&rdquo;</li>
 </ul>
 </td>
 </tr>
@@ -2487,20 +2420,6 @@ string
 </tr>
 <tr>
 <td>
-<code>tls</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.IngressRuleTLS">
-IngressRuleTLS
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>TLS defines TLS settings for the rule</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>additionalHostnames</code><br/>
 <em>
 []string
@@ -2577,7 +2496,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>Errors is a list of errors relating to this setting</p>
+<p>Errors are a list of errors relating to this setting</p>
 </td>
 </tr>
 <tr>
@@ -2590,38 +2509,6 @@ bool
 <td>
 <em>(Optional)</em>
 <p>Valid indicates that there are no validation errors present on this rule</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="alb.networking.azure.io/v1.IngressRuleTLS">IngressRuleTLS
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleSetting">IngressRuleSetting</a>)
-</p>
-<div>
-<p>IngressRuleTLS provides options for configuring TLS settings on a rule</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>certificate</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.IngressCertificate">
-IngressCertificate
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Certificate specifies a TLS Certificate to configure a rule with</p>
 </td>
 </tr>
 </tbody>
@@ -2715,9 +2602,9 @@ FrontendTLSPolicyType
 </p>
 <div>
 <p>PreciseHostname is the fully qualified domain name of a network host. This
-matches the RFC 1123 definition of a hostname with 1 notable exception that
-numeric IP addresses are not allowed.</p>
-<p>Note that as per RFC1035 and RFC1123, a <em>label</em> must consist of lower case
+matches the RFC 1123 definition of a hostname with one notable exception that
+numeric IP addresses aren&rsquo;t allowed.</p>
+<p>Per RFC1035 and RFC1123, a <em>label</em> must consist of lower case
 alphanumeric characters or &lsquo;-&rsquo;, and must start and end with an alphanumeric
 character. No other punctuation is allowed.</p>
 </div>
@@ -2743,13 +2630,13 @@ Valid Protocol values are:</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;HTTP&#34;</p></td>
-<td><p>HTTP implies that the service will use HTTP</p>
+<td><p>HTTP implies that the service uses HTTP</p>
 </td>
 </tr><tr><td><p>&#34;HTTPS&#34;</p></td>
-<td><p>HTTPS implies that the service will be use HTTPS</p>
+<td><p>HTTPS implies that the service uses HTTPS</p>
 </td>
 </tr><tr><td><p>&#34;TCP&#34;</p></td>
-<td><p>TCP implies that the service will be use plain TCP</p>
+<td><p>TCP implies that the service uses plain TCP</p>
 </td>
 </tr></tbody>
 </table>
@@ -2832,8 +2719,8 @@ header in the response.</p>
 following rules:</p>
 <ul>
 <li>If redirect scheme is not-empty, the redirect port MUST be the well-known
-port associated with the redirect scheme. Specifically "http" to port 80
-and "https" to port 443. If the redirect scheme does not have a
+port associated with the redirect scheme. Specifically &ldquo;http&rdquo; to port 80
+and &ldquo;https&rdquo; to port 443. If the redirect scheme doesn&rsquo;t have a
 well-known port, the listener port of the Gateway SHOULD be used.</li>
 <li>If redirect scheme is empty, the redirect port MUST be the Gateway
 Listener port.</li>
@@ -2841,9 +2728,9 @@ Listener port.</li>
 <p>Implementations SHOULD NOT add the port number in the &lsquo;Location&rsquo;
 header in the following cases:</p>
 <ul>
-<li>A Location header that will use HTTP (whether that is determined via
+<li>A Location header that uses HTTP (whether that is determined via
 the Listener protocol or the Scheme field) <em>and</em> use port 80.</li>
-<li>A Location header that will use HTTPS (whether that is determined via
+<li>A Location header that uses HTTPS (whether that is determined via
 the Listener protocol or the Scheme field) <em>and</em> use port 443.</li>
 </ul>
 </td>
@@ -2858,8 +2745,8 @@ int
 <td>
 <em>(Optional)</em>
 <p>StatusCode is the HTTP status code to be used in response.</p>
-<p>Note that values may be added to this enum, implementations
-must ensure that unknown values will not cause a crash.</p>
+<p>Values may be added to this enum, implementations
+must ensure that unknown values won&rsquo;t cause a crash.</p>
 </td>
 </tr>
 </tbody>
@@ -2881,11 +2768,11 @@ must ensure that unknown values will not cause a crash.</p>
 </thead>
 <tbody><tr><td><p>&#34;RequestHeaderModifier&#34;</p></td>
 <td><p>RequestHeaderModifier can be used to add or remove an HTTP
-header from an HTTP request before it is sent to the upstream target.</p>
+header from an HTTP request before it&rsquo;s sent to the upstream target.</p>
 </td>
 </tr><tr><td><p>&#34;ResponseHeaderModifier&#34;</p></td>
 <td><p>ResponseHeaderModifier can be used to add or remove an HTTP
-header from an HTTP response before it is sent to the client.</p>
+header from an HTTP response before it&rsquo;s sent to the client.</p>
 </td>
 </tr><tr><td><p>&#34;URLRewrite&#34;</p></td>
 <td><p>URLRewrite can be used to modify a request during forwarding.</p>
@@ -2939,7 +2826,7 @@ RoutePolicySpec
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
 Gateway API .PolicyTargetReference
 </a>
 </em>
@@ -3028,7 +2915,7 @@ When the given RoutePolicy is correctly configured</p>
 <td><p>RoutePolicyReasonInvalidName is used when the name is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>RoutePolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>RoutePolicyReasonNoTargetReference is used when there&rsquo;s no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>RoutePolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
@@ -3126,8 +3013,8 @@ SessionAffinity
 <td>
 <code>targetRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
-Gateway API .PolicyTargetReference
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.PolicyTargetReference">
+Gateway API alpha2.PolicyTargetReference
 </a>
 </em>
 </td>
@@ -3200,7 +3087,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe RoutePolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>"Accepted"</li>
+<li>&ldquo;Accepted&rdquo;</li>
 </ul>
 </td>
 </tr>

@@ -23,8 +23,6 @@
     href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
-  - name: Reliability in Application Gateway for Containers
-    href: ../../reliability/reliability-app-gateway-containers.md?toc=/azure/application-gateway/for-containers/toc.json
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Health monitoring

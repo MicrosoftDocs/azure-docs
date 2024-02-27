@@ -6,32 +6,27 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# URL Rewrite for Azure Application Gateway for Containers - Ingress API (preview)
+# URL Rewrite for Azure Application Gateway for Containers - Ingress API
 
 Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request contains the newly rewritten URL to initiate the request.
-
 
 ## Usage details
 
 URL Rewrites take advantage of Application Gateway for Containers' IngressExtension custom resource.
 
 ## Background
+
 URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
 The following figure illustrates a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
-
 ## Prerequisites
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).

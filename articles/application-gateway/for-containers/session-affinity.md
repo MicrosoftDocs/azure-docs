@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 

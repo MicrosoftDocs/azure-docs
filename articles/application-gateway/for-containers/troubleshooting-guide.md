@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot Application Gateway for Containers (preview)
+title: Troubleshoot Application Gateway for Containers
 description: Learn how to troubleshoot common issues with Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 12/05/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Troubleshooting in Application Gateway for Containers (preview)
+# Troubleshooting in Application Gateway for Containers
 
 This article provides some guidance to help you troubleshoot common problems in Application Gateway for Containers.
 
@@ -25,10 +25,10 @@ Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
-| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**0.6.3**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**0.6.3** | app=alb-controller-bootstrap |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.0.0**           | app=alb-controller |
+| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.0.0** | app=alb-controller-bootstrap |
 
-In this example, the ALB controller version is **0.6.3**. 
+In this example, the ALB controller version is **1.0.0**.
 
 The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
 
@@ -97,6 +97,25 @@ Scenarios in which you would notice a 500-error code on Application Gateway for 
     For instance, if an HTTPRoute has two backends specified with equal weights, and one is invalid 50 percent of the traffic must receive a 500.
 
 2. No endpoints found for all backends: when there are no endpoints found for all the backends referenced in an HTTPRoute, a 500 error code is obtained.
+
+### Application Load Balancer custom resource doesn't reflect Ready status
+
+#### Symptoms
+
+ApplicationLoadBalancer custom resource status message continually says "Application Gateway for Containers resource `agc-name` jis undergoing an update."
+
+The following logs are repeated by the primary alb-controller pod.
+```text
+{"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:53.760150719Z","message":"Stream opened for config updates"}
+{"level":"info","version":"x.x.x","operationID":"1ea7ffd4-b2c4-460b-bce7-4d3f855ce8d5","Timestamp":"2024-02-26T20:31:53.760313623Z","message":"Successfully sent config update request"}
+{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id '5b26a949-297d-40c7-b10f-5d1cf2e3259d' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:53.769444995Z","message":"Unable to capture config update response"}
+{"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:53.769504489Z","message":"Retrying to open config update stream"}
+{"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:54.461487406Z","message":"Stream opened up for endpoint updates"}
+{"level":"info","version":"x.x.x","operationID":"808825c2-b0a8-476b-b83a-8e7357c55750","Timestamp":"2024-02-26T20:31:54.462070039Z","message":"Successfully sent endpoint update request"}
+{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id '5b26a949-297d-40c7-b10f-5d1cf2e3259d' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:54.470728646Z","message":"Unable to capture endpoint update response"}
+{"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:54.47077373Z","message":"Retrying to open up endpoint update stream"}
+```
+
 
 ### Kubernetes Gateway resource fails to get token from credential chain
 

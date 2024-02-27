@@ -6,20 +6,20 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# URL Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
+# URL Rewrite for Azure Application Gateway for Containers - Gateway API
 
 Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request contains the newly rewritten URL to initiate the request.
-
 
 ## Usage details
 
 URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
 
 ## Background
+
 URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
 The following figure illustrates an example of a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_. The request is initiated to the backend target by Application Gateway for Containers:
@@ -28,10 +28,6 @@ The following figure illustrates an example of a request destined for _contoso.c
 
 
 ## Prerequisites
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
@@ -84,7 +80,7 @@ RESOURCE_GROUP='<resource group name of the Application Gateway For Containers r
 RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='test-frontend'
+FRONTEND_NAME='frontend'
 ```
 
 2. Create a Gateway
@@ -123,7 +119,7 @@ Example output of successful gateway creation.
 ```yaml
 status:
   addresses:
-  - type: IPAddress
+  - type: Hostname
     value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
