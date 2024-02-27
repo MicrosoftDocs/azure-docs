@@ -1,5 +1,4 @@
 ---
-
 title: Traffic Splitting with Application Gateway for Containers - Gateway API
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
