@@ -106,7 +106,7 @@ This occurs when a firewall or proxy has SSL/TLS inspection enabled and blocks h
 
 `Invoke-WebRequest -HttpVersion 2.0 -UseBasicParsing -Uri https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview"&"releaseTrain=stable -Method Post -Verbose`
 
-If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Please work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
+If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
 
 ### .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
