@@ -108,5 +108,5 @@ Application Gateway for Containers enforces the following timeouts as requests a
 | ------- | --------- | ----------- |
 | Request Timeout | 60 seconds | time for which AGC waits for the backend target response. |
 | HTTP Idle Timeout | 5 minutes | idle timeout before closing an HTTP connection. |
-| Stream Idle Timeout | 5 minutes | idle timeout before closing an individual streams carried by an HTTP connection. |
+| Stream Idle Timeout | 5 minutes | idle timeout before closing an individual stream carried by an HTTP connection. |
 | Upstream Connect Timeout | 5 seconds | time for establishing a connection to the backend target. |

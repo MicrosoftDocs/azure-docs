@@ -21,7 +21,7 @@ URL redirects take advantage of the [RequestRedirect rule filter](https://gatewa
 ## Redirection
 A redirect sets the response status code returned to clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource uses one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
 - 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
 
 ## Redirection capabilities
