@@ -100,6 +100,10 @@ For more information, see the following resources:
 - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../authenticate-with-managed-identity.md?tabs=standard)
 
+## Add an Azure OpenAI or Azure AI Search action to your workflow
+
+Currently, the built-in connectors for Azure OpenAI and Azure AI Search provide only actions, not triggers. You can start your workflow with any trigger that fits your scenario or needs, and then [follow these general steps to add actions for Azure OpenAI, Azure AI Search, and other operations](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
 ## Example: Ingest data and create chat interactions
 
 This example shows how to use the Azure OpenAI and Azure AI Search connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
@@ -112,9 +116,9 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 [Create a chat with your data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
-### Add an Azure OpenAI or Azure AI Search action to your workflow
+### Video demonstration
 
-Currently, the built-in connectors for Azure OpenAI and Azure AI Search provide only actions, not triggers. You can start your workflow with any trigger that fits your scenario or needs, and then [follow these general steps to add actions for Azure OpenAI, Azure AI Search, and other operations](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+[Learn how to build AI applications using logic apps](https://youtu.be/tiU5yCvMW9o?feature=shared)
 
 ### Data ingestion workflow
 
@@ -130,11 +134,11 @@ Each step in this pattern not only provides faster performance when run in a sta
 | 2 | Get the data's location. | **HTTP** | An action that gets the URL for the document in the specified storage system. |
 | 3 | Get the data. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
 | 4 | Tokenize the data. | **HTTP** | An action that [tokenizes the output from the **Compose** action](../../ai-services/openai/overview.md#tokens). |
-| 5 | Convert data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output to a JSON array. |
-| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects outputs from the JSON array. |
-| 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings. |
-| 8 | Select the data and embeddings. | **Select** | A **Data Operations** action that selects the JSON outputs and embeddings. | 
-| 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the selected content. |
+| 5 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the tokenized output into a JSON array. |
+| 6 | Select JSON array items. | **Select** | A **Data Operations** action that selects items from the JSON array. |
+| 7 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
+| 8 | Select the embeddings. | **Select** | A **Data Operations** action that selects embeddings. | 
+| 9 | Index the data. | **Index documents** | An **Azure AI Search** action that indexes the data based on each selected embedding. |
 
 ### Chat workflow
 
@@ -151,8 +155,8 @@ The following pattern is only one example that shows how a chat workflow might l
 | 3 | Train the model. | **Compose** | A **Data Operations** action that includes sample customer questions input. | 
 | 4 | Train the model. | **Compose** | A **Data Operations** action that includes input for the search query. | 
 | 5 | Generate the query. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to create search queries for the vector database by using the outputs from the previous **Compose** actions. |
-| 6 | Convert the query into an embedding. | **Get the chat completions** | An **Azure OpenAI** action that converts queries into vector embeddings. |
-| 7 | Get an embedding. | **Gets a single embedding** | An **Azure OpenAI** action that gets a single embedding. |
+| 6 | Convert the query into an embedding. | **Get the chat completions** | An **Azure OpenAI** action that converts search queries into vector embeddings. |
+| 7 | Get an embedding. | **Gets a single embedding** | An **Azure OpenAI** action that gets the vector embedding. |
 | 8 | Run the vector search. | **Vector search** | An **Azure AI Search** action that executes searches in the vector database. |
 | 9 | Create the prompt. | **Execute JavaScript Code** | An **Inline Code** action that uses JavaScript to build a prompt. |
 | 10 | Perform chat completion. | **Get the chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. |
