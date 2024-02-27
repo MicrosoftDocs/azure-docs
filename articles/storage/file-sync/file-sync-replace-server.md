@@ -25,7 +25,7 @@ To replace an Azure File Sync server, follow the steps below.
      ```
     Once the initial copy is completed, run the Robocopy command again to copy any remaining changes.
 
-5.	In the Azure portal, navigate to the Storage Sync Service, go to the sync group for the old server and [create a server endpoint](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-endpoint-create?tabs=azure-portal#create-a-server-endpoint) on the new server. Repeat this step for every sync group.
+5.	In the Azure portal, navigate to the Storage Sync Service, go to the sync group for the old server and [create a server endpoint](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-endpoint-create?tabs=azure-portal#create-a-server-endpoint) on the new server. Repeat this step for every sync group which has a server endpoint for the old server.
    
     For example, if the old server has 4 sever endpoints (4 sync groups), 4 server endpoints should be created on the new server.
   	 
