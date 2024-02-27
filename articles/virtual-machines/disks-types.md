@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 02/20/2024
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -64,7 +64,8 @@ The following table provides a comparison of disk sizes and performance caps to 
 |128     |38,400         |9,800         |
 |256     |76,800         |10,000         |
 |512     |153,600         |10,000         |
-|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
+|1,024    |307,200        |10,000        |
+|2,048-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
 
 ### Ultra disk performance
 
