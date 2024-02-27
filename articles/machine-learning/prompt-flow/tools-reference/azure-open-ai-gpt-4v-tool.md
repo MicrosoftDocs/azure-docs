@@ -34,7 +34,7 @@ Azure OpenAI GPT-4 Turbo with Vision tool enables you to leverage your AzureOpen
 
 ## Connection
 
-Setup connections to provisioned resources in prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|

@@ -117,7 +117,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
     > [!NOTE]
     > Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully. You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
 
-:::image type="content" source="../../media/prompt-flow/create-connection.png" alt-text="Screenshot that shows create connection in AI Studio." lightbox = "../../media/prompt-flow/create-connection.png"::: 
+    :::image type="content" source="../../media/prompt-flow/create-connection.png" alt-text="Screenshot that shows create connection in AI Studio." lightbox = "../../media/prompt-flow/create-connection.png"::: 
 
 
 1. Add the following custom keys to the connection:
