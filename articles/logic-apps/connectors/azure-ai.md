@@ -116,9 +116,9 @@ This example shows how to use the Azure OpenAI and Azure AI Search connectors to
 
 [Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
-### Video demo
+### Video: Learn how to build AI applications using logic apps
 
-[Learn how to build AI applications using logic apps](https://youtu.be/tiU5yCvMW9o?feature=shared)
+> [!VIDEO https://youtu.be/tiU5yCvMW9o?feature=shared]
 
 ### Data ingestion workflow
 
