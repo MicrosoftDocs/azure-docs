@@ -144,15 +144,19 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
 
    For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#config-file).
 
+
 1. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
+
 
    >[!IMPORTANT]
    >You must first have a private cloud created before you can patch the platform. 
 
->[!IMPORTANT]
+   >[!IMPORTANT]
    >You must also have an ExpressRoute Gateway configured as part of your Virtual WAN Hub. 
 
+
    [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
+
 
 1. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
 
