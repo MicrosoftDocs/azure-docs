@@ -69,10 +69,6 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 ## Set up Visual Studio for Azure Government
 
-### Visual Studio 2017
-
-You can use the [Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
-
 ### Visual Studio 2019
 
 To work with Azure Government subscriptions in Azure Logic Apps, you need to [add a discovery endpoint for Azure Government Cloud to Visual Studio](../azure-government/documentation-government-connect-vs.md). However, *before you sign in to Visual Studio with your Azure Government account*, you need to rename the JSON file that's generated after you add the discovery endpoint by following these steps:
@@ -92,6 +88,10 @@ To work with Azure Government subscriptions in Azure Logic Apps, you need to [ad
 To revert this setup, delete the JSON file at the following location, and restart Visual Studio:
 
 `%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
+
+### Visual Studio 2017
+
+You can use the [Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 <a name="create-resource-group-project"></a>
 
