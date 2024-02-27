@@ -1,5 +1,4 @@
 ---
-
 title: Backend MTLS with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
