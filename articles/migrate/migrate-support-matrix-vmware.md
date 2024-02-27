@@ -22,15 +22,6 @@ To assess servers, first, create an Azure Migrate project. The Azure Migrate: Di
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
-## Limitations
-
-Requirement | Details
---- | ---
-Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br /> This amount is valid for Azure VMware Solution as well.
-Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
-
-Learn more about [assessments](concepts-assessment-calculation.md).
 
 ::: zone pivot="vmware-requirements"
 
@@ -371,6 +362,17 @@ Internet connectivity | If servers aren't connected to the internet, install the
 Azure Government | Agent-based dependency analysis isn't supported.
 
 ::: zone-end
+
+## Limitations
+
+Requirement | Details
+--- | ---
+Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
+Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br /> This amount is valid for Azure VMware Solution as well.
+Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
+
+Learn more about [assessments](concepts-assessment-calculation.md).
+
 
 ## Import servers by using RVTools XLSX (preview)
 
