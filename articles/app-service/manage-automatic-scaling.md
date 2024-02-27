@@ -10,7 +10,7 @@ author: msangapu-msft
 # Automatic scaling in Azure App Service
 
 > [!NOTE]
-> Automatic scaling is available for all app types: Windows, Linux, and Windows container. Automatic scaling is not supported for deployment slot traffic.
+> Automatic scaling is available for all app types: Windows and Linux (deploy as code and container). Automatic scaling is not supported for deployment slot traffic.
 >
 
 Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
@@ -99,7 +99,7 @@ To set the maximum number of web app instances, navigate to the web app's left m
 
 #### [Azure CLI](#tab/azure-cli)
 
-You can't change the maximum scale limit in Azure CLI, you must instead use the Azure portal.
+Currently, you can't change the maximum scale limit in Azure CLI, you must instead use the Azure portal.
 
 ---
 
@@ -139,7 +139,10 @@ az appservice plan update --resource-group <RESOURCE_GROUP> --name <APP_SERVICE_
 --- 
 
 ## Does automatic scaling support Azure Function apps?
-No, you can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
+> [!CAUTION]
+> Automatic Scaling is disabled when App Service web apps and Azure Function apps are in the same App Service Plan.
+>
+No, you can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
 
 ## How does automatic scaling work behind the scenes?
 Applications set to automatically scale are continuously monitored, with worker health assessments occurring at least once every few seconds. If the system detects increased load on the application, health checks become more frequent. In the event of deteriorating worker health and slowing requests, additional instances are requested. The speed at which instances are added varies based on the individual application's load pattern and startup time. Applications with brief startup times and intermittent bursts of load may see one virtual machine added every few seconds to a minute.
@@ -162,11 +165,11 @@ This process of scaling and prewarming continues until the maximum instance coun
 
 ## Why does AppServiceHTTPLogs have log entries similar to "/admin/host/ping" with a 404 status?
  
-App Service Automatic Scaling periodically checks the `/admin/host/ping` endpoint along with other health check mechanisms inherent to the platform. These checks are specifically implemented features. Occasionally, due to existing platform configurations, 404 errors may be returned by these pings. However, it's important to note that these 404 errors should not affect your app's availability or scaling performance.
+App Service Automatic Scaling periodically checks the `/admin/host/ping` endpoint along with other health check mechanisms inherent to the platform. These checks are specifically implemented features. Occasionally, due to existing platform configurations, 404 errors may be returned by these pings. However, it's important to note that these 404 errors shouldn't affect your app's availability or scaling performance.
 
-If your web app returns a 5xx status, these endpoint pings may result in intermittent restarts, though this is uncommon. We are currently implementing enhancements to address these intermittent restarts. Until then, please ensure that your web app does not return a 5xx status at this endpoint. Please be aware that these ping endpoints can't be customized.
+If your web app returns a 5xx status, these endpoint pings may result in intermittent restarts, though this is uncommon. We are currently implementing enhancements to address these intermittent restarts. Until then, please ensure that your web app doesn't return a 5xx status at this endpoint. Please be aware that these ping endpoints can't be customized.
 
-## How do I track the number of scaled-out instances during the AUtomatic Scaling event?
+## How do I track the number of scaled-out instances during the Automatic Scaling event?
  
 **AutomaticScalingInstanceCount** metric will report the number of virtual machines on which the app is running including the the prewarmed instance if it is deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an Automatic Scaling event. This metric is available only for the apps that have Automatic Scaling enabled.
 
