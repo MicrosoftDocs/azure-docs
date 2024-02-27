@@ -37,7 +37,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
 1. Select your deployment from the **Deployments** dropdown. 
 1. Select **Completions** from the **Mode** dropdown menu.
-1. Select **Generate product name ideas** from the **Examples** dropdown menu. The system prompt is prepopulated with something resembling the following text:
+1. In the **Prompt** text box, enter the following text:
 
     ```
     Generate product name ideas for a yet to be launched wearable health device that will allow users to monitor their health and wellness in real-time using AI and share their health metrics with their friends and family. The generated product name ideas should reflect the product's key features, have an international appeal, and evoke positive emotions.
@@ -52,7 +52,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 
     :::image type="content" source="../media/quickstarts/playground-completions-generate-before.png" alt-text="Screenshot of the Azure AI Studio playground with the Generate product name ideas dropdown selection visible." lightbox="../media/quickstarts/playground-completions-generate-before.png":::
 
-1. Select `Generate`. Azure OpenAI generates product name ideas based on. You should get a result that resembles the following list:
+1. Select **Generate**. Azure OpenAI generates product name ideas based on the prompt. You should get a result that resembles the following list:
 
     ```
     Product names:

@@ -170,7 +170,7 @@ For Azure, you can use operating system images provided by Microsoft in the [Azu
 
 - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
 - [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
 
 Alternatively, for Azure Stack HCI you can use operating system images from:
 
