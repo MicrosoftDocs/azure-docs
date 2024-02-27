@@ -63,7 +63,7 @@ To do this:
 1. Start your compute engine.
 2. Select **Data Actions** and then select **Mount**.
 
-![Screenshot of Azure ML option to select data actions.](./tutorial-access-data-from-aml/data-actions.png)
+![Screenshot of Azure ML option to select data actions.](./media/./tutorial-access-data-from-aml/data-actions.png)
 
 1. From here, you should see and select your ADLSg2 storage account name. It may take a few moments for your mount to be created.
 1. Once your mount is ready, you can select **Data actions** and then **Consume**. Under **Data**, you can then select the mount that you want to consume data from.
