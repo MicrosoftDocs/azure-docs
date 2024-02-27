@@ -26,8 +26,8 @@ With nested virtualization, you can support multiple VMs that communicate with e
 
 For more information about nested virtualization, see the following articles:
 
-- [How nested virtualization works](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#how-nested-virtualization-works).
-- [Nested Virtualization in Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+- [How nested virtualization works](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#how-nested-virtualization-works)
+- [Nested Virtualization in Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
 
 ## Enable nested virtualization for a lab
 
