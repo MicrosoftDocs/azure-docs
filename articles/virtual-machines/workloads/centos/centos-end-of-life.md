@@ -25,11 +25,11 @@ Workloads running on these CentOS versions need to migrate to alternate platform
 
 ## Migration options
 
-There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate depends on whether you need to:
+There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate depends on:
 
-- Retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
+- Whether you need to retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
 - Prefer a community supported distribution vs. commercial distribution (for example Red Hat Enterprise Linux or RHEL)
-- Configuration and image source(s) of your CentOS estate in Azure
+- The configuration and image source(s) of your CentOS estate in Azure
 
 If you need to keep CentOS compatibility, migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several choices such as Oracle Linux, Alma Linux, Rocky Linux, etc.
 
@@ -86,7 +86,7 @@ As you consider whether to convert your VM in-place vs redeploying, the way you 
 
 If you created your own VM for use in Azure, no software billing information is present in your VM. You're likely OK to convert it in place (after a backup and any necessary prerequisites and updates).
 
-Rogue Wave Software (formerly OpenLogic) Azure Marketplace offer
+OpenLogic by Perforce Azure Marketplace offers:
 
 - [CentOS-based](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos?tab=Overview)
 
@@ -94,7 +94,7 @@ Rogue Wave Software (formerly OpenLogic) Azure Marketplace offer
 
 - [CentOS-based LVM](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-lvm?tab=Overview)
 
-These are the official / endorsed CentOS image in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
+These are the official / endorsed CentOS images in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 
 **Other Azure Marketplace offers**
 
