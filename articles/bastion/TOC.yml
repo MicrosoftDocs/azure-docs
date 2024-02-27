@@ -65,6 +65,8 @@
       href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
+    - name: Configure session recording
+      href: session-recording.md
   - name: Connect to a virtual machine
     items:
     - name: Windows VM
