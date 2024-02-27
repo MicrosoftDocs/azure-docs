@@ -60,7 +60,7 @@ ml_client = ml_client = MLClient(DefaultAzureCredential(), subscription_id, reso
 
 ### [Azure CLI](#tab/cli)
 
-To use the Azure CLI code examples in this article, you need to have the Azure CLI installed and configured. You can install the Azure CLI from the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI code examples in this article, you need to have the Azure CLI installed and configured. You can install the Azure CLI from the [Azure CLI documentation](/azure/install-azure-cli).
 
 ### [Studio](#tab/azure-studio)
 
@@ -234,7 +234,7 @@ Azure machine learning models consist of the binary file(s) that represent a mac
 
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry helps you organize and keep track of your trained models.
 
-For more information on how to create models in the registry, see [Work with models in Azure Machine Learning](how-to-manage-models).
+For more information on how to create models in the registry, see [Work with models in Azure Machine Learning](how-to-manage-models.md).
 
 ## Environment
 
@@ -257,13 +257,13 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### [Python SDK](#tab/sdk)
 
-To create an environment using Python SDK v2, see [Create an envirnment](how-to-manage-environments-v2&tabs=python#create-an-environment).
+To create an environment using Python SDK v2, see [Create an envirnment](how-to-manage-environments-v2.md&tabs=python#create-an-environment).
 
 This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ### [Azure CLI](#tab/cli)
 
-To create an environment using CLI v2, see [Create an envirnment](how-to-manage-environments-v2&tabs=cli#create-an-environment).
+To create an environment using CLI v2, see [Create an envirnment](how-to-manage-environments-v2.md&tabs=cli#create-an-environment).
 
 For more information, see [environment YAML schema](reference-yaml-environment.md).
 
