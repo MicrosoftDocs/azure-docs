@@ -1,17 +1,20 @@
 ---
 title: Sample solutions using AI
-titleSuffix: Azure Cosmos DB for NoSQL
-description: Review solution accelerators using both Azure Cosmos DB for NoSQL and Azure OpenAI. The solutions integrate AI with vector search capabilities.
+titleSuffix: Azure Cosmos DB
+description: Review solution accelerators using both Azure Cosmos DB and Azure OpenAI. The solutions integrate AI with vector search capabilities.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: wangwilliam
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: overview
-ms.date: 01/18/2024
+ms.date: 02/27/2024
+zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb
 ---
 
-# Sample solutions using AI and Azure Cosmos DB for NoSQL
+# Sample solutions using AI and Azure Cosmos DB
+
+::: zone pivot="api-nosql"
 
 Use Azure Cosmos DB for NoSQL as a database for your AI-powered applications so you can grow your database as your application grows. You can also rely on the speed of Azure Cosmos DB and built-in reliability to ensure that your solution is fast and available as your needs change over time.
 
@@ -58,9 +61,31 @@ Diagram Illustrating an external system ingesting claims using Azure Event Hubs.
 
 ## Automate AI solutions
 
-Use tools like the new Azure Developer CLI to automate the deployment of AI-powered solutions. Use this automation to create a modern developer and operations workflow.
+Automate the deployment of AI-powered solutions using tools like the new Azure Developer CLI. Use this automation to create a modern developer and operations workflow.
 
 | | Link |
 | --- | --- |
-| **Azure Developer CLI template** | <https://github.com/azure-samples/chat-csharp-cosmos-db-nosql-openai> |
-| **Training module** | </training/modules/build-chat-bot-azure-cosmos-db-openai-blazor> |
+| **Sample chat application** | <https://github.com/Azure-Samples/cosmosdb-chatgpt> |
+| **Training module** | [https://learn.microsoft.com/training/modules/build-chat-bot-azure-cosmos-db-openai-blazor](/training/modules/build-chat-bot-azure-cosmos-db-openai-blazor) |
+
+::: zone-end
+
+::: zone pivot="api-mongodb"
+
+Use Azure Cosmos DB for MongoDB vCore as a database for your AI-powered applications so you can grow your database as your application grows. You can also rely on the speed of Azure Cosmos DB and built-in reliability to ensure that your solution is fast and available as your needs change over time.
+
+## Retrieval augmented generation
+
+Implement the RAG pattern using a combination of Azure Cosmos DB for MongoDB vCore, Azure OpenAI, Azure Functions, and Azure Web Apps.
+
+| | Link |
+| --- | --- |
+| **Solution accelerator** | <https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore> |
+| **Python notebook** | <https://github.com/Microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore> |
+
+::: zone-end
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Vector database](vector-database.md)
