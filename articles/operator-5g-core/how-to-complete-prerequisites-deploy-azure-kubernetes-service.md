@@ -1,6 +1,6 @@
 ---
 title: Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
-description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core Previewon the Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core Preview on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
