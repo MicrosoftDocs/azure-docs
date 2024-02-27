@@ -92,7 +92,7 @@ __NOTE__: Before proceeding, make sure you've added the Spark cluster’s storag
 
     * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: `-s
 wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net
--d "securehadooprc`
+-d "securehadooprc"`
 
 
 2.	Use Script Action on your Spark cluster to apply the changes with the following considerations:
