@@ -98,7 +98,6 @@ procedureSection:
     summary: |
       All drivers that support wire protocol version 3.4 or greater support Azure Cosmos DB for MongoDB.
 
-      Specifically, 
     steps:
       - |
         client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. 
