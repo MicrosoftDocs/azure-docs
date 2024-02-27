@@ -292,7 +292,7 @@ items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
     - name: Azure AI services - Azure OpenAI and Azure AI Search
-      href: /connectors/azure-ai.md
+      href: connectors/azure-ai.md
     - name: Azure Blob Storage
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
