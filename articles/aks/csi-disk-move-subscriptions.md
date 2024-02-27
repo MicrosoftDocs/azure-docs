@@ -12,7 +12,7 @@ This article describes how to safely move Azure Disk persistent volumes from an 
 
 The sequence of steps to complete this move are:
 
-* Confirm the Azure Disk resource state on the source AKS cluster is not in an **Attached** state to avoid data loss.
+* Confirm the Azure Disk resource state on the source AKS cluster isn't in an **Attached** state to avoid data loss.
 * Move the Azure Disk resource to the target resource group in the same or different subscription.
 * Validate the Azure Disk resource move succeeded.
 * Create the persistent volume (PV), persistent volume claim (PVC) and mount the moved disk as a volume on a pod on the target cluster  
@@ -20,7 +20,7 @@ The sequence of steps to complete this move are:
 ## Before you begin
 
 * You need an Azure [storage account][azure-storage-account].
-* Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Make sure you have Azure CLI version 2.0.59 or later installed and configured. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Review details and requirements about moving resources between different regions in [Move resources to a new resource group or subsription][move-resources-new-subscription-resource-group]. Be sure to review the [checklist before moving resources][move-resources-checklist] in that article.
 * You have an AKS cluster in the target subscription and the source cluster has persistent volumes with Azure Disks attached.
 
@@ -70,7 +70,11 @@ Preserving data is important while working with persistent volumes to avoid risk
 
 To move the persistent volume or volumes to another AKS cluster, follow the steps described in [Move Azure resources to a new resource group or subscription][move-resources-new-subscription-resource-group] using the [Azure portal][move-resources-using-porta], [Azure PowerShell][move-resources-using-azure-powershell], or using the [Azure CLI][move-resources-using-azure-cli].
 
-During this process, you'll reference either the name or resource ID of the source node resource group hosting the Azure managed disks, the name or resource ID of the destination resource group to move the managed disks to, and the name or resource ID of the managed disks resources.
+During this process, you'll reference:
+
+* The name or resource ID of the source node resource group hosting the Azure managed disks
+* The name or resource ID of the destination resource group to move the managed disks to
+* The name or resource ID of the managed disks resources.
 
 > [!NOTE]
 > Because of the dependencies between resource providers, this operation can take up to four hours to complete.
@@ -166,7 +170,7 @@ To mount the moved disk volume, you'll create a static persistent volume with th
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-1. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. In the example manifest, the name of the pod is *mypod*.
+1. To reference your *PersistentVolumeClaim*, create a *azure-disk-pod.yaml* file. In the example manifest, the name of the pod is *mypod*.
 
     ```yml
     ---
@@ -236,9 +240,12 @@ To mount the moved disk volume, you'll create a static persistent volume with th
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 
 <!-- LINKS - internal -->
+[azure-storage-account]: ../storage/common/storage-account-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
 [az-aks-show]: /cli/azure/disk#az-disk-show
 [az-disk-list]: /cli/azure/disk#az-disk-list
+[az-resource-list]: cli/azure/resource#az-resource-list
 [move-resources-checklist]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources
 [move-resources-using-porta]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal
 [move-resources-using-azure-powershell]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-azure-powershell
