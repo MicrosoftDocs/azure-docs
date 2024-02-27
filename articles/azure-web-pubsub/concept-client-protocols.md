@@ -29,6 +29,7 @@ Here's a general authorization workflow:
 1. The application server returns the JWT and the service URL to the client.
 1. The client tries to connect to the Web PubSub service by using the URL and the JWT token returned from the application server.
 
+### Supported claims
 You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT token:
 
 | Description | Claim type | Claim value | Notes |
