@@ -1,6 +1,6 @@
 ---
-title: Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
-description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Azure Kubernetes Service
+title: Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core Preview on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -9,9 +9,9 @@ ms.date: 02/22/2024
 
 ---
 
-# Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
+# Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
 
-This article shows you how to deploy Azure Operator 5G Core on the Azure Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
+This article shows you how to deploy Azure Operator 5G Core Preview on the Azure Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
 ## Prerequisites
 
@@ -236,5 +236,5 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 ## Related content
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core](how-to-deploy-5g-core.md).
+- [Deploy Azure Operator 5G Core Preview](how-to-deploy-5g-core.md).
 - [Deploy a network function](quickstart-deploy-network-functions.md).

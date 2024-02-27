@@ -16,6 +16,16 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2024
 
+* [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
+
+    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
+    
+    Azure NetApp Files now supports characters outside of the BMP using surrogate pair logic, where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are now supported in Azure NetApp Files.
+
+    To learn more about languages and special character handling in Azure NetApp Files volumes, see [Understand volume languages in Azure NetApp Files](understand-volume-languages.md).
+    
+    To learn more about file path lengths in relation to language and character handling in Azure NetApp Files volumes, see [Understand path lengths in Azure NetApp Files](understand-path-lengths.md).
+    
 
 * [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
 
