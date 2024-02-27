@@ -25,7 +25,7 @@ This article provides guidance on how to replace an Azure File Sync server due t
 
 5.	In the Azure portal, navigate to the Storage Sync Service. Go to the sync group for the old server and [create a server endpoint](file-sync-server-endpoint-create.md#create-a-server-endpoint) on the new server. Repeat this step for every sync group that has a server endpoint for the old server.
    
-    For example, if the old server has 4 sever endpoints (4 sync groups), 4 server endpoints should be created on the new server.
+    For example, if the old server has 4 server endpoints (four sync groups), 4 server endpoints should be created on the new server.
   	 
 7.	Wait for the namespace download to complete to the new server. To monitor progress, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?tabs=portal1%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
