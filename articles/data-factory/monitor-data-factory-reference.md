@@ -63,17 +63,29 @@ The following table lists the metrics available for the Microsoft.DataFactory/fa
 - If you have metrics with dimensions, use the following include and list the metrics with dimensions after the include. For an example, see https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions. Questions: email azmondocs@microsoft.com. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-**Microsoft.DataFactory/datafactories**
-pipelineName, activityName
+### Microsoft.DataFactory/datafactories
 
-**Microsoft.DataFactory/factories**
-ActivityType, PipelineName, FailureType, Name
-IntegrationRuntimeName, ContainerName
-DagFile, DagId
-ComputeNodeSize
-Job, Operator, Pool
-TaskId, State, NodeName
-CancelledBy, RunId
+- pipelineName
+- activityName
+
+### Microsoft.DataFactory/factories
+- ActivityType
+- PipelineName
+- FailureType
+- Name
+- IntegrationRuntimeName
+- ContainerName
+- DagFile
+- DagId
+- ComputeNodeSize
+- Job
+- Operator
+- Pool
+- TaskId
+- State
+- NodeName
+- CancelledBy
+- RunId
 
 <!-- If you DON'T have metrics with dimensions, use the following include: 
 [!INCLUDE [horz-monitor-ref-no-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-no-metrics-dimensions.md)] -->
