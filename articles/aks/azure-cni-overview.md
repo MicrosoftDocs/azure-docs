@@ -155,15 +155,7 @@ Learn more about networking in AKS in the following articles:
 
 * [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-
-* [Enable the HTTP application routing add-on][aks-http-app-routing]
-
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-
-* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-
-* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -181,11 +173,6 @@ Learn more about networking in AKS in the following articles:
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register

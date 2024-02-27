@@ -8,7 +8,6 @@ ms.author: mbender
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
 ---
 

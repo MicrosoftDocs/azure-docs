@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.custom: language-service-custom-ner, event-tier1-build-2022
+ms.custom: language-service-custom-ner
 ms.author: aahi
 ---
 

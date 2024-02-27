@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Application Gateway for Containers managed by ALB Controller '
+title: 'Quickstart: Create Application Gateway for Containers managed by ALB Controller'
 description: In this quickstart, you learn how to provision the Application Gateway for Containers resources via Kubernetes definition.
 services: application-gateway
 author: greglin
@@ -7,11 +7,11 @@ ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 09/25/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Quickstart: Create Application Gateway for Containers managed by ALB Controller 
+# Quickstart: Create Application Gateway for Containers managed by ALB Controller
 
 This guide assumes you're following the **managed by ALB controller** [deployment strategy](overview.md#deployment-strategies), where all the Application Gateway for Containers resources are managed by ALB controller. Lifecycle is determined the resources defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. The Application Gateway for Containers lifecycle is based on the lifecycle of the custom resource.
 
@@ -21,7 +21,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  See
 
 ### Prepare your virtual network / subnet for Application Gateway for Containers
 
-If you don't have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation. The new subnet address space can't overlap any existing subnets in the VNet. 
+If you don't have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, use the following steps to create a new subnet and enable subnet delegation. The new subnet address space can't overlap any existing subnets in the VNet.
 
 # [New subnet in AKS managed virtual network](#tab/new-subnet-aks-vnet)
 If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, run the following command to find and assign the cluster's virtual network. This information is used in the next step.
@@ -131,6 +131,7 @@ kubectl get applicationloadbalancer alb-test -n alb-test-infra -o yaml -w
 ```
 
 Example output of a successful provisioning of the Application Gateway for Containers resource from Kubernetes.
+
 ```yaml
 status:
   conditions:

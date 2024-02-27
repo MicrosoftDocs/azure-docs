@@ -1,10 +1,9 @@
 ---
 title: Requirements and considerations for Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
-description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files application volume group for SAP HANA.  
+description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files application volume group for SAP HANA.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/08/2023
 ms.author: anfdocs

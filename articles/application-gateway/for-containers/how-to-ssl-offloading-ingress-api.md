@@ -1,17 +1,16 @@
 ---
-
-title: SSL offloading with Application Gateway for Containers - Ingress API 
+title: SSL offloading with Application Gateway for Containers - Ingress API
 description: Learn how to configure SSL offloading with Application Gateway for Containers using the Ingress API.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# SSL offloading with Application Gateway for Containers - Ingress API 
+# SSL offloading with Application Gateway for Containers - Ingress API
 
 This document helps set up an example application that uses the _Ingress_ resource from [Ingress API](https://kubernetes.io/docs/concepts/services-networking/ingress/):
 
@@ -87,7 +86,8 @@ RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOU
 FRONTEND_NAME='frontend'
 ```
 
-2. Create an Ingress
+2. Create an Ingress resource.
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -121,11 +121,13 @@ EOF
 ---
 
 When the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
 Example output of successful Ingress creation.
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

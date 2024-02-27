@@ -27,7 +27,7 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
+- [Azure CLI version 2.46.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ### Create a cluster

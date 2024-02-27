@@ -8,7 +8,7 @@ ms.topic: how-to
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, cliv2, event-tier1-build-2022
+ms.custom: devplatv2, cliv2
 
 ms.date: 02/07/2023
 ---

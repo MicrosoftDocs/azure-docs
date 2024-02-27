@@ -17,6 +17,10 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **January 2024**
+**Concurrent execution of queries with conditional interactions**
+Conditional interactions can be complex and performance-intensive. To enhance the latency of queries involving conditional interactions, you have the option to utilize the request header x-conditionalquery-processing-logic. For more information, see [Performance considerations for conditional API interactions](../../healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities.md).
+
 ## **December 2023**
 **Additional capabilities added to the Export operation**
 $export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](../../healthcare-apis/azure-api-for-fhir/export-data.md).

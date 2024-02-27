@@ -176,7 +176,7 @@ Azure Site Recovery also provides default alerts via Azure Monitor, which enable
 
 ### Enable built-in Azure Monitor alerts
 
-To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertToAzureMonitor** for the selected subscription. 
+To enable built-in Azure Monitor alerts for Azure Site Recovery, for a particular subscription, navigate to **Preview Features** in the [Azure portal](https://ms.portal.azure.com) and register the feature flag **EnableAzureSiteRecoveryAlertsToAzureMonitor** for the selected subscription. 
 
 > [!NOTE]
 > We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 

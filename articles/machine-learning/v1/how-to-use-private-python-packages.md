@@ -1,5 +1,5 @@
 ---
-title: Use private Python packages 
+title: Use private Python packages
 titleSuffix: Azure Machine Learning
 description: Learn how to securely work with private Python packages from your Azure Machine Learning environments.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
 # Use private Python packages with Azure Machine Learning

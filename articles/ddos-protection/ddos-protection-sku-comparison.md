@@ -4,9 +4,9 @@ description: Learn about the available tiers for Azure DDoS Protection.
 author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 08/08/2023
-ms.custom: template-concept, ignite-2022
+ms.custom: template-concept
 ---
 
 
@@ -68,4 +68,3 @@ For more information, see [Azure DDoS Protection reference architectures](./ddos
 
 * [Azure DDoS Protection features](ddos-protection-features.md)
 * [Reference architectures](ddos-protection-reference-architectures.md)
-

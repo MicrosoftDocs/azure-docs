@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend public I
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -46,6 +46,7 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
 * Deletion of frontend IP addresses aren't supported
+* Application Gateway Ingress Controller (AGIC) does not support IPv6 configuration
 * Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
 
 > [!NOTE]
@@ -350,4 +351,4 @@ To opt out of the public preview for the enhanced Application Gateway network co
 
 ## Next steps
 
-- [What is Azure Application Gateway v2](overview-v2.md).
+- [What is Azure Application Gateway v2?](overview-v2.md)

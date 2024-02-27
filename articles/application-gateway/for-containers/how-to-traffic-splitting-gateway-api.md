@@ -1,17 +1,16 @@
 ---
-
-title: Traffic Splitting with Application Gateway for Containers - Gateway API 
+title: Traffic Splitting with Application Gateway for Containers - Gateway API
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Traffic splitting with Application Gateway for Containers - Gateway API 
+# Traffic splitting with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one http listener
@@ -108,15 +107,17 @@ EOF
 ---
 
 Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
-  - type: IPAddress
+  - type: Hostname
     value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
@@ -159,6 +160,7 @@ status:
 ```
 
 Once the gateway has been created, create an HTTPRoute
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -181,6 +183,7 @@ EOF
 ```
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+
 ```bash
 kubectl get httproute traffic-split-route -n test-infra -o yaml
 ```

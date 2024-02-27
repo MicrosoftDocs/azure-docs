@@ -4,7 +4,6 @@ description: Describes ways to monitor Azure NetApp Files, including the Activit
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.author: anfdocs

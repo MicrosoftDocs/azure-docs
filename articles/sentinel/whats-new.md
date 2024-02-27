@@ -23,6 +23,34 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+- [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
+- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
+- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
+- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
+
+You can now ingest logs from Google Security Command Center, using the new Google Cloud Platform (GCP) Pub/Sub-based connector (now in PREVIEW).
+
+The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, detection of vulnerabilities and threats, and risk mitigation and remediation. These capabilities help you gain insights into and control over your organization's security posture and data attack surface, and enhance your ability to efficiently handle tasks related to findings and assets.
+
+The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
+
+- Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
+
+### Incident tasks now generally available (GA)
+
+Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
+
+- Learn more about incident tasks in the Microsoft Sentinel documentation:
+    - [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)
+    - [Work with incident tasks in Microsoft Sentinel](work-with-tasks.md)
+    - [Audit and track changes to incident tasks in Microsoft Sentinel](audit-track-tasks.md)
+
+- See [this blog post by Benji Kovacevic](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-tasks-repository-in-microsoft-sentinel/ba-p/4038563) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
+    - A repository of incident tasks.
+    - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
+
 ### AWS and GCP data connectors now support Azure Government clouds
 
 Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
@@ -32,7 +60,15 @@ The configurations for these connectors for Azure Government customers differs s
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
 - [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
 
+### Windows DNS Events via AMA connector now generally available (GA)
+
+Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Monitor Agent with the now generally available data connector. This connector allows you to define Data Collection Rules (DCRs) and powerful, complex filters so that you ingest only the specific DNS records and fields you need.
+
+- For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
+
 ## January 2024
+
+[Reduce false positives for SAP systems with analytics rules](#reduce-false-positives-for-sap-systems-with-analytics-rules)
 
 ### Reduce false positives for SAP systems with analytics rules
 

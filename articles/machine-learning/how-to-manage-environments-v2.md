@@ -5,11 +5,11 @@ description: Learn how to manage Azure Machine Learning environments using Pytho
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: ositanachi  
+author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 01/03/2024
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, devx-track-python
+ms.custom: devx-track-azurecli, devplatv2, devx-track-python
 ---
 
 # Manage Azure Machine Learning environments with the CLI & SDK (v2)
@@ -331,5 +331,3 @@ You can also use environments for your model deployments. For more information, 
 - [Train models (create jobs)](how-to-train-model.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)
-
-

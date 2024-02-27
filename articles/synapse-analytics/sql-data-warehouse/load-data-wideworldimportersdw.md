@@ -9,7 +9,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - synapse-analytics
 ---
 

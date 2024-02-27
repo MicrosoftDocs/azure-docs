@@ -2,7 +2,6 @@
 title: Monitor normalized RU/s for an Azure Cosmos DB container or an account
 description: Learn how to monitor the normalized request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are consuming more request units.
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo

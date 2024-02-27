@@ -7,7 +7,7 @@ ms.service: container-registry
 ms.custom: devx-track-azurecli
 ms.topic: conceptual #Don't change
 ms.date: 12/14/2023
-#customer intent: As a developer, I want artifact streaming capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
+# Customer intent: As a developer, I want artifact streaming capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
 ---
 
 # Artifact streaming in Azure Container Registry (Preview)

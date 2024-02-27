@@ -28,7 +28,7 @@ The web application sample for this tutorial is written in Node.js. The steps in
 
 * A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* A simulated device that sends telemetry messages to your IoT hub. Use the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) to get a simulated device that sends temperature data to IoT Hub.
+* A simulated device that sends telemetry messages to your IoT hub. Use the [Raspberry Pi online simulator](raspberry-pi-get-started.md) to get a simulated device that sends temperature data to IoT Hub.
 
 * [Node.js](https://nodejs.org) version 14 or later. To check your node version run `node --version`.
 

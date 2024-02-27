@@ -2,7 +2,6 @@
 author: KarlErickson
 ms.author: caiqing
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 02/09/2022
 ---

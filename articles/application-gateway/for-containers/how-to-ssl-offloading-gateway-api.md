@@ -1,19 +1,19 @@
 ---
-
-title: SSL offloading with Application Gateway for Containers - Gateway API 
+title: SSL offloading with Application Gateway for Containers - Gateway API
 description: Learn how to configure SSL offloading with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# SSL offloading with Application Gateway for Containers - Gateway API 
+# SSL offloading with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
+
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) that references a backend service.
 
@@ -33,7 +33,7 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
     ```bash
     kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
     ```
-    
+
     This command creates the following on your cluster:
     - a namespace called `test-infra`
     - one service called `echo` in the `test-infra` namespace
@@ -45,6 +45,7 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create a Gateway
+
     ```bash
     kubectl apply -f - <<EOF
     apiVersion: gateway.networking.k8s.io/v1beta1
@@ -88,6 +89,7 @@ FRONTEND_NAME='frontend'
 ```
 
 2. Create a Gateway
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -121,15 +123,17 @@ EOF
 ---
 
 When the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
-  - type: IPAddress
+  - type: Hostname
     value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
@@ -171,7 +175,8 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway is created, create an HTTPRoute
+Once the gateway is created, create an HTTPRoute resource.
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -190,6 +195,7 @@ EOF
 ```
 
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```

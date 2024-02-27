@@ -6,26 +6,29 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
+<<<<<<< HEAD
 # URL Rewrite for Azure Application Gateway for Containers - Ingress API 
+=======
+# URL Rewrite for Azure Application Gateway for Containers - Ingress API
+>>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 
 Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request contains the newly rewritten URL to initiate the request.
-
 
 ## Usage details
 
 URL Rewrites take advantage of Application Gateway for Containers' IngressExtension custom resource.
 
 ## Background
+
 URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
 The following figure illustrates a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
-
 
 ## Prerequisites
 

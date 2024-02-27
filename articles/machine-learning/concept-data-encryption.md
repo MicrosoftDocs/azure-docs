@@ -5,7 +5,6 @@ description: 'Learn how Azure Machine Learning computes and datastores provide d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono

@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 zone_pivot_groups: arm-azure-cli-portal
 ---
 
@@ -158,7 +158,7 @@ You can expose additional TCP ports from your application. To learn more, see th
 Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
 ```azurecli
-az containerapp create
+az containerapp create \
     --name <app-name> \
     --resource-group <resource-group> \
     --yaml <your-yaml-file>
