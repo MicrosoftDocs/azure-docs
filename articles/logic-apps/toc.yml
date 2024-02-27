@@ -291,6 +291,8 @@ items:
     items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
+    - name: Azure AI services - Azure OpenAI and Azure AI Search
+      href: /connectors/azure-ai.md
     - name: Azure Blob Storage
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
@@ -317,13 +319,13 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365
+    - name: Dynamics 365 (Deprecated)
       href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
-    - name: File system
+    - name: File System
       href: ../connectors/file-system.md
-    - name: Flat file
+    - name: Flat File
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
@@ -351,7 +353,7 @@ items:
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
-    - name: Microsoft Dataverse (Common Data Service)
+    - name: Microsoft Dataverse
       href: ../connectors/connect-common-data-service.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md

@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure AI services with your workflows
-description: Integrate enterprise data with Azure OpenAI and Azure AI Search from Standard workflows in Azure Logic Apps.
+description: Integrate data in Standard workflows with Azure OpenAI and Azure AI Search for Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/29/2024
 ---
 
-# Integrate data with Azure AI services from Standard workflows in Azure Logic Apps (preview)
+# Integrate Azure AI services with Standard workflows in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -54,7 +54,7 @@ For more information, see the following resources:
 - [What are embeddings](/semantic-kernel/memories/embeddings)
 - [Understand embeddings in Azure OpenAI](../../ai-services/openai/concepts/understand-embeddings.md)
 
-## Generate completions
+### Generate completions
 
 An Azure Logic Apps workflow can accept input, while Azure OpenAI Service can perform completion operations. These capabilities mean that your workflow can ingest real-time questions, generate answers about your data, or send automated responses using Azure OpenAI. You can immediately send the responses back to the client or to an approval workflow for verification.
 
