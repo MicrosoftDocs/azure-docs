@@ -101,31 +101,36 @@ Script execution result can be found in storage account:
 https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
 ```
 
+__Example list of hardware support files collected__
+
+```
+Archive:  TSR20240227164024_FM56PK3.pl.zip
+   creating: tsr/hardware/
+   creating: tsr/hardware/spd/
+   creating: tsr/hardware/sysinfo/
+   creating: tsr/hardware/sysinfo/inventory/
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_CIM_BIOSAttribute.xml  
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_CIM_Sensor.xml  
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_DCIM_View.xml  
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_DCIM_SoftwareIdentity.xml  
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_CIM_Capabilities.xml  
+  inflating: tsr/hardware/sysinfo/inventory/sysinfo_CIM_StatisticalData.xml  
+   creating: tsr/hardware/sysinfo/lcfiles/
+  inflating: tsr/hardware/sysinfo/lcfiles/lclog_0.xml.gz  
+  inflating: tsr/hardware/sysinfo/lcfiles/curr_lclog.xml  
+   creating: tsr/hardware/psu/
+   creating: tsr/hardware/idracstateinfo/
+  inflating: tsr/hardware/idracstateinfo/avc.log  
+ extracting: tsr/hardware/idracstateinfo/avc.log.persistent.1  
+[..snip..]
+```
+
 ### Collect MDE Agent Information
 
 Data is collected with the `mde-agent-information` command and formatted as JSON
 to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file is found
 in the data extract zip file located in the storage account. The script executes a
 sequence of `mdatp` commands on the designated baremetal machine.
-
-__Example JSON object collected__
-
-```
-{
-  "diagnosticInformation": {
-      "realTimeProtectionStats": $real_time_protection_stats,
-      "eventProviderStats": $event_provider_stats
-      },
-  "mdeDefinitions": $mde_definitions,
-  "generalHealth": $general_health,
-  "mdeConfiguration": $mde_config,
-  "scanList": $scan_list,
-  "threatInformation": {
-      "list": $threat_info_list,
-      "quarantineList": $threat_info_quarantine_list
-    }
-}
-```
 
 This example executes the `mde-agent-information` command without arguments.
 
@@ -149,6 +154,25 @@ Writing to /hostfs/tmp/runcommand
 ================================
 Script execution result can be found in storage account:
  https://cmzhnh6bdsfsdwpbst.blob.core.windows.net/bmm-run-command-output/f5962f18-2228-450b-8cf7-cb8344fdss63b0-action-bmmdataextcmd.tar.gz?se=2023-07-26T19%3A07%3A22Z&sig=X9K3VoNWRFP78OKqFjvYoxubp65BbNTq%2BGnlHclI9Og%3D&sp=r&spr=https&sr=b&st=2023-07-26T15%3A07%3A22Z&sv=2019-12-12
+```
+
+__Example JSON object collected__
+
+```
+{
+  "diagnosticInformation": {
+      "realTimeProtectionStats": $real_time_protection_stats,
+      "eventProviderStats": $event_provider_stats
+      },
+  "mdeDefinitions": $mde_definitions,
+  "generalHealth": $general_health,
+  "mdeConfiguration": $mde_config,
+  "scanList": $scan_list,
+  "threatInformation": {
+      "list": $threat_info_list,
+      "quarantineList": $threat_info_quarantine_list
+    }
+}
 ```
 
 ### Collect MDE Support Diagnostics
@@ -190,6 +214,8 @@ Script execution result can be found in storage account:
 
 After downloading the execution result file, the support files can be unzipped for analysis.
 
+__Example list of information collected by the MDE Client Analyzer__
+
 ```azurecli
 Archive:  mde-support-diagnostics-rack1compute02.zip
   inflating: mde_diagnostic.zip      
@@ -209,7 +235,7 @@ Archive:  mde-support-diagnostics-rack1compute02.zip
 ### Hardware Rollup Status
 
 Data is collected with the `hardware-rollup-status` command and formatted as JSON to `/hostfs/tmp/runcommand/rollupStatus.json`. The JSON file is found
-in the data extract zip file located in the storage account.
+in the data extract zip file located in the storage account. The data collected will show the health of the machine subsystems.
 
 This example executes the `hardware-rollup-status` command without arguments.
 
@@ -232,6 +258,43 @@ Writing to /hostfs/tmp/runcommand
 ================================
 Script execution result can be found in storage account:
 https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea38-4394-9db1-21a0d392eff0-action-bmmdataextcmd.tar.gz?se=2023-09-19T18%3A47%3A17Z&sig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%3D&sp=r&spr=https&sr=b&st=2023-09-19T14%3A47%3A17Z&sv=2019-12-12
+```
+
+__Example JSON Collected__
+
+```
+{
+	"@odata.context" : "/redfish/v1/$metadata#DellRollupStatusCollection.DellRollupStatusCollection",
+	"@odata.id" : "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus",
+	"@odata.type" : "#DellRollupStatusCollection.DellRollupStatusCollection",
+	"Description" : "A collection of DellRollupStatus resource",
+	"Members" : 
+	[
+		{
+			"@odata.context" : "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
+			"@odata.id" : "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Current",
+			"@odata.type" : "#DellRollupStatus.v1_0_0.DellRollupStatus",
+			"CollectionName" : "CurrentRollupStatus",
+			"Description" : "Represents the subcomponent roll-up statuses.",
+			"Id" : "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Current",
+			"InstanceID" : "iDRAC.Embedded.1#SubSystem.1#Current",
+			"Name" : "DellRollupStatus",
+			"RollupStatus" : "Ok",
+			"SubSystem" : "Current"
+		},
+		{
+			"@odata.context" : "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
+			"@odata.id" : "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Voltage",
+			"@odata.type" : "#DellRollupStatus.v1_0_0.DellRollupStatus",
+			"CollectionName" : "VoltageRollupStatus",
+			"Description" : "Represents the subcomponent roll-up statuses.",
+			"Id" : "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Voltage",
+			"InstanceID" : "iDRAC.Embedded.1#SubSystem.1#Voltage",
+			"Name" : "DellRollupStatus",
+			"RollupStatus" : "Ok",
+			"SubSystem" : "Voltage"
+		},
+[..snip..]
 ```
 
 ## Viewing the Output
