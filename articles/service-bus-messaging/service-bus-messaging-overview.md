@@ -2,11 +2,11 @@
 title: Introduction to Azure Service Bus, an enterprise message broker
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration serverless message broker. 
 ms.topic: overview
-ms.date: 02/24/2023
+ms.date: 02/23/2024
 ---
 
 # What is Azure Service Bus?
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). Service Bus is used to decouple applications and services from each other, providing the following benefits:
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
 - Load-balancing work across competing workers
 - Safely routing and transferring data and control across service and application boundaries
@@ -45,9 +45,9 @@ This section discusses basic concepts of Service Bus.
 ### Queues
 Messages are sent to and received from **queues**. Queues store messages until the receiving application is available to receive and process them.
 
-![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-queue.png" alt-text="Diagram that shows a Service Bus queue with a sender and a receiver sending and receiving messages.":::
 
-Messages in queues are ordered and timestamped on arrival. Once the broker accepts the message, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus keeps messages in memory or volatile storage until they've been reported by the client as accepted.
+Messages in queues are ordered and timestamped on arrival. Once the broker accepts the message, the message is always held durably in triple-redundant storage, spread across availability zones if the namespace is zone-enabled. Service Bus keeps messages in memory or volatile storage until client reports them as accepted.
 
 Messages are delivered in **pull** mode, only delivering messages when requested. Unlike the busy-polling model of some other cloud queues, the pull operation can be long-lived and only complete once a message is available. 
 
@@ -56,9 +56,9 @@ Messages are delivered in **pull** mode, only delivering messages when requested
 
 ### Topics
 
-You can also use **topics** to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish/subscribe scenarios.
+You can also use **topics** to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish-subscribe scenarios.
 
-![Topic](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-queue.png" alt-text="Diagram that shows a Service Bus topic with one sender and multiple receivers.":::
 
 Topics can have multiple, independent subscriptions, which attach to the topic and otherwise work exactly like queues from the receiver side. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities. Subscriptions are durable by default, but can be configured to expire and then be automatically deleted. Via the Java Message Service (JMS) API, Service Bus Premium also allows you to create volatile subscriptions that exist for the duration of the connection.
 
@@ -72,9 +72,9 @@ You can define rules on a subscription. A subscription rule has a **filter** to 
 
 
 ### Namespaces
-A namespace is a container for all messaging components (queues and topics). Multiple queues and topics can be in a single namespace, and namespaces often serve as application containers. 
+A namespace is a container for all messaging components (queues and topics). A namespace can have one or more queues and topics and it often serves as an application container.
 
-A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It may optionally span three [Azure availability zones](../availability-zones/az-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
+A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../availability-zones/az-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
 ## Advanced features
 
@@ -82,7 +82,7 @@ Service Bus also has advanced features that enable you to solve more complex mes
 
 ### Message sessions
 
-To realize a first-in, first-out (**FIFO**) guarantee in processing messages in Service Bus queue or subscriptions, use sessions. Sessions can also be used in implementing request-response patterns. The **request-response pattern** enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. For more information, see [Message sessions](message-sessions.md)
+To realize a first-in, first-out (**FIFO**) guarantee in processing messages in Service Bus queues or subscriptions, use sessions. Sessions can also be used in implementing request-response patterns. The **request-response pattern** enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. For more information, see [Message sessions](message-sessions.md).
 
 ### Auto-forwarding
 
@@ -106,7 +106,7 @@ A transaction groups two or more operations together into an execution scope. Se
 
 ### Filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule. For more information, see [Topic filters and actions](topic-filters.md).
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which can be differently annotated for each matching rule. For more information, see [Topic filters and actions](topic-filters.md).
 
 ### Auto-delete on idle
 

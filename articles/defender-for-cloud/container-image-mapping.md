@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: ignite-2023
 ---
 
-# Map Container Images from Code to Cloud
+# Map container images from code to cloud
 
 When a vulnerability is identified in a container image stored in a container registry or running in a Kubernetes cluster, it can be difficult for a security practitioner to trace back to the CI/CD pipeline that first built the container image and identify a developer remediation owner. With DevOps security capabilities in Microsoft Defender Cloud Security Posture Management (CSPM), you can map your cloud-native applications from code to cloud to easily kick off developer remediation workflows and reduce the time to remediation of vulnerabilities in your container images.
 
@@ -15,7 +15,7 @@ When a vulnerability is identified in a container image stored in a container re
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment onboarded to Microsoft Defender for Cloud.
 - For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
-- For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories.
+- For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories. Additionally, the GitHub Workflow must have "**id-token: write"** permissions for federation with Defender for Cloud. For an example, see [this YAML](https://github.com/microsoft/security-devops-action/blob/7e3060ae1e6a9347dd7de6b28195099f39852fe2/.github/workflows/on-push-verification.yml). 
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
 - The container images must be built using [Docker](https://www.docker.com/) and the Docker client must be able to access the Docker server during the build.
 
@@ -48,14 +48,44 @@ The following is an example of an advanced query that utilizes container image m
 
 1. Add the container image mapping tool to your MSDO workflow:
 
-    ```yml
-          # Run analyzers
-        - name: Run Microsoft Security DevOps Analysis
-          uses: microsoft/security-devops-action@latest
-          id: msdo
-          with:
-            include-tools: container-mapping
-    ```
+```yml
+name: Build and Map Container Image
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Set Permissions
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8' 
+    # Set Authentication to Container Registry of Choice
+   - name: Azure Container Registry Login 
+        uses: Azure/docker-login@v1 
+        with:
+        login-server: <containerRegistryLoginServer>
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+    # Build and Push Image
+    - name: Build and Push the Docker image 
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ secrets.IMAGE_TAG }}
+          file: Dockerfile
+     # Run Mapping Tool in MSDO
+    - name: Run Microsoft Security DevOps Analysis
+      uses: microsoft/security-devops-action@latest
+      id: msdo
+      with:
+        include-tools: container-mapping
+```
 
 After building a container image in a GitHub workflow and pushing it to a registry, see the mapping by using the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md):
 

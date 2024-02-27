@@ -1,7 +1,7 @@
 ---
 title: Create a JavaScript function from the command line - Azure Functions
 description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
-ms.date: 12/15/2023
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api, devx-track-js
@@ -50,19 +50,20 @@ In Azure Functions, a function project is a container for one or more individual
 
 ::: zone pivot="nodejs-model-v3" 
 1. In a suitable folder, run the [`func init`](functions-core-tools-reference.md#func-init) command, as follows, to create a JavaScript Node.js v3 project in the current folder:
-
+   
     ```console
     func init --javascript --model V3
     ```
+    
     This folder now contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
-
+   
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
-
-     [`func new`](functions-core-tools-reference.md#func-new)  creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    
+    The [`func new`](functions-core-tools-reference.md#func-new) command creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 You may find the [Azure Functions Core Tools reference](functions-core-tools-reference.md) helpful.
 

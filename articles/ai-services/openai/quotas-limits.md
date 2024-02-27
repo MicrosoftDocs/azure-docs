@@ -43,100 +43,33 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max number of `/chat completions` tools | 128 |
 | Maximum number of Provisioned throughput units per deployment | 100,000 |
 | Max files per Assistant/thread | 20 |
-| Max file size for Assistants | 512 MB |
+| Max file size for Assistants & fine-tuning | 512 MB |
 | Assistants token limit | 2,000,000 token limit |
 
 ## Regional quota limits
 
 The default quota for models varies by model and region. Default quota limits are subject to change.
 
-<table>  
-  <tr>  
-    <th>Model</th>  
-    <th>Regions</th>  
-    <th>Tokens per minute</th>  
-  </tr>  
-  <tr>  
-    <td rowspan="2">gpt-35-turbo</td>  
-    <td>East US, South Central US, West Europe, France Central, UK South</td>  
-    <td>240 K</td>  
-  </tr>  
-  <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
-    <td>300 K</td>  
-  </tr>  
-  <tr>  
-    <td rowspan="2">gpt-35-turbo-16k</td>  
-    <td>East US, South Central US, West Europe, France Central, UK South</td>  
-    <td>240 K</td>  
-  </tr>  
-  <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
-    <td>300 K</td>  
-  </tr> 
-   <tr>  
-    <td>gpt-35-turbo-instruct</td>  
-    <td>East US, Sweden Central</td>  
-    <td>240 K</td>  
-  </tr>  
-  <tr>  
-    <td>gpt-35-turbo (1106)</td>  
-    <td> Australia East, Canada East, France Central, South India, Sweden Central, UK South, West US
-</td>  
-    <td>120 K</td>  
-  </tr>  
-  <tr>  
-    <td rowspan="2">gpt-4</td>  
-    <td>East US, South Central US, France Central</td>  
-    <td>20 K</td>  
-  </tr>  
-  <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Sweden Central, Switzerland North</td>  
-    <td>40 K</td>  
-  </tr>  
-  <tr>  
-    <td rowspan="2">gpt-4-32k</td>  
-    <td>East US, South Central US, France Central</td>  
-    <td>60 K</td>  
-  </tr>  
-  <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
-    <td>80 K</td>  
-  </tr>
-  <tr>  
-    <td rowspan="2">gpt-4 (1106-preview)<br>GPT-4 Turbo </td>  
-    <td>Australia East, Canada East, East US 2, France Central, UK South, West US</td>  
-    <td>80 K</td>  
-  </tr>  
-  <tr>  
-    <td>South India, Norway East, Sweden Central</td>  
-    <td>150 K</td>  
-  </tr>
-<tr>  
-    <td>gpt-4 (vision-preview)<br>GPT-4 Turbo with Vision</td>  
-    <td>Sweden Central, Switzerland North, Australia East, West US</td>  
-    <td>30 K</td>  
-  </tr>  
-  <tr>  
-    <td rowspan="2">text-embedding-ada-002</td>  
-    <td>East US, South Central US, West Europe, France Central</td>  
-    <td>240 K</td>  
-  </tr>  
-  <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Switzerland North</td>  
-    <td>350 K</td>  
-  </tr>  
-<tr>  
-    <td>Fine-tuning models (babbage-002, davinci-002, gpt-35-turbo-0613)</td>  
-    <td>North Central US, Sweden Central</td>  
-    <td>50 K</td>  
-  </tr>  
-  <tr>  
-    <td>all other models</td>  
-    <td>East US, South Central US, West Europe, France Central</td>  
-    <td>120 K</td>  
-  </tr>  
-</table>  
+
+| Region           | Text-Embedding-Ada-002   | text-embedding-3-small   | text-embedding-3-large   | GPT-35-Turbo   | GPT-35-Turbo-1106   | GPT-35-Turbo-16K   | GPT-35-Turbo-Instruct   | GPT-4   | GPT-4-32K   | GPT-4-Turbo   | GPT-4-Turbo-V   | Babbage-002   | Babbage-002 - finetune   | Davinci-002   | Davinci-002 - finetune   | GPT-35-Turbo - finetune   | GPT-35-Turbo-1106 - finetune   |
+|:-----------------|:-------------------------|:-------------------------|:-------------------------|:---------------|:--------------------|:-------------------|:------------------------|:--------|:------------|:--------------|:----------------|:--------------|:-------------------------|:--------------|:-------------------------|:--------------------------|:-------------------------------|
+| australiaeast    | 350 K                    | -                        | -                        | 300 K          | 120 K               | 300 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| brazilsouth      | 350 K                    | -                        | -                        | -              | -                   | -                  | -                       | -       | -           | -             | -               | -             | -                        | -             | -                        | -                         | -                              |
+| canadaeast       | 350 K                    | 350 K                    | 350 K                    | 300 K          | 120 K               | 300 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| eastus           | 240 K                    | 350 K                    | 350 K                    | 240 K          | -                   | 240 K              | 240 K                   | -       | -           | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| eastus2          | 350 K                    | 350 K                    | 350 K                    | 300 K          | -                   | 300 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| francecentral    | 240 K                    | -                        | -                        | 240 K          | 120 K               | 240 K              | -                       | 20 K    | 60 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| japaneast        | 350 K                    | -                        | -                        | 300 K          | -                   | 300 K              | -                       | 40 K    | 80 K        | -             | 30 K            | -             | -                        | -             | -                        | -                         | -                              |
+| northcentralus   | 350 K                    | -                        | -                        | 300 K          | -                   | 300 K              | -                       | -       | -           | 80 K          | -               | 240 K         | 250 K                    | 240 K         | 250 K                    | 250 K                     | 250 K                          |
+| norwayeast       | 350 K                    | -                        | -                        | -              | -                   | -                  | -                       | -       | -           | 150 K         | -               | -             | -                        | -             | -                        | -                         | -                              |
+| southafricanorth | 350 K                    | -                        | -                        | -              | -                   | -                  | -                       | -       | -           | -             | -               | -             | -                        | -             | -                        | -                         | -                              |
+| southcentralus   | 240 K                    | -                        | -                        | 240 K          | -                   | -                  | -                       | -       | -           | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| southindia       | 350 K                    | -                        | -                        | -              | 120 K               | -                  | -                       | -       | -           | 150 K         | -               | -             | -                        | -             | -                        | -                         | -                              |
+| swedencentral    | 350 K                    | -                        | -                        | 300 K          | 120 K               | 300 K              | 240 K                   | 40 K    | 80 K        | 150 K         | 30 K            | 240 K         | 250 K                    | 240 K         | 250 K                    | 250 K                     | 250 K                          |
+| switzerlandnorth | 350 K                    | -                        | -                        | 300 K          | -                   | 300 K              | -                       | 40 K    | 80 K        | -             | 30 K            | -             | -                        | -             | -                        | -                         | -                              |
+| uksouth          | 350 K                    | -                        | -                        | 240 K          | 120 K               | 240 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| westeurope       | 240 K                    | -                        | -                        | 240 K          | -                   | -                  | -                       | -       | -           | -             | -               | -             | -                        | -             | -                        | -                         | -                              |
+| westus           | 350 K                    | -                        | -                        | -              | 120 K               | -                  | -                       | -       | -           | 80 K          | 30 K            | -             | -                        | -             | -                        | -                         | -                              |
 
 
 ### General best practices to remain within rate limits
