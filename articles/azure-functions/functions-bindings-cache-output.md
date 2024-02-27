@@ -299,6 +299,7 @@ The following table explains the binding configuration properties that you set i
 | `name` | The name of the specific input binding. |
 | `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache, such as:  `DEL`. |
+
 ::: zone-end 
 
 See the [Example section](#example) for complete examples.
@@ -311,7 +312,9 @@ There are three types of connections that are allowed from an Azure Functions in
 
 ### Connection string
 
+```JSON
 "Redis": "<cacheName>.redis.cache.windows.net:6380,password=..."
+```
 
 ### System-Assigned Managed Identity
 
