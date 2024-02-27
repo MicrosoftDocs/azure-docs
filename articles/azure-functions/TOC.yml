@@ -941,7 +941,6 @@
               href: migrate-service-bus-version-4-version-5.md
               displayName: Service Bus
         - name: SignalR Service
-        - name: SignalR Service
           items:
             - name: Overview
               href: functions-bindings-signalr-service.md
