@@ -17,9 +17,25 @@ Integration with Container Apps lets you use the existing functions programming 
 
 This integration also means that you can use existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
 
+## Hosting and workload profiles
+
+There are two primary hosting plans for Container Apps, a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated), which uses workload profiles to better control your deployment resources. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. The Consumption workload profile is the default profile added to every Workload profiles environment type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. To learn more about workload profiles, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
+
+Azure Functions on Azure Container Apps supports workload profiles. 
+
+If your app doesn't have a specific hardware requirements, you can run your environment either in a Consumption plan or in a Dedicated plan using the default Consumption workload profile. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
+
+To use workload profiles, you must enable them when you create your container app environment. You can do this using either the [Azure CLI](../container-apps/workload-profiles-manage-cli.md#create-a-container-app-in-a-profile) or in the [Azure portal](../container-apps/workload-profiles-manage-portal.md#create-a-container-app-in-a-workload-profile). 
+
+You can also use the [Azure CLI](../container-apps/workload-profiles-manage-cli.md#add-profiles) or [Azure portal](../container-apps/workload-profiles-manage-portal.md#add-profiles) to add, edit, and delete profiles in your environment. 
+
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this with the Azure CLI by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. In the portal, you can choose your profile during the create process.     
+
 ## Deploying Azure Functions to Container Apps
 
-In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
+When using Container Apps hosting, you first deploy your functions code in a Linux container that you create. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
+
+Azure Functions on Container Apps hosting is supported in all [regions that support Container Apps](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps). 
 
 Azure Functions currently supports the following methods of deployment to Azure Container Apps:
 
@@ -55,24 +71,14 @@ az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOU
 
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
  
-+ Container Apps support for Functions is currently in preview and is only available in the following regions:
-    + Australia East
-    + Central US 
-    + East US 
-    + East US 2 
-    + North Europe 
-    + South Central US 
-    + UK South 
-    + West Europe 
-    + West US 3 
-+ When your container is hosted in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 
     + Azure Queue Storage 
     + Azure Service Bus 
     + Azure Event Hubs 
-    + Kafka*  
-    \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
+    + Kafka<sup>*</sup>  
+    + Timer  
+    <sup>*</sup>The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
