@@ -1,26 +1,28 @@
 ---
 title: "Display math in the Immersive Reader"
 titleSuffix: Azure AI services
-description: This article will show you how to display math in the Immersive Reader.
-author: rwallerms
+description: Learn how to display math in the Immersive Reader app.
+author: sharmas
 manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 01/14/2020
-ms.author: rwaller
+ms.date: 02/26/2024
+ms.author: sharmas
 ms.custom:
 ---
 
 # How to display math in the Immersive Reader
 
-The Immersive Reader can display math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
-The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). See [supported MIME types](../reference.md#supported-mime-types) for more information.
+The Immersive Reader can display math expressions when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)). 
 
-## Send Math to the Immersive Reader
-In order to send math to the Immersive Reader, supply a chunk containing MathML, and set the MIME type to ```application/mathml+xml```;
+The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). To learn more, see [supported MIME types](../reference.md#supported-mime-types).
 
-For example, if your content were the following:
+## Send math to the Immersive Reader
+
+In order to display math in the Immersive Reader app, supply a chunk containing MathML, and set the MIME type to `application/mathml+xml`.
+
+For example, see the following content:
 
 ```html
 <div id='ir-content'>
@@ -65,8 +67,9 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 
 When you launch the Immersive Reader, you should see:
 
-![Math in Immersive Reader](../media/how-tos/1-math.png)
+:::image type="content" source="../media/how-tos/1-math.png" alt-text="Screenshot of the rendered math equation in Immersive Reader.":::
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../reference.md)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](reference.md)
