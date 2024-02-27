@@ -26,5 +26,5 @@ ms.date: 02/27/2024
 | Windows IoT Enterprise                                   | ✓ |   |   |
 
 <sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer](../agents/azure-monitor-agent-windows-client.md).<br>
 <sup>3</sup> Also supported on Arm64-based machines.
