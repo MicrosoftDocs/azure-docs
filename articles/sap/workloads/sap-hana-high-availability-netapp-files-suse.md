@@ -368,28 +368,28 @@ When VMs without public IP addresses are placed in the back-end pool of internal
    1. At the prompt, enter the following values:
       - For **Choose installation**: Enter **1** (for install).
       - For **Select additional components for installation**: Enter **1**.
-      - For **Enter Installation Path [/hana/shared]**: Select Enter to accept the default.
-      - For **Enter Local Host Name [..]**: Select Enter to accept the default.
+      - For **Enter Installation Path [/hana/shared]**: Press Enter to accept the default.
+      - For **Enter Local Host Name [..]**: Press Enter to accept the default.
       - Under **Do you want to add additional hosts to the system? (y/n) [n]**: Select **n**.
       - For **Enter SAP HANA System ID**: Enter **HN1**.
       - For **Enter Instance Number [00]**: Enter **03**.
-      - For **Select Database Mode / Enter Index [1]**: Select Enter to accept the default.
+      - For **Select Database Mode / Enter Index [1]**: Press Enter to accept the default.
       - For **Select System Usage / Enter Index [4]**: Enter **4** (for custom).
-      - For **Enter Location of Data Volumes [/hana/data]**: Select Enter to accept the default.
-      - For **Enter Location of Log Volumes [/hana/log]**: Select Enter to accept the default.
-      - For **Restrict maximum memory allocation? [n]**: Select Enter to accept the default.
-      - For **Enter Certificate Host Name For Host '...' [...]**: Select Enter to accept the default.
+      - For **Enter Location of Data Volumes [/hana/data]**: Press Enter to accept the default.
+      - For **Enter Location of Log Volumes [/hana/log]**: Press Enter to accept the default.
+      - For **Restrict maximum memory allocation? [n]**: Press Enter to accept the default.
+      - For **Enter Certificate Host Name For Host '...' [...]**: Press Enter to accept the default.
       - For **Enter SAP Host Agent User (sapadm) Password**: Enter the host agent user password.
       - For **Confirm SAP Host Agent User (sapadm) Password**: Enter the host agent user password again to confirm.
       - For **Enter System Administrator (hn1adm) Password**: Enter the system administrator password.
       - For **Confirm System Administrator (hn1adm) Password**: Enter the system administrator password again to confirm.
-      - For **Enter System Administrator Home Directory [/usr/sap/HN1/home]**: Select Enter to accept the default.
-      - For **Enter System Administrator Login Shell [/bin/sh]**: Select Enter to accept the default.
-      - For **Enter System Administrator User ID [1001]**: Select Enter to accept the default.
-      - For **Enter ID of User Group (sapsys) [79]**: Select Enter to accept the default.
+      - For **Enter System Administrator Home Directory [/usr/sap/HN1/home]**: Press Enter to accept the default.
+      - For **Enter System Administrator Login Shell [/bin/sh]**: Press Enter to accept the default.
+      - For **Enter System Administrator User ID [1001]**: Press Enter to accept the default.
+      - For **Enter ID of User Group (sapsys) [79]**: Press Enter to accept the default.
       - For **Enter Database User (SYSTEM) Password**: Enter the database user password.
       - For **Confirm Database User (SYSTEM) Password**: Enter the database user password again to confirm.
-      - For **Restart system after machine reboot? [n]**: Select Enter to accept the default.
+      - For **Restart system after machine reboot? [n]**: Press Enter to accept the default.
       - For **Do you want to continue? (y/n)**: Validate the summary. Enter **y** to continue.
 
 1. **[A]** Upgrade the SAP Host Agent.
