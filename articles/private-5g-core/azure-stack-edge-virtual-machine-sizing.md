@@ -19,10 +19,10 @@ The following table lists the maximum supported limits for a range of parameters
 | Element                | Maximum supported |
 |------------------------|-------------------|
 | PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
-| Bandwidth              | 25 Gbps per ASE |
+| Bandwidth              | Over 25 Gbps per ASE |
 | RAN nodes (eNB/gNB)    | 200 per ASE |
-| UEs                    | 10,000 across all sites |
-| SIMs                   | 1000 per site |
+| UEs                    | 10,000 per deployment (all sites) |
+| SIMs                   | 1000 per ASE |
 | SIM provisioning       | 1000 per API call |
 
 Your chosen service package may define lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
