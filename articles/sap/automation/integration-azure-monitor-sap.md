@@ -1,6 +1,6 @@
 ---
 title: SAP Monitoring with Azure monitor for SAP
-description: Configure Azure monitor for SAP with SAP Deployment Automation Framework.
+description: Configure Azure Monitor for SAP with SAP Deployment Automation Framework.
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: kimforss
@@ -25,14 +25,14 @@ As described in the [overview document](deployment-framework.md), the automation
 - Deployment infrastructure (control plane, typically deployed in the hub)
 - SAP infrastructure (SAP workload zone, typically deployed in a spoke)
 
-Deployment of Azure Monitor for SAP (AMS) and the [providers](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor) can be automated from the SAP Deployment Automation Framework (SDAF) to simplify the monitoring process. In this architecture, one AMS resource is deployed in each [workload zone](deployment-framework.md#about-the-sap-workload-zone), which represents the environment. This AMS resource is responsible for monitoring the performance and availability of different components of the SAP systems in that environment.
+Deployment of Azure Monitor for SAP (AMS) and the [providers](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor) can be automated from the SAP Deployment Automation Framework (SDAF) to simplify the monitoring process. In this architecture, one Azure Monitor for SAP resource is deployed in each [workload zone](deployment-framework.md#about-the-sap-workload-zone), which represents the environment. This resource is responsible for monitoring the performance and availability of different components of the SAP systems in that environment.
 
 :::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure-ams.png" alt-text="Diagram that shows the dependency between the control plane, the application plane for SAP Deployment Automation Framework with Azure monitor for SAP.":::
 
-To monitor different components of each SAP system, there are corresponding providers and all these providers are deployed in the AMS of that environment. This setup allows for efficient monitoring and management of the SAP systems, as all the providers for a particular system are located in the same AMS. The automation framework automates the following steps:
+To monitor different components of each SAP system, there are corresponding providers and all these providers are deployed in the Azure Monitor for SAP resource of that environment. This setup allows for efficient monitoring and management of the SAP systems, as all the providers for a particular system are located in the same Azure Monitor for SAP resource. The automation framework automates the following steps:
 - Creates Azure Monitor for SAP resource in workload zone.
-- Performs prerequisites steps required to enable monitoring from AMS.
-- Creates providers for each component of SAP landscape in AMS resource created.
+- Performs prerequisites steps required to enable monitoring.
+- Creates providers for each component of SAP landscape in Azure Monitor for SAP resource created.
 
 > [!NOTE]
 > This automation framework currently supports deployment automation of Azure monitor for SAP resource, [OS (Linux) provider](../monitor/about-azure-monitor-sap-solutions.md#os-linux-data) to monitor the Azure VMs, and [HA Pacemaker cluster provider](../monitor/about-azure-monitor-sap-solutions.md#ha-pacemaker-cluster-data) to monitor the high availability clusters in the SAP system.
@@ -45,9 +45,9 @@ The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the
     - Log analytics workspace (optional)
     - Storage account
 
-## Workload zone configuration for AMS resource
+## Workload zone configuration for Azure Monitor for SAP resource
 
-The example shows the parameters that are required for the deployment of AMS resource in the workload zone. Optionally, you can choose to use an existing log analytics workspace that exists in the same subscription as your workload zone.
+The example shows the parameters that are required for the deployment of Azure Monitor for SAP resource in the workload zone. Optionally, you can choose to use an existing log analytics workspace that exists in the same subscription as your workload zone.
 
 ```terraform
 # If defined these parameters control the ams instance (Azure monitor for SAP)
