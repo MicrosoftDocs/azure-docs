@@ -4,7 +4,6 @@ description: Create an image of a VM using the Azure portal.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/12/2022
 ms.author: jushiman

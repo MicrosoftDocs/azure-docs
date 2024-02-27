@@ -29,6 +29,9 @@ We recommend that you have a sense of how many devices you want to monitor so th
 
 - **OT monitoring**: Purchase a license for each site that you're planning to monitor. License fees differ based on the site size, each which covers a different number of devices.
 
+    > [!NOTE]
+    > When the license for one or more of your sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center.  
+
 - **Enterprise IoT monitoring**: Five devices are supported for each ME5/E5 Security user license. If you have more devices to monitor, and are a Defender for Endpoint P2 customer, purchase extra, standalone licenses for each device you want to monitor.
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]

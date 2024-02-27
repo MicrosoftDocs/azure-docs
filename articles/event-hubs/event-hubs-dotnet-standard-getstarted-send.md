@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet, devx-track-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send events to and receive events from Azure Event Hubs using .NET

@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 12/01/2023
+ms.date: 02/07/2024
 ms.topic: conceptual
 ---
 
@@ -67,7 +67,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
-[Azure Blueprints](../../governance/blueprints/index.yml):
+[Azure Blueprints](../../governance/blueprints/overview.md):
 
 - Use Azure Blueprints to orchestrate the deployment of resource templates and other artifacts (requires [additional access](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) to prepare the customer subscription)
 

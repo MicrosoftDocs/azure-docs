@@ -8,11 +8,14 @@ ms.date: 06/19/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
+ms.custom: mvc, devx-track-js, mode-api, linux-related-content
 ms.devlang: javascript
 ---
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL - Flexible Server
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

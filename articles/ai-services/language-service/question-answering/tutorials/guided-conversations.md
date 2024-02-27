@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: jboback
 ms.author: jboback
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Add guided conversations with multi-turn prompts
@@ -89,4 +89,3 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
     > [ ![Screenshot of chat test UI]( ../media/guided-conversations/test.png) ]( ../media/guided-conversations/test.png#lightbox)
 
 ## Next steps
-

@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 
 The API for NoSQL in Azure Cosmos DB supports registering and invoking stored procedures, triggers, and user-defined functions (UDFs) written in JavaScript. After you define one or more stored procedures, triggers, or user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
-You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (legacy)](sdk-dotnet-v2.md), [.NET v3](sdk-dotnet-v3.md), [Java](sdk-java-v2.md), [JavaScript](sdk-nodejs.md), or [Python](sdk-python.md) SDKs to do these tasks. If you haven't worked with one of these SDKs before, see the quickstart article for the appropriate SDK:
+You can use the API for NoSQL SDK across multiple platforms including [.NET v2 (legacy)](sdk-dotnet-v2.md), [.NET v3](sdk-dotnet-v3.md), [Java](/java/api/overview/azure/cosmos-readme), [JavaScript](sdk-nodejs.md), or [Python](sdk-python.md) SDKs to do these tasks. If you haven't worked with one of these SDKs before, see the quickstart article for the appropriate SDK:
 
 | SDK | Getting started |
 | :--- | :--- |

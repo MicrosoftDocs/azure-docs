@@ -13,8 +13,6 @@ ms.date: 06/7/2023
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - ignite-2023
 ms.devlang: azurecli

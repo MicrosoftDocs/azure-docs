@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Gen2 environment

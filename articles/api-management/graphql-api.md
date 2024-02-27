@@ -1,13 +1,12 @@
 ---
 title: Add a GraphQL API to Azure API Management | Microsoft Docs
-titleSuffix: 
 description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Import a GraphQL API

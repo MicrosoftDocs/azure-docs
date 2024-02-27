@@ -4,9 +4,8 @@ description: Use Change Analysis in Azure Monitor to troubleshoot issues on live
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.date: 11/17/2023 
+ms.date: 11/17/2023
 ms.subservice: change-analysis
-ms.custom: ignite-2022
 ---
 
 # Use Change Analysis in Azure Monitor

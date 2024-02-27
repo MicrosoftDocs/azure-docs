@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.custom:
   - mvc
   - references_regions
-  - event-tier1-build-2022
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server?
@@ -680,4 +679,3 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL flexible server pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL flexible server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
-

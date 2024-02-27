@@ -22,8 +22,16 @@
     href: quick-backup-vm-template.md
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
-  - name: Back up Azure Database for PostgreSQL server - Azure portal
-    href: quick-backup-postgresql-database-portal.md
+  - name: Back up Azure PostgreSQL Database
+    items: 
+    - name: Back up the database - Azure portal
+      href: quick-backup-postgresql-database-portal.md
+    - name: Restore the PostgreSQL database across regions
+      items:
+      - name: Using the Azure portal
+        href: quick-cross-region-restore.md  
+      - name: With Azure PowerShell
+        href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
     href: quick-backup-aks.md
   - name: Install Backup extension in AKS cluster
@@ -55,7 +63,11 @@
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
   - name: Back up PostgreSQL databases
-    href: tutorial-postgresql-backup.md
+    items:
+    - name: Back up the database
+      href: tutorial-postgresql-backup.md
+    - name: Configure and run Cross Region Restore
+      href: tutorial-cross-region-restore.md  
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
   - name: Restore vaulted backups for AKS clusters in a secondary region

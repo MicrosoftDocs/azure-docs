@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 04/24/2023
 ms.author: allensu

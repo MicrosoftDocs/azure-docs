@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu
 ---
 
 # How to create a CLU project
@@ -121,4 +121,3 @@ When you don't need your project anymore, you can delete your project using the 
 ## Next Steps
 
 [Build schema](./build-schema.md)
-

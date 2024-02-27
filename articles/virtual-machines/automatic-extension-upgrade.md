@@ -3,7 +3,6 @@ title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.workload: infrastructure
 ms.topic: how-to
 ms.reviewer: jushiman
 ms.date: 11/7/2023
@@ -187,6 +186,59 @@ az vmss extension set \
     --version 9.5 \
     --enable-auto-upgrade true
 ```
+
+### ARM template for Virtual Machines
+The following example describes how to set automatic extension upgrades for an extension (Dependency Agent Extension in this example) on a Virtual Machine using Azure Resource Manager
+
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "location": "[resourceGroup().location]",
+    "name": "<extensionName>",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true,
+        "settings": {
+            "enableAMA": "true"
+        }
+    }
+}
+```
+
+### ARM template for Virtual Machine Scale Sets
+Use the following example to set automatic extension upgrade on the extension within the scale set model:
+
+```json
+{
+   "type": "Microsoft.Compute/virtualMachineScaleSets",
+   "apiVersion": "2023-09-01",
+   "name": "[variables('vmScaleSetName')]",
+   "location": "[resourceGroup().location]",
+   "properties": {
+   	    "virtualMachineProfile": {
+            "extensionProfile": {
+       	        "extensions": [{
+                     "name": "<extensionName>",
+                     "properties": {
+                          "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                          "type": "DependencyAgentWindows",
+                          "typeHandlerVersion": "9.5"
+                          "autoUpgradeMinorVersion": true,
+                          "enableAutomaticUpgrade": true,
+                     }
+                }]
+    	    }
+    	}
+    }
+}
+```
+
 
 ## Extension upgrades with multiple extensions
 

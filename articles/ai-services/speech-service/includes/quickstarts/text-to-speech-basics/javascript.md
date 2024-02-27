@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 2/1/2024
 ms.author: eur
 ---
 
@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+To set up your environment, install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ### Set environment variables
 
@@ -83,7 +83,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
    }());
    ```
 
-1. In *SpeechSynthesis.js*, optionally you can rename *YourAudioFile.wav* to another output filename.
+1. In *SpeechSynthesis.js*, optionally you can rename *YourAudioFile.wav* to another output file name.
 
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
@@ -96,7 +96,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. The provided text should be in an audio file:
 
@@ -109,10 +109,16 @@ Follow these steps to create a Node.js console application for speech synthesis.
 
 ## Remarks
 
-This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+### More speech synthesis options
 
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [Batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md).
+This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also use long-form text from a file and get finer control over voice styles, prosody, and other settings.
+
+- See [how to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md) for information about speech synthesis from a file and finer control over voice styles, prosody, and other settings.
+- See [batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md) for information about synthesizing long-form text to speech.
+
+### OpenAI text to speech voices in Azure AI Speech
+
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-JennyNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 
