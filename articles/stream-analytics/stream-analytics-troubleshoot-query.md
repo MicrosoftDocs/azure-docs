@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
-ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics queries

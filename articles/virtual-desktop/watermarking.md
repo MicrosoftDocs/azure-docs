@@ -3,7 +3,7 @@ title: Watermarking in Azure Virtual Desktop
 description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 11/16/2023
+ms.date: 01/19/2024
 ms.author: daknappe
 ---
 # Watermarking in Azure Virtual Desktop
@@ -29,9 +29,11 @@ You'll need the following things before you can use watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
   - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-  - [macOS client](users/connect-macos.md).
+  - [macOS client](users/connect-macos.md), version 10.9.5 or later.
+  - [iOS client](users/connect-ios-ipados.md), version 10.5.4 or later.
 
-  Note: iOS and Android clients don't support watermarking. 
+  >[!NOTE]
+  >The Android client doesn't support watermarking. 
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 

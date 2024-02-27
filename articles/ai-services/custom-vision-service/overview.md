@@ -10,7 +10,6 @@ ms.service: azure-ai-custom-vision
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
 #Customer intent: As a data scientist/developer, I want to understand what the Custom Vision service does so that I can determine if it's suitable for my project.
 ---

@@ -7,7 +7,6 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
 ---
 
 # Deploy a Azure Cloud Services (extended support) using the Azure portal

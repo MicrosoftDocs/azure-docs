@@ -9,7 +9,6 @@ ms.date: 03/13/2020
 ms.service: dms
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - mode-ui
   - subject-rbac-steps
   - sql-migration-content

@@ -28,7 +28,7 @@ You can define test criteria at two levels. A load test can combine criteria at 
 - At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold.
 - At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request.
 
-You can define a maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
+You can define a maximum of 50 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
 
 ### Fail criteria structure
 

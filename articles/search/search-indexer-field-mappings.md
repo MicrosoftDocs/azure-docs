@@ -378,6 +378,48 @@ When errors occur that are related to document key length exceeding 1024 charact
 ]
  ```
 
+<a name="toJsonFunction"></a>
+
+### toJson function
+ 
+This function converts a string into a formatted JSON object. This can be used for scenarios where the data source, such as Azure SQL, doesn't natively support compound or hierarchical data types, and then map it to complex fields.
+
+### Example - map text content to a complex field
+
+Assume there is a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
+
+```JSON
+{
+    "id": "5",
+    "info": {
+        "name": "Jane",
+        "surname": "Smith",
+        "skills": [
+            "SQL",
+            "C#",
+            "Azure"
+        ],
+        "dob": "2005-11-04T12:00:00"
+    }
+}
+```
+It can be achieved by using the `toJson` mapping function on a JSON string column in a SQL row that looks like this: `{"id": 5, "info": {"name": "Jane", "surname": "Smith", "skills": ["SQL", "C#", "Azure"]}, "dob": "2005-11-04T12:00:00"}`. 
+
+The field mapping needs to be specified as shown below.
+
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "content",
+    "targetFieldName" : "complexField",
+    "mappingFunction" : {
+      "name" : "toJson"
+    }
+  }
+]
+ ```
+
 ## See also
 
 + [Supported data types in Azure AI Search](/rest/api/searchservice/supported-data-types)

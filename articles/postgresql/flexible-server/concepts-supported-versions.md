@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 12/21/2023
 ---
 
 # Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean indicating if a number is a 64-bit signed integer. 64-bit sign
 
 ## Syntax
 
-```sql
+```nosql
 IS_INTEGER(<numeric_expr>)
 ```
 
@@ -38,7 +39,7 @@ Returns a boolean.
 
 This example demonstrates the function with various static values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-integer/result.json":::
 

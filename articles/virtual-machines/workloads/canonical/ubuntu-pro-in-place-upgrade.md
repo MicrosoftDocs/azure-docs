@@ -4,7 +4,7 @@ description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pr
 author: anujkmaurya
 ms.service: virtual-machines
 ms.subservice: billing
-ms.custom: devx-track-linux, devx-track-azurecli, linux-related-content
+ms.custom: linux-related-content, devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 9/12/2023
@@ -99,7 +99,7 @@ You can create a new VM using the Ubuntu Server images and apply Ubuntu Pro at t
 The following command enables Ubuntu Pro on a virtual machine in Azure:
 
 ```Azure CLI
-az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
+az vm create -g myResourceGroup -n myVmName --license-type UBUNTU_PRO --image ubuntu2204
 ```
 
 Execute these commands inside the VM:

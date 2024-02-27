@@ -226,9 +226,9 @@ The subnet you use for deploying the load test can't be delegated to another Azu
 
 Learn more about [adding or removing a subnet delegation](/azure/virtual-network/manage-subnet-delegation#remove-subnet-delegation-from-an-azure-service).
 
-### Starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
+### Updating or starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
 
-To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. 
+To update or start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. 
 
 1. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 

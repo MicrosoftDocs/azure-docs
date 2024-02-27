@@ -5,11 +5,10 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: overview
-ms.workload: infrastructure-services
 ms.date: 08/14/2023
 ms.author: greglin
 ms.custom: template-overview
-#Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
+#Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ---
 
 # What is Traffic Manager?

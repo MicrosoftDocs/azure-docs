@@ -2,7 +2,6 @@
 title: Azure API Management CAPTCHA endpoint change (September 2025) | Microsoft Docs
 description: Azure API Management is updating the CAPTCHA endpoint. If your service is hosted in an Azure virtual network, you may need to update network settings to continue using the developer portal.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
 ms.service: api-management
 ms.topic: reference

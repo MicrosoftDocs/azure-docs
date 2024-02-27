@@ -2,7 +2,6 @@
 title: RabbitMQ trigger for Azure Functions
 description: Learn how to run an Azure Function when a RabbitMQ message is created.
 author: cachai2
-ms.assetid:
 ms.topic: reference
 ms.date: 01/21/2022
 ms.author: cachai

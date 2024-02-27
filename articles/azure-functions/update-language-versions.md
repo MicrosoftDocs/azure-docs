@@ -7,32 +7,45 @@ ms.date: 12/06/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Update language versions in Azure Functions 
+# Update language stack versions in Azure Functions 
 
-The Azure Functions supports specific versions of each native language. This support changes based on the support of specific versions of each language or language stack. As these supported versions change, you need to update your function app to stay on a supported version. You might also want to update your apps to take advantage of features in newer supported versions of your language. For more information about supported versions, see [Languages](functions-versions.md#languages).   
+The support for any given language stack in Azure Functions is limited to [specific versions](functions-versions.md#languages). As new versions become available, you might want to update your apps to take advantage of their features. Support in Functions may also end for older versions, typically aligned to the community end-of-support timelines. See the [Language runtime support policy](./language-support-policy.md) for details. To ensure your apps continue to receive support, you should follow the instructions outlined in this article to update them to the latest available versions.
 
 The way that you update your function app depends on: 
 
-+ The language of your functions; make sure to choose your function language at the [top](#top) of the article. 
++ The language you use to author your functions; make sure to choose your programming language at the [top](#top) of the article. 
 + The operating system on which your app runs in Azure: Windows or Linux. 
 + The [hosting plan](./functions-scale.md).
 
 ::: zone pivot="programming-language-csharp"   
-This article shows you have to update your version of .NET when your app runs in an [isolated worker process](dotnet-isolated-process-guide.md). Apps that run [on .NET 6 in-process](functions-dotnet-class-library.md) can't yet be updated to .NET 8. To migrate your app from in-process to the isolated worker process model, see [Migrate .NET apps from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md).
+This article shows you how to update the .NET version of an app using the [isolated worker model](dotnet-isolated-process-guide.md). Apps that run on [the in-process model](functions-dotnet-class-library.md) can't yet be updated to .NET 8 without switching to the isolated worker model. To migrate to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md). For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap). 
 ::: zone-end  
- 
 
 ## Prepare to update
 
-Before you update the language version in Azure, you should complete these tasks:
+Before you update the stack configuration for your function app in Azure, you should complete these tasks:
 
 ### 1. Verify your functions locally
 
-Before upgrading the language version used by your function app in Azure, make sure that you test and verify your function code locally on the new target language version.  
+Make sure that you test and verify your function code locally on the new target version.
+
+::: zone pivot="programming-language-csharp"
+Use these steps to update the project on your local computer:
+
+1. Ensure you have [installed the target version of the .NET SDK](https://dotnet.microsoft.com/download/dotnet).
+
+1. Update your references to the latest stable versions of: [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
+
+1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. See [Target frameworks](/dotnet/standard/frameworks) for specifics related to the chosen version.
+
+1. Make any updates to your project code that are required by the new .NET version. Check the version's release notes for specifics. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help you update your code in response to changes across major versions.
+
+After you've made those changes, rebuild your project and test it to confirm your app runs as expected. 
+::: zone-end  
 
 ### 2. Move to the latest Functions runtime
  
-Before updating your language version, make sure your function app is running on the latest version of the Functions runtime (version 4.x). You can determine the runtime version either in the Azure portal or by using the Azure CLI.
+Make sure your function app is running on the latest version of the Functions runtime (version 4.x). You can determine the runtime version either in the Azure portal or by using the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -55,22 +68,22 @@ The `FUNCTIONS_EXTENSION_VERSION` setting sets the runtime version. A value of `
 
 ---
 
-If you need to first update your function app to version 4.x, see [Migrate apps from Azure Functions version 3.x to version 4.x](./migrate-version-3-version-4.md). You should follow the instructions in that article rather than just changing the `FUNCTIONS_EXTENSION_VERSION` setting.
+If you need to first update your function app to version 4.x, see [Migrate apps from Azure Functions version 1.x to version 4.x](./migrate-version-1-version-4.md) or  [Migrate apps from Azure Functions version 3.x to version 4.x](./migrate-version-3-version-4.md). You should follow the instructions in those articles rather than just changing the `FUNCTIONS_EXTENSION_VERSION` setting.
 
 ## Publish app updates
 
-If you updated your app to run correctly on the new language version, publish the app updates before you update the language version in your function app. 
+If you updated your app to run correctly on the new version, publish the app updates before you update the stack configuration for your function app. 
 
 > [!TIP]  
 > To simplify the update process, minimize downtime for your functions, and provide a potential for rollback, you should publish your updated app to a staging slot. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md#add-a-slot). 
 
 When publishing your updated app to a staging slot, make sure to follow the slot-specific update instructions in the rest of this article. You later swap the updated staging slot into production.
 
-## Update the language version
+## Update the stack configuration
 
-The way that you update the language or language-stack version depends on whether you're running on Windows or on Linux in Azure.  
+The way that you update the stack configuration depends on whether you're running on Windows or on Linux in Azure.
 
-When using a [staging slot](functions-deployment-slots.md), make sure to target your updates to the correct slot.  
+When using a [staging slot](functions-deployment-slots.md), make sure to target your updates to the correct slot.
 
 ### [Windows](#tab/windows/azure-portal)
 
@@ -79,7 +92,7 @@ When using a [staging slot](functions-deployment-slots.md), make sure to target 
 ### [Linux](#tab/linux/azure-portal)
 
 > [!NOTE]  
-> You can only use the Azure portal to update function apps on Linux hosted in a [Premium plan](./functions-premium-plan.md) or a [Dedicated (App Service) plan](./dedicated-plan.md). For apps on Linux hosted in a [Consumption plan](./consumption-plan.md), you must instead use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-language-version).
+> You can only use the Azure portal to update function apps on Linux hosted in a [Premium plan](./functions-premium-plan.md) or a [Dedicated (App Service) plan](./dedicated-plan.md). For apps on Linux hosted in a [Consumption plan](./consumption-plan.md), you must instead use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-stack-configuration).
  
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
 
@@ -104,7 +117,7 @@ Python apps aren't supported on Windows. Select the **Linux** tab instead.
 First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
-First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (.NET). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the .NET version of your function app:  
+Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for .NET on the isolated worker model:
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 ```azurecli
@@ -113,12 +126,18 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'java'].{Versi
 az functionapp config set --java-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"
+
 ```azurecli
 az functionapp list-runtimes --os "windows" --query "[?runtime == 'dotnet-isolated'].{Version:version}" --output table
-
-az functionapp config set --net-framework-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
+
+Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the .NET version of your function app:
+
+```azurecli
+az functionapp config set --net-framework-version "v<VERSION>.0" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
+```
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
 First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (Node.js). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version of your function app:
@@ -189,7 +208,7 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
 ---
 
-Your function app restarts after you update the version. To learn more about Functions support policies for native languages, see [Language runtime support policy](language-support-policy.md). 
+Your function app restarts after you update the version.
 
 ## Swap slots
 

@@ -9,7 +9,7 @@ metadata:
   description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
   ms.service: site-recovery
   ms.topic: landing-page
-  ms.collection: collection
+
   author: ankitaduttaMSFT
   ms.author: ankitadutta
   ms.date: 12/14/2023

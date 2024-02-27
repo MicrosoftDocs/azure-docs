@@ -1,5 +1,5 @@
 ---
-title: Network Watcher Agent VM extension - Linux 
+title: Network Watcher Agent VM extension - Linux
 description: Deploy the Network Watcher Agent virtual machine extension on Linux virtual machines.
 ms.topic: conceptual
 ms.service: virtual-machines
@@ -8,10 +8,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.collection: linux
 ms.date: 06/29/2023
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines (VMs), such as capturing network traffic on demand, and other advanced functionality.
 

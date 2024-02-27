@@ -4,7 +4,6 @@ description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes d
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 09/04/2023
 ---
 
@@ -67,7 +66,7 @@ If you disabled the "Azure Policy for Kubernetes" settings under the containers 
 
 When you enable Microsoft Defender for Containers on a GCP connector, the "Azure Policy Extension for Azure Arc" setting is enabled by default for the Google Kubernetes Engine in the relevant project. If you disable the setting on initial configuration, you can enable it afterwards manually.
 
-If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to [enable it on your GCP connector](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke&preserve-view=true#protect-google-kubernetes-engine-gke-clusters).
+If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to [enable it on your GCP connector](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke&preserve-view=true#enable-the-plan).
 
 ### Deploy Azure Policy for Kubernetes on existing clusters  
 
@@ -288,5 +287,5 @@ In this article, you learned how to configure Kubernetes data plane hardening.
 
 For related material, see the following pages:
 
-- [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
+- [Defender for Cloud recommendations for compute](recommendations-reference.md#compute-recommendations)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-for-containers---kubernetes-clusters)
