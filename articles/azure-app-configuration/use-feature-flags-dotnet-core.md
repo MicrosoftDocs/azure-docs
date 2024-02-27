@@ -18,8 +18,6 @@ The .NET Feature Management libraries provide idiomatic support for implementing
 
 The Feature Management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
-The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows a simple example of how to use feature flags in an ASP.NET Core application. This tutorial shows additional setup options and capabilities of the Feature Management libraries. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial. 
-
 For the ASP.NET Core feature management API reference documentation, see [Microsoft.FeatureManagement Namespace](/dotnet/api/microsoft.featuremanagement).
 
 In this tutorial, you will learn how to:
@@ -30,7 +28,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
+The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows a simple example of how to use feature flags in an ASP.NET Core application. This tutorial shows additional setup options and capabilities of the Feature Management libraries. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial. 
 
 ## Set up feature management
 
