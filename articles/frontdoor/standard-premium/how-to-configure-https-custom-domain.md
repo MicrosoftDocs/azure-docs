@@ -77,13 +77,13 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 #### Prepare your key vault and certificate
 
-If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
+We recommend you create a separate Azure Key Vault to store your Azure Front Door TLS certificates. For more information, see [create an Azure Key Vault](../../key-vault/general/quick-create-portal.md). If you already a certificate, you can upload it to your new Azure Key Vault. Otherwise, you can create a new certificate through Azure Key Vault from one of the certificate authorities (CAs) partners.
 
 > [!WARNING]
-> Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+> Azure Front Door currently only supports Azure Key Vault in the same subscription. Selecting an Azure Key Vault under a different subscription will result in a failure.
 
 > [!NOTE]
-> * Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> * Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and also the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 > * We recommend using [**managed identity**](../managed-identity.md) to allow access to your Azure Key Vault certificates because App registration will be retired in the future.
 
 #### Register Azure Front Door
@@ -131,9 +131,9 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
      ```
 ---
 
-#### Grant Azure Front Door access to your key vault
+#### Grant Azure Front Door access to your Key Vault
 
-Grant Azure Front Door permission to access the certificates in your Azure Key Vault account.
+Grant Azure Front Door permission to access the certificates in your Azure Key Vault account. You only need to give **GET** permission to the certificate and secret in order for Azure Front Door to retrieve the certificate.
 
 1. In your key vault account, select **Access policies**.
 

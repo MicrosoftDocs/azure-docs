@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/27/2024
 ms.author: mbullwin
 ---
 
@@ -53,7 +53,7 @@ The default quota for models varies by model and region. Default quota limits ar
 
 | Region           | Text-Embedding-Ada-002   | text-embedding-3-small   | text-embedding-3-large   | GPT-35-Turbo   | GPT-35-Turbo-1106   | GPT-35-Turbo-16K   | GPT-35-Turbo-Instruct   | GPT-4   | GPT-4-32K   | GPT-4-Turbo   | GPT-4-Turbo-V   | Babbage-002   | Babbage-002 - finetune   | Davinci-002   | Davinci-002 - finetune   | GPT-35-Turbo - finetune   | GPT-35-Turbo-1106 - finetune   |
 |:-----------------|:-------------------------|:-------------------------|:-------------------------|:---------------|:--------------------|:-------------------|:------------------------|:--------|:------------|:--------------|:----------------|:--------------|:-------------------------|:--------------|:-------------------------|:--------------------------|:-------------------------------|
-| australiaeast    | 350 K                    | -                        | -                        | 300 K          | 120 K               | 300 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
+| australiaeast    | 350 K                    | -                        | -                        | 300 K          | 120 K               | 300 K              | -                       | 40 K    | 80 K        | 80 K          | 30 K            | -             | -                        | -             | -                        | -                         | -                              |
 | brazilsouth      | 350 K                    | -                        | -                        | -              | -                   | -                  | -                       | -       | -           | -             | -               | -             | -                        | -             | -                        | -                         | -                              |
 | canadaeast       | 350 K                    | 350 K                    | 350 K                    | 300 K          | 120 K               | 300 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
 | eastus           | 240 K                    | 350 K                    | 350 K                    | 240 K          | -                   | 240 K              | 240 K                   | -       | -           | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
@@ -70,7 +70,6 @@ The default quota for models varies by model and region. Default quota limits ar
 | uksouth          | 350 K                    | -                        | -                        | 240 K          | 120 K               | 240 K              | -                       | 40 K    | 80 K        | 80 K          | -               | -             | -                        | -             | -                        | -                         | -                              |
 | westeurope       | 240 K                    | -                        | -                        | 240 K          | -                   | -                  | -                       | -       | -           | -             | -               | -             | -                        | -             | -                        | -                         | -                              |
 | westus           | 350 K                    | -                        | -                        | -              | 120 K               | -                  | -                       | -       | -           | 80 K          | 30 K            | -             | -                        | -             | -                        | -                         | -                              |
-
 
 ### General best practices to remain within rate limits
 

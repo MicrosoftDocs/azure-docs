@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the value of the specified expression multipled by itself the given numb
   
 ## Syntax
   
-```sql
+```nosql
 POWER(<numeric_expr_1>, <numeric_expr_2>)  
 ```
 
@@ -39,7 +40,7 @@ Returns a numeric expression.
 
 The following example demonstrates raising a number to various powers.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/power/query.sql" highlight="2-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/power/query.sql" highlight="2-9":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/power/result.json":::
 
