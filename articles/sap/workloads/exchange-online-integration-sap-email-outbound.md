@@ -24,16 +24,7 @@ Existing implementations relied on SMTP Auth and elevated trust relationship bec
 Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365) to understand the general configuration of a "device" that wants to send email via Microsoft 365.
 
 > [!IMPORTANT]
-> Microsoft disabled Basic Authentication for Exchange online as of 2020 for newly created Microsoft 365 tenants. In addition to that, the feature gets disabled for existing tenants with no prior usage of Basic Authentication starting October 2020. See our developer [blog](https://devblogs.microsoft.com/microsoft365dev/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) for reference.
-
-> [!IMPORTANT]
-> SMTP Auth was exempted from the Basic Auth feature sunset
-process. However, this is a security risk for your estate, so we advise
-against it. See the latest [post](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-and-exchange-online-september-2021-update/ba-p/2772210)
-by our Exchange Team on the matter.
-
-> [!IMPORTANT]
-> Current OAuth support for SMTP is described on our [Exchange Server documentation for legacy protocols](/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth).
+> SMTP Auth was exempted from the [Basic Auth feature sunset process](https://devblogs.microsoft.com/microsoft365dev/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) for continued support. However, this is a security risk for your estate, so we advise against it. See the latest [post](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-and-exchange-online-september-2021-update/ba-p/2772210) by our Exchange Team on the matter.
 
 ## Setup considerations
 
