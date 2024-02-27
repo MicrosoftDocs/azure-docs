@@ -57,9 +57,9 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 * Options for continuing your investigations with Microsoft Sentinel
 
 > [!NOTE]
-> Microsoft Defender for Azure Database for PostgreSQL - Flexible Server currently has following limitations:
+> Microsoft Defender for Azure Database for PostgreSQL - Flexible Server currently has following limitation:
 > - No Azure CLI or PowerShell support.
-> - No ability to enable Cloud Defender for Azure Database for PostgreSQL - Flexible Server on subscription level.
+
 
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
@@ -74,6 +74,9 @@ To get alerts from the Microsoft Defender plan you'll first need to **enable it*
 
 :::image type="content" source="./media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure portal showing how to enable Cloud Defender.":::
 
+
+> [!NOTE]
+> If you have the "open-source relational databases" feature enabled in your Microsoft Defender plan, you will observe that Microsoft Defender is automatically enabled by default for your Azure Database for PostgreSQL flexible server resource.
 
 ## Access management
 
