@@ -13,7 +13,7 @@ ms.author: midesa
 
 [Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code.
 
-Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using PyTorch, users can use the horovod.spark estimator API. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages PyTorch and the Horovod Estimator to run the training process.
+Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime. For Spark ML pipeline applications using PyTorch, users can use the horovod.spark estimator API. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages PyTorch and the Horovod Estimator to run the training process.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the numExecutors and spark.rapids.memory.gpu.reserve. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
+At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only need to set the numExecutors and spark.rapids.memory.gpu.reserve. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
 
 In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided below are the suggested, best practice values for Azure Synapse GPU-large pools.  
 

@@ -51,7 +51,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     |Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
     | **Apache Spark pool name** | A valid pool name | This is the name that the Apache Spark pool will have. |
-    | **Node size family** | Hardware Accelerated | Choose Hardware Accelerated from the drop down menu |
+    | **Node size family** | Hardware Accelerated | Choose Hardware Accelerated from the drop-down menu |
     | **Node size** | Large (16 vCPU / 110 GB / 1 GPU) | Set this to the smallest size to reduce costs for this quickstart |
     | **Autoscale** | Disabled | We don't need autoscale for this quickstart |
     | **Number of nodes** | 3 | Use a small size to limit costs for this quickstart |

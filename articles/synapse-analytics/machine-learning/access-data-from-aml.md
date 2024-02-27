@@ -25,13 +25,14 @@ First, we will install the ```azure-ai-ml``` package.
 
 ```python
 %pip install azure-ai-ml
+
 ```
 
 ## Create a Datastore
 
 Azure Machine Learning offers a feature known as a Datastore, which acts as a reference to your existing Azure storage account. We will create a Datastore which references our Azure Synapse ADLS Gen2 storage account.
 
-In this example, we'll create a Datastore linking to our Azure Synapse ADLS Gen2 storage. After initializing an MLClient object, you can provide connection details to your ADLS Gen2 account. Finally, you can execute the code to create or update the Datastore.
+In this example, we'll create a Datastore linking to our Azure Synapse ADLS Gen2 storage. After initializing an ```MLClient``` object, you can provide connection details to your ADLS Gen2 account. Finally, you can execute the code to create or update the Datastore.
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen2Datastore
@@ -63,7 +64,7 @@ To do this:
 1. Start your compute engine.
 2. Select **Data Actions** and then select **Mount**.
 
-![Screenshot of Azure ML option to select data actions.](./media/./tutorial-access-data-from-aml/data-actions.png)
+    ![Screenshot of Azure ML option to select data actions.](./media/./tutorial-access-data-from-aml/data-actions.png)
 
 1. From here, you should see and select your ADLSg2 storage account name. It may take a few moments for your mount to be created.
 1. Once your mount is ready, you can select **Data actions** and then **Consume**. Under **Data**, you can then select the mount that you want to consume data from.

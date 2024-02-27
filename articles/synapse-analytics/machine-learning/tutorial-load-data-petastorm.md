@@ -28,7 +28,7 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
+At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only need to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
 
 ```python
 %%configure -f

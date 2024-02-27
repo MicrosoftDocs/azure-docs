@@ -58,7 +58,7 @@ When you select a GPU-accelerated Hardware option in Synapse Spark, you implicit
 
 ## Accelerate ETL workloads
 
-With built-in support for NVIDIA’s [RAPIDS Accelerator for Apache Spark](https://nvidia.github.io/spark-rapids/), GPU-accelerated Spark pools in Azure Synapse can provide significant performance improvements compared to standard analytical benchmarks without requiring any code changes. Built on top of NVIDIA CUDA and UCX, NVIDIA RAPIDS enables GPU-accelerated SQL, DataFrame operations, and Spark shuffles. Since there are no code changes required to leverage these accelerations, users can also accelerate their data pipelines that rely on Linux Foundation’s Delta Lake or Microsoft’s Hyperspace indexing. 
+With built-in support for NVIDIA’s [RAPIDS Accelerator for Apache Spark](https://nvidia.github.io/spark-rapids/), GPU-accelerated Spark pools in Azure Synapse can provide significant performance improvements compared to standard analytical benchmarks without requiring any code changes. This package is built on top of NVIDIA CUDA and UCX and enables GPU-accelerated SQL, DataFrame operations, and Spark shuffles. Since there are no code changes required to leverage these accelerations, users can also accelerate their data pipelines that rely on Linux Foundation’s Delta Lake or Microsoft’s Hyperspace indexing. 
 
 To learn more about how you can use the NVIDIA RAPIDS Accelerator with your GPU-accelerated pool in Azure Synapse Analytics, visit this guide on how to [improve performance with RAPIDS](apache-spark-rapids-gpu.md).
 
@@ -72,7 +72,7 @@ To learn more about how you can train distributed deep learning models, visit th
 
 ## Improve machine learning scoring workloads
 
-Many organizations rely on large batch scoring jobs to frequently execute during narrow windows of time. To achieve improved batch scoring jobs, you can also use GPU-accelerated Spark pools with Microsoft’s [Hummingbird library](https://github.com/Microsoft/hummingbird). With Hummingbird, users can take their traditional, tree-based ML models and compile them into tensor computations. Hummingbird allows users to then seamlessly leverage native hardware acceleration and neural network frameworks to accelerate their ML model scoring without needing to rewrite their models.  
+Many organizations rely on large batch scoring jobs to frequently execute during narrow windows of time. To achieve improved batch scoring jobs, you can also use GPU-accelerated Spark pools with Microsoft’s [Hummingbird library](https://github.com/Microsoft/hummingbird). With Hummingbird, users can take traditional, tree-based ML models and compile them into tensor computations. Hummingbird allows users to then seamlessly leverage native hardware acceleration and neural network frameworks to accelerate their ML model scoring without needing to rewrite their models.  
 
 ## Next steps
 
