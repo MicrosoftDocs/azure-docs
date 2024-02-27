@@ -3039,3 +3039,13 @@ groups:
     title: Chrome browser
   - id: firefox-browser
     title: Firefox browser
+
+# Owner: tejaswikolli-web
+- id: container-registry-zones
+  title: Container registry ide
+  prompt: Choose a scope option
+  pivots:
+  - id: development-environment-azure-portal
+    title: Portal 
+  - id: development-environment-azure-cli
+    title: CLI
