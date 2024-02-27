@@ -34,10 +34,10 @@ You could also configure properties for the client connection when generating th
 
 | Description | Claim type | Claim value | Notes |
 | --- | --- | --- | --- |
-| The `userId` for the client connection | `sub` | the userId | Only one `sub` claim is allowed |
+| The `userId` for the client connection | `sub` | the userId | Only one `sub` claim is allowed. |
 | The lifetime of the token | `exp` | the expiration time | The `exp` (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing. |
-| The [permissions](#permissions) the client connection initially has | `role` | the role value defined in [permissions](#permissions) | Specify multiple `role` claims if the client has multiple permissions |
-| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | the group to join | Specify multiple `group` claims if the client joins multiple groups|.
+| The [permissions](#permissions) the client connection initially has | `role` | the role value defined in [permissions](#permissions) | Specify multiple `role` claims if the client has multiple permissions. |
+| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | the group to join | Specify multiple `group` claims if the client joins multiple groups. |
 
 You could also add custom claims into the access token, and these values are preserved as the `claims` property in [connect upstream request body](./reference-cloud-events.md#system-connect-event).
 
