@@ -66,7 +66,7 @@ Artifact streaming is currently in preview. The following limitations apply:
 Start artifact streaming with a series with Azure CLI commands and Azure portal for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These instructions outline the process for creating a *Premium* [SKU](container-registry-skus.md) ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
 
 <!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-azure-cli"
 <!-- markdownlint-enable MD044 -->
 
 ### Push/Import the image and generate the streaming artifact  - Azure CLI
