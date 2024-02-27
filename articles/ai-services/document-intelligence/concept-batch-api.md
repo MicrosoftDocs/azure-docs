@@ -1,7 +1,7 @@
 ---
-title: Batch document processing support gpt Document Intelligence (formerly Form Recognizer) to analyze documents in storage blobs.
+title: Document Intelligence (formerly Form Recognizer) Batch API document processing support for analyzing documents in storage blobs.
 titleSuffix: Azure AI services
-description: The Batch API provides a simple interface to analyze documents with general models, prebuilt models or custom models and write the output back to the storage account.
+description: The Batch API provides a simple interface to analyze documents with general, prebuilt, or custom models and returning the output results to your storage account.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -11,8 +11,12 @@ ms.author: vikurpad
 ms.custom:
 monikerRange: '>=doc-intel-4.0.0'
 ---
-
-
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD049 -->
+<!-- markdownlint-disable MD001 -->
 
 # Batch document processing support
 
@@ -22,9 +26,13 @@ Azure AI Document Intelligence is a cloud-based Azure AI service that enables yo
 
 ## Getting started with the Batch API
 
-The [Batch Analyze documents](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2024-02-29-preview/operations/BatchAnalyzeDocuments) operation enables you to send API requests asynchronously, using an HTTP `POST` request body to send your data and HTTP `GET` request query string to retrieve the processed data. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction). The response JSON is described in the [analyze response](concept-analyze-document-response.md).
+The [Batch Analyze documents](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2024-02-29-preview/operations/BatchAnalyzeDocuments) API is supported for all [Document Intelligence models](overview.md#document-analysis-models) and [supported languages](language-support-ocr.md).
 
-### Azure storage
+The Batch Analyze operation enables you to send API requests asynchronously, using an HTTP `POST` request body to send your data and HTTP `GET` request query string to retrieve the status results. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion.
+
+When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction). The response JSON is described in the [analyze response](concept-analyze-document-response.md). Your processed documents are located in your Azure Blob Storage output container.
+
+### Azure Blob Storage
 
 The batch translation process requires an Azure Blob storage account with containers for your input documents and output results.
 
@@ -58,7 +66,7 @@ To call the Batch API via the REST, include the following header with each reque
 
 ### Request body
 
-Each request can contain multiple documents and must contain a source and target container for each document
+Each request can contain multiple documents and must contain a source and target container for each document.
 
 |Query parameter| Description | Condition|
 | --- | --- |---|
@@ -68,11 +76,11 @@ Each request can contain multiple documents and must contain a source and target
 | **`fileList`**| Used with the `azureBlobFileListSource` property to specify documents for analysis.| ***Required***|
 | ***resultContainerUrl*** | The target location URL for the analyzed document results.|***Required***|
 |***resultPrefix***| Used with the `resultContainerUrl` property to specify a specific folder to store your analyzed document results.|
-|***overwriteExisting***| If a A boolean value to indicate if any existing documents should be overwritten or skilled. The values are `true` (overwrite) or `false` (default, skip). This property is only checked when the service is attempting to write the results. The number of pages processed will still be counted for billing including files that are skipped.
+|***overwriteExisting***| If a A boolean value to indicate if any existing documents should be overwritten or skilled. The values are `true` (overwrite) or `false` (default, skip). This property is only checked when the service is attempting to write the results. The number of pages processed is still counted for billing, including files that are skipped.|
 
 ### Sample requests
 
-**Process all documents in a container**
+***Process all documents in a container***
 
 ```json
 {
@@ -80,17 +88,13 @@ Each request can contain multiple documents and must contain a source and target
     "containerUrl": "https://myStorageAccount.blob.core.windows.net/myContainer?mySasToken",
     "prefix": "trainingDocs/"
   },
-
-  "resultContainerUrl": {
-
-   "containerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
-  "resultPrefix": "trainingDocsResult/"
-  },
+  "resultContainerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
+  "resultPrefix": "trainingDocsResult/",
   "overwriteExisting": true
 }
 ```
 
-**Process specified documents in a container**
+***Process specified documents in a container***
 
 ```json
 {
@@ -98,43 +102,62 @@ Each request can contain multiple documents and must contain a source and target
     "containerUrl": "https://myStorageAccount.blob.core.windows.net/myContainer?mySasToken",
     "fileList": "myFileList.jsonl"
   },
-
-  "resultContainerUrl":{ 
-    "containerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
-  "resultPrefix": "trainingDocsResult/"},
-  
+  "resultContainerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
+  "resultPrefix": "trainingDocsResult/",
   "overwriteExisting": false
 }
 ```
 
 ### Response
 
-For each accepted batch API request, the service responds with a URL for a long running operation in the ```operation-location``` response header. Polling the URL gives you the status of the batch request.
+Upon successful completion:
 
-The response body contains the folloing properties
-*  Status - can be either ```notStarted```, ```running```, ```completed``` or ```failed```
-* percentCompleted - an estimate based on the number of processed document
-* createdDateTime - The timestamp the request was submitted
-* lastUpdatedDateTime - When the status of the request was last updated
-* result - the aggregate details of the files processed, skipped or failed and the details by by status for each file.
-* error - The error is only returned if there is an error with the request. If a individual document fails for some reason, the request can still complete successfully.
+* The successful `POST` method returns a `202 OK` response code indicating that the service created the batch request.
+* The translated documents are located in your target container.
+* The `POST` request also returns response headers including `Operation-Location`. The value of this header contains a `resultId` that can be queried to get the status of the asynchronous operation and retrieve the results using a `GET` request with your same resource subscription key.
 
-The ```resultUrl``` within the ```result``` is constructed by combinign the ```resultContainerUrl```, ```resultPrefix```, when provided, the file name and the string ```ocr.json```.
+***Operation-Location header***:
+
+```http
+Operation-Location: {your-endpoint} /documentintelligence/documentModels/{modelId}/analyzeBatchResults/{resultId}?api-version=2024-02-29-preview
+```
+
+***GET request***:
+
+```bash
+GET {your-endpoint}/documentintelligence/documentModels/{modelId}/analyzeBatchResults/{resultId}?api-version=2024-02-29-preview
+```
+
+The `GET` response body includes the following properties:
+
+* **status**. `notStarted`, `running`, `completed`, or `failed`.
+
+* `percentCompleted`. Estimated based on the number of processed documents.
+
+* **result**. The aggregate `details` of all documents processed with their status: `succeededCount`, `skippedCount`, or `failedCount` for each file.
+
+  * Documents that are skipped because the `resultUrl` already exists are listed with status=skipped without the corresponding `resultUrl`.
+
+  * Documents that failed are listed with `status=failed` without a corresponding `resultUrl`.
+
+* **error**. The error is only returned if there's an error with the request. If an individual document fails for some reason, the request can still complete successfully.
+
+### Service limits
+
+* The maximum number of documents that can be processed in a single batch request (including skipped documents) is **`10,000`**.
+
+* `.ZIP` file format isn't supported for Batch Analyze operations.
+
+### Custom models
+
+* You can use the Batch API to prepare a dataset for labeling by processing all documents through the `Layout API` or you can prelabel your documents with a custom model.
+
+* When using the Batch API to generate a training dataset for a custom model, set the request body `Batch Analyze` `resultContainerUrl` and `resultPrefix` values to match the Custom model training operation  `azureBlobSource` `containerUrl` value. For more information, *see* [Training a model](concept-custom-template.md#training-a-model).
 
 ### Cancel batch
 
-The cancel operation is currently not supported and batch operations once submitted cannot be cancelled.
-
-### Using the batch API to generate dataset for custom models
-
-You can use the batch API to pepare a dataset for labeling by running all documents through the ```Layout API``` o you could pre-label documents with a custom model. When using the batch API to generate a training dataset for a custom model, set ```resultContainerUrl``` and ```resultPrefix``` to match ```azureBlobSource```.
-
-## Limits
-
-* Maximum number of files that can be processed in a single batch request is 10000.
-* The maximum numner of pages for a single file remains unchanged.
+The cancel operation is currently not supported and batch operations once submitted can't be canceled.
 
 ## Next steps
 
-* Learn more about the [response content](concept-analyze-document-response.md)
-
+* Learn more about the [Analyze document API response](concept-analyze-document-response.md)
