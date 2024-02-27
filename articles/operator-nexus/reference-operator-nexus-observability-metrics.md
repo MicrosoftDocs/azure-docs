@@ -62,3 +62,52 @@ The possible operational states are:
 - **Inactive (1):** The component is enabled but inactive (down)
 - **Disabled (2):** The component is administratively disabled
 
+## Interface operational state
+
+The operational state of an interface in a network device shows its current functioning state.
+
+| Metrics Category | Description/Usage | Collection interval | Measured unit |
+|--|--|--|--|
+| Interface Operational State | The operational state of the interface. The possible values are described after this table. | 5 mins | N/A |
+
+The possible operational states are:
+
+- **Up (0):** The interface is operational and able to transmit and receive data
+- **Down (1):** The interface isn't operational, and is unable to transmit or receive data
+- **Lower_layer_down (2):** The interface is down due to a failure in a lower layer of the network stack
+- **Testing (3):** The interface is undergoing testing and isn't yet operational
+- **Unknown (4):** The status of the interface is unknown, possibly due to a failure in the device's monitoring system
+- **Dormant (5):** The interface is operational but is currently in a dormant state, meaning it isn't transmitting or receiving data
+- **Not_present (6):** The interface isn't present in the device, possibly because it has been physically removed or it hasn't been installed yet
+
+
+## Interface state counters
+
+Interface state counters track the number of frames or packets matching certain conditions. All of them are collected at 5-minute intervals.
+
+| Metrics Category | Description/Usage |
+|--|--|
+| Ethernet Interface In CRC Errors | The total count of received frames with lengths between 64 and 1,518 octets that have either an FCS Error or an Alignment Error. These errors indicate issues in data transmission that need to be addressed for reliable communication.   |
+| Ethernet Interface In Fragment Frames | This is a gauge that quantifies the count of error-ridden fragment frames received via an ethernet interface. A fragment frame, which is shorter than the Ethernet protocol's stipulated length, possesses either an incorrect checksum value, known as an FCS Error, or an improper bit count, referred to as an Alignment Error. |
+| Ethernet Interface In Jabber Frames | The count of jabber frames received via the interface. Jabber frames are frames that exceed the standard size and also possess an erroneous Cyclic Redundancy Check (CRC). |
+| Ethernet Interface In MAC Control Frames | Control frames at the MAC layer received on the interface. |
+| Ethernet Interface In MAC Pause Frames | PAUSE frames at the MAC layer received via the interface. |
+| Ethernet Interface In Maxsize Exceeded  | The total count of well-structured frames that were dropped on the interface due to surpassing the maximum frame size. |
+| Ethernet Interface In Oversize Frames | The total count of well-structured frames received that exceeded 1,518 octets in length (not counting framing bits, but inclusive of FCS octets). |
+| Ethernet Interface Out MAC Control Frames | Control frames at the MAC layer sent on the interface   |
+| Ethernet Interface Out MAC Pause Frames   | PAUSE frames at the MAC layer sent via the interface. |
+| Interface In Broadcasts packets    | The total number of packets addressed to a broadcast address at this sublayer, including those packets that were discarded or not sent. |
+| Interface In Discards                    | The number of inbound packets that were discarded even though no errors were detected to prevent their being deliverable to a higher-layer protocol. |
+| Interface In Errors                       | For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. |
+| Interface In FCS Errors                   | Number of received packets that had errors in the frame check sequence (FCS). |
+| Interface In Multicast Packets            | The number of packets delivered by this sublayer to a higher layer or sublayer that were addressed to a multicast address at this sublayer. For a MAC-layer protocol, these addresses include both Group and Functional addresses. |
+| Interface In Octets  | The total number of octets received on the interface, including framing characters. |
+| Interface In Packets                      | The total number of packets received on the interface, including all unicast, multicast, broadcast, and bad packets. |
+| Interface In Unicasts Packets             | The number of packets delivered by this sublayer to a higher layer or sublayer that weren't addressed to a multicast or broadcast address at this sublayer. |
+| Interface Out Broadcast Packets           | The total number of packets that were addressed to a broadcast address at this sublayer, including packets that were discarded or not sent. |
+| Interface Out Discards                    | The number of outbound packets that were discarded even though no errors were detected to prevent their being transmitted. |
+| Interface Out Errors                      | For packet-oriented interfaces, the number of outbound packets that couldn't be transmitted because of errors. |
+| Interface Out Multicast Packets           | The total number of outgoing packets that were addressed to a multicast address at this sublayer, including packets that were discarded or not sent. For a MAC-layer protocol, these addresses include both Group and Functional addresses. |
+| Interface Out Octets                      | The total number of octets transmitted out of the interface, including framing characters. |
+| Interface Out Packets                     | The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets. |
+| Interface Out Unicasts Packets            | The total number of outgoing packets that weren't addressed to a multicast or broadcast address at this sublayer, including packets that were discarded or not sent. |
