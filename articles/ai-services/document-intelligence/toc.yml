@@ -178,7 +178,7 @@ items:
     href: concept-query-fields.md
   - name: 🆕 Retrieval-Augmentated Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
-    href: concept-retrieval-augumented-generation.md
+    href: concept-retrieval-augmented-generation.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
