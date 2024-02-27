@@ -38,29 +38,32 @@ This document provides a quick overview of these resources and assets.
 
 ### [Python SDK](#tab/sdk)
 
-To use the Python SDK code examples in this article, create a connection to your Azure Machine Learning subscription.  The examples all rely on `ml_client`.
+To use the Python SDK code examples in this article:
 
-```python
-# import required libraries
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace
-from azure.identity import DefaultAzureCredential
+1. Install the [Python SDK v2](https://aka.ms/sdk-v2-install)
+2. Create a connection to your Azure Machine Learning subscription.  The examples all rely on `ml_client`. All examples also require `ml_client` to include the workpace name, other than the example that shows how to create a workspace.
 
-# Enter details of your subscription
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-
-# get a handle to the subscription (use this if you haven't created a workspace yet)
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
-
-# for all examples after creating a workspace, also include the workspace name:
-workspace_name = "<WORKSPACE_NAME>"
-ml_client = ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name)
-```
+    ```python
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import Workspace
+    from azure.identity import DefaultAzureCredential
+    
+    # Enter details of your subscription
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    
+    # get a handle to the subscription (use this if you haven't created a workspace yet)
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+    
+    # other than when you create a workspace, be sure to include the workspace name in the connection
+    workspace_name = "<WORKSPACE_NAME>"
+    ml_client = ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name)
+    ```
 
 ### [Azure CLI](#tab/cli)
 
-To use the Azure CLI code examples in this article, you need to have the Azure CLI installed and configured. You can install the Azure CLI from the [Azure CLI documentation](/azure/install-azure-cli).
+To use the Azure CLI code examples in this article, you need to have the Azure CLI installed and configured. You can install the Azure CLI from the [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
 ### [Studio](#tab/azure-studio)
 
@@ -257,13 +260,13 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### [Python SDK](#tab/sdk)
 
-To create an environment using Python SDK v2, see [Create an envirnment](how-to-manage-environments-v2.md&tabs=python#create-an-environment).
+To create an environment using Python SDK v2, see [Create an envirnment](how-to-manage-environments-v2.md?tabs=python#create-an-environment).
 
 This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ### [Azure CLI](#tab/cli)
 
-To create an environment using CLI v2, see [Create an envirnment](how-to-manage-environments-v2.md&tabs=cli#create-an-environment).
+To create an environment using CLI v2, see [Create an envirnment](how-to-manage-environments-v2.md?tabs=cli#create-an-environment).
 
 For more information, see [environment YAML schema](reference-yaml-environment.md).
 
