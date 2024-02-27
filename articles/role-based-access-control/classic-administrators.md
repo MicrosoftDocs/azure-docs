@@ -1,7 +1,6 @@
 ---
 title: Azure classic subscription administrators
 description: Describes how to remove or change the Azure Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
-services: active-directory
 author: rolyon
 manager: amycolannino
 

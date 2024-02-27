@@ -21,6 +21,15 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
+## Azure IoT Data Processor Preview
+
+If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
+
+```bash
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+```
+
 ## Azure IoT MQ (preview)
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
