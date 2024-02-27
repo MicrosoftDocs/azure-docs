@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Change default answer for question answering

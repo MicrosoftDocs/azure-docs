@@ -17,7 +17,7 @@
       items:
         - name: ASP.NET Core
           href: quickstart-aspnet-core-app.md
-        - name: .NET Core
+        - name: .NET
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
@@ -65,7 +65,7 @@
           href: enable-dynamic-configuration-aspnet-core.md
         - name: ASP.NET (.NET Framework)
           href: enable-dynamic-configuration-aspnet-netfx.md
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core.md
         - name: .NET Framework
           href: enable-dynamic-configuration-dotnet.md
@@ -79,7 +79,7 @@
           href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
       items:
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - name: Java Spring
           href: enable-dynamic-configuration-java-spring-push-refresh.md
@@ -282,7 +282,7 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103664
     - name: Feature management
       items:
-        - name: .NET Core/.NET Standard
+        - name: .NET
           href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
           href: https://azure.github.io/azure-sdk-for-java/springboot.html

@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

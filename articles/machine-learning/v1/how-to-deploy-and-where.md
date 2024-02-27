@@ -1,5 +1,5 @@
 ---
-title: Deploy machine learning models 
+title: Deploy machine learning models
 titleSuffix: Azure Machine Learning
 description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, and FPGA.'
 services: machine-learning
@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, devx-track-azurecli, mktng-kw-nov2021, cliv1, sdkv1
 adobe-target: true
 ---
 

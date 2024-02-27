@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 01/10/2024
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -30,8 +30,8 @@ The following table provides a comparison of the five disk types to help you dec
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
 | **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
 | **Max disk size** | 65,536 GiB | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
-| **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
-| **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
+| **Max throughput** | 10,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
+| **Max IOPS** | 400,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
 \* Only applies to disks with performance plus (preview) enabled.
@@ -60,21 +60,19 @@ The following table provides a comparison of disk sizes and performance caps to 
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
 |32     |9,600         |2,400         |
-|64     |19,200         |4,000         |
-|128     |38,400         |4,000         |
-|256     |76,800         |4,000         |
-|512     |153,600         |4,000         |
-|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |4,000         |
+|64     |19,200         |4,900         |
+|128     |38,400         |9,800         |
+|256     |76,800         |10,000         |
+|512     |153,600         |10,000         |
+|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
 
 ### Ultra disk performance
 
- Ultra disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
+Ultra disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
 
 ### Ultra disk IOPS
 
-Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit.
-
-The current maximum limit for IOPS for a single VM in generally available sizes is 80,000. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
+Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 400,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
 
 The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4-GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
 
@@ -82,7 +80,7 @@ For more information about IOPS, see [Virtual machine and disk performance](disk
 
 ### Ultra disk throughput
 
-The throughput limit of a single ultra disk is 256-kB/s for each provisioned IOPS, up to a maximum of 4000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
+The throughput limit of a single ultra disk is 256-kB/s for each provisioned IOPS, up to a maximum of 10,000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
 
 You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
 
@@ -101,6 +99,7 @@ Premium SSD v2 offers higher performance than Premium SSDs while also generally 
 Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
 Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
+
 
 ### Differences between Premium SSD and Premium SSD v2
 
@@ -122,7 +121,7 @@ Premium SSD v2 disks are designed to provide sub millisecond latencies and provi
 
 Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-Premium SSD v2 offers up to 32 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Premium SSD v2 offers up to 100 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 #### Premium SSD v2 IOPS
 
@@ -137,11 +136,9 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 #### Summary
 
-The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
+The following table provides an overview of disk capacities and performance maximums to help you decide which to use.
 
-|Disk Size  |Maximum available IOPS  |Maximum available throughput (MB/s)  |
-|---------|---------|---------|
-|1 GiB-64 TiBs    |3,000-80,000 (Increases by 500 IOPS per GiB)        |125-1,200 (increases by 0.25 MB/s per set IOPS)         |
+[!INCLUDE [disks-premv2-performance](../../includes/disks-premv2-performance.md)]
 
 To deploy a Premium SSD v2, see [Deploy a Premium SSD v2](disks-deploy-premium-v2.md).
 

@@ -285,7 +285,7 @@ code .
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
     environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+    location = "swedencentral"
 
     # management_network_address_space is the address space for management virtual network
     management_network_address_space = "10.10.20.0/25"
@@ -328,7 +328,7 @@ code .
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
     environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+    location = "swedencentral"
 
     #Defines the DNS suffix for the resources
     dns_label = "lab.sdaf.contoso.net"
@@ -349,9 +349,9 @@ Use the [deploy_controlplane.sh](bash/deploy-controlplane.md) script to deploy t
 
 The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the deployer and library, and some other parameters.
 
-For example, choose **West Europe** as the deployment location, with the four-character name `WEEU`, as previously described. The sample deployer configuration file `LAB-WEEU-DEP05-INFRASTRUCTURE.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-WEEU-DEP05-INFRASTRUCTURE` folder.
+For example, choose **West Europe** as the deployment location, with the four-character name `SECE`, as previously described. The sample deployer configuration file `LAB-SECE-DEP05-INFRASTRUCTURE.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-SECE-DEP05-INFRASTRUCTURE` folder.
 
-The sample SAP library configuration file `LAB-WEEU-SAP_LIBRARY.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-WEEU-SAP_LIBRARY` folder.
+The sample SAP library configuration file `LAB-SECE-SAP_LIBRARY.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-SECE-SAP_LIBRARY` folder.
 
 Set the environment variables for the service principal:
 
@@ -385,7 +385,7 @@ export                  TF_use_webapp=true
 
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 
 export     DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -420,10 +420,10 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 #                                                                                       #
 #  Please save these values:                                                            #
-#     - Key Vault: LABWEEUDEP05user39B                                                 #
+#     - Key Vault: LABSECEDEP05user39B                                                  #
 #     - Deployer IP: x.x.x.x                                                            #
-#     - Storage Account: mgmtnoeutfstate53e                                             #
-#     - Web Application Name: mgmt-noeu-sapdeployment39B                                #
+#     - Storage Account: labsecetfstate53e                                              #
+#     - Web Application Name: lab-sece-sapdeployment39B                                 #
 #     - App registration Id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                       #
 #                                                                                       #
 #########################################################################################
@@ -542,7 +542,7 @@ To copy the control plane configuration files to the deployer VM, you can use th
 
 ```bash
 
-terraform_state_storage_account=labweeutfstate###
+terraform_state_storage_account=labsecetfstate###
 
 cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES
 
@@ -589,10 +589,10 @@ export       ARM_TENANT_ID="<tenantId>"
 
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 
-terraform_state_storage_account=labweeutfstate###
-                     vault_name="LABWEEUDEP05user###"
+terraform_state_storage_account=labsecetfstate###
+                     vault_name="LABSECEDEP05user###"
 
 export     DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -621,7 +621,7 @@ You can deploy the web application using the following script:
 ```bash
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 export         webapp_name="<webAppName>"
 export              app_id="<appRegistrationId>"
 export           webapp_id="<webAppId>"
@@ -651,12 +651,12 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 1. Collect the following information in a text editor. This information was collected at the end of the "Deploy the control plane" phase.
 
     1. The name of the Terraform state file storage account in the library resource group:
-        - Following from the preceding example, the resource group is `LAB-WEEU-SAP_LIBRARY`.
-        - The name of the storage account contains `mgmtnoeutfstate`.
+        - Following from the preceding example, the resource group is `LAB-SECE-SAP_LIBRARY`.
+        - The name of the storage account contains `labsecetfstate`.
 
     1. The name of the key vault in the deployer resource group:
-        - Following from the preceding example, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`.
-        - The name of the key vault contains `LABWEEUDEP05user`.
+        - Following from the preceding example, the resource group is `LAB-SECE-DEP05-INFRASTRUCTURE`.
+        - The name of the key vault contains `LABSECEDEP05user`.
 
     1. The public IP address of the deployer VM. Go to your deployer's resource group, open the deployer VM, and copy the public IP address.
 
@@ -664,7 +664,7 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 
     1. The name of the deployer state file is found under the library resource group:
         - Select **Library resource group** > **State storage account** > **Containers** > `tfstate`. Copy the name of the deployer state file.
-        - Following from the preceding example, the name of the blob is `LAB-WEEU-DEP05-INFRASTRUCTURE.terraform.tfstate`.
+        - Following from the preceding example, the name of the blob is `LAB-SECE-DEP05-INFRASTRUCTURE.terraform.tfstate`.
 
 1. If necessary, register the Service Principal, for this tutorial this step is not needed.
 
@@ -677,7 +677,7 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
     export       ARM_TENANT_ID="<tenant>"
     export           key_vault="<vaultName>"
     export            env_code="LAB"
-    export         region_code="WEEU"
+    export         region_code="SECE"
 
     export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -707,7 +707,7 @@ Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy th
 1. On the deployer VM, go to the `Azure_SAP_Automated_Deployment` folder.
 
     ```bash
-    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/LAB-WEEU-SAP04-INFRASTRUCTURE
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/LAB-SECE-SAP04-INFRASTRUCTURE
     ```
 
 1. Optionally, open the workload zone configuration file and, if needed, change the network logical name to match the network name.
@@ -729,7 +729,7 @@ export           ARM_TENANT_ID="<tenantId>"
 ```bash
 export       deployer_env_code="LAB"
 export            sap_env_code="LAB"
-export             region_code="WEEU"
+export             region_code="SECE"
 
 export      deployer_vnet_code="DEP05"
 export               vnet_code="SAP04"
@@ -785,7 +785,7 @@ Deploy the SAP system.
 ```bash
 
 export             sap_env_code="LAB"
-export              region_code="WEEU"
+export              region_code="SECE"
 export                vnet_code="SAP04"
 export                      SID="L00"
 
@@ -845,7 +845,7 @@ materials:
     - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
 ```
 
-For this example configuration, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`. The deployer key vault name contains `LABWEEUDEP05user` in the name. You use this information to configure your deployer's key vault secrets.
+For this example configuration, the resource group is `LAB-SECE-DEP05-INFRASTRUCTURE`. The deployer key vault name contains `LABSECEDEP05user` in the name. You use this information to configure your deployer's key vault secrets.
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
@@ -908,6 +908,65 @@ For this example configuration, the resource group is `LAB-WEEU-DEP05-INFRASTRUC
 
     Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
 
+    You can either run the playbook using the configuration menu or directly from the command line.
+
+    ```bash
+    
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/BOMS/
+    
+    export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+    
+    playbook_options=(
+            --inventory-file="${sap_sid}_hosts.yaml"
+            --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+            --extra-vars="_workspace_directory=`pwd`"
+            --extra-vars="@sap-parameters.yaml"
+            --extra-vars="bom_processing=true"
+            "${@}"
+    )
+    
+    # Run the playbook to retrieve the ssh key from the Azure key vault
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+    
+    # Run the playbook to perform the Operating System configuration
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+
+    
+    ```
+
+    if you want you can also pass the SAP User credentials as parameters
+
+    ```bash
+    
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/BOMS/
+
+    sap_username=<sap-username>
+    sap_user_password='<sap-password>'
+    
+    export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+    
+    playbook_options=(
+            --inventory-file="${sap_sid}_hosts.yaml"
+            --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+            --extra-vars="_workspace_directory=`pwd`"
+            --extra-vars="@sap-parameters.yaml"
+            --extra-vars="s_user=${sap_username}"
+            --extra-vars="s_password=${sap_user_password}"
+            --extra-vars="bom_processing=true"
+            "${@}"
+    )
+    
+    # Run the playbook to retrieve the ssh key from the Azure key vault
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+    
+    # Run the playbook to perform the Operating System configuration
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+
+    
+    ```
+
+
+
 
 ## SAP application installation
 
@@ -916,7 +975,7 @@ The SAP application installation happens through Ansible playbooks.
 Go to the system deployment folder.
 
 ```bash
-cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-WEEU-SAP04-L00/
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
 ```
 
 Make sure you have the following files in the current folders: `sap-parameters.yaml` and `L00_host.yaml`.
@@ -929,50 +988,310 @@ Run the `configuration_menu` script.
 ${HOME}/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
 ```
 
+:::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu." lightbox="./media/tutorial/configuration-menu.png":::
+
+
 Choose the playbooks to run.
 
 ### Playbook: Base Operating System configuration
 
 This playbook performs the generic OS configuration setup on all the machines, which includes configuration of software repositories, packages, and services.
 
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to perform the Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
+
+```
+
+
 ### Playbook: SAP specific Operating System configuration
 
 This playbook performs the SAP OS configuration setup on all the machines. The steps include creation of volume groups and file systems and configuration of software repositories, packages, and services.
+
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to perform the SAP Specific Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml
+
+```
 
 ### Playbook: BOM Processing
 
 This playbook downloads the SAP software to the SCS virtual machine.
 
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_03_bom_processing.yaml
+
+```
+
+
 ### Playbook: SCS Install
 
 This playbook installs SAP central services. For highly available configurations, the playbook also installs the SAP ERS instance and configures Pacemaker.
+
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_00_00_sap_scs_install.yaml
+
+```
+
 
 ### Playbook: Database Instance installation
 
 This playbook installs the database instances.
 
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_00_db_install.yaml
+
+```
+
 ### Playbook: Database Load
 
 This playbook invokes the database load task from the primary application server.
+
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_01_sap_dbload.yaml
+
+```
 
 ### Playbook: Database High Availability Setup
 
 This playbook configures the Database High availability, for HANA it entails HANA system replication and Pacemaker for the HANA database.
 
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_01_db_ha.yaml
+
+```
+
 ### Playbook: Primary Application Server installation
 
 This playbook installs the primary application server.
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_02_sap_pas_install.yaml
+
+```
 
 ### Playbook: Application Server installations
 
 This playbook installs the application servers.
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_02_sap_app_install.yaml
+
+```
 
 ### Playbook:  Web Dispatcher installations
 
 This playbook installs the web dispatchers.
+You can either run the playbook using the configuration menu or directly from the command line.
 
 You've now deployed and configured a standalone HANA system. If you need to configure a highly available (HA) SAP HANA database, run the HANA HA playbook.
 
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_04_sap_web_install.yaml
+
+```
 
 ## Clean up installation
 
@@ -991,28 +1310,28 @@ Before you begin, sign in to your Azure account. Then, check that you're in the 
 
 ### Remove the SAP infrastructure
 
-Go to the `DEV-WEEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
+Go to the `LAB-SECE-SAP01-L00` subfolder inside the `SYSTEM` folder. Then, run this command:
 
 ```bash
-export  sap_env_code="DEV"
-export   region_code="WEEU"
+export  sap_env_code="LAB"
+export   region_code="SECE"
 export sap_vnet_code="SAP04"
 
-cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-X00
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-L00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                   \
-  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-X00.tfvars" \
+  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-L00.tfvars" \
   --type sap_system
 ```
 
 ### Remove the SAP workload zone
 
-Go to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, run the following command:
+Go to the `LAB-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, run the following command:
 
 ```bash
 
-export  sap_env_code="DEV"
-export   region_code="WEEU"
+export  sap_env_code="LAB"
+export   region_code="SECE"
 export sap_vnet_code="SAP01"
 
 cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE
@@ -1042,7 +1361,7 @@ export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 Run the following command:
 
 ```bash
-export region_code="WEEU"
+export region_code="SECE"
 export    env_code="LAB"
 export   vnet_code="DEP05"
 

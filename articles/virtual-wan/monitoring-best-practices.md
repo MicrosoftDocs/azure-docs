@@ -84,13 +84,13 @@ The following section details the configuration of metric-based alerts only. How
 
 ### ExpressRoute gateway
 
-This section of the article focuses on metric-based alerts. There are no diagnostic logs currently available for Virtual WAN ExpressRoute gateways. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
+The following section focuses on metric-based alerts. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
 
 **Design checklist - metric alerts**
 
-* Create alert rule for Bits Received Per Second.
+* Create alert rule for bits received per second.
 * Create alert rule for CPU overutilization.
-* Create alert rule for Packets per Second.
+* Create alert rule for packets per second.
 * Create alert rule for number of routes advertised to peer.
 * Count alert rule for number of routes learned from peer.
 * Create alert rule for high frequency in route changes.
@@ -106,7 +106,16 @@ This section of the article focuses on metric-based alerts. There are no diagnos
 
 ## Virtual hub
 
-We're working to support alerts based on virtual hub metrics soon. Currently, you can retrieve information for the Metrics, but alerting is unsupported. There are no diagnostic logs available for virtual hubs at this time.
+The following section focuses on metrics-based alerts for virtual hubs. 
+
+**Design checklist - metric alerts**
+
+* Create alert rule for BGP peer status
+
+|Recommendation | Description|
+|---|---|
+|Create alert rule to monitor BGP peer status.| Select the **BGP Peer Status** metric when creating the alert rule. Using a **static** threshold, choose the **Average** aggregation type and configure the alert to be triggered whenever the value is **less than 1**.<br><br> This will allow you to identify when the virtual hub router is having connectivity issues with ExpressRoute, Site-to-Site VPN, and Point-to-Site VPN gateways deployed in the hub.|
+
 
 ## Azure Firewall
 
@@ -121,6 +130,16 @@ This section of the article focuses on metric-based alerts. Azure Firewall offer
 |---|---|
 |Create alert rule for risk of SNAT port exhaustion.|Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend virtual machine scale instance. It’s important to estimate in advance the number of SNAT ports that will fulfill your organizational requirements for outbound traffic to the Internet. Not doing so increases the risk of exhausting the number of available SNAT ports on the Azure Firewall, potentially causing outbound connectivity failures.<br><br>Use the **SNAT port utilization** metric to monitor the percentage of outbound SNAT ports currently in use. Create an alert rule for this metric to be triggered whenever this percentage surpasses **95%** (due to an unforeseen traffic increase, for example) so you can act accordingly by configuring an additional public IP address on the Azure Firewall, or by using an [Azure NAT Gateway](../nat-gateway/nat-overview.md) instead. Use the **Maximum** aggregation type when configuring the alert rule.<br><br>To learn more about how to interpret the **SNAT port utilization** metric, see [Overview of Azure Firewall logs and metrics](../firewall/logs-and-metrics.md#metrics). To learn more about how to scale SNAT ports in Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).|
 |Create alert rule for firewall overutilization.|Azure Firewall maximum throughput differs depending on the SKU and features enabled. To learn more about Azure Firewall performance, see [Azure Firewall performance](../firewall/firewall-performance.md).<br><br>You might want to be alerted if your firewall is nearing its maximum throughput and troubleshoot the underlying cause, as this can have an impact in the firewall’s performance.<br><br> Create an alert rule to be triggered whenever the **Throughput** metric surpasses a value nearing the firewall’s maximum throughput – if the maximum throughput is 30Gbps, configure 25Gbps as the **Threshold** value, for example. The **Throughput** metric unit is **bits/sec**. Choose the **Average** aggregation type when creating the alert rule.
+
+## Resource Health Alerts
+
+You can also configure [Resource Health Alerts](../service-health/resource-health-alert-monitor-guide.md) via Service Health for the below resources. This ensures you are informed of the availability of your Virtual WAN environment, and this allows you to troubleshoot if networking issues are due to your Azure resources entering an unhealthy state, as opposed to issues from your on-premises environment. It is recommended to configure alerts when the resource status becomes degraded or unavailable. If the resource status does become degraded/unavailable, you can analyze if there are any recent spikes in the amount of traffic processed by these resources, the routes advertised to these resources, or the number of branch/VNet connections created. Please see [Azure Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) for additional info on limits supported in Virtual WAN. 
+
+* Microsoft.Network/vpnGateways
+* Microsoft.Network/expressRouteGateways
+* Microsoft.Network/azureFirewalls
+* Microsoft.Network/virtualHubs
+* Microsoft.Network/p2sVpnGateways
 
 ## Next steps
 

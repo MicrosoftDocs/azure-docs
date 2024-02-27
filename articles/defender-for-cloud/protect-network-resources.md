@@ -8,7 +8,7 @@ ms.date: 10/23/2022
 
 Microsoft Defender for Cloud continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#recs-networking).
+For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#networking-recommendations).
 
 This article addresses recommendations that apply to your Azure resources from a network security perspective. Networking recommendations center around next generation firewalls, Network Security Groups, JIT VM access, overly permissive inbound traffic rules, and more. For a list of networking recommendations and remediation actions, see [Managing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
@@ -75,9 +75,9 @@ Because the map is interactive and dynamic, every node is clickable, and the vie
 To drill down into a resource:
 
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select.
-2. When you hover over a node in the map, you can view general information about the resource, including subscription, resource type, and resource group.
-3. Use the link to zoom into the tool tip and refocus the map on that specific node.
-4. To refocus the map away from a specific node, zoom out.
+1. When you hover over a node in the map, you can view general information about the resource, including subscription, resource type, and resource group.
+1. Use the link to zoom into the tool tip and refocus the map on that specific node.
+1. To refocus the map away from a specific node, zoom out.
 
 ### The Traffic view
 
@@ -94,7 +94,7 @@ For example, you might detect two machines that you weren’t aware could commun
 To drill down into a resource:
 
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select.
-2. Select **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
+1. Select **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.**
 

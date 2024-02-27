@@ -1,24 +1,26 @@
 ---
-title: Connect to an Azure Elastic SAN Preview volume - Windows
-description: Learn how to connect to an Azure Elastic SAN Preview volume from a Windows client.
+title: Connect to an Azure Elastic SAN volume - Windows
+description: Learn how to connect to an Azure Elastic SAN volume from a Windows client.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 02/13/2024
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
-# Connect to Elastic SAN Preview volumes - Windows
+# Connect to Elastic SAN volumes - Windows
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
 In this article, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
+
+You must use a cluster manager when connecting an individual elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
 
 ## Prerequisites
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
-- [Deploy an Elastic SAN Preview](elastic-san-create.md)
+- [Deploy an Elastic SAN](elastic-san-create.md)
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
@@ -61,7 +63,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 
 # Set the default load balancing policy based on your requirements. In this example, we set it to round robin
 # which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+mpclaim -L -M 2
 ```
 
 ### Attach Volumes to the client
@@ -88,4 +90,4 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
 
 ## Next steps
 
-[Configure Elastic SAN networking Preview](elastic-san-networking.md)
+[Configure Elastic SAN networking](elastic-san-networking.md)

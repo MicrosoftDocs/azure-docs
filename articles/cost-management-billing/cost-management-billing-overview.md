@@ -2,7 +2,6 @@
 title: Overview of Cost Management + Billing
 titleSuffix: Microsoft Cost Management
 description: You use Cost Management + Billing features to conduct billing administrative tasks and manage billing access to costs. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln

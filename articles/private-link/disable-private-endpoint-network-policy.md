@@ -3,11 +3,11 @@ title: Manage network policies for private endpoints
 titleSuffix: Azure Private Link
 description: Learn how to manage network policies for private endpoints.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: how-to
 ms.date: 07/26/2023
-ms.author: allensu 
+ms.author: abell 
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell, template-how-to
 ---

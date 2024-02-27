@@ -1,7 +1,7 @@
 ---
-title: Make data-driven policies and influence decision-making 
+title: Make data-driven policies and influence decision-making
 titleSuffix: Azure Machine Learning
-description: Make data-driven decisions and policies with the Responsible AI dashboard's integration of the causal analysis tool EconML. 
+description: Make data-driven decisions and policies with the Responsible AI dashboard's integration of the causal analysis tool EconML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
 ms.date: 08/17/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml
 ---
 
 # Make data-driven policies and influence decision-making

@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/08/2024
+ms.date: 02/06/2024
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,17 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### February 2024
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.18, 13.14, 14.11, 15.6, and 16.2) are now available.
+    * [The last update for PostgreSQL 11](./reference-versions.md#postgresql-version-11-and-older) was released by community in November 2023.
+* General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
+
+### January 2024
+* General availability: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) in all supported regions.
+    * See [how to get the most out of storage](./resources-compute.md#maximum-iops-for-your-compute--storage-configuration)
+* General availability: Geo-redundant backup and restore
+    * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md#backup-redundancy)
 
 ### December 2023
 * Preview: [PgBouncer](./concepts-connection-pool.md) is now supported with [Microsoft Entra ID authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview).
@@ -70,7 +81,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
     * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
     * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).
-* Preview: [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
+* Preview: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles.
 * Preview: Azure CLI is now supported for all Azure Cosmos DB for PostgreSQL management operations.
     * See [details](/cli/azure/cosmosdb/postgres).
 
@@ -170,9 +181,7 @@ might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
-* [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
-* [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* There are no features in preview at this time.
 
 ## Contact us
 

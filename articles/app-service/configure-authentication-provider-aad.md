@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 ---

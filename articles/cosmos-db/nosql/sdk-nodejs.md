@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 12/09/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 # Azure Cosmos DB Node.js SDK for API for NoSQL: Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

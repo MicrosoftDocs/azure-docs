@@ -1,6 +1,6 @@
 ---
-title: How to enable and use pgvector
-description: How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server.
+title: Vector search on Azure Database for PostgreSQL
+description: Vector search capabilities for retrieval augmented generation (RAG) on Azure Database for PostgreSQL .
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.reviewer: kabharati
@@ -10,7 +10,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 02/26/2024
 ---
 
 # How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server

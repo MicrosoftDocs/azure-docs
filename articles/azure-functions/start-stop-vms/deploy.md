@@ -208,7 +208,7 @@ For each scenario, you can target the action against one or more subscriptions, 
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
@@ -290,7 +290,7 @@ In an environment that includes two or more components on multiple Azure Resourc
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
@@ -366,7 +366,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "ResourceGroups": [
@@ -391,7 +391,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [

@@ -4,7 +4,7 @@ description: Learn about connectivity and networking with public access for Azur
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 10/12/2023
+ms.date: 12/21/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

@@ -7,7 +7,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/16/2024
 ms.custom: mvc
 ---
 
@@ -61,8 +61,6 @@ You can delete your server if you no longer need it.
 
    :::image type="content" source="./media/how-to-manage-server-portal/delete-server.png" alt-text="Delete the Azure Database for PostgreSQL flexible server instance.":::
 
-   > [!IMPORTANT]
-   > Deleting a server is irreversible.
 
   > [!div class="mx-imgBorder"]
   > ![Delete the Azure Database for PostgreSQL flexible server instance](./media/how-to-manage-server-portal/delete-server.png)  

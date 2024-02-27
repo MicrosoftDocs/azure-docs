@@ -6,7 +6,7 @@ ms.author: gennadyk
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 01/02/2024
 ---
 # Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys (CMK) using  Azure portal
 

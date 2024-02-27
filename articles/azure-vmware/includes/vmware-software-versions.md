@@ -3,7 +3,7 @@ title: VMware solution software versions
 description: Supported VMware solution software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 01/05/2024
+ms.date: 01/30/2024
 author: suzizuber
 ms.author: v-suzuber
 ms.custom: engagement-fy23
@@ -16,7 +16,7 @@ The VMware solution software versions used in new deployments of Azure VMware So
 
 | Software                         |    Version   |
 | :---                             |     :---:    |
-| VMware vCenter Server            |    [7.0 U3k](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3k-release-notes.html)   |
+| VMware vCenter Server            |    [7.0 U3m](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3m-release-notes/index.html)   |
 | VMware ESXi                      |    [7.0 U3k](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3k-release-notes.html)   |
 | VMware vSAN                      |    [7.0 U3](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vmware-vsan-703-release-notes.html)   |
 | VMware vSAN on-disk format       |    [15](https://kb.vmware.com/s/article/2148493)   |

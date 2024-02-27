@@ -8,6 +8,9 @@ ms.custom: references_regions
 
 # Archive for What's new with Azure Connected Machine agent
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
 The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:

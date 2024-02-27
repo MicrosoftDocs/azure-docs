@@ -114,7 +114,7 @@ async function main() {
 }
 
 main().catch((err) => {
-    console.error("An error occured:", err);
+    console.error("An error occurred:", err);
     process.exit(1);
   });
 

@@ -9,7 +9,7 @@ ms.reviewer: ""
 ms.custom: mvc, mode-api, devx-track-azurecli
 ms.tool: azure-cli
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server

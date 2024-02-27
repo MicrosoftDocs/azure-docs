@@ -20,20 +20,20 @@ For more information, see [Create a codeless connector](create-codeless-connecto
 
 ## Data connector definitions - Create or update
 
-Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the `create` and the `update` operation is the update requires the `etag` value.
+Reference the Create Or Update operation in the REST API docs to find the latest stable or preview API version. Only the `update` operation requires the `etag` value.
 
 **PUT** method
 ```http
-https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{{dataConnectorDefinitionName}}?api-version=
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{{dataConnectorDefinitionName}}?api-version={{apiVersion}}
 ```
 
 ## URI parameters
 
-For more information, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+For more information about the latest API version, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connector-definitions/create-or-update#uri-parameters)
 
 |Name  | Description  |
 |---------|---------|
-| **dataConnectorDefinition** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
+| **dataConnectorDefinitionName** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
 | **resourceGroupName** | The name of the resource group, not case sensitive.  |
 | **subscriptionId** | The ID of the target subscription. |
 | **workspaceName** | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
@@ -67,7 +67,7 @@ The following screenshot shows a sample data connector page, highlighted with nu
 
 :::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page with sections labeled 1 through 9.":::
 
-Each of the following elements of the `connectorUiConfig` section needed to configure the user interface correspond to the [CustomizableConnectorUiConfig](/rest/api/securityinsights/data-connector-definitions/create-or-update#customizableconnectoruiconfig) portion of the API.
+Each of the following elements of the `connectorUiConfig` section needed to configure the user interface correspond to the CustomizableConnectorUiConfig portion of the API.
 
 |Field | Required | Type | Description | Screenshot notable area #|
 | ---- | ---- | ---- | ---- | ---- |
@@ -176,12 +176,12 @@ This section provides parameters that define the set of instructions that appear
 ]
 ```
 
-|Array Property  |Type  |Description  |
-|---------|---------|---------|
-| **title**	| String | Optional. Defines a title for your instructions. |
-| **description** | 	String	| Optional. Defines a meaningful description for your instructions. |
-| **innerSteps**	| Array | Optional. Defines an array of inner instruction steps. |
-| **instructions**  | Array of [instructions](#instructions) | Required. Defines an array of instructions of a specific parameter type. | 
+|Array Property  | Required | Type  |Description  |
+|---------|---------|---------|--------|
+| **title**	| | String | Defines a title for your instructions. |
+| **description** | |	String	| Defines a meaningful description for your instructions. |
+| **innerSteps**	| | Array | Defines an array of inner instruction steps. |
+| **instructions**  | True | Array of [instructions](#instructions) | Defines an array of instructions of a specific parameter type. | 
 
 #### instructions
 
@@ -278,13 +278,13 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 }
 ```
 
-| Array Value  |Type  |Description  |
+| Array Value  | Required | Type  |Description  |
 |---------------|------|-------------|
-|**fillWith**     |  ENUM       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId` |
-|**label**     |  String       |  Defines the text for the label above a text box.      |
-|**value**     |  String       |  Defines the value to present in the text box, supports placeholders.       |
-|**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
-|**wideLabel**     |Boolean         | Optional. Determines a wide label for long strings. By default, set to `false`.        |
+|**fillWith**     | |  ENUM       | Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId` |
+|**label**     | True | String       |  Defines the text for the label above a text box.      |
+|**value**     | True | String       |  Defines the value to present in the text box, supports placeholders.       |
+|**rows**     | |  Rows      |  Defines the rows in the user interface area. By default, set to **1**.       |
+|**wideLabel**    | | Boolean     | Determines a wide label for long strings. By default, set to `false`.        |
 
 #### InfoMessage
 
@@ -308,13 +308,13 @@ Here's an example of an expandable instruction group:
 
 :::image type="content" source="media/create-codeless-connector/accordion-instruction-area.png" alt-text="Screenshot of an expandable, extra instruction group.":::
 
-|Array Value  |Type  |Description  |
-|---------|---------|---------|
-|**title**     |    String     |  Defines the title for the instruction step.       |
-|**description** | String | Optional descriptive text. |
-|**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
-|**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
-|**expanded**     |   Boolean      |   Optional. If `true`, shows as expanded by default.      |
+|Array Value  | Required | Type  |Description  |
+|---------|---------|---------|---------|
+|**title**     | True |    String     |  Defines the title for the instruction step.       |
+|**description** | | String | Optional descriptive text. |
+|**canCollapseAllSections**   | |  Boolean       |  Determines whether the section is a collapsible accordion or not.       |
+|**noFxPadding**    | |   Boolean      |  If `true`, reduces the height padding to save space.       |
+|**expanded**    | |   Boolean      |  If `true`, shows as expanded by default.      |
 
 For a detailed example, see the configuration JSON for the [Windows DNS connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Windows%20Server%20DNS/Data%20Connectors/template_DNS.JSON).
 
@@ -326,16 +326,16 @@ Some **InstallAgent** types appear as a button, others appear as a link. Here ar
 
 :::image type="content" source="media/create-codeless-connector/link-by-text.png" alt-text="Screenshot of a link added as inline text.":::
 
-|Array Values  |Type  |Description  |
-|---------|---------|---------|
-|**linkType**     |   ENUM      |  Determines the link type, as one of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
-|**policyDefinitionGuid**     | String        |  Required when using the **OpenPolicyAssignment** linkType. For policy-based connectors, defines the GUID of the built-in policy definition.        |
-|**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
-|**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as either `SecurityEvent`, or `ForwardEvent`.     |
+|Array Values  | Required |Type  |Description  |
+|---------|---------|---------|------------|
+|**linkType**     | True |   ENUM      |  Determines the link type, as one of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
+|**policyDefinitionGuid**    | True when using `OpenPolicyAssignment` linkType. | String |  For policy-based connectors, defines the GUID of the built-in policy definition.        |
+|**assignMode**     |  |  ENUM      |   For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
+|**dataCollectionRuleType**    | |  ENUM       |   For DCR-based connectors, defines the type of data collection rule type as either `SecurityEvent`, or `ForwardEvent`.     |
 
 ## Example data connector definition
 
-The following example brings together some of the components defined in this article as a JSON body format to use with the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) data connector API.
+The following example brings together some of the components defined in this article as a JSON body format to use with the Create Or Update data connector definition API.
 
 For more examples of the `connectorUiConfig` review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling). Even connectors using the legacy CCP have valid examples of the UI creation.
 

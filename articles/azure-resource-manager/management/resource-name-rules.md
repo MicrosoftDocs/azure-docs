@@ -4,8 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.reviewer: franksolomon
-ms.date: 01/04/2024
+ms.date: 01/19/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -326,7 +325,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | factories | global | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | factories / dataflows | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
-> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
+> | factories / datasets | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/-` or control characters<br><br>Start with alphanumeric. |
 > | factories / integrationRuntimes | factory | 3-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | factories / linkedservices | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |
 > | factories / pipelines | factory | 1-260 | Can't use:<br>`<>*#.%&:\\+?/` or control characters<br><br>Start with alphanumeric. |

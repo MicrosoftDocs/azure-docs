@@ -9,7 +9,6 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau
-ms.custom: 
 
 ---
 # Failover across multiple endpoints with Azure Traffic Manager

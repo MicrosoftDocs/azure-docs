@@ -3,11 +3,10 @@ title: Understand Azure reservations usage for Enterprise Agreement and Microsof
 description: Learn how to read your usage information to understand how an Azure reservation applies to Enterprise Agreement and Microsoft Customer Agreement usage.
 author: bandersmsft
 ms.reviewer: primittal
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -82,7 +81,7 @@ Information in the following table about metric and filter can help solve for co
 
 ## Download the EA usage CSV file with new data
 
-If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
+If you're an EA admin, you can download the CSV file that contains new usage data from the Azure portal.
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 

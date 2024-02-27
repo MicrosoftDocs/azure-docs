@@ -9,12 +9,12 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
 
-#Customer intent: As a developer integrating a RESTful service with Azure Active Directory B2C, I want to define a technical profile, so that I can send and receive data from the REST API using input and output claims collections.
+#Customer intent: As a developer customer-facing apps with Azure Active Directory B2C, I want to learn how to define a REST technical profile, so that I can send and receive data from external services.
 
 ---
 
@@ -263,7 +263,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | version | Yes | Your REST API version. For example: 1.0.1 |
-| status | Yes | An HTTP response status codes-like number, and must be 409 |
+| status | Yes | An HTTP response status codes-like number, and must be 409. Your REST service can return an HTTP 4XX status code, but the value of the `status` filed in the JSON-formatted response body must be `409`. |
 | code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | userMessage | Yes | An error message that is shown to the user. |

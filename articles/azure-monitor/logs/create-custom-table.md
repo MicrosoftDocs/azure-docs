@@ -7,7 +7,7 @@ ms.reviewer: adi.biran
 ms.service: azure-monitor
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to 
-ms.date: 10/23/2023
+ms.date: 01/28/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to manage table schemas and be able create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 
@@ -151,11 +151,11 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
-
-> [!NOTE]
-> - Deleting a restored table doesn't delete the data in the source table.
-> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
+There are several types of tables in Log Analytics and the delete experience is different for each:
+- [Azure table](../logs/manage-logs-tables.md#table-type-and-schema) -- Can't be deleted. Tables that are part of a solution are removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete), but data remains in workspace for the duration of the retention policy defined for the tables, or if not exist, for the duration of the retention policy defined in workspace. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables and previously ingested data become visible again. To avoid charges, define [retention policy for tables in solutions](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the solution.
+ - [Restored table](./restore.md) (table_RST) -- Deletes the hot cache provisioned for the restore, but source table data isn't deleted.
+ - [Search results table](./search-jobs.md) (table_SRCH) -- Deletes the table and data immediately and permanently.
+ - [Custom log table](./create-custom-table.md#create-a-custom-table) (table_CL) -- Deletes the table definition immediately, but data remains in workspace for the duration of the retention policy defined for the table, or workspace. The retention policy for table is removed in 14-days and workspace retention governs. If custom log table is created with the same name and schema, the table and previously ingested data become visible again. To avoid charges and remove data from table, define [retention policy for table](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the table.
 
 # [Portal](#tab/azure-portal-2)
 

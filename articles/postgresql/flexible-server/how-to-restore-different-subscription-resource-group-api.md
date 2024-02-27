@@ -7,7 +7,7 @@ ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 10/04/2023
+ms.date: 01/16/2024
 ---
 
 # Cross subscription and cross resource group restore in Azure Database for PostgreSQL - Flexible Server using Azure REST API

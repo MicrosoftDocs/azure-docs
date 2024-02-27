@@ -7,7 +7,6 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 01/03/2024
-keywords: 
 ---
 
 <a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
@@ -80,7 +79,7 @@ Create and assign persistent environment variables for your key and endpoint.
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = 'azure'
 openai.api_version = '2023-05-15' # this might change in the future
@@ -102,7 +101,7 @@ import os
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2023-12-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )

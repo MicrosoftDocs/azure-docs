@@ -59,7 +59,7 @@ sections:
           
           - Scan results for recommendations and details.
 
-          DevOps security features are a part of [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). Please refer to the following [data residency guidance](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography) and [EU Data Boundary details](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-permanent-transfers-from-services#security-services) as it relates to the Microsoft Defender for Cloud service.
+          DevOps security features are a part of [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). Please refer to the following [data residency guidance](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography) and [EU Data Boundary details](/privacy/eudb/eu-data-boundary-permanent-transfers-from-services#security-services) as it relates to the Microsoft Defender for Cloud service.
 
           DevOps security does not process or store your code, build, and audit logs today but may in the future as it expands its capabilities.
 
