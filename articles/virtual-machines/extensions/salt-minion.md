@@ -13,12 +13,12 @@ ms.date: 01/24/2024
 ## Prerequisites
 
 * A Microsoft Azure account with one (or more) Windows or Linux VMs
-* A Salt Master (either on-prem or in a cloud) that can accept connections from Salt minions hosted on Azure
+* A Salt Master (either on-premises or in a cloud) that can accept connections from Salt minions hosted on Azure
 * The Salt Minion VM Extension requires that the target VM is connected to the internet in order to fetch Salt packages
 
 ## Supported Platforms
 
-Azure VM running any of the following:
+Azure VM running any of the following supported OS:
 
 * Ubuntu 20.04, 22.04 (x86_64)
 * Debian 10, 11 (x86_64)
@@ -27,7 +27,7 @@ Azure VM running any of the following:
 * Microsoft Windows 10, 11 Pro (x86_64)
 * Microsoft Windows Server 2012 R2, 2016, 2019, 2022 Datacenter (x86_64)
 
-If you want another distro to be supported (assuming Salt [supports](https://docs.saltproject.io/salt/install-guide/en/latest/topics/salt-supported-operating-systems.html) it), please file an issue on [Gitlab](https://gitlab.com/turtletraction-oss/azure-salt-vm-extensions/-/issues).
+If you want another distro to be supported (assuming Salt [supports](https://docs.saltproject.io/salt/install-guide/en/latest/topics/salt-supported-operating-systems.html) it), an issue can be filed on [GitLab](https://gitlab.com/turtletraction-oss/azure-salt-vm-extensions/-/issues).
 
 ## Supported Salt Minion versions
 
@@ -43,9 +43,9 @@ If you want another distro to be supported (assuming Salt [supports](https://doc
 
 * `master_address` - Salt Master address to connect to (`localhost` by default)
 * `minion_id` - Minion ID (hostname by default)
-* `salt_version` - Salt Minion version to install, e.g. `3006.1` (`latest` by default)
+* `salt_version` - Salt Minion version to install, for example `3006.1` (`latest` by default)
 
-## Install Salt Minion using the Azure Portal UI
+## Install Salt Minion using the Azure Portal
 
 1. Select one of your VMs
 2. In the left menu click **Extensions + applications**
@@ -69,7 +69,7 @@ az vm extension delete --resource-group my-group --vm-name vm-ubuntu22 --name sa
 az vm extension delete --resource-group my-group --vm-name vm-windows11 --name salt-minion.windows
 ```
 
-## Install Salt Minion using the Azure ARM tempate
+## Install Salt Minion using the Azure ARM template
 
 ```json
 {
@@ -113,7 +113,7 @@ az vm extension delete --resource-group my-group --vm-name vm-windows11 --name s
 
 ## Install Salt Minion using Terraform
 
-Assuming that you have defined a VM resource in TF named `vm_ubuntu`, then use something like this to install the extension on it:
+Assuming that you have defined a VM resource in TerraForm named `vm_ubuntu`, then use something like this to install the extension on it:
 
 ```hcl
 resource "azurerm_virtual_machine_extension" "vmext_ubuntu" {
@@ -135,7 +135,7 @@ SETTINGS
 
 ## Support
 
-* For commercial support or assistance with Salt you can visit the extension creator, [TurtleTraction](https://turtletraction.com/salt-open-support)
-* The source code of this extension is available on [Gitlab](https://gitlab.com/turtletraction-oss/azure-salt-vm-extensions/)
-* For Azure related issues you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support
+* For commercial support or assistance with Salt, you can visit the extension creator, [TurtleTraction](https://turtletraction.com/salt-open-support)
+* The source code of this extension is available on [GitLab](https://gitlab.com/turtletraction-oss/azure-salt-vm-extensions/)
+* For Azure related issues, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support
 
