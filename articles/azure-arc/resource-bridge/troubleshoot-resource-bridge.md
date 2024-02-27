@@ -101,7 +101,12 @@ If you receive an error that contains `Not able to connect to https://example.ur
 When trying to deploy Arc resource bridge, you might receive an error message similar to:
 
 `"errorResponse": "{\n\"message\": \"Post \\\"https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview\\u0026releaseTrain=stable\\\": http2: server sent GOAWAY and closed the connection; LastStreamID=1, ErrCode=NO_ERROR, debug=\\\"\\\"\"\n}"`
-This occurs when there is a firewall or proxy with SSL/TLS inspection enabled blocking http2 calls from the machine used to deploy the resource bridge. Please work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the management machine.
+
+This occurs when there is a firewall or proxy with SSL/TLS inspection enabled blocking http2 calls from the machine used to deploy the resource bridge. To confirm this is the problem, run the following PS cmdlet to invoke the web request with http2 (requires Powershell version 7 or above), replacing the region in the URL and api-version (ex:2019-11-01) in the below example with what was in the error:
+
+`Invoke-WebRequest -HttpVersion 2.0 -UseBasicParsing -Uri https://region.dp.kubernetesconfiguration.azure.com/azure-arc-appliance-k8sagents/GetLatestHelmPackagePath?api-version=2019-11-01-preview"&"releaseTrain=stable -Method Post -Verbose`
+
+If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Please work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
 
 ### .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
