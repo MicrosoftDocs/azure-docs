@@ -75,16 +75,21 @@ procedureSection:
   - title: | 
       View route tables
     summary: |
-      Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Route tables**. The route tables that exist in your subscription are listed.
+      To manage your virtual network, access the Azure portal and use the search function to locate "Route tables." Here, you'll find a list of all the route tables available within your subscription. 
 
       :::image type="content" source="./media/manage-route-table/list.png" alt-text="Screenshot of the list of route tables in the Azure subscription.":::
     steps:
+      - | 
+         Go to the [Azure portal](https://portal.azure.com) to manage your virtual network.
       - |
+        Search for and select **Route tables**. The route tables that exist in your subscription are listed.
+
         ### View route table - commands
         | Tool | Command |
         | ---- | ------- |
         | Azure CLI | [az network route-table list](/cli/azure/network/route-table#az-network-route-table-list) |
         | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
+
   - title: | 
       View details of a route table
     summary: |
@@ -384,9 +389,14 @@ procedureSection:
   - title: |
       Permissions
     summary: |
-      To do tasks on route tables and routes, your account must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions listed in the following table:
-    steps:
+      To do tasks on route tables and routes, your account must be assigned to
+    steps: 
+      - |     
+        the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 
       - |
+        or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+        that's assigned the appropriate actions listed in the following table:
+
         | Action                                                          |   Name                                                  |
         |--------------------------------------------------------------   |   -------------------------------------------           |
         | Microsoft.Network/routeTables/read                              |   Read a route table                                    |
