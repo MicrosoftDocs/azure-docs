@@ -7,7 +7,7 @@ ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 06/03/2023
+ms.date: 02/27/2024
 ---
 
 # Comparing MongoDB Atlas and Azure Cosmos DB for MongoDB
@@ -21,16 +21,18 @@ ms.date: 06/03/2023
 
 ## Azure Cosmos DB for MongoDB vs MongoDB Atlas
 
-| Feature | Azure Cosmos DB for MongoDB | Vendor-managed MongoDB Atlas |
+| Feature | Azure Cosmos DB for MongoDB | MongoDB Atlas by MongoDB, Inc |
 |---------|---------|----------------------------------|
 | MongoDB wire protocol | Yes | Yes |
 | Compatible with MongoDB tools and drivers | Yes | Yes |
-| Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
+| Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with automatic and fast data replication across supported cloud providers or regions |
 | SLA covers cloud platform | Yes | No. "Services, hardware, or software provided by a third party, such as cloud platform services on which MongoDB Atlas runs are not covered" |
-| 99.999% availability SLA | [Yes](../high-availability.md) | No |
-| Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
-| True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
-| Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | Yes |
+| 99.999% availability SLA | [Yes](../high-availability.md) | No. MongoDB Atlas offers a 99.995% availability SLA |
+| Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) with zero performance impact on your applications | No. ​​​Atlas dedicated instances managed by users, or scale automatically after analyzing the workload over a day. |
+| Multi-region writes (aka multi-master) | ​​Yes. With multi-region writes, customers can update any document in any region, enabling 99.999% availability SLA  | ​​​Yes. With multi-region zones, customers can configure different write regions per shard. Data within a single shard is writable in a single region.​​  |
+| Limitless scale | ​​Azure Cosmos DB provides ability to scale RUs up to and beyond a billion requests per second, with unlimited storage, fully managed, as a service​. ​​vCore-based Azure Cosmos DB for MongoDB deployments support scaling through sharding | No. ​​​​MongoDB Atlas deployments support scaling through sharding​. |
+| Independent scaling for throughput and storage | Yes, with RU-based Azure Cosmos DB for MongoDB | No |
+| Vector Search for AI applications | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/vector-search.md) | Yes, with MongoDB Atlas dedicated instances |
 | Vector Search in Free Tier | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
 | Integrated text search, geospatial processing | Yes | Yes |
 | Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. Azure Cosmos DB for MognoDB vCore offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
