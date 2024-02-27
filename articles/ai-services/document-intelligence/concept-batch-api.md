@@ -1,12 +1,12 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) Batch API to analyze documents in storage blob
+title: Batch document processing support gpt Document Intelligence (formerly Form Recognizer) to analyze documents in storage blobs.
 titleSuffix: Azure AI services
-description: Batch API provides a simple interface to analayze documents with general models, prebuilt models or custom models and write the output back to the storage account. 
+description: The Batch API provides a simple interface to analyze documents with general models, prebuilt models or custom models and write the output back to the storage account.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/17/2024
+ms.date: 02/29/2024
 ms.author: vikurpad
 ms.custom:
 monikerRange: '>=doc-intel-4.0.0'
@@ -14,84 +14,100 @@ monikerRange: '>=doc-intel-4.0.0'
 
 
 
-# Batch API
+# Batch document processing support
 
-**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png) 
+**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png)
 
-Use the Batch API when you have a collection of documents to analyze. With the Batch API, you only need to make a single request to process all the documents you need. With the Batch API, you can specify the files to be processed, the model to use and the location oof where the results are saved.
+Azure AI Document Intelligence is a cloud-based Azure AI service that enables you to build intelligent document processing solutions. Document Intelligence APIs analyze images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements.
 
-## Getting started with the batch API
+## Getting started with the Batch API
 
-The Document Intelligence APIs analyze images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction). The response JSON is described in the [analyze response](concept-analyze-document-response).
+The [Batch Analyze documents](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2024-02-29-preview/operations/BatchAnalyzeDocuments) operation enables you to send API requests asynchronously, using an HTTP `POST` request body to send your data and HTTP `GET` request query string to retrieve the processed data. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction). The response JSON is described in the [analyze response](concept-analyze-document-response.md).
 
-The batch API simplifies the process when analyzing a large volume of documents. With the async API, you currently submit each input document in a request and poll for completion of that request to then wrrite the results to the detination location. With the batch API, you submit a single request for all input documents, you can construct the batch request at the container level, individual folder level or provide a list of files to be processed.
+### Azure storage
 
-The output from the batch API is written to a storage container you specify in the input request.
+The batch translation process requires an Azure Blob storage account with containers for your input documents and output results.
 
-### Constructing a batch API request
+* **Input container (`containerUrl`)**. This container is where you upload your files for processing (required).
+* **Output container (`resultContainerUrl`)**. This container is where your translated files are stored (required).
 
-A valid request contains the following elements:
-* The location of the input documents
-* The destination for where the results are saved
-* A boolean value to indicate if any existing documents should be overwritten or not
+### Authentication
 
-#### Input location
+The `containerUrl`  and `resultContainerUrl` can be authenticated with a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
-The batch API only supports Azure blob storage for reading and saving files. You specifty the input location with
-* ```azureBlobSource``` used when specifying a location where all valid input files are processed. The ```azureBlobSource``` property contains two  properties
-    * ```containerUrl``` The SAS URL to the container were the files are contained. The SAS token requires ```list``` and ```read``` permissions.
-    * ```prefix``` Optionally, you can provide a prefix if the files to be processed are within a specif folder.
-* ```azureBlobFileListSource``` used when only a few specific documents within a container or folder are to be processed. The ```azureBlobFileListSource``` property contains two properties
-    * ```containerUrl``` The SAS URL to the container were the files are contained. The SAS token requires ```list``` and ```read``` permissions.
-    * ```fileList``` A list of files to be processed in JSONL notation.
+* Your source container `containerUrl` or blob must designate `read` and `list` access.
+* Your target container or blob `resultContainerUrl` must designate `write` and `list` access.
 
-Each request can contain either the azureBlobSource or the azureBlobFileListSource property, not both.
+### Request URL
 
-The sample below is the contents of a fileList.
+**Send a POST request:**
 
-```json
-{"file": "Adatum Corporation.pdf"}
-{"file": "Contoso.pdf"}
+```bash
+
+  POST {your-document-intelligence-endpoint}/documentintelligence/documentModels/{modelId}:analyzeBatch?api-version=2024-02-29-preview
+
 ```
 
-#### Output location
+### Request headers
 
-Specify the output location with the ```resultContainerUrl```. The SAS token for the container should include ```write``` and ```add``` permissions.
+To call the Batch API via the REST, include the following header with each request:
 
-#### Overwrite files
+|Header|Value| Condition  |
+|---|:--- |:---|
+|**Ocp-Apim-Subscription-Key** |Your Document Intelligence service key from the Azure portal.|&bullet; ***Required***|
 
-If the analyze result exists, the result will be overwritten when ```overwriteExisting``` is set to true or the file is skipped when ```overwriteExisting``` is set to false, which is also the default value. This is only checked when the ervice is attempting to write the results and the pages processed will still be counted for billing if the file is skipped.
+### Request body
 
-### Sample request
+Each request can contain multiple documents and must contain a source and target container for each document
 
-Sample request with the blog source option
+|Query parameter| Description | Condition|
+| --- | --- |---|
+| **`azureBlobSource`** or **`azureBlobFileListSource`** | The source location URL for the input documents.<br>&bullet; The `azureBlobSource` property is used when specifying the location where all valid input files are processed.<br>&bullet; The `azureBlobFileListSource` property is used when only a few specific documents within a container or folder are to be processed | &bullet; ***One is Required***.<br>&bullet; ***Only one is allowed per request.***|
+|**`containerUrl`** | Container location for the source documents.| ***Required***|
+|**`prefix`** | Used with the `azureBlobSource` property to filter documents in the source path for processing. Often used to designate subfolders. Example: "FolderA".| ***Optional***|
+| **`fileList`**| Used with the `azureBlobFileListSource` property to specify documents for analysis.| ***Required***|
+| ***resultContainerUrl*** | The target location URL for the analyzed document results.|***Required***|
+|***resultPrefix***| Used with the `resultContainerUrl` property to specify a specific folder to store your analyzed document results.|
+|***overwriteExisting***| If a A boolean value to indicate if any existing documents should be overwritten or skilled. The values are `true` (overwrite) or `false` (default, skip). This property is only checked when the service is attempting to write the results. The number of pages processed will still be counted for billing including files that are skipped.
 
-```json
-{
-    "azureBlobSource": {
-        "containerUrl": "https://{storageaccount}.blob.core.windows.net/{container}?{SAS Token}",
-        "prefix": "{folder name to filter list of blobs}"
-    },
-    "resultContainerUrl": "https://{storageaccount}.blob.core.windows.net/{output container}?{SAS Token}",
-    "resultPrefix": "{folder name to save output}/",
-    "overwriteExisting": false
-}
-```
+### Sample requests
 
-Sample request with the file list option
+**Process all documents in a container**
 
 ```json
 {
-    "azureBlobFileListSource": {
-        "containerUrl": "https://{storageaccount}.blob.core.windows.net/{container}?{SAS Token}",
-        "fileList": "{jsonl file name in the container}"
-    },
-    "resultContainerUrl": "https://{storageaccount}.blob.core.windows.net/{output container}?{SAS Token}",
-    "resultPrefix": "{folder name to save output}/",
-    "overwriteExisting": false
+  "azureBlobSource": {
+    "containerUrl": "https://myStorageAccount.blob.core.windows.net/myContainer?mySasToken",
+    "prefix": "trainingDocs/"
+  },
+
+  "resultContainerUrl": {
+
+   "containerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
+  "resultPrefix": "trainingDocsResult/"
+  },
+  "overwriteExisting": true
 }
 ```
-### Response 
+
+**Process specified documents in a container**
+
+```json
+{
+  "azureBlobFileListSource": {
+    "containerUrl": "https://myStorageAccount.blob.core.windows.net/myContainer?mySasToken",
+    "fileList": "myFileList.jsonl"
+  },
+
+  "resultContainerUrl":{ 
+    "containerUrl": "https://myStorageAccount.blob.core.windows.net/myOutputContainer?mySasToken",
+  "resultPrefix": "trainingDocsResult/"},
+  
+  "overwriteExisting": false
+}
+```
+
+### Response
 
 For each accepted batch API request, the service responds with a URL for a long running operation in the ```operation-location``` response header. Polling the URL gives you the status of the batch request.
 
@@ -114,6 +130,7 @@ The cancel operation is currently not supported and batch operations once submit
 You can use the batch API to pepare a dataset for labeling by running all documents through the ```Layout API``` o you could pre-label documents with a custom model. When using the batch API to generate a training dataset for a custom model, set ```resultContainerUrl``` and ```resultPrefix``` to match ```azureBlobSource```.
 
 ## Limits
+
 * Maximum number of files that can be processed in a single batch request is 10000.
 * The maximum numner of pages for a single file remains unchanged.
 

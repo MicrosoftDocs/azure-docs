@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/29/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -44,7 +44,7 @@ Custom neural models share the same labeling format and strategy as [custom temp
 ## Model capabilities
 
  > [!IMPORTANT]
-    > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
+ > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
 
 Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
 
@@ -53,7 +53,7 @@ Custom neural models currently only support key-value pairs and selection marks 
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
 <sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
-<sup>2</sup> Overlapping fields i supported starting with the API version ```2024-02-29-preview```. Overlapping fields have some limits, see [overlapping fields](overlappingfields) for more details. 
+<sup>2</sup> Overlapping fields are supported starting with REST API version `2024-02-29-preview`. Overlapping fields have some limits. For more details, *see* [overlapping fields](#overlapping-fields).
 
 ### Build mode
 
@@ -84,7 +84,7 @@ Tabular fields provide **table, row and cell confidence** starting with the ```2
 
 * Tables (fixed or dynamic) add support for table confidence, a measure of how accurately the entire tablle is recognized, row confidence which is a measure of recognition of an individual row and finally a cell confidence.
 
-* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell. 
+* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell.
 
 See  [confidence and acccuracy scores](concept-accuracy-confidence.md) to learn more about table, row and cell confidence.
 
