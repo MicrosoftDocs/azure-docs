@@ -431,7 +431,7 @@ In total, there are two calls made to GPT:
 
 * For generation, the token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
 
-The model generated output tokens (both intents and response) need to be taken into account for total token estimation. 
+The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns gives the average total tokens used for generating a response. 
 
 | Model	| Generation prompt token count | Intent prompt | Token count | Response token count | Intent token count |
 |--|--|--|--|--|
@@ -440,17 +440,32 @@ The model generated output tokens (both intents and response) need to be taken i
 | gpt-4-1106-preview | 4538 | 811 | 119 | 27 |
 | gpt-35-turbo-1106 | 4854 | 1372 | 110 | 26 |
 
+The above numbers are based on testing on a data set with:
 
+* 5 conversations
+* 250 questions
+* 10 average tokens per question
+* 4 conversational turns per conversation on average 
 
+And the following [parameters](#runtime-parameters).
 
+|Setting  |Value  |
+|---------|---------|
+|Number of retrieved documents     | 5         |
+|Strictness     |     3    |
+|Chunk size     | 1024        |
+|Limit responses to ingested data     | True         |
 
-<!--
-| Model | Max tokens for system message | Max tokens for model response |
-|--|--|--|
-| GPT-35-0301 | 400 | 1500 |
-| GPT-35-0613-16K | 1000 | 3200 |
-| GPT-4-0613-8K | 400 | 1500 |
-| GPT-4-0613-32K | 2000 | 6400 |
+These estimates will vary based on the values set for the above parameters. For example, if the number of retrieved documents is set to 10 and strictness is set to 1, the token count will go up. If returned responses aren't limited to the ingested data, there are fewer instructions given to the model and the number of tokens will go down.  
+
+The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
+
+| Model | Total available tokens | Max tokens for system message | Max tokens for model response |
+|--|--|--|--|
+| GPT-35-0301 | 8000 | 400 | 1500 |
+| GPT-35-0613-16K | 16000 | 1000 | 3200 |
+| GPT-4-0613-8K | 8000 | 400 | 1500 |
+| GPT-4-0613-32K | 32000 | 2000 | 6400 |
 
 The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
@@ -475,7 +490,6 @@ class TokenEstimator(object):
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
 
--->
 
 ## Troubleshooting 
 
