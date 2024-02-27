@@ -108,7 +108,7 @@ nano ~/config.toml
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
-    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 

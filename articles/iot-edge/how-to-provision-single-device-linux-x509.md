@@ -6,7 +6,7 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 ms.author: patricka
 ---
 
@@ -144,7 +144,7 @@ After entering the provisioning information in the configuration file, apply you
     * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
     * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
 
-    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
 1. Save and close the file.
 

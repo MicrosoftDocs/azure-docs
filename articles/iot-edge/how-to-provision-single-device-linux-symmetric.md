@@ -114,7 +114,7 @@ You can configure your IoT Edge device with symmetric key authentication using t
     connection_string = "REPLACE_WITH_DEVICE_CONNECTION_STRING"
     ```
 
-    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
 1. Set the configuration for IoT Edge and the Identity Service using the following command:
 
