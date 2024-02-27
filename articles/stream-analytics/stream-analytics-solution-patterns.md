@@ -27,7 +27,7 @@ This solution pattern offers the lowest latency from the event source to the Pow
 
 The Power BI dashboard offers low latency, but you can't use it to produce full fledged Power BI reports. A common reporting pattern is to output your data to SQL Database first. Then use Power BI's SQL connector to query SQL for the latest data.
 
-:::image type="content" source="media/stream-analytics-solution-patterns/sql-dashboard.png" alt-text="Diagram that shows SQL Database as an intermidate store between Stream Analytics and Power BI dashboard.":::
+:::image type="content" source="media/stream-analytics-solution-patterns/sql-dashboard.png" alt-text="Diagram that shows SQL Database as an intermediate store between Stream Analytics and Power BI dashboard.":::
 
 When you use SQL Database, it gives you more flexibility but at the expense of a slightly higher latency. This solution is optimal for jobs with latency requirements greater than one second. When you use this method, you can maximize Power BI capabilities to further slice and dice the data for reports, and much more visualization options. You also gain the flexibility of using other dashboard solutions, such as Tableau.
 
@@ -45,7 +45,7 @@ Azure Event Hubs service, on the other hand, offers the most flexible integratio
 
 ## Dynamic applications and websites
 
-You can create custom real-time visualizations, such as dashboard or map visualization, using Azure Stream Analytics and Azure SignalR Service. Using SignalR, web clients can be updated and show dynamic content in real-time.
+You can create custom real-time visualizations, such as dashboard or map visualization, using Azure Stream Analytics and Azure SignalR Service. When you use SignalR, web clients can be updated and show dynamic content in real-time.
 
 :::image type="content" source="media/stream-analytics-solution-patterns/dynamic-app.png" alt-text="Diagram that shows a Web app using SignalR service as a destination.":::
 
@@ -55,13 +55,13 @@ Most web services and web applications today use a request/response pattern to s
 
 High data volume often creates performance bottlenecks in a CRUD-based system. The [event sourcing solution pattern](/azure/architecture/patterns/event-sourcing) is used to address the performance bottlenecks. Temporal patterns and insights are also difficult and inefficient to extract from a traditional data store. Modern high-volume data driven applications often adopt a dataflow-based architecture. Azure Stream Analytics as the compute engine for data in motion is a linchpin in that architecture.
 
-:::image type="content" source="media/stream-analytics-solution-patterns/event-sourcing-app.png" alt-text="Diagram that shows a real-time application as a destination for a Stream Analytis job.":::
+:::image type="content" source="media/stream-analytics-solution-patterns/event-sourcing-app.png" alt-text="Diagram that shows a real-time application as a destination for a Stream Analytics job.":::
 
 In this solution pattern, events are processed and aggregated into data stores by Azure Stream Analytics. The application layer interacts with data stores using the traditional request/response pattern. Because of Stream Analytics' ability to process a large number of events in real-time, the application is highly scalable without the need to bulk up the data store layer. The data store layer is essentially a materialized view in the system. [Azure Stream Analytics output to Azure Cosmos DB](stream-analytics-documentdb-output.md) describes how Azure Cosmos DB is used as a Stream Analytics output.
 
 In real applications where processing logic is complex and there's the need to upgrade certain parts of the logic independently, multiple Stream Analytics jobs can be composed together with Event Hubs as the intermediary event broker.
 
-:::image type="content" source="media/stream-analytics-solution-patterns/event-sourcing-app-complex.png" alt-text="Diagram that shows Event Hubs as an intermediatory and a real-time application as a destination for a Stream Analytis job.":::
+:::image type="content" source="media/stream-analytics-solution-patterns/event-sourcing-app-complex.png" alt-text="Diagram that shows Event Hubs as an intermediary and a real-time application as a destination for a Stream Analytics job.":::
 
 This pattern improves the resiliency and manageability of the system. However, even though Stream Analytics guarantees exactly once processing, there's a small chance that duplicate events land in the intermediary Event Hubs. It's important for the downstream Stream Analytics job to dedupe events using logic keys in a lookback window. For more information on event delivery, see [Event Delivery Guarantees](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) reference.
 
@@ -85,13 +85,13 @@ For advanced users who want to incorporate online training and scoring into the 
 
 Another common pattern is real-time data warehousing, also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from your application, [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. Stream Analytics running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. Stream Analytics can support throughput rates of upto 200 MB/sec while writing to Azure Synapse Analytics.
 
-:::image type="content" source="media/stream-analytics-solution-patterns/data-warehousing.png" alt-text="Diagram that shows real-time data wearhouse a destination for a Stream Analytics job.":::
+:::image type="content" source="media/stream-analytics-solution-patterns/data-warehousing.png" alt-text="Diagram that shows real-time data warehouse a destination for a Stream Analytics job.":::
 
 ## Archiving real-time data for analytics
 
 Most data science and analytics activities still happen offline. You can archive data in Azure Stream Analytics through Azure Data Lake Store Gen2 output and Parquet output formats. This capability removes the friction to feed data directly into Azure Data Lake Analytics, Azure Databricks, and Azure HDInsight. Azure Stream Analytics is used as a near real-time Extract-Transform-Load (ETL) engine in this solution. You can explore archived data in Data Lake using various compute engines.
 
-:::image type="content" source="media/stream-analytics-solution-patterns/offline-analytics.png" alt-text="Diagram that shows archiving of real-time data from an Stream Analytics job.":::
+:::image type="content" source="media/stream-analytics-solution-patterns/offline-analytics.png" alt-text="Diagram that shows archiving of real-time data from a Stream Analytics job.":::
 
 ## Use reference data for enrichment
 
