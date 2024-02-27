@@ -210,7 +210,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
 
-### Setup the Azure App Configuration store
+### Set up the Azure App Configuration store
 
 Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -219,7 +219,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 |Settings:FontColor|*Green*|
 |Settings:Message|*Hello from Azure App Configuration*|
 
-### Setup the App Configuration Kubernetes Provider
+### Set up the App Configuration Kubernetes Provider
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
