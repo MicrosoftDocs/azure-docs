@@ -58,11 +58,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```azurecli-interactive
     AKS_NAME='<your cluster name>'
     RESOURCE_GROUP='<your resource group name>'
-<<<<<<< HEAD
-    LOCATION='northeurope' # The list of available regions may grow as we roll out to more regions
-=======
     LOCATION='northeurope'
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
     VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
     az group create --name $RESOURCE_GROUP --location $LOCATION

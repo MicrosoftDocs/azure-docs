@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
-title: What is Application Gateway for Containers? 
-=======
 title: What is Application Gateway for Containers?
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
 author: greglin
@@ -15,19 +11,11 @@ ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-<<<<<<< HEAD
-# What is Application Gateway for Containers? 
-=======
 # What is Application Gateway for Containers?
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 
 Application Gateway for Containers is a new application (layer 7) [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family.
 
-<<<<<<< HEAD
-Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM). 
-=======
 Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM).
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 
 ## How does it work?
 

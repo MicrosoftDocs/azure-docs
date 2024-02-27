@@ -1,10 +1,5 @@
 ---
-
-<<<<<<< HEAD
-title: Application Gateway for Containers components 
-=======
 title: Application Gateway for Containers components
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
 author: greglin
@@ -15,11 +10,7 @@ ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-<<<<<<< HEAD
-# Application Gateway for Containers components 
-=======
 # Application Gateway for Containers components
->>>>>>> b22bb31438e591c51c975b3532e52cf2e3024d76
 
 This article provides detailed descriptions and requirements for components of Application Gateway for Containers. Information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target is provided.  For a general overview of Application Gateway for Containers, see [What is Application Gateway for Containers](overview.md).
 
