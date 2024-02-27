@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/16/2024
+ms.date: 02/20/2024
 ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -26,7 +26,7 @@ A ConfigMap can be consumed as environment variables or a mounted file. In this 
 * An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 * An Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr#create-an-azure-container-registry).
 * An Azure Kubernetes Service (AKS) cluster that is granted permission to pull images from your Azure Container Registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [helm](https://helm.sh/docs/intro/install/)
@@ -42,7 +42,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ### Create an application
 
-1. Use the .NET Core command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
+1. Use the .NET command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
    
     ```dotnetcli
     dotnet new webapp --output MyWebApp --framework net6.0
@@ -210,7 +210,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
 
-### Setup the Azure App Configuration store
+### Set up the Azure App Configuration store
 
 Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -219,7 +219,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 |Settings:FontColor|*Green*|
 |Settings:Message|*Hello from Azure App Configuration*|
 
-### Setup the App Configuration Kubernetes Provider
+### Set up the App Configuration Kubernetes Provider
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
