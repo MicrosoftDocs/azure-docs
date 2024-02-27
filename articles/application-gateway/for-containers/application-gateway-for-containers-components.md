@@ -16,27 +16,27 @@ ms.author: greglin
 This article provides detailed descriptions and requirements for components of Application Gateway for Containers. Information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target is provided.  For a general overview of Application Gateway for Containers, see [What is Application Gateway for Containers?](overview.md).
 
 ### Core components
-- Application Gateway for Containers is an Azure parent resource that deploys the control plane
+- An Application Gateway for Containers resource is an Azure parent resource that deploys the control plane.
 - The control plane is responsible for orchestrating proxy configuration based on customer intent.
-- Application Gateway for Containers has two child resources; associations and frontends
-  - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containers
+- Application Gateway for Containers has two child resources; associations and frontends.
+  - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by another Application Gateway for Container resource.
 
 ### Application Gateway for Containers frontends
-- An Application Gateway for Containers frontend resource is an Azure child resource of the Application Gateway for Containers parent resource
-- An Application Gateway for Containers frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
+- An Application Gateway for Containers frontend resource is an Azure child resource of the Application Gateway for Containers parent resource.
+- An Application Gateway for Containers frontend defines the entry point client traffic should be received by a given Application Gateway for Containers.
    - A frontend can't be associated to multiple Application Gateway for Containers
-   - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record 
+   - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record
    - Private IP addresses are currently unsupported
 - A single Application Gateway for Containers can support multiple frontends
 
 ### Application Gateway for Containers associations
-- An Application Gateway for Containers association resource is an Azure child resource of the Application Gateway for Containers parent resource
+- An Application Gateway for Containers association resource is an Azure child resource of the Application Gateway for Containers parent resource.
 - An Application Gateway for Containers association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
 - Application Gateway for Containers is designed to allow for multiple associations
    - At this time, the current number of associations is currently limited to 1
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
-   - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
+   - A minimum /24 subnet mask for each deployment (assuming no resources have previously been provisioned in the subnet).
       - If n number of Application Gateway for Containers are provisioned, with the assumption each Application Gateway for Containers contains one association, and the intent is to share the same subnet, the available required addresses should be n*256.
    - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource
 
@@ -83,12 +83,13 @@ A set of routing rules evaluates how the request for that hostname should be ini
 
 ### Modifications to the request
 
-Application Gateway for Containers inserts three additional headers to all requests before requests are initiated from Application Gateway for Containers to a backend target:
+Application Gateway for Containers inserts three extra headers to all requests before requests are initiated from Application Gateway for Containers to a backend target:
+
 - x-forwarded-for
 - x-forwarded-proto
 - x-request-id
 
-**x-forwarded-for** is the original requestor's client IP address.  If the request is coming through a proxy, the header value will append the address received, comma delimited.  In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
+**x-forwarded-for** is the original requestor's client IP address.  If the request is coming through a proxy, the header value appends the address received, comma delimited.  In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
 
 **x-forwarded-proto** returns the protocol received by Application Gateway for Containers from the client.  The value is either http or https.
 
@@ -96,11 +97,11 @@ Application Gateway for Containers inserts three additional headers to all reque
 
 ## Request timeouts
 
-Application Gateway for Containers will enforce the following timeouts as requests are initiated and maintained between the client, AGC, and backend.
+Application Gateway for Containers enforces the following timeouts as requests are initiated and maintained between the client, AGC, and backend.
 
-| Timeout | Duraction | Description |
+| Timeout | Duration | Description |
 | ------- | --------- | ----------- |
-| Request Timeout | 60 seconds | time for which AGC will wait for backend target response. |
-| HTTP Idle Timeout | 5 minutes | idle timeout before closing an HTTP connection . |
+| Request Timeout | 60 seconds | time for which AGC waits for the backend target response. |
+| HTTP Idle Timeout | 5 minutes | idle timeout before closing an HTTP connection. |
 | Stream Idle Timeout | 5 minutes | idle timeout before closing an individual streams carried by an HTTP connection. |
 | Upstream Connect Timeout | 5 seconds | time for establishing a connection to the backend target. |

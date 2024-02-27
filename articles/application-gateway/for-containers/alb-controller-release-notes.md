@@ -31,7 +31,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 ## Release history
 
-0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario 
+0.6.3 - Hotfix to address handling of AGC frontends during controller restart in managed scenario
 
 0.6.2 - Skipped
 

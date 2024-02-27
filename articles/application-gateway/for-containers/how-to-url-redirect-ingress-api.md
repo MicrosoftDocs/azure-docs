@@ -12,7 +12,7 @@ ms.author: greglin
 
 # URL Redirect for Azure Application Gateway for Containers - Ingress API
 
-Application Gateway for Containers allows you return a redirect response to the client based three aspects of a URL: protocol, hostname, and path. For each redirect, a defined HTTP status code may be returned to the client to define the nature of the redirect.
+Application Gateway for Containers allows you to return a redirect response to the client based three aspects of a URL: protocol, hostname, and path. For each redirect, a defined HTTP status code may be returned to the client to define the nature of the redirect.
 
 ## Usage details
 
@@ -21,7 +21,7 @@ URL redirects take advantage of the [RequestRedirect rule filter](https://gatewa
 ## Redirection
 A redirect sets the response status code returned to clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource uses one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
 - 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
 
 ## Redirection capabilities
@@ -32,7 +32,7 @@ A redirect sets the response status code returned to clients to understand the p
 
 - Path redirection has two different variants: `prefix` and `full`.
   - `Prefix` redirection type will redirect all requests starting with a defined value.  For example, a prefix of /shop would match /shop and any text after.  For example, /shop, /shop/checkout, and /shop/item-a would all redirect to /shop as well.
-  - `Full` redirection type matches an exact value. For example, /shop could redirect to /store, but /shop/checkout would not redirect to /store.
+  - `Full` redirection type matches an exact value. For example, /shop could redirect to /store, but /shop/checkout wouldn't redirect to /store.
 
 
 The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
