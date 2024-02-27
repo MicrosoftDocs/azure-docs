@@ -111,3 +111,44 @@ Interface state counters track the number of frames or packets matching certain 
 | Interface Out Octets                      | The total number of octets transmitted out of the interface, including framing characters. |
 | Interface Out Packets                     | The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets. |
 | Interface Out Unicasts Packets            | The total number of outgoing packets that weren't addressed to a multicast or broadcast address at this sublayer, including packets that were discarded or not sent. |
+
+## Interface state rate
+
+The interface state rate can have effects on network performance and dependability. A high frequency of state alterations could signal an unstable network connection, potentially resulting in diminished performance and network congestion.
+
+All of the state rate measurements are collected at 5-minute intervals.
+
+| Metrics Category            | Description/Usage |
+|--|--|
+| Interface In Discards Rate  | The rate at which incoming packets are being discarded on a network interface. Packets can be discarded for various reasons such as network congestion, faulty hardware, or configuration issues. |
+| Interface In Packets Rate | The rate of packets received on the interface, including all unicasts, multicasts, broadcasts, and bad packets. |
+| Interface Out Discards Rate | The rate of outbound packets that were discarded even though no errors were detected to prevent them being transmitted. |
+| Interface Out Packets Rate | The rate of packets transmitted out of the interface, including all unicasts, multicasts, broadcasts, and bad packets. |
+
+
+## LACP state rate
+
+Monitoring the LACP state rate is vital due to its potential effects on network performance and dependability. The term "LACP state rate" in the context of Link Aggregation Control Protocol denotes the pace at which LACP control packets are transmitted or received by an interface that supports LACP.
+
+All of the state rate measurements are collected at 5-minute intervals.
+
+| Metrics Category    | Description/Usage |
+|--|--|
+| Lacp Errors         | The term "Number of LACPDU illegal packet errors" signifies the tally of Link Aggregation Control Protocol Data Units (LACPDUs) that, despite being received, are deemed unlawful due to their incorrectly formed structure or an unauthorized value of Protocol Subtype. |
+| Lacp In Packets     | Number of LACPDUs received. |
+| Lacp Out Packets    | Number of LACPDUs transmitted. |
+| Lacp RX errors      | Number of LACPDUs errors received. |
+| Lacp TX errors      | Number of LACPDUs errors transmitted. |
+| Lacp unknown Errors | Number of LACPDUs unknown errors. |
+
+## LLDP state counters
+
+LLDP state counters show how many LLDP frames have been sent and received by a network device. LLDP stands for Link Layer Discovery Protocol, which is a standard protocol that allows devices to advertise their identity, capabilities, and neighbors on a local area network. LLDP state counters can help network administrators monitor the health and performance of the network, troubleshoot connectivity issues, and discover the topology and configuration of the devices.
+
+All of the measurements are collected at 5-minute intervals.
+
+| Metrics Category | Description/Usage |
+|--|--|
+| Lldp Frame in        | LLDPFrameIn in a network device refers to the number of Link Layer Discovery Protocol (LLDP) frames that the device received. |
+| Lldp Frame out       | LLDPFrameOut in a network device refers to the number of Link Layer Discovery Protocol (LLDP) frames that the device sent. LLDP is used by network devices to advertise their identity and capabilities to other devices on the same network. |
+| Lldp TLV unknown     | LLDPTLVUnknown in a network device refers to the number of Link Layer Discovery Protocol (LLDP) frames received that contain unknown Type-Length-Value (TLV) entries. TLVs are used in network protocols to specify optional information. An "unknown" TLV suggests the device received data that it doesn't recognize or can't interpret, which could indicate compatibility issues within the network. |
