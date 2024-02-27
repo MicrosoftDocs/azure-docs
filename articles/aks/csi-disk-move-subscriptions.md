@@ -8,7 +8,7 @@ ms.date: 02/26/2024
 
 # Move Azure Disk persistent volumes to same or different subscription
 
-This article describes how to safely move Azure Disk persistent volumes from an Azure Kubernetes Service (AKS) cluster to another cluster in the same subscription or in a different subscription that are in the same region.
+This article describes how to safely move Azure Disk persistent volumes from one Azure Kubernetes Service (AKS) cluster to another in the same or in a different subscription that is in the same region.
 
 The sequence of steps to complete this move are:
 
@@ -21,7 +21,7 @@ The sequence of steps to complete this move are:
 
 * You need an Azure [storage account][azure-storage-account].
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Review details and requirements about moving resources between different regions in [Move resources to a new resource group or subsription][move-resources-new-subscription-resource-group]. Be sure to review the [checklist before moving resources][move-resources-checklist] in that article.
+* Review details and requirements about moving resources between different regions in [Move resources to a new resource group or subscription][move-resources-new-subscription-resource-group]. Be sure to review the [checklist before moving resources][move-resources-checklist] in that article.
 * You have an AKS cluster in the target subscription and the source cluster has persistent volumes with Azure Disks attached.
 
 ## Validate disk volume state
@@ -68,9 +68,9 @@ Preserving data is important while working with persistent volumes to avoid risk
 
 ## Move persistent volume
 
-To move the persistent volume or volumes to another AKS cluster, follow the steps described in [Move Azure resources to a new resource group or subscription][move-resources-new-subscription-resource-group] using the [Azure portal][move-resources-using-porta], [Azure PowerShell][move-resources-using-azure-powershell], or using the [Azure CLI][move-resources-using-azure-cli].
+To move the persistent volume or volumes to another AKS cluster, follow the steps described in [Move Azure resources to a new resource group or subscription][move-resources-new-subscription-resource-group]. You can use the [Azure portal][move-resources-using-porta], [Azure PowerShell][move-resources-using-azure-powershell], or use the [Azure CLI][move-resources-using-azure-cli] to perform the migration.
 
-During this process, you'll reference:
+During this process, you reference:
 
 * The name or resource ID of the source node resource group hosting the Azure managed disks
 * The name or resource ID of the destination resource group to move the managed disks to
@@ -245,7 +245,7 @@ To mount the moved disk volume, you'll create a static persistent volume with th
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
 [az-aks-show]: /cli/azure/disk#az-disk-show
 [az-disk-list]: /cli/azure/disk#az-disk-list
-[az-resource-list]: cli/azure/resource#az-resource-list
+[az-resource-list]: /cli/azure/resource#az-resource-list
 [move-resources-checklist]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources
 [move-resources-using-porta]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal
 [move-resources-using-azure-powershell]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-azure-powershell
