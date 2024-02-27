@@ -50,21 +50,13 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. If you want to use Entra ID to access the packet core dashboards, follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
+1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
-    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating.
+    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating. For distributed tracing, you also need a **sas.user** role.
     - In **Do you want to enable this app role?**, ensure the checkbox is selected.
 
-    You'll be able to use these roles when managing access to the packet core dashboards.
-
-1. If you want to use Entra ID to access distributed tracing, follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create a sas.user role with the following configuration:
-
-    - In **Allowed member types**, select **Users/Groups**.
-    - In **Value**, enter **sas.user**
-    - In **Do you want to enable this app role?**, ensure the checkbox is selected.
-
-    You'll be able to use this role when managing access to the distributed tracing tool.
+    You'll be able to use these roles when managing access to the packet core dashboards and distributed tracing tool.
 
 1. Follow [Assign users and groups to roles](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
 
