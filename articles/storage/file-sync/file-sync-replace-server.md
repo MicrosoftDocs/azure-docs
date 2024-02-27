@@ -12,10 +12,8 @@ ms.author: kendownie
 
 This article provides guidance on how to replace an Azure File Sync server due to hardware decommissioning or end of support (for example, Windows Server 2012 R2). 
 
-To replace an Azure File Sync server, follow the steps below.
-
 ## New Azure File Sync server
-1.	Deploy a new on-premises server or Azure VM that is running a [supported Windows Server operating system version](file-sync-planning.md#operating-system-requirements).
+1.	Deploy a new on-premises server or Azure virtual machine that is running a [supported Windows Server operating system version](file-sync-planning.md#operating-system-requirements).
 2.	[Install the latest Azure File Sync agent](file-sync-deployment-guide.md#install-the-azure-file-sync-agent) on the new server, then [register the server](file-sync-deployment-guide.md#register-windows-server-with-storage-sync-service) to the same Storage Sync Service as the server that is being replaced (referred to as old server in this guide).
 3.	Create file shares on the new server and verify the share-level permissions match the permissions configured on the old server.
 4.	Optional: To reduce the amount of data that needs to be downloaded to the new server from the Azure file share, use Robocopy to copy the files in the cache from the old server to the new server. 
@@ -25,7 +23,7 @@ To replace an Azure File Sync server, follow the steps below.
      ```
     Once the initial copy is completed, run the Robocopy command again to copy any remaining changes.
 
-5.	In the Azure portal, navigate to the Storage Sync Service, go to the sync group for the old server and [create a server endpoint](file-sync-server-endpoint-create.md#create-a-server-endpoint) on the new server. Repeat this step for every sync group which has a server endpoint for the old server.
+5.	In the Azure portal, navigate to the Storage Sync Service. Go to the sync group for the old server and [create a server endpoint](file-sync-server-endpoint-create.md#create-a-server-endpoint) on the new server. Repeat this step for every sync group that has a server endpoint for the old server.
    
     For example, if the old server has 4 sever endpoints (4 sync groups), 4 server endpoints should be created on the new server.
   	 
@@ -34,8 +32,8 @@ To replace an Azure File Sync server, follow the steps below.
 ## User cut-over
 7.	To redirect user access to the new Azure File Sync server, perform one of the following options:
     - Option #1: Rename the old server to a random name, then rename the new server to the same name as the old server. 
-    -	Option #2: Use [DFS Namespaces (DFS-N)](/windows-server/storage/dfs-namespaces/dfs-overview) to redirect users to the new server.
+    -	Option #2: Use [Distributed File Systems Namespaces (DFS-N)](/windows-server/storage/dfs-namespaces/dfs-overview) to redirect users to the new server.
 
 ## Old Azure File Sync server
-8.	Follow the steps in the [Deprovision or delete your Azure File Sync server endpoint](file-sync-server-endpoint-delete.md#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm) documentation to verify that all files have synced to the Azure file share prior to deleting the server endpoint(s) on the old server.
-9.	Once all server endpoint(s) are deleted on the old server, you can [unregister the server](file-sync-server-registration.md#unregister-the-server).
+8.	Follow the steps in the [Deprovision or delete your Azure File Sync server endpoint](file-sync-server-endpoint-delete.md#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm) documentation to verify that all files have synced to the Azure file share prior to deleting one or more server endpoints on the old server.
+9.	Once all server endpoints are deleted on the old server, you can [unregister the server](file-sync-server-registration.md#unregister-the-server).
