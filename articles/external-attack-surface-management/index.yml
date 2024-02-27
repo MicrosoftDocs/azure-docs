@@ -7,7 +7,6 @@ metadata:
   title: Defender External Attack Surface Management 
   description: Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. This visibility enables security and IT teams to identify unknowns, prioritize risk, eliminate threats, and extend vulnerability and exposure control beyond the firewall. 
 
-  ms.service: databox
   ms.service: defender-easm
   ms.topic: landing-page
   author: danielledennis
@@ -39,7 +38,7 @@ landingContent:
         links:
           - text: Create a Defender EASM Azure resource
             url: deploying-the-defender-easm-azure-resource.md
-      - linkListType: discover
+      - linkListType: how-to-guide
         links:
           - text: Use and manage discovery
             url: using-and-managing-discovery.md 
@@ -51,22 +50,22 @@ landingContent:
   # Card
   - title: Understand concepts 
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Understanding asset details
             url: understanding-asset-details.md
           - text: Understanding dashboards
             url: understanding-dashboards.md
           - text:  Understand billable assets 
-            url: understand-billable-assets.md
+            url: understanding-billable-assets.md
 
   # Card
   - title: How-to guide
     linkLists:
-      - linkListType: How-to guide
+      - linkListType: how-to-guide
         links:
           - text: Using and managing discovery
-            url: sing-and-managing-discovery.md 
+            url: using-and-managing-discovery.md 
           - text: Modifying inventory assets
             url: modifying-inventory-assets.md
           - text: Leveraging data connections
@@ -75,12 +74,10 @@ landingContent:
   # Card
   - title: Inventory filters 
     linkLists:
-      - linkListType: overview
+      - linkListType: learn
         links:
           - text: Inventoy filters overview
             url: inventory-filters.md
-      - linkListType: filter details
-        links:
           - text: Domain asset filters
             url: domain-asset-filters.md
           - text: Host asset filters
@@ -100,11 +97,10 @@ landingContent:
 
 
 
-
   # Card
   - title: Integrations
     linkLists:
-      - linkListType: integrations
+      - linkListType: learn
         links:
           - text: Leveraging data connections
             url: data-connections.md
