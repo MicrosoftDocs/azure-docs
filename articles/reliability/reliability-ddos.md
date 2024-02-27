@@ -39,7 +39,6 @@ Azure DDoS Protection is [zone-redundant](./availability-zones-overview.md#zonal
 
 #### Disaster recovery in multi-region geography
 
-A Virtual Network (VNet) is a logical representation of your network in the cloud. VNets serve as a trust boundary to host your resources such as Azure Application Gateway, Azure Firewall and Azure Virtual Machines. Each VNet is created within the scope of a region, but you can create VNets with same address space in two different regions (For example, US East and US West). Keep in mind that, because they have the same address space, you can't connect them together.
 
 You can choose one of two approaches to managing business continuity for DDoS Protection over your VNets. The first approach is reactive and the second approach is proactive. 
 
