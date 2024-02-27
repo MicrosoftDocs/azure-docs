@@ -220,12 +220,12 @@ The InnerError is an object containing service-specific information about the er
 | -------- | ---- | ----------- |
 | `code` | string | The error message. |
 
-The geometries object, lists geometry IDs of the geofences that have expired relative to the user time in the request. The geometries object has geometry items with the following properties: 
+The geometries object lists geometry IDs of the geofences that have expired relative to the user time in the request. The geometries object has geometry items with the following properties: 
 
 | Property | Type | Description |
 |:-------- |:---- |:----------- |
 | `deviceid` | string | ID of device. |
-| `distance` | string | <p>Distance from the coordinate to the closest border of the geofence. Positive means the coordinate is outside of the geofence. If the coordinate is outside of the geofence, but more than the value of searchBuffer away from the closest geofence border, then the value is 999. Negative means the coordinate is inside of the geofence. If the coordinate is inside the polygon, but more than the value of searchBuffer away from the closest geofencing border, then the value is -999. A value of 999 means that there is great confidence the coordinate is well outside the geofence. A value of -999 means that there is great confidence the coordinate is well within the geofence.<p> |
+| `distance` | string | <p>Distance from the coordinate to the closest border of the geofence. Positive means the coordinate is outside of the geofence. If the coordinate is outside of the geofence, but more than the value of searchBuffer away from the closest geofence border, then the value is 999. Negative means the coordinate is inside of the geofence. If the coordinate is inside the polygon, but more than the value of searchBuffer away from the closest geofencing border, then the value is -999. A value of 999 means that there's great confidence the coordinate is well outside the geofence. A value of -999 means that there's great confidence the coordinate is well within the geofence.<p> |
 | `geometryid` |string | The unique ID identifies the geofence geometry. |
 | `nearestlat` | number | Latitude of the nearest point of the geometry. |
 | `nearestlon` | number | Longitude of the nearest point of the geometry. |

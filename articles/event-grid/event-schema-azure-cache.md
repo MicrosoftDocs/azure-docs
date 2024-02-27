@@ -213,7 +213,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `timestamp` | string | The time at which the event occurred. |
+| `timestamp` | string | The time when the event occurred. |
 | `name` | string | The name of the event. |
 | `status` | string | The status of the event. Failed or succeeded. |
 

@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: App Configuration schema for Azure Event Grid
+ description: Describes the schema for App Configuration in Azure Event Grid. 
  services: event-grid
  author: spelluru
  ms.service: event-grid

@@ -318,7 +318,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `id` | string | The event ID. |
-| `timestamp` | string | The time at which the event occurred. |
+| `timestamp` | string | The time when the event occurred. |
 | `action` | string | The action that encompasses the provided event. |
 | `target` | object | The target of the event. |
 | `request` | object | The request that generated the event. |

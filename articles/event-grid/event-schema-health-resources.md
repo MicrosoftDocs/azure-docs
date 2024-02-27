@@ -116,7 +116,7 @@ The `data` object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceInfo` | Object | Data specific to the resource. For more information, see the next table. |
-| `apiVersion` | String | Api version of the resource properties. |
+| `apiVersion` | String | API version of the resource properties. |
 | `operationalInfo` | Object | Details of operational information pertaining to the resource. | 
 
 The `resourceInfo` object has the following properties:
