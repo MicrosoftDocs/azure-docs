@@ -279,7 +279,7 @@ The collected data follows the following JSON schema. The collected data is avai
 
 #### Store large payloads
 
-If the payload of your data is greater than 256 KB, there will be an event in the `{instance_id}.jsonl` file contained within the `{endpoint_name}/{deployment_name}/request/.../{instance_id}.jsonl` path that points to a raw file path, which should have the following path: `blob_url/{blob_container}/{blob_path}/{endpoint_name}/{deployment_name}/{rolled_time}/{instance_id}.jsonl`. The collected data will exist at this path.
+If the payload of your data is greater than 4 MB, there will be an event in the `{instance_id}.jsonl` file contained within the `{endpoint_name}/{deployment_name}/request/.../{instance_id}.jsonl` path that points to a raw file path, which should have the following path: `blob_url/{blob_container}/{blob_path}/{endpoint_name}/{deployment_name}/{rolled_time}/{instance_id}.jsonl`. The collected data will exist at this path.
 
 #### Store binary data
 
@@ -305,7 +305,7 @@ With collected binary data, we show the raw file directly, with `instance_id` as
 
 To view the collected data in Blob Storage from the studio UI:
 
-1. Go to thee **Data** tab in your Azure Machine Learning workspace:
+1. Go to the **Data** tab in your Azure Machine Learning workspace:
 
     :::image type="content" source="./media/how-to-collect-production-data/datastores.png" alt-text="Screenshot highlights Data page in Azure Machine Learning workspace" lightbox="media/how-to-collect-production-data/datastores.png":::
 

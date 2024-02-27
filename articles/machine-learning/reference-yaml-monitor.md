@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2
-author: bozhong68
-ms.author: bozhlin
-ms.date: 09/15/2023
+author: ahughes-msft
+ms.author: alehughes
+ms.date: 02/26/2024
 ms.reviewer: mopeakande
 reviewer: msakande
 ---
@@ -91,7 +91,6 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 As the data used to train the model evolves in production, the distribution of the data can shift, resulting in a mismatch between the training data and the real-world data that the model is being used to predict. Data drift is a phenomenon that occurs in machine learning when the statistical properties of the input data used to train the model change over time.
 
-
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ------------| ---------------| ------------- |
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here. | `data_drift` | `data_drift` |
@@ -111,7 +110,6 @@ As the data used to train the model evolves in production, the distribution of t
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
 | `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
 | `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in 'key:value' format, 'key' is the metric name, 'value' is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
-
 
 #### Prediction drift
 
@@ -135,7 +133,6 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
 | `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
 | `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
-
 
 #### Data quality
 
@@ -161,7 +158,7 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | `metric_thresholds.numerical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 | `metric_thresholds.categorical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 
-#### Feature attribution drift
+#### Feature attribution drift (preview)
 
 The feature attribution of a model may change over time due to changes in the distribution of data, changes in the relationships between features, or changes in the underlying problem being solved. Feature attribution drift is a phenomenon that occurs in machine learning models when the importance or contribution of features to the prediction output changes over time.
 
@@ -182,7 +179,9 @@ The feature attribution of a model may change over time due to changes in the di
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | Metric name and threshold for feature attribution drift in `key:value` format, where `key` is the metric name, and `value` is the threshold. When threshold is exceeded and `alert_enabled` is on, user will receive alert notification. | Allowed metric name: `normalized_discounted_cumulative_gain` | |
 
+#### Model performance (preview)
 
+The feature attribution of a model may change over time due to changes in the distribution of data, changes in the relationships between features, or changes in the underlying problem being solved. Feature attribution drift is a phenomenon that occurs in machine learning models when the importance or contribution of features to the prediction output changes over time.
 
 ## Remarks
 
@@ -190,19 +189,19 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/schedules). A couple are as follows:
+Monitoring CLI examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring). A couple are as follows:
 
-## YAML: Schedule with recurrence pattern
-
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
-
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
-
-## YAML: Schedule with cron expression
+## YAML: Out-of-box monitor
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/monitoring/out-of-box-monitoring.yaml":::
+
+## YAML: Advanced monitor
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+:::code language="yaml" source="~/azureml-examples-main/cli/monitoring/advanced-model-monitoring.yaml":::
 
 ## Appendix
 
@@ -343,4 +342,3 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +13:00  | TONGA__STANDARD_TIME            | "Tonga Standard Time"             |
 | UTC +13:00  | SAMOA_STANDARD_TIME             | "Samoa Standard Time"             |
 | UTC +14:00  | LINE_ISLANDS_STANDARD_TIME      | "Line Islands Standard Time"      |
-

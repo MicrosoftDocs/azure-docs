@@ -417,17 +417,40 @@ To set up advanced monitoring:
 
 ## Set up model performance monitoring
 
-Azure Machine Learning model monitoring enables you to track the objective performance of your models in production by calculating model performance metrics. These model performance metrics include accuracy (for classification models) and root mean squared error (RMSE) for (regression models).
+Azure Machine Learning model monitoring enables you to track the performance of your models in 
+production by calculating model performance metrics. The following set of model performance metrics are currently supported:
+
+Classification models:
+- Precision
+- Accuracy
+- Recall
+
+Regression models:
+- Mean Absolute Error (MAE)
+- Mean Squared Error (MSE)
+- Root Mean Squared Error (RMSE)
 
 Before you can configure your model performance signal, you need to satisfy the following requirements:
 
-* Have production model output data (your model's predictions) with a unique ID for each row.
-* Have ground truth data (or actuals) with a unique ID for each row. This data will be joined with production data.
-* (Optional) Have a prejoined dataset with model outputs and ground truth data.
+* Have production model output data (your model's predictions) with a unique ID for each row. If you collect your data with the [Azure Machine Learning data collector](how-to-collect-production-data.md), a `correlation_id` is provided for each inference request for you. With the data collector, you also have the option to log your own unique ID from your application.
+
+    > [!NOTE]
+    >
+    > For Azure Machine Learning model performance monitoring, we recommend logging your unique ID as it's own column using the [Azure Machine Learning data collector](how-to-collect-production-data.md). This will ensure that each collected row is guaranteed to have a unique ID. 
+
+* Have ground truth data (actuals) with a unique ID for each row. The unique ID for a given row should match the unique ID for the model outputs for that particular inference request. This unique ID will be used to join your ground truth dataset with the model outputs.
+
+* (Optional) Have a pre-joined tabular dataset with model outputs and ground truth data already joined together.
 
 The key requirement for enabling model performance monitoring is that you already collected ground truth data. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available. You should also maintain a data asset in Azure Machine Learning with this ground truth data.
 
-To illustrate, suppose you have a deployed model to predict if a credit card transaction is fraudulent or not fraudulent. As you use this model in production, you can collect the model output data with the [model data collector](how-to-collect-production-data.md). Ground truth data becomes available when a credit card holder specifies whether or not the transaction was fraudulent or not. This `is_fraud` ground truth should be collected at the application level and maintained within an Azure Machine Learning data asset that the model performance monitoring signal can use.
+### Example scenario
+
+Here is an example scenario to help you understand the concepts associated with model performance monitoring:
+
+Support you have deployed a model to predict if credit card transactions are fraudulent or not. As part of your deployment, you use the [data collector](how-to-collect-production-data.md) to collect production model input and model output data. You log a unique ID for each row (this unique ID can come from your application, or you can use our generated `correlationid`, which is unique for each logged JSON object). When ground truth data becomes available, it is logged and mapped to the same unique ID which was logged with the model outputs. This `is_fraud` data is collected, maintained, and registered to Azure Machine Learning as a data asset. Then, a model performance monitoring signal can be created to join the model outputs and ground truth datasets on the unique ID which was logged. Lastly, model performance metrics are computed.
+
+Alternatively, 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -628,7 +651,43 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-The studio currently doesn't support model performance monitoring.
+To set up model performance monitoring:
+
+1. Complete the entires on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
+1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
+1. **Add** a dataset to be used as the ground truth dataset. Ensure that your model outputs is also included. The ground truth dataset you add should have a unique ID for each row which matches a unique ID for each row in the model outputs. This is necessary for them to be joined together prior to metric computation.
+
+   NOTE: This screenshot should show adding model_outputs and the ground truth data asset
+
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
+
+1. Select **Next** to go to the **Select monitoring signals** page. On this page, you will see some monitoring signals already added (if you selected an Azure Machine Learning online deployment earlier).
+1. Select **Add** to open the **Edit Signal** window.
+1. Select **Model performance (preview)** to configure the model performance signal as follows:
+
+    1. Select the production data asset with your model outputs and the desired lookback window size and lookback window offset. Select the appropriate target column (for example, `is_fraud`).
+    1. Select the reference data asset, which should be the ground truth data asset you added earlier. Select the appropriate target_column. Select column to join with the model outputs. This column should be the column which is common between the two datasets and is a unique ID for each for (for example, `correlationid`).
+    1. Select your desired performance metrics and the respective thresholds.
+    
+    NOTE: This screenshot should show a fully configured model performance view
+
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
+
+1. Select **Save** to return to the **Select monitoring signals** page.
+
+    NOTE: This screenshot should show the model performance signal configured
+
+    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
+
+1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** page.
+1. On the **Notifications** page, enable alert notifications for each signal and select **Next**.
+1. Review your settings on the **Review monitoring settings** page.
+
+   NOTE: This screenshot should show the review page with model performance added
+
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
+
+1. Select **Create** to create your model performance monitor.
 
 ---
 
