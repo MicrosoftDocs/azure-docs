@@ -100,7 +100,7 @@ procedureSection:
 
     steps:
       - |
-        client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. 
+        Client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. 
       - |
         If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
     
