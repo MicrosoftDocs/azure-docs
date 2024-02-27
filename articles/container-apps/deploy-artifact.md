@@ -1,22 +1,18 @@
 ---
-title: 'Deploy an artifact file to Azure Container Apps'
+title: Deploy an artifact file to Azure Container Apps
 description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/15/2023
+ms.date: 02/27/2024
 ms.custom: ignite-2023, devx-track-azurecli
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps
 
-This article demonstrates how to deploy a container app from a prebuilt artifact file.
-
-The following example deploys a Java application using a JAR file, which includes a Java-specific manifest file.
-
-In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you learn to to deploy a container app from a prebuilt artifact file. The example in this article deploys a Java application using a JAR file, which includes a Java-specific manifest file. Your job is to create a backend web API service that returns a static collection of music albums. After completing this quickstart, you can continue to [Communication between microservices](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -252,6 +248,10 @@ az containerapp up `
 Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
+
+## Deploy a WAR file
+
+You can also deploy your container app from a [WAR file](java-deploy-war-file.md).
 
 ## Clean up resources
 
