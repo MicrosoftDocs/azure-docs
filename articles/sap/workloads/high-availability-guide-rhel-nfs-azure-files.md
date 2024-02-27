@@ -3,7 +3,6 @@ title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| M
 description: Establish high availability for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

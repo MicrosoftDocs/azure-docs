@@ -6,6 +6,9 @@ ms.topic: conceptual
 ---
 # Understanding Azure Machine Configuration
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
 [Arc-enabled machines][01]. You can use the feature directly per-machine, or orchestrate it at

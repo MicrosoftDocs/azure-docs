@@ -2291,6 +2291,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management.md",
+            "redirect_url":"/azure/azure-functions/start-stop-vms/overview",
+            "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-config.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-logs.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/deploy",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/automation-solution-vm-management-remove.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/remove",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/automation/troubleshoot/start-stop-vm.md",
+             "redirect_url": "/azure/azure-functions/start-stop-vms/troubleshoot",
+             "redirect_document_id": false
+        },       
+        {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
@@ -10641,6 +10666,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
@@ -10875,11 +10905,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
         }
-
         
     ]
 }

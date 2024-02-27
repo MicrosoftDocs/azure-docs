@@ -94,7 +94,7 @@ The following list contains some examples of permission strings for various scen
 
 - Allow application to execute only _read_ commands
 
-    Permissions string: `+@read *`
+    Permissions string: `+@read ~*`
 
 - Allow application to execute _read_ command category and set command on keys with prefix `Az`.
 
@@ -116,22 +116,22 @@ The following list contains some examples of permission strings for various scen
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
 
-1. From the Resource menu, select **Advanced settings**.
+1. To add a user to the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by selecting **Authentication** from the Resource menu.
 
-1. If not checked already, Check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
+1. Select **(PREVIEW) Enable Microsoft Entra Authentication** as the tab in the working pane.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
+1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authentication** and select **OK**. Then, select **Save**.
 
-1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
+
+1. A popup dialog box displays asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
-<a name='configure-your-redis-client-to-use-azure-active-directory'></a>
-
 ## Configure your Redis client to use Microsoft Entra ID
 
-Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure you client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Azure AD.](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-azure-active-directory)
+Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure your client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra-id).
 
 ## Next steps
 

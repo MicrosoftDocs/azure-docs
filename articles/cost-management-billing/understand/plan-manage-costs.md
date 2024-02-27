@@ -3,11 +3,10 @@ title: Plan to manage Azure costs
 description: Learn how to plan to manage Azure costs and use cost-tracking and management features for your Azure account.
 author: bandersmsft
 ms.reviewer: sapnakeshari
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -123,12 +122,11 @@ Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
-### EA, CSP, and Sponsorship customers
+### CSP and Sponsorship customers
 Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), and [Power BI report](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
@@ -139,13 +137,11 @@ If you're managing IT for a large organization, we recommend reading [Azure ente
 Enterprise cost views are currently in Public Preview. Items to note:
 
 - Subscription costs are based on usage and don't include prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level.
-- Amounts shown in the Azure portal might be different than what's in the Enterprise portal. Updates in the Enterprise portal may take a few minutes before the changes are shown in the Azure portal.
 - If you aren't seeing costs, it might be for one of the following reasons:
     - You don't have permissions at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
     - You're an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs.
     - You're a Department Administrator and your Enrollment Administrator has disabled the **DA view charges** setting.  Contact your Enrollment Administrator to get access.
     - You bought Azure through a channel partner, and the partner didn't release pricing information.  
-- If you update settings related to cost,  access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
 - Direct EA customers can update cost-related settings in the [Azure portal](https://portal.azure.com/). Navigate to the Policies menu to change settings.
 - Spending limit, and invoice guidance don't apply to EA Subscriptions.
 

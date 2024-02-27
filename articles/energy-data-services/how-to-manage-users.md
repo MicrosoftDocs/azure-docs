@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Manage users in Azure Data Manager for Energy
 
-In this article, you learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU groups, see [Entitlement services](concepts-entitlements.md).
+In this article, you learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU group concepts, see [Entitlements](concepts-entitlements.md).
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ The Azure object ID (OID) is the Microsoft Entra user OID.
 
    If you try to directly use your own access token for adding entitlements, it results in a 401 error. The `client-id` access token must be used to add the first set of users in the system. Those users (with admin access) can then manage more users with their own access token.
 1. Use the `client-id` access token to do the following steps by using the commands outlined in the following sections:
-   1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group.
-   2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group to give access of all the service groups.
-   3. Add the user to the `users.data.root@<data-partition-id>.<domain>` OSDU group to give access of all the data groups.
+   1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group with the OWNER role.
+   2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group  with the OWNER role to give access of all the service groups.
+   3. Add the user to the `users.data.root@<data-partition-id>.<domain>` OSDU group  with the OWNER role to give access of all the data groups.
 1. The user becomes the admin of the data partition. The admin can then add or remove more users to the required entitlement groups:
    1. Get the admin's auth token by using [Generate user access token](how-to-generate-auth-token.md#generate-the-user-auth-token) and by using the same `client-id` and `client-secret` values.
    1. Get the OSDU group, such as `service.legal.editor@<data-partition-id>.<domain>`, to which you want to add more users by using the admin's access token.

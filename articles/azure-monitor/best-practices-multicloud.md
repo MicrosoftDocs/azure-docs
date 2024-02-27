@@ -2,7 +2,7 @@
 title: Multicloud monitoring with Azure Monitor
 description: Guidance and recommendations for using Azure Monitor to monitor resources and applications in other clouds.
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/16/2024
 ms.reviewer: bwren
 
 ---
@@ -11,9 +11,7 @@ ms.reviewer: bwren
 In addition to monitoring services and application in Azure, Azure Monitor can provide complete monitoring for your resources and applications running in other clouds including Amazon Web Services (AWS) and Google Cloud Platform (GCP). This article describes features of Azure Monitor that allow you to provide complete monitoring across your AWS and GCP environments.
 
 ## Virtual machines
-[VM insights](vm/vminsights-overview.md) in Azure Monitor uses [Azure Arc-enabled servers](../azure-arc/servers/overview.md) to provide a consistent experience between both Azure virtual machines and your AWS EC2 or GCP VM instances. You can view your hybrid machines right alongside your Azure machines and onboard them using identical methods. This includes using standard Azure constructs such as Azure Policy and applying tags.
-
-The [Azure Monitor agent](agents/agents-overview.md) installed by VM insights collects telemetry from the client operating system of virtual machines regardless of their location. Use the same [data collection rules](essentials/data-collection-rule-overview.md) that define your data collection across all of the virtual machines across your different cloud environments.
+ [Azure Arc-enabled servers](../azure-arc/servers/overview.md) provide a consistent experience between both Azure virtual machines and your AWS EC2 or GCP VM instances. This includes using standard Azure constructs such as Azure Policy and applying tags. The [Azure Monitor agent](agents/agents-overview.md) collects telemetry from the client operating system of virtual machines regardless of their location, and you can use the same [data collection rules](essentials/data-collection-rule-overview.md) that define your data collection across all of the virtual machines across your different cloud environments. If you use [VM insights](vm/vminsights-overview.md) in Azure Monitor, you can view your hybrid machines right alongside your Azure machines and onboard them using identical methods.
 
 - [Plan and deploy Azure Arc-enabled servers](../azure-arc/servers/plan-at-scale-deployment.md)
 - [Manage Azure Monitor Agent](agents/azure-monitor-agent-manage.md)
@@ -25,11 +23,11 @@ If you use Defender for Cloud for security management and threat detection, then
 - [Connect your GCP projects to Microsoft Defender for Cloud](../defender-for-cloud/quickstart-onboard-gcp.md)
 
 ## Kubernetes
-[Container insights](containers/container-insights-overview.md) in Azure Monitor uses [Azure Arc-enabled Kubernetes](../azure-arc/servers/overview.md) to provide a consistent experience between both [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) and Kubernetes clusters in your AWS EKS or GCP GKE instances. You can view your hybrid clusters right alongside your Azure machines and onboard them using identical methods. This includes using standard Azure constructs such as Azure Policy and applying tags.
+[Managed Prometheus](essentials/prometheus-metrics-overview.md) and [Container insights](containers/container-insights-overview.md) in Azure Monitor use [Azure Arc-enabled Kubernetes](../azure-arc/servers/overview.md) to provide a consistent experience between both [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) and Kubernetes clusters in your AWS EKS or GCP GKE instances. You can view your hybrid clusters right alongside your Azure machines and onboard them using the same methods. This includes using standard Azure constructs such as Azure Policy and applying tags.
 
 Use Prometheus [remote write](./essentials/prometheus-remote-write.md) from your on-premises, AWS, or GCP clusters to send data to Azure managed service for Prometheus.
 
-The [Azure Monitor agent](agents/agents-overview.md) installed by Container insights collects telemetry from the client operating system of clusters regardless of their location. Use the same analysis tools on Container insights to monitor clusters across your different cloud environments.
+The [Azure Monitor agent](agents/agents-overview.md) installed by Container insights collects telemetry from the client operating system of clusters regardless of their location. Use the same analysis tools, [Managed Grafana](../managed-grafana/overview.md) and Container insights, to monitor clusters across your different cloud environments.
 
 - [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)

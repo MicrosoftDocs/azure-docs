@@ -1,0 +1,95 @@
+### YamlMime:Landing
+
+title: Azure Operator 5G Core documentation
+summary: Learn how to securely deploy and manage  mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
+
+metadata:
+  title: Azure Operator 5G Core documentation
+  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
+  ms.service: azure-operator-5g-core-operator-5g-core
+  ms.topic: landing-page
+  author: HollyCl
+  ms.author: HollyCl
+  ms.date: 02/21/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Operator 5G Core
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator 5G Core?
+            url: overview-product.md
+      - linkListType: concept
+        links:
+         - text: Centralized lifecycle management
+           url: concept-centralized-lifecycle-management.md
+         - text: Security
+           url: concept-security.md
+      - linkListType: quickstart
+        links:
+          - text: Get access to Azure Operator 5G Core
+            url: quickstart-subscription.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure Operator 5G Core
+            url: how-to-deploy-5g-core.md     
+# Card                   
+  - title: Learn about network functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure a network function
+            url: quickstart-configure-network-function.md
+      - linkListType: tutorial
+        links:
+          - text: Configure a network function
+            url: tutorial-configure-network-function.md
+  # Card
+  - title: Deploy Nexus Azure Kubernetes Service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Complete the prerequisite tasks for Nexus Azure Kubernetes Services deployment
+            url: how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
+      - linkListType: concept
+        links:
+          - text: Deployment order for clusters, network functions, and observability components
+            url: concept-deployment-order.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy observability
+            url:  quickstart-deploy-observability.md
+          - text: Deploy a network function
+            url: quickstart-deploy-network-functions.md
+  # Card
+  - title: Deploy Azure Kubernetes Service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Complete the prerequisite tasks for Azure Kubernetes Services deployment
+            url: how-to-complete-prerequisites-deploy-azure-kubernetes-service.md
+      - linkListType: concept
+        links:
+          - text: Deployment order for clusters, network functions, and observability components
+            url: concept-deployment-order.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy observability
+            url:  quickstart-deploy-observability.md
+          - text: Deploy a network function
+            url:  quickstart-deploy-network-functions.md
+  # Card
+  - title: Manage deployments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor the deployment status
+            url:  how-to-monitor-deployment-status.md
+          - text: Perform health and configuration checks post-deployment
+            url: how-to-perform-checks-post-deployment.md
+         

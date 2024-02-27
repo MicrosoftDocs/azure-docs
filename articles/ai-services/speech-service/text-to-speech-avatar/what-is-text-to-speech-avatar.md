@@ -2,14 +2,14 @@
 title: Text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the Text to speech avatar feature of speech service, which allows users to create synthetic videos featuring avatars speaking based on text input. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ms.custom: references_regions
-keywords: text to speech avatar
 ---
 
 # Text to speech avatar overview (preview)
