@@ -96,7 +96,11 @@ Update the following fields:
 * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
 * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
-* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
+* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the 
+
+**PKCS#11** section later in the config file.
+
+For more information about certificates, see [Manage IoT Edge certificates](how-to-manage-device-certificates.md).
 
 Save and close the file.
 
@@ -123,6 +127,7 @@ After entering the provisioning information in the configuration file, apply you
     ```toml
     [provisioning]
     source = "manual"
+    iothub_hostname = "IOT_HUB_HOSTNAME"
     device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
 
     [provisioning.authentication]
@@ -134,9 +139,12 @@ After entering the provisioning information in the configuration file, apply you
 
     Update the following fields:
 
+    * **iothub_hostname**: Hostname of the IoT Hub the where the device connects. For example, `example.azure-devices.net`.
     * **device_id**: The ID that you provided when you registered the device.
     * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
     * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
+
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
 
 1. Save and close the file.
 
@@ -193,6 +201,10 @@ Use the `check` tool to verify configuration and connection status of the device
 ```bash
 sudo iotedge check
 ```
+
+You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
+
+:::image type="content" source="media/how-to-provision-single-device-linux-x509/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-x509/config-checks.png":::
 
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.

@@ -114,6 +114,8 @@ You can configure your IoT Edge device with symmetric key authentication using t
     connection_string = "REPLACE_WITH_DEVICE_CONNECTION_STRING"
     ```
 
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
+
 1. Set the configuration for IoT Edge and the Identity Service using the following command:
 
     ```bash
@@ -165,7 +167,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    sudo iotedge check
    ```
 
-   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red).
+   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
 
    :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
 
