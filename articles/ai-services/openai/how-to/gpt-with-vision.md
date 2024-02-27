@@ -459,6 +459,8 @@ You need to upload your videos to an Azure Blob Storage container. [Create a new
 
 Once your videos are uploaded, you can get their SAS URLs, which you use to access them in later steps.
 
+#### Ensure proper read access
+
 Depending on your authentication method, you may need to do some extra steps to grant access to the Azure Blob Storage container. If you're using an Azure AI Services resource instead of an Azure OpenAI resource, you need to use Managed Identities to grant it **read** access to Azure Blob Storage:
 
 #### [using System assigned identities](#tab/system-assigned)
