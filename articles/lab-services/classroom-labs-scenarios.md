@@ -7,25 +7,30 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 02/28/2024
+#customer intent: As a training specialist, I want to map organizational roles to permissions as a part of organizing training for my enterprise.
 ---
 
-# Use labs for trainings
+# Use labs for trainings in Azure Lab Services
 
-In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services allows educators (teachers, professors, trainers, or teaching assistants, etc.) to quickly and easily create an online lab to provision preconfigured learning environments for the trainees. Each trainee can use identical and isolated environments for the training. Apply policies to ensure that the training environments are available to each trainee only when they need them, and contain enough resources - such as virtual machines - required for the training.
+In this article, you learn about the different features and steps for using Azure Lab Services for conducting classes. Azure Lab Services supports educators, such as teachers, professors, trainers, or teaching assistants. An educator can quickly and easily create an online lab to provision preconfigured learning environments for the trainees.
 
 :::image type="content" source="./media/classroom-labs-scenarios/classroom.png" alt-text="Conceptual artwork that shows a teacher and students in a classroom, using Azure Lab Services.":::
+
+Each trainee can use identical and isolated environments for the training. Educators can apply policies to ensure that the training environments are available to each trainee only when they need them. The environments contain enough resources, such as virtual machines, required for the training.
+
+## Use cases
 
 Labs meet the following requirements for conducting training in any virtual environment:
 
 - Trainees can quickly provision their training environments
 - Every training machine should be identical
 - Trainees can't see VMs created by other trainees
-- Control cost by ensuring that trainees can't get more VMs than they need for the training and also shutdown VMs when they aren't using them
-- Easily share the training lab with each trainee
-- Reuse the training lab again and again
+- You can control cost by ensuring that trainees can't get more VMs than they need for the training and also shutdown VMs when they aren't in use
+- You can easily share the training lab with each trainee
+- You can reuse the training lab again and again
 
-## Mapping organizational roles to permissions
+### Mapping organizational roles to permissions
 
 Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to Azure Lab Services. For more information, see the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). Using Azure RBAC lets you clearly separate roles and responsibilities for creating and managing labs across different teams and people in your organization.
 
@@ -35,9 +40,9 @@ The following sections give different examples of assigning permissions across a
 
 ### Scenario 1: Splitting responsibilities between IT department and educators
 
-In this scenario, the IT department, service providers, or administrators manage the Azure subscription(s). They're responsible for creating the Azure Lab Services lab plan and then grant the educators permission to create labs in the lab plan. The educator invites students to register for and connect to a lab VM.
+In this scenario, the IT department, service providers, or administrators manage the Azure subscriptions. They're responsible for creating the Azure Lab Services lab plan. Then, they grant the permission to create labs in the lab plan. The educator invites students to register for and connect to a lab VM.
 
-In your organization structure, the administrator activities might be further split across subteams. For example, one team might be responsible for the configuration of virtual networks for advanced networking (central IT). And the creation of the lab plan and other Azure resources might be the responsibility of another team (department IT).
+In your organization structure, you might further split the administrator activities across subteams. For example, one team might be responsible for the configuration of virtual networks for advanced networking (central IT). The creation of the lab plan and other Azure resources might be the responsibility of another team (department IT).
 
 Get started as an administrator with the [Quickstart: set up the resources for creating labs](./quick-create-resources.md).
 
@@ -51,7 +56,7 @@ The following table shows the corresponding mapping of organization roles to Mic
 | --- | --- | --- |
 | Administrator | - Subscription Owner<br/>- Subscription Contributor | Create lab plan in Azure portal. |
 | Educator      | Lab Creator | Create and manage the labs they created. |
-|               | Lab Contributor | Optionally, assign to an educator to create and manage all labs (when assigned at the resource group level). |
+|               | Lab Contributor | Optionally, assign to an educator to create and manage all labs, when assigned at the resource group level. |
 |               | Lab Assistant | Optionally, assign to other educators to help support lab students by allowing reimage/start/stop/connect lab VMs. |
 | Student       |  | Students don't need a Microsoft Entra role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
@@ -94,7 +99,9 @@ The following table shows the corresponding mapping of organization roles to Mic
 | Student       |  | Students don't need a Microsoft Entra role. Educators [grant students access](./how-to-manage-lab-users.md) in the lab configuration or students are automatically granted access, for example when using [Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams) or [Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas). |
 | Others        | Lab Services Reader | Optionally, provide access to see all lab plans and labs without permission to modify. |
 
-## Next steps
+
+
+## Related content
 
 - Learn more about [setting up example class types](./class-types.md).
 - Get started by following the steps in the tutorial [Set up a lab for classroom training](./tutorial-setup-lab.md).

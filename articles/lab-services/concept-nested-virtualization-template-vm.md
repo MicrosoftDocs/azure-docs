@@ -6,19 +6,19 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 02/27/2024
-#customer intent: As a lab administrator, I want to create networks within a virtual lab to simplify implementing scenarios that benefit from multiple VMs that can communicate with each other.
+ms.date: 02/28/2024
+#customer intent: As a lab administrator, I want to create networks within a virtual lab in order to cover scenarios where multiple virtual machines interact within or across networks.
 ---
 
 # Nested virtualization in Azure Lab Services
 
-Nested virtualization enables you to create a lab in Azure Lab Services that contains multiple virtual machines (VMs). You can use nested virtualization to provide lab users with multiple, related virtual machines as part of a lab. You can create and run virtual machines (*guest VM*) within a virtual machine (*host VM*).
+Nested virtualization enables you to create a lab in Azure Lab Services that contains multiple virtual machines (VMs). You can use nested virtualization to provide lab users with multiple, related virtual machines as part of the lab. You can create and run a virtual machine (*guest VM*) within a virtual machine (*host VM*).
 
 Nested virtualization is enabled through Hyper-V. It's only available on Windows-based lab VMs. You can run both Windows-based and Linux-based guest VMs inside the lab VM. This article explains the concepts, considerations, and recommendations for nested virtualization in Azure Lab Services.
 
 ## Use cases
 
-With nested virtualization, you can support multiple VMs that communicate with each other. Some uses include the following purposes:
+With nested virtualization, you can support multiple VMs that communicate with each other. You might use such labs for the following purposes:
 
 - [Networking with GNS3](./class-type-networking-gns3.md)
 - IT administration
@@ -105,11 +105,11 @@ To connect with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
 
 ### Non-admin user
 
-You might choose to create a user without admin privileges when you create a lab. There are a few things to note when using nested virtualization with such an account.
+You might choose to create a user without admin privileges when you create a lab. Consider the following issues when you use nested virtualization with such an account.
 
-- To be able to start or stop VMs, the user must belong to **Hyper-V Administrators** group.
-- The non-admin user can't mount drives.
-- The Hyper-V VM files must be saved in a location accessible to the non-admin user.
+- To be able to start or stop VMs, the user must belong to the **Hyper-V Administrators** group.
+- The user can't mount drives.
+- The Hyper-V VM files must be saved in a location accessible to the user.
 
 ### Processor compatibility
 
@@ -120,7 +120,7 @@ The nested virtualization VM sizes might use different processors as shown in th
 | Medium (nested virtualization) | [Standard_D4s_v4](/azure/virtual-machines/dv4-dsv4-series) |  3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel® Xeon® Platinum 8272CL (Cascade Lake) |
 | Large (nested virtualization) | [Standard_D8s_v4](/azure/virtual-machines/dv4-dsv4-series) | 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel® Xeon® Platinum 8272CL (Cascade Lake) |
 
-Each time that a template VM or a lab VM is stopped and started, the underlying processor type might change. To help ensure that nested VMs work consistently across processors, try enabling [processor compatibility mode](/windows-server/virtualization/hyper-v/manage/processor-compatibility-mode-hyper-v) on the nested VMs. We recommend that you enable **Processor Compatibility** mode on the template VM's nested VMs before publishing or exporting the image.
+Each time that a template VM or a lab VM is stopped and started, the underlying processor type might change. To help ensure that nested VMs work consistently across processors, enable [processor compatibility mode](/windows-server/virtualization/hyper-v/manage/processor-compatibility-mode-hyper-v) on the nested VMs. We recommend that you enable **Processor Compatibility** mode on the template VM's nested VMs before publishing or exporting the image.
 
 You should also test the performance of the nested VMs with the **Processor Compatibility** mode enabled to ensure performance isn't negatively impacted. For more information, see [ramifications of using processor compatibility mode](/windows-server/virtualization/hyper-v/manage/processor-compatibility-mode-hyper-v#ramifications-of-using-processor-compatibility-mode).
 
@@ -152,7 +152,7 @@ The following resources provide more best practices for running Linux or FreeBSD
 
 ## Known issues
 
-Before setting up a lab with nested virtualization, here are a few things to take into consideration.
+Before you set up a lab with nested virtualization, here are a few things to consider.
 
 - Not all VM sizes support nested virtualization. When you create a new lab, select the **Medium (Nested virtualization)** or **Large (Nested virtualization)** VM size for your lab.
 
