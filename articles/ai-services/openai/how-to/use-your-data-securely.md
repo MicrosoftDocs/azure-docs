@@ -174,7 +174,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an additional advanced option described in [this section](#create-shared-private-link).
+You can use basic pricing tier and higher for the configuration below. You don’t have to, but if you use S2 pricing tier, you will have an advanced option described in [this section](#create-shared-private-link).
 
 ### Enable managed identity
 
@@ -221,11 +221,13 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 ### Create shared private link
 
-If you are using Basic or Standard pricing tier, please skip this section.
-This section is only applicable for S2 pricing tier, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
-Due to the complexity, we recommend skip this section for the beginners, and only continue reading if your admin doesn't allow you to [enable trusted service on Azure OpenAI resource](#enable-trusted-service), or you have difficulty to enable trusted service using the command line.
+If you are using Basic or Standard pricing tier, or if it is your first time to setup all the resources securely, please skip this advanced topic.
 
-In this section, we will modify [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram from *bypass trusted service* to *private endpoint*.
+This section is only applicable for S2 pricing tier search resource, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
+
+In this section, we will modify [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram from **bypass trusted service** to **private endpoint**.
+
+:::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with s2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
 
 ## Configure Storage Account
 
