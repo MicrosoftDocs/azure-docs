@@ -1,5 +1,5 @@
 ---
-title: SAP Monitoring with Azure monitor for SAP
+title: SAP Monitoring with Azure Monitor for SAP
 description: Configure Azure Monitor for SAP with SAP Deployment Automation Framework.
 author: devanshjain
 ms.author: devanshjain
@@ -27,7 +27,7 @@ As described in the [overview document](deployment-framework.md), the automation
 
 Deployment of Azure Monitor for SAP (AMS) and the [providers](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor) can be automated from the SAP Deployment Automation Framework (SDAF) to simplify the monitoring process. In this architecture, one Azure Monitor for SAP resource is deployed in each [workload zone](deployment-framework.md#about-the-sap-workload-zone), which represents the environment. This resource is responsible for monitoring the performance and availability of different components of the SAP systems in that environment.
 
-:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png" alt-text="Diagram that shows the dependency between the control plane, the application plane for SAP Deployment Automation Framework with Azure monitor for SAP.":::
+:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png" alt-text="Diagram that shows the dependency between the control plane, the application plane for SAP Deployment Automation Framework with Azure monitor for SAP." lightbox="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png":::
 
 To monitor different components of each SAP system, there are corresponding providers and all these providers are deployed in the Azure Monitor for SAP resource of that environment. This setup allows for efficient monitoring and management of the SAP systems, as all the providers for a particular system are located in the same Azure Monitor for SAP resource. The automation framework automates the following steps:
 - Creates Azure Monitor for SAP resource in workload zone.
