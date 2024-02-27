@@ -44,15 +44,25 @@ There are several ways to monitor Azure Data Factory.
 
 ### Azure Data Factory Studio
 
-You can monitor all of your Data Factory pipeline runs natively in the Azure Data Factory Studio user experience. To open the monitoring experience, select **Launch Studio** from your Azure portal Data Factory page. If you're already in Azure Data Factory Studio, select **Monitor** from the left menu. For more information about monitoring in Azure Data Factory Studio, see [Visually monitor Azure Data Factory](monitor-visually.md).
+You can monitor all of your Data Factory pipeline runs natively in Azure Data Factory Studio. To open the monitoring experience, select **Launch Studio** from your Azure portal Data Factory page. In Azure Data Factory Studio, select **Monitor** from the left menu. 
+
+For more information about monitoring in Azure Data Factory Studio, see the following articles:
+
+- [Visually monitor Azure Data Factory](monitor-visually.md)
+- [Data flow monitoring](concepts-data-flow-monitoring.md)
+- [Monitor copy activity](copy-activity-monitoring.md)
+- [Session log in a Copy activity](copy-activity-log.md)
 
 ### Azure portal
 
-Some metrics appear on your Azure Data Factory **Overview** page in the Azure portal. To access full Azure Monitor monitoring capabilities, select **Alerts**, **Metrics**, **Diagnostic settings**, or **Logs** in the **Monitoring** section of the left menu.
+Several metrics graphs appear on the **Overview** page for your Data Factory in the Azure portal. To access Azure Monitor monitoring capabilities, select **Alerts**, **Metrics**, **Diagnostic settings**, or **Logs** from the **Monitoring** section of the left menu on the Data Factory page. This article describes the Azure Monitor monitoring capabilities for Data Factory.
 
 ### Monitor programmatically
 
-You can monitor pipelines programmatically by using .NET, PowerShell, Python, or the REST API. For more information, see [Programmatically monitor Azure Data Factory](monitor-programmatically.md).
+You can monitor Data Factory pipelines programmatically by using .NET, PowerShell, Python, or the REST API. For more information, see the following articles:
+
+- [Programmatically monitor Azure Data Factory](monitor-programmatically.md)
+- [Set up diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)
 
 ## Monitor integration runtimes
 
@@ -67,6 +77,8 @@ Azure Monitor collects metrics and diagnostics logs for all types of integration
 
 - [Monitor an integration runtime in Azure Data Factory](monitor-integration-runtime.md)
 - [Monitor an integration runtime within a managed virtual network](monitor-managed-virtual-network-integration-runtime.md)
+- [Monitor self-hosted integration runtime in Azure](monitor-shir-in-azure.md)
+- [Configure self-hosted integration runtime for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md)
 - [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)
 - [Diagnostics logs and metrics for Managed Airflow](how-to-diagnostic-logs-and-metrics-for-managed-airflow.md)
 
