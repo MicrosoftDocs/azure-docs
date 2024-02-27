@@ -1,20 +1,19 @@
 ---
 title: Configure MQ diagnostics service
-titleSuffix: Azure IoT MQ
-description: How to configure Azure IoT MQ diagnostics service.
+description: How to configure the Azure IoT MQ diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
 author: timlt
 ms.author: timlt
 ms.subservice: mq
-ms.topic: how-to
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 02/27/2024
 
 #CustomerIntent: As an operator, I want to understand how to use observability and diagnostics 
 #to monitor the health of the MQ service.
 ---
 
-# Configure Azure IoT MQ diagnostic service settings
+# Configure Azure IoT MQ Preview diagnostic service settings
 
 Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
@@ -37,7 +36,9 @@ The diagnostics service processes and collates diagnostic signals from various A
 | openTelemetryTracesCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
 | staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
 
-Here's an example of a Diagnostics service resource with basic configuration:
+## Example of a diagnostics service resource
+
+Here's an example of a diagnostics service resource with basic configuration:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1

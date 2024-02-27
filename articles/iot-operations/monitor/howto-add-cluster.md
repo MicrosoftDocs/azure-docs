@@ -1,11 +1,10 @@
 ---
 title: Add a cluster
-titleSuffix: Azure IoT Operations
 description: How to add an Arc-enabled cluster to existing observability infrastructure in Azure IoT Operations.
 author: timlt
 ms.author: timlt
 ms.topic: how-to
-ms.date: 02/04/2024
+ms.date: 02/27/2024
 
 # CustomerIntent: As an IT admin or operator, I want to add more Arc-enabled clusters
 # to my existing observability infrastructure. 
@@ -19,7 +18,7 @@ You can share observability resources across multiple Arc-enabled clusters that 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Get started: configure observability](howto-configure-observability.md).
+- Azure IoT Operations installed. For more information, see [Get started: configure observability](howto-configure-observability.md).
 
 ## Add an Arc-enabled cluster
 To create this setup, run the following command. Specify the two resource IDs for the observability components that were output when you ran the steps in [Install observability components](howto-configure-observability.md#install-observability-components). 

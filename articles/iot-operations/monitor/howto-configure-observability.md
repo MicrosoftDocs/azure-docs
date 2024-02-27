@@ -1,6 +1,5 @@
 ---
 title: Get started with observability
-titleSuffix: Azure IoT Operations
 description: How to get started with configuring observability features in Azure IoT Operations so that you can monitor your solution.
 author: timlt
 ms.author: timlt
@@ -17,11 +16,11 @@ ms.date: 11/7/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Observability provides visibility into every layer of your Azure IoT Operations Preview configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability. 
+Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability. 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Configure your subscription
 
