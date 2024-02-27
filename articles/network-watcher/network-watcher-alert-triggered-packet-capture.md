@@ -165,7 +165,7 @@ Get the tenant ID by running the following PowerShell cmdlet:
 
 #### AzureCredPassword
 
-The value of the `AzureCredPassword` environment variable is the value that you get from running the following PowerShell sample. This sample is the same one that the preceding [Authentication](#authentication) section showed. The value that you need is the output of the `$Encryptedpassword` variable. This output is the service principal password that you encrypted by using the PowerShell script.
+The value of the `AzureCredPassword` environment variable is the value that you get from running the following PowerShell sample. This sample is the same one that the preceding [Configure authentication](#configure-authentication) section showed. The value that you need is the output of the `$Encryptedpassword` variable. This output is the service principal password that you encrypted by using the PowerShell script.
 
 ```powershell
 #Variables

@@ -35,7 +35,7 @@ When a TCP connection is established, the first three packets sent in the connec
 
 1. Launch Wireshark.
 
-1. Load the **.cap** file from your packet capture session.
+1. Load the *.cap* file from your packet capture session.
 
 1. Select a [SYN] packet in your capture. This packet is the first packet that the client sends to initiate a TCP connection.
 
@@ -55,7 +55,7 @@ When a TCP connection is established, the first three packets sent in the connec
 
 1. Select the [SCK] packet.
 
-1. Expand the **SEQ/ACK analysis** section to show the initial RTT (iRTT) in seconds.
+1. Expand the **SEQ/ACK analysis** section to show the initial RTT in seconds.
 
     :::image type="content" source="./media/packet-capture-inspect/view-latency.png" alt-text="Screenshot that shows the latency represented as initial round-trip time in seconds in Wireshark." lightbox="./media/packet-capture-inspect/view-latency.png":::
 
@@ -67,7 +67,7 @@ In this example, you learn how to analyze a packet capture to find unwanted prot
 
 1. Open Wireshark.
 
-1. Load the **.cap** file from your packet capture session.
+1. Load the *.cap* file from your packet capture session.
 
 1. On the **Statistics** menu, select **Protocol Hierarchy**.
 
@@ -88,13 +88,13 @@ Understanding the types of traffic, the endpoints, and the ports for communicati
 
 1. Launch Wireshark.
 
-1. Load the **.cap** file from your packet capture session.
+1. Load the *.cap* file from your packet capture session.
 
 1. On the **Statistics** menu, select **IPv4 Statistics** and then select **Destinations and Ports**.
 
     :::image type="content" source="./media/packet-capture-inspect/destinations-ports.png" alt-text="Screenshot that shows how to get to the Destinations and Ports window in Wireshark." lightbox="./media/packet-capture-inspect/destinations-ports.png":::
 
-1. In the **Destinations and Ports** window, you can see the top destinations and ports that the VM communicated with during the capture session. You display only communication through a specific protocol by using a filter. For example, you can see if any communication used the Remote Desktop Protocol (RDP) protocol by entering **rdp** in the **Display filter** box.
+1. The **Destinations and Ports** window lists the top destinations and ports that the VM communicated with during the capture session. You display only communication through a specific protocol by using a filter. For example, you can see if any communication used Remote Desktop Protocol (RDP) by entering **rdp** in the **Display filter** box.
 
     :::image type="content" source="./media/packet-capture-inspect/rdp-filter.png" alt-text="Screenshot that shows the RDP destinations and the ports that were used in Wireshark." lightbox="./media/packet-capture-inspect/rdp-filter.png":::
 

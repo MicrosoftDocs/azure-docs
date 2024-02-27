@@ -41,7 +41,7 @@ You can directly upload a packet capture from Network Watcher. Use the **Import 
 
 When you're providing a link to CapAnalysis, be sure to append a shared access signature (SAS) token to the storage blob URL. Go to **Shared access signature** from the storage account, designate the allowed permissions, and select the **Generate SAS** button to create a token. You can then append the SAS token to the packet capture's storage blob URL.
 
-The resulting URL looks something like the following example: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+The resulting URL looks something like `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`.
 
 ## Analyze packet captures
 
@@ -51,7 +51,7 @@ The following list describes a few of the CapAnalysis features:
 
 - Flow tables
 
-  The **Flow** tab lists flows in the packet data. For each flow, the tab shows information like the time stamp, source and destination IPs, and associated protocols.
+  The **Flows** tab lists flows in the packet data. For each flow, the tab shows information like the time stamp, source and destination IPs, and associated protocols.
 
   ![capanalysis flow page][5]
 
@@ -69,7 +69,7 @@ The following list describes a few of the CapAnalysis features:
 
 - Geographical map
 
-  The **GeoMAP** tab provides a map view of your network traffic. Colors scale to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics, such as the proportion of data sent and received from IPs in that country/region.
+  The **GeoMAP** tab provides a map view of your network traffic. Colors scale to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics, such as the proportion of data sent and received from IPs in a country/region.
 
   ![geomap][8]
 
@@ -83,7 +83,7 @@ To learn more about all the capabilities of CapAnalysis, go to the [tool's websi
 
 ## Conclusion
 
-You can use the Network Watcher packet capture feature to capture the necessary data to perform network forensics and better understand your network traffic. The scenario in this article showed you how you can integrate packet captures from Network Watcher by using open-source visualization tools. By using tools such as CapAnalysis to visualize packet captures, you can perform deep packet inspection and quickly identify trends in your network traffic.
+You can use the Network Watcher packet capture feature to capture the necessary data to perform network forensics and better understand your network traffic. The scenario in this article showed how you can integrate packet captures from Network Watcher by using open-source visualization tools. By using tools such as CapAnalysis to visualize packet captures, you can perform deep packet inspection and quickly identify trends in your network traffic.
 
 ## Next steps
 
