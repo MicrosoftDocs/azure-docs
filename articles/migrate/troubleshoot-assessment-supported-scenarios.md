@@ -10,7 +10,7 @@ ms.date: 02/16/2024
 ms.custom: engagement-fy24        
 ---
 
-# Troubleshoot assessment for supported scenarios
+# Troubleshoot assessment - supported scenarios
 
 This article provides supported scenarios for troubleshooting assessments. See articles [Troubleshoot](troubleshoot-assessment.md) issues with assessment and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
