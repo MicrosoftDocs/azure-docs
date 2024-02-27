@@ -81,7 +81,7 @@ Next, create a C# .NET console application in Visual Studio:
     string applicationId = "<your application ID>";
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID where the data factory resides>";
-    string resourceGroup = "<your resource group where the data factory resides>";
+    string resourceGroupName = "<your resource group where the data factory resides>";
     string region = "<the location of your resource group>";
     string dataFactoryName = 
         "<specify the name of data factory to create. It must be globally unique.>";
@@ -137,7 +137,7 @@ You create linked services in a data factory to link your data stores and comput
 
 ```csharp
 // Create an Azure Storage linked service
-CConsole.WriteLine("Create a linked service " + storageLinkedServiceName + "...");
+Console.WriteLine("Create a linked service " + storageLinkedServiceName + "...");
 AzureBlobStorageLinkedService azureBlobStorage = new AzureBlobStorageLinkedService()
 {
     ConnectionString = azureBlobStorageConnectionString
