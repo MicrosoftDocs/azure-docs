@@ -6,7 +6,6 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.custom: ignite-2022
 ms.date: 12/06/2022
 ms.author: fipopovi
 ms.reviewer: sngun

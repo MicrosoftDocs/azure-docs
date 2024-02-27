@@ -8,7 +8,6 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: seodec18
 ---
 
 # Grant data access to an environment

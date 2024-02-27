@@ -4,12 +4,10 @@ description: include file
 #services: cognitive-services
 
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.date: 01/19/2024
 ms.subservice: azure-ai-luis
 ms.topic: include
-
 ---
 
 In order to receive a LUIS prediction in a chat bot or other client applications, you need to publish the app to the prediction endpoint.

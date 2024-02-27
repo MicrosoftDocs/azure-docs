@@ -6,8 +6,8 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
-ms.custom: seodec18, mode-other
-ms.date: 11/30/2021
+ms.custom: mode-other
+ms.date: 01/16/2024
 ---
 
 # Azure Pipelines task - Azure Database for PostgreSQL - Flexible Server

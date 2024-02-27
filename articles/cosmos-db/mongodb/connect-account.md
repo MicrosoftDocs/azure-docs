@@ -5,7 +5,6 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 03/14/2023
 ms.reviewer: mjbrown

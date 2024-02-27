@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Autoscale glossary for Azure Virtual Desktop
 

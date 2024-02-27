@@ -4,12 +4,13 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.date: 01/26/2024
 ms.author: kendownie
 ms.custom: references_regions, linux-related-content
 ---
 
 # NFS file shares in Azure Files
+
 Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same FileStorage storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
@@ -18,6 +19,7 @@ This article covers NFS Azure file shares. For information about SMB Azure file 
 > NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues. NFS access control lists (ACLs) aren't supported.
 
 ## Common scenarios
+
 NFS file shares are often used in the following scenarios:
 
 - Backing storage for Linux/UNIX-based applications, such as line-of-business applications written using Linux or POSIX file system APIs (even if they don't require POSIX-compliance).
@@ -25,6 +27,7 @@ NFS file shares are often used in the following scenarios:
 - New application and service development, particularly if that application or service has a requirement for random I/O and hierarchical storage.
 
 ## Features
+
 - Fully POSIX-compliant file system.
 - Hard link support.
 - Symbolic link support.
@@ -34,9 +37,10 @@ NFS file shares are often used in the following scenarios:
 > Creating a hard link from an existing symbolic link isn't currently supported.
 
 ## Security and networking
+
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure datacenters.
+For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure data centers.
 
 Unlike Azure Files using the SMB protocol, file shares using the NFS protocol don't offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must set up either a private endpoint or a service endpoint for your storage account.
 
@@ -83,7 +87,7 @@ The status of items that appear in this table might change over time as support 
 | [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
-| [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ (preview) |
+| [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
@@ -94,17 +98,20 @@ The status of items that appear in this table might change over time as support 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
+
 NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 ## Workloads
+
 > [!IMPORTANT]
 > Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 
 ## Next steps
+
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
 - [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=/azure/storage/files/toc.json)

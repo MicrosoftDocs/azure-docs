@@ -5,7 +5,6 @@ description: Learn how to use the Convert to Image Directory component to Conver
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt

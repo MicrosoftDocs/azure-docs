@@ -7,11 +7,17 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 01/23/2024
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## January 2024
+
+All tiers of Azure Cache for Redis now support TLS 1.3. 
+
+For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md).
 
 ## October 2023
 

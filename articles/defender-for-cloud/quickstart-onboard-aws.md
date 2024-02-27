@@ -10,8 +10,6 @@ ms.date: 01/03/2024
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Amazon Web Services (AWS), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting an AWS account that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account connected by both the classic and native connectors can produce duplicate recommendations.
-
 The following screenshot shows AWS accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Screenshot that shows four AWS projects listed on the overview dashboard in Defender for Cloud." lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
@@ -117,7 +115,7 @@ Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore]
 **You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won't be able to proceed.**
 
 > [!NOTE]
-> As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
+> As part of the CloudFormation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the CloudFormation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the CloudFormation.
 
 If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
@@ -174,7 +172,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
 1. Select **Next: Select plans**.
 
-    The **Select plans** tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. Each plan has its own [requirements for permissions](concept-aws-connector.md#native-connector-plan-requirements) and might incur [charges](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+    The **Select plans** tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. Each plan has its own [requirements for permissions](#native-connector-plan-requirements) and might incur [charges](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="Screenshot that shows the tab for selecting plans for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-plans-selection.png":::
 
@@ -302,4 +300,3 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
-

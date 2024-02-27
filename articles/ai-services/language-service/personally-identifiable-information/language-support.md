@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii
 ---
 
 # Personally Identifiable Information (PII) detection language support 

@@ -5,7 +5,6 @@ ms.author: sairamyeturi
 author: yeturis
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
 ms.date: 12/07/2023
 ---
 

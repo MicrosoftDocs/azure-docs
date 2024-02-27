@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 05/02/2022
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # Monitor and debug with insights in Azure Cosmos DB for Apache Cassandra

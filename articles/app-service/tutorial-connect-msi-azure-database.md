@@ -8,7 +8,7 @@ ms.devlang: csharp
 # ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
+ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 

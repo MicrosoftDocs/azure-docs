@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
+ms.custom: language-service-custom-ner, references_regions
 ---
 
 # Custom named entity recognition service limits

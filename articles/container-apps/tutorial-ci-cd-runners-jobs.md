@@ -605,7 +605,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     | Placeholder | Value | Comments |
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
-    | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
+    | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
 
 ## Build the Azure Pipelines agent container image
 

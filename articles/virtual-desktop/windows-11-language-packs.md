@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: helohr
-manager: femila
 ---
 # Add languages to a Windows 11 Enterprise image
 

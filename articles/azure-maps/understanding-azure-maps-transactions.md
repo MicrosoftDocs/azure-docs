@@ -91,7 +91,7 @@ The following table summarizes the Azure Maps services that generate transaction
 [Conversion]: /rest/api/maps-creator/conversion
 [Creator table]: #azure-maps-creator
 [Data registry]: /rest/api/maps/data-registry
-[v1]: /rest/api/maps/data?view=rest-maps-1.0
+[v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
 [v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md
 [Dataset]: /rest/api/maps-creator/dataset
@@ -101,7 +101,7 @@ The following table summarizes the Azure Maps services that generate transaction
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
-[Search v1]: /rest/api/maps/search?view=rest-maps-1.0
+[Search v1]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Search v2]: /rest/api/maps/search
 [Spatial]: /rest/api/maps/spatial
 [Tileset]: /rest/api/maps-creator/tileset

@@ -5,7 +5,6 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.workload: media
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau

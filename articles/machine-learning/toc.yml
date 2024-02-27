@@ -114,10 +114,6 @@
       href: ./v1/tutorial-train-deploy-notebook.md
     - name: "Build a training pipeline (Python)"
       href: "./v1/tutorial-pipeline-python-sdk.md"
-    - name: Microsoft Power BI integration
-      items:
-        - name: "Train and deploy models"
-          href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
 - name: Interact with Azure Machine Learning
   items:
@@ -213,7 +209,7 @@
               - name: Train with MLflow Projects
                 displayName: log, monitor, metrics, model registry, register
                 href: how-to-train-mlflow-projects.md
-              - name: Log metrics, parameters and files
+              - name: Log metrics, parameters, and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models
@@ -351,10 +347,13 @@
         href: how-to-create-image-labeling-projects.md
       - name: Create text labeling projects
         displayName: data, dataset
-        href: how-to-create-text-labeling-projects.md
+        href: how-to-create-text-labeling-projects.md 
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
+    - name: Manage labeling projects
+      displayName: data, dataset
+      href: how-to-manage-labeling-projects.md      
     - name: Label images and text
       displayName: data, dataset, labeling
       href: how-to-label-data.md
@@ -600,6 +599,8 @@
       href: how-to-use-openai-models-in-azure-ml.md
     - name: How to deploy Llama 2 family models
       href: how-to-deploy-models-llama.md
+    - name: How to deploy Mistral family models
+      href: how-to-deploy-models-mistral.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -692,6 +693,8 @@
               href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
+            - name: Index Lookup tool
+              href: ./prompt-flow/tools-reference/index-lookup-tool.md
             - name: Faiss Index Lookup tool
               href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
             - name: Vector DB Lookup tool
@@ -738,6 +741,8 @@
         href: ./v1/how-to-machine-learning-interpretability-aml.md
       - name: Explain automated ML models
         href: ./v1/how-to-machine-learning-interpretability-automl.md
+      - name: Fairness in Machine Learning
+        href: ./v1/how-to-machine-learning-fairness-aml.md
     # end v1
       - name: Causal analysis
         href: concept-causal-inference.md

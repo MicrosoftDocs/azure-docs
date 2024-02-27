@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 12/26/2021
+ms.date: 01/16/2024
 ---
 
 # Logs in Azure Database for PostgreSQL - Flexible Server

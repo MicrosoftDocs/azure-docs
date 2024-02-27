@@ -7,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 03/10/2023
 ms.topic: quickstart
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

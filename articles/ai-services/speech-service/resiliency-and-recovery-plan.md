@@ -8,7 +8,6 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/21/2024
-ms.custom: ignite-fall-2021
 ---
 
 # Back up and recover speech customer resources

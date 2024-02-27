@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: ramyerrabotu
 author: rkniyer999
-ms.date: 08/30/2023
+ms.date: 01/16/2024
 ---
 
 # Connection pooling strategy for Azure Database for PostgreSQL - Flexible Server using PgBouncer

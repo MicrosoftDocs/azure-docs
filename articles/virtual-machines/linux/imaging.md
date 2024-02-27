@@ -6,13 +6,15 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: overview
-ms.workload: infrastructure
 ms.date: 09/01/2023
 ms.author: jushiman
 ms.reviewer: cynthn
 ---
 
 # Bringing and creating Linux images in Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: helohr
-manager: femila
 ---
 # Set up service alerts
 

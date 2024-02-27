@@ -4,7 +4,7 @@ description: Learn more about how Dapr components work on your Azure Container A
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 12/18/2023
 ---

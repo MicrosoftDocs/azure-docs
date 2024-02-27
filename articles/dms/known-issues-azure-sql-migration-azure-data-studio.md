@@ -9,7 +9,6 @@ ms.date: 11/30/2023
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 
@@ -229,7 +228,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**:
   1) Make sure to migrate the Schema to target Azure SQL Database using Database Migration Service. Refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/public-preview-schema-migration-for-target-azure-sql-db/ba-p/3990463).
-  2) Follow this [article](https://learn.microsoft.com/sql/relational-databases/collations/set-or-change-the-column-collation?) to manually change collation. 
+  2) Follow this [article](/sql/relational-databases/collations/set-or-change-the-column-collation) to manually change collation. 
   For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
 
 - **Message**: `DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.`
@@ -376,6 +375,10 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
+
+## Azure Database Migration Service Naming Rules
+
+If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](https://learn.microsoft.com/azure/data-factory/naming-rules).
 
 ## Azure SQL Database limitations
 

@@ -20,15 +20,21 @@ Following targets are **enabled/ON** by default - meaning you don't have to prov
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
+- `controlplane-apiserver` (`job=controlplane-apiserver`)
+- `controlplane-etcd` (`job=controlplane-etcd`)
 
 Following targets are available to scrape, but scraping isn't enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they're disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
 
 - `core-dns` (`job=kube-dns`)
 - `kube-proxy` (`job=kube-proxy`)
 - `api-server` (`job=kube-apiserver`)
+- `controlplane-cluster-autoscaler` (`job=controlplane-cluster-autoscaler`)
+- `controlplane-kube-scheduler` (`job=controlplane-kube-scheduler`)
+- `controlplane-kube-controller-manager` (`job=controlplane-kube-controller-manager`)
 
 > [!NOTE]
 > The default scrape frequency for all default targets and scrapes is `30 seconds`. You can override it per target using the [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-targets-scrape-interval-settings` section.
+> The control plane targets have a fixed scrape interval of `30 seconds` and cannot be overwritten.
 > You can read more about four different configmaps used by metrics addon [here](prometheus-metrics-scrape-configuration.md)
 
 ## Configuration setting
@@ -188,6 +194,33 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `node_time_seconds`
 - `node_uname_info"`
 
+**controlplane-apiserver**<br>
+- `apiserver_request_total`
+- `apiserver_cache_list_fetched_objects_total`
+- `apiserver_cache_list_returned_objects_total`
+- `apiserver_flowcontrol_demand_seats_average`
+- `apiserver_flowcontrol_current_limit_seats`
+- `apiserver_request_sli_duration_seconds_bucket`
+- `apiserver_request_sli_duration_seconds_count`
+- `apiserver_request_sli_duration_seconds_sum`
+- `process_start_time_seconds`
+- `apiserver_request_duration_seconds_bucket`
+- `apiserver_request_duration_seconds_count`
+- `apiserver_request_duration_seconds_sum`
+- `apiserver_storage_list_fetched_objects_total`
+- `apiserver_storage_list_returned_objects_total`
+- `apiserver_current_inflight_requests`
+
+**controlplane-etcd**<br>
+- `etcd_server_has_leader`
+- `rest_client_requests_total`
+- `etcd_mvcc_db_total_size_in_bytes`
+- `etcd_mvcc_db_total_size_in_use_in_bytes`
+- `etcd_server_slow_read_indexes_total`
+- `etcd_server_slow_apply_total`
+- `etcd_network_client_grpc_sent_bytes_total`
+- `etcd_server_heartbeat_send_failures_total`
+
 ### Minimal ingestion for default OFF targets
 The following are metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics are not collected by default as these targets are not scraped by default (due to being OFF by default). You can turn ON scraping for these targets using `default-scrape-settings-enabled.<target-name>=true`' using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section.
 
@@ -269,6 +302,35 @@ The following are metrics that are allow-listed with `minimalingestionprofile=tr
 - `process_resident_memory_bytes`
 - `process_cpu_seconds_total`
 - `go_goroutines`
+
+**controlplane-cluster-autoscaler**<br>
+- `rest_client_requests_total`
+- `cluster_autoscaler_last_activity`
+- `cluster_autoscaler_cluster_safe_to_autoscale`
+- `cluster_autoscaler_scale_down_in_cooldown`
+- `cluster_autoscaler_scaled_up_nodes_total`
+- `cluster_autoscaler_unneeded_nodes_count`
+- `cluster_autoscaler_unschedulable_pods_count`
+- `cluster_autoscaler_nodes_count`
+- `cloudprovider_azure_api_request_errors`
+- `cloudprovider_azure_api_request_duration_seconds_bucket`
+- `cloudprovider_azure_api_request_duration_seconds_count`
+
+**controlplane-kube-scheduler**<br>
+- `scheduler_pending_pods`
+- `scheduler_unschedulable_pods`
+- `scheduler_pod_scheduling_attempts`
+- `scheduler_queue_incoming_pods_total`
+- `scheduler_preemption_attempts_total`
+- `scheduler_preemption_victims`
+- `scheduler_scheduling_attempt_duration_seconds`
+- `scheduler_schedule_attempts_total`
+- `scheduler_pod_scheduling_duration_seconds`
+
+**controlplane-kube-controller-manager**<br>
+- `rest_client_request_duration_seconds`
+- `rest_client_requests_total`
+- `workqueue_depth`
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.reviewer: ""
 ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 01/23/2024
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server

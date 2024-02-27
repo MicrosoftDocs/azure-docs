@@ -359,7 +359,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     ```bash
     CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
     
-    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME-query id --output tsv)
+    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME --query id --output tsv)
     ```
 
     # [PowerShell](#tab/powershell)

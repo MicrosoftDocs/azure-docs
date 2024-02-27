@@ -8,11 +8,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 6/4/2021
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-
 ---
 # Install HANA on SAP HANA on Azure (Large Instances)
 
