@@ -21,6 +21,73 @@ An Azure Maps account emits the following event types:
 
 ## Example events
 
+# [Cloud event schema](#tab/cloud-event-schema)
+The following example shows the schema of a **GeofenceEntered** event
+
+```JSON
+{   
+   "id":"7f8446e2-1ac7-4234-8425-303726ea3981", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":-999.0, 
+            "nearestLat":47.618786, 
+            "nearestLon":-122.132151 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceEntered", 
+   "time":"2018-11-08T00:54:17.6408601Z", 
+   "specversion":"1.0" 
+}
+```
+
+The following example show schema for **GeofenceResult** 
+
+```JSON
+{   
+   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"1", 
+            "distance":999.0, 
+            "nearestLat":47.609833, 
+            "nearestLon":-122.148274 
+         }, 
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":999.0, 
+            "nearestLat":47.621954, 
+            "nearestLon":-122.131841 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceResult", 
+   "time":"2018-11-08T00:52:08.0954283Z", 
+   "specversion":"1.0" 
+}
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 The following example shows the schema of a **GeofenceEntered** event
 
@@ -90,75 +157,22 @@ The following example show schema for **GeofenceResult**
 }
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-The following example shows the schema of a **GeofenceEntered** event
-
-```JSON
-{   
-   "id":"7f8446e2-1ac7-4234-8425-303726ea3981", 
-   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
-   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
-   "data":{   
-      "geometries":[   
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"2", 
-            "distance":-999.0, 
-            "nearestLat":47.618786, 
-            "nearestLon":-122.132151 
-         } 
-      ], 
-      "expiredGeofenceGeometryId":[   
-      ], 
-      "invalidPeriodGeofenceGeometryId":[   
-      ] 
-   }, 
-   "type":"Microsoft.Maps.GeofenceEntered", 
-   "time":"2018-11-08T00:54:17.6408601Z", 
-   "specversion":"1.0" 
-}
-```
-
-The following example show schema for **GeofenceResult** 
-
-```JSON
-{   
-   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
-   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
-   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
-   "data":{   
-      "geometries":[   
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"1", 
-            "distance":999.0, 
-            "nearestLat":47.609833, 
-            "nearestLon":-122.148274 
-         }, 
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"2", 
-            "distance":999.0, 
-            "nearestLat":47.621954, 
-            "nearestLon":-122.131841 
-         } 
-      ], 
-      "expiredGeofenceGeometryId":[   
-      ], 
-      "invalidPeriodGeofenceGeometryId":[   
-      ] 
-   }, 
-   "type":"Microsoft.Maps.GeofenceResult", 
-   "time":"2018-11-08T00:52:08.0954283Z", 
-   "specversion":"1.0" 
-}
-```
 ---
 
 ## Event properties
+
+# [Cloud event schema](#tab/cloud-event-schema)
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Geofencing event data. |
+| `specversion` | string | CloudEvents schema specification version. |
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 An event has the following top-level data:
@@ -173,19 +187,6 @@ An event has the following top-level data:
 | `data` | object | Geofencing event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
-
-# [Cloud event schema](#tab/cloud-event-schema)
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | Geofencing event data. |
-| `specversion` | string | CloudEvents schema specification version. |
 
 ---
 
