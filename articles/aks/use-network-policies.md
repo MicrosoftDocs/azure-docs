@@ -11,7 +11,7 @@ ms.date: 07/14/2023
 
 When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster. Let's say you likely want to block traffic directly to back-end applications. The *Network Policy* feature in Kubernetes lets you define rules for ingress and egress traffic between pods in a cluster.
 
-This article shows you how to install the Network Policy Manager and create Kubernetes network policies to control the flow of traffic between pods in AKS. Network Policy Manager could be enabled on Linux-based or Windows-based AKS clusters.
+This article shows you how to install the Network Policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS. Network Policy could be used for Linux-based or Windows-based nodes and pods in AKS.
 
 ## Before you begin
 
@@ -27,25 +27,25 @@ These Network Policy rules are defined as YAML manifests. Network policies can b
 
 ## Network policy options in AKS
 
-Azure provides three ways for creating network policies:
+Azure provides three Network Policy engines for enforcing network policies:
 
-* Azure's own implementation, called *Azure Network Policy Manager*.
-* *Calico Network Policy Suite*, an open-source network and network security solution founded by [Tigera][tigera].
-* Cilium Network Policy in AKS clusters that use Azure CNI Powered by Cilium.
+* *Cilium* for AKS clusters that use Azure CNI Powered by Cilium.
+* *Azure Network Policy Manager*.
+* *Calico*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules. With Cilium, you don't need to install a separate network policy engine such as Azure Network Policy Manager or Calico Network Policy Suite.
+Cilium is our recommended Network Policy engine. Cilium enforces network policy on the traffic using Linux BPF, which is generally more efficient than "IPTables". See more details in [Azure CNI Powered by Cilium documentation](./azure-cni-powered-by-cilium.md).  
+Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
 
 
-## Differences between Azure Network Policy Manager and Calico Network Policy Suite and their capabilities
+## Differences between Network Policy engines: Cilium, Azure NPM, and Calico
 
-| Capability                               | Azure Network Policy Manager                    | Calico Network Policy Suite                     |
-|------------------------------------------|----------------------------|-----------------------------|
-| Supported platforms                      | Linux, Windows Server 2022                      | Linux, Windows Server 2019 and 2022  |
-| Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux)  |
-| Compliance with Kubernetes specification | All policy types supported | All policy types supported |
-| Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
-| Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
-| Logging                                  | Logs available with **kubectl log -n kube-system \<network-policy-pod\>** command | For more information, see [Calico component logs][calico-logs] |
+| Capability                               | Azure Network Policy Manager                    | Calico                     | Cilium
+|------------------------------------------|-------------------------------------------------|----------------------------|----------------------------------------------------|
+| Supported platforms                      | Linux, Windows Server 2022 (Preview)                     | Linux, Windows Server 2019 and 2022  | Linux
+| Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux) | Azure CNI
+| Compliance with Kubernetes specification | All policy types supported | All policy types supported | All policy types supported
+| Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. | None
+| Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. | Supported by Azure support and Engineering team
 
 ## Limitations
 
@@ -68,11 +68,11 @@ With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 2
 
 To see network policies in action, let's create an AKS cluster that supports network policy and then work on adding policies. 
 
-To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy Suite could be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico could be used with either Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates an AKS cluster with system-assigned identity and enables Azure Network Policy Manager. To use Calico Network Policy Suite instead, use the `--network-policy calico` parameter. Note: Calico Network Policy Suite could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+* Creates an AKS cluster with system-assigned identity and enables Azure Network Policy Manager. To use Calico instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
@@ -184,7 +184,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-### Create an AKS cluster with Calico Network Policy Suite enabled
+### Create an AKS cluster with Calico enabled
 
 Create the AKS cluster and specify `--network-plugin azure`, and `--network-policy calico`. Calico networking on both Linux and Windows node pools.
 
@@ -222,8 +222,22 @@ az aks nodepool add \
     --node-count 1
 ```
 
-## Uninstall Azure Network Policy Manager or Calico Network Policy Suite
-Azure Network Policy Manager or Calico Network Policy Suite may be uninstalled from an AKS cluster. Example command:
+## Uninstall Azure Network Policy Manager or Calico
+Requirements:
+ - aks-preview Azure CLI extension version 0.5.166+: see [Install the aks-preview Azure CLI extension](#Install-the-aks-preview-Azure-CLI-extension);
+ - Azure CLI version 2.54+: to use `--network-policy` flag when updating a cluster;
+ - AKS REST API version 2023-08-02-preview and higher (to be able to specify `--network-policy none`);
+
+Notes:
+ - After Calico uninstall, Calico Custom Resource Definitions (CRDs) will still exist.  
+ These CRDs can be manually deleted after Calico is successfully uninstalled (deleting the CRDs before removing Calico will break the cluster).  
+ Learn more about CRDs lifecycle at [Helm website](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#some-caveats-and-explanations) (AKS uses Helm to manage both Azure NPM and Calico Network Policy engines)
+ - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies will no longer be enforced.
+
+> [!WARNING]
+> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
+
+To remove Azure Network Policy Manager or Calico from a cluster, run the following command:
 ```azurecli
 az aks update
     --resource-group $RESOURCE_GROUP_NAME \
@@ -231,18 +245,11 @@ az aks update
     --network-policy none
 ```
 
-Azure Network Policy Manager or Calico Network Policy Suite can be uninstalled from an AKS cluster as part of an upgrade to Azure CNI Powered by Cilium.
-Upgrading of existing AKS clusters to Azure CNI Powered by Cilium is currently supported for Azure CNI Overlay and Azure CNI with Dynamic IP Allocation (dedicated pod subnet) clusters.
-Example command:
-```azurecli
-az aks update
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --network-dataplane cilium \
-    --network-policy cilium
-```
+## Install Azure Network Policy Manager or Calico in an existing cluster
+Installing Azure Network Policy Manager or Calico on existing AKS clusters is also supported.
+> [!WARNING]
+> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
 
-Installing Azure Network Policy Manager or Calico Network Policy Suite on existing AKS clusters is also supported.
 Example command to install Azure Network Policy Manager:
 ```azurecli
 az aks update
@@ -251,13 +258,26 @@ az aks update
     --network-policy azure
 ```
 
-Example command to install Calico Network Policy Suite:
+Example command to install Calico:
+> [!WARNING]
+> This warning applies to upgrading Kubenet clusters with Calico enabled to Azure CNI Overlay with Calico enabled.  
+> - In Kubenet clusters with Calico enabled, Calico is also a CNI.  
+> - When migrating such clusters to Azure CNI Overlay with Calico enabled, then Calico is no longer the CNI.  
+> - Since Calico is no longer the CNI, network policies will not be applied before the pod starts.  
+> - This means that traffic from a new pod will be blocked the first few seconds after the pod starts.  
+>
+>  It is recommended to use Cilim instead to avoid this issue. Learn more about Cilium at [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md)
+>  
+
 ```azurecli
 az aks update
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --network-policy calico
 ```
+
+## Upgrade an existing cluster that has Azure NPM or Calico installed to Azure CNI Powered by Cilium
+To upgrade an existing cluster that has Network Policy engine installed to Azure CNI Powered by Cilium, see [Upgrade an existing cluster to Azure CNI Powered by Cilium](azure-cni-powered-by-cilium.md#upgrade-an-existing-cluster-to-azure-cni-powered-by-cilium)
 
 ## Verify Network Policy setup
 

@@ -138,7 +138,7 @@ az aks nodepool add  -g $resourceGroup --cluster-name $clusterName \
 >
 > - The cluster is on Kubernetes version 1.22+.
 > - Doesn't use the dynamic pod IP allocation feature.
-> - Doesn't have network policies enabled.
+> - Doesn't have network policies enabled. Network Policy engine can be uninstalled before the upgrade, see [Uninstall Azure Network Policy Manager or Calico](use-network-policies.md#uninstall-azure-network-policy-manager-or-calico)
 > - Doesn't use any Windows node pools with docker as the container runtime.
 
 > [!NOTE]
