@@ -10,7 +10,7 @@ ms.date: 02/27/2024
 
 # Service limits and resource usage
 
-This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs.
+This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for the the package options and overage
 
 ## Service limits
 
@@ -21,7 +21,7 @@ If you require higher throughput for your scenario, please contact us to discuss
 | Element                | Maximum supported |
 |------------------------|-------------------|
 | PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
-| Bandwidth              | See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |
+| Bandwidth              | 25 Gbps |
 | RAN nodes (eNB/gNB)    | 200 per ASE |
 | UEs                    | 10,000 across all sites |
 | SIMs                   | 1000 per site |
