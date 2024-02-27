@@ -4,7 +4,7 @@ description: Use a simulated TPM on a Linux device to test the Azure IoT Hub dev
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -52,7 +52,7 @@ The tasks are as follows:
 
 A physical Linux device to be the IoT Edge device.
 
-If you are a device manufacturer then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
+If you are a device manufacturer, then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
 
 # [Virtual machine](#tab/virtual-machine)
 
@@ -272,9 +272,9 @@ nano ~/config.toml
 
     For more information about provisioning configuration settings, see [Configure IoT Edge device settings](how-to-auto-provision-set-modules#configure-the-iot-edge-device.md#provisioning).
 
-1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file is [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
 1. Save and close the file.
 
@@ -284,7 +284,7 @@ The IoT Edge runtime relies on a TPM service that brokers access to a device's T
 
 You can give access to the TPM by overriding the systemd settings so that the `aziottpm` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Create a new rule that will give the IoT Edge runtime access to `tpm0` and `tpmrm0`.
+1. Create a new rule that gives the IoT Edge runtime access to `tpm0` and `tpmrm0`.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -325,7 +325,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
+   If you don't see that the correct permissions applied, try rebooting your machine to refresh `udev`.
 
 1. Apply the configuration changes that you made on the device.
 

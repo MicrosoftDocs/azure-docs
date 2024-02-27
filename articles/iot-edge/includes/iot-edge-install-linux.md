@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/26/2024
+ms.date: 02/27/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -128,7 +128,7 @@ The following steps show you how to configure your container to use [`local` log
 
 1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`. If you're using a snap, the file is located at `/var/snap/docker/current/config/daemon.json`.
 
-1. Set the default logging driver to the `local` logging driver as shown in the example below.   
+1. Set the default logging driver to the `local` logging driver as shown in the example.
    
     ```JSON
        {

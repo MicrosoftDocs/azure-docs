@@ -7,7 +7,7 @@ ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
@@ -56,7 +56,7 @@ This article shows how to register your IoT Edge device and install IoT Edge (al
 <!-- Azure IoT extensions for Visual Studio Code-->
 ### Visual Studio Code extensions
 
-If you are using Visual Studio Code, there are helpful Azure IoT extensions that will make the device creation and management process easier.
+If you are using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 

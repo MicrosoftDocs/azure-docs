@@ -93,7 +93,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 
 Update the following fields:
 
-* **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
+* **iothub_hostname**: Hostname of the IoT Hub the device connects to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
 * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
 * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the 
@@ -116,13 +116,13 @@ After entering the provisioning information in the configuration file, apply you
 
 1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/common/provisioning` directory. Create the directory if it doesn't exist.
 
-1. Create a **config.toml** file in your home directory and configure your IoT Edge device for manual provisioning using a X.509 identity certificate.
+1. Create a **config.toml** file in your home directory and configure your IoT Edge device for manual provisioning using an X.509 identity certificate.
 
     ```bash
     sudo nano ~/config.toml
     ```
 
-1. You can manually provision using a X.509 certificate by adding the following provisioning settings to the file:
+1. You can manually provision using an X.509 certificate by adding the following provisioning settings to the file:
 
     ```toml
     [provisioning]
@@ -139,7 +139,7 @@ After entering the provisioning information in the configuration file, apply you
 
     Update the following fields:
 
-    * **iothub_hostname**: Hostname of the IoT Hub the where the device connects. For example, `example.azure-devices.net`.
+    * **iothub_hostname**: Hostname of the IoT Hub where the device connects. For example, `example.azure-devices.net`.
     * **device_id**: The ID that you provided when you registered the device.
     * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
     * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
@@ -224,7 +224,7 @@ View all the modules running on your IoT Edge device. When the service starts fo
    sudo iotedge list
    ```
 
-When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Offline or specific version installation (optional)
 
@@ -235,7 +235,7 @@ The steps in this section are for scenarios not covered by the standard installa
 
 Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
@@ -263,7 +263,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-        If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+        If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -281,7 +281,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-        If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+        If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 
@@ -296,7 +296,7 @@ Remove the IoT Edge runtime.
 sudo apt-get autoremove --purge aziot-edge
 ```
 
-Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files. 
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags delete all the files associated with IoT Edge, including your configuration files. 
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash
