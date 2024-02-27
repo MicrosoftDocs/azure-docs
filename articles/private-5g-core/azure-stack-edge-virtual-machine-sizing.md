@@ -10,13 +10,11 @@ ms.date: 02/27/2024
 
 # Service limits and resource usage
 
-This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for the the package options and overage
+This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) and [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) for the the package options and overage rates.
 
 ## Service limits
 
-The following table lists the maximum supported a range of parameters in an Azure Private 5G Core deployment. While these are tested and supported limits, other factors may affect what is achievable. For example, usage patterns, UE types and third party network elements may impact one or more of these parameters. It is important to test the limits of your deployment before launching a live service.
-
-If you require higher throughput for your scenario, please contact us to discuss your needs.
+The following table lists the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment. These limits have been confirmed through testing, but other factors may affect what is achievable in a given scenario. For example, usage patterns, UE types and third-party network elements may impact one or more of these parameters. It is important to test the limits of your deployment before launching a live service.
 
 | Element                | Maximum supported |
 |------------------------|-------------------|
@@ -26,6 +24,8 @@ If you require higher throughput for your scenario, please contact us to discuss
 | UEs                    | 10,000 across all sites |
 | SIMs                   | 1000 per site |
 | SIM provisioning       | 1000 per API call |
+
+Your chosen service package may have lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
 
 ## Azure Stack Edge virtual machine sizing
 
