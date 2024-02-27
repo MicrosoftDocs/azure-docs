@@ -4,9 +4,7 @@ description: Information on Azure Payment HSM certification and compliance
 services: payment-hsm
 author: msmbaldwin
 
-tags: azure-resource-manager
 ms.service: payment-hsm
-ms.workload: security
 ms.topic: article
 ms.date: 01/31/2024
 ms.author: mbaldwin

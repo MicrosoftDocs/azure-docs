@@ -5,7 +5,6 @@ services: azure-netapp-files
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 07/28/2021
 ---

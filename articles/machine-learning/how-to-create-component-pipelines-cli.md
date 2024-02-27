@@ -13,7 +13,6 @@ ms.topic: how-to
 ms.custom:
   - devplatv2
   - devx-track-azurecli
-  - event-tier1-build-2022
   - build-2023
   - ignite-2023
 ms.devlang: azurecli

@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: overview
-ms.workload: identity
 ms.date: 01/12/2022
 ms.author: rolyon
 ms.custom: azuread-video-2020

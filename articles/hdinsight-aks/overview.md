@@ -4,7 +4,7 @@ description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 08/29/2023
+ms.date: 02/06/2024
 ---
 
 # What is HDInsight on AKS? (Preview)
@@ -56,7 +56,7 @@ The latest version of HDInsight is orchestrated using AKS, which enables the pla
 
 HDInsight on AKS can connect seamlessly with HDInsight. You can reap the benefits of using needed cluster types in a hybrid model. Interoperate with cluster types of HDInsight using the same storage and metastore across both the offerings. 
 
-[HDInsight](/azure/hdinsight/) offers Apache Kafka®, Apache HBase® and other analytics workloads in Platform as a Service (PaaS) formfactor.
+[HDInsight](/azure/hdinsight/) offers Apache Kafka®, Apache HBase® and other analytics workloads in Platform as a Service (PaaS) form factor.
 
 :::image type="content" source="./media/overview/connectivity-diagram.png" alt-text="Diagram showing connectivity concepts.":::
 
@@ -84,6 +84,7 @@ For more information, see [HDInsight on AKS security](./concept-security.md).
 * West US 2
 * West US 3
 * East US
+* East Asia
 
 > [!Note]
 > - The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.

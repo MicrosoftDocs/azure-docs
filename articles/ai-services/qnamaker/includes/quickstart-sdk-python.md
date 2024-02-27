@@ -3,7 +3,6 @@ title: "Quickstart: QnA Maker client library for Python"
 description: This quickstart shows how to get started with the QnA Maker client library for Python.
 ms.topic: include
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for Python to:

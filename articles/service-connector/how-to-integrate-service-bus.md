@@ -4,7 +4,6 @@ description: Integrate Azure Service Bus into your application with Service Conn
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 02/02/2024
 ---

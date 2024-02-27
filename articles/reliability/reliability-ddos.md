@@ -1,12 +1,14 @@
 ---
 title: Reliability in Azure DDoS Network Protection
 description: Find out about reliability in Azure DDoS Network Protection
-author: anaharris-ms 
-ms.author: anaharris
-ms.topic: overview
+author: AbdullahBell
+ms.author: abell
+ms.topic: reliability-article
+ms.custom: ignite-2022
+ms.workload: infrastructure-services
 ms.custom: subject-reliability, references_regions
 ms.service: ddos-protection
-ms.date: 02/05/2024 
+ms.date: 02/27/2024 
 ---
 
 # Reliability in Azure DDoS Network Protection

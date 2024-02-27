@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 01/04/2024
 ms.author: jushiman
 ms.reviewer: jushiman

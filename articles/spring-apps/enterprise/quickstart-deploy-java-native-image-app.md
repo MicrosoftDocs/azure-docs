@@ -5,7 +5,7 @@ author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 08/29/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23, references_regions
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
 ms.author: yili7
 ---
 

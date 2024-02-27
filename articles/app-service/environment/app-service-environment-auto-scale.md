@@ -7,8 +7,6 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Autoscaling and App Service Environment v1
 

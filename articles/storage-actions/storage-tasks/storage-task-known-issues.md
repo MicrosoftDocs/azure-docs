@@ -101,6 +101,10 @@ If multiple filters are used in storage task assignments, not all directory pref
 
 Storage accounts that have a hierarchical namespace display location information as `container1 / subcontainer1` with a whitespace character between the string and the `/` character. An error appears if you copy and paste this information into the path prefix field during assignment.
 
+## Slow performance when processing blobs in accounts that have a hierarchical namespace
+
+Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run. 
+
 ## See Also
 
 - [Azure Storage Actions overview](../overview.md)

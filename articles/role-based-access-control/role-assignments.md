@@ -5,7 +5,6 @@ services: active-directory
 author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 10/03/2022
 ms.author: jodowns
 ---

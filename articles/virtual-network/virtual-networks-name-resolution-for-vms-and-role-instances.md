@@ -12,6 +12,9 @@ ms.custom: fasttrack-edit, linux-related-content
 
 # Name resolution for resources in Azure virtual networks
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Azure can be used to host IaaS, PaaS, and hybrid solutions. In order to facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it may be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:

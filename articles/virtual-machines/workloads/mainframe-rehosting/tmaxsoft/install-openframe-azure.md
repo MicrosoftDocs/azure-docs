@@ -13,6 +13,9 @@ ms.custom: linux-related-content
 
 # Install TmaxSoft OpenFrame on Azure
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. This tutorial walks you through each step.
 
 OpenFrame includes multiple components that create the mainframe emulation environment on Azure. For example, OpenFrame online services replace the mainframe middleware such as IBM Customer Information Control System (CICS), and OpenFrame Batch, with its TJES component, replaces the IBM mainframe's Job Entry Subsystem (JES).

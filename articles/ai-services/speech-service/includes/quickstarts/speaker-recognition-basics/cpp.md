@@ -4,7 +4,7 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 [!INCLUDE [Header](../../common/cpp.md)]

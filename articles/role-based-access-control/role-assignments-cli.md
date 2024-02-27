@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 01/02/2024
 ms.author: rolyon
 ms.custom: devx-track-azurecli

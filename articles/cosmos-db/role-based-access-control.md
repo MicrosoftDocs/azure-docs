@@ -1,12 +1,11 @@
 ---
-title: Azure role-based access control in Azure Cosmos DB 
+title: Azure role-based access control in Azure Cosmos DB
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (Azure RBAC).
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/11/2022
 author: seesharprun
 ms.author: sidandrews
-ms.custom: ignite-2022
 ---
 
 # Azure role-based access control in Azure Cosmos DB

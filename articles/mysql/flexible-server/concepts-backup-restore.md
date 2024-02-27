@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
-ms.custom: event-tier1-build-2022
 ms.date: 07/26/2022
 ---
 
@@ -244,8 +243,3 @@ Azure portal supports Point In Time Restore for all servers, allowing users to r
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
-
-
-
-
-

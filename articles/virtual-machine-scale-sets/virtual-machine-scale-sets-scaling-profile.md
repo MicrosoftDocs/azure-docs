@@ -59,6 +59,9 @@ Once you have created the virtual machine scale set, you can manually attach vir
 By default, the Azure CLI will create a scale set with a scaling profile. Omit the scaling profile parameters to create a virtual machine scale set with no scaling profile.
 
 ```azurecli-interactive
+az group create
+ --name myResourceGroup
+ --location westus3
 az vmss create \
 	--name myVmss \
 	--resource-group myResourceGroup \
@@ -69,6 +72,9 @@ az vmss create \
 ### [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
+New-AzResourceGroup
+ -Name myResourceGroup
+ -Location westus3
 $vmssConfig = New-AzVmssConfig 
 	-Location 'westus3' 
 	-PlatformFaultDomainCount 3 

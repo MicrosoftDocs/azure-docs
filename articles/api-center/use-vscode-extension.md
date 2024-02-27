@@ -20,6 +20,8 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
 
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
+> [!VIDEO https://www.youtube.com/embed/62X0NALedCc]
+
 > [!NOTE]
 > The API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
 

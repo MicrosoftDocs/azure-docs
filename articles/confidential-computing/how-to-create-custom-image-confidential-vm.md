@@ -5,7 +5,6 @@ author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 6/09/2023
 ms.author: corsini
 ms.custom: devx-track-azurecli

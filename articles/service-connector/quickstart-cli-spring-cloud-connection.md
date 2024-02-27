@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Create a service connection in Azure Spring Apps with the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Spring Apps with the Azure CLI
-displayName: 
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 10/31/2022
 ms.devlang: azurecli
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI

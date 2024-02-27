@@ -149,12 +149,12 @@ For more information about how to find and manage the solutions, see [Discover a
 ### Recorded Future Security Intelligence Platform
 
 - Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "RecordedFuture_".
-- See the Recorded Future Logic App [connector documentation](/connectors/recordedfuture/).
+- See the Recorded Future Logic App [connector documentation](/connectors/recordedfuturev2/).
 
 ### ReversingLabs TitaniumCloud
 
 - Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/ReversingLabs-EnrichFileHash).
-- See the ReversingLabs Intelligence Logic App connector documentation.
+- See the ReversingLabs TitaniumCloud Logic App [connector documentation](/connectors/reversinglabstitaniu/).
 
 ### RiskIQ Passive Total
 
