@@ -16,9 +16,10 @@ Application Gateway for Containers allows you to return a redirect response to t
 
 ## Usage details
 
-URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1beta1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
+URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
 
 ## Redirection
+
 A redirect sets the response status code returned to clients to understand the purpose of the redirect. The following types of redirection are supported:
 
 - 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource uses one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
@@ -65,7 +66,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -115,7 +116,7 @@ The following figure illustrates an example of a request destined for _contoso.c
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: gateway.networking.k8s.io/v1beta1
+    apiVersion: gateway.networking.k8s.io/v1
     kind: Gateway
     metadata:
       name: gateway-01
@@ -208,7 +209,7 @@ Create an HTTPRoute resource for `contoso.com` that handles traffic received via
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: https-contoso
@@ -268,7 +269,7 @@ Once the gateway is created, create an HTTPRoute resource for `contoso.com` with
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: http-to-https-contoso-redirect
@@ -331,7 +332,7 @@ Create an HTTPRoute resource for `contoso.com` that handles a redirect for the p
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: summer-promotion-redirect
