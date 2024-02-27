@@ -42,7 +42,7 @@ You can request support for additional publishers and/or extension types by open
 
 ## Create a pool with extensions
 
-The example below creates a Batch pool of Linux nodes that uses the Azure Key Vault extension.
+The example below creates a Batch pool of Linux/Windows nodes that uses the Azure Key Vault extension.
 
 REST API URI
 
@@ -50,7 +50,7 @@ REST API URI
  PUT https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Batch/batchAccounts/<batchaccountName>/pools/<batchpoolName>?api-version=2021-01-01
 ```
 
-Request Body
+Request Body for Linux node
 
 ```json
 {
@@ -75,7 +75,7 @@ Request Body
                         "name": "secretext",
                         "type": "KeyVaultForLinux",
                         "publisher": "Microsoft.Azure.KeyVault",
-                        "typeHandlerVersion": "1.0",
+                        "typeHandlerVersion": "3.0",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "secretsManagementSettings": {
@@ -102,6 +102,78 @@ Request Body
                 "targetLowPriorityNodes": 0,
                 "resizeTimeout": "PT15M"
             }
+        }
+    },
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+        }
+    }
+}
+```
+
+Request Body for Windows node
+
+```json
+{
+    "name": "test1",
+    "type": "Microsoft.Batch/batchAccounts/pools",
+    "properties": {
+        "vmSize": "STANDARD_DS2_V2",
+        "taskSchedulingPolicy": {
+            "nodeFillType": "Pack"
+        },
+        "deploymentConfiguration": {
+            "virtualMachineConfiguration": {
+                "imageReference": {
+                    "publisher": "microsoftwindowsserver",
+                    "offer": "windowsserver",
+                    "sku": "2022-datacenter",
+                    "version": "latest"
+                },
+                "nodeAgentSkuId": "batch.node.windows amd64",
+                "extensions": [
+                    {
+                        "name": "secretext",
+                        "type": "KeyVaultForWindows",
+                        "publisher": "Microsoft.Azure.KeyVault",
+                        "typeHandlerVersion": "3.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "secretsManagementSettings": {
+                                "pollingIntervalInS": "300",
+                                "requireInitialSync": true,
+                                "observedCertificates": [
+                                    {
+                                        "https://testkvwestus2.vault.azure.net/secrets/authsecreat"
+                                        "certificateStoreLocation": "LocalMachine",
+                                        "keyExportable": true
+                                    }
+                                ]
+                            },
+                            "authenticationSettings": {
+                                "msiEndpoint": "http://169.254.169.254/metadata/identity",
+                                "msiClientId": "885b1a3d-f13c-4030-afcf-9f05044d78dc"
+                            }
+                        },
+                        "protectedSettings":{}
+                    }
+                ]
+            }
+        },
+        "scaleSettings": {
+            "fixedScale": {
+                "targetDedicatedNodes": 1,
+                "targetLowPriorityNodes": 0,
+                "resizeTimeout": "PT15M"
+            }
+        }
+    },
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
         }
     }
 }
@@ -133,6 +205,13 @@ Response Body
 }
 
 ```
+
+## Troubleshooting Key Vault Extension
+
+ If Key Vault extension is not configured correctly, the compute node might be in usuable state, to troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false, redploy your pool, then the compute node will be in idle state, you can login to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Please visit Key Vault extension doc link below for more information.
+
+- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
+- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
 
 ## Next steps
 

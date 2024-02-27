@@ -48,7 +48,7 @@ REST API URI
 PUT https://management.azure.com/subscriptions/<subscriptionid>/resourceGroups/<resourcegroupName>/providers/Microsoft.Batch/batchAccounts/<batchaccountname>/pools/<poolname>?api-version=2021-01-01
 ```
 
-Request Body
+Request Body for Linux node
 
 ```json
 {
@@ -73,7 +73,7 @@ Request Body
                         "name": "KVExtensions",
                         "type": "KeyVaultForLinux",
                         "publisher": "Microsoft.Azure.KeyVault",
-                        "typeHandlerVersion": "1.0",
+                        "typeHandlerVersion": "3.0",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "secretsManagementSettings": {
@@ -110,6 +110,71 @@ Request Body
 
 ```
 
+Request Body for Windows node
+
+```json
+{
+    "name": "test2",
+    "type": "Microsoft.Batch/batchAccounts/pools",
+    "properties": {
+        "vmSize": "STANDARD_DS2_V2",
+        "taskSchedulingPolicy": {
+            "nodeFillType": "Pack"
+        },
+        "deploymentConfiguration": {
+            "virtualMachineConfiguration": {
+                "imageReference": {
+                    "publisher": "microsoftwindowsserver",
+                    "offer": "windowsserver",
+                    "sku": "2022-datacenter",
+                    "version": "latest"
+                },
+                "nodeAgentSkuId": "batch.node.windows amd64",
+                "extensions": [
+                    {
+                        "name": "KVExtensions",
+                        "type": "KeyVaultForWindows",
+                        "publisher": "Microsoft.Azure.KeyVault",
+                        "typeHandlerVersion": "3.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "secretsManagementSettings": {
+                                "pollingIntervalInS": "300",
+                                "requireInitialSync": true,
+                                "observedCertificates": [
+                                    {
+                                        "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
+                                        "certificateStoreLocation": "LocalMachine",
+                                        "keyExportable": true
+                                    }
+                                ]
+                            },
+                            "authenticationSettings": {
+                                "msiEndpoint": "http://169.254.169.254/metadata/identity",
+                                "msiClientId": "b9f6dd56-d2d6-4967-99d7-8062d56fd84c"
+                            }
+                        },
+                    }
+               ]
+            }
+        },
+        "scaleSettings": {
+            "fixedScale": {
+                "targetDedicatedNodes": 1,
+                "resizeTimeout": "PT15M"
+            }
+        },
+    },
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+        }
+    }
+}
+
+```
+
 ## Validate the certificate
 
 To confirm that the certificate has been successfully deployed, log in to the compute node. You should see output similar to the following:
@@ -118,6 +183,14 @@ To confirm that the certificate has been successfully deployed, log in to the co
 root@74773db5fe1b42ab9a4b6cf679d929da000000:/var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-1.0.1363.13/status# cat 1.status
 [{"status":{"code":0,"formattedMessage":{"lang":"en","message":"Successfully started Key Vault extension service. 2021-03-03T23:12:23Z"},"operation":"Service start.","status":"success"},"timestampUTC":"2021-03-03T23:12:23Z","version":"1.0"}]root@74773db5fe1b42ab9a4b6cf679d929da000000:/var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-1.0.1363.13/status#
 ```
+
+## Troubleshooting Key Vault Extension
+
+ If Key Vault extension is not configured correctly, the compute node might be in usuable state, to troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false, redploy your pool, then the compute node will be in idle state, you can login to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Please visit Key Vault extension doc link below for more information.
+
+- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
+- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
+
 
 ## Next steps
 
