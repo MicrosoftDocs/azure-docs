@@ -210,7 +210,7 @@ app = func.FunctionApp()
 @app.function_name(name="QueueFunc")
 @app.queue_trigger(arg_name="msg", queue_name="inputqueue",
                    connection="storageAccountConnectionString")  # Queue trigger
-@app.write_queue(arg_name="outputQueueItem", queue_name="outqueue",
+@app.queue_output(arg_name="outputQueueItem", queue_name="outqueue",
                  connection="storageAccountConnectionString")  # Queue output binding
 def test_function(msg: func.QueueMessage,
                   outputQueueItem: func.Out[str]) -> None:
@@ -537,11 +537,11 @@ To handle poison messages manually, check the [dequeueCount](#message-metadata) 
 
 ## Peek lock
 
-The peek-lock pattern happens automatically for queue triggers, using the visibility mechanics provided by the storage service. As messages are dequeued by the triggered function, they're marked as invisible. Execution of a queue triggered function can have one of these results:
+The peek-lock pattern happens automatically for queue triggers, using the visibility mechanics provided by the storage service. As messages are dequeued by the triggered function, they're marked as invisible. Execution of a queue triggered function can have one of these results on message in the queue:
 
 - Function execution completes successfully and the message is deleted from the queue.
-- Function execution fails and the Functions host updates the visibility of the message based on the `visibilityTimeout` [setting in the host.json file](./functions-bindings-storage-queue.md#hostjson-settings). The default visibility timeout is zero, which means that the message immediately reappears in the queue for reprocessing. Use the `visibilityTimeout` setting to delay the reprocessing of messages that fail to process. This timeout setting applies to all queue triggered functions in the function app.
-- The Functions host crashes during function execution. When this uncommon event occurs, the host can't apply the `visibilityTimeout` to the message being processed and the message instead keeps the storage service-defined 10-minute timeout. After 10 minutes, the message reappears in the queue for reprocessing. This service-defined default timeout can't be changed.   
+- Function execution fails and the Functions host updates the visibility of the message based on the `visibilityTimeout` [setting in the host.json file](./functions-bindings-storage-queue.md#host-json). The default visibility timeout is zero, which means that the message immediately reappears in the queue for reprocessing. Use the `visibilityTimeout` setting to delay the reprocessing of messages that fail to process. This timeout setting applies to all queue triggered functions in the function app.
+- The Functions host crashes during function execution. When this uncommon event occurs, the host can't apply the `visibilityTimeout` to the message being processed. Instead, the message is left with the default 10 minute timeout set by the storage service. After 10 minutes, the message reappears in the queue for reprocessing. This service-defined default timeout can't be changed.   
 
 ## Polling algorithm
 
