@@ -21,7 +21,7 @@ If you require higher throughput for your scenario, please contact us to discuss
 | Element                | Maximum supported |
 |------------------------|-------------------|
 | PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
-| Bandwidth              | See [Azure Private 5G Core pricing](https://azure.microsoft.com/en-us/pricing/details/private-5g-core/). |
+| Bandwidth              | See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |
 | RAN                    | 200 per ASE |
 | UEs                    | 10,000 across all sites |
 | SIMs                   | 1000 per site |
