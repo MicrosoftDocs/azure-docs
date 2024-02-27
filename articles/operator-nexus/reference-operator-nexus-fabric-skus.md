@@ -26,8 +26,8 @@ The following table outlines the various configurations of Operator Nexus Fabric
 The BOM for each SKU requires:
 
 - A pair of Customer Edge (CE) devices
-- A pair of Top-of-Rack (TOR) switches per deployed rack
-- A pair of management switches per deployed rack
+- For the multi-rack SKUs, a pair of Top-of-Rack (TOR) switches per deployed rack
+- One management switch per deployed rack
 - One of more NPB devices (see table)
 - Terminal Server
 - Cable and optics
