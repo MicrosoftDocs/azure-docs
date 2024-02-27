@@ -15,7 +15,7 @@ This article provides guidance on how to replace an Azure File Sync server due t
 To replace an Azure File Sync server, follow the steps below.
 
 ## New Azure File Sync server
-1.	Deploy a new on-premises server or Azure VM that is running a [supported operation system version](https://learn.microsoft.com/azure/storage/file-sync/file-sync-planning#operating-system-requirements).
+1.	Deploy a new on-premises server or Azure VM that is running a [supported Windows Server operating system version](https://learn.microsoft.com/azure/storage/file-sync/file-sync-planning#operating-system-requirements).
 2.	[Install the latest Azure File Sync agent](https://learn.microsoft.com/azure/storage/file-sync/file-sync-deployment-guide?tabs=azure-portal%2Cproactive-portal#install-the-azure-file-sync-agent) on the new server, then [register the server](https://learn.microsoft.com/azure/storage/file-sync/file-sync-deployment-guide?tabs=azure-portal%2Cproactive-portal#register-windows-server-with-storage-sync-service) to the same Storage Sync Service as the server that is being replaced (referred to as old server in this guide).
 3.	Create file shares on the new server and verify the share-level permissions match the permissions configured on the old server.
 4.	Optional: To reduce the amount of data that needs to be downloaded to the new server from the Azure file share, use Robocopy to copy the files in the cache from the old server to the new server. 
