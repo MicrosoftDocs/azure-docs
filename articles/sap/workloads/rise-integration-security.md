@@ -4,7 +4,6 @@ description: Describes integration scenarios of Azure security, identity and mon
 services: virtual-machines-linux,virtual-machines-windows
 author: msftrobiro
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

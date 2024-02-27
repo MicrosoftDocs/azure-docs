@@ -251,7 +251,7 @@ The **Optical character recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
@@ -442,20 +442,90 @@ Every response includes a `"finish_details"` field. It has the following possibl
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 
+Follow these steps to set up a video retrieval system and integrate it with your AI chat model.
+
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need an Azure AI Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
-### Set up video retrieval
+> [!TIP]
+> If you prefer, you can carry out the below steps using a Jupyter notebook instead: [Video chat completions notebook](https://github.com/Azure-Samples/azureai-samples/blob/main/scenarios/GPT-4V/video/video_chatcompletions_example_restapi.ipynb). 
 
-Follow these steps to set up a video retrieval system to integrate with your AI chat model:
+### Create a video retrieval index
+
 1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
-1. Follow the instructions in  [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval) to create a video retrieval index. Return to this guide once your index is created.
-1. Save the index name, the `documentId` values of your videos, and the blob storage SAS URLs of your videos to a temporary location. You'll need these values the next steps.
+1. Create an index to store and organize the video files and their metadata. The example command below demonstrates how to create an index named `my-video-index` using the **[Create Index](/azure/ai-services/computer-vision/reference-video-search)** API. Save the index name to a temporary location; you'll need it in later steps. 
 
-### Call the Chat Completion API
+    > [!TIP]
+    > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+        
+    ```bash
+    curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+    {
+      'metadataSchema': {
+        'fields': [
+          {
+            'name': 'cameraId',
+            'searchable': false,
+            'filterable': true,
+            'type': 'string'
+          },
+          {
+            'name': 'timestamp',
+            'searchable': false,
+            'filterable': true,
+            'type': 'datetime'
+          }
+        ]
+      },
+      'features': [
+        {
+          'name': 'vision',
+          'domain': 'surveillance'
+        },
+        {
+          'name': 'speech'
+        }
+      ]
+    }"
+    ```
+
+1. Add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs with the **[Create Ingestion](/azure/ai-services/computer-vision/reference-video-search)** API. Save the SAS URLs and `documentId` values to a temporary location; you'll need them in later steps.
+    
+    ```bash
+    curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions/my-ingestion?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+    {
+      'videos': [
+        {
+          'mode': 'add',
+          'documentId': '02a504c9cd28296a8b74394ed7488045',
+          'documentUrl': 'https://example.blob.core.windows.net/videos/02a504c9cd28296a8b74394ed7488045.mp4?sas_token_here',
+          'metadata': {
+            'cameraId': 'camera1',
+            'timestamp': '2023-06-30 17:40:33'
+          }
+        },
+        {
+          'mode': 'add',
+          'documentId': '043ad56daad86cdaa6e493aa11ebdab3',
+          'documentUrl': '[https://example.blob.core.windows.net/videos/043ad56daad86cdaa6e493aa11ebdab3.mp4?sas_token_here',
+          'metadata': {
+            'cameraId': 'camera2'
+          }
+        }
+      ]
+    }"
+    ```
+
+1. After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](/en-us/azure/ai-services/computer-vision/reference-video-search)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
+    
+    ```bash
+    curl.exe -v -X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
+    ```
+
+### Integrate your video index with GPT-4 Turbo with Vision
 
 #### [REST](#tab/rest)
 
@@ -514,7 +584,7 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 
 #### [Python](#tab/python)
 
-Call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `dataSources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
+In your Python script, call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `dataSources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
 
 `dataSources` represents the external resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVisionVideoIndex"` and a `parameters` field. 
 
@@ -566,7 +636,6 @@ print(response)
 ### Output
 
 The chat responses you receive from the model should include information about the video. The API response should look like the following.
-
 
 ```json
 {

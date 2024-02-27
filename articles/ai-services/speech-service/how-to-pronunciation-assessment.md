@@ -621,15 +621,15 @@ The following table summarizes which features that locales support. For more spe
 
 | Phoneme alphabet | IPA     | SAPI |
 |:-----------------|:--------|:-----|
-| Phoneme name     | `en-US` | `en-US`, `en-GB`, `zh-CN` |
-| Syllable group   | `en-US` | `en-US`, `en-GB` |
-| Spoken phoneme   | `en-US` | `en-US`, `en-GB` |
+| Phoneme name     | `en-US` | `en-US`, `zh-CN` |
+| Syllable group   | `en-US` | `en-US`|
+| Spoken phoneme   | `en-US` | `en-US` |
 
 ### Syllable groups
 
 Pronunciation assessment can provide syllable-level assessment results. A word is typically pronounced syllable by syllable rather than phoneme by phoneme. Grouping in syllables is more legible and aligned with speaking habits.
 
-Pronunciation assessment supports syllable groups only in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
+Pronunciation assessment supports syllable groups only in `en-US` with IPA and with SAPI.
 
 The following table compares example phonemes with the corresponding syllables.
 
@@ -644,7 +644,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ### Phoneme alphabet format
 
-Pronunciation assessment supports phoneme name in `en-US` with IPA and in `en-US`, `en-GB` and `zh-CN` with SAPI.
+Pronunciation assessment supports phoneme name in `en-US` with IPA and in `en-US` and `zh-CN` with SAPI.
 
 For locales that support phoneme name, the phoneme name is provided together with the score. Phoneme names help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score.
 
@@ -722,7 +722,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 With spoken phonemes, you can get confidence scores that indicate how likely the spoken phonemes matched the expected phonemes.
 
-Pronunciation assessment supports spoken phonemes in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
+Pronunciation assessment supports spoken phonemes in `en-US` with IPA and with SAPI.
 
 For example, to obtain the complete spoken sound for the word `Hello`, you can concatenate the first spoken phoneme for each expected phoneme with the highest confidence score. In the following assessment result, when you speak the word `hello`, the expected IPA phonemes are `h ɛ l oʊ`. However, the actual spoken phonemes are `h ə l oʊ`. You have five possible candidates for each expected phoneme in this example. The assessment result shows that the most likely spoken phoneme was `ə` instead of the expected phoneme `ɛ`. The expected phoneme `ɛ` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2.
 

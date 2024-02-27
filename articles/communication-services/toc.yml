@@ -778,8 +778,12 @@ items:
       href: ./concepts/voice-video-calling/retrieve-support-files.md
     - name: User experience
       href: concepts/voice-video-calling/user-experience.md
-    - name: Known issues
-      href: concepts/known-issues.md
+    - name: Known Issues
+      items:    
+      - name: WebJS calling SDK
+        href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Call Automation
+        href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
     items:
     - name: Overview
@@ -1136,16 +1140,24 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: Country phone number management
     items:
+    - name: Phone number management for Argentina
+      href: concepts/numbers/phone-number-management-for-argentina.md
     - name: Phone number management for Australia
       href: concepts/numbers/phone-number-management-for-australia.md
     - name: Phone number management for Austria
       href: concepts/numbers/phone-number-management-for-austria.md
     - name: Phone number management for Belgium
       href: concepts/numbers/phone-number-management-for-belgium.md
+    - name: Phone number management for Brazil
+      href: concepts/numbers/phone-number-management-for-brazil.md
     - name: Phone number management for Canada
       href: concepts/numbers/phone-number-management-for-canada.md
+    - name: Phone number management for Chile
+      href: concepts/numbers/phone-number-management-for-chile.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Colombia
+      href: concepts/numbers/phone-number-management-for-colombia.md
     - name: Phone number management for Czech Republic
       href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
@@ -1178,6 +1190,8 @@ items:
       href: concepts/numbers/phone-number-management-for-luxembourg.md
     - name: Phone number management for Malaysia
       href: concepts/numbers/phone-number-management-for-malaysia.md
+    - name: Phone number management for Mexico
+      href: concepts/numbers/phone-number-management-for-mexico.md
     - name: Phone number management for Netherlands
       href: concepts/numbers/phone-number-management-for-netherlands.md
     - name: Phone number management for New Zealand
