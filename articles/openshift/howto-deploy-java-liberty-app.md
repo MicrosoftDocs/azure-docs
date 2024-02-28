@@ -208,8 +208,10 @@ Clone the sample code for this guide by using the following commands. The sample
 
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
-cd open-liberty-on-aro/3-integration/connect-db/mssql
-git checkout 20240116
+cd open-liberty-on-aro
+export BASE_DIR=$PWD
+git checkout 20240223
+cd 3-integration/connect-db/mssql
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
@@ -247,7 +249,7 @@ In directory *liberty/config*, the *server.xml* file is used to configure the DB
 Now that you gathered the necessary properties, you can build the application by using the following commands. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aro*. You can do something similar for your application outside Maven if you prefer.
 
 ```bash
-cd <path-to-your-repo>/3-integration/connect-db/mssql
+cd ${BASE_DIR}/3-integration/connect-db/mssql
 
 # The following variables are used for deployment file generation into target.
 export DB_SERVER_NAME=<server-name>.database.windows.net
@@ -265,7 +267,7 @@ You can now run and test the project locally before deploying to Azure by using 
 1. Start the application by using `liberty:run`, as shown in the following example. `liberty:run` also uses the environment variables defined in the previous section.
 
    ```bash
-   cd <path-to-your-repo>/3-integration/connect-db/mssql
+   cd ${BASE_DIR}/3-integration/connect-db/mssql
    mvn liberty:run
    ```
 
@@ -278,8 +280,8 @@ Next, use the following steps to containerize your project using Docker and run 
 1. Run the `docker build` command to build the image.
 
    ```bash
-   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
-   docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+   cd ${BASE_DIR}/3-integration/connect-db/mssql/target
+   docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
    ```
 
 1. Run the image using the following command. Note we're using the environment variables defined previously.
@@ -304,7 +306,7 @@ When you're satisfied with the state of the application, you build the image rem
 1. Use the following commands to identity the source directory and the Dockerfile:
 
    ```bash
-   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
+   cd ${BASE_DIR}/3-integration/connect-db/mssql/target
 
    # If you are deploying the application with WebSphere Liberty Operator, the existing Dockerfile is ready for you
 
@@ -338,7 +340,7 @@ Use the following steps to deploy and test the application:
 1. Use the following command to apply the DB secret:
 
    ```bash
-   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
+   cd ${BASE_DIR}/3-integration/connect-db/mssql/target
    oc apply -f db-secret.yaml
    ```
 
