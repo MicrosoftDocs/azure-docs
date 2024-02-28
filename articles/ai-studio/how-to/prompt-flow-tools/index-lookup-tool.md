@@ -18,7 +18,7 @@ The prompt flow *Index Lookup* tool enables the usage of common vector indices (
 
 ## Build with the Index Lookup tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/configure-index-lookup-tool.png" alt-text="Screenshot of the Index Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/configure-index-lookup-tool.png":::

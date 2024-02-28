@@ -64,7 +64,7 @@ landingContent:
             url: how-to-troubleshoot-repair-dev-box.md      
 
   # Card
-  - title: Customize images
+  - title: Create custom dev boxes
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -74,6 +74,8 @@ landingContent:
             url: how-to-customize-devbox-azure-image-builder.md
           - text: Configure Dev Box Hibernation
             url: how-to-configure-dev-box-hibernation.md
+          - text: Create reusable customizations
+            url: how-to-customize-dev-box-setup-tasks.md
 
    # Card
   - title: Support & Reference

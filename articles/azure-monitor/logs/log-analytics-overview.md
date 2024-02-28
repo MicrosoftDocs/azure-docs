@@ -12,7 +12,7 @@ Log Analytics is a tool in the Azure portal that's used to edit and run log quer
 
 You might write a simple query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze them. Or you might write a more advanced query to perform statistical analysis and visualize the results in a chart to identify a particular trend.
 
-Whether you work with the results of your queries interactively or use them with other Azure Monitor features, such as log query alerts or workbooks, Log Analytics is the tool that you'll use to write and test them.
+Whether you work with the results of your queries interactively or use them with other Azure Monitor features, such as log search alerts or workbooks, Log Analytics is the tool that you'll use to write and test them.
 
 > [!TIP]
 > This article describes Log Analytics and its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](./log-analytics-tutorial.md).
@@ -55,7 +55,7 @@ The top bar has controls for working with a query in the query window.
 | Time picker | Select the time range for the data available to the query. This action is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
 | Save button | Save the query to a [query pack](./query-packs.md). Saved queries are available from: <ul><li> The **Other** section in the **Queries** dialog for the workspace</li><li>The **Other** section in the **Queries** tab in the [left sidebar](#left-sidebar) for the workspace</ul> |
  Share button | Copy a link to the query, the query text, or the query results to the clipboard. |
-| New alert rule button | Open the Create an alert rule page. Use this page to [create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=log) with an alert type of [log alert](../alerts/alerts-types.md#log-alerts). The page opens with the [Conditions tab](../alerts/alerts-create-new-alert-rule.md?tabs=log#set-the-alert-rule-conditions) selected, and your query is added to the **Search query** field. |
+| New alert rule button | Open the Create an alert rule page. Use this page to [create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=log) with an alert type of [log search alert](../alerts/alerts-types.md#log-alerts). The page opens with the [Conditions tab](../alerts/alerts-create-new-alert-rule.md?tabs=log#set-the-alert-rule-conditions) selected, and your query is added to the **Search query** field. |
 | Export button | Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power BI. |
 | Pin to button | Pin the results of the query to an Azure dashboard or add them to an Azure workbook. |
 | Format query button | Arrange the selected text for readability. |

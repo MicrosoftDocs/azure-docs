@@ -167,7 +167,7 @@ Using `\\?\Z:` instead allows access and supports longer file paths.
 
 ### Workaround if the max path length cannot be increased
 
-If the max path length can't be enabled in the Windows environment or the Windows client versions are too low, there's a workaround. You can mount the SMB share deeper into the directory structure can reduce the queried path length.
+If the max path length can't be enabled in the Windows environment or the Windows client versions are too low, there's a workaround. You can mount the SMB share deeper into the directory structure and reduce the queried path length.
 
 For example, rather than mapping `\\NAS-SHARE\AzureNetAppFiles` to `Z:`, map `\\NAS-SHARE\AzureNetAppFiles\folder1\folder2\folder3\folder4` to `Z:`.
 

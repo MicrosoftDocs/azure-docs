@@ -6,8 +6,9 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 02/16/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
+#Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
 ---
 
 # Manage NAT gateway

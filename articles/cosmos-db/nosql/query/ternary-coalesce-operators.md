@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -69,7 +70,7 @@ Consider these items in a container. They contain multiple metadata properties r
 
 This query evaluates the expression ``onSale``, which is equivalent to ``onSale = true``. The query then returns the price multiplied by ``0.85`` if ``true`` or the price unchanged if ``false``.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.price AS subtotal,
@@ -100,7 +101,7 @@ FROM
 
 You can also nest calls to the ``?`` operator. This example adds an extra calculation based on a second property (``taxFree``)
 
-```sql
+```nosql
 SELECT
     p.name,
     p.price AS subtotal,
@@ -137,7 +138,7 @@ Use the ``??`` operator to efficiently check for a property in an item when quer
 
 For example, this query assumes that any item where the property ``collapsible`` isn't present, isn't collapsible.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.collapsible ?? false AS isCollapsible

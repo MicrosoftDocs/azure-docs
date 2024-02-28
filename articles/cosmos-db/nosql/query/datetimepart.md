@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the value of the specified date and time part for the provided date and 
   
 ## Syntax
   
-```sql
+```nosql
 DateTimePart(<date_time> , <date_time_part>)
 ```
 
@@ -42,7 +43,7 @@ Returns a numeric value that is a positive integer.
 
 The following example returns various parts of the date and time **May 29, 2016 08:30 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimepart/query.sql" highlight="2-10":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimepart/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimepart/result.json":::
 
