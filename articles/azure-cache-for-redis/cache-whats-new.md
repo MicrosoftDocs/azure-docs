@@ -7,15 +7,21 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 02/28/2024
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## February 2024
+
+Support for using customer managed keys for disk encryption has now reached General Availability (GA).
+
+For more information, see [How to configure CMK encryption on Enterprise caches](cache-how-to-encryption.md#how-to-configure-cmk-encryption-on-enterprise-caches).
+
 ## January 2024
 
-All tiers of Azure Cache for Redis now support TLS 1.3. 
+All tiers of Azure Cache for Redis now support TLS 1.3.
 
 For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md).
 
