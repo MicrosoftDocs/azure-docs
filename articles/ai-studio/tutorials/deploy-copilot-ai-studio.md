@@ -5,7 +5,7 @@ description: Use this article to build and deploy a question and answer copilot 
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 2/8/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -47,44 +47,14 @@ The steps in this tutorial are:
 
 Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
 
-To create an Azure AI project in Azure AI Studio, follow these steps:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and go to the **Build** page from the top menu. 
-1. Select **+ New project**.
-1. Enter a name for the project.
-1. Select an Azure AI hub resource from the dropdown to host your project. If you don't have access to an Azure AI hub resource yet, select **Create a new resource**. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-details.png":::
-
-    > [!NOTE]
-    > To create an Azure AI hub resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI hub resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
-
-1. If you're creating a new Azure AI hub resource, enter a name.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-resource.png":::
-
-1. Select your **Azure subscription** from the dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
-
-1. Leave the **Resource group** as the default to create a new resource group. Alternatively, you can select an existing resource group from the dropdown.
-
-    > [!TIP]
-    > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI hub resource, a container registry, and a storage account.
-
-1. Enter the **Location** for the Azure AI hub resource and then select **Next**. The location is the region where the Azure AI hub resource is hosted. The location of the Azure AI hub resource is also the location of the project. 
-
-    > [!NOTE]
-    > Azure AI hub resources and services availability differ per region. For example, certain models might not be available in certain regions. The resources in this tutorial are created in the **East US 2** region.
-
-1. Review the project details and then select **Create a project**. 
-
-Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. 
+[!INCLUDE [Create AI project](../includes/create-projects.md)]
 
 ## Deploy a chat model
 
 Follow these steps to deploy an Azure OpenAI chat model for your copilot. 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. Select **Build** from the top menu and then select **Deployments** > **Create**.
+1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
     
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new project." lightbox="../media/tutorials/copilot-deploy-flow/deploy-create.png":::
 
@@ -224,7 +194,7 @@ The **FormatReply** node formats the output of the **DetermineReply** node.
 
 In prompt flow, you should also see:
 - **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **Settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
+- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **AI project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png":::
 
@@ -546,7 +516,7 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
 ## Clean up resources
 
-To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
 
@@ -554,4 +524,4 @@ You can also [stop or delete your compute instance](../how-to/create-manage-comp
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
 * [Deploy a web app for chat on your data](./deploy-chat-web-app.md).
-* [Get started building a sample copilot application with the SDK](https://github.com/azure/aistudio-copilot-sample)
+* [Get started building a sample copilot application with the SDK](./deploy-copilot-sdk.md)

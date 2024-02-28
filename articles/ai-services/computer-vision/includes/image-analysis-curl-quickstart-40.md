@@ -35,7 +35,7 @@ To analyze an image for various visual features, do the following steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2023-10-01" -d "{'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2024-02-01" -d "{'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'}"
     ```
 
 1. Make the following changes in the command where needed:
@@ -54,7 +54,7 @@ A successful response is returned in JSON, similar to the following example:
 
 ```json
 {
-    "modelVersion": "2023-10-01",
+    "modelVersion": "2024-02-01",
     "captionResult":
     {
         "text": "a man pointing at a screen",

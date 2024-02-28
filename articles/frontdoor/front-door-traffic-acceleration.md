@@ -6,7 +6,6 @@ services: front-door
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 08/31/2023
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers

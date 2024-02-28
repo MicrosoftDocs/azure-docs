@@ -69,7 +69,7 @@ metadata:
 
 Scraping these pods with specific annotations is disabled by default. To enable, in the `ama-metrics-settings-configmap`, add the regex for the namespace(s) of the pods with annotations you wish to scrape as the value of the field `podannotationnamespaceregex`.
 
-For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `default`:
+For example, the following setting scrapes pods with annotations only in the namespaces `kube-system` and `my-namespace`:
 
 ```yaml
 pod-annotation-based-scraping: |-
@@ -83,6 +83,8 @@ pod-annotation-based-scraping: |-
     podannotationnamespaceregex = ".*"
 ```
 
+> [!WARNING]
+> Scraping the pod annotations from many namespaces can generate a very large volume of metrics depending on the number of pods that have annotations.
 
 ### Customize metrics collected by default targets
 By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, update the keep-lists in the settings configmap under `default-targets-metrics-keep-list`, and set `minimalingestionprofile` to `false`.
@@ -112,6 +114,10 @@ The new label also shows up in the cluster parameter dropdown in the Grafana das
 > Only alphanumeric characters are allowed. Any other characters are replaced with `_`. This change is to ensure that different components that consume this label adhere to the basic alphanumeric convention.
 
 ### Debug mode
+
+> [!WARNING]
+> This mode can affect performance and should only be enabled for a short time for debugging purposes.
+
 To view every metric that's being scraped for debugging purposes, the metrics add-on agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You can either create this configmap or edit an existing one. For more information, see the [Debug mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode).
 
 ### Scrape interval settings

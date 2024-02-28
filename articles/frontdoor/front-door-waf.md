@@ -1,11 +1,10 @@
 ---
-title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)' 
+title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)'
 description: This tutorial shows you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.date: 12/28/2023
 ms.author: duau

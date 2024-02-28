@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/25/2023
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017

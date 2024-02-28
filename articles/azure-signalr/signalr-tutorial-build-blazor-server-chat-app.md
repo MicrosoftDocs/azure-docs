@@ -371,7 +371,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
 
 ## Publish to Azure
 
-When you deploy the Blazor app to Azure App Service, we recommend that you use [Azure SignalR Service](/aspnet/core/signalr/scale#azure-signalr-service). Azure SingalR Service allows for scaling up a Blazor Server app to a large number of concurrent SignalR connections. In addition, the SignalR service's global reach and high-performance datacenters significantly aid in reducing latency due to geography.
+When you deploy the Blazor app to Azure App Service, we recommend that you use [Azure SignalR Service](/aspnet/core/signalr/scale#azure-signalr-service). Azure SignalR Service allows for scaling up a Blazor Server app to a large number of concurrent SignalR connections. In addition, the SignalR service's global reach and high-performance datacenters significantly aid in reducing latency due to geography.
 
 > [!IMPORTANT]
 > In a Blazor Server app, UI states are maintained on the server side, which means a sticky server session is required to preserve state. If there is a single app server, sticky sessions are ensured by design. However, if there are multiple app servers, there are chances that the client negotiation and connection may go to different servers which may lead to an inconsistent UI state management in a Blazor app. Hence, it is recommended to enable sticky server sessions as shown below in *appsettings.json*:
@@ -419,10 +419,10 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
 1. Add a reference to the Azure SignalR SDK using the following command.
 
    ```dotnetcli
-   dotnet add package Microsoft.Azure.SignalR --version 1.5.1
+   dotnet add package Microsoft.Azure.SignalR
    ```
 
-1. Add a call to `AddAzureSingalR()` in `Startup.ConfigureServices()` as demonstrated below.
+1. Add a call to `AddAzureSignalR()` in `Startup.ConfigureServices()` as demonstrated below.
 
    ```cs
    public void ConfigureServices(IServiceCollection services)

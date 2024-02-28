@@ -23,6 +23,9 @@ items:
     - name: Architecture overview
       displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       href: concept-dev-box-architecture.md
+    - name: Network requirements
+      displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
+      href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: Configure resources
@@ -50,6 +53,10 @@ items:
     href: how-to-configure-azure-compute-gallery.md
   - name: Provision a Custom Image with Azure Image Builder
     href: how-to-customize-devbox-azure-image-builder.md
+- name: Customize dev boxes
+  items:
+  - name: Create reusable customizations
+    href: how-to-customize-dev-box-setup-tasks.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal

@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/24/2023
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli, linux-related-content

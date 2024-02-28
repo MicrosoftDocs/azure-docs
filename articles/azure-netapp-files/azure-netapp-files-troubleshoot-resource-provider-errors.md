@@ -4,7 +4,6 @@ description: Describes causes, solutions, and workarounds for common Azure NetAp
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: troubleshooting
 ms.date: 02/09/2022
 ms.author: anfdocs

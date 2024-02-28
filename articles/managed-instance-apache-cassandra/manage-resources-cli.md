@@ -164,8 +164,16 @@ az managed-cassandra datacenter create \
 > - Standard_DS14_v2
 > - Standard_D8s_v4
 > - Standard_D16s_v4
-> - Standard_D32s_v4 
+> - Standard_D32s_v4
+> - Standard_L8s_v3
+> - Standard_L16s_v3
+> - Standard_L32s_v3
+> - Standard_L8as_v3
+> - Standard_L16as_v3
+> - Standard_L32as_v3 
 > 
+> Currently, we do not support transitioning across SKU families. For instance, if you currently possess a `Standard_DS13_v2` and are interested in upgrading to a larger SKU such as `Standard_DS14_v2`, this option is not available. However, you can open a support ticket to request an upgrade to the higher SKU.
+>
 > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
 > [!WARNING]

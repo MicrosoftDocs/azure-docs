@@ -257,8 +257,6 @@ As a next step, explore the following articles to learn more about using the IoT
 > [!div class="nextstepaction"]
 > [Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
-> [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
