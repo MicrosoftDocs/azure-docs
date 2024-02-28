@@ -18,7 +18,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-The following figure summarizes the setup used in this article:
+The following figure summarizes the general setup used. Subnet address ranges used by the bicep and ARM templates are slightly different than those shown in the figure.
 
 ![Conceptual figure displaying components of the private resolver](./media/dns-resolver-getstarted-portal/resolver-components.png)
 

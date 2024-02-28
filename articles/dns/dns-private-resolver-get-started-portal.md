@@ -40,7 +40,7 @@ An Azure subscription is required.
 
 Before you can use **Microsoft.Network** services with your Azure subscription, you must register the **Microsoft.Network** namespace:
 
-1. Select the **Subscription** blade in the Azure portal, and then choose your subscription by clicking on it.
+1. Select the **Subscription** blade in the Azure portal, and then choose your subscription.
 2. Under **Settings** select **Resource Providers**.
 3. Select **Microsoft.Network** and then select **Register**.
 
@@ -127,9 +127,7 @@ Create a second virtual network to simulate an on-premises or other environment.
     - Subnet address range: 12.2.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
-    ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
-
-    ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
+    ![Screenshot showing creation of a second vnet.](./media/dns-resolver-getstarted-portal/vnet-create.png)
 
 ## Link your forwarding ruleset to the second virtual network
 
@@ -169,21 +167,21 @@ Individual rules can be deleted or disabled. In this example, a rule is deleted.
 
 Add three new conditional forwarding rules to the ruleset. 
 
-1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+1. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **AzurePrivate**
     - Domain Name: **azure.contoso.com.**
     - Rule State: **Enabled**
-2. Under **Destination IP address** enter 10.0.0.4, and then click **Add**.
-3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+2. Under **Destination IP address** enter 10.0.0.4, and then select **Add**.
+3. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Internal**
     - Domain Name: **internal.contoso.com.**
     - Rule State: **Enabled**
-4. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
-5. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+4. Under **Destination IP address** enter 192.168.1.2, and then select **Add**.
+5. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Wildcard**
     - Domain Name: **.** (enter only a dot)
     - Rule State: **Enabled**
-6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
+6. Under **Destination IP address** enter 10.5.5.5, and then select **Add**.
 
     ![Screenshot of a forwarding ruleset example.](./media/dns-resolver-getstarted-portal/ruleset.png)
 
