@@ -423,7 +423,7 @@ As part of this RAG pipeline, there are are three steps at a high-level:
 
 1. For each intent, multiple document chunks are retrieved from the search service. After filtering out irrelevant chunks based on the user-specified threshold of strictness and reranking/aggregating the chunks based on internal logic, the user-specified number of document chunks are chosen. 
 
-3. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
+1. These document chunks, along with the user question, conversation history, role information, and instructions are sent to the model to generate the final model response. Let's call this the *generation prompt*. 
 
 In total, there are two calls made to the model: 
 
@@ -433,7 +433,7 @@ In total, there are two calls made to the model:
 
 The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
 
-| Model	| Generation prompt token count | Intent prompt | Token count | Response token count | Intent token count |
+| Model	| Generation prompt token count | Intent prompt token count | Response token count | Intent token count |
 |--|--|--|--|--|
 | gpt-35-turbo-16k | 4297 | 1366 | 111 | 25 |
 | gpt-4-0613 | 3997 | 1385 | 118 | 18 |
@@ -442,7 +442,7 @@ The model generated output tokens (both intents and response) need to be taken i
 
 The above numbers are based on testing on a data set with:
 
-* 5 conversations
+* 191 conversations 
 * 250 questions
 * 10 average tokens per question
 * 4 conversational turns per conversation on average 
@@ -460,22 +460,24 @@ These estimates will vary based on the values set for the above parameters. For 
 
 The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
-| Model | Total available tokens | Max tokens for system message | Max tokens for model response |
-|--|--|--|--|
-| GPT-35-0301 | 8000 | 400 | 1500 |
-| GPT-35-0613-16K | 16000 | 1000 | 3200 |
-| GPT-4-0613-8K | 8000 | 400 | 1500 |
-| GPT-4-0613-32K | 32000 | 2000 | 6400 |
+| Model | Max tokens for system message | Max tokens for model response |
+|--|--|--|
+| GPT-35-0301 | 400 | 1500 |
+| GPT-35-0613-16K | 1000 | 3200 |
+| GPT-4-0613-8K | 400 | 1500 |
+| GPT-4-0613-32K | 2000 | 6400 |
 
-The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
 
 
-* The meta prompt: if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4,036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3,444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
+* The meta prompt: if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens higher. Otherwise (for example if `inScope=False`) the maximum is lower. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt and the query rewriting prompts for retrieval.
 * User question and history: Variable but capped at 2,000 tokens.
 * Retrieved documents (chunks): The number of tokens used by the retrieved document chunks depends on multiple factors. The upper bound for this is the number of retrieved document chunks multiplied by the chunk size. It will, however, be truncated based on the tokens available tokens for the specific model being used after counting the rest of fields. 
 
     20% of the available tokens are reserved for the model response. The remaining 80% of available tokens include the meta prompt, the user question and conversation history, and the system message. The remaining token budget is used by the retrieved document chunks. 
+
+In order to compute the number of tokens consumed by your input (such as your question, the system message/role information), use the following code sample.
 
 ```python 
 import tiktoken
