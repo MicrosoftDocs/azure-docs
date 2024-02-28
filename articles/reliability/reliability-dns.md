@@ -3,7 +3,7 @@ title: Reliability in Azure DNS
 description: Learn about reliability in Azure DNS.
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability, references-regions
 ms.service: traffic-manager
 ms.date: 02/02/2024

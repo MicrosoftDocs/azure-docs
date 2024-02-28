@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 02/16/2024
 ms.reviewer: sapnakeshari
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
@@ -25,7 +25,7 @@ You can't create support plans programmatically. You can buy a new support plan 
 
 ## Prerequisites
 
-A user must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
+A user must either have the Enterprise Administrator role or the Owner role on an Enrollment Account to create a subscription. There are two ways to get the Owner role on an Enrollment Account:
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](direct-ea-administration.md#add-an-account-and-account-owner) (sign in required) which makes you an Owner of the Enrollment Account.
 * An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).

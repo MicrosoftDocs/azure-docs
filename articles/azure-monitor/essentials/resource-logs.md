@@ -36,7 +36,7 @@ In this mode, individual tables in the selected workspace are created for each c
 
 All Azure services will eventually migrate to the resource-specific mode.
 
-The preceding example creates three tables:
+The example below creates three tables:
 
 - Table `Service1AuditLogs`
 

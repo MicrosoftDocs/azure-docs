@@ -23,10 +23,13 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+
 - [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
+- [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
 
 ### Microsoft Sentinel solution for Microsoft Power Platform preview available
 
@@ -46,6 +49,17 @@ For more information, see:
 - [Microsoft Sentinel solution for Microsoft Power Platform overview](business-applications/power-platform-solution-overview.md)
 - [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](business-applications/power-platform-solution-security-content.md)
 - [Deploy the Microsoft Sentinel solution for Microsoft Power Platform](business-applications/deploy-power-platform-solution.md)
+
+### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
+
+You can now ingest logs from Google Security Command Center, using the new Google Cloud Platform (GCP) Pub/Sub-based connector (now in PREVIEW).
+
+The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, detection of vulnerabilities and threats, and risk mitigation and remediation. These capabilities help you gain insights into and control over your organization's security posture and data attack surface, and enhance your ability to efficiently handle tasks related to findings and assets.
+
+The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
+
+- Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
+
 
 ### Incident tasks now generally available (GA)
 
