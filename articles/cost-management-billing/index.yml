@@ -135,7 +135,7 @@ conceptualContent:
       links:
         - url: manage/create-subscription.md
           itemType: how-to-guide
-          text: Create an additional subscription
+          text: Create another subscription
         - url: manage/add-change-subscription-administrator.md
           itemType: how-to-guide
           text: Change administrator
