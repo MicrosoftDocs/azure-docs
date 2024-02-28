@@ -34,15 +34,27 @@ The following section describes how to perform the migration using the REST API.
 
 ### Step 1: Add FCM v1 credentials to hub
 
-1. Go to the Firebase console, and create a service account. Then, generate a private key from your Google service account:
-1. Select **Generate new private key**, then open the JSON file. The Values for `project_id`, `private_key`, and `client_email` are required for thw notification hub credential update.
-1. If you want to create a service account with customized access permissions, you can create a service account via the **IAM & Admin > Service Accounts** page. Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has **Firebase cloud messaging admin access** and use it for the notification hub credential update.
+The first step is to add credentials via the Azure portal, management-plane hub operation, or data-plane hub operation.
 
-#### Option 1: Update FcmV1 credentials via management plane hub operation
+#### Create Google service account JSON file
+
+1. In the [Firebase console](https://console.firebase.google.com/), select your project and go to **Project settings**.
+1. Select the **Service accounts** tab, create a service account, and generate a private key from your Google service account.
+1. Select **Generate new private key** to generate a JSON file. Download and open the file. Replace the values for `project_id`, `private_key`, and `client_email`, as these are required for Azure Notification Hubs hub credential updates.
+
+   OR
+
+   If you want to create a service account with customized access permission, you can create a service account through the [IAM & Admin > Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts). Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has **Firebase cloud messaging admin access** and use it for your notification hub credential update.
+
+#### Option 1: Update FcmV1 credentials via the Azure portal
+
+Go to your notification hub on the Azure portal, and select **Settings > Google (FCM v1)**. Get the **Private Key**, **Project ID**, and **Client Email** values from the service account JSON file acquired from the previous section, and save them for later use.
+
+#### Option 2: Update FcmV1 credentials via management plane hub operation
 
 See the [description of a NotificationHub FcmV1Credential.](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
 
-#### Option 2: Update FcmV1 credentials via data plane hub operation
+#### Option 3: Update FcmV1 credentials via data plane hub operation
 
 See [Create a notification hub](/rest/api/notificationhubs/create-notification-hub) and [Update a notification hub](/rest/api/notificationhubs/update-notification-hub). Make sure to put **FcmV1Credential** after **GcmCredential**, as the order is important. For example:
 
@@ -114,7 +126,7 @@ See [Create a notification hub](/rest/api/notificationhubs/create-notification-h
 
 ### Step 2: Manage registration and installation
 
-For direct send scenarios, proceed directly to step 3. If you're using the Android SDK, see the Android SDK section.
+For direct send scenarios, proceed directly to step 3. If you're using the Android SDK, see the [Android SDK](#android-sdk) section.
 
 #### Option 1: Create FCM v1 registration or update GCM registration to FCM v1
 
@@ -212,7 +224,7 @@ You can test template sends with a new request body following [the new JSON payl
    }
    ```
 
-2. Update the payload template. If you're not using templates, you can skip this step.
+1. Update the payload template. If you're not using templates, you can skip this step.
 
    See the [FCM REST reference](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) for the FCM v1 payload structure. For information about migrating from the FCM legacy payload to the FCM v1 payload, see [Update the payload of send requests](https://firebase.google.com/docs/cloud-messaging/migrate-v1#update-the-payload-of-send-requests).
 
@@ -234,6 +246,14 @@ You can test template sends with a new request body following [the new JSON payl
 
 ### Server SDKs (Data Plane)
 
+1. Update the SDK package to the preview version (4.2.0-beta1). The general availability release is not yet available.
+
+   For example, in the **.csproj** file:
+
+   ```xml
+   <PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.2.0-beta1" />
+   ```
+
 1. Add the `FcmV1Credential` to the notification hub. This is a one-time setup. Unless you have a lot of hubs, and want to automate this step, you can use the REST API, or the Azure portal, to add the FCM v1 credentials.
 
    ```csharp
@@ -248,7 +268,7 @@ You can test template sends with a new request body following [the new JSON payl
    hub = await namespaceManager.UpdateNotificationHubAsync(hub, CancellationToken.None);
    ```
 
-2. Manage registrations and installations. For registrations, use `FcmV1RegistrationDescription` to register FCM v1 devices. For example:
+1. Manage registrations and installations. For registrations, use `FcmV1RegistrationDescription` to register FCM v1 devices. For example:
 
    ```csharp
    // Create new Registration
@@ -279,7 +299,7 @@ You can test template sends with a new request body following [the new JSON payl
    - If the client app registers itself, then you must update the client app first, to register under the FCM v1 platform.
    - If the client app doesn't register itself, you can retrieve all registrations/installations and migrate them all to FCM v1 on the server.
 
-3. Send the notification to FCM v1. Use `FcmV1Notification` when you send notifications that target FCM v1. For example:
+1. Send the notification to FCM v1. Use `FcmV1Notification` when you send notifications that target FCM v1. For example:
 
    ```csharp
    // Send FCM v1 notification
