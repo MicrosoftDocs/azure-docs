@@ -67,7 +67,7 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
-| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns “Microsoft Defender for IoT”  |
+| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns ```Microsoft Defender for IoT``` |
 | **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
 | **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | Returns the private MIB allocation, for example ```1.3.6.1.4.1.53313.1.1``` is the private OID root for 1.3.6.1.4.1.53313  |
 | **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | Returns the sensor uptime in hundredths of a second |
