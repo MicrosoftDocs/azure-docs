@@ -19,7 +19,7 @@ High scale ingestion to handle large amounts of network data from operator data 
 - Pipelines managed for all operators, leading to economies of scale dropping the price. 
 - Operator privacy module. 
 - Operator compliance including handling retention policies. 
-- Common data model with open standards such as parquet and delta lake for easy integration with other Microsoft and non-Microsoft services.
+- Common data model with open standards such as Apache Parquet for easy integration with other Microsoft and non-Microsoft services.
 - High speed analytics to enable fast data exploration and correlation between different data sets produced by disaggregated 5G multi-vendor networks. 
 
 The result is that the operator has a lower total cost of ownership but higher insights of their network over equivalent on-premises or cloud chemistry set platforms.
