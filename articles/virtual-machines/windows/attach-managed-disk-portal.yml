@@ -21,7 +21,7 @@ procedureSection:
   - title: |
       Add a data disk
     summary: |
-      Follow the below steps:
+      Follow these steps:
     steps:
       - |
         Sign in to the [Azure portal](https://portal.azure.com).
@@ -41,7 +41,7 @@ procedureSection:
   - title: |
       Initialize a new data disk
     summary: |
-      Follow the below steps:
+      Follow these steps:
     steps:       
       - |
         Connect to the VM.
