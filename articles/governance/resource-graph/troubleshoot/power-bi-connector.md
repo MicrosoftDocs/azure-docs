@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Resource Graph Power BI connector
 description: Learn how to troubleshoot issues with Azure Resource Graph Power BI connector.
-ms.date: 02/22/2024
+ms.date: 02/28/2024
 ms.topic: troubleshooting
 ---
 
@@ -40,7 +40,7 @@ The load time for ARG queries in Power BI is contingent on the query response si
 
 If your query yields unexpected or inaccurate results, consider the following scenarios:
 
-- **Verify permissions**: Confirm that your [Azure role-based access control (Azure RBAC) permissions](../../../role-based-access-control/overview.md) are accurate, as the results of the queries are subject to RBAC. Ensure you have at least read access to the resources you want to query. Queries don't return results without adequate permissions to the Azure object or object group.
+- **Verify permissions**: Confirm that your [Azure role-based access control (Azure RBAC) permissions](../../../role-based-access-control/overview.md) are accurate, as the results of the queries are subject to Azure RBAC. Ensure you have at least read access to the resources you want to query. Queries don't return results without adequate permissions to the Azure object or object group.
 - **Check for comments**: Review your query and remove any comments (`//`) because Power BI doesn't support Kusto comments.
 - **Compare results**: For parity checks, run your query in both the ARG Explorer in Azure portal and the ARG Power BI connector. Compare the results obtained from both platforms for consistency.
 
@@ -55,6 +55,6 @@ The following table contains descriptions of common ARG Power BI connector error
 | Error | Description |
 | ---- | ---- |
 | Invalid query | Query that was entered isn't valid. Check the syntax of your query and refer to the ARG [Kusto Query Language (KQL)](../concepts/query-language.md#supported-kql-language-elements) for guidance. |
-| Scope check | If you are querying at the tenant scope, ensure the subscription Id(s) and/or management group Id(s) fields are empty. <br> <br> If you have inputs in the subscriptions ID or management group ID fields that you want to filter for, select either subscription or management group from the drop-down scope field. |
+| Scope check | If you're querying at the tenant scope, ensure the subscription ID and management group ID fields are empty. <br> <br> If you have inputs in the subscriptions ID or management group ID fields that you want to filter for, select either subscription or management group from the drop-down scope field. |
 | Scope subscription mismatch | The subscription scope was selected from the scope drop-down field but a management group ID was entered. |
 | Scope management group mismatch | The management group scope was selected from the scope drop-down field but a subscription ID was entered. |
