@@ -41,7 +41,7 @@ This document provides a quick overview of these resources and assets.
 To use the Python SDK code examples in this article:
 
 1. Install the [Python SDK v2](https://aka.ms/sdk-v2-install)
-2. Create a connection to your Azure Machine Learning subscription.  The examples all rely on `ml_client`. All examples also require `ml_client` to include the workpace name, other than the example that shows how to create a workspace.
+2. Create a connection to your Azure Machine Learning subscription.  The examples all rely on `ml_client`. To create a workspace, the connection does not need a workspace name, since you may not yet have one.  All other examples in this article require that the workspace name is included in the connection.
 
     ```python
     # import required libraries
@@ -56,7 +56,7 @@ To use the Python SDK code examples in this article:
     # get a handle to the subscription (use this if you haven't created a workspace yet)
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
     
-    # other than when you create a workspace, be sure to include the workspace name in the connection
+    # all other examples in this article require the connection to include workspace name
     workspace_name = "<WORKSPACE_NAME>"
     ml_client = ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name)
     ```
