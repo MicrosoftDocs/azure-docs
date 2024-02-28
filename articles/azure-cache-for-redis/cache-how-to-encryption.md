@@ -10,7 +10,7 @@ ms.author: franlanglois
 
 ---
 
-# Configure disk encryption for Azure Cache for Redis instances using customer managed keys (preview)
+# Configure disk encryption for Azure Cache for Redis instances using customer managed keys
 
 Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, or because of deliberate actions to persist data using [export](cache-how-to-import-export-data.md) or [data persistence](cache-how-to-premium-persistence.md).
 
@@ -22,7 +22,7 @@ Azure Cache for Redis offers platform-managed keys (PMKs), also know as Microsof
 | Tier | Basic, Standard, Premium  | Enterprise, Enterprise Flash  |
 |:-:|---------|---------------|
 |Microsoft managed keys (MMK) | Yes   | Yes             |
-|Customer managed keys (CMK) | No     |  Yes (preview)  |
+|Customer managed keys (CMK) | No     |  Yes            |
 
 > [!WARNING]
 > By default, all Azure Cache for Redis tiers use Microsoft managed keys to encrypt disks mounted to cache instances. However, in the Basic and Standard tiers, the C0 and C1 SKUs do not support any disk encryption. 
