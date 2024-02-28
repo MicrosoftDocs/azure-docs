@@ -72,6 +72,6 @@ procedureSection:
 
 relatedContent:
   - text: attach a data disk by using PowerShell
-    url: sattach-disk-ps.md
+    url: attach-disk-ps.md
   - text: change the drive letter of the Windows temporary disk
     url: change-drive-letter.md  

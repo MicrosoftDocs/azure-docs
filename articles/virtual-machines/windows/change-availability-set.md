@@ -113,4 +113,4 @@ The following script provides an example of gathering the required information, 
 
 ## Next steps
 
-Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md).
+Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.yml).
