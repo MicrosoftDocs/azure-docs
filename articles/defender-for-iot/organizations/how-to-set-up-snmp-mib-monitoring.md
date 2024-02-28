@@ -67,21 +67,21 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
-| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | This returns “Microsoft Defender for IoT”  |
+| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns “Microsoft Defender for IoT”  |
 | **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
-| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | This returns the private MIB allocation, for example 1.3.6.1.4.1.53313.1.1 is hte private OID root for 1.3.6.1.4.1.53313  |
-| **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | This returns the sensor uptime in hundredths of a second |
-| **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | This returns the textual name of the admin user for this sensor   |
+| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | Returns the private MIB allocation, for example ```1.3.6.1.4.1.53313.1.1``` is the private OID root for 1.3.6.1.4.1.53313  |
+| **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | Returns the sensor uptime in hundredths of a second |
+| **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | Returns the textual name of the admin user for this sensor   |
 | **Vendor** |      1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
-| **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | This returns the appliance name  |
+| **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | Returns the appliance name  |
 | **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
-| **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | This returns the default location Portal.azure.com  |
-| **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | This returns a value indicating the service this entity offers. For example, “7” signifies “applications” |
-| **ifIndex** |     1.3.6.1.2.1.2.2.1.1  | GAUGE32  | This returns the sequential ID numbers for each network card |
-| **ifDescription**  | 1.3.6.1.2.1.2.2.1.2  | DISPLAYSTRING | This returns a string of the hardware description for each network interface card |
-| **ifType**  | 1.3.6.1.2.1.2.2.1.3  | INTEGER | This returns the type of network adapter, for example “1.3.6.1.2.1.2.2.1.3.117” signifies “Gigabit Ethernet” |
-| **ifMtu**  | 1.3.6.1.2.1.2.2.1.4 | GAUGE32  | This returns the MTU value for this network adapter. **Note** – monitoring interfaces don't show an MTU value  |
-| **ifspeed** | 1.3.6.1.2.1.2.2.1.5  | GAUGE32 | This returns the interface speed for this network adapter   |
+| **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | Returns the default location Portal.azure.com  |
+| **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | Returns a value indicating the service this entity offers, for example, ```7``` signifies “applications” |
+| **ifIndex** |     1.3.6.1.2.1.2.2.1.1  | GAUGE32  | Returns the sequential ID numbers for each network card |
+| **ifDescription**  | 1.3.6.1.2.1.2.2.1.2  | DISPLAYSTRING | Returns a string of the hardware description for each network interface card |
+| **ifType**  | 1.3.6.1.2.1.2.2.1.3  | INTEGER | Returns the type of network adapter, for example ```1.3.6.1.2.1.2.2.1.3.117``` signifies Gigabit Ethernet |
+| **ifMtu**  | 1.3.6.1.2.1.2.2.1.4 | GAUGE32  | Returns the MTU value for this network adapter. **Note** monitoring interfaces don't show an MTU value  |
+| **ifspeed** | 1.3.6.1.2.1.2.2.1.5  | GAUGE32 | Returns the interface speed for this network adapter   |
 | **Serial number** | 1.3.6.1.4.1.53313.1 |STRING | String that the license uses |
 | **Software version** | 1.3.6.1.4.1.53313.2 | STRING | Xsense full-version string and management full-version string |
 | **CPU usage** | 1.3.6.1.4.1.53313.3.1 | GAUGE32 | Indication for zero to 100 |
