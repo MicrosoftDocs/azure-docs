@@ -13,7 +13,7 @@ ms.author: greglin
 
 In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HTTP/2), Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying.  This feature is currently in public preview. To preview this feature, see [Register to the preview](how-to-tcp-tls-proxy.md#register-to-the-preview).
 
-## Application Gateway Layer 4 capabilities
+## TLS/TCP proxy capabilities on Application Gateway
 
 As a reverse proxy service, the Layer 4 operations of Application Gateway work similar to its Layer 7 proxy operations. A client establishes a TCP connection with Application Gateway, and Application Gateway itself initiates a new TCP connection to a backend server from the backend pool. The following figure shows typical operation.
 
@@ -24,7 +24,14 @@ Process flow:
 1. A client initiates a TCP or TLS connection with the application gateway using its frontend listener's IP address and port number. This establishes the frontend connection. Once the connection is established, the client sends a request using the required application layer protocol. 
 2. The application gateway establishes a new connection with one of the backend targets from the associated backend pool (forming the backend connection) and sends the client request to that backend server. 
 3. The response from the backend server is sent back to the client by the application gateway. 
-4. The same frontend TCP connection is used for subsequent requests from the client unless the TCP idle timeout closes that connection. 
+4. The same frontend TCP connection is used for subsequent requests from the client unless the TCP idle timeout closes that connection.
+
+### Comparing Load Balancer with Application Gateway:
+| Product | Type |
+| ---------- | ---------- |
+| [**Azure Load Balancer**](load-balancer/load-balancer-overview.md) | Pass-through load balancer where the clients directly establish a TLS handshake with a backend server. |
+| **Azure Application Gateway** | Terminating load balancer where the clients perform TLS handshake with Application Gateway. |
+
 
 ## Features
 
@@ -38,7 +45,7 @@ Process flow:
 ## Limitations
 
 - A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it does not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
-- The default [draining timeout](configuration-http-settings.md#connection-draining) value for backend servers is 30 seconds. At present, a user-defined draining value is not supported.
+- Advanced features like path-based routing, redirections, rewrite Headers, and URLs are only available with Layer 7 (HTTP & HTTPS) protocols.
 
 ## Next steps
 
