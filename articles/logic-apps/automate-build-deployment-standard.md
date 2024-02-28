@@ -84,33 +84,45 @@ For more information, see the following documentation:
 
 1. Follow the prompts to complete the following tasks:
 
-   1. Find and select the folder where you want to create your workspace.
+   1. Select the folder to create your workspace.
 
-   1. Provide a name for your workspace.
+   1. Enter your workspace name.
 
    1. Select the project type: **Logic app**
 
-   1. Create a folder for your logic app project.
+   1. Enter your logic app project name.
 
-   1. Select the workflow template and provide the workflow name.
+   1. Select the workflow template. Enter your workflow name.
 
-   1. Open the workflow designer, either in the current Visual Studio Code window or a new window.
+   1. Select **Use connectors from Azure** to enable [Microsoft-managed, Azure-hosted connectors](../connectors/managed.md) for your workflow.
 
-      Visual Studio Code shows your new workspace, logic app project, and the blank workflow designer.
+      > [!NOTE]
+      >
+      > If you skip this step, you can access only the [built-in connectors that are runtime-hosted](../connectors/built-in.md) until you [enable the Microosft-managed connectors](#enable-managed-connectors).
 
-      :::image type="content" source="media/automate-build-deployment-standard/created-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, and workflow designer." lightbox="media/automate-build-deployment-standard/created-project.png":::
+   1. Select either the current Visual Studio Code window or a new window.
 
-   1. To enable the [Microsoft-managed connectors hosted in Azure](../connectors/managed.md), follow these steps:
+   Visual Studio Code shows your new workspace, logic app project, and the blank workflow designer.
 
-      1. Open the **workflow.json** shortcut menu, select **Use Connectors from Azure**, and follow the prompts to select these items:
-   
-         - Your project's **local.settings.json** file.
-         - **Use connectors from Azure**.
-         - The existing Azure resource group where you plan to use for your logic app.
-
-      1. When you're done, reload the workflow designer. Sign in Azure, if prompted.
+   :::image type="content" source="media/automate-build-deployment-standard/created-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer icon selected on left menu, logic app project, and workflow designer." lightbox="media/automate-build-deployment-standard/created-project.png":::
 
 You can now edit the workflow in any way that you want and locally test your workflow along the way. To create and test a sample workflow, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+
+<a name="enable-managed-connectors">
+
+## Enable Microsoft-managed connectors hosted in Azure in your workflow
+
+If you didn't previously enable the [Microosft-managed, Azure-hosted connectors](#enable-managed-connectors) for use in your worklfow, follow these steps to complete this task:
+
+1. In your logic app project, expand the folder with your workflow name.
+
+1. Open the **workflow.json** shortcut menu, select **Use Connectors from Azure**, and follow the prompts to select these items:
+
+   - **Use connectors from Azure**.
+
+   - The existing Azure resource group where you plan to use for your logic app.
+
+1. When you're done, reload the workflow designer. If prompted, sign in to Azure.
 
 ## Generate deployment scripts
 
