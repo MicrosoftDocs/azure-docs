@@ -1,6 +1,6 @@
 ---
 title: Understand Azure Disk Storage billing
-description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
+description: Learn about the billing factors that affect Azure managed disks, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
 ms.date: 02/28/2024
