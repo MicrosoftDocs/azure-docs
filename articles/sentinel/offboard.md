@@ -25,7 +25,7 @@ Complete the following steps to remove Microsoft Sentinel from your Log Analytic
 
 1. Review the **Know before you go...** section and the rest of this document carefully. Take all the necessary actions before proceeding.
 
-1. Select the appropriate checkboxes to let us know why you`re removing it. Enter any other details in the space provided, and indicate whether you want Microsoft to email you in response to your feedback.
+1. Select the appropriate checkboxes to let us know why you`re removing Microsoft Sentinel. Enter any other details in the space provided, and indicate whether you want Microsoft to email you in response to your feedback.
 
 1. Select **Remove Microsoft Sentinel from your workspace**.
     
@@ -40,7 +40,7 @@ When you remove the Microsoft Sentinel from the workspace, it takes up to 48 hou
 
 Your subscription continues to be registered with the Microsoft Sentinel resource provider. But, you can remove it manually.
 
-### Data connector configurations are removed
+### Data connector configurations removed
 
 The configurations for the following data connector are removed when you remove Microsoft Sentinel from your workspace.
 
@@ -64,7 +64,7 @@ The configurations for the following data connector are removed when you remove 
 
 Within the first 48 hours, the data and analytics rules, which include real-time automation configuration, are no longer accessible or queryable in Microsoft Sentinel.
 
-### Resources are removed
+### Resources removed
 
 The following resources are removed after 30 days: 
 
@@ -78,7 +78,7 @@ Your playbooks, saved workbooks, saved hunting queries, and notebooks aren't rem
 
 After you remove the service, there's a grace period of 30 days to re-enable the solution. Your data and analytics rules are restored, but the configured connectors that were disconnected must be reconnected.
 
-### Microsoft Sentinel tables are deleted
+### Microsoft Sentinel tables deleted
 
 When you remove Microsoft Sentinel from your workspace, all Microsoft Sentinel tables are deleted. The data in these tables aren't accessible or queryable. But, the 90 day data retention policy applies to the data in these tables. So, if you re-enable Microsoft Sentinel on that workspace within 90 days, the retained data is restored to those tables.
 
