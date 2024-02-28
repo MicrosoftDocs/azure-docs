@@ -1,11 +1,11 @@
 ---
-title: Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
-description: This article describes blob storage and Azure Data Lake Gen 2 as output for Azure Stream Analytics.
+title: Blob storage and Azure Data Lake Gen2 output
+description: This article describes blob storage and Azure Data Lake Gen 2 as output for an Azure Stream Analytics job.
 author: an-emma
 ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 02/27/2024
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -26,7 +26,7 @@ The following table lists the property names and their descriptions for creating
 | Output alias        | A friendly name used in queries to direct the query output to this blob storage. |
 | Storage account     | The name of the storage account where you're sending your output.               |
 | Storage account key | The secret key associated with the storage account.                              |
-| Container   | A logical grouping for blobs stored in the Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. <br /><br /> Dynamic container name is optional. It supports one and only one dynamic {field} in the container name. The field must exist in the output data, and follow the [container name policy](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br />The field data type must be `string`. To use multiple dynamic fields, or combine static text along with dynamic field, you can define it in the query with built-in string functions, like CONCAT, LTRIM, etc. |
+| Container   | A logical grouping for blobs stored in the Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. <br /><br /> Dynamic container name is optional. It supports one and only one dynamic `{field}` in the container name. The field must exist in the output data, and follow the [container name policy](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br />The field data type must be `string`. To use multiple dynamic fields, or combine static text along with dynamic field, you can define it in the query with built-in string functions, like CONCAT, LTRIM, etc. |
 | Event serialization format | Serialization format for output data. JSON, CSV, Avro, and Parquet are supported. Delta Lake is listed as an option here. The data is in Parquet format if Delta Lake is selected. Learn more about [Delta Lake](write-to-delta-lake.md) |
 | Delta path name | Required when Event serialization format is Delta Lake. The path that is used to write the delta lake table within the specified container. It includes the table name.  [More details and examples.](write-to-delta-lake.md) | 
 |Write Mode | Write mode controls the way Azure Stream Analytics writes to output file. Exactly once delivery only happens when write mode is Once. More information in the next section. |

@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 02/26/2024
 ---
 
 # Run or reset indexers, skills, or documents
@@ -24,7 +24,15 @@ This article explains how to run indexers on demand, with and without a reset. I
 
 ## Indexer execution
 
-You can run multiple indexers at one time assuming you sufficient replicas (one indexer job per replica), but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
+A search service runs one indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). Every search service starts with one search unit, but each new partition or replica increases the search units of your service. You can check the search unit count in the portal's Essential section of the **Overview** page. If you need concurrent processing, make sure you have sufficient replicas. Indexers don't run in the background, so you might detect more query throttling than usual if the service is under pressure.
+
+The following screenshot shows the number of search units, which determines how many indexers can run at once.
+
+:::image type="content" source="media/search-howto-run-reset-indexers/search-units.png" alt-text="Screenshot of the essentials section of the overview page, showing search units.":::
+
+Once indexer execution starts, you can't pause or stop it. Indexer execution stops when there are no more documents to load or refresh, or when the [maximum running time limit](search-limits-quotas-capacity.md#indexer-limits) is reached.
+
+You can run multiple indexers at one time assuming sufficient capacity, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
 
 An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure AI Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multitenant environment).
 

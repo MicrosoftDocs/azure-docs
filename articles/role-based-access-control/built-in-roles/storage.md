@@ -220,40 +220,40 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/delete | Deletes the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/undelete/action | Perform undelete of soft-deleted Backup Instance. Backup Instance moves from SoftDeleted to ProtectionStopped state. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/write | Creates Backup Policy |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/checkNameAvailability/action | Checks if the requested BackupVault Name is Available |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/delete | Deletes the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/undelete/action | Perform undelete of soft-deleted Backup Instance. Backup Instance moves from SoftDeleted to ProtectionStopped state. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/write | Creates Backup Policy |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkNameAvailability/action | Checks if the requested BackupVault Name is Available |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -436,32 +436,32 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -635,31 +635,31 @@ Can view backup services, but can't make changes
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/backupCrrJob/action | Get Cross Region Restore Job Details in the secondary region for Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/backupCrrOperationResults/read | Returns CRR Operation Result for Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/backupCrrOperationsStatus/read | Returns CRR Operation Status for Recovery Services Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
-> | [Microsoft.DataProtection](../permissions/management-and-governance.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -767,7 +767,7 @@ Lets you manage classic storage accounts, but not access to them.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/* | Create and manage storage accounts |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -861,11 +861,11 @@ Lets you manage everything under Data Box Service except giving access to others
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/* |  |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -912,14 +912,14 @@ Lets you manage Data Box Service except creating order or editing order details 
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/*/read |  |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/jobs/listsecrets/action |  |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/locations/availableSkus/action | This method returns the list of available skus. |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/locations/validateInputs/action | This method does all type of validations. |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/locations/regionConfiguration/action | This method returns the configurations for the region. |
-> | [Microsoft.Databox](../permissions/storage.md#microsoftdatabox)/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/*/read |  |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/jobs/listsecrets/action |  |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/locations/availableSkus/action | This method returns the list of available skus. |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/locations/validateInputs/action | This method does all type of validations. |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/locations/regionConfiguration/action | This method returns the configurations for the region. |
+> | [Microsoft.Databox](../permissions/migration.md#microsoftdatabox)/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -974,7 +974,7 @@ Lets you submit, monitor, and manage your own jobs but not create or delete Data
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | [Microsoft.DataLakeAnalytics](../permissions/analytics.md#microsoftdatalakeanalytics)/accounts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -1097,7 +1097,7 @@ Allows for full access to all resources under Azure Elastic SAN including changi
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/* |  |
@@ -1147,7 +1147,7 @@ Allows for control path read access to Azure Elastic SAN
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/*/read |  |
 > | **NotActions** |  |
@@ -1361,7 +1361,7 @@ Permits management of storage accounts. Provides access to the account key, whic
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
-> | [Microsoft.ResourceHealth](../permissions/general.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/* | Create and manage storage accounts |
@@ -1450,7 +1450,7 @@ Permits listing and regenerating storage account access keys.
 
 ## Storage Blob Data Contributor
 
-Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1507,7 +1507,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
 
 ## Storage Blob Data Owner
 
-Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1552,7 +1552,7 @@ Provides full access to Azure Storage blob containers and data, including assign
 
 ## Storage Blob Data Reader
 
-Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1861,7 +1861,7 @@ Allows for read access on files/directories in Azure file shares. This role is e
 
 ## Storage Queue Data Contributor
 
-Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1914,7 +1914,7 @@ Read, write, and delete Azure Storage queues and queue messages. To learn which 
 
 ## Storage Queue Data Message Processor
 
-Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1957,7 +1957,7 @@ Peek, retrieve, and delete a message from an Azure Storage queue. To learn which
 
 ## Storage Queue Data Message Sender
 
-Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
@@ -1998,7 +1998,7 @@ Add messages to an Azure Storage queue. To learn which actions are required for 
 
 ## Storage Queue Data Reader
 
-Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 [Learn more](/azure/storage/common/storage-auth-aad-rbac-portal)
 
