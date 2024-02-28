@@ -26,29 +26,29 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). If you have an Azure Government subscription, follow these additional steps to [set up Visual Studio for Azure Government Cloud](#azure-government).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you have an Azure Government subscription, follow these additional steps to [set up Visual Studio for Azure Government Cloud](#azure-government).
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio), which is free. The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017.
+  * [Visual Studio 2019 - Community edition](https://aka.ms/download-visual-studio), which is free. This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
     >
-    > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload. 
+    > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    >
+    > The Azure Logic Apps extension is unavailable for Visual Studio 2022.
 
   * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The corresponding Azure Logic Apps Tools for the Visual Studio extension, currently unavailable for Visual Studio 2022:
+  * The corresponding Azure Logic Apps Tools for the Visual Studio extension, which is unavailable for Visual Studio 2022:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
     * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
-
-    You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
+    You can download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded workflow designer
 
