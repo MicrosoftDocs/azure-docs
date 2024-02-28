@@ -60,7 +60,7 @@ Ultra Disks can be used as shared disks, where you attach one disk to multiple V
 ### Ultra Disk billing example
 
 In this example, we provisioned an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. We also created and stored incremental snapshots. 
-We're billed for the provisioned size of the disk, the extra IOPS and throughput past the baseline values, and the used snapshot size that shows as the following tier and meters in your bill:
+We're billed for the provisioned size of the disk, the extra IOPS and throughput past the baseline values, and the used snapshot size that shows as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -91,8 +91,8 @@ Premium SSD v2 managed disks can be used as shared disks, where you attach one d
 
 ### Example - Premium SSD v2
 
-In this example, we want to provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 GiB, a target performance of 40,000 IOPS and 200 MB/s of throughput. You also create and store incremental snapshots for your current used capacity. 
-You are billed for the provisioned size of the disk, the extra IOPS and throughput past the baseline values, and the used snapshot size that will show as the following tier and meters in your bill:
+In this example, we provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 GiB, a target performance of 40,000 IOPS and 200 MB/s of throughput. We also create and store incremental snapshots for our current used capacity. 
+We are billed for the provisioned size of the disk, the IOPS and throughput past the baseline values, and the used snapshot size that show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -125,9 +125,11 @@ Premium SSD managed disks can be deployed either with [locally redundant storage
 
 Premium SSD managed disks can be used as shared disks, where you attach one disk to multiple VMs. For shared premium SSD disks, there's a charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-### Example - Premium SSD 
-In this example, we want to provision a Premium SSD Disk at 512 GiB with LRS redundancy with bursting enabled.
-You're billed for the provisioned size of the Premium SSD disk and the burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target that will show as the following tier and meters in your bill:
+### Example - Premium SSD
+
+In this example, we provision a Premium SSD Disk at 512 GiB with LRS redundancy with bursting enabled.
+
+We're billed for the provisioned size of the Premium SSD disk, the burst enablement flat fee, and transaction costs apply to any burst transactions beyond the provisioned target that show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -159,7 +161,7 @@ Standard SSDs can be used as shared disks, where you attach one disk to multiple
 ### Example - Standard SSD
 
 In this example, we provision a 1 Tb Standard SSD Disk with LRS redundancy, where we also have snapshot created on the current used data size of 120 Gb. 
-You are billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size that will show as the following tier and meters in your bill:
+We are billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size that will show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
@@ -181,7 +183,7 @@ For Standard HDDs, each I/O operation is considered as a single transaction, wha
 
 ### Example - Standard HDD 
 In this example, we provision a 512 Gb Standard HDD Disk with LRS redundancy. 
-You are billed for the provisioned size of the HDD disk and the transactions performed on the disk, which will show as the following tier and meters in your bill:
+We are billed for the provisioned size of the HDD disk and the transactions performed on the disk, which will show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|
