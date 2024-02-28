@@ -3,7 +3,6 @@ title: Archive for What's new with Azure Operator Insights ingestion agent
 description: Release notes for Azure Connected Machine agent versions older than six months.
 ms.topic: overview
 ms.date: 02/28/2024
-ms.custom: references_regions
 ---
 
 # Archive for What's new with Azure Operator Insights ingestion agent
