@@ -57,7 +57,7 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]  
+[!INCLUDE [security-hash-value.md](includes/dynamic-scope-prerequisites.md)]  
 
 
 ### Run the script
@@ -118,7 +118,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] 
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
 
 ### Run the script
 
