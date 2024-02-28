@@ -85,7 +85,8 @@ Update your application following the tutorial [Migrate a Java application to us
     python -m pip install pyodbc
     ```
 
-1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use. If you are using Azure Container Apps as compute service or the connection string in the code snippet doesn't work, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
+
     ```python
     import os
     import pyodbc
@@ -110,7 +111,6 @@ Update your application following the tutorial [Migrate a Java application to us
     
     conn = pyodbc.connect(connString)
     ```
-    Refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
 
 ### [NodeJS](#tab/sql-me-id-nodejs)
 
