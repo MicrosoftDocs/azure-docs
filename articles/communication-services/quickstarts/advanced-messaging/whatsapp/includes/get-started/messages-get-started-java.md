@@ -103,15 +103,27 @@ There are a few different options available for authenticating a Message client:
 
 #### [Connection String](#tab/connection-string)
 
+To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+
 For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
-To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
-To instantiate a Notification Message client, add the following code to the `main` method:
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+
+Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
+Open a console window and enter the following command:
+```console
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
+```
+
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+
+To instantiate a NotificationMessagesClient, add the following code to the `main` method:
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
-String connectionString = System.getenv("JAVA_HOME");
+String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
 NotificationMessagesClient notificationClient = new NotificationMessagesClientBuilder()
     .connectionString(connectionString)

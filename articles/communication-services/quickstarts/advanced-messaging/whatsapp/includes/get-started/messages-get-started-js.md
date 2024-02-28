@@ -86,10 +86,29 @@ Follow these steps to add the necessary code snippets to the main function of yo
 
 #### [Connection String](#tab/connection-string)
 
+The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. 
+
 For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
-The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. Use the `npm install` command to install the dotenv package. Learn how to [manage your resource's connection string](../../../../create-communication-resource.md#store-your-connection-string).
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+
+Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
+Open a console window and enter the following command:
+```console
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
+```
+
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+
+Use the `npm install` command to install the dotenv package.
+
+```console
+npm install dotenv --save
+```
+
+To instantiate a MessageClient, add the following code to the `Main` method:
 ```typescript
 import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
 
@@ -98,7 +117,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 // Configure authentication by retrieving the environment variable
-const connectionString = process.env["COMMUNICATION_CONNECTION_STRING"];
+const connectionString = process.env["COMMUNICATION_SERVICES_CONNECTION_STRING"];
 
 // Instantiate the client
 const client:MessagesServiceClient = MessageClient(connectionString);
@@ -122,7 +141,7 @@ import { DefaultAzureCredential } from "@azure/identity";
 import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
 
 // Configure authentication
-const endpoint = "https://<resource-name>.communication.azure.com";
+const endpoint = "https://<resource name>.communication.azure.com";
 let credential = new DefaultAzureCredential();
 
 // Instantiate the client
@@ -139,7 +158,7 @@ import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-
 
 // Configure authentication
 const endpoint = "https://<resource-name>.communication.azure.com";
-const credential = new AzureKeyCredential("<your-key-credential>");
+const credential = new AzureKeyCredential("<your key credential>");
 
 // Instantiate the client
 const client:MessagesServiceClient = MessageClient(endpoint, credential);

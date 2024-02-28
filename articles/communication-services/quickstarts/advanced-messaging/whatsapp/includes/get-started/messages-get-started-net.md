@@ -113,47 +113,6 @@ To use the Advanced Messaging features, we add a `using` directive to include th
 using Azure.Communication.Messages;
 ```
 
-### Configure environment variables
-
-In this section, you set up an Environment Variable for Azure Communication Service Resource Connection.    
-Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
-
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
-
-Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).   
-
-#### [Windows](#tab/windows)
-
-Open a console window and enter the following command:
-
-```console
-setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
-```
-
-After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-#### [Linux](#tab/linux)
-
-Edit your **`.bash_profile`**, and add the environment variable:
-
-```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
-```
-
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable.
-
-#### [macOS](#tab/macOS)
-Edit your **`.zshrc`**, and add the environment variable:
-
-```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
-```
-
-After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable.
-
----
-
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
@@ -180,10 +139,25 @@ Follow these steps to add the necessary code snippets to the Main function of yo
 
 ### Authenticate the client   
 
+#### [Connection String](#tab/connection-string)
+
 The NotificationMessagesClient is used to connect to your Azure Communication Services resource.    
 
 For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
 
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
+
+:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+
+Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
+Open a console window and enter the following command:
+```console
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
+```
+
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+
+To instantiate a NotificationMessagesClient, add the following code to the `Main` method:
 ```csharp
 // Retrieve connection string from environment variable
 string connectionString = 
@@ -193,6 +167,34 @@ string connectionString =
 var notificationMessagesClient = new NotificationMessagesClient(connectionString);
 ```
 
+#### [Microsoft Entra ID](#tab/aad)
+
+To instantiate a NotificationMessagesClient, add the following code to the `Main` method:
+```csharp
+// Configure authentication
+var endpoint = "https://<resource name>.communication.azure.com";
+var credential = new DefaultAzureCredential();
+
+// Instantiate the client
+var notificationMessagesClient = 
+    new NotificationMessagesClient(endpoint, credential);
+```
+
+#### [AzureKeyCredential](#tab/azurekeycredential)
+
+To instantiate a NotificationMessagesClient, add the following code to the `Main` method:
+```csharp
+// Configure authentication
+var endpoint = "https://<resource-name>.communication.azure.com";
+var credential = new AzureKeyCredential("<your key credential>");
+
+// Instantiate the client
+var notificationMessagesClient = 
+    new NotificationMessagesClient(endpoint, credential);
+```
+
+---
+
 ### Set channel registration ID   
 
 The Channel Registration ID GUID was created during [channel registration](../../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
@@ -201,7 +203,7 @@ The Channel Registration ID GUID was created during [channel registration](../..
 
 Assign it to a variable called channelRegistrationId.
 ```csharp
-var channelRegistrationId = new Guid("<your channel registration id GUID>");
+var channelRegistrationId = new Guid("<your channel registration ID GUID>");
 ```
 
 ### Set recipient list
