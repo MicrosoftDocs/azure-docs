@@ -29,7 +29,7 @@ introduction: |
 
 prerequisites:
   summary: |
-    There are two items required:
+    There are two items required
   dependencies:
     - |
       An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now.
@@ -97,7 +97,7 @@ procedureSection:
     
 
 relatedContent:
-  - text: Connect to an Azure Cosmos DB account using Studio 3T.
+  - text: Connect to an Azure Cosmos DB account using Studio 3T
     url: connect-using-mongochef.md
-  - text: Use Robo 3T with Azure Cosmos DB's API for MongoDB.
+  - text: Use Robo 3T with Azure Cosmos DB's API for MongoDB
     url: connect-using-robomongo.md
