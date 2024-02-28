@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics (Java)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Java programming language.
-ms.date: 04/12/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: mode-api, devx-track-extended-java
@@ -86,7 +86,6 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     import com.azure.messaging.servicebus.*;
     import com.azure.identity.*;
 
-    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
     import java.util.Arrays;
     import java.util.List;
@@ -97,7 +96,6 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ```java
     import com.azure.messaging.servicebus.*;
 
-    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
     import java.util.Arrays;
     import java.util.List;
@@ -311,8 +309,6 @@ In this section, you add code to retrieve messages from a subscription to the to
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        CountDownLatch countdownLatch = new CountDownLatch(1);
-
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
                 .build();
 
@@ -323,8 +319,8 @@ In this section, you add code to retrieve messages from a subscription to the to
             .processor()
             .topicName(topicName)
             .subscriptionName(subName)
-            .processMessage(ServiceBusTopicTest::processMessage)
-            .processError(context -> processError(context, countdownLatch))
+            .processMessage(context -> processMessage(context))
+            .processError(context -> processError(context))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -345,16 +341,14 @@ In this section, you add code to retrieve messages from a subscription to the to
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        CountDownLatch countdownLatch = new CountDownLatch(1);
-
         // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
             .connectionString(connectionString)
             .processor()
             .topicName(topicName)
             .subscriptionName(subName)
-            .processMessage(ServiceBusTopicTest::processMessage)
-            .processError(context -> processError(context, countdownLatch))
+            .processMessage(context -> processMessage(context))
+            .processError(context -> processError(context))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -378,7 +372,7 @@ In this section, you add code to retrieve messages from a subscription to the to
 3. Add the `processError` method to handle error messages.
 
     ```java
-    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+    private static void processError(ServiceBusErrorContext context) {
         System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
             context.getFullyQualifiedNamespace(), context.getEntityPath());
 
@@ -395,8 +389,6 @@ In this section, you add code to retrieve messages from a subscription to the to
             || reason == ServiceBusFailureReason.UNAUTHORIZED) {
             System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
                 reason, exception.getMessage());
-
-            countdownLatch.countDown();
         } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
             System.out.printf("Message lock lost for message: %s%n", context.getException());
         } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
