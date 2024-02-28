@@ -102,7 +102,7 @@ procedureSection:
       - | 
         Delete the panther directory (C:\Windows\Panther). 
       - |   
-        Verify if CD/DVD-ROM is enabled.If it is disabled, the Windows VM will be stuck at out-of-box experience (OOBE).  
+        Verify if CD/DVD-ROM is enabled. If it is disabled, the Windows VM will be stuck at out-of-box experience (OOBE).  
         ```
           Registry key Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cdrom\start (Value 4 = disabled, expected value 1 = automatic) Make sure it is set to 1.
         ```
@@ -124,6 +124,6 @@ procedureSection:
         ```
 
 relatedContent:
-  - text: Learn more about [Azure Compute Gallery]
+  - text: Azure Compute Gallery
     url: shared-image-galleries.md
 
