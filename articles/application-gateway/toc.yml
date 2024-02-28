@@ -111,6 +111,8 @@
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md
+  - name: TCP/TLS proxy
+    href: tcp-tls-proxy-overview.md
   - name: Support for working remotely
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: High traffic support
@@ -127,6 +129,10 @@
     href: application-gateway-faq.yml
 - name: How-to guides
   items:
+  - name: Configure TCP/TLS proxy
+    items:
+    - name: Azure portal
+      href: how-to-tcp-tls-proxy.md
   - name: Host single site
     items:
     - name: Azure PowerShell
@@ -307,7 +313,7 @@
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
-  - name: Migrating to v2 SKU
+  - name: Migrate to v2 SKU
     items:
       - name: About v1 retirement
         href: v1-retirement.md

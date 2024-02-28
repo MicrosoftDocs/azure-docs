@@ -53,7 +53,7 @@ Threat intelligence enriched security alerts are triggered when there are:
 - **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
 
 > [!TIP]
-> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-osrdb).
+> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
 
 ## Next steps
 

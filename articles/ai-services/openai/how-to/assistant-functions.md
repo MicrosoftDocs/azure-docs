@@ -37,7 +37,7 @@ To use all features of function calling including parallel functions, you need t
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -83,7 +83,7 @@ assistant = client.beta.assistants.create(
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "instructions": "You are a weather bot. Use the provided functions to answer questions.",
@@ -170,7 +170,7 @@ You can then complete the **Run** by submitting the tool output from the functio
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -197,7 +197,7 @@ run = client.beta.threads.runs.submit_tool_outputs(
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs/run_123/submit_tool_outputs?api-version=2024-02-15-preview \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{
     "tool_outputs": [{
       "tool_call_id": "call_abc123",

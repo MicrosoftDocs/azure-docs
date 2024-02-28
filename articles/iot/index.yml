@@ -68,9 +68,6 @@ conceptualContent:
         - url: ./iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
-        - url: https://devicecatalog.azure.com/
-          itemType: get-started
-          text: Buy IoT devices
     # Card
     - title: Device connectivity
       links:

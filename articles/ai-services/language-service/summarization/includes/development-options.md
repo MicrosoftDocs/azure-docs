@@ -1,11 +1,11 @@
 ---
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 01/31/2024
-ms.author: aahi
+ms.author: jboback
 ---
 
 To use summarization, you submit for analysis and handle the API output in your application. Analysis is performed as-is, with no added customization to the model used on your data. There are two ways to use summarization:
