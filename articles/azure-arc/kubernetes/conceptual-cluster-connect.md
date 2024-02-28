@@ -13,7 +13,7 @@ Cluster connect allows developers to access their clusters from anywhere for int
 
 ## Architecture
 
-[ ![Diagram showing cluster connect architecture.](./media/conceptual-cluster-connect.png) ]
+:::image type="content" source="media/conceptual-cluster-connect.png" alt-text="Diagram showing cluster connect architecture.":::
 
 On the cluster side, a reverse proxy agent called `clusterconnect-agent`, deployed as part of the agent Helm chart, makes outbound calls to the Azure Arc service to establish the session.
 
