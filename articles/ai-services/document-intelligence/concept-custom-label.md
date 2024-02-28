@@ -84,6 +84,7 @@ Custom neural models currently only support key-value pairs, structured fields (
 |---|---|---|---|---|---|
 | Custom neural | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported | ✔️Supported<sup>1</sup> | ✔️Supported<sup>2</sup> |
 | Custom template | ✔️Supported| ✔️Supported | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported |
+
 <sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the recognized text is used as is.
 <sup>2</sup> Overlapping fields are supported starting with the API version ```2024-02-29-preview```. Overlapping fields have some limits. For more information, *see* [overlapping fields](concept-custom-neural.md#overlapping-fields).
 

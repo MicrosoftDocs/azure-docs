@@ -38,6 +38,7 @@ Custom neural document models or neural models are a deep learned model type tha
 | Structured| surveys, questionnaires|
 | Semi-structured | invoices, purchase orders |
 | Unstructured | contracts, letters |
+
 Custom neural models share the same labeling format and strategy as [custom template](concept-custom-template.md) models. Currently custom neural models only support a subset of the field types supported by custom template models.
 
 ## Model capabilities

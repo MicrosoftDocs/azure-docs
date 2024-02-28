@@ -98,14 +98,14 @@ Classification models can now be trained on documents of different languages. Se
 
 Supported file formats:
 
-    |Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, href| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
-    |--------|:----:|:-----:|:---------------:|
-    |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
-    |General&nbsp;Document| ✔  | ✔ |   |
-    |Prebuilt        |  ✔  | ✔ |   |
-    |Custom extraction|  ✔  | ✔ |   |
-    |Custom classification|  ✔  | ✔ | ✔ |
+|Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, href| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
+|--------|:----:|:-----:|:---------------:|
+|Read            | ✔    | ✔    | ✔  |
+|Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+|General&nbsp;Document| ✔  | ✔ |   |
+|Prebuilt        |  ✔  | ✔ |   |
+|Custom extraction|  ✔  | ✔ |   |
+|Custom classification|  ✔  | ✔ | ✔ |
 
 * For best results, provide five clear photos or high-quality scans per document type.
 
