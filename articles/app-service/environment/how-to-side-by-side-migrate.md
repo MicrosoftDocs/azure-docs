@@ -153,7 +153,7 @@ If you're using a user assigned managed identity for your custom domain suffix c
         },
         "zoneRedundant": "<true/false>",
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
         }
@@ -171,7 +171,7 @@ If you're using a system assigned managed identity for your custom domain suffix
         },
         "zoneRedundant": "<true/false>",
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "SystemAssigned"
         }
