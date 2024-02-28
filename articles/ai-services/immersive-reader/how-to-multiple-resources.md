@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/ai-services).
 * A single Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](how-to-create-immersive-reader.md) to get set up.
-* Follow the [quickstart](quickstarts/client-libraries.md?pivots=programming-language-nodejs) to create a web app that launches the Immersive Reader with NodeJS.
+* A [NodeJS web app](quickstarts/client-libraries.md?pivots=programming-language-nodejs) that launches Immersive Reader.
 
 ## Create multiple resources
 
@@ -147,118 +147,118 @@ The `getimmersivereaderlaunchparams` API endpoint should be secured behind some 
 
 ## Add sample content
 
-1. Open *views\index.pug*, and replace its content with the following code. This code populates the page with some sample content, and adds two buttons that launch the Immersive Reader. One that launches Immersive Reader for the EastUS resource, and another for the WestUS resource.
+Open *views\index.pug*, and replace its content with the following code. This code populates the page with some sample content, and adds two buttons that launch the Immersive Reader. One that launches Immersive Reader for the **EastUS** resource, and another for the **WestUS** resource.
 
-    ```pug
-    doctype html
-    html
-        head
-            title Immersive Reader Quickstart Node.js
+```pug
+doctype html
+html
+    head
+        title Immersive Reader Quickstart Node.js
 
-            link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
 
-            // A polyfill for Promise is needed for IE11 support.
-            script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
+        // A polyfill for Promise is needed for IE11 support.
+        script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
 
-            script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
-            script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+        script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
-            style(type="text/css").
-                .immersive-reader-button {
-                background-color: white;
-                margin-top: 5px;
-                border: 1px solid black;
-                float: right;
-                }
-        body
-            div(class="container")
-                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("wus")') WestUS Immersive Reader
-                button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("eus")') EastUS Immersive Reader
+        style(type="text/css").
+            .immersive-reader-button {
+            background-color: white;
+            margin-top: 5px;
+            border: 1px solid black;
+            float: right;
+            }
+    body
+        div(class="container")
+            button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("wus")') WestUS Immersive Reader
+            button(class="immersive-reader-button" data-button-style="icon" data-locale="en" onclick='handleLaunchImmersiveReader("eus")') EastUS Immersive Reader
 
-                h1(id="ir-title") About Immersive Reader
-                div(id="ir-content" lang="en-us")
-                p Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. The Immersive Reader is designed to make reading more accessible for everyone. The Immersive Reader
+            h1(id="ir-title") About Immersive Reader
+            div(id="ir-content" lang="en-us")
+            p Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. The Immersive Reader is designed to make reading more accessible for everyone. The Immersive Reader
 
-                    ul
-                        li Shows content in a minimal reading view
-                        li Displays pictures of commonly used words
-                        li Highlights nouns, verbs, adjectives, and adverbs
-                        li Reads your content out loud to you
-                        li Translates your content into another language
-                        li Breaks down words into syllables
+                ul
+                    li Shows content in a minimal reading view
+                    li Displays pictures of commonly used words
+                    li Highlights nouns, verbs, adjectives, and adverbs
+                    li Reads your content out loud to you
+                    li Translates your content into another language
+                    li Breaks down words into syllables
 
-                h3 The Immersive Reader is available in many languages.
+            h3 The Immersive Reader is available in many languages.
 
-                p(lang="es-es") El Lector inmersivo está disponible en varios idiomas.
-                p(lang="zh-cn") 沉浸式阅读器支持许多语言
-                p(lang="de-de") Der plastische Reader ist in vielen Sprachen verfügbar.
-                p(lang="ar-eg" dir="rtl" style="text-align:right") يتوفر \"القارئ الشامل\" في العديد من اللغات.
+            p(lang="es-es") El Lector inmersivo está disponible en varios idiomas.
+            p(lang="zh-cn") 沉浸式阅读器支持许多语言
+            p(lang="de-de") Der plastische Reader ist in vielen Sprachen verfügbar.
+            p(lang="ar-eg" dir="rtl" style="text-align:right") يتوفر \"القارئ الشامل\" في العديد من اللغات.
 
-    script(type="text/javascript").
-    function getTokenAndSubdomainAsync(region) {
-            return new Promise(function (resolve, reject) {
-                $.ajax({
-                    url: "/GetTokenAndSubdomain",
-                    type: "GET",
-                    data: {
-                        region: region
-                    },
-                    success: function (data) {
-                        if (data.error) {
-                            reject(data.error);
-                        } else {
-                            resolve(data);
-                        }
-                    },
-                    error: function (err) {
-                        reject(err);
+script(type="text/javascript").
+function getTokenAndSubdomainAsync(region) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: "/GetTokenAndSubdomain",
+                type: "GET",
+                data: {
+                    region: region
+                },
+                success: function (data) {
+                    if (data.error) {
+                        reject(data.error);
+                    } else {
+                        resolve(data);
                     }
-                });
+                },
+                error: function (err) {
+                    reject(err);
+                }
             });
-        }
+        });
+    }
 
-        function handleLaunchImmersiveReader(region) {
-            getTokenAndSubdomainAsync(region)
-                .then(function (response) {
-                    const token = response["token"];
-                    const subdomain = response["subdomain"];
-                    // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#chunk
-                    const data = {
-                        title: $("#ir-title").text(),
-                        chunks: [{
-                            content: $("#ir-content").html(),
-                            mimeType: "text/html"
-                        }]
-                    };
-                    // Learn more about options https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#options
-                    const options = {
-                        "onExit": exitCallback,
-                        "uiZIndex": 2000
-                    };
-                    ImmersiveReader.launchAsync(token, subdomain, data, options)
-                        .catch(function (error) {
-                            alert("Error in launching the Immersive Reader. Check the console.");
-                            console.log(error);
-                        });
-                })
-                .catch(function (error) {
-                    alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
-                    console.log(error);
-                });
-        }
+    function handleLaunchImmersiveReader(region) {
+        getTokenAndSubdomainAsync(region)
+            .then(function (response) {
+                const token = response["token"];
+                const subdomain = response["subdomain"];
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#chunk
+                const data = {
+                    title: $("#ir-title").text(),
+                    chunks: [{
+                        content: $("#ir-content").html(),
+                        mimeType: "text/html"
+                    }]
+                };
+                // Learn more about options https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#options
+                const options = {
+                    "onExit": exitCallback,
+                    "uiZIndex": 2000
+                };
+                ImmersiveReader.launchAsync(token, subdomain, data, options)
+                    .catch(function (error) {
+                        alert("Error in launching the Immersive Reader. Check the console.");
+                        console.log(error);
+                    });
+            })
+            .catch(function (error) {
+                alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
+                console.log(error);
+            });
+    }
 
-        function exitCallback() {
-            console.log("This is the callback function. It is executed when the Immersive Reader closes.");
-        }
-    ```
+    function exitCallback() {
+        console.log("This is the callback function. It is executed when the Immersive Reader closes.");
+    }
+```
 
-1. Your web app is now ready. Start the app by running:
+Your web app is now ready. Start the app by running:
 
-    ```bash
-    npm start
-    ```
+```bash
+npm start
+```
 
-1. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
+Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
 
 ## Next step
 
