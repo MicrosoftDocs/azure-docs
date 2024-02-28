@@ -232,7 +232,7 @@ See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track
 
 ## Cluster deployment validation
 
-View the status of the cluster on portal or via az CLI:
+View the status of the cluster on the portal, or via the Azure CLI:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
@@ -240,7 +240,7 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
 ```
 
 The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
-Some examples of deployment progress shown in detailedStatusMessage are `Hardware validation is in progress.` (Only if cluster is deployed with hardware validation) ,`Cluster is bootstrapping.`, `KCP initialization in progress.`, `Management plane deployment in progress.`, `Cluster extension deployment in progress.`, `waiting for "<rack-ids>" to be ready`, etc.
+Some examples of deployment progress shown in detailedStatusMessage are `Hardware validation is in progress.` (if cluster is deployed with hardware validation) ,`Cluster is bootstrapping.`, `KCP initialization in progress.`, `Management plane deployment in progress.`, `Cluster extension deployment in progress.`, `waiting for "<rack-ids>" to be ready`, etc.
 
 :::image type="content" source="./media/nexus-deploy-kcp-status.png" lightbox="./media/nexus-deploy-kcp-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress kcp init.":::
 
