@@ -21,7 +21,7 @@ ms.author: eur
 |French (Canada)|`fr-CA`| 
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`|
-|Hindi (India)|`hi-IN`<sup>1</sup>|
+|Hindi (India)|`hi-IN`|
 |Italian (Italy)|`it-IT`|
 |Japanese (Japan)|`ja-JP`|
 |Korean (Korea)|`ko-KR`|
@@ -31,8 +31,8 @@ ms.author: eur
 |Russian (Russia)|`ru-RU`|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
-|Swedish (Sweden)|`sv-SE`<sup>1</sup>|
-|Tamil (India)|`ta-IN`<sup>1</sup> | 
-|Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+|Swedish (Sweden)|`sv-SE`|
+|Tamil (India)|`ta-IN` | 
+|Vietnamese (Vietnam)|`vi-VN` |
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.
