@@ -78,7 +78,7 @@ This article demonstrates how to deploy a Java application using a WAR file to A
 
     In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
 
-    You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variable.md)
+    You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md)
 
 1. Verify the app status.
 
@@ -86,7 +86,7 @@ This article demonstrates how to deploy a Java application using a WAR file to A
 
     View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
 
-    :::image type="content" source="media/deploy-warfile/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
+    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
 
 ## Next steps
 
