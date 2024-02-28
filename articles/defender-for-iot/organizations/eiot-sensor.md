@@ -9,7 +9,7 @@ ms.custom: enterprise-iot
 # Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)
 
 > [!IMPORTANT]
-> Registering an Enterprise IoT network sensor as described in this article is no longer supported. For customers with the Azure Consumption Revenue (ACR) or legacy license, Defender for IoT maintains existing Enterprise IoT network sensors.
+> Registering a new Enterprise IoT network sensor as described in this article is no longer available. For customers with the Azure Consumption Revenue (ACR) or legacy license, Defender for IoT maintains existing Enterprise IoT network sensors.
 
 This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
