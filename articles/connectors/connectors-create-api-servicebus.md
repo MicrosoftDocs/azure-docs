@@ -103,7 +103,7 @@ In Standard workflows that use the Service Bus built-in operations, you can incr
 }
 ```
 
-To increase the timeout for sending a message, [add the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
+To increase the timeout for sending a message, [add the **ServiceProviders.ServiceBus.MessageSenderOperationTimeout** app setting](../logic-apps/edit-app-settings-host-settings.md).
 
 ### Service Bus managed connector triggers
 
