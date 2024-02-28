@@ -1004,6 +1004,101 @@ When you use route parameters, an `invoke_URL_template` is automatically created
 
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
+### HTTP Streams (Preview)
+
+::: zone pivot="programming-language-javascript"
+
+# [Model v4](#tab/nodejs-v4)
+You can stream HTTP requests to and responses from your Node.js Functions Apps.   
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+You can stream HTTP requests to and responses from your TypeScript Functions Apps.   
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+This feature (currently in preview) makes scenarios like processing large data, streaming OpenAI responses, delivering dynamic content etc. possible. Use this in scenarios where real time exchange and interaction between client and server over HTTP connections is needed. We recommend using streams to get the best performance and reliability for your apps.  
+
+## Prerequisites
+- Version 4.3.0 or higher for the @azure/functions npm package
+- If running in Azure, version 4.28 of the [Azure Functions runtime](./functions-versions.md)
+- If running locally, version 4.0.5530 of Azure Functions Core Tools
+
+## Steps
+1. If you plan to stream large amounts of data, adjust the [app setting](./functions-app-settings.md#functions_request_body_size_limit) `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` in Azure or in your `local.settings.json` file. The default value is `104857600`, aka limiting your request to 100mb maximum. 
+2. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+```javascript
+const { app } = require('@azure/functions'); 
+app.setup({ enableHttpStream: true });
+```
+
+---
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+```typescript
+import { app } from '@azure/functions'; 
+app.setup({ enableHttpStream: true }); 
+```
+
+---
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+3. The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support many ways of handling the body, including as a stream. 
+
+> [!NOTE]
+> Use `request.body` to truly benefit from streams. You can still continue to use methods like `request.text()` which will always return the body as a string.
+
+Below is an example of an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+::: zone-end
+
+::: zone pivot="programming-language-javascript"  
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
+
+---
+::: zone-end
+
+::: zone pivot="programming-language-typescript"  
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+---
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+Below is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"  
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
+  
+---
+::: zone-end
+
+::: zone pivot="programming-language-typescript"  
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
+---
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+> [!WARNING]
+> The `request.params` object is not supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information, including a suggested workaround.
+
+# [Model v3](#tab/nodejs-v3)
+HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
+
+::: zone-end
+
 ### Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
