@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/26/2024
+  ms.date: 02/28/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -491,7 +491,7 @@ sections:
           > [!NOTE] 
           > You can't use any layer 4 properties for HTTP or HTTPS protocol settings.
 
-      - question: Can I use a TCP/TLS listener with an HTTP(S) backend betting?
+      - question: Can I map a TCP/TLS protocol listener with an HTTP(S) protocol Backend setting?
         answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
 
       - question: Can L7 and L4 properties have same names?
