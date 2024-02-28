@@ -89,9 +89,9 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
-## Multisite listener for TLS and TCP protocol listeners
+## Multi-site listener for TLS and TCP protocol listeners
 
-The multisite feature is also available for Layer4 proxy, but only for its TLS listeners. You can direct the traffic for each application to its backend pool by providing domain names in the TLS listener. For the functioning of the multisite feature on TLS listeners, Application Gateway uses the Server Name Indication (SNI) value (the clients primarily present SNI extension to fetch the correct TLS certificate). A multisite TLS protocol would pick this SNI value from the TLS handshake data of an incoming connection and route it to the appropriate backend pool. The TCP connection inherently has no concept of hostname or domain name; hence, this isn't available for TCP listeners.
+The multi-site feature is also available for Layer4 proxy, but only for its TLS listeners. You can direct the traffic for each application to its backend pool by providing domain names in the TLS listener. For the functioning of the multisite feature on TLS listeners, Application Gateway uses the Server Name Indication (SNI) value (the clients primarily present SNI extension to fetch the correct TLS certificate). A multisite TLS listener would pick this SNI value from the TLS handshake data of an incoming connection and route that connection to the appropriate backend pool. The TCP connection inherently has no concept of hostname or domain name; hence, this isn't available for TCP listeners.
 
 ## Host headers and Server Name Indication (SNI)
 
