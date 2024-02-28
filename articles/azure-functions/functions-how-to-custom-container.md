@@ -169,7 +169,8 @@ The following steps create and deploy an existing containerized function app fro
 ::: zone-end
 :::zone pivot="azure-functions,container-apps"
 5. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
-
+::: zone-end
+:::zone pivot="container-apps"
 6. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
 
 7. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
@@ -177,7 +178,16 @@ The following steps create and deploy an existing containerized function app fro
 8. Select **Review + create** to review the app configuration selections.
 
 9. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
-::: zone-end
+::: zone-end  
+:::zone pivot="azure-functions"  
+6. Select **Review + create** to review the app configuration selections.
+
+7. On the **Review + create** page, review your settings, and then select **Create** to provision the function app using a default base image.
+
+8. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
+
+9. In the **Deployment center** you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry.  
+::: zone-end  
 
 ## Work with images in Azure Functions
 
