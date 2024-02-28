@@ -214,7 +214,7 @@ To allow access to your Azure AI Search resource from your client machines, like
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
-The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve**` button above should be clickable.
+The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve** button above should be clickable.
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
@@ -225,9 +225,15 @@ If you are using Basic or Standard pricing tier, or if it is your first time to 
 
 This section is only applicable for S2 pricing tier search resource, because it requires [private endpoint support for indexers with a skill set](/azure/search/search-limits-quotas-capacity#shared-private-link-resource-limits).
 
-In this section, we will modify [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram from **bypass trusted service** to **private endpoint**.
+To create shared private link from your search resource connecting to your Azure OpenAI resource, please follow [this instruction](/azure/search/search-indexer-howto-access-private). Select **Resource type** as `Microsoft.CognitiveServices/accounts` and **Group ID** as `openai_account`.
+
+With shared private link, [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **private endpoint**.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with s2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
+
+The Azure Search shared private link you created is also in Microsoft managed virtual network, not your virtual network. The difference comparing to the other managed private endpoint created in [this step](#disable-public-network-access-1) is: the managed private endpoint [1] from Azure OpenAI to Azure Search is provisioned through the [form application](#disable-public-network-access-1), while the managed private endpoint [2] from Azure Search to Azure OpenAI is provisioned via Azure portal or REST API of Azure Search.
+
+:::image type="content" source="../media/use-your-data/virtual-network-s2.png" alt-text="A diagram showing the virtual network architecture with S2 search resource." lightbox="../media/use-your-data/virtual-network-s2.png":::
 
 ## Configure Storage Account
 
