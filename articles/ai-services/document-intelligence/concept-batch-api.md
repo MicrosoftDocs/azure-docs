@@ -34,17 +34,17 @@ When an analysis request completes successfully, the response contains the eleme
 
 ### Azure Blob Storage
 
-The batch translation process requires an Azure Blob storage account with containers for your input documents and output results.
+The batch document process requires an Azure Blob storage account with containers for your input documents and output results.
 
 * **Input container (`containerUrl`)**. This container is where you upload your files for processing (required).
-* **Output container (`resultContainerUrl`)**. This container is where your translated files are stored (required).
+* **Output container (`resultContainerUrl`)**. This container is where you processsed files are stored (required).
 
 ### Authentication
 
 The `containerUrl`  and `resultContainerUrl` can be authenticated with a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
 * Your source container `containerUrl` or blob must designate `read` and `list` access.
-* Your target container or blob `resultContainerUrl` must designate `write` and `list` access.
+* Your output container or blob `resultContainerUrl` must designate `write` and `list` access.
 
 ### Request URL
 
@@ -66,7 +66,7 @@ To call the Batch API via the REST, include the following header with each reque
 
 ### Request body
 
-Each request can contain multiple documents and must contain a source and target container for each document.
+Each request can contain multiple documents and must contain an input source and output target container for each document.
 
 |Query parameter| Description | Condition|
 | --- | --- |---|
@@ -113,7 +113,7 @@ Each request can contain multiple documents and must contain a source and target
 Upon successful completion:
 
 * The successful `POST` method returns a `202 OK` response code indicating that the service created the batch request.
-* The translated documents are located in your target container.
+* The processed documents are located in your output container.
 * The `POST` request also returns response headers including `Operation-Location`. The value of this header contains a `resultId` that can be queried to get the status of the asynchronous operation and retrieve the results using a `GET` request with your same resource subscription key.
 
 ***Operation-Location header***:
