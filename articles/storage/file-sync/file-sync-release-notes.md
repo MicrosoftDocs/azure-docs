@@ -69,8 +69,8 @@ The following release notes are for Azure File Sync version 17.2.0.0 (released F
 
 ### Improvements and issues that are fixed
 The Azure File Sync v17.2 release is a rollup update for the v17.0 and v17.1 releases:
-	- [Azure File Sync Agent v17 Release - December 2023](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)
- 	- [Azure File Sync Agent v17.1 Release - February 2024](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)
+- [Azure File Sync Agent v17 Release - December 2023](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)
+- [Azure File Sync Agent v17.1 Release - February 2024](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)
 **Note**: If your server has v17.1 agent installed, you don't need to install the v17.2 agent.
 
 ### Evaluation Tool
