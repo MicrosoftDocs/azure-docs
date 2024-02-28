@@ -61,7 +61,7 @@ Several resources are defined in the template:
     - **Location**: the default is the same location as the resource group, if it already exists.
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
-Cost information isn't presented during the virtual machine creation process for ARM templates like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for ARM templates like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
