@@ -165,7 +165,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
             "settings": {
                 "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
             }
-        }
+  }
 
 ``` 
 
