@@ -33,32 +33,32 @@ In this tutorial, you learn how to:
 
 Follow [these instructions](how-to-create-immersive-reader.md) again to create each Immersive Reader resource. The `Create-ImmersiveReaderResource` script has `ResourceName`, `ResourceSubdomain`, and `ResourceLocation` as parameters. These parameters should be unique for each resource being created. The remaining parameters should be the same as what you used when setting up your first Immersive Reader resource. This way, each resource can be linked to the same Azure resource group and Microsoft Entra application.
 
-The following example shows how to create two resources, one in **WestUS**, and another in **EastUS**. Notice the unique values for `ResourceName`, `ResourceSubdomain`, and `ResourceLocation`.
+The following example shows how to create two resources, one in **WestUS** and another in **EastUS**. Each resource has unique values for `ResourceName`, `ResourceSubdomain`, and `ResourceLocation`.
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
-  -SubscriptionName <SUBSCRIPTION_NAME> `
-  -ResourceName Resource_name_wus `
-  -ResourceSubdomain resource-subdomain-wus `
-  -ResourceSKU <RESOURCE_SKU> `
-  -ResourceLocation westus `
-  -ResourceGroupName <RESOURCE_GROUP_NAME> `
-  -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
-  -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
-  -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
-  -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
+  -SubscriptionName <SUBSCRIPTION_NAME>
+  -ResourceName Resource_name_westus
+  -ResourceSubdomain resource-subdomain-westus
+  -ResourceSKU <RESOURCE_SKU>
+  -ResourceLocation westus
+  -ResourceGroupName <RESOURCE_GROUP_NAME>
+  -ResourceGroupLocation <RESOURCE_GROUP_LOCATION>
+  -AADAppDisplayName <MICROSOFT_ENTRA_DISPLAY_NAME>
+  -AADAppIdentifierUri <MICROSOFT_ENTRA_IDENTIFIER_URI>
+  -AADAppClientSecret <MICROSOFT_ENTRA_CLIENT_SECRET>
 
 Create-ImmersiveReaderResource
-  -SubscriptionName <SUBSCRIPTION_NAME> `
-  -ResourceName Resource_name_eus `
-  -ResourceSubdomain resource-subdomain-eus `
-  -ResourceSKU <RESOURCE_SKU> `
-  -ResourceLocation eastus `
-  -ResourceGroupName <RESOURCE_GROUP_NAME> `
-  -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
-  -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
-  -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
-  -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
+  -SubscriptionName <SUBSCRIPTION_NAME>
+  -ResourceName Resource_name_eastus
+  -ResourceSubdomain resource-subdomain-eastus
+  -ResourceSKU <RESOURCE_SKU>
+  -ResourceLocation eastus
+  -ResourceGroupName <RESOURCE_GROUP_NAME>
+  -ResourceGroupLocation <RESOURCE_GROUP_LOCATION>
+  -AADAppDisplayName <MICROSOFT_ENTRA_DISPLAY_NAME>
+  -AADAppIdentifierUri <MICROSOFT_ENTRA_IDENTIFIER_URI>
+  -AADAppClientSecret <MICROSOFT_ENTRA_CLIENT_SECRET>
 ```
 
 ## Add resources to environment configuration
