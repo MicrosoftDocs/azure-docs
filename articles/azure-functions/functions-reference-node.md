@@ -3,7 +3,7 @@ title: Node.js developer reference for Azure Functions
 description: Understand how to develop functions by using Node.js.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 04/17/2023
+ms.date: 02/28/2024
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
@@ -1422,78 +1422,80 @@ The response can be set in several ways:
 
 ::: zone-end
 
-## HTTP streams (Preview)
+## HTTP streams (preview)
 
-::: zone pivot="nodejs-model-v3"
+HTTP streams, which is currently in preview, makes it easier to processing large data, stream OpenAI responses, deliver dynamic content, and other scenarios more feasible over HTTP. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
 
-HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
+HTTP streams is currently in preview.
 
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-You can stream HTTP requests to and responses from your Node.js Functions Apps.   
-
-This feature (currently in preview) makes scenarios like processing large data, streaming OpenAI responses, delivering dynamic content etc. possible. Use this in scenarios where real time exchange and interaction between client and server over HTTP connections is needed. We recommend using streams to get the best performance and reliability for your apps.  
-
-## Prerequisites
-- Version 4.3.0 or higher for the @azure/functions npm package
-- If running in Azure, version 4.28 of the [Azure Functions runtime](./functions-versions.md)
-- If running locally, version 4.0.5530 of Azure Functions Core Tools
-
-## Steps
-1. If you plan to stream large amounts of data, adjust the [app setting](./functions-app-settings.md#functions_request_body_size_limit) `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` in Azure or in your `local.settings.json` file. The default value is `104857600`, aka limiting your request to 100mb maximum. 
-2. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
-
- # [JavaScript](#tab/javascript)
-
- ```javascript
- const { app } = require('@azure/functions'); 
- app.setup({ enableHttpStream: true });
- ```
-
- # [TypeScript](#tab/typescript)
+::: zone pivot="nodejs-model-v3"  
+>[!IMPORTANT]
+>HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
+::: zone-end  
+::: zone pivot="nodejs-model-v4"  
+The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support various ways of handling the message body, including as a stream. 
  
- ```typescript
- import { app } from '@azure/functions'; 
- app.setup({ enableHttpStream: true }); 
- ```
+### Prerequisites
+- Version 4.3.0 or higher for the `@azure/functions` npm package
+- [Azure Functions runtime](./functions-versions.md) version 4.28 or later. 
+- [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or a later version, which contains the correct runtime version. 
 
- ---
+### Enable streams
 
-3. The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support many ways of handling the body, including as a stream. 
+1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default value for this setting is `104857600`, which limits your request to a size of 100 MB. 
 
-> [!NOTE]
-> Use `request.body` to truly benefit from streams. You can still continue to use methods like `request.text()` which will always return the body as a string.
+1. For local development, also add `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` to the [local.settings.json file](./functions-develop-local.md#local-settings-file).
 
-Below is an example of an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+1. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
 
-   # [JavaScript](#tab/javascript)
+    #### [JavaScript](#tab/javascript)
+    
+    ```javascript
+    const { app } = require('@azure/functions'); 
+    app.setup({ enableHttpStream: true });
+    ```
+
+    #### [TypeScript](#tab/typescript)
+    
+    ```typescript
+    import { app } from '@azure/functions'; 
+    app.setup({ enableHttpStream: true }); 
+    ```
+    
+    ---
+
+### Stream examples
+
+This is an example of an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+
+#### [JavaScript](#tab/javascript)
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
 
- # [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
 
-  ---
+---
 
-   Below is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
+This is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
 
- # [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
 
- # [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
   
-  ---
+---
 
-> [!WARNING]
-> The `request.params` object is not supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information, including a suggested workaround.
+### Stream considerations
 
-::: zone-end
++ The `request.params` object isn't supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
+
++ Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
+::: zone-end  
 
 ## Hooks
 
