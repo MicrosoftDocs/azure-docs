@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| February 27 | [Updated security policy management expands support to AWS and GCP](#updated-security-policy-management-expands-support-to-aws-and-gcp) |
+| February 28 | [Updated security policy management expands support to AWS and GCP](#updated-security-policy-management-expands-support-to-aws-and-gcp) |
 | February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
@@ -33,13 +33,12 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Updated security policy management expands support to AWS and GCP
 
-February 27, 2024
+February 28, 2024
 
-The updated experience for managing security policies initially released in Preview for Azure, is expanding its support for cross cloud (AWS and GCP) environments. This release includes: 
+The updated experience for managing security policies, initially released in Preview for Azure, is expanding its support to cross cloud (AWS and GCP) environments. This Preview release includes: 
 - Managing [regulatory compliance standards](update-regulatory-compliance-packages.md) in Defender for Cloud across Azure, AWS, and GCP environments.
-- Same cross cloud interface experience for creating and managing [custom recommendations (benchmark)](manage-mcsb.md).
-- Updated experience applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
-
+- Same cross cloud interface experience for creating and managing [Microsoft Cloud Security Benchmark(MCSB) custom recommendations](manage-mcsb.md).
+- The updated experience is applied to AWS and GCP for [creating custom recommendations with a KQL query](create-custom-recommendations.md). 
 
 ### Cloud support for Defender for Containers
 
