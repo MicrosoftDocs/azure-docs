@@ -1424,7 +1424,7 @@ The response can be set in several ways:
 
 ## HTTP streams (preview)
 
-HTTP streams, which is currently in preview, is a feature that makes it easier to processing large data, stream OpenAI responses, deliver dynamic content, and other HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
+HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and other HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
 
 HTTP streams is currently in preview.
 
@@ -1444,7 +1444,7 @@ The existing `HttpRequest` and `HttpResponse` types in programming model v4 alre
 
 Use these steps to enable HTTP streams in your function app in Azure and in your local projects:
 
-1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The maximum body size allowed is `104857600`, which limits your request to a size of 100 MB. 
+1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default maximum body size allowed is `104857600`, which limits your requests to a size of 100 GB.
 
 1. For local development, also add `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` to the [local.settings.json file](./functions-develop-local.md#local-settings-file).
 
