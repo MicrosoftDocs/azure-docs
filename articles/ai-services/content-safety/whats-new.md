@@ -22,10 +22,13 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 The Azure AI Content Safety service is now generally available through the following client library SDKs:
 
-- **C#**: [Package](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [API reference](/dotnet/api/overview/azure/ai.contentsafety-readme?view=azure-dotnet) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0)
-- **Python**: [Package](https://pypi.org/project/azure-ai-contentsafety/) | [API reference](/python/api/overview/azure/ai-contentsafety-readme?view=azure-python) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0)
-- **Java**: [Package](https://oss.sonatype.org/#nexus-search;quick~contentsafety) | [API reference](/java/api/overview/azure/ai-contentsafety-readme?view=azure-java-stable) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0)
-- **JavaScript**: [Package](https://www.npmjs.com/package/@azure-rest/ai-content-safety?activeTab=readme) | [API reference](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0)
+- **C#**: [Package](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [API reference](/dotnet/api/overview/azure/ai.contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **Python**: [Package](https://pypi.org/project/azure-ai-contentsafety/) | [API reference](/python/api/overview/azure/ai-contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **Java**: [Package](https://oss.sonatype.org/#nexus-search;quick~contentsafety) | [API reference](/java/api/overview/azure/ai-contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **JavaScript**: [Package](https://www.npmjs.com/package/@azure-rest/ai-content-safety?activeTab=readme) | [API reference](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+
+> [!IMPORTANT]
+> The public preview versions of the Azure AI Content Safety SDKs will be deprecated by March 31, 2024. Please update your applications to use the GA versions.
 
 ## November 2023
 

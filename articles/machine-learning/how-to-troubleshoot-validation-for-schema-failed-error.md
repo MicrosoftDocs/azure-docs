@@ -9,7 +9,7 @@ author: s-polly
 ms.author: scottpolly
 ms.reviewer: sgilley
 ms.topic: troubleshooting 
-ms.date: 01/06/2023
+ms.date: 01/22/2024
 ---
 
 # Troubleshoot Validation For Schema Failed Error

@@ -291,6 +291,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
+|[NeoSystems LLC](https://www.neosystemscorp.com/)|
 |[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Neovera Inc.](https://www.neovera.com)|
 |[NetData Consulting Services Inc.](https://www.netdatacs.com)|
@@ -371,6 +372,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[RoboTech Science, Inc. (Cyberscend)](https://cyberscend.com)|
 |[Rollout Systems LLC](http://www.rolloutsys.com/)|
+|[RSM US, LLP](https://rsmus.com)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
 |[RyanTech Inc.](https://ryantechinc.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
@@ -561,6 +563,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Leidos](https://www.leidos.com/)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
+|[NeoSustems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|
@@ -572,7 +575,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
-|[RSMUS, LLC](https://rsmus.com)|
+|[RSM US, LLP](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
 |[SentinelBlue LLC](https://www.sentinelblue.com/)|
 |[Smartronix](https://www.smartronix.com)|

@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
+ms.custom: language-service-sentiment-opinion-mining
 ---
 
 # Sentiment Analysis and Opinion Mining language support 

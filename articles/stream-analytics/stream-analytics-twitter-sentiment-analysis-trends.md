@@ -1,7 +1,6 @@
 ---
 title: Social media analysis with Azure Stream Analytics
 description: This article describes how to use Stream Analytics for social media analysis using the twitter client API. Step-by-step guidance from event generation to data on a live dashboard.
-services: stream-analytics 
 author: enkrumah
 ms.author: ebnkruma
 ms.reviewer: jasonh

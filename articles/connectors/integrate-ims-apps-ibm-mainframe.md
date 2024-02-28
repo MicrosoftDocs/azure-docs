@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 01/10/2024
 ---
 
 # Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps

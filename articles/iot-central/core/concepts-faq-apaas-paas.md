@@ -44,7 +44,7 @@ So that you can seamlessly migrate devices from your IoT Central applications to
 
 - The device must be an IoT Plug and Play device that uses a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) model. IoT Central requires all devices to have a DTDL model. These models simplify the interoperability between an IoT PaaS solution and IoT Central.
 
-- The device must follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
+- The device must follow the [IoT Plug and Play conventions](../../iot/concepts-convention.md).
 - IoT Central uses the DPS to provision the devices. The PaaS solution must also use DPS to provision the devices.
 - The updatable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
 

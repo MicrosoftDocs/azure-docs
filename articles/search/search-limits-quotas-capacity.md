@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2024
+ms.date: 02/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -40,6 +40,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum dimensions per vector field | 3072 |3072 |3072 |3072 |3072 |3072 |3072 |3072 |
 | Maximum complex collections per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximum elements across all complex collections per document&nbsp;<sup>3</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
@@ -83,7 +84,7 @@ The table describes the vector index size quota per partition across the service
 
 Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
-### Services created prior to July 1, 2023
+### Services created before July 1, 2023
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -100,9 +101,9 @@ Azure AI Search is rolling out increased vector index size limits worldwide for 
 
 The following regions **do not** support increased limits:
 
-- Germany West Central
-- Jio India West
-- Qatar Central
++ Germany West Central
++ West India
++ Qatar Central
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -138,7 +139,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer runtime behavior. For extra large data sets, indexers can be made to run longer than maximum limits if you put them on a [2-hour run time schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off to start the next 2-hour interval.
+<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer infrastructure. As a general rule, for indexing jobs that can't finish within two hours, put the indexer on a [2-hour schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off when starting the next 2-hour interval.
 
 <sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
 

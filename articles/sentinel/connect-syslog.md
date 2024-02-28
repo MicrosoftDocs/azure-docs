@@ -9,6 +9,9 @@ ms.author: yelevin
 
 # Collect data from Linux-based sources using Syslog
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 **Syslog** is an event logging protocol that is common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Microsoft Sentinel using the **Log Analytics agent for Linux** (formerly known as the OMS agent).

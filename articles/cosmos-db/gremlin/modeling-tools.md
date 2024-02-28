@@ -4,7 +4,6 @@ description: This article describes various tools to  design the Graph data mode
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: mjbrown

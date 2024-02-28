@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 10/11/2023
+ms.date: 1/10/2023
 ms.author: greglin
 ---
 
@@ -138,6 +138,3 @@ Here an example of the access log emitted in JSON format to a storage account.
     "location": "northcentralus"
 }
 ```
-
-### Limitations
-- Although it's possible to configure logging to log analytics, logs are currently not emitted to a log analytics workspace or event hub. Log analytics and event hub streaming will be supported in a future update.

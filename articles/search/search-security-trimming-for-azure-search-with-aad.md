@@ -1,5 +1,5 @@
 ---
-title: Security filters to trim results using MIcrosoft Entra ID
+title: Security filters to trim results using Microsoft Entra ID
 titleSuffix: Azure AI Search
 description: Access control at the document level for search results, using security filters and Microsoft Entra identities.
 
@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 02/15/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -32,7 +32,7 @@ Your index in Azure AI Search must have a [security field](search-security-trimm
 
 You must have Microsoft Entra administrator permissions (Owner or administrator) to create users, groups, and associations. 
 
-Your application must also be registered with Microsoft Entra ID as a multi-tenant app, as described in the following procedure.
+Your application must also be registered with Microsoft Entra ID as a multitenant app, as described in the following procedure.
 
 <a name='register-your-application-with-azure-active-directory'></a>
 
@@ -40,19 +40,21 @@ Your application must also be registered with Microsoft Entra ID as a multi-tena
 
 This step integrates your application with Microsoft Entra ID for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
-1. In [Azure portal](https://portal.azure.com), find the Microsoft Entra tenant.
+1. In [Azure portal](https://portal.azure.com), find the Microsoft Entra ID tenant.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
-1. Give the registration a name, perhaps a name that's similar to the search application name. Select **Register**.
+1. Give the registration a name, perhaps a name that's similar to the search application name. Refer to [this article](/entra/external-id/customers/how-to-register-ciam-app) for information about other optional properties.
+
+1. Select **Register**.
 
 1. Once the app registration is created, copy the Application (client) ID. You'll need to provide this string to your application.
 
    If you're stepping through the DotNetHowToSecurityTrimming, paste this value into the **app.config** file.
 
-   Repeat for the Tenant ID.
+1. Copy the Directory (tenant) ID.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Application ID in the Essentials section":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Screenshot of the application ID in the Essentials section.":::
 
 1. On the left, select **API permissions** and then select **Add a permission**. 
 

@@ -2,7 +2,7 @@
 title: Troubleshoot Container insights | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 02/15/2024
 ms.reviewer: aul
 
 ---
@@ -104,7 +104,7 @@ If your worker nodes don’t have node labels attached, agent ReplicaSet Pods wo
 
 ## Performance charts don't show CPU or memory of nodes and containers on a non-Azure cluster
 
-Container insights agent pods use the cAdvisor endpoint on the node agent to gather the performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+Container insights agent pods use the cAdvisor endpoint on the node agent to gather performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor secure port: 10250` or  `cAdvisor unsecure port: 10255` to be opened on all nodes in the cluster to collect performance metrics. See the [prerequisites for hybrid Kubernetes clusters](./container-insights-hybrid-setup.md#prerequisites) for more information.
 
 ## Non-AKS clusters aren't showing in Container insights
 

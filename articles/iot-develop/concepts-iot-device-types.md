@@ -5,8 +5,7 @@ author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 10/07/2022
-ms.custom: engagement-fy23
+ms.date: 1/23/2024
 ---
 
 # Overview of Azure IoT device types

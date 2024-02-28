@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 04/19/2023
+ms.date: 02/26/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -16,6 +16,7 @@ Application Gateway is available under a Standard_v2 SKU. Web Application Firewa
 
 The new v2 SKU includes the following enhancements:
 
+- **TCP/TLS proxy (Preview)**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
 - **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
@@ -33,10 +34,10 @@ The new v2 SKU includes the following enhancements:
 
 ## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+The Standard_v2 and WAF_v2 SKU isn't currently available in the following regions:
 
 - UK North
-- UK South2
+- UK South 2
 - China East
 - China North
 - US DOD East

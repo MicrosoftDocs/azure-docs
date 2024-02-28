@@ -1,16 +1,9 @@
 ---
 title: Install the Azure Application Consistent Snapshot tool for Azure NetApp Files
-description: Learn how to install the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Learn how to install the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 08/21/2023
 ms.author: phjensen
@@ -1334,4 +1327,3 @@ No special database configuration is required for Db2 because you're using the i
 ## Next steps
 
 - [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md)
-

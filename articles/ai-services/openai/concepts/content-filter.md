@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 11/06/2023
 ms.custom: template-concept
 manager: nitinme
-keywords: 
 ---
 
 # Content filtering
@@ -45,8 +44,9 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
 
-[!INCLUDE [severity-levels](../../content-safety/includes/severity-levels.md)]
+[!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
+[!INCLUDE [image severity-levels](../../content-safety/includes/severity-levels-image.md)]
 
 
 ## Configurability (preview)
@@ -56,11 +56,11 @@ The default content filtering configuration is set to filter at the medium sever
 | Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
 |-------------------|--------------------------|------------------------------|--------------|
 | Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
-| Medium, high      | Yes | Yes | Default setting. Content detected at severity level low is not filtered, content at medium and high is filtered.|
+| Medium, high      | Yes | Yes | Default setting. Content detected at severity level low isn't filtered, content at medium and high is filtered.|
 | High              | Yes| Yes | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered.|
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
 
-<sup>\*</sup> Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off. Apply for modified content filters using this form: [Azure OpenAI Limited Access Review: Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu)
+<sup>\*</sup> Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off. Content filtering control doesn't apply to content filters for DALL-E (preview) or GPT-4 Turbo with Vision (preview). Apply for modified content filters using this form: [Azure OpenAI Limited Access Review: Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu). 
 
 Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
 
@@ -325,7 +325,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.Completion.create(
     engine="gpt-35-turbo", # engine = "deployment_name".
@@ -436,7 +436,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 try:
     response = openai.Completion.create(
@@ -465,7 +465,7 @@ except openai.error.InvalidRequestError as e:
 import os
 from openai import AzureOpenAI
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2023-10-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
     )
@@ -550,7 +550,7 @@ main().catch((err) => {
 ```powershell-interactive
 # Env: for the endpoint and key assumes that you are using environment variables.
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY
+    api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-10-01-preview' # this may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
@@ -628,40 +628,39 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
 }
 ```
 
-## Streaming
+## Content streaming
 
-Azure OpenAI Service includes a content filtering system that works alongside core models. The following section describes the AOAI streaming experience and options in the context of content filters. 
+This section describes the Azure OpenAI content streaming experience and options. With approval, you have the option to receive content from the API as it's generated, instead of waiting for chunks of content that have been verified to pass your content filters.
 
 ### Default
 
-The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft default or custom user configuration), or it’s immediately blocked which returns a content filtering error, without returning harmful completion content. This process is repeated until the end of the stream. Content was fully vetted according to the content filtering policy before returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size. 
+The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on the content filtering configuration – content is either returned to the user if it doesn't violate the content filtering policy (Microsoft's default or a custom user configuration), or it’s immediately blocked and returns a content filtering error, without returning the harmful completion content. This process is repeated until the end of the stream. Content is fully vetted according to the content filtering policy before it's returned to the user. Content isn't returned token-by-token in this case, but in “content chunks” of the respective buffer size.
 
 ### Asynchronous modified filter
 
-Customers who have been approved for modified content filters can choose Asynchronous Modified Filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, the content filters run asynchronously, which allows for zero latency in this context.  
+Customers who have been approved for modified content filters can choose the asynchronous modified filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, and completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, which allows for zero latency.
 
-> [!NOTE]
-> Customers must be aware that while the feature improves latency, it can bring a trade-off in terms of the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and the content filtering signal in case of a policy violation are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user. 
+Customers must be aware that while the feature improves latency, it's a trade-off against the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and policy violation signals are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user.
  
-**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend to consume annotations and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user. 
+**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend you consume annotations in your app and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user.
 
-**Content filtering signal**: The content filtering error signal is delayed; in case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within ~1,000-character windows in case of a policy violation. 
+**Content filtering signal**: The content filtering error signal is delayed. In case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within a ~1,000-character window of the policy-violating content. 
 
-Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
+Approval for modified content filtering is required for access to the asynchronous modified filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it in Azure OpenAI Studio, follow the [Content filter how-to guide](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select **Asynchronous Modified Filter** in the Streaming section.
 
-### Overview
+### Comparison of content filtering modes
 
-| Category | Streaming - Default | Streaming - Asynchronous Modified Filter |
+| Compare | Streaming - Default | Streaming - Asynchronous Modified Filter |
 |---|---|---|
 |Status |GA |Public Preview |
-| Access | Enabled by default, no action needed |Customers approved for Modified Content Filtering can configure directly via Azure OpenAI Studio (as part of a content filtering configuration; applied on deployment-level) |
-| Eligibility |All customers |Customers approved for Modified Content Filtering |
-|Modality and Availability |Text; all GPT-models |Text; all GPT-models except gpt-4-vision |
+| Eligibility |All customers |Customers approved for modified content filtering |
+| How to enable | Enabled by default, no action needed |Customers approved for modified content filtering can configure it directly in Azure OpenAI Studio (as part of a content filtering configuration, applied at the deployment level) |
+|Modality and availability |Text; all GPT models |Text; all GPT models except gpt-4-vision |
 |Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
-|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000 char increments) |
-|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | 
+|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000-character increments) |
+|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) |
 
-### Annotations and sample response stream
+### Annotations and sample responses
 
 #### Prompt annotation message
 
@@ -709,11 +708,11 @@ data: {
 
 #### Annotation message
 
-The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple Annotation Messages referring to the same tokens.  
+The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple annotation messages referring to the same tokens.  
 
-“start_offset” and “end_offset” are low-granularity offsets in text (with 0 at beginning of prompt) which the annotation is relevant to. 
+`"start_offset"` and `"end_offset"` are low-granularity offsets in text (with 0 at beginning of prompt) to mark which text the annotation is relevant to. 
 
-“check_offset” represents how much text has been fully moderated. It is an exclusive lower bound on the end_offsets of future annotations. It is nondecreasing. 
+`"check_offset"` represents how much text has been fully moderated. It's an exclusive lower bound on the `"end_offset"` values of future annotations. It's non-decreasing.
 
 ```json
 data: { 
@@ -739,9 +738,9 @@ data: {
 ```
 
 
-### Sample response stream
+#### Sample response stream (passes filters)
 
-Below is a real chat completion response using  Asynchronous Modified Filter. Note how prompt annotations are not changed; completion tokens are sent without annotations; and new annotation messages are sent without tokens, instead associated with certain content filter offsets. 
+Below is a real chat completion response using asynchronous modified filter. Note how the prompt annotations aren't changed, completion tokens are sent without annotations, and new annotation messages are sent without tokens&mdash;they are instead associated with certain content filter offsets. 
 
 `{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "What is color?"}], "stream": true}`
 
@@ -769,7 +768,7 @@ data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_
 data: [DONE] 
 ```
 
-### Sample response stream (blocking)
+#### Sample response stream (blocked by filters)
 
 `{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "Tell me the lyrics to \"Hey Jude\"."}], "stream": true}`
 
@@ -796,6 +795,10 @@ data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_
 
 data: [DONE] 
 ```
+
+> [!IMPORTANT]
+> When content filtering is triggered for a prompt and a `"status": 400` is received as part of the response there may be a charge for this request as the prompt was evaluated by the service. [Charges will also occur](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) when a `"status":200` is received with `"finish_reason": "content_filter"`. In this case the prompt did not have any issues, but the completion generated by the model was detected to violate the content filtering rules which results in the completion being filtered.
+
 ## Best practices
 
 As part of your application design, consider the following best practices to deliver a positive experience with your application while minimizing potential harms:

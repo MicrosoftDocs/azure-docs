@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-set-functions
 | 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 6, .NET 7, and .NET 8.|
 
 > [!IMPORTANT]
-> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. For more information, see [Retired versions](#retired-versions).
+> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of extended support. For more information, see [Retired versions](#retired-versions).
 
 This article details some of the differences between supported versions, how you can create each version, and how to change the version on which your functions run.
 
@@ -110,11 +110,11 @@ To learn more about extension bundles, see [Extension bundles](functions-binding
 
 [!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
 
-These versions of the Functions runtime reached the end of life (EOL) for extended support on December 13, 2022. 
+These versions of the Functions runtime reached the end of extended support on December 13, 2022. 
 
 | Version | Current support level | Previous support level |
 | --- | --- | --- |
-| 3.x | Out-of-support |GA | 
+| 3.x | Out-of-support | GA | 
 | 2.x | Out-of-support | GA |
 
 As soon as possible, you should migrate your apps to version 4.x to obtain full support. For a complete set of language-specific migration instructions, see [Migrate apps to Azure Functions version 4.x](migrate-version-3-version-4.md).

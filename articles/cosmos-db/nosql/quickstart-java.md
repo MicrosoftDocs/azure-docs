@@ -8,6 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: quickstart-sdk
 ms.date: 01/08/2024
 zone_pivot_groups: azure-cosmos-db-quickstart-env

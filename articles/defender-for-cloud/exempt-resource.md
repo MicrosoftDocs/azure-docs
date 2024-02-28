@@ -28,10 +28,14 @@ For the scope you need, you can create an exemption rule to:
 This feature is in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] This is a premium Azure Policy capability offered at no extra cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.
 
 - You need the following permissions to make exemptions:
-  - **Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
-  - To create a rule, you need permissions to edit policies in Azure Policy. [Learn more](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
-
+   - **Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption
+      - To create a rule, you need permissions to edit policies in Azure Policy. [Learn more](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
+      
 - You can create exemptions for recommendations included in Defender for Cloud's default [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) standard, or any of the supplied regulatory standards.
+- Some recommendations included in Microsoft cloud security benchmark do not support exemptions, a list of those recommendations can be found [here](/azure/defender-for-cloud/faq-general)
+
+- Recommendations included in multible policy initiatives must [all be exempted](/azure/defender-for-cloud/faq-general) 
+
 - Custom recommendations can't be exempted.
 - If a recommendation is disabled, all of its subrecommendations are exempted.
 - In addition to working in the portal, you can create exemptions using the Azure Policy API. Learn more [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).

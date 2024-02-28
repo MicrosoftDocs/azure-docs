@@ -3,7 +3,7 @@ title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/18/2023
+ms.date: 02/16/2024
 ---
 
 # Add module settings in the Bicep config file
@@ -123,7 +123,7 @@ You can override the public module registry alias definition in the bicepconfig.
 
 ## Configure profiles and credentials
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the profile and the credential precedence for authenticating to the registry. By default, Bicep uses the `AzureCloud` profile and the credentials from the user authenticated in Azure CLI or Azure PowerShell. You can customize `currentProfile` and `credentialPrecedence` in the config file.
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can manually configure `currentProfile` and `credentialPrecedence` in the [Bicep config file](./bicep-config.md) for authenticating to the registry. 
 
 ```json
 {
@@ -157,16 +157,16 @@ The available profiles are:
 - AzureChinaCloud
 - AzureUSGovernment
 
-You can customize these profiles, or add new profiles for your on-premises environments.
+By default, Bicep uses the `AzureCloud` profile and the credentials of the user authenticated in Azure CLI or Azure PowerShell. You can customize these profiles or include new ones for your on-premises environments. If you want to publish or restore a module to a national cloud environment such as `AzureUSGovernment`, you must set `"currentProfile": "AzureUSGovernment"` even if you've selected that cloud profile in the Azure CLI. Bicep is unable to automatically determine the current cloud profile based on Azure CLI settings.
 
-The available credential types are:
+Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentication. The available credential types are:
 
-- AzureCLI
-- AzurePowerShell
-- Environment
-- ManagedIdentity
-- VisualStudio
-- VisualStudioCode
+- [AzureCLI](/dotnet/api/azure.identity.azureclicredential)
+- [AzurePowerShell](/dotnet/api/azure.identity.azurepowershellcredential)
+- [Environment](/dotnet/api/azure.identity.environmentcredential)
+- [ManagedIdentity](/dotnet/api/azure.identity.managedidentitycredential)
+- [VisualStudio](/dotnet/api/azure.identity.visualstudiocredential)
+- [VisualStudioCode](/dotnet/api/azure.identity.visualstudiocodecredential)
 
 [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 

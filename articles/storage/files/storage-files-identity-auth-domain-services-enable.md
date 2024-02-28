@@ -192,11 +192,11 @@ Most users should assign share-level permissions to specific Microsoft Entra use
 
 There are five Azure built-in roles for Azure Files, some of which allow granting share-level permissions to users and groups:
 
-- **Storage File Data Share Reader** allows read access in Azure file shares over SMB.
-- **Storage File Data Privileged Reader** allows read access in Azure file shares over SMB by overriding existing Windows ACLs.
-- **Storage File Data Share Contributor** allows read, write, and delete access in Azure file shares over SMB.
-- **Storage File Data Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
 - **Storage File Data Privileged Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB by overriding existing Windows ACLs.
+- **Storage File Data Privileged Reader** allows read access in Azure file shares over SMB by overriding existing Windows ACLs.
+- **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure file shares over SMB.
+- **Storage File Data SMB Share Reader** allows read access in Azure file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control isn't supported with Microsoft Entra credentials.
@@ -330,11 +330,11 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different domain than the storage account can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity and credentials (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
+Non-domain-joined VMs or VMs that are joined to a different domain than the storage account can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain, and must provide explicit credentials (username and password).
 
 To mount a file share from a non-domain-joined VM, the user must either:
 
-- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity’s user name in Microsoft Entra Domain Services, or
+- Provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity’s user name in Microsoft Entra Domain Services, or
 - Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
 
 Using one of these approaches will allow the client to contact the domain controller in the Microsoft Entra Domain Services domain to request and receive Kerberos tickets.

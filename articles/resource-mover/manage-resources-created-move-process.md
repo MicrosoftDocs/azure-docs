@@ -1,7 +1,6 @@
 ---
 title: Manage resources that are created during the VM move process in Azure Resource Mover
 description: Learn how to manage resources that are created during the VM move process in Azure Resource Mover
-manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: how-to

@@ -61,7 +61,7 @@ Figure: Pre-Certification (precert) Process
 To ensure an efficient and effective onboarding process for the partner there are perquisites to precertification lab entry.
 
 1. The partners start the Azure Marketplace agreement and [create a partner
-   center account](/azure/marketplace/create-account).
+   center account](/partner-center/create-account).
    The partner can then publish the network function
    offers in the marketplace. The marketplace agreement doesn't have to be
    completed prior to precert lab entry. However, it's an important step before the

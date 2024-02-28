@@ -5,7 +5,6 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/17/2023
 ---

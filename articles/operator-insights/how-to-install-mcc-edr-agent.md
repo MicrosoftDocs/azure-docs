@@ -11,12 +11,12 @@ ms.date: 10/31/2023
 
 # Create and configure MCC EDR Ingestion Agents for Azure Operator Insights
 
-The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights.  
+The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights Data Products.
 
 ## Prerequisites
 
 - You must have an Affirmed Networks MCC deployment that generates EDRs.
-- You must have an Azure Operator Insights MCC Data product deployment.
+- You must deploy an Azure Operator Insights MCC Data Product.
 - You must provide VMs with the following specifications to run the agent:
 
 | Resource | Requirements                                                        |
@@ -55,9 +55,9 @@ The VM used for the MCC EDR agent should be set up following best practice for s
   - Access to the directory where the logs are stored *(/var/log/az-mcc-edr-uploader/)*
   - Access to the certificate and private key for the service principal that you create during this procedure
 
-## Acquire the agent RPM
+## Download the RPM for the agent
 
-A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+Download the RPM for the MCC EDR agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2254537](https://go.microsoft.com/fwlink/?linkid=2254537).
 
 ## Set up authentication
 
@@ -68,23 +68,30 @@ You must have a service principal with a certificate credential that can access 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
-1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
 ### Prepare certificates
 
-It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
+The ingestion agent only supports certificate-based authentication for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
-1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
+2. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+3. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
     - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
-1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
+4. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
     `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
-5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
+> [!IMPORTANT]
+> The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
+
+5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key:
+
+    `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
+
+6. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the command:
 
     `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
@@ -127,7 +134,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-1. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
 
     ```
     <Public IP>   login.microsoftonline.com
@@ -138,7 +145,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
+1. Install the RPM:  `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
 1. Change to the configuration directory: `cd /etc/az-mcc-edr-uploader`
 1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
 1. Edit the *config.yaml* and fill out the fields.  Most of them are set to default values and don't need to be changed.  The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
@@ -152,7 +159,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-            2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
+            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
 
             3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
 

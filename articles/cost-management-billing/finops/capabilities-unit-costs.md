@@ -1,7 +1,6 @@
 ---
 title: Measuring unit costs
 description: This article helps you understand the measuring unit costs capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 10/25/2023

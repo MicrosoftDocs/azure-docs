@@ -2,16 +2,13 @@
 title: Route networking traffic for high availability - Azure PowerShell
 description: Azure PowerShell Script Sample - Route traffic for high availability of applications
 services: traffic-manager
-documentationcenter: traffic-manager
 author: greg-lindsay
 manager: Kumud
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: traffic-manager
 ms.date: 04/27/2023
-ms.author: greglin 
+ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
