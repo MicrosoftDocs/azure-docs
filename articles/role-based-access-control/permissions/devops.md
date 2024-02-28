@@ -46,6 +46,8 @@ Azure service: [Azure Chaos Studio](/azure/chaos-studio/)
 
 ## Microsoft.DevTestLab
 
+Quickly create environments using reusable templates and artifacts.
+
 Azure service: [Azure Lab Services](/azure/lab-services/)
 
 > [!div class="mx-tableFixed"]
@@ -168,6 +170,8 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/schedules/Retarget/action | Updates a schedule's target resource Id. |
 
 ## Microsoft.LabServices
+
+Set up labs for classrooms, trials, development and testing, and other scenarios.
 
 Azure service: [Azure Lab Services](/azure/lab-services/)
 
@@ -361,6 +365,8 @@ Azure service: [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 > | Microsoft.SecurityDevOps/Operations/read | read Operations |
 
 ## Microsoft.VisualStudio
+
+The powerful and flexible environment for developing applications in the cloud.
 
 Azure service: [Azure DevOps](/azure/devops/)
 

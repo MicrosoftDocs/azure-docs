@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 12/25/2023
+ms.date: 02/27/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -99,7 +99,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Reader                         | Backup vault       | AKS cluster             | Allows the Backup vault to perform _List_ and _Read_ operations on AKS cluster.             |
 | Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
 | Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
-| Storage Account Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
+| Storage Blob Data Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
 | Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
 | Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
 | Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
