@@ -74,7 +74,7 @@ The MON policy routes can be deleted with none defined. This results in all egre
 
 The MON policy routes can be updated with a default route (0.0.0.0/0). This results in all egress traffic being tunneled over the NE path.
 
-:::image type="content" source="media/tutorial-vmware-hcx/alltraffic-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the the egress traffic flow with a 0.0.0.0/0 policy-based route.":::
+:::image type="content" source="media/tutorial-vmware-hcx/all-traffic-hcx-mon-policy-based-routes.png" alt-text="Screenshot showing the egress traffic flow with a 0.0.0.0/0 policy-based route.":::
 
 As outlined in the above diagrams, the importance is to match a policy route to each required subnet. Otherwise, the traffic gets routed over the T0 and not tunneled over the NE.
 
