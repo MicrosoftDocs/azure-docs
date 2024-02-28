@@ -64,16 +64,24 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. Use the Azure Developer CLI ([azd][]) to clone the sample application to your development environment.
+1. Create an empty directory named `aks-store-demo` to host the azd template files.
 
     ```azurecli
-    azd init --template aks-store-demo
+    mkdir aks-store-demo
     ```
 
-2. Change into the cloned directory.
+1. Change into the new directory.
 
     ```azurecli
     cd aks-store-demo
+    ```
+
+1. Run the Azure Developer CLI ([azd][]) init command which clones the sample application into your empty directory.
+
+    Here, the `--template` flag is specified to point to the aks-store-demo application.
+
+    ```azurecli
+    azd init --template aks-store-demo
     ```
 
 ---
@@ -234,7 +242,7 @@ Since you validated the application's functionality, you can stop and remove the
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters. 
+When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
 
 ---
 ## Next steps

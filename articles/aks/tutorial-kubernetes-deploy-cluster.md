@@ -50,76 +50,6 @@ This tutorial requires Azure Developer CLI version 1.5.1 or later. Check your ve
 
 ---
 
-## Create an AKS cluster
-
-AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8s-rbac], which allows you to define access to resources based on roles assigned to users. Permissions are combined when users are assigned multiple roles. Permissions can be scoped to either a single namespace or across the whole cluster. For more information, see [Control access to cluster resources using Kubernetes RBAC and Microsoft Entra ID in AKS][aks-k8s-rbac].
-
-For information about AKS resource limits and region availability, see [Quotas, virtual machine size restrictions, and region availability in AKS][quotas-skus-regions].
-
-> [!NOTE]
-> To ensure your cluster operates reliably, you should run at least two nodes.
-
-### [Azure CLI](#tab/azure-cli)
-
-To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
-
-* Create an AKS cluster using the [`az aks create`][az aks create] command. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
-
-    ```azurecli-interactive
-    az aks create \
-        --resource-group myResourceGroup \
-        --name myAKSCluster \
-        --node-count 2 \
-        --generate-ssh-keys \
-        --attach-acr <acrName>
-    ```
-
-    > [!NOTE]
-    > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `--generate-ssh-keys` parameter.
-
-To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
-
-* Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
-
-    ```azurepowershell-interactive
-    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
-    ```
-
-    > [!NOTE]
-    > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `-GenerateSshKey` parameter.
-
-To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
-
-### [Azure Developer CLI](#tab/azure-azd)
-
-Inside your Azure Developer Template from tutorial 1, run these azd hooks. Each hook contains a script to ready the resources in the template and create your cluster.
-
-1. Register your services with `azd preprovision`.
-
-    ```azurecli
-    azd preprovision
-    ```
-
-2. AZD automatically creates the Service Principals and roles based on the `/infra` folder so you don't need to manually generate SSH keys or set up a resource group. Create an AKS cluster using `azd provision`.
-
-    ```azurecli
-    azd provision
-    ```
-
-3. AZD can automatically run postprovision after the script ends to build and import new container images. If it doesn't happen, manually run it with `azd postprovision`. 
-
-    ```azurecli
-    azd provision
-    ```
-
----
-
-After a few minutes, the cluster deployment completes and returns JSON-formatted information about the AKS deployment.
-
 ## Install the Kubernetes CLI
 
 You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes cluster. If you use the Azure Cloud Shell, `kubectl` is already installed. If you're running the commands locally, you can use the Azure CLI or Azure PowerShell to install `kubectl`.
@@ -225,6 +155,56 @@ Sign in to your Azure Account through AZD configures your credentials.
     ```
 
 [!INCLUDE [azd-login-ts](./includes/azd/azd-login-ts.md)]
+
+---
+
+## Create an AKS cluster
+
+AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8s-rbac], which allows you to define access to resources based on roles assigned to users. Permissions are combined when users are assigned multiple roles. Permissions can be scoped to either a single namespace or across the whole cluster. For more information, see [Control access to cluster resources using Kubernetes RBAC and Microsoft Entra ID in AKS][aks-k8s-rbac].
+
+For information about AKS resource limits and region availability, see [Quotas, virtual machine size restrictions, and region availability in AKS][quotas-skus-regions].
+
+> [!NOTE]
+> To ensure your cluster operates reliably, you should run at least two nodes.
+
+### [Azure CLI](#tab/azure-cli)
+
+To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
+
+* Create an AKS cluster using the [`az aks create`][az aks create] command. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
+
+    ```azurecli-interactive
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 2 \
+        --generate-ssh-keys \
+        --attach-acr <acrName>
+    ```
+
+    > [!NOTE]
+    > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `--generate-ssh-keys` parameter.
+
+To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
+
+* Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
+
+    ```azurepowershell-interactive
+    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
+    ```
+
+    > [!NOTE]
+    > If you already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `-GenerateSshKey` parameter.
+
+To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
+
+### [Azure Developer CLI](#tab/azure-azd)
+
+AZD packages the deployment of clusters with the application itself using `azd up`. This command is covered in the next tutorial.
 
 ---
 

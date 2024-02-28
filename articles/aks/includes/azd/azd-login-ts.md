@@ -5,7 +5,7 @@ ms.date: 02/21/2024
 ---
 
 > [!IMPORTANT]
-> Certain Azure security policies cause conflicts when used to sign in with `azd login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
+> Certain Azure security policies cause conflicts when used to sign in with `azd auth login`. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
 The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
 
