@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create integration workflows with multi-tenant Azure Logic Apps in Visual Studio
-description: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio Code.
+title: Quickstart - Create integration workflows with multitenant Azure Logic Apps in Visual Studio
+description: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
@@ -10,11 +10,11 @@ ms.date: 01/04/2024
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
-# Quickstart: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio
+# Quickstart: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multi-tenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multitenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant model, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md).
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating an example Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md). The workflow designer works similarly in both the Azure portal and Visual Studio.
 
