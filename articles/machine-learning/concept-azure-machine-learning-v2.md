@@ -167,7 +167,7 @@ For more information, see [compute YAML schema](reference-yaml-overview.md#compu
 1. From the left-hand menu, select **Compute**.
 1. On the top, select a tab to specify the type of compute you want to create.
 1. Select **New** to create the new compute.
-1. 
+
 ---
 
 ## Datastore
