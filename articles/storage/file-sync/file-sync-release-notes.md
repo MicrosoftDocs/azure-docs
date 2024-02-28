@@ -52,7 +52,7 @@ The following Azure File Sync agent versions have expired and are no longer supp
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Windows Server 2012 R2 agent support will end on March 4, 2025
-Windows Server 2012 R2 reached [end of support](https://learn.microsoft.com/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on March 4th, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
+Windows Server 2012 R2 reached [end of support](https://learn.microsoft.com/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on March 4, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
 
 **Action Required**
 
