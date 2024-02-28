@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Container Apps to host containerized function apps in Azure Functions.
-ms.date: 11/15/2023
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.custom: references_regions, build-2023
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers by using Azure Container Apps.
@@ -21,23 +21,27 @@ This integration also means that you can use existing Functions client tools and
 
 There are two primary hosting plans for Container Apps, a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated), which uses workload profiles to better control your deployment resources. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. The Consumption workload profile is the default profile added to every Workload profiles environment type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. To learn more about workload profiles, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 
-Azure Functions on Azure Container Apps supports workload profiles. 
+ Container Apps hosting of containerized function apps is supported in all [regions that support Container Apps](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps). Azure Functions on Azure Container Apps also supports workload profiles.
 
 If your app doesn't have a specific hardware requirements, you can run your environment either in a Consumption plan or in a Dedicated plan using the default Consumption workload profile. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 
-To use workload profiles, you must enable them when you create your container app environment. You can do this using either the [Azure CLI](../container-apps/workload-profiles-manage-cli.md#create-a-container-app-in-a-profile) or in the [Azure portal](../container-apps/workload-profiles-manage-portal.md#create-a-container-app-in-a-workload-profile). 
+To learn how to create and deploy a function app container to Container Apps in the default Consumption plan, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
-You can also use the [Azure CLI](../container-apps/workload-profiles-manage-cli.md#add-profiles) or [Azure portal](../container-apps/workload-profiles-manage-portal.md#add-profiles) to add, edit, and delete profiles in your environment. 
+To learn how to create a Container Apps environment with workload profiles and deploy a function app container to a specific workload, see [Container Apps workload profiles](functions-how-to-custom-container.md#container-apps-workload-profiles).
 
-When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this with the Azure CLI by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. In the portal, you can choose your profile during the create process.     
+## Functions in containers
 
-## Deploying Azure Functions to Container Apps
+To use Container Apps hosting, your functions code must run in a Linux container that you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. 
 
-When using Container Apps hosting, you first deploy your functions code in a Linux container that you create. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
+When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools generates the Dockerfile with the correct base image, which you can use as a starting point when creating your container. 
 
-Azure Functions on Container Apps hosting is supported in all [regions that support Container Apps](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps). 
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
-Azure Functions currently supports the following methods of deployment to Azure Container Apps:
+When you make changes to your functions code, you must rebuild and republish your container image. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry).
+
+## Deployment options
+
+Azure Functions currently supports the following methods of deploying a containerized function app to Azure Container Apps:
 
 + [Azure CLI](./functions-deploy-container-apps.md)
 + Azure portal
@@ -46,12 +50,6 @@ Azure Functions currently supports the following methods of deployment to Azure 
 + ARM templates
 + [Bicep templates](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/Biceptemplates)
 + [Azure Functions Core Tools](functions-run-local.md#deploy-containers)
-
-To learn how to create and deploy a function app container to Container Apps using the Azure CLI, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
-
-[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
-
-When you make changes to your functions code, you must rebuild and republish your container image. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry).
 
 ## Configure scale rules
 

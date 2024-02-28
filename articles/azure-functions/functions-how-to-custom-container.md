@@ -1,7 +1,7 @@
 ---
 title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
-ms.date: 07/30/2023
+ms.date: 02/27/2024
 ms.topic: how-to
 ms.custom: build-2023
 zone_pivot_groups: functions-container-hosting
@@ -187,6 +187,39 @@ When your function app container is deployed from a registry, Functions maintain
 
  +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or update the image used for deployment, as shown in the previous example.
 
+:::zone pivot="container-apps"  
+## Container Apps workload profiles
+
+Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).  
+
+You can create and manage workload profiles using the Azure CLI or in the Azure portal.
+
+### [Azure CLI](#tab/azure-cli)
+
+You enable workload profiles when you create your container app environment. For an example, see [Create a container app in a profile](../container-apps/workload-profiles-manage-cli.md#create-a-container-app-in-a-profile). 
+
+You can add, edit, and delete profiles in your environment. For an example, see [Add profiles](../container-apps/workload-profiles-manage-cli.md#add-profiles).  
+
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, like in this example:
+
+```azurecli
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime <LANGUAGE_STACK> --image <IMAGE_URI>  --workload-profile-name  PROFILE_NAME> --cpu <CPU_COUNT> --memory <MEMORY_SIZE> 
+```
+
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you. 
+
+Also, replace `<CPU_COUNT>` with your desired number of virtual CPUs, with a minumum of 0.5 up to the maximum allowed by the profile. For `<MEMORY_SIZE>`, choose a dedicated memory amount from 1GB up to the maximum allowed by the profile. 
+
+### [Azure portal](#tab/portal)
+
+You enable workload profiles when you create your container app environment. For an example, see [Create a container app in a profile](../container-apps/workload-profiles-manage-portal.md#create-a-container-app-in-a-workload-profile). 
+
+You can add, edit, and delete profiles in your environment. For an example, see [Add profiles](../container-apps/workload-profiles-manage-portal.md#add-profiles).
+
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. In the portal, you can choose your profile during the create process.
+
+---  
+::: zone-end  
 ## Application settings
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
