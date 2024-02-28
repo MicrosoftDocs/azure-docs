@@ -118,9 +118,8 @@ If you didn't previously enable the [Microosft-managed, Azure-hosted connectors]
 
 1. Open the **workflow.json** shortcut menu, select **Use Connectors from Azure**, and follow the prompts to select these items:
 
-   - **Use connectors from Azure**.
-
-   - The existing Azure resource group where you plan to use for your logic app.
+   - **Use connectors from Azure**
+   - The existing Azure resource group where you plan to use for your logic app
 
 1. When you're done, reload the workflow designer. If prompted, sign in to Azure.
 
@@ -136,11 +135,11 @@ After you create and locally test your workflow, create your deployment scripts.
 
    1. Select the existing Azure resource group to use for your logic app.
 
-   1. Enter a unique name to use for the logic app resource.
+   1. Enter a unique name for your logic app resource.
 
-   1. Enter a unique name to use for the storage account resource.
+   1. Enter a unique name for your storage account resource.
 
-   1. Enter a unique name to use for the App Service Plan.
+   1. Enter a unique name to use for your App Service Plan.
 
    1. Select the workspace folder where you want to generate the files.
 
