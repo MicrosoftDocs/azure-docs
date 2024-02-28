@@ -78,11 +78,11 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to an extern
 
 1. Select **Add** > **Add role assignment**.
 
-    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+    If you don't have permissions to assign roles, the **Add role assignment** option will be disabled.
 
     :::image type="content" source="./media/shared/add-role-assignment-menu.png" alt-text="Screenshot of Add > Add role assignment menu." lightbox="./media/shared/add-role-assignment-menu.png":::
 
-    The Add role assignment page opens.
+    The **Add role assignment** page opens.
 
 1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
@@ -124,11 +124,11 @@ If the external user is not yet in your directory, you can invite the user direc
 
 1. Select **Add** > **Add role assignment**.
 
-    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+    If you don't have permissions to assign roles, the **Add role assignment** option will be disabled.
 
     :::image type="content" source="./media/shared/add-role-assignment-menu.png" alt-text="Screenshot of Add > Add role assignment menu." lightbox="./media/shared/add-role-assignment-menu.png":::
 
-    The Add role assignment page opens.
+    The **Add role assignment** page opens.
 
 1. On the **Role** tab, select a role such as **Virtual Machine Contributor**.
 
