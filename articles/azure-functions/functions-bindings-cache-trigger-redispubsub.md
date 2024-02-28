@@ -1,6 +1,6 @@
 ---
 title: RedisPubSubTrigger for Azure Functions (preview)
-description: Learn how to use RedisPubSubTrigger Azure Function
+description: Learn how to use RedisPubSubTrigger Azure Function with Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 01/22/2024
+ms.date: 02/27/2024
 ---
 
 # RedisPubSubTrigger for Azure Functions (preview)
@@ -33,12 +33,12 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 -->
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
-::: zone pivot="programming-language-python"   
+::: zone pivot="programming-language-python"
 <!--- Replace with the following when Node.js v4 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
-::: zone-end 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
+::: zone-end
 
 ## Examples
 
@@ -334,6 +334,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 }
 
 ```
+
 ### [Model v4](#tab/node-v4)
 
 <!--- Replace with the following when Node.js v4 is supported:
@@ -515,7 +516,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 | function.json property    | Description                                                                                                                                               | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| :-----:| -----:|
-| `type`                    | Trigger type. For the pub sub trigger, this is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
+| `type`                    | Trigger type. For the pub sub trigger, the type is `redisPubSubTrigger`.                                                                                       |  Yes   |     |
 | `connectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`) |  Yes   |     |
 | `channel`                 | Name of the pub sub channel that is being subscribed to                                                                                                    |  Yes   |     |
 | `name`                    | Name of the variable holding the value returned by the function.                                                                                          |  Yes   |     |
@@ -536,7 +537,7 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 - The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
 - Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
 - The `RedisPubSubTrigger` isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
-- Functions with the `RedisPubSubTrigger` shouldn't be scaled out to multiple instances. Each instance listens and processes each pub sub message, resulting in duplicate processing
+- Functions with the `RedisPubSubTrigger` shouldn't be scaled out to multiple instances. Each instance listens and processes each pub sub message, resulting in duplicate processing.
 
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
@@ -566,6 +567,7 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 | `Custom`| The trigger uses Json.NET serialization to map the message from the channel into the given custom type. |
 
 JSON string format
+
 ```json
 {
   "SubscriptionChannel":"__keyspace@0__:*",

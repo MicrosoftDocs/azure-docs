@@ -1,6 +1,6 @@
 ---
 title: RedisStreamTrigger for Azure Functions (preview)
-description: Learn how to use RedisStreamTrigger Azure Function
+description: Learn how to use RedisStreamTrigger Azure Function for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 01/22/2024
+ms.date: 02/27/2024
 ---
 
 # RedisStreamTrigger for Azure Functions (preview)
@@ -269,8 +269,8 @@ From `function.json`, here's the binding data:
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
 | `key`                     | Key to read from.                                                                                                                                        | Yes      |         |
 | `pollingIntervalInMs`     | How frequently to poll Redis, in milliseconds.                                                                                                           | Optional | `1000`  |
-| `messagesPerWorker`       | The number of messages each functions worker should process. It's used to determine how many workers the function should scale to                       | Optional | `100`   |
-| `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
+| `messagesPerWorker`       | The number of messages each functions worker should process. It's used to determine how many workers the function should scale to.                       | Optional | `100`   |
+| `count`                   | Number of entries to read from Redis at one time. Entries are processed in parallel.                                                                       | Optional | `10`    |
 | `deleteAfterProcess`      | Whether to delete the stream entries after the function has run.                                                                                         | Optional | `false` |
 
 ::: zone-end
@@ -302,9 +302,9 @@ The `RedisStreamTrigger` Azure Function reads new entries from a stream and surf
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
-The consumer group for all instances of a function is the the name of the function, that is, `SimpleStreamTrigger` for the [StreamTrigger sample](https://github.com/Azure/azure-functions-redis-extension/blob/main/samples/dotnet/RedisStreamTrigger/SimpleStreamTrigger.cs).
+The consumer group for all instances of a function is the name of the function, that is, `SimpleStreamTrigger` for the [StreamTrigger sample](https://github.com/Azure/azure-functions-redis-extension/blob/main/samples/dotnet/RedisStreamTrigger/SimpleStreamTrigger.cs).
 
-Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function do not read the same messages from the stream.
+Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
 ::: zone pivot="programming-language-csharp"
 

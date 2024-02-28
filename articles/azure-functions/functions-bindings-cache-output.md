@@ -1,16 +1,16 @@
 ---
-title: Using Redis Output Azure Functions for Azure Cache for Redis (preview)
-description: Learn how to use Redis an output Azure Functions 
+title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis (preview)
+description: Learn how to use Redis output binding on an Azure Functions. 
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 02/27/2024
 ---
 
-# Azure Cache for Redis output binding for Azure Functions
+# Azure Cache for Redis output binding for Azure Functions (preview)
 
 The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
@@ -308,7 +308,7 @@ See the [Example section](#example) for complete examples.
 
 The output returns a string, which is the key of the cache entry on which apply the specific command. 
 
-There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache. In the `appsettings`, this is how to configure each of the following types of client authentication, assuming the Connection was set to "Redis" in the function.
+There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
 ### Connection string
 

@@ -1,6 +1,6 @@
 ---
 title: RedisListTrigger for Azure Functions (preview)
-description: Learn how to use RedisListTrigger Azure Functions
+description: Learn how to use the RedisListTrigger Azure Functions for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 01/22/2024
+ms.date: 02/27/2024
 ---
 
 # RedisListTrigger for Azure Functions (preview)
@@ -33,12 +33,12 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 -->
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
-::: zone pivot="programming-language-python"   
+::: zone pivot="programming-language-python"
 <!--- Replace with the following when Python v2  is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
-::: zone-end 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
+::: zone-end
 
 ## Example
 
@@ -258,7 +258,7 @@ From `function.json`, here's the binding data:
 | `Key`                     | Key to read from. This field can be resolved using `INameResolver`.                                                                                                                                                                   | Yes      |         |
 | `PollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                                                                                              | Optional | `1000`  |
 | `MessagesPerWorker`       | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                                                                                          | Optional | `100`   |
-| `Count`                   | Number of entries to pop from Redis at one time. These are processed in parallel. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/). | Optional | `10`    |
+| `Count`                   | Number of entries to pop from Redis at one time. Entries are processed in parallel. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/). | Optional | `10`    |
 | `ListPopFromBeginning`    | Determines whether to pop entries from the beginning using [`LPOP`](https://redis.io/commands/lpop/), or to pop entries from the end using [`RPOP`](https://redis.io/commands/rpop/).                                                 | Optional | `true`  |
 
 ::: zone-end
@@ -291,7 +291,7 @@ The following table explains the binding configuration properties that you set i
 | `key`                  | This field can be resolved using `INameResolver`.                                                                                                           | No       |         |
 | `pollingIntervalInMs`  | How often to poll Redis in milliseconds.                                                                                                                    | Yes      | `1000`  |
 | `messagesPerWorker`    | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                | Yes      | `100`   |
-| `count`                | Number of entries to read from the cache at one time. These are processed in parallel.                                                                      | Yes      | `10`    |
+| `count`                | Number of entries to read from the cache at one time. Entries are processed in parallel.                                                                      | Yes      | `10`    |
 | `name`                 | ?                                                                                                                                                           | Yes      |         |
 | `direction`            | Set to `in`.                                                                                                                                                | No       |         |
 

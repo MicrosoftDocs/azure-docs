@@ -6,11 +6,11 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 01/26/2024
+ms.date: 02/27/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Cache for Redis input binding for Azure Functions
+# Azure Cache for Redis input binding for Azure Functions (preview)
 
 When a function runs, the Azure Cache for Redis input binding retrieves data from a cache and passes it to your function as an input parameter.
 
