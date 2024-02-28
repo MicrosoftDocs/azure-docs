@@ -20,14 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| |[New OT appliance hardware profile](#new-ot-appliance-hardware-profile)|
-| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) |
-
-### New OT appliance hardware profile
-
-The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
-
-For more information, see [DELL XE4 SFF](dell-xe3-sff.md)
+| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>[New OT appliance hardware profile](#new-ot-appliance-hardware-profile)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -77,9 +70,15 @@ To migrate from the L60 profile to a supported profile follow the [Back up and r
 
 ### New license renewal reminder in the Azure portal
 
-When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md). 
+When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md).
 
 :::image type="content" source="media/whats-new/license-renewal-note.png" alt-text="Screenshot of the license renewal reminder note." lightbox="media/whats-new/license-renewal-note.png":::
+
+### New OT appliance hardware profile
+
+The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
+
+For more information, see [DELL XE4 SFF](appliance-catalog/dell-xe4-sff.md)
 
 ## January 2024
 
