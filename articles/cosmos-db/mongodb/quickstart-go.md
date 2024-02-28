@@ -22,7 +22,7 @@ ms.custom: mode-api, devx-track-azurecli, devx-track-go
 > * [Go](quickstart-go.md)
 >  
 
-Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
+Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell. Then you clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
 
 The sample application is a command-line based `todo` management tool written in Go. Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](./introduction.md), making it possible for any MongoDB client driver to connect to it. This application uses the [Go driver for MongoDB](https://github.com/mongodb/mongo-go-driver) in a way that is transparent to the application that the data is stored in an Azure Cosmos DB database.
 
@@ -69,7 +69,7 @@ The following snippets are all taken from the `todo.go` file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it's a fail-fast strategy)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -194,7 +194,7 @@ func update(todoid, newStatus string) {
 
 ### Delete a `todo`
 
-A `todo` is deleted based on its `_id` and it is encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
+A `todo` is deleted based on its `_id` and it's encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
 
 ```go
 func delete(todoid string) {
@@ -231,9 +231,9 @@ To confirm that the application was built properly.
 
 ### Sign in to Azure
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
+If you choose to install and use the CLI locally, this topic requires that you're running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
 
-If you are using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -241,13 +241,13 @@ az login
    
 ### Add the Azure Cosmos DB module
 
-If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
 
 If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 
-Create a [resource group](../../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -261,7 +261,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
-In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
+In the following command, substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name is used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -396,7 +396,7 @@ List only the completed `todo`s
 ./todo --list completed
 ```
 
-You should see the one you just updated
+You should see the one you updated.
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -411,14 +411,14 @@ You should see the one you just updated
 
 Data stored in Azure Cosmos DB is available to view and query in the Azure portal.
 
-To view, query, and work with the user data created in the previous step, login to the [Azure portal](https://portal.azure.com) in your web browser.
+To view, query, and work with the user data created in the previous step, log in to the [Azure portal](https://portal.azure.com) in your web browser.
 
 In the top Search box, enter **Azure Cosmos DB**. When your Azure Cosmos DB account blade opens, select your Azure Cosmos DB account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
 :::image type="content" source="./media/quickstart-go/go-cosmos-db-data-explorer.png" alt-text="Data Explorer showing the newly created document":::
 
 
-Delete a `todo` using it's ID
+Delete a `todo` using its ID
 
 ```bash
 ./todo --delete 5e9fd6b1bcd2fa6bd267d4c4,completed
@@ -430,7 +430,7 @@ List the `todo`s to confirm
 ./todo --list all
 ```
 
-The `todo` you just deleted should not be present
+The `todo` you deleted should not be present
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -447,7 +447,7 @@ The `todo` you just deleted should not be present
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account using the Azure Cloud Shell, and create and run a Go command-line app to manage `todo`s. You can now import additional data to your Azure Cosmos DB account.
+In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account using the Azure Cloud Shell, and create and run a Go command-line app to manage `todo`s. You can now import more data to your Azure Cosmos DB account.
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
