@@ -166,7 +166,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, href | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
+    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
     |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |

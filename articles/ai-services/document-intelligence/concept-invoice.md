@@ -1,14 +1,14 @@
 ---
 title: Invoice data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate invoice data extraction with Document Intelligence's invoice model to extract accounts payable data including invoice line items.
+description: Automate invoice data extraction with Document Intelligence's invoice model.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/29/2024
 ms.author: lajanuar
 ---
 
@@ -111,9 +111,9 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* Supported file formats: JPEG, PNG, PDF, and TIFF.
+* Supported PDF and TIFF, up to 2,000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* Supported file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
@@ -121,7 +121,7 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
@@ -129,7 +129,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-1. On the Document Intelligence Studio home page, select **Invoices**
+1. On the Document Intelligence Studio home page, select **Invoices**.
 
 1. You can analyze the sample invoice or upload your own files.
 
@@ -173,7 +173,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
-1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted, and tables detected.
 
     :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of layout model analyze results operation.":::
 
@@ -223,11 +223,11 @@ See how data, including customer information, vendor details, and line items, is
 | KVKNumber(NL-only) | String | A unique identifier for businesses registered in the Netherlands|12345678|
 | PaymentDetails | Array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPay(AU)` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
-| TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale|  | 
+| TaxItems (Only supported in: en-IN, en-CA, de, es, pt) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale|  |
 
 ### Line items
 
-Following are the line items extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg))
+Following are the line items extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg):
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -252,7 +252,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By default, the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. Key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -269,20 +269,20 @@ The Invoice service extracts the text, tables, and 26 invoice fields. Following 
 | InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |
 | InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
-| VendorName | string | Vendor that created the invoice | CONTOSO LTD. | |
+| VendorName | string | Vendor that created the invoice | CONTOSO | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
-| CustomerAddress | string | Mailing address for the Customer | 123 Other Street, Redmond WA, 98052 | |
+| CustomerAddress | string | Mailing address for the Customer | 123 Other Street, Redmond, Washington, 98052 | |
 | CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp | |
-| BillingAddress | string | Explicit billing address for the customer | 123 Bill Street, Redmond WA, 98052 | |
+| BillingAddress | string | Explicit billing address for the customer | 123 Bill Street, Redmond, Washington, 98052 | |
 | BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
-| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship Street, Redmond WA, 98052 | |
+| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship Street, Redmond, Washington, 98052 | |
 | ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
 | Sub&#8203;Total | number | Subtotal field identified on this invoice | $100.00 | 100 |
 | TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
 | InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
 | AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
-| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service Street, Redmond WA, 98052 | |
+| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service Street, Redmond, Washington, 98052 | |
 | ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services | |
 | RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |  |
 | RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |  |
@@ -290,7 +290,7 @@ The Invoice service extracts the text, tables, and 26 invoice fields. Following 
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
-Following are the line items extracted from an invoice in the JSON output response (the following output uses this [sample invoice](./media/sample-invoice.jpg))
+The following are the line items extracted from an invoice in the JSON output response and uses this [sample invoice](./media/sample-invoice.jpg):
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -322,7 +322,7 @@ The JSON output has three parts:
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -330,7 +330,7 @@ The JSON output has three parts:
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

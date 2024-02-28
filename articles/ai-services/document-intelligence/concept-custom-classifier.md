@@ -98,7 +98,7 @@ Classification models can now be trained on documents of different languages. Se
 
 Supported file formats:
 
-|Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, href| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
+|Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, heif| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
 |--------|:----:|:-----:|:---------------:|
 |Read            | ✔    | ✔    | ✔  |
 |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |

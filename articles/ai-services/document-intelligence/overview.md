@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 02/21/2024
+ms.date: 02/29/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -106,12 +106,34 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
+      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
+    [**1003  EULA**](#invoice) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
+    [**Form 1008**](#receipt) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
+    [**Closing Disclosure**](#identity-id) | Extract mortgage details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Credit/Debit card**](#contract-model) | Extract information from bank cards.
+   :::column-end:::
+       :::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Marriage Certificate**](#contract-model) | Extract information from Marriage certificates.
    :::column-end:::
 :::row-end:::
 :::row:::

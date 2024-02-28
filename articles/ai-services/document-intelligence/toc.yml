@@ -176,9 +176,21 @@ items:
   - name: 🆕 Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
-  - name: 🆕 Retrieval-Augmentated Generation (RAG)
+  - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
+  - name: 🆕 Batch document analysis
+    displayName: documents
+    href: concept-batch-analysis.md
+  - name: 🆕 Credit card model
+    displayName: debit
+    href: concept-credit-debit-card-md
+  - name: 🆕 US mortgage documents
+    displayName: 1003, 1008, closing, disclosure
+    href: concept-mortgage.md
+  - name: 🆕 Marriage certificate model
+    displayName: license
+    href: concept-marriage-certificate
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
