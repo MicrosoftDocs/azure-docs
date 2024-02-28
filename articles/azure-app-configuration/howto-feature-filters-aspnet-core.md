@@ -40,7 +40,7 @@ services.AddFeatureManagement();
 ```
 
 > [!TIP]
-> You can create your own feature filters that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. The feature filters can be registered by calling the `AddFeatureFilter` method. For built-in feature filters, calling `AddFeatureFilter` is no longer needed since `Microsoft.FeatureManagement` 3.0.0.
+> You can create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. The feature filter can be registered by calling the `AddFeatureFilter` method. For built-in feature filters, calling `AddFeatureFilter` is no longer needed since `Microsoft.FeatureManagement` 3.0.0.
 >
 > ```csharp
 > services.AddFeatureManagement()
