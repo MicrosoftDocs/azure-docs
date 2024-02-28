@@ -55,12 +55,12 @@ You can also subscribe to `recordingsUpdated` and get a collection of updated re
 const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
                         console.log('Recording started by: ');
                         args.added?.forEach(a => {
-                            console.log('User: ${a.state}');
+                            console.log('State: ${a.state}');
                         });
 
                         console.log('Recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('User: ${r.state}');
+                            console.log('State: ${r.state}');
                         });
                     };
 callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
