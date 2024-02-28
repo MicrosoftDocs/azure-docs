@@ -419,9 +419,9 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
-    - name: Azure Maps REST API
+    - name: Maps REST API
       href: rest-api-azure-maps.md
-    - name: Azure Maps Creator REST API
+    - name: Maps Creator REST API
       href: rest-api-creator.md
     - name: Maps account management
       href: /rest/api/maps-management/
