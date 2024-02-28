@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 02/27/2024
 ---
 
-| Operating system | Dependency agent |
+| Operating system | Azure VM Dependency agent |
 |:---|:---:|
 | Windows Server 2022                                      | ✓ |
 | Windows Server 2022 Core                                 | ✓ |
