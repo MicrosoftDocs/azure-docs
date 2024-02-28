@@ -1,51 +1,19 @@
 ---
 title: Deploy a DHCP server in Azure on a virtual machine
 titleSuffix: Azure Virtual Network
-description: "[Article description]."
-author: [your GitHub alias]
-ms.author: [your Microsoft alias or a team alias]
-ms.service: [the approved service name]
-ms.topic: how-to #Don't change
-ms.date: [mm/dd/yyyy]
+description: Learn about how to deploy a DHCP server in Azure on a virtual machine as a target for an on-premises DHCP relay agent.
+author: asudbring
+ms.author: allensu
+ms.service: virtual-network
+ms.topic: how-to
+ms.date: 02/28/2024
 
-#customer intent: As a <role>, I want <what> so that <why>.
+#customer intent: As a Network Administrator, I want to deploy a highly available DHCP server in Azure so that I can provide DHCP services to my on-premises network.
 
 ---
 
-<!-- --------------------------------------
+# Deploy a DHCP server in Azure on a virtual machine
 
-- Use this template with pattern instructions for:
-
-How To
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
-# "[verb] * [noun]"
-
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the task the article covers.
-
--->
 
 ## Prerequisites
 
