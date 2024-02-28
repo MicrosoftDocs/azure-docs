@@ -9,7 +9,7 @@ ms.author: cwatson
 
 # Remove Microsoft Sentinel from your workspace
 
-If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your Log Analytics workspace. 
+If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your Log Analytics workspace. Review the implications of removing Microsoft Sentinel before you complete these steps.
 
 ## Remove Microsoft Sentinel
 
@@ -34,7 +34,7 @@ Complete the following steps to remove Microsoft Sentinel from your Log Analytic
 ## Consider pricing changes
 When Microsoft Sentinel is removed from a workspace, there might still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboarding behavior](enroll-simplified-pricing-tier.md#offboarding-behavior).
 
-## Review implications of removing Microsoft Sentinel
+## Review implications
 
 When you remove the Microsoft Sentinel from the workspace, it takes up to 48 hours to complete the first phase of the deletion process. Data connector configuration and Microsoft sentinel tables are deleted.
 
