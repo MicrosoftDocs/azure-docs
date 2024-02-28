@@ -69,7 +69,7 @@ Keep the following items in mind as you develop your Java applications:
 
 - **Buildpack support issues**: If your Buildpack doesn't support dependencies or the version of Java you require, create your own Dockerfile to deploy your app. You can view a [sample Dockerfile](https://github.com/Azure-Samples/containerapps-albumapi-java/blob/main/Dockerfile) for reference.
 
-- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn’t pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, and your application terminates unexpectedly, you may lose these signals unless you persist them to storage.
+- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn’t pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, and your application terminates unexpectedly, you might lose these signals unless you persist them to storage.
 
 - **Access to container images**: If you use artifact or source code deployment in combination with the default registry, you don't have direct access to your container images.
 
