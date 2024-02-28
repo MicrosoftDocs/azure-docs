@@ -141,7 +141,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   
   ```json
   "extensions": {
-        "serviceBus": {
+    "serviceBus": {
         "maxMessageBatchSize": 25
     }
     }
