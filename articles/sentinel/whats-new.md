@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 02/28/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -23,10 +23,32 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+
+- [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
 - [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+
+### Microsoft Sentinel solution for Microsoft Power Platform preview available
+
+The Microsoft Sentinel solution for Power Platform (preview) allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following activities:
+
+- Power Apps execution from unauthorized geographies
+- Suspicious data destruction by Power Apps
+- Mass deletion of Power Apps
+- Phishing attacks made possible through Power Apps
+- Power Automate flows activity by departing employees
+- Microsoft Power Platform connectors added to the environment
+- Update or removal of Microsoft Power Platform data loss prevention policies
+
+Find this solution in the Microsoft Sentinel content hub.
+
+For more information, see:
+- [Microsoft Sentinel solution for Microsoft Power Platform overview](business-applications/power-platform-solution-overview.md)
+- [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](business-applications/power-platform-solution-security-content.md)
+- [Deploy the Microsoft Sentinel solution for Microsoft Power Platform](business-applications/deploy-power-platform-solution.md)
 
 ### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
 
@@ -37,6 +59,7 @@ The Google Cloud Platform (GCP) Security Command Center is a robust security and
 The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
 
 - Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
+
 
 ### Incident tasks now generally available (GA)
 
