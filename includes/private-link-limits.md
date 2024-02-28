@@ -27,4 +27,4 @@ ms.custom: include file
 |Number of key vaults with private endpoints per subscription | 400 |
 |Number of private DNS zone groups that can be linked to a private endpoint | 1 |
 |Number of DNS zones in each group | 5 |
-
+|Number of private IP addresses on private endpoint network interface     |  500   |

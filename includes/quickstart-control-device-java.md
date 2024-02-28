@@ -5,7 +5,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: include
-ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
+ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli
 ms.date: 01/31/2023
 ---
 

@@ -6,7 +6,6 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.custom: seo-lt-2019
 ms.date: 07/20/2023
 ---
 

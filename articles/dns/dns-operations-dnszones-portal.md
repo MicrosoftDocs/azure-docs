@@ -5,7 +5,6 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 11/30/2023
 ms.author: greglin
 ---

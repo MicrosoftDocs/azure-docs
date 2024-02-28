@@ -4,7 +4,7 @@ description: Learn how to calculate overall equipment and effectiveness and powe
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 12/18/2023
+ms.date: 02/01/2024
 
 #CustomerIntent: As an OT, I want to configure my Azure IoT Operations deployment to calculate overall equipment effectiveness and power consumption for my manufacturing process.
 ---
@@ -265,7 +265,7 @@ To create the _production-data-reference_ pipeline that ingests the data from th
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
-    | Name                       | `HTTP Endpoint - prod`                        |
+    | Name                       | `HTTP Endpoint - production data`             |
     | Method                     | `GET`                                         |
     | URL                        | `http://callout-svc-http:3333/productionData` |
     | Authentication             | `None`                                        |
@@ -273,13 +273,15 @@ To create the _production-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
-    Select **Apply**. 
+    Select **Apply**.
 
 1. Select **Add stages** and then select **Delete** to delete the middle stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
+
+1. Name the stage _Reference dataset - production-data_.
 
 1. Select **production-data** in the **Dataset** field, and select **Apply**.
 
@@ -318,7 +320,7 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
-    | Name                       | `HTTP Endpoint - operator`                    |
+    | Name                       | `HTTP Endpoint - operations data`             |
     | Method                     | `GET`                                         |
     | URL                        | `http://callout-svc-http:3333/operatorData`   |
     | Authentication             | `None`                                        |
@@ -326,13 +328,15 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
-    Select **Apply**. 
+    Select **Apply**.
 
 1. Select **Add stages** and then select **Delete** to delete the middle stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
+
+1. Name the stage _Reference dataset - operations-data_.
 
 1. Select **operations-data** in the **Dataset** field, select **Apply**.
 
@@ -357,13 +361,14 @@ To create the _oee-process-pipeline_ pipeline:
   
     | Field           | Value                              |
     |-----------------|------------------------------------|
+    | Name            | `MQ - Contoso/#`                   |
     | Broker          | `tls://aio-mq-dmqtt-frontend:8883` |
     | Topic           | `Contoso/#`                        |
     | Data format     | `JSON`                             |
 
     Select **Apply**. The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQ broker.
 
-1. Use the **Stages** list on the left to add a **Transform** stage after the source stage with the following JQ expressions. This transform creates a flat, readable view of the message and extracts the `Line` and `Site` information from the topic:
+1. Use the **Stages** list on the left to add a **Transform** stage after the source stage. Name the stage _Transform - flatten message_ and add the following JQ expressions. This transform creates a flat, readable view of the message and extracts the `Line` and `Site` information from the topic:
 
     ```jq
     .payload[0].Payload |= with_entries(.value |= .Value) |
@@ -383,7 +388,7 @@ To create the _oee-process-pipeline_ pipeline:
 
     Select **Apply**.
 
-1. Use the **Stages** list on the left to add an **Aggregate** stage after the transform stage and select it. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage and paste in the following configuration: <!-- TODO: Need to double check this - can we avoid error associated with "next"? -->
+1. Use the **Stages** list on the left to add an **Aggregate** stage after the transform stage and select it. Name the stage _Aggregate - down sample measurements_. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage and paste in the following configuration:
 
     ```json
     {
@@ -491,44 +496,46 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Use the **Stages** list on the left to add a **Call out HTTP** stage after the aggregate stage and select it. This HTTP call out stage calls a custom module running in the Kubernetes cluster that exposes an HTTP API. The module calculates the shift based on the current time. To configure the stage, select **Add condition** and enter the information from the following table:
 
-    | Field           | Value                            |
-    |-----------------|----------------------------------|
-    | Name            | Call out HTTP - Shift            |
-    | Method          | POST                             |
-    | URL             | http://shift-svc-http:3333       |
-    | Authentication  | None                             |
-    | API Request - Data format  | JSON                  |
-    | API Request - Path         | .payload              |
-    | API Response - Data format | JSON                  |
-    | API Response - Path        | .payload              |
+    | Field           | Value                              |
+    |-----------------|------------------------------------|
+    | Name            | `Call out HTTP - Fetch shift data` |
+    | Method          | `POST`                             |
+    | URL             | `http://shift-svc-http:3333`       |
+    | Authentication  | `None`                             |
+    | API Request - Data format  | `JSON`                  |
+    | API Request - Path         | `.payload`              |
+    | API Response - Data format | `JSON`                  |
+    | API Response - Path        | `.payload`              |
 
     Select **Apply**.
 
 1. Use the **Stages** list on the left to add an **Enrich** stage after the HTTP call out stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the _operations-data_ dataset. This stage uses a condition to determine when to add the operations data. Open the **Add condition** options and add the following information:
 
-    | Field           | Value                            |
-    |-----------------|----------------------------------|
-    | Dataset         | operations-data                  |
-    | Output path     | .payload.operatorData            |
-    | Input path      | .payload.shift                   |
-    | Property        | Shift                            |
-    | Operator        | Key match                        |
+    | Field           | Value                              |
+    |-----------------|------------------------------------|
+    | Name            | `Enrich - Operations data`         |
+    | Dataset         | `operations-data`                  |
+    | Output path     | `.payload.operatorData`            |
+    | Input path      | `.payload.shift`                   |
+    | Property        | `Shift`                            |
+    | Operator        | `Key match`                        |
 
     Select **Apply**.
 
 1. Use the **Stages** list on the left to add another **Enrich** stage after the first enrich stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the _production-data_ dataset. Open the **Add condition** options and add the following information:
 
-    | Field           | Value                            |
-    |-----------------|----------------------------------|
-    | Dataset         | production-data                  |
-    | Output path     | .payload.productionData          |
-    | Input path      | .payload.Line                    |
-    | Property        | Line                             |
-    | Operator        | Key match                        |
+    | Field           | Value                              |
+    |-----------------|------------------------------------|
+    | Name            | `Enrich - Production data`         |
+    | Dataset         | `production-data`                  |
+    | Output path     | `.payload.productionData`          |
+    | Input path      | `.payload.Line`                    |
+    | Property        | `Line`                             |
+    | Operator        | `Key match`                        |
 
     Select **Apply**.
 
-1. Use the **Stages** list on the left to add another **Transform** stage after the enrich stage and select it. Add the following JQ expressions:
+1. Use the **Stages** list on the left to add another **Transform** stage after the enrich stage and select it. Name the stage _Transform - flatten enrichment data_. Add the following JQ expressions:
 
     ```json
     .payload |= . + .operatorData |
@@ -541,12 +548,13 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Use the **Destinations** tab on the left to select **MQ** for the output stage, and select the stage. Add the following configuration:
 
-    | Field       | Value                            |
-    |-------------|----------------------------------|
-    | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
-    | Topic       | Oee-processed-output             |
-    | Data format | JSON                             |
-    | Path        | .payload                         |
+    | Field       | Value                              |
+    |-------------|------------------------------------|
+    | Name        | `MQ - Oee-processed-output`        |
+    | Broker      | `tls://aio-mq-dmqtt-frontend:8883` |
+    | Topic       | `Oee-processed-output`             |
+    | Data format | `JSON`                             |
+    | Path        | `.payload`                         |
 
     Select **Apply**.
 
@@ -608,14 +616,16 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
+1. Select the title of the pipeline on the top left corner, rename it to _oee-fabric_, and **Apply** the change.
+
 1. In the pipeline diagram, select **Configure source** and then select **MQ**. Use the information from the following table to configure it:
 
-    | Field       | Value                            |
-    |-------------|----------------------------------|
-    | Name        | processed-oee-data               |
-    | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
-    | Topic       | Oee-processed-output             |
-    | Data Format | JSON                             |
+    | Field       | Value                              |
+    |-------------|------------------------------------|
+    | Name        | `MQ - Oee-processed-output`        |
+    | Broker      | `tls://aio-mq-dmqtt-frontend:8883` |
+    | Topic       | `Oee-processed-output`             |
+    | Data Format | `JSON`                             |
 
     Select **Apply**.
 
@@ -627,7 +637,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
     ```json
     {
-      "displayName": "Node - 26cdc2",
+      "displayName": "Fabric Lakehouse - OEE table",
       "type": "output/fabric@v1",
       "viewOptions": {
         "position": {
@@ -755,7 +765,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
     Select **Apply**.
 
-1. Save the pipeline as **oee-fabric**.
+1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 
 ## View your measurement data in Microsoft Fabric
 

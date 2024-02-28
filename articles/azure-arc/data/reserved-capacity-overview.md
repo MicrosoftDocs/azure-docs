@@ -1,18 +1,17 @@
 ---
 title: Save costs with reserved capacity
-description: Learn how to buy SQL Server Managed Instance enabled by Azure Arc reserved capacity to save costs.
+description: Learn how to buy SQL Managed Instance enabled by Azure Arc reserved capacity to save costs.
 services: sql-database
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-author: anosov1960 
+author: anosov1960
 ms.author: sashan
 ms.reviewer: mikeray
 ms.date: 10/27/2021
 ---
 
-# Reserved capacity - SQL Server Managed Instance enabled by Azure Arc
+# Reserved capacity - SQL Managed Instance enabled by Azure Arc
 
 Save money with SQL Managed Instance enabled by Azure Arc by committing to a reservation for Azure Arc services compared to pay-as-you-go prices. With reserved capacity, you make a commitment for SQL Managed Instance enabled by Azure Arc use for one or three years to get a significant discount on the service fee. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 

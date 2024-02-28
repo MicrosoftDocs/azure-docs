@@ -1,7 +1,7 @@
 ---
 title: "GitOps (Flux v2) supported parameters"
 description: "Understand the supported parameters for GitOps (Flux v2) in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 12/11/2023
+ms.date: 02/08/2024
 ms.topic: conceptual
 ---
 
@@ -23,11 +23,11 @@ This article describes some of the parameters and arguments available for the `a
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--cluster-name` `-c` | String | Name of the cluster resource in Azure. |
-| `--cluster-type` `-t` | Allowed values: `connectedClusters`, `managedClusters`, `provisionedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters, `managedClusters` for AKS clusters, or `provisionedClusters` for [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) (installing extensions on these clusters is currently in preview). |
+| `--cluster-type` `-t` | Allowed values: `connectedClusters`, `managedClusters`| Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters or `managedClusters` for AKS clusters. |
 | `--resource-group` `-g` | String | Name of the Azure resource group that holds the cluster resource. |
 | `--name` `-n`| String | Name of the Flux configuration in Azure. |
 | `--namespace` `--ns` | String | Name of the namespace to deploy the configuration.  Default: `default`. |
-| `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`.
+| `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`. |
 | `--suspend` | flag | Suspends all source and kustomize reconciliations defined in this Flux configuration. Reconciliations active at the time of suspension will continue.  |
 
 ## Source general arguments

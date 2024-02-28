@@ -6,7 +6,7 @@ ms.service: backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 04/26/2023
+ms.date: 02/27/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -120,7 +120,7 @@ To stop the Backup Extension install operation, use the following command:
 To provide *Storage Account Contributor Permission* to the Extension Identity on storage account, run the following command:
 
    ```azurecli-interactive
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name <aksclustername> --resource-group <aksclusterrg> --cluster-type managedClusters --query identity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/<subscriptionid>/resourceGroups/<storageaccountrg>/providers/Microsoft.Storage/storageAccounts/<storageaccountname> 
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name <aksclustername> --resource-group <aksclusterrg> --cluster-type managedClusters --query identity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/<subscriptionid>/resourceGroups/<storageaccountrg>/providers/Microsoft.Storage/storageAccounts/<storageaccountname> 
    ```
 
 
@@ -133,7 +133,7 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
    -g <aksclusterrg> \
    --cluster-name <aksclustername> \
    -n <randomRoleBindingName> \
-   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> -v <VaultName> --query id -o tsv) \
+   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> --vault <VaultName> --query id -o tsv) \
    --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 

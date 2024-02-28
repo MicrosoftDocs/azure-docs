@@ -1514,6 +1514,8 @@ items:
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
+      - name: Access ADLSg2 from Azure ML
+        href: ./machine-learning/access-data-from-aml.md 
     - name: Train a model
       items:
       - name: With Apache Spark MLlib

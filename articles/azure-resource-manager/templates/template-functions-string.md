@@ -3,7 +3,7 @@ title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 01/31/2024
 ---
 
 # String functions for ARM templates
@@ -358,7 +358,7 @@ The output from the preceding example with the default values is:
 
 `first(arg1)`
 
-Returns the first character of the string, or first element of the array.
+Returns the first character of the string, or first element of the array. If an empty string is given, the function results in an empty string. In the case of an empty array, the function returns `null`.
 
 In Bicep, use the [first](../bicep/bicep-functions-string.md#first) function.
 

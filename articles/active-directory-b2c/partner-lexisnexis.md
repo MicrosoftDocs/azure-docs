@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with LexisNexis ThreatMetrix. I want to configure the API and UI components, so I can verify user identities and perform risk analysis based on user attributes and device profiling information.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with LexisNexis ThreatMetrix. I want to configure the API and UI components, so I can verify user identities and perform risk analysis based on user attributes and device profiling information.
 
 ---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C

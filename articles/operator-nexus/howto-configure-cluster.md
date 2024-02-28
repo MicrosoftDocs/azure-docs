@@ -5,7 +5,7 @@ author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 02/08/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -240,6 +240,12 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
 ```
 
 The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
+
+View the management version of the cluster:
+
+```azurecli
+az k8s-extension list --cluster-name <cluster> --resource-group "$MANAGED_CLUSTER_RG" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
+```
 
 ## Cluster deployment Logging
 

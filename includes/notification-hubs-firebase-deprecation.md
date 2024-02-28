@@ -5,7 +5,7 @@ title: include file
  author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 01/25/2024
+ ms.date: 01/29/2024
  ms.author: sethm
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@ The core capabilities for the integration of Azure Notification Hubs with Fireba
 
 To help with this transition, we invite you to join our preview program and test the FCM v1 onboarding process for REST APIs in February 2024. The preview gives you early access to the new features and capabilities, as well as the opportunity to provide feedback and report any issues.
 
-If you are interested in joining the preview program, [contact us by email](mailto:nhtalk@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
+If you are interested in joining the preview program, [contact us by email](mailto:NotificationSvcsPM@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
 
 ## Concepts for FCM v1
 

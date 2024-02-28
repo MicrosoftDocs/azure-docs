@@ -1,10 +1,9 @@
 ---
 title: Requirements and considerations for Azure NetApp Files backup | Microsoft Docs
-description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files backup.  
+description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files backup.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/15/2023
 ms.author: anfdocs

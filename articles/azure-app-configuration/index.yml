@@ -68,7 +68,7 @@ landingContent:
           url: quickstart-azure-app-configuration-create.md
         - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
-        - text: Code a .NET Core app
+        - text: Code a .NET app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
@@ -90,7 +90,7 @@ landingContent:
           url: enable-dynamic-configuration-aspnet-core.md
         - text: Use dynamic config in ASP.NET (.NET Framework)
           url: enable-dynamic-configuration-aspnet-netfx.md
-        - text: Use dynamic config in .NET Core
+        - text: Use dynamic config in .NET
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework
           url: enable-dynamic-configuration-dotnet.md
@@ -100,7 +100,7 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
-        - text: Integrating dynamic config using the push model in .NET Core
+        - text: Integrating dynamic config using the push model in .NET
           url: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - text: Integrating dynamic config using the push model in Java Spring
           url: enable-dynamic-configuration-java-spring-push-refresh.md
@@ -136,7 +136,7 @@ landingContent:
         links:
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
-        - text: .NET Core app
+        - text: .NET app
           url: use-feature-flags-dotnet-core.md
         - text: .NET Framework app
           url: quickstart-feature-flag-dotnet.md
@@ -173,7 +173,7 @@ landingContent:
           url: /powershell/module/az.appconfiguration/
         - text: Terraform
           url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
-        - text: .NET Core provider
+        - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Spring Boot provider
           url: https://github.com/microsoft/spring-cloud-azure/tree/master/

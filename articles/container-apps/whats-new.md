@@ -67,6 +67,6 @@ This article lists significant updates and new features available in Azure Conta
 | ------- | ----------- |
 | [Generally Available: Inbound IP restrictions](./ingress-overview.md#ip-restrictions) | Enables container apps to restrict inbound HTTP or TCP traffic by allowing or denying access to a specific list of IP address ranges. | 
 | [Generally Available: TCP support](./ingress-overview.md#tcp) | Azure Container Apps now supports using TCP-based protocols other than HTTP or HTTPS for ingress. | 
-| [Generally Available: Github Actions for Azure Container Apps](./github-actions.md) | Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. |
+| [Generally Available: GitHub Actions for Azure Container Apps](./github-actions.md) | Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. |
 | [Generally Available: Azure Pipelines for Azure Container Apps](./azure-pipelines.md) | Azure Container Apps allows you to use Azure Pipelines to publish revisions to your container app. |
 | [Dapr: Easy component creation](./dapr-component-connection.md) | You can now configure and secure dependent Azure services to use Dapr APIs in the portal using the Service Connector feature. Learn how to [connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md). |

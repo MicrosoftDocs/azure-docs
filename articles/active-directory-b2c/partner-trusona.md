@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
+# Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
