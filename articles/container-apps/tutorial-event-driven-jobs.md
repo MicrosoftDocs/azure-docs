@@ -117,9 +117,6 @@ To deploy the job, you must first build a container image for the job and push i
         --environment "$ENVIRONMENT" \
         --trigger-type "Event" \
         --replica-timeout "1800" \
-        --replica-retry-limit "1" \
-        --replica-completion-count "1" \
-        --parallelism "1" \
         --min-executions "0" \
         --max-executions "10" \
         --polling-interval "60" \
@@ -140,9 +137,6 @@ To deploy the job, you must first build a container image for the job and push i
     | Parameter | Description |
     | --- | --- |
     | `--replica-timeout` | The maximum duration a replica can execute. |
-    | `--replica-retry-limit` | The number of times to retry a replica. |
-    | `--replica-completion-count` | The number of replicas to complete successfully before a job execution is considered successful. |
-    | `--parallelism` | The number of replicas to start per job execution. |
     | `--min-executions` | The minimum number of job executions to run per polling interval. |
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
