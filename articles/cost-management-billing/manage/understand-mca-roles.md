@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 02/26/2024
 ms.author: banders
 ---
 
@@ -43,6 +43,10 @@ The following table describes the billing roles you use to manage your billing a
 A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. Roles on the billing account have the highest level of permissions and users in these roles get visibility into the cost and billing information for your entire account. Assign these roles only to users that need to view invoices, and track costs for your entire account like member of the finance and the accounting teams. For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
+
+>[!NOTE]
+> The Global Administrator role is above the Billing Account Administrator. Global Administrators in a Microsoft Entra ID tenant can add or remove themselves as Billing Account Administrators at any time to the Microsoft Customer Agreement. For more information about elevating access, see [Elevate access to manage billing accounts](elevate-access-global-admin.md).
+
 
 ### Manage billing account permissions and properties
 

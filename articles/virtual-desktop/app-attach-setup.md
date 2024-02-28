@@ -18,9 +18,6 @@ ms.date: 12/08/2023
 > [!TIP]
 > A new version of app attach for Azure Virtual Desktop is available in preview. Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
 
-> [!NOTE]
-> App attach (preview) is gradually rolling out and you might not have access to it yet. If you don't have access, check back later. MSIX app attach is generally available.
-
 ::: zone pivot="app-attach"
 App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, enabling you to create fewer custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session.
 ::: zone-end
