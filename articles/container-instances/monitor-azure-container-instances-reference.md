@@ -97,9 +97,9 @@ The following *_CL* tables represent the legacy Log Analytics integration. Users
 |_ResourceId|string|A unique identifier for the resource that the record is associated with|
 |_SubscriptionId|string|A unique identifier for the subscription that the record is associated with|
 
-### Azure Monitor diagnostic settings
+### Azure Monitor Log Analytics tables
 
-Diagnostic settings is in public preview through a feature flag in the Azure portal. The table names appear without *_CL*, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
+The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
 
 #### Container Instances
 Microsoft.ContainerInstance/containerGroups
