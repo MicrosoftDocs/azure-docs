@@ -55,7 +55,7 @@ When you create or use virtual machines resources, you might get charged for the
 - **Virtual machines** - You're charged for it based on the number of hours per VM.
     - The price also changes based on your [VM size](sizes.md).
     - The price also changes based on the region where your virtual machine is located.
-    - As virtual machine instances go through different states, they are [billed differently](states-billing.md).
+    - As virtual machine instances go through different states, they're [billed differently](states-billing.md).
 - **Storage** - You're charged for it based on the disk size in GB and the transactions per hour.
     - For more information about transactions, see the [transactions section of the Understanding billing page for storage](../storage/files/understanding-billing.md#what-are-transactions).
 - **Virtual network** - You're charged for it based on the number of GBs of data transferred.
@@ -97,7 +97,7 @@ After you delete virtual machines resources, the following resources might conti
 
 If your OS disk isn't deleted with your VM, it likely incurs [P10 disk costs](https://azure.microsoft.com/pricing/details/managed-disks/) even in a stopped state. The OS disk size is smaller by default for some images and incurs lower costs accordingly.
 
-For virtual networks, one virtual network is billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges.
+For virtual networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges.
 
 Bandwidth is charged by usage; the more data transferred, the more you're charged.
 

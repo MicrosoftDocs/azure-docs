@@ -2107,7 +2107,7 @@
   - name: Monitor costs
     href: ./cost-optimization-monitor-costs.md
   - name: Best practices
-    href: ./cost-optimizaton-best-practices.md
+    href: ./cost-optimization-best-practices.md
 - name: Resources
   items:
   - name: Cloud adoption framework
