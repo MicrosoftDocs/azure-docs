@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-## Add a cluster bubble layer
+# Add a cluster bubble layer
 
 Cluster bubble layers enable you to use enhanced data aggregation capabilities based on different zoom levels. Cluster bubble layers are designed to optimize the visualization and analysis of data by allowing dynamic adjustments to granularity as users zoom in or out on the map.
 
