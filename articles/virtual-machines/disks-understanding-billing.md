@@ -16,13 +16,11 @@ For detailed Azure Disk Storage pricing information, see [Azure Disks pricing pa
 
 Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-state drives (SSD) V2, Premium SSD, Standard SSD, and Standard hard-disk drives (HDDs). Most disk types have different factors that change their billing. Ultra Disks and Premium SSD v2 are priced based on the provisioned performance and capacity that you select. Premium SSD, Standard SSD, and Standard HDDs are priced based on the tier they're deployed as. All disk types are billed at an hourly rate. Other factors may impact billing as well, such as transactions or bursting.
 
+You can also take snapshots of your disks, which are reflected in your bill.
+
 ## Snapshots
 
-There are two kinds of snapshots offered for Azure managed disks: Full snapshots and incremental snapshots. Full snapshots can be stored on standard HDDs or premium SSDs while incremental snapshots can only be stored on standard HDDs. With snapshots, you're billed based on the used size of data. So if you take a full snapshot of a disk with 500 GiB capacity but only 50 GiB of that capacity is being used, then your snapshot is 50 GiB. Incremental snapshots are generally more cost efficient than full snapshots, as each snapshot you take only consists of the differences since the last snapshot.
-
-Incremental snapshots of any disk can be stored on either standard or premium storage (the storage type of the snapshot reflects on your bill). Snapshots are billed monthly rates for data stored on snapshots using locally redundant storage (LRS) or zone-redundant storage (ZRS).
-
-You can store incremental snapshots for Ultra Disk only on Standard storage (which will also be reflected on the bill, see below examples). They are charged a monthly rate for both Standard LRS and ZRS snapshot options of the storage occupied by the delta changes since the last snapshot. For example, you are using a managed disk with provisioned size of 128 GB and a used size of 10 GB. The first incremental snapshot is billed only for the used size of 10 GB. Before you create the second snapshot, 20 GB of data is added to the disk. Now, the second incremental snapshot is billed for only 20 GB.
+There are two kinds of snapshots offered for Azure managed disks: Full snapshots and incremental snapshots. Full snapshots can be stored on standard HDDs or premium SSDs while incremental snapshots are only stored on standard HDDs. With snapshots, you're billed based on the used size of data. So if you take a full snapshot of a disk with 500 GiB capacity but only 50 GiB of that capacity is being used, then your snapshot is billed only for the used capacity of 50 GiB. Incremental snapshots are generally more cost efficient than full snapshots, as each snapshot you take only consists of the differences since the last snapshot.
 
 ## Ultra Disks
 
@@ -40,11 +38,12 @@ The following table outlines the available disk sizes and performance caps. Pric
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
 |32     |9,600         |2,400         |
-|64     |19,200         |4,000         |
-|128     |38,400         |4,000         |
-|256     |76,800         |4,000         |
-|512     |153,600         |4,000         |
-|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |4,000         |
+|64     |19,200         |4,900         |
+|128     |38,400         |9,800         |
+|256     |76,800         |10,000         |
+|512     |153,600         |10,000         |
+|1,024    |307,200        |10,000        |
+|2,048-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
 
 ### Ultra Disk IOPS
 
@@ -57,8 +56,8 @@ Pricing of an Ultra Disk increases as you increase the disk's throughput limit. 
 
 ### Ultra Disk billing example
 
-In this example, we want to provision an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. You also create and store incremental snapshots for your current used capacity. 
-You will be billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which will show as the following tier and meters in your bill:
+In this example, we provisioned an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. We also created and stored incremental snapshots. 
+We are billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which shows as the following tier and meters in your bill:
 
 | Tier | Meter |
 |-|-|
@@ -69,27 +68,40 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 
 ## Premium SSD v2
 
-The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more details on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
-
-### Premium SSD v2 performance
-
-Premium SSD v2 disks are designed to provide sub millisecond latencies and provisioned IOPS and throughput 99.9% of the time. With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk. 
+The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its capacity) and what performance you select (IOPS and throughput) for your disk. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more details on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
 
 #### Premium SSD v2 capacities
 
 Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
-Premium SSD v2 offers up to 100 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
-
 #### Premium SSD v2 IOPS
 
-All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
+All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
 
 #### Premium SSD v2 throughput
 
 All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
 
 ## Premium SSD
+
+### Performance tier
+
+Initial billing of Premium SSD disks are determined by the performance tier of the disk. 
+
+#### Premium SSD bursting
+Premium SSD managed disks offer [on-demand disk bursting](disks-enable-bursting.md), providing better tolerance on unpredictable changes of IO patterns. Disk bursting is especially useful during OS disk boot and for applications with spiky traffic. 
+Premium SSD managed disks using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. 
+
+#### Premium SSD transactions
+For Premium SSD managed disks, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB.
+
+#### Zone-redundant storage
+
+> [!NOTE]
+> Premium SSD v2 doesn't support zone-redundant storage.
+
+Premium SSD can optionally be deployed using zone-redundant storage (ZSR), which synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks), for details.
+
 
 ## Standard SSD
 
