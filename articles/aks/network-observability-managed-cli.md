@@ -83,6 +83,8 @@ az group create \
 >
 >Starting with Kubernetes version 1.29, the --enable-network-observability tag is no longer required when creating or updating an Azure Kubernetes Service (AKS) cluster.
 >
+>For AKS clusters running Kubernetes version 1.28 or earlier, enabling network observability requires the --enable-network-observability tag during cluster creation or update.
+>
 
 ## Create AKS cluster
 
