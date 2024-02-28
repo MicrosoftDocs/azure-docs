@@ -78,11 +78,11 @@ Workers are evaluated based on:
 
 1. Open the OpenAiScoringFunction project in Visual Studio Code with the Azure Function Extension installed. Select 'Create Function App in Azure...'
 
-   :::image type="content" source="/media/create-azure-function-from-code.png" alt-text="Screenshot of CreateFunctionApp in VS Code.":::
+   :::image type="content" source="./media/create-azure-function-from-code.png" alt-text="Screenshot of CreateFunctionApp in VS Code.":::
 
 2. After selecting your Subscription, enter a unique name for your function app.
 
- :::image type="content" source="/media/function-select-subscription.png.png" alt-text="Screenshot of selecting subscription in VS Code.":::
+ :::image type="content" source="./media/function-select-subscription.png.png" alt-text="Screenshot of selecting subscription in VS Code.":::
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
@@ -91,15 +91,15 @@ Workers are evaluated based on:
     [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
     - b. Give your model a Deployment name and select “Create”
 
- :::image type="content" source="/media/azure-open-ai-model-creation.png" alt-text="Screenshot of creating azure open ai model.":::
+ :::image type="content" source="./media/azure-open-ai-model-creation.png" alt-text="Screenshot of creating azure open ai model.":::
 
 5. Once your Azure OpenAI Model is created, copy down the 'Endpoint', 'Keys', and 'Region'
 
- :::image type="content" source="/media/azure-open-ai-keys-and-endpoints.png" alt-text="Screenshot of of key and endpoint page for Azure Open AU.":::
+ :::image type="content" source="./media/azure-open-ai-keys-and-endpoints.png" alt-text="Screenshot of of key and endpoint page for Azure Open AU.":::
 
 6. In the Azure portal, navigate to your newly created Function App Environmental Variables blade and create the following variables:
 
- :::image type="content" source="/media/azure-function-enviornment-settings" alt-text="Screenshot of of Azure function enviornment settings example.":::
+ :::image type="content" source="./media/azure-function-enviornment-settings" alt-text="Screenshot of of Azure function enviornment settings example.":::
 
 | Name            | Value            | Description                                                        |
 |-----------------|------------------|--------------------------------------------------------------------|
@@ -117,7 +117,7 @@ Workers are evaluated based on:
 8. Navigate to your ACS resource and copy down your connection string.
 9. Open the JR_AOAI_Integration Console application and open the `appsettings.json` file to update the following config settings.
 
- :::image type="content" source="/media/appsettings-configuration.png" alt-text="Screenshot of AppSettings.":::
+ :::image type="content" source="./media/appsettings-configuration.png" alt-text="Screenshot of AppSettings.":::
 
 10. Run the application and follow the on-screen instructions to Create a Job.
 
