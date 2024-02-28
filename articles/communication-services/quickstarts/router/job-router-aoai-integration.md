@@ -14,8 +14,8 @@ ms.service: azure-communication-services
 # Quick Start: Integrating Azure OpenAI with ACS Job Router
 
 ## Prerequisites
-- Create an Azure OpenAI resource. [Setup Guide](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
-- Create an Azure Communication Services resource. [Setup Guide](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)
+- Create an Azure OpenAI resource. [Setup Guide](..\..\..\ai-services\openai\how-to\create-resource?pivots=web-portal)
+- Create an Azure Communication Services resource. [Setup Guide](..\create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)
 - Clone the GitHub solution. [Integrating Azure OpenAI with ACS Job Router](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterOpenAIIntegration)
 - Visual Studio Code Installed. [Visual Studio Code](https://code.visualstudio.com/)
 - Azure Functions Extension for Visual Studio Code. [Azure Function Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -62,14 +62,14 @@ Workers are evaluated based on:
 - **AHT**: Average handling time.
 
 ## Understanding ACS Job Router
-- Learn about ACS Job Router. [Job Router Concepts](https://learn.microsoft.com/azure/communication-services/concepts/router/concepts)
-- Configure the BestWorker Distribution Policy using an Azure Function Scoring Rule. [Customize Worker Scoring](https://learn.microsoft.com/azure/communication-services/how-tos/router-sdk/customize-worker-scoring)
+- Learn about ACS Job Router. [Job Router Concepts](..\..\concepts/router/concepts)
+- Configure the BestWorker Distribution Policy using an Azure Function Scoring Rule. [Customize Worker Scoring](..\..\how-tos/router-sdk/customize-worker-scoring)
 
 ## Understanding Azure Function Deployments
-- Learn about Azure Function Deployments. [Azure Function Deployments](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies?tabs=windows)
+- Learn about Azure Function Deployments. [Azure Function Deployments](..\..\..\azure-functions/functions-deployment-technologies?tabs=windows)
 
 ## Understanding Azure OpenAI Prompts
-- Learn about Azure Open AI prompt Engineering Techniques. [Prompt Engineering Techniques](https://learn.microsoft.com/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
+- Learn about Azure Open AI prompt Engineering Techniques. [Prompt Engineering Techniques](..\..\..\ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
 
 ## Deployment and Execution
 
@@ -89,7 +89,7 @@ Workers are evaluated based on:
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
     - a. Select a model that can perform completions
 
-    [Azure OpenAI Service models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models)
+    [Azure OpenAI Service models](..\..\..\ai-services/openai/concepts/models)
     - b. Give your model a Deployment name and select “Create”
 
 <p align="center">
