@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use the Azure CLI to create a Linux VM'
-description: Create a Linux virtual machine using the Azure CLI
+title: 'Quickstart: Use the Azure CLI to create a Linux Virtual Machine'
+description: Create a Linux virtual machine using the Azure CLI.
 author: chasecrum
 ms.service: virtual-machines
 ms.collection: linux
@@ -10,7 +10,7 @@ ms.author: chasecrum
 ms.custom: mvc, devx-track-azurecli, mode-api, innovation-engine, linux-related-content
 ---
 
-# Create a Linux VM on Azure
+# Create a Linux virtual machine on Azure
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?Microsoft_Azure_CloudNative_clientoptimizations=false&feature.canmodifyextensions=true#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMAndSSH)
 
@@ -27,9 +27,9 @@ export MY_USERNAME=azureuser
 export MY_VM_IMAGE="Canonical:0001-com-ubuntu-minimal-jammy:minimal-22_04-lts-gen2:latest"
 ```
 
-## Login to Azure using the CLI
+## Log in to Azure using the CLI
 
-In order to run commands in Azure using the CLI you'll need to login first. This is done using the `az login` command.
+In order to run commands in Azure using the CLI, you need to log in first. This is done using the `az login` command.
 
 ## Create a resource group
 
@@ -58,7 +58,7 @@ Results:
 
 ## Create the virtual machine
 
-To create a VM in this resource group we need to use the `vm create` command. In the code example below, we have provided the `--generate-ssh-keys` flag, which will cause the CLI to look for an available ssh key in `~/.ssh`. If one is found, it will be used. If not, one will be generated and stored in `~/.ssh`. We also provide the `--public-ip-sku Standard` flag to ensure that the machine is accessible via a public IP address. Finally, we deploy the latest `Ubuntu 22.04` image.
+To create a VM in this resource group, we need to use the `vm create` command. In the following code example, we provided the `--generate-ssh-keys` flag, which causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, it is used. If not, one is generated and stored in `~/.ssh`. We also provide the `--public-ip-sku Standard` flag to ensure that the machine is accessible via a public IP address. Finally, we deploy the latest `Ubuntu 22.04` image.
 
 All other values are configured using environment variables.
 
@@ -90,9 +90,9 @@ Results:
 }
 ```
 
-## Enable Azure AD login for a Linux virtual machine in Azure
+## Enable Azure AD Login for a Linux virtual machine in Azure
 
-The following code example deploys a Linux VM and then installs the extension to enable an Azure AD login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
+The following code example deploys a Linux VM and then installs the extension to enable an Azure AD Login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
 ```bash
 az vm extension set \
@@ -113,7 +113,7 @@ export IP_ADDRESS=$(az vm show --show-details --resource-group $MY_RESOURCE_GROU
 ## SSH into the VM
 
 <!--## Export the SSH configuration for use with SSH clients that support OpenSSH & SSH into the VM.
-Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. The following example exports the configuration for all IP addresses assigned to the VM:-->
+Log in to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. The following example exports the configuration for all IP addresses assigned to the VM:-->
 
 <!--
 ```bash
@@ -121,7 +121,7 @@ yes | az ssh config --file ~/.ssh/config --name $MY_VM_NAME --resource-group $MY
 ```
 -->
 
-You can now SSH into the VM by running the output of the following command in your ssh client of choice
+You can now SSH into the VM by running the output of the following command in your ssh client of choice:
 
 ```bash
 ssh -o StrictHostKeyChecking=no $MY_USERNAME@$IP_ADDRESS
