@@ -12,16 +12,14 @@ ms.author: cshoe
 
 # Use memory efficiently for Java apps in Azure Container Apps
 
-The Java Virtual Machine (JVM) uses memory conservatively as it assumes OS memory must be shared among multiple applications. However, Azure Container Apps provides automatic memory fitting under the following circumstances:
+The Java Virtual Machine (JVM) uses memory conservatively as it assumes OS memory must be shared among multiple applications. However, your container app can optimize memory usage and make the maximum amount of memory possible available to your application. This memory optimization is known as Java automatic memory fitting. When memory fitting is enabled, Java application performance is typically improved between 10% and 20% without any code changes.
+
+Azure Container Apps provides automatic memory fitting under the following circumstances:
 
 - A single Java application is running in a container.
 - Your application is deployed from source code or a JAR file.
 
-Automatic memory fitting allows Container Apps to efficiently manage memory by making the most memory possible available to your Java application.
-
 Automatic memory fitting is enabled by default, but you can disable manually.
-
-When memory fitting is enabled, Java application performance is typically improved between 10% and 20% without any code changes.
 
 ## Disable memory fitting
 
@@ -105,10 +103,9 @@ Memory fitting is automatically disabled when any of the following conditions ar
 
     With memory fitting disabled, you see the following message output to the log:
 
-    ```text
-    Disabling jvm memory fitting, reason: use settings specified in JAVA_TOOL_OPTIONS=-Xmx512m instead
-    Picked up JAVA_TOOL_OPTIONS: -Xmx512m
-    ```
+    > Disabling jvm memory fitting, reason: use settings specified in
+    > JAVA_TOOL_OPTIONS=-Xmx512m instead
+    > Picked up JAVA_TOOL_OPTIONS: -Xmx512m
 
 - **Small non-heap memory size**: Rare cases when the calculated size of heap or nonheap size is too small (less than 200 MB).
 
@@ -146,11 +143,11 @@ If you decide to configure the memory settings yourself, you run the risk of enc
 
 Here are some possible reasons of why your container could run out of memory:
 
-1. Heap memory is greater than the total available memory.
+- Heap memory is greater than the total available memory.
 
-1. Nonheap memory is greater than the total available memory.
+- Nonheap memory is greater than the total available memory.
 
-1. Heap + nonheap memory is greater than the total available memory.
+- Heap + nonheap memory is greater than the total available memory.
 
 If your container runs out  of memory, then you encounter the following warning:
 

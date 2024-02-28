@@ -69,15 +69,15 @@ Keep the following items in mind as you develop your Java applications:
 
 - **Buildpack support issues**: If your Buildpack doesn't support dependencies or the version of Java you require, create your own Dockerfile to deploy your app. You can view a [sample Dockerfile](https://github.com/Azure-Samples/containerapps-albumapi-java/blob/main/Dockerfile) for reference.
 
-- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn’t pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, you application terminate without persisting data in memory.
+- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn’t pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, and your application terminates unexpectedly, you may lose these signals unless you persist them to storage.
 
 - **Access to container images**: If you use artifact or source code deployment in combination with the default registry, you don't have direct access to your container images.
 
 ## Monitoring
 
-All the [standard observability tools](observability.md) work with your Java application. As you build your Java applications to run on Container Apps, keep in mind the following issue:
+All the [standard observability tools](observability.md) work with your Java application. As you build your Java applications to run on Container Apps, keep in mind the following items:
 
-- **Logging**: Send application and error messages to `stdout` or `stderror` so they can surface in the log stream. Avoid logging directly to the container's filesystem as common when using popular logging services.
+- **Logging**: Send application and error messages to `stdout` or `stderror` so they can surface in the log stream. Avoid logging directly to the container's filesystem as is common when using popular logging services.
 
 - **Performance monitoring configuration**: Deploy performance monitoring services as a separate container in your Container Apps environment so it can directly access your application.
 

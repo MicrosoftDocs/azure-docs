@@ -297,6 +297,10 @@
         href: java-memory-fit.md
       - name: Build environment variables
         href: java-build-environment-variables.md
+      - name: Tutorials
+        items:
+          - name: Deploy a WAR file
+            href: java-deploy-war-file.md
       - name: Deploy a WAR file
         href: java-deploy-war-file.md
 - name: Billing & quotas

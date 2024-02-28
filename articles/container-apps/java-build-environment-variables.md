@@ -11,11 +11,7 @@ ms.author: cshoe
 
 # Java build environment variables
 
-Azure Container Apps uses [Buildpacks](https://buildpacks.io/) to automatically create a container image that allows you to deploy from your source code directly to the cloud.
-
-To take control of your build configuration, you can use environment variables to customize parts of your build like the JDK, Maven, and Tomcat.
-
-The following article shows you how to configure environment variables to help you take control over builds that automatically create a container for you.
+Azure Container Apps uses [Buildpacks](https://buildpacks.io/) to automatically create a container image that allows you to deploy from your source code directly to the cloud. To take control of your build configuration, you can use environment variables to customize parts of your build like the JDK, Maven, and Tomcat. The following article shows you how to configure environment variables to help you take control over builds that automatically create a container for you.
 
 ## Supported Java build environment variables
 
@@ -84,12 +80,12 @@ Here's a listing of the environment variables used to configure a Cloud Build Se
 You can configure Java build environment variables when you deploy Java application source code via CLI command `az containerapp up`, `az containerapp create`, or `az containerapp update`:
 
 ```azurecli
-    az containerapp up \
-      --name <CONTAINER_APP_NAME> \
-      --source <SOURCE_DIRECTORY> \
-      --build-env-vars <NAME=VALUE NAME=VALUE> \
-      --resource-group <RESOURCE_GROUP_NAME> \
-      --environment <ENVIRONMENT_NAME>
+az containerapp up \
+  --name <CONTAINER_APP_NAME> \
+  --source <SOURCE_DIRECTORY> \
+  --build-env-vars <NAME=VALUE NAME=VALUE> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  --environment <ENVIRONMENT_NAME>
 ```
 
 The `build-env-vars` argument is a list of environment variables for the build, space-separated values in `key=value` format. Here's an example list you can pass in as variables:

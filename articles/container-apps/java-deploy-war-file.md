@@ -2,18 +2,20 @@
 title: Deploy a WAR file on Tomcat in Azure Container Apps
 description: Learn about deploy WAR file on Tomcat in Azure Container Apps
 services: container-apps
-author: zhoufenqin
+author: craigshoemaker
 ms.service: container-apps
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/27/2024
-ms.author: fenzho
+ms.author: cshoe
 ---
 
-# Deploy a WAR file on Tomcat in Azure Container Apps
+# Tutorial: Deploy a WAR file on Tomcat in Azure Container Apps
 
-When you want to deploy your application direct from your machine to Azure Container Apps.
+Rather than manually creating a Dockerfile and directly using a container registry, you have the option to deploy your Java application directly from a web application archive (WAR) file. This article demonstrates how to deploy a Java application on Tomcat using a WAR file to Azure Container Apps.
 
-This article demonstrates how to deploy a Java application using a WAR file to Azure Container Apps.
+By the end of this tutorial you'll deploy an application on Container Apps that displays the home page of the Spring PetClinic sample application.
+
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
 
 > [!NOTE]
 > If necessary, you can specify the Tomcat version in the build environment variables.
