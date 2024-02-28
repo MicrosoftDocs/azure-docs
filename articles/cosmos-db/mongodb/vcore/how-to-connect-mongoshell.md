@@ -35,7 +35,7 @@ MongoDB Shell mongosh, is a JavaScript and Node.js REPL environment for interact
 
 If you accidentally open all the ports you will be warned before saving the changes as follows
 
-![PNG Image for Firewall Warning](./media/connect-using-mongoshell/Firewall%20Warning.PNG)
+![PNG Image for Firewall Warning](./media/connect-using-mongoshell/firewallwarning.PNG)
 
 ## Connect using Mongo Shell 
 
