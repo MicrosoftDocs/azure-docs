@@ -23,7 +23,11 @@ The application routing add-on with NGINX delivers the following:
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
-For other configuration information related to SSL encryption and DNS integration, review [DNS and SSL configuration][dns-ssl-configuration] and [application routing add-on configuration][custom-ingress-configurations].
+For other configurations, see:
+
+* [DNS and SSL configuration][dns-ssl-configuration]
+* [Application routing add-on configuration][custom-ingress-configurations]
+* [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
 
 With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
 
@@ -483,6 +487,8 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 * [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [configure a custom domain using Azure DNS to manage DNS zones and setup a secure ingress][dns-ssl-configuration].
 
+* To integrate with an Azure internal load balancer and configure a private Azure DNS zone to enable DNS resolution for the private endpoints to resolve specific domains, see [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
+
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
 <!-- LINKS - internal -->
@@ -497,6 +503,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [custom-ingress-configurations]: app-routing-nginx-configuration.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[create-nginx-private-controller]: create-nginx-ingress-private-controller.md
 
 <!-- LINKS - external -->
 [kubernetes-ingress-object-overview]: https://kubernetes.io/docs/concepts/services-networking/ingress/

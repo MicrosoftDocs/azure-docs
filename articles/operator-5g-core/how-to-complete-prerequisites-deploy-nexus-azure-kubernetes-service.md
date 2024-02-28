@@ -1,6 +1,6 @@
 ---
-title: Prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
-description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Nexus Azure Kubernetes Service.
+title: Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core Preview on the Nexus Azure Kubernetes Service.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
@@ -10,7 +10,7 @@ ms.date: 02/22/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Complete the prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
+# Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service
 This article describes how to provision a Nexus Azure Kubernetes Service (NAKS) cluster by creating: 
 
 - Network fabric (connectivity) resources
@@ -310,7 +310,7 @@ Use the following destination to run containers that have their endpoints stored
 
 ## Create Cloud Services Networks
 
-You must create a separate CSN instance for each NAKS cluster when you deploy Azure Operator 5G Core on the Nexus platform. 
+You must create a separate CSN instance for each NAKS cluster when you deploy Azure Operator 5G Core Preview on the Nexus platform. 
 Adjust the additional-egress-endpoints list based on the previous description and lists. 
 
 ```azurecli
@@ -463,5 +463,5 @@ az customlocation create -n <CUSTOM-LOCATION-NAME> \
 ## Related content
 
 - Learn about the [Deployment order](concept-deployment-order.md).
-- [Deploy Azure Operator 5G Core](how-to-deploy-5g-core.md).
+- [Deploy Azure Operator 5G Core Preview](how-to-deploy-5g-core.md).
 - [Deploy a network function](quickstart-deploy-network-functions.md).

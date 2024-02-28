@@ -1,5 +1,5 @@
 ---
-title: Multiple site hosting with Application Gateway for Containers - Gateway API
+title: Multi-site hosting with Application Gateway for Containers - Gateway API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
@@ -10,9 +10,10 @@ ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Multiple site hosting with Application Gateway for Containers - Gateway API
+# Multi-site hosting with Application Gateway for Containers - Gateway API
 
 This document helps you set up an example application that uses the resources from Gateway API to demonstrate hosting multiple sites on the same Kubernetes Gateway resource / Application Gateway for Containers frontend. Steps are provided to:
+
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTP listener.
 - Create two [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resources that each reference a unique backend service.
 
@@ -24,27 +25,30 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
 
 ## Prerequisites
 
-1. If you follow the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
-  
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+1. If you used the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If you used the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:<br>
+  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
+
+    ```bash
+    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+    ```
+
+   This command creates the following on your cluster:
+
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create a Gateway
+
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -70,47 +74,50 @@ EOF
 
 1. Set the following environment variables
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    ```
 
 2. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
 Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
@@ -157,9 +164,10 @@ status:
 ```
 
 Once the gateway is created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain forwards traffic to a different backend service.
+
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: contoso-route
@@ -174,7 +182,7 @@ spec:
     - name: backend-v1
       port: 8080
 ---
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: fabrikam-route
