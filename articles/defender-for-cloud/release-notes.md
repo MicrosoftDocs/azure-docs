@@ -24,12 +24,24 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
+| February 28 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | February 28 | [Updated security policy management expands support to AWS and GCP](#updated-security-policy-management-expands-support-to-aws-and-gcp) |
 | February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 20 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) |
 | February 18| [Open Container Initiative (OCI) image format specification support](#open-container-initiative-oci-image-format-specification-support) |
 | February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Deprecation of two recommendations related to PCI
+
+February 28, 2024
+
+THe following two recommendations related to PErmission Creep Index (PCI) are being deprecated:
+
+- [Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/CloudKnoxAwsRecommendationDetailsBlade/assessmentKey/2482620f-f324-4add-af68-2e01e27485e9)
+- [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/CloudKnoxRecommendationDetailsBlade/assessmentKey/d103537b-9f3d-4658-a568-31dd66eb05cb)
+
+See the [list of deprecated security recommendations](recommendations-reference.md#deprecated-recommendations).
 
 ### Updated security policy management expands support to AWS and GCP
 
