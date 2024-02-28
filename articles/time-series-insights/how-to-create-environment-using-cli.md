@@ -8,7 +8,7 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure CLI

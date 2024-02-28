@@ -4,7 +4,6 @@ description: Learn to use the built-in Facebook authentication provider in Azure
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 04/06/2022
 ms.author: cshoe

@@ -4,10 +4,8 @@ description:  ExpressRoute circuits can be used for Microsoft PSTN services, inc
 author: nslack
 ms.service: expressroute
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 09/06/2023
 ms.author: nickslack
-
 ---
 
 # Using ExpressRoute for routing traffic to Microsoft PSTN services

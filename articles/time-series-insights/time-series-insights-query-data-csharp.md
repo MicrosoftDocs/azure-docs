@@ -9,7 +9,6 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights Gen1 environment using C Sharp

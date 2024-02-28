@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 08/15/2023
-ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
+ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Support"]
 ---
 
 # IoT Hub quotas and throttling

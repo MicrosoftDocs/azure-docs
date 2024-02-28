@@ -6,6 +6,13 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.35.0: February 2024 release
+Updated to use Speech SDK 1.35.0
+#### New features
+* none
+#### Bug fixes
+* Update JMESPath dependency to latest
+
 ### Speech CLI 1.34.0: November 2023 release
 Updated to use Speech SDK 1.34.0
 

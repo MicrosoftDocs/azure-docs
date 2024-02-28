@@ -5,9 +5,8 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 01/29/2024
-ms.author: greglin 
+ms.author: greglin
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)

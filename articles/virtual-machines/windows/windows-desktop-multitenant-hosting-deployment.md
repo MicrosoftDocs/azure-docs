@@ -1,15 +1,13 @@
 ---
-title: How to deploy Windows 11 on Azure 
+title: How to deploy Windows 11 on Azure
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
 author: mimckitt
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 10/24/2022
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-
 ---
 # How to deploy Windows 11 on Azure
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets

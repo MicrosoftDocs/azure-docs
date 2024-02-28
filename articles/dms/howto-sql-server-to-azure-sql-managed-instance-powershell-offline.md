@@ -9,7 +9,6 @@ ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
 ms.custom:
-  - seo-lt-2019
   - fasttrack-edit
   - devx-track-azurepowershell
   - sql-migration-content

@@ -1,13 +1,13 @@
 ---
-title: Set up advanced Ingress configurations on Azure Kubernetes Service 
-description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Set up a custom domain name and SSL certificate with the application routing add-on for Azure Kubernetes Service (AKS)
+description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service (AKS). 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/04/2023
 ---
 
-#  Set up a custom domain name and SSL certificate with the application routing add-on
+# Set up a custom domain name and SSL certificate with the application routing add-on
 
 An Ingress is an API object that defines rules, which allow external access to services in an Azure Kubernetes Service (AKS) cluster. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
@@ -57,9 +57,11 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName> --enab
 
 ### Create and export a self-signed SSL certificate
 
-> [!NOTE]
-> If you already have a certificate, you can skip this step.
-> 
+For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. If you already have a certificate, you can skip this step.
+
+> [!CAUTION]
+> Self-signed certificates are digital certificates that are not signed by a trusted third-party CA. Self-signed certificates are created, issued, and signed by the company or developer who is responsible for the website or software being signed. This is why self-signed certificates are considered unsafe for public-facing websites and applications. Azure Key Vault has a [trusted partnership with the some Certificate Authorities](../key-vault/certificates/how-to-integrate-certificate-authority.md).
+
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
     ```bash

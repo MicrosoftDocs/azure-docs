@@ -3,7 +3,7 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 02/01/2024
 ---
 
 <!--
@@ -71,16 +71,6 @@ Use the following steps to create the apps:
 1. Select **Create** to finish the app creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
-
-#### Configure Build Service
-
-Use the following steps to configure Build Service:
-
-1. From the navigation pane, select **Build Service**, and then select **Add** under the **Builders** section.
-
-1. On the **Add Builder** page, for the **Builder name**, use *frontend*. For **OS Stack**, select **io.buildpacks.stacks.jammy-base**. For **Name**, select **tanzu-buildpacks/web-servers**. Then, select **Save** to create the builder.
-
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the Build Service Edit Builder page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
 #### Configure Service Registry
 
@@ -176,13 +166,13 @@ Next, configure the routing for Spring Cloud Gateway. Because the Azure portal d
 1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
    ```azurecli
-   export SUBSCRIPTION_ID="<subscription-ID>"
-   export RESOURCE_GROUP="<resource-group-name>"
-   export SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
-   export APP_CUSTOMERS_SERVICE="customers-service"
-   export APP_VETS_SERVICE="vets-service"
-   export APP_VISITS_SERVICE="visits-service"
-   export APP_FRONTEND="frontend"
+   export SUBSCRIPTION_ID=<subscription-ID>
+   export RESOURCE_GROUP=<resource-group-name>
+   export SPRING_APPS_NAME=<Azure-Spring-Apps-instance-name>
+   export APP_CUSTOMERS_SERVICE=customers-service
+   export APP_VETS_SERVICE=vets-service
+   export APP_VISITS_SERVICE=visits-service
+   export APP_FRONTEND=frontend
    ```
 
 1. Use the following command to set the default subscription:

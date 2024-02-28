@@ -8,7 +8,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
 ms.date: 12/05/2023
-ms.custom: devdivchpfy22, ignite-2022, build-2023
+ms.custom: devdivchpfy22, build-2023
 ---
 
 # Add and configure an environment definition

@@ -21,6 +21,15 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
+## Azure IoT Data Processor Preview
+
+If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
+
+```bash
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+```
+
 ## Azure IoT MQ (preview)
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
@@ -32,6 +41,8 @@ This article contains known issues for Azure IoT Operations Preview.
 - Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
+
+- You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
 
 - You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages. 
 

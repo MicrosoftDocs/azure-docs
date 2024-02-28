@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 01/31/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -210,7 +210,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Replace `<desired-vpn-name>`, `<desired-region>`, and `<gateway-subnet-name>` in the following script with the proper values for these variables.
+Replace `<desired-vpn-name>` and `<desired-region>` in the following script with the proper values for these variables.
 
 While this resource is being deployed, this PowerShell script will block the deployment from being completed. This is expected.
 
@@ -218,7 +218,6 @@ While this resource is being deployed, this PowerShell script will block the dep
 $vpnName             = '<desired-vpn-name>' 
 $publicIpAddressName = "$vpnName-PublicIP"
 $region              = '<desired-region>'
-$gatewaySubnet       = '<gateway-subnet-name>'
 
 $publicIpParams = @{
     ResourceGroupName = $resourceGroupName

@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 02/01/2024
 ---
 
 <!--
@@ -21,52 +21,11 @@ The **Deploy to Azure** button in the next section launches an Azure portal expe
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-Use the following steps to prepare the project and run the sample locally:
+[!INCLUDE [prepare-spring-project-for-enterprise-plan](prepare-spring-project-enterprise-plan.md)]
 
-1. Use the following command to clone the [Pet Clinic application](https://github.com/Azure-Samples/spring-petclinic-microservices.git) from GitHub:
+### [Azure CLI](#tab/Azure-CLI-ent)
 
-   ```bash
-   git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
-   ```
-
-1. Navigate to the project root directory and then use the following command to build the project:
-
-   ```bash
-   ./mvnw clean package -DskipTests
-   ```
-
-Use the following steps if you want to run the application locally. Otherwise, you can skip these steps.
-
-1. Open a new Bash window and then use the following command to start Config Server:
-
-   ```bash
-   ./mvnw spring-boot:run -pl spring-petclinic-config-server
-   ```
-
-1. Open a new Bash window and then use the following command to start Discovery Server:
-
-   ```bash
-   ./mvnw spring-boot:run -pl spring-petclinic-discovery-server
-   ```
-
-1. For the Customers, Vets, Visits, and Spring Cloud Gateway services, open a new Bash window and use the following commands to start the services:
-
-   ```bash
-   ./mvnw spring-boot:run -pl spring-petclinic-customers-service
-   ./mvnw spring-boot:run -pl spring-petclinic-vets-service
-   ./mvnw spring-boot:run -pl spring-petclinic-visits-service
-   ./mvnw spring-boot:run -Dspring-boot.run.profiles=default,development \
-       -pl spring-petclinic-api-gateway
-   ```
-
-1. Open a new Bash window and navigate to the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the frontend application:
-
-   ```bash
-   npm install
-   npm run start
-   ````
-
-1. After the script completes successfully, go to `http://localhost:8080` in your browser to access the PetClinic application.
+[!INCLUDE [prepare-spring-project-for-enterprise-plan](prepare-spring-project-enterprise-plan.md)]
 
 ---
 
@@ -109,6 +68,10 @@ Use the following steps to create all the Azure resources that the app depends o
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 [!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
+
+### [Azure CLI](#tab/Azure-CLI-ent)
+
+[!INCLUDE [provision-enterprise-azure-spring-apps-azure-cli](provision-enterprise-azure-spring-apps-azure-cli.md)]
 
 ---
 
@@ -159,8 +122,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
        --service ${SPRING_APPS_NAME} \
        --name ${APP_FRONTEND} \
        --source-path spring-petclinic-frontend \
-       --build-env BP_WEB_SERVER=nginx \
-       --builder ${APP_FRONTEND}
+       --build-env BP_WEB_SERVER=nginx
    ```
 
    After the command runs, you can see from the following log messages that the deployment was successful:
@@ -171,5 +133,9 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    The deployment is in round 1, 1 old instance is deleted/deleting and 1 new instance is started/starting
    Your application is successfully deployed.
    ```
+
+### [Azure CLI](#tab/Azure-CLI-ent)
+
+[!INCLUDE [deploy-microservice-apps-azure-cli](deploy-microservice-apps-azure-cli.md)]
 
 ---
