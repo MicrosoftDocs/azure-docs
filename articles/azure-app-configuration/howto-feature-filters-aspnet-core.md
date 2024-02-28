@@ -5,10 +5,10 @@ description: Learn how to use feature filters in Azure App Configuration to enab
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: maud-lv
-ms.author: malev
+author: zhiyuanliang
+ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 01/12/2024
+ms.date: 02/28/2024
 #Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
 ---
 
@@ -18,37 +18,40 @@ Feature flags allow you to activate or deactivate functionality in your applicat
 
 In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
 
-The `Microsoft.FeatureManagement` library includes three feature filters:
+The `Microsoft.FeatureManagement` library includes four built-in feature filters:
 
 - `PercentageFilter` enables the feature flag based on a percentage.
 - `TimeWindowFilter` enables the feature flag during a specified window of time.
-- `TargetingFilter` enables the feature flag for specified users and groups.
+- `ContextualTargetingFilter` and `TargetingFilter` enable the feature flag for specified users and groups.
 
-You can also create your own feature filter that implements the Microsoft.FeatureManagement.IFeatureFilter interface.
+You can also create your own feature filter that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. For more information, see [Implementing a Feature Filter](https://github.com/microsoft/FeatureManagement-Dotnet?tab=readme-ov-file#implementing-a-feature-filter).
 
 ## Prerequisites
 
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
+- [Microsoft.FeatureManagement.AspNetCore 3.0.0 or later](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview)
 
-## Register a feature filter
+## Set up feature management
 
-You register a feature filter by calling the `AddFeatureFilter` method, specifying the type name of the desired feature filter. For example, the following code registers `PercentageFilter`:
+Since `Microsoft.FeatureManagement` 3.0.0, all built-in filters, except for the `TargetingFilter`, are added automatically when feature management is registered. For more information on using `TargetingFilter`, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddFeatureManagement().AddFeatureFilter<PercentageFilter>();
-}
+services.AddFeatureManagement();
 ```
+
+> [!TIP]
+> You can create your own feature filters that implements the `Microsoft.FeatureManagement.IFeatureFilter` interface. The feature filters can be registered by calling the `AddFeatureFilter` method. For built-in feature filters, calling `AddFeatureFilter` is no longer needed since `Microsoft.FeatureManagement` 3.0.0.
+>
+> ```csharp
+> services.AddFeatureManagement()
+>         .AddFeatureFilter<MyCriteriaFilter>();
+> ```
 
 ## Configure a feature filter in Azure App Configuration
 
-Some feature filters have additional settings. For example, `PercentageFilter` activates a feature based on a percentage. It has a setting defining the percentage to use.
+Some feature filters have additional settings. For example, `TimeWindowFilter` activates a feature based on a time window. It has a setting defining the time window to use.
 
-You can configure these settings for feature flags defined in Azure App Configuration. For example, follow these steps to use `PercentageFilter` to enable the feature flag for 50% of requests to a web app:
-
-1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
+You can configure these settings for feature flags defined in Azure App Configuration. For example, follow these steps to use `TimeWindowFilter` to activate the feature flag at a certain moment:
 
 1. In the Azure portal, go to your configuration store and select **Feature manager**.
 
@@ -60,16 +63,17 @@ You can configure these settings for feature flags defined in Azure App Configur
 
     :::image type="content" source="./media/feature-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal, filling out the form 'Edit feature flag'.":::
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select **Targeting filter** to enable a new filter for specific users or a group.
+1. The pane **Create a new filter** opens. Under **Filter type**, select **Time window filter** to enable a new filter for a specific time window.
 
-    :::image type="content" source="./media/feature-filters/add-targeting-filter.png" alt-text="Screenshot of the Azure portal, creating a new targeting filter.":::
+1. Set the **Expiry date** to **Never** and set the **Start date** to 10 minutes ahead of the current time. For example, if the current time is 1:50 PM on February 28, 2024, please set the time to 2 minutes later, which would be 2:00 PM.
 
-1. Optionally expand the **Evaluation flow** menu to see a graph showing how the targeting filter is evaluated in the selected scenario. Leave the **Default Percentage** at 50. The options **Override by Groups** and **Override by Users** let you enable or disable the feature flag for select groups or users. These options are disabled by default.
+    :::image type="content" source="./media/feature-filters/add-time-window-filter.png" alt-text="Screenshot of the Azure portal, creating a new time window filter.":::
+
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
 1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
 
-    :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-filter.png" alt-text="Screenshot of the Azure portal, applying new targeting filter.":::
+    :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-filter.png" alt-text="Screenshot of the Azure portal, applying new time window filter.":::
 
 1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
 
@@ -77,9 +81,7 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 ## Feature filters in action
 
-To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You'll see that the *Beta* item appears on the toolbar about 50% of the time. It's hidden the rest of the time, because the `PercentageFilter` deactivates the *Beta* feature for a subset of requests. The following video shows this behavior in action.
-
-:::image type="content" source="./media/feature-filters/feature-flags-percentagefilter.gif" alt-text="Screenshot of a web browser showing a targeting filter in action.":::
+To see the effects of this feature flag, launch the application. You'll see that the *Beta* item will not appears on the toolbar. It's hidden, because the `TimeWindowFilter` deactivates the *Beta* feature. After about 10 minutes, click the refresh button in you browser and you'll see the *Beta* item will appear again because the `TimeWindowFilter` will activate the *Beta* feature when time hits the time window.
 
 ## Next steps
 
