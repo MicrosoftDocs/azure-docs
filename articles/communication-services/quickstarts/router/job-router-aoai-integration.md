@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Integrating Azure OpenAI with Job Router
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to integrate Azure OpenAI with ACS Job Router using an Azure Function App to match workers to jobs based on worker's performance.
+description: In this quickstart, you learn how to integrate Azure OpenAI with ACS Job Router using an Azure Function App to match workers to jobs based on worker's performance.
 author: nabennet
 manager: bga
 services: azure-communication-services
@@ -39,8 +39,8 @@ This quick start demonstrates how to integrate Azure Open AI with ACS Job Router
 #### The console application is set up to provision the following ACS resources:
 1. A distribution policy that lets ACS Job Router understand how to generate offers for workers. This application is configured to provision a Best-Worker mode distribution policy that uses a Function Router Rule for scoring workers.
 2. A queue with the best-worker mode distribution policy attached.
-3. Five workers that will be registered to a queue with three chosen performance indicator values populated as labels.
-4. Creates a Job in ACS Job Router and lets the user know which worker Azure OpenAI has scored the highest based on the performance indicator labels.
+3. Five workers that are registered to a queue with three chosen performance indicator values populated as labels.
+4. Creates a Job in ACS Job Router and lets the user know which worker Azure OpenAI scored the highest based on the performance indicator labels.
 
 ![SequenceDiagram](./media/Overview%20sequence%20diagram.png)
  
@@ -130,5 +130,5 @@ Workers are evaluated based on:
 Various experiments can be conducted within this project, such as:
 
 1. Experimenting with the PrePrompt string (in the Environment Variables of the Azure Function) to further tune scores provided by Azure OpenAI.
-2. Add additional performance indicator labels to workers, updating the OpenAiScorer class in the OpenAIScorerFunction project to account for new labels and updating the prompts, default performance indicators in the Environment Variables of your function, and add the new performance indicators into the `appSettings.json` file under each worker.
+2. Add other performance indicator labels to workers, updating the OpenAiScorer class in the OpenAIScorerFunction project to account for new labels and updating the prompts, default performance indicators in the Environment Variables of your function, and add the new performance indicators into the `appSettings.json` file under each worker.
 3. Implement logic to update the values of the performance indicator labels as jobs are completed by each worker. This could be by adding persistence or a cache to your application to store these values. Labels are routable attributes in Job Router. If a worker's labels are updated, any offers issued for that worker will be revoked. Consider updating labels at a point when the worker is not expecting offers (AvailableForOffers – false, or when the worker’s capacity is consumed).
