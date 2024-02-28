@@ -17,7 +17,7 @@ ms.date: 02/29/2024
 
 For Standard logic app workflows that run in single-tenant Azure Logic Apps, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension to locally develop, test, and store your logic app project using any source control system. However, to get the full benefits of easily and consistently deploying your workflows across different environments and platforms, you must also automate your build and deployment process.
 
-The Azure Logic Apps (Standard) extension provides tools for you to set up and maintain automated build and deployment processes using Azure DevOps. However, before you start this automation, consider the following elements:
+The Azure Logic Apps (Standard) extension provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. However, before you start this automation, consider the following elements:
 
 - The Azure logic app resource where you create your workflows
 
@@ -27,7 +27,7 @@ The Azure Logic Apps (Standard) extension provides tools for you to set up and m
 
 - The specific settings and parameters for the different environments where you want to deploy
 
-The extension helps you complete the following required tasks to set up automation:
+The extension helps you complete the following required tasks to automate build and deployment:
 
 - Parameterize connection references at design time. This task simplifies the process of updating references in different environments without breaking local development functionality.
 
@@ -112,7 +112,7 @@ You can now edit the workflow in any way that you want and locally test your wor
 
 ## Enable Microsoft-managed connectors hosted in Azure in your workflow
 
-If you didn't previously enable the [Microosft-managed, Azure-hosted connectors](#enable-managed-connectors) for use in your worklfow, follow these steps to complete this task:
+If you didn't previously enable the [Microosft-managed, Azure-hosted connectors](#enable-managed-connectors) for use in your workflow, follow these steps to complete this task:
 
 1. In your logic app project, expand the folder with your workflow name.
 
@@ -149,7 +149,7 @@ After you create and locally test your workflow, create your deployment scripts.
       | **New deployment folder** (Default) | Create a new folder in the current workspace. |
       | **Choose a different folder** | Select a different folder in the current workspace. |
 
-   When you're done, Visual Studio Code creates a folder named **Deployment/{*logic-app-name*}** at your workspace's root. This folder uses the same logic app name that you provided in these steps.
+   When you're done, Visual Studio Code creates a folder named **deployment/{*logic-app-name*}** at your workspace's root. This folder uses the same logic app name that you provided in these steps.
 
    > [!NOTE]
    >
@@ -249,7 +249,7 @@ To create the infrastructure along with the CI and CD pipelines in Azure DevOps,
 
    1. For **Path**, select the path to use for your pipeline. The following path is the default value:
 
-      **Deployment/{*logic-app-name*}/ADOPipelineScripts/{*infrastructure-pipeline-name*}.yml**
+      **deployment/{*logic-app-name*}/ADOPipelineScripts/{*infrastructure-pipeline-name*}.yml**
 
    1. When you're ready, select **Continue**.
 
@@ -270,7 +270,7 @@ To create the infrastructure along with the CI and CD pipelines in Azure DevOps,
 
 To find and run your pipeline, follow these steps:
 
-1. On the your team project's left menu, expand **Pipelines**, and select **Pipelines**.
+1. On your team project's left menu, expand **Pipelines**, and select **Pipelines**.
 
 1. Select the **All** tab to view all available pipelines. Find and select your pipeline.
 
