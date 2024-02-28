@@ -1158,6 +1158,8 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1264,8 +1266,6 @@
       href: sentinel-soar-content.md
 - name: Resources
   items:
-  - name: Useful resources
-    href: resources.md
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog

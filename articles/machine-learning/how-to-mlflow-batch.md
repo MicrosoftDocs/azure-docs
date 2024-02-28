@@ -223,13 +223,13 @@ Output predictions are generated in the `predictions.csv` file as indicated in t
 
 The file is structured as follows:
 
-* There is one row per each data point that was sent to the model. For tabular data, this means that one row is generated for each row in the input files and hence the number of rows in the generated file (`predictions.csv`) equals the sum of all the rows in all the processed files. For other data types, there is one row per each processed file.
+* There is one row per each data point that was sent to the model. For tabular data, it means that the file (`predictions.csv`) contains one row for every row present in each of the processed files. For other data types (e.g. images, audio, text), there is one row per each processed file.
 
-* Two columns are indicated:
+* The following columns are in the file (in order):
 
-    * The file name where the data was read from. In tabular data, use this field to know which prediction belongs to which input data. For any given file, predictions are returned in the same order they appear in the input file so you can rely on the row number to match the corresponding prediction.
-    * The prediction associated with the input data. This value is returned "as-is" it was provided by the model's `predict().` function. 
-
+   * `row` (optional), the corresponding row index in the input data file. This only applies if the input data is tabular. Predictions are returned in the same order they appear in the input file so you can rely on the row number to match the corresponding prediction.
+   * `prediction`, the prediction associated with the input data. This value is returned "as-is" it was provided by the model's `predict().` function. 
+   * `file_name`, the file name where the data was read from. In tabular data, use this field to know which prediction belongs to which input data.
 
 You can download the results of the job by using the job name:
 
@@ -248,17 +248,15 @@ Once the file is downloaded, you can open it using your favorite tool. The follo
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=read_outputs)]
 
-> [!WARNING]
-> The file `predictions.csv` may not be a regular CSV file and can't be read correctly using `pandas.read_csv()` method.
-
 The output looks as follows:
 
-| file                       | prediction  |
-| -------------------------- | ----------- |
-| heart-unlabeled-0.csv      | 0           |
-| heart-unlabeled-0.csv      | 1           |
-| ...                        | 1           |
-| heart-unlabeled-3.csv      | 0           |
+|row  | prediction  | file                       |
+|-----| ----------- | -------------------------- |
+| 0   | 0           | heart-unlabeled-0.csv      |
+| 1   | 1           | heart-unlabeled-0.csv      |
+| 2   | 0           | heart-unlabeled-0.csv      |
+| ... | ...         | ...                        |
+| 307 | 0           | heart-unlabeled-3.csv      |
 
 > [!TIP]
 > Notice that in this example the input data was tabular data in `CSV` format and there were 4 different input files (heart-unlabeled-0.csv, heart-unlabeled-1.csv, heart-unlabeled-2.csv and heart-unlabeled-3.csv).

@@ -152,8 +152,9 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
 ## Run the sample code
 
-At this point, the resources are deployed to Azure and the code is ready to run. Follow these steps to update the name of the storage account in the code and run the sample console app:
+At this point, the resources are deployed to Azure and the code is almost ready to run. Follow these steps to install packages, update the name of the storage account in the code, and run the sample console app:
 
+- **Install packages**: In the local directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the following command: `pip install azure-storage-blob azure-identity`
 - **Update the storage account name**: In the local directory, edit the file named **blob_quickstart.py**. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
 - **Run the project**: Execute the following command to run the app: `python blob_quickstart.py`.
 - **Observe the output**: This app creates a test file in your local *data* folder and uploads it to a container in the storage account. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
