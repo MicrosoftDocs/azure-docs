@@ -22,10 +22,11 @@ Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-d
 
 Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads. No-code deployment for Triton models is supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
+In this article, you will learn how to deploy a model using no-code deployment for Triton to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
 > [!NOTE]
-> Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [NVIDIA AI Enterprise on Azure Machine Learning](https://www.nvidia.com/en-us/data-center/azure-ml).
+> - Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [NVIDIA AI Enterprise on Azure Machine Learning](https://www.nvidia.com/en-us/data-center/azure-ml).
+> - This article explains no-code deployment approach for Triton. If you want to customize further directly using Triton inference server's configuration, refer to [Use a custom container to deploy a model](how-to-deploy-custom-container.md) and the BYOC example for Triton ([deployment definition](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container/triton/single-model) and [end-to-end script](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-triton-single-model.sh)). 
 
 ## Prerequisites
 
@@ -313,7 +314,7 @@ This section shows how you can define a Triton deployment on a managed online en
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
 > [!TIP]
-> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
+> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server. This file runs on the client side.
 
 1. To get the endpoint scoring uri, use the following command:
 
