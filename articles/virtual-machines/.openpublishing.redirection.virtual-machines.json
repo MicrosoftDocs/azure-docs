@@ -5026,7 +5026,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.md",
+            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.yml",
             "redirect_url": "/azure/virtual-machines/capture-image-resource",
             "redirect_document_id": true
         },
