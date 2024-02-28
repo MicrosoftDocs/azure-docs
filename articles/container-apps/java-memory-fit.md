@@ -2,12 +2,12 @@
 title: How to use memory efficiently for Java apps
 description: Optimization of default configurations to enhance Java application performance and efficiency
 services: container-apps
-author: qiaolei
+author: craigshoemaker
 ms.service: container-apps
 ms.custom: ignite-2024
 ms.topic: conceptual
 ms.date: 02/27/2024
-ms.author: qiaolei
+ms.author: cshoe
 ---
 
 # Use memory efficiently for Java apps in Azure Container Apps
@@ -72,9 +72,7 @@ az containerapp update \
 
 To verify that memory fitting is disabled, check your logs for the following message:
 
-```text
-Disabling jvm memory fitting, reason: manually disabled
-```
+> Disabling jvm memory fitting, reason: manually disabled
 
 ### Automatic disable
 
@@ -120,10 +118,14 @@ Inspect your [log stream](log-streaming.md) during start-up for a message that r
 
 Here's an example message output during start-up.
 
-```text
-Calculated JVM Memory Configuration: -XX:MaxDirectMemorySize=10M -Xmx1498277K -XX:MaxMetaspaceSize=86874K -XX:ReservedCodeCacheSize=240M -Xss1M (Total Memory: 2G, Thread Count: 250, Loaded Class Count: 12924, Headroom: 0%)
-Picked up JAVA_TOOL_OPTIONS: -XX:MaxDirectMemorySize=10M -Xmx1498277K -XX:MaxMetaspaceSize=86874K -XX:ReservedCodeCacheSize=240M -Xss1M
-```
+> Calculated JVM Memory Configuration: -XX:MaxDirectMemorySize=10M
+> -Xmx1498277K -XX:MaxMetaspaceSize=86874K -XX:ReservedCodeCacheSize=240M
+> -Xss1M (Total Memory: 2G, Thread Count: 250,
+> Loaded Class Count: 12924, Headroom: 0%)
+>
+> Picked up JAVA_TOOL_OPTIONS: -XX:MaxDirectMemorySize=10M
+> -Xmx1498277K -XX:MaxMetaspaceSize=86874K
+> -XX:ReservedCodeCacheSize=240M -Xss1M
 
 ## Runtime configuration
 
@@ -152,9 +154,7 @@ Here are some possible reasons of why your container could run out of memory:
 
 If your container runs out  of memory, then you encounter the following warning:
 
-```text
-OOM Warning: heap memory 1200M is greater than 1G available for allocation (-Xmx1200M)
-```
+> OOM Warning: heap memory 1200M is greater than 1G available for allocation (-Xmx1200M)
 
 ## Next steps
 

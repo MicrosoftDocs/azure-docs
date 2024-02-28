@@ -119,4 +119,4 @@ az containerapp github-action add \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QBuild and deploy from a repository](quickstart-code-to-cloud.md)
+> [Build and deploy from a repository](quickstart-code-to-cloud.md)
