@@ -33,8 +33,8 @@ The following table shows each version of the Node.js programming model along wi
 | ---- | ---- | --- | --- | --- |
 | 4.x | GA | 4.25+ | 20.x (Preview), 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
 | 3.x | GA | 4.x | 20.x (Preview), 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
-| 2.x | GA (EOL) | 3.x | 14.x, 12.x, 10.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
-| 1.x | GA (EOL) | 2.x | 10.x, 8.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+| 2.x | n/a | 3.x | 14.x, 12.x, 10.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+| 1.x | n/a | 2.x | 10.x, 8.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
 ## Folder structure
 
@@ -730,7 +730,7 @@ app.storageQueue('copyBlob1', {
 
 ### Generic inputs and outputs
 
-The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method has been provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
+The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method is provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
 
 The following example is a simple HTTP triggered function using generic methods instead of type-specific methods.
 
@@ -1222,7 +1222,7 @@ The `HttpRequest` object has the following properties:
 | **`params`**   | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**     | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
-| **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already. |
+| **`bodyUsed`** | `boolean` | A boolean indicating if the body is already read. |
 
 In order to access a request or response's body, the following methods can be used:
 
@@ -1424,7 +1424,7 @@ The response can be set in several ways:
 
 ## HTTP streams (preview)
 
-HTTP streams, which is currently in preview, makes it easier to processing large data, stream OpenAI responses, deliver dynamic content, and other scenarios more feasible over HTTP. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
+HTTP streams, which is currently in preview, is a feature that makes it easier to processing large data, stream OpenAI responses, deliver dynamic content, and other HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
 
 HTTP streams is currently in preview.
 
@@ -1436,7 +1436,7 @@ HTTP streams is currently in preview.
 The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support various ways of handling the message body, including as a stream. 
  
 ### Prerequisites
-- Version 4.3.0 or higher for the `@azure/functions` npm package
+- Version 4.3.0 or higher for the `@azure/functions` npm package.
 - [Azure Functions runtime](./functions-versions.md) version 4.28 or later. 
 - [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or a later version, which contains the correct runtime version. 
 
@@ -1466,7 +1466,7 @@ The existing `HttpRequest` and `HttpResponse` types in programming model v4 alre
 
 ### Stream examples
 
-This is an example of an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+This example shows an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
 
 #### [JavaScript](#tab/javascript)
 
@@ -1478,7 +1478,7 @@ This is an example of an HTTP triggered function that receives data via an HTTP 
 
 ---
 
-This is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
+This example shows an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
 
 #### [JavaScript](#tab/javascript)
 
@@ -1492,7 +1492,7 @@ This is an example of an HTTP triggered function that streams a file's content a
 
 ### Stream considerations
 
-+ The `request.params` object isn't supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
++ The `request.params` object isn't supported when using HTTP streams during preview. Refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
 
 + Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
 ::: zone-end  
