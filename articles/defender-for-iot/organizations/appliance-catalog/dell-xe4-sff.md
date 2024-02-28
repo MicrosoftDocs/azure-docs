@@ -7,13 +7,14 @@ ms.topic: reference
 
 # DELL XE4 SFF
 
-This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines. The DELL XE4 SFF is also available for the on-premises management console. <!-- remove?-->
+This article describes the **DELL XE4 SFF** appliance deployment and installation for OT sensors monitoring production lines.
+
 <!-- check correct device number-->
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
 |**Performance** | Max bandwidth: 25 Mbps <br>Max devices: **what is correct number here?** 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
-|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors<br>Minimum dimensions (H x W x D) 11.42 x 3.65 x 11.53 in<br>Minimum dimensions (H x W x D) 29.00 x 9.26 x 29.28 cm|
+|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors|
 |**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:
@@ -29,17 +30,16 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Photo of the dust filter of the DELL XE4 SFF." border="false":::
 
 ## Specifications
-<!-- note website gives different values for weights-->
+
 |Component|Technical specifications|
 |----|----|
 |Construction |Small Form Factor |
 |Dimensions |1. Width: 6.65 in. (169.00 mm) <br>2. Depth: 11.84 in. (300.80 mm)  <br>3. Height: 14.45 in. (367.00 mm) |
-|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54 kg) **website gives different values** Weight (min): 9.27 lb. (4.20 kg) Weight (max): 12.42 lb (5.63 kg)|
+|Weight |Weight (min): 14.13 lb (6.41 kg) <br>Weight (max): 21.03 lb (9.54 kg) |
 |CPU |12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |
 |Memory |8 GB (1x8GB) DDR4 Non-ECC Memory |
 |Storage |M.2 2280 512-GB PCIe NVMe Class 40 Solid State Drive |
 |Network controller |Built-in 1x1Gbps  |
-|Device access | |
 |Power Adapter |300 W internal power supply unit (PSU), 92% Efficient PSU, 80 Plus Platinum |
 |PWS |300 W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |
 |Temperature |5°C to 45°C (41°F to 113°F) |
@@ -50,7 +50,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |EMC |Product Safety, EMC and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
 
 ## DELL XE4 SFF - Bill of Materials
-<!-- check table headings?-->
+
 |Type|Description|PN|Quantity|
 |----|---|----|----|
 |Processor|12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |338-CCYL|1|
