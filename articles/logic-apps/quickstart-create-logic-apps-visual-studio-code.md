@@ -64,7 +64,7 @@ Before you start, make sure that you have these items:
 
    ![Select "Sign in to Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   1. If sign in takes longer than usual, Visual Studio Code prompts you to sign in through a Microsoft authentication website by providing you a device code. To sign in with the code instead, select **Use Device Code**.
+   1. If sign in takes longer than usual, Visual Studio Code prompts you to sign in through a Microsoft authentication website by providing you with a device code. To sign in with the code instead, select **Use Device Code**.
 
       ![Continue with device code instead](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
