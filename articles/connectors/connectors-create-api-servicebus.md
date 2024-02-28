@@ -153,7 +153,7 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
       "concurrency": {
           "runs": 100
         }
-    }
+  }
   ```
 
   When you set up concurrency using a batch, keep the number of concurrent runs larger than the overall batch size. That way, read messages don't go into a waiting state and are always picked up when they're read. In some cases, the trigger can have up to twice the batch size.
