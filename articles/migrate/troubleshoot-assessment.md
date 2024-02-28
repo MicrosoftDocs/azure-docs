@@ -299,7 +299,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assesses the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -317,7 +317,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment supports disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 
@@ -417,7 +417,7 @@ The following unsupported authentication types were found: {0}.
 
 #### Recommended Action
 
-App Service supported authentication types and configuration are different from on-premises IIS. Disable the unsupported authentication types on the site. After the migration is complete, it will be possible to configure the site by using one of the App Service supported authentication types.
+App Service supported authentication types and configuration are different from on-premises IIS. Disable the unsupported authentication types on the site. After the migration is complete, it will be possible to configure the site by using one of the App Services supported authentication types.
 
 ### Error: Authorization check unknown
 
@@ -427,7 +427,7 @@ Unable to determine enabled authentication types for all of the site configurati
 
 #### Recommended Action
 
-Unable to determine authentication types. Fix all configuration errors and confirm that all site content locations are accessible to the administrators group.
+Unable to determine authentication types. Fix all configuration errors and confirm that all site content locations are accessible to the administrator's group.
 
 ### Error: Configuration error check
 
@@ -457,7 +457,7 @@ File content size couldn't be determined, which usually indicates an access issu
 
 #### Recommended Action
 
-Content must be accessible to migrate the site. Confirm that the site isn't using UNC shares for content and that all site content locations are accessible to the administrators group.
+Content must be accessible to migrate the site. Confirm that the site isn't using UNC shares for content and that all site content locations are accessible to the administrator's group.
 
 ### Error: Global module check
 

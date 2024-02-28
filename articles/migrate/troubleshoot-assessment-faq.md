@@ -19,8 +19,8 @@ This article provides answers to some of the most common questions about trouble
 Azure VM assessment might recommend a bigger disk based on the type of assessment:
 
 - Disk sizing depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
-- If the sizing criteria is **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra disk**.
+- If the sizing criteria are **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
+- If the sizing criteria are **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra disk**.
 
 For example, say you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS. The Azure VM assessment recommends a premium disk because of the higher IOPS requirements. It also recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, the Azure VM assessment recommended a larger disk because of the high IOPS requirement of the on-premises disk.
 
@@ -31,7 +31,7 @@ For **Performance-based** assessment, the assessment report export says 'Percent
 - If the VMs are powered on for the duration for which you're creating the assessment.
 - If only memory counters are missing and you're trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. Because of a known issue, currently the Azure Migrate appliance can't collect memory utilization for such VMs.
 - If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access), and [physical](./migrate-support-matrix-physical.md#port-access) assessments.
-If any of the performance counters are missing, Azure Migrate: Discovery and assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+If any of the performance counters are missing, Azure Migrate: Discovery and assessment fall back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
 ## Why is performance data missing for some or all servers in my Azure VM or Azure VMware Solution assessment report?
 
