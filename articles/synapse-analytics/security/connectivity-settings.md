@@ -26,7 +26,7 @@ You can use the public network access feature to allow incoming public network c
 > 
 > When the public network access is disabled, access to GIT mode in Synapse Studio and commit changes won't be blocked as long as the user has enough permission to access the integrated Git repo or the corresponding Git branch. However, the publish button won't work because the access to Live mode is blocked by the firewall settings.
 
-Selecting the **Disable** option will not apply any firewall rules that you might configure. Additionally, your firewall rules will appear greyed out in the Network setting in Synapse portal. Your firewall configurations are reapplied when you enable public network access again. 
+Selecting the **Disable** option will not apply any firewall rules that you might configure. Additionally, your firewall rules will appear grayed out in the Network setting in Synapse portal. Your firewall configurations are reapplied when you enable public network access again. 
 
 > [!TIP]
 > When you revert to enable, allow some time before editing the firewall rules.
@@ -58,7 +58,7 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Defa
 ## Minimal TLS version
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
 
-Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
 
 ## Related content
 
