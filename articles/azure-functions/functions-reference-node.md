@@ -1422,7 +1422,7 @@ The response can be set in several ways:
 
 ::: zone-end
 
-## Support for HTTP streams (Preview)
+## HTTP streams (Preview)
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -1437,9 +1437,9 @@ You can stream HTTP requests to and responses from your Node.js Functions Apps.
 This feature (currently in preview) makes scenarios like processing large data, streaming OpenAI responses, delivering dynamic content etc. possible. Use this in scenarios where real time exchange and interaction between client and server over HTTP connections is needed. We recommend using streams to get the best performance and reliability for your apps.  
 
 ## Prerequisites
-- If running in Azure, version 4.28 of the [Azure Functions runtime](./functions-versions.md) which finished rolling out in January 2024. 
-- If running locally, version 4.0.5530 of Azure Functions Core Tools, which was released in February 2024. 
 - Version 4.3.0 or higher for the @azure/functions npm package
+- If running in Azure, version 4.28 of the [Azure Functions runtime](./functions-versions.md)
+- If running locally, version 4.0.5530 of Azure Functions Core Tools
 
 ## Steps
 1. If you plan to stream large amounts of data, adjust the [app setting](./functions-app-settings.md#functions_request_body_size_limit) `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` in Azure or in your `local.settings.json` file. The default value is `104857600`, aka limiting your request to 100mb maximum. 
@@ -1459,7 +1459,7 @@ This feature (currently in preview) makes scenarios like processing large data, 
  app.setup({ enableHttpStream: true }); 
  ```
 
-    ---
+ ---
 
 3. The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support many ways of handling the body, including as a stream. 
 
