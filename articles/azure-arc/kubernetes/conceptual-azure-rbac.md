@@ -1,6 +1,6 @@
 ---
 title: "Azure RBAC on Azure Arc-enabled Kubernetes (preview)"
-ms.date: 05/04/2023
+ms.date: 02/28/2024
 ms.topic: conceptual
 description: "This article provides a conceptual overview of the Azure RBAC capability on Azure Arc-enabled Kubernetes."
 ---
