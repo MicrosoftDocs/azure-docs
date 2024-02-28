@@ -62,7 +62,7 @@ Deploy the ARM template to Azure:
    ![A screenshot of create new application gateway: Basics.](./media/ipv6-application-gateway-arm-template/template-basics.png)
 
    > [!NOTE]
-   > Select a region that is the same as your resource group. If the region does not support the Standard DS1 v2 virtual machine SKU, this SKU is not displayed and you must choose a different size.
+   > Select a region that is the same as your resource group. If the region doesn't support the Standard DS1 v2 virtual machine SKU, this SKU is not displayed and you must choose a different size.
 
 3. Select **Review + Create** and then select **Create**.
 
