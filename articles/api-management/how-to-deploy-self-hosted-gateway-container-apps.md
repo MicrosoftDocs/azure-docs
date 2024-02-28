@@ -133,7 +133,7 @@ For example, deploy an example music album API to a container app. For later acc
 
 ### Configure the API for internal ingress
 
-Now update the container app hosting the sample API to enable ingress only in the container environment. This setting restricts access to the API from the self-hosted gateway that you deployed.
+Now update the container app hosting the sample API to enable ingress only in the container environment. This setting restricts access to the API only from the self-hosted gateway that you deployed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your container app.
 1. In the left menu, select **Ingress**.
@@ -143,7 +143,7 @@ Now update the container app hosting the sample API to enable ingress only in th
 
 ### Step 2. Add the API to your API Management instance 
 
-The following are example steps to add an API to your API Management instance and configure an API backend. For more information, see [Add an API to Azure API Management](api-management-howto-add-api.md).
+The following are example steps to add an API to your API Management instance and configure an API backend. For more information, see [Add an API to Azure API Management](add-api-manually.md).
 
 #### Add the API to your API Management instance
 
