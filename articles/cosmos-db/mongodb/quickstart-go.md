@@ -251,7 +251,7 @@ Create a [resource group](../../azure-resource-manager/management/overview.md) w
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
+If you are using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to log in, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
