@@ -227,6 +227,9 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
+    - name: OpenAI text to speech voices
+      href: openai-voices.md
+      displayName: tts
     - name: Text to speech FAQ
       displayName: FAQ,TTS,frequently asked questions
       href: faq-tts.yml

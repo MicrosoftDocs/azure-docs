@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-key-phrase, ignite-fall-2021
+ms.custom: language-service-key-phrase
 ---
 
 # What is key phrase extraction in Azure AI Language?

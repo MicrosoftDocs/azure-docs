@@ -8,7 +8,6 @@ ms.subservice: azure-ai-qna-maker
 ms.topic: include
 ms.date: 01/19/2024
 ms.author: v-jawe
-ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for Java to:

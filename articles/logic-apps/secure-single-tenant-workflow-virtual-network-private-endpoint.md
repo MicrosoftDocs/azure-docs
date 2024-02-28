@@ -7,8 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 01/10/2024
-
-# As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
+# Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
 # Secure traffic between Standard logic apps and Azure virtual networks using private endpoints

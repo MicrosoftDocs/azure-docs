@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 07/05/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Remove Microsoft Sentinel from your workspace

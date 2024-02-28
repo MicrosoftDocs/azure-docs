@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party identity management system. I need a tutorial to configure WhoIAM Branded Identity Management System (BRIMS) with Azure AD B2C. My goal is to enable user verification with voice, SMS, and email in my application.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party identity management system. I need a tutorial to configure WhoIAM Branded Identity Management System (BRIMS) with Azure AD B2C. My goal is to enable user verification with voice, SMS, and email in my application.
 ---
 
 # Tutorial to configure Azure Active Directory B2C with WhoIAM

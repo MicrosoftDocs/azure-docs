@@ -8,8 +8,7 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.date: 01/19/2024
 ms.topic: include
-ms.custom: include file, cog-serv-seo-aug-2020
-
+ms.custom: include file
 ---
 Use the Language Understanding (LUIS) client libraries for Python to:
 

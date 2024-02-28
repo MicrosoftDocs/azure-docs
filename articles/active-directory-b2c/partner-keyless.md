@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure AD B2C with Keyless for passwordless authentication. I need to configure Keyless with Azure AD B2C, so I can provide a secure and convenient passwordless authentication experience for my customer applications.
+# Customer intent: I'm a developer integrating Azure AD B2C with Keyless for passwordless authentication. I need to configure Keyless with Azure AD B2C, so I can provide a secure and convenient passwordless authentication experience for my customer applications.
 
 ---
 

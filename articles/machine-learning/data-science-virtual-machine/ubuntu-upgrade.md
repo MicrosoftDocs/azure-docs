@@ -15,6 +15,9 @@ ms.date: 04/19/2023
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 If you have a Data Science Virtual Machine running an older release such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS.
 
 ## Prerequisites

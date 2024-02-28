@@ -43,24 +43,24 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md     
-    - name: Automatically delete an environment
-      href: how-to-schedule-environment-deletion.md
     - name: Create and configure a dev center from the CLI
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
-- name: Create environments
+- name: Create and manage environments
   expanded: false
   items: 
-    - name: Create an environment with AZD
+    - name: Create environments with Azure Developer CLI (AZD)
       href: how-to-create-environment-with-azure-developer.md
-    - name: Manage environments as a developer
+    - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
-    - name: Create an environment from the CLI
+    - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
 - name: Manage costs
   expanded: false
-  items:         
+  items:
+    - name: Automatically delete an environment
+      href: how-to-schedule-environment-deletion.md         
     - name: Request a quota limit increase
       href: how-to-request-quota-increase.md  
 - name: Security
@@ -72,11 +72,8 @@ items:
       href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-- name: Tutorials
-  expanded: false
-  items:
-    - name: Deploy environments in CI/CD with GitHub
-      href: tutorial-deploy-environments-in-cicd-github.md  
+- name: Automate with GitHub Actions (CI/CD)
+  href: tutorial-deploy-environments-in-cicd-github.md       
 - name: Reference
   items:
     - name: Install Azure CLI extension

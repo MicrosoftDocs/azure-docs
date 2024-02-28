@@ -4,7 +4,6 @@ titleSuffix: Azure HDInsight
 description: Learn how to set up and configure an HDInsight cluster integrated with Active Directory by using Microsoft Entra Domain Services and the Enterprise Security Package feature.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 09/21/2023
 ---
 
