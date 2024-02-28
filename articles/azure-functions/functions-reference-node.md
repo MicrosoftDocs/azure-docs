@@ -1422,6 +1422,144 @@ The response can be set in several ways:
 
 ::: zone-end
 
+## Support for HTTP streams (Preview)
+
+::: zone pivot="nodejs-model-v3"
+
+HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
+
+::: zone-end
+
+::: zone pivot="nodejs-model-v4"
+
+You can stream HTTP requests to and responses from your Node.js Functions Apps.   
+
+This feature (currently in preview) makes scenarios like processing large data, streaming OpenAI responses, delivering dynamic content etc. possible. Use this in scenarios where real time exchange and interaction between client and server over HTTP connections is needed. We recommend using streams to get the best performance and reliability for your apps.  
+
+## Prerequisites
+- If running in Azure, version 4.28 of the [Azure Functions runtime](./functions-versions.md) which finished rolling out in January 2024. 
+- If running locally, version 4.0.5530 of Azure Functions Core Tools, which was released in February 2024. 
+- Version 4.3.0 or higher for the @azure/functions npm package
+
+## Steps
+1. If you plan to stream large amounts of data, adjust the [app setting](./functions-app-settings.md#functions_request_body_size_limit) `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` in Azure or in your `local.settings.json` file. The default value is `104857600`, aka limiting your request to 100mb maximum. 
+2. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
+
+ # [JavaScript](#tab/javascript)
+
+ ```javascript
+ const { app } = require('@azure/functions'); 
+ app.setup({ enableHttpStream: true });
+ ```
+
+ # [TypeScript](#tab/typescript)
+ 
+ ```typescript
+ import { app } from '@azure/functions'; 
+ app.setup({ enableHttpStream: true }); 
+ ```
+
+    ---
+
+3. The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support many ways of handling the body, including as a stream. 
+
+> [!NOTE]
+> Use `request.body` to truly benefit from streams. You can still continue to use methods like `request.text()` which will always return the body as a string.
+
+Below is an example of an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+
+   # [JavaScript](#tab/javascript)
+
+   ```javascript
+    const { app } = require('@azure/functions');
+    const { createWriteStream } = require('fs');
+    const { Writable } = require('stream');
+
+    app.http('httpTriggerStreamRequest', {
+    methods: ['POST'],
+    authLevel: 'anonymous',
+    handler: async (request, context) => {
+        const writeStream = createWriteStream('<output file path>');
+        await request.body.pipeTo(Writable.toWeb(writeStream));
+
+        return { body: 'Done!' };
+    },
+    }); 
+   ```
+
+ # [TypeScript](#tab/typescript)
+
+  ```typescript
+  import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+  import { createWriteStream } from 'fs';
+  import { Writable } from 'stream';
+
+  export async function httpTriggerStreamRequest(
+      request: HttpRequest,
+      context: InvocationContext
+  ): Promise<HttpResponseInit> {
+      const writeStream = createWriteStream('<output file path>');
+      await request.body.pipeTo(Writable.toWeb(writeStream));
+
+      return { body: 'Done!' };
+  }
+
+  app.http('httpTriggerStreamRequest', {
+       methods: ['POST'],
+       authLevel: 'anonymous',
+       handler: httpTriggerStreamRequest,
+  }); 
+  ```
+
+  ---
+
+   Below is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
+
+ # [JavaScript](#tab/javascript)
+
+  ```javascript
+  const { app } = require('@azure/functions');
+  const { createReadStream } = require('fs');
+
+  app.http('httpTriggerStreamResponse', {
+      methods: ['GET'],
+      authLevel: 'anonymous',
+      handler: async (request, context) => {
+          const body = createReadStream('<input file path>');
+
+          return { body };
+      },
+  });
+  ```
+
+ # [TypeScript](#tab/typescript)
+
+  ```typescript
+  import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+  import { createReadStream } from 'fs';
+
+  export async function httpTriggerStreamResponse(
+        request: HttpRequest,
+        context: InvocationContext
+    ): Promise<HttpResponseInit> {
+         const body = createReadStream('<input file path>');
+
+         return { body };
+    }
+
+    app.http('httpTriggerStreamResponse', {
+        methods: ['GET'],
+        authLevel: 'anonymous',
+        handler: httpTriggerStreamResponse,
+    });
+  ```
+  
+  ---
+
+If you run into issues while working with HTTP Streams, please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229).
+
+::: zone-end
+
 ## Hooks
 
 ::: zone pivot="nodejs-model-v3"
