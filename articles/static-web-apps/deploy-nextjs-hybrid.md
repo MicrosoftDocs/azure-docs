@@ -13,10 +13,10 @@ ms.custom: devx-track-js
 
 # Deploy hybrid Next.js websites on Azure Static Web Apps (Preview)
 
-In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the support for Next.js features such as Server-Side Rendering (SSR) and API routes.
+In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the support for Next.js features such as React Server Components, Server-Side Rendering (SSR) and API routes.
 
 >[!NOTE]
-> Next.js hybrid support is in preview, with limited support for Next.js versions 13 and above.
+> Next.js hybrid support is in preview.
 
 ## Prerequisites
 
@@ -27,118 +27,45 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
-## Set up a Next.js app
+## Create a repository
 
-Begin by initializing a new Next.js application.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app to deploy to Azure Static Web Apps.
 
-1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
+1. Navigate to the following location to create a new repository:
 
-    ```bash
-    npm init next-app@next-12-3-2 --typescript
-    ```
+    [https://github.com/staticwebdev/nextjs-hybrid-starter/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fnextjs-hybrid-starter%2Fgenerate)
 
-1. When prompted for an app name, enter **nextjs-app**.
+1. Name your repository **my-first-static-web-app**
 
-1. Navigate to the folder containing the new app:
+1. Select **Create repository from template**.
 
-    ```bash
-    cd nextjs-app
-    ```
+    :::image type="content" source="media/getting-started/create-template.png" alt-text="Screenshot of create repository from template button.":::
 
-1. Start Next.js app in development:
+## Create a static web app
 
-    ```bash
-    npm run dev
-    ```
+[!INCLUDE [create steps](../../includes/static-web-apps/static-web-apps-tutorials-portal-create.md)]
 
-    Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
+In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
-    :::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Screenshot of a Next.js app running in the browser.":::
+1. Select **Next.js** from the _Build Presets_ dropdown.
 
-1. Stop the development server by pressing **CMD/CTRL + C**.
+1. Keep the default value in the _App location_ box.
 
-## Configure your Next.js app for deployment to Static Web Apps
+1. Leave the _Api location_ box empty.
 
-To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project in the `next.config.js` file. This step reduces the size of your Next.js project to ensure it's below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+1. Leave the _App artifact location_ box empty.
 
-```js
-module.exports = {
-    output: "standalone",
-}
-```
+Select **Review + create**.
 
-## Deploy your Next.js app
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Screenshot of the create button.":::
 
-The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
+## View the website
 
-### Create a GitHub repo
+[!INCLUDE [view website](../../includes/static-web-apps/static-web-apps-tutorials-portal-view-website.md)]
 
-Before deploying to Azure, you'll need to create a GitHub repo and push the application up.
+## Add Server-Rendered data with a Server Component
 
-1. Navigate to [https://github.com/new](https://github.com/new) and name it **nextjs-app**.
-1. From the terminal on your machine, initialize a local git repo and commit your changes using the following command.
-
-    ```bash
-    git init && git add -A && git commit -m "initial commit"
-    ```
-
-1. Add your repo as a remote and push your changes to the server.
-
-    ```bash
-    git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-app && git push -u origin main
-    ```
-
-    As you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub user name.
-
-[!INCLUDE [create a static web app initial steps](../../includes/static-web-apps/create-a-static-web-app.md)]
-
-1. Enter the following GitHub values.
-
-    | Property | Value |
-    | --- | --- |
-    | _Organization_ | Select the appropriate GitHub organization. |
-    | _Repository_ | Select **nextjs-app**. |
-    | _Branch_ | Select **main**. |
-
-1. In the _Build Details_ section, select **Next.js** from the _Build Presets_ and keep the default values.
-
-### Review and create
-
-1. Select the **Review + Create** button to verify the details are all correct.
-
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
-
-1. Once the deployment completes select, **Go to resource**.
-
-1. On the _Overview_ window, select the *URL* link to open your deployed application.
-
-If the website doesn't load immediately, then the build is still running.
-
-To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
-
-```url
-https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-app/actions
-```
-
-Once the workflow is complete, you can refresh the browser to view your web app.
-
-Now any changes made to the `main` branch starts a new build and deployment of your website.
-
-
->[!NOTE]
->If you have trouble deploying a Next.js Hybrid application with more than 100Mb app size, use the `standalone` feature of Next.js. Refer to the [standalone](#enable-standalone-feature) section for more information. 
-
-
-### Sync changes
-
-When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
-
-Return to the terminal and run the following command `git pull origin main`.
-
-
-## Add Server-Rendered data
-
-To insert data server-rendered data to a Next.js page, you need to first export a special function.
+To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operations and render these in this component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
 
 1. Open the _pages/index.ts_ file and add an exported function named `getServerSideProps`.
 
@@ -226,19 +153,6 @@ Begin by adding an API route.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
 
-## Enable standalone feature
-
-When your application size exceeds 100Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
-
-Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
-
-In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
-```bash
-module.exports ={
-    output:"standalone",
-}
-```
-
 ## Enable logging for Next.js
 
 Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
@@ -247,16 +161,11 @@ Following best practices for Next.js server API troubleshooting, add logging to 
 * [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)
 * [Preloading with Next.js](https://jake.tl/notes/2021-04-04-nextjs-preload-hack)
 
-
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+[!INCLUDE [clean up](../../includes/static-web-apps/static-web-apps-tutorials-portal-clean-up.md)]
 
-1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **my-nextjs-group** from the top search bar.
-1. Select on the group name.
-1. Select on the **Delete** button.
-1. Select **Yes** to confirm the delete action.
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a custom domain](custom-domain.md)
+> [Configure app settings](./application-settings.md)
