@@ -75,19 +75,13 @@ procedureSection:
       `mongodb://username:password@host:port/[database]?ssl=true`
 
       The values of this string are:
-    steps:
-      - |
-        Username (required): Azure Cosmos DB account name.
-      - |
-        Password (required): Azure Cosmos DB account password.
-      - |
-        Host (required): FQDN of the Azure Cosmos DB account.
-      - |
-        Port (required): 10255.
-      - |
-        Database (optional): The database that the connection uses. If no database is provided, the default database is "test."
-      - |  
-        ssl=true (required).
+
+      - Username (required): Azure Cosmos DB account name.
+      - Password (required): Azure Cosmos DB account password.
+      - Host (required): FQDN of the Azure Cosmos DB account.
+      - Port (required): 10255.
+      - Database (optional): The database that the connection uses. If no database is provided, the default database is "test."
+      - ssl=true (required).
 
         For example, consider the account shown in the **Connection strings** pane. A valid connection string is:
 
@@ -98,11 +92,8 @@ procedureSection:
     summary: |
       All drivers that support wire protocol version 3.4 or greater support Azure Cosmos DB for MongoDB.
 
-    steps:
-      - |
-        Client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. 
-      - |
-        If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
+      - Client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. 
+      - If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
     
 
 relatedContent:
