@@ -25,6 +25,8 @@ Analytics rules search for specific events or sets of events across your environ
 
 ## Create a custom analytics rule with a scheduled query
 
+This section walks you through the **Analytics rule wizard** and explains all the available options. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for standalone Microsoft Sentinel customers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+
 # [Azure portal](#tab/azure)
 
 1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
@@ -43,28 +45,30 @@ Analytics rules search for specific events or sets of events across your environ
 
 ---
 
-### Analytics rule wizard&mdash;General tab*
+### Define general rule information
 
-\* In the Azure portal, stages are represented visually as tabs. In the Defender portal, they're represented visually as milestones on a timeline. See the screenshots below for examples.
+In the Azure portal, stages are represented visually as tabs. In the Defender portal, they're represented visually as milestones on a timeline. See the screenshots below for examples.
 
-- Provide a unique **Name** and a **Description**.
+1. Provide a unique **Name** and a **Description**.
 
-- Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
+1. Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
 
-    - **Informational**. No impact on your system, but the information might be indicative of future steps planned by a threat actor.
-    - **Low**. The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.
-    - **Medium**. The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.
-    - **High**. The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment.
+    | Severity | Description |
+    | --- | --- |
+    | **Informational** | No impact on your system, but the information might be indicative of future steps planned by a threat actor. |
+    | **Low** | The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment. |
+    | **Medium** | The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity. |
+    | **High** | The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment. |
 
     Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
   
     Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
 
-- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+1. In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
 
     [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
-- When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+1. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    # [Azure portal](#tab/azure)
 
@@ -76,7 +80,7 @@ Analytics rules search for specific events or sets of events across your environ
 
    ---
 
-## Define the rule query logic and configure settings
+### Define the rule query logic and configure settings
 
 In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics and then copy and paste it here.
 
@@ -118,7 +122,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     > - When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
     >   - `project field1 = column_ifexists("field1","")`
 
-### Alert enrichment
+#### Alert enrichment
 
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** section.
 
@@ -142,7 +146,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 >
 > - To reduce the size of your alert, use the `project-away` operator in your query to [remove any unnecessary fields](/azure/data-explorer/kusto/query/projectawayoperator). (Consider also the `project` operator if there are only [a few fields you need to keep](/azure/data-explorer/kusto/query/projectoperator).)
 
-### Query scheduling and alert threshold
+#### Query scheduling and alert threshold
 
 - In the **Query scheduling** section, set the following parameters:
 
@@ -186,7 +190,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
-### Results simulation
+#### Results simulation
 
 In the **Results simulation** area, in the right side of the wizard, select **Test with current data** and Microsoft Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
 
@@ -196,7 +200,7 @@ Here's what the results simulation might look like for the query in the screensh
 
 If you see that your query would trigger too many or too frequent alerts, you can experiment with the settings in the **Query scheduling** and **Alert threshold** [sections](#query-scheduling-and-alert-threshold) and select **Test with current data** again.
 
-### Event grouping and rule suppression
+#### Event grouping and rule suppression
 
 - Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
 
@@ -228,11 +232,11 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
 - In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
-## Configure the incident creation settings
+### Configure the incident creation settings
 
 In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts into actionable incidents, and whether and how alerts are grouped together in incidents.
 
-### Incident settings
+#### Incident settings
 
 In the **Incident settings** section, **Create incidents from alerts triggered by this analytics rule** is set by default to **Enabled**, meaning that Microsoft Sentinel will create a single, separate incident from each and every alert triggered by the rule.
 
@@ -240,7 +244,7 @@ In the **Incident settings** section, **Create incidents from alerts triggered b
 
 - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
-### Alert grouping
+#### Alert grouping
 
 In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
 
@@ -273,7 +277,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
 
 ---
 
-## Set automated responses and create the rule
+### Set automated responses and create the rule
 
 In the **Automated responses** tab, you can use [automation rules](automate-incident-handling-with-automation-rules.md) to set automated responses to occur at any of three types of occasions:
 - When an alert is generated by this analytics rule.
