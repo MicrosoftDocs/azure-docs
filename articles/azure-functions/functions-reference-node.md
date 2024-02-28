@@ -1490,7 +1490,8 @@ Below is an example of an HTTP triggered function that receives data via an HTTP
   
   ---
 
-If you run into issues while working with HTTP Streams, please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229).
+> [!WARNING]
+> The `request.params` object is not supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information, including a suggested workaround.
 
 ::: zone-end
 
