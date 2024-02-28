@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Analysis Services
 description: Start here to learn how to monitor Azure Analysis Services.
-ms.date: 02/16/2024
+ms.date: 02/28/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: kfollis
@@ -9,30 +9,8 @@ ms.author: kfollis
 ms.service: analysis-services
 ---
 
-<!-- 
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace Analysis Services with the official name of your service.
-2. Search and replace analysis-services with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_07
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- Most services can use the following sections unchanged. The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
-At a minimum your service should have the following two articles:
-1. The primary monitoring article (based on this template)
-   - Title: "Monitor Analysis Services"
-   - TOC title: "Monitor"
-   - Filename: "monitor-analysis-services.md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "Analysis Services monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-analysis-services-reference.md".
--->
-
 # Monitor Azure Analysis Services
 
-<!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 Analysis Services also provides several non-Azure Monitor monitoring mechanisms:
@@ -41,81 +19,25 @@ Analysis Services also provides several non-Azure Monitor monitoring mechanisms:
 - Extended Events (xEvents) is a light-weight tracing and performance monitoring system that uses few system resources, making it an ideal tool for diagnosing problems on both production and test servers. For more information, see [Monitor Analysis Services with SQL Server Extended Events](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events).
 - Dynamic Management Views (DMVs) use SQL syntax to interface schema rowsets that return metadata and monitoring information about server instances. For more information, see [Use Dynamic Management Views (DMVs) to monitor Analysis Services](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services).
 
-<!-- ## Insights. Optional section. If your service has insights, add the following include and information. 
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
-Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
-
-<!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md).
 
-<!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
-<!-- Add service-specific information about storing monitoring data here, if applicable. For example, SQL Server stores other monitoring data in its own databases. -->
-
-<!-- METRICS SECTION START ------------------------------------->
 
 <a name="server-metrics"></a>
-<!-- ## Platform metrics. Required section.
-  - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
-  - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md#metrics).
-<!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
-<!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
-Add service-specific information about your container/Prometheus metrics here.-->
-
-<!-- ## System metrics. Optional. If your service uses system-imported metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-system-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
-Add service-specific information about your system-imported metrics here.-->
-
-<!-- ## Custom metrics. Optional. If your service uses custom imported metrics, add the following include and information.
-[!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
-Custom imported service-specific information. Add service-specific information about your custom imported metrics here.-->
-
-<!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information.
-[!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
-Non-Monitor metrics service-specific information. Add service-specific information about your non-Azure Monitor metrics here.-->
-
-<!-- METRICS SECTION END ------------------------------------->
-
-<!-- LOGS SECTION START -------------------------------------->
-
-<!-- ## Resource logs. Required section.
-  - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
-  - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 - For the available resource log categories, associated Log Analytics tables, and the logs schemas for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md#resource-logs).
-
-<!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
-NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
-- For detailed instructions on how to set up logging for your Analysis Services server, see [Set up diagnostic logging for Azure Analysis Services](analysis-services-logging.md).
-
-### Analysis Services resource log data
+## Analysis Services resource logs
 
 When you set up logging for Analysis Services, you can select **Engine** or **Service** events to log, or select **AllMetrics** to log metrics data. For more information, see [Supported resource logs for Microsoft.AnalysisServices/servers](monitor-analysis-services-reference.md#supported-resource-logs-for-microsoftanalysisservicesservers).
 
-<!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
-<!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
-<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. 
-[!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
-Add service-specific information about your imported logs here. -->
-
-<!-- ## Other logs. Optional section.
-If your service has other logs that aren't resource logs or in the activity log, add information that states what they are and what they cover here. You can describe how to route them in a later section. -->
-
-<!-- LOGS SECTION END ------------------------------------->
-
-<!-- ANALYSIS SECTION START -------------------------------------->
-
-<!-- ## Analyze data. Required section. -->
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-<!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 ### Analyze Analysis Services metrics
@@ -138,10 +60,8 @@ To view your diagnostic data, in Log Analytics workspace, open **Logs**  from th
 
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes **Engine** and **Service** events. Notice a query is created on the fly. The **EventClass\_s** field contains xEvent names, which might look familiar if you use xEvents for on-premises logging. Select **EventClass\_s** or one of the event names, and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
-<!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 <a name="example-queries"></a>
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-<!-- Add sample Kusto queries for your service here. -->
 
 The following queries are useful for monitoring your Analysis Services server.
 
@@ -191,21 +111,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-<!-- ANALYSIS SECTION END ------------------------------------->
-
-<!-- ALERTS SECTION START -------------------------------------->
-
-<!-- ## Alerts. Required section. -->
 [!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
-
-<!-- ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
-<!-- ONLY if applications run on your service that work with Application Insights, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
-<!-- ### Analysis Services alert rules. Required section.
-**MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log.
-Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
-Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
 ### Analysis Services alert rules
 The following table lists some common and popular alert rules for Analysis Services.
@@ -215,14 +121,9 @@ The following table lists some common and popular alert rules for Analysis Servi
 |Metric | Whenever the maximum qpu_metric is greater than dynamic threshold. | If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan.|
 |Metric | Whenever the maximum QueryPoolJobQueueLength is greater than dynamic threshold. | The number of queries in the query thread pool queue exceeds available QPU.|
 
-<!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
-<!-- Add any service-specific advisor recommendations or screenshots here. -->
-
-<!-- ALERTS SECTION END -------------------------------------->
 
 ## Related content
-<!-- You can change the wording and add more links if useful. -->
 
 - See [Analysis Services monitoring data reference](monitor-analysis-services-reference.md) for a reference of the metrics, logs, and other important values created for Analysis Services.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.

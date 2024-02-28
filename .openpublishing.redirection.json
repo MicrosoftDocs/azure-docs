@@ -982,7 +982,7 @@
         },
         {
             "source_path_from_root": "/articles/analysis-services/analysis-services-monitor.md",
-            "redirect_url": "/analysis-services/monitor-analysis-services",
+            "redirect_url": "/azure/analysis-services/monitor-analysis-services",
             "redirect_document_id": false
         },
         {
