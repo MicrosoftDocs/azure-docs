@@ -24,7 +24,7 @@ There are two kinds of snapshots offered for Azure managed disks: Full snapshots
 
 ## Ultra Disks
 
-The price of an Azure Ultra Disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more information on how these factors work, see the [Ultra disks](disks-types.md#ultra-disks) section of the [Azure managed disk types](disks-types.md) article.
+The price of an Azure Ultra Disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk. If you share an Ultra Disk between multiple VMs, that can affect its price as well. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more information on how these factors work, see the [Ultra disks](disks-types.md#ultra-disks) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Ultra Disk size
 
@@ -71,7 +71,7 @@ We're billed for the provisioned size of the disk, the extra IOPS and throughput
 
 ## Premium SSD v2
 
-The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its capacity) and what performance you select (IOPS and throughput) for your disk. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more information on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
+The price of an Azure Premium SSD v2 disk is determined by the combination of how large the disk is (its capacity) and what performance you select (IOPS and throughput) for your disk. If you share a Premium SSD v2 disk between multiple VMs, that can affect its price as well. The following sections focus on these factors as they relate to the price of your Premium SSD v2 disk. For more information on how these factors work, see the [Premium SSD v2](disks-types.md#premium-ssd-v2) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Premium SSD v2 capacities
 
@@ -102,6 +102,8 @@ You are billed for the provisioned size of the disk, the extra IOPS and throughp
 |Standard HDD managed disks| LRS snapshots |
 
 ## Premium SSD
+
+The price of an Azure Premium SSD disk is determined by the performance tier of the disk, whether bursting is enabled, what redundancy options you select, and whether or not you share the disk between multiple VMs. The following sections focus on these factors as they relate to the price of your Premium SSD disk. For more information on how these factors work, see the [Premium SSDs](disks-types.md#premium-ssds) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Performance tier
 
@@ -136,6 +138,8 @@ You're billed for the provisioned size of the Premium SSD disk and the burst ena
 
 ## Standard SSD
 
+The price of an Azure Standard SSD is determined by the performance tier of the disk, number of transactions, what redundancy options you select, and whether or not you share the disk between multiple VMs. The following sections focus on these factors as they relate to the price of your Standard SSD. For more information on how these factors work, see the [Standard SSDs](disks-types.md#standard-ssds) section of the [Azure managed disk types](disks-types.md) article.
+
 ### Performance tier
 
 The initial billing of Standard SSDs is determined by the performance tier. The performance tier is set when you select the capacity you require (if you deploy a 1 TiB Standard SSD, it has the E30 tier), your disk is billed at that tier. If you increase the size of your disk into the next tier, it's then billed at that tier. For example, if you increased your 1-TiB disk to a 3-TiB disk, it is billed at the E50 tier.
@@ -164,6 +168,8 @@ You are billed for the provisioned size of the HDD disk, the transactions perfor
 |Standard SSD Managed Disks| E10 LRS Disk |
 
 ## Standard HDD
+
+The price of an Azure Standard HDD is determined by the performance tier of the disk and the number of transactions. The following sections focus on these factors as they relate to the price of your Standard HDD. For more information on how these factors work, see the [Standard HDDs](disks-types.md#standard-hdds) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Performance tier
 
