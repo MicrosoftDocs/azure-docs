@@ -17,7 +17,7 @@ ms.author: gahllevy
 > Please read this entire guide before carrying out your post-migration steps.
 >
 
-This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and post-migration, as shown below.
+This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and post-migration, as shown here.
 
 ![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
 
@@ -45,9 +45,9 @@ In this guide, we assume that you are maintaining a record of your migration's p
 
 In order to optimize price and performance, we recommend that you step through your data estate migration spreadsheet and design an index configuration for each resource. 
 1. We actually recommend [planning your indexes during the pre-migration phase](pre-migration-steps.md#post-migration). Add a column to your data estate migration spreadsheet for index settings. 
-   * The Azure Cosmos DB for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB for NoSQL, which indexes all fields by default.
+   * The Azure Cosmos DB for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index more fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB for NoSQL, which indexes all fields by default.
 
-   * For the Azure Cosmos DB for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
+   * For the Azure Cosmos DB for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (that is, automatic indexing) optimizes read requests.
 
    * The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the createIndex() command. Learn more at Indexing in Azure Cosmos DB and Indexing in Azure Cosmos DB's API for MongoDB.
 2. Apply these index settings during post-migration.
@@ -69,10 +69,10 @@ Most users leave their consistency level at the default session consistency sett
 
 ## Connect or cutover your application
 
-The processing of cutting-over or connecting your application allows you to switch your application to use Azure Cosmos DB once migration is finished. Follow the steps below:
+The processing of cutting-over or connecting your application allows you to switch your application to use Azure Cosmos DB once migration is finished. Follow these steps:
 
 1. In a new window, sign in to the [Azure portal](https://www.portal.azure.com/).
-2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
+2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
 :::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
