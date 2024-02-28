@@ -13,7 +13,7 @@ ms.author: mapankra
 ---
 # Exchange Online Integration for Email-Outbound from SAP NetWeaver
 
-Sending emails from your SAP backend is a standard feature widely distributed for use cases such as alerting for batch jobs, SAP workflow state changes or invoice distribution. Many customers established the setup using [Exchange Server On-Premises](/exchange/exchange-server). With a shift to [Microsoft 365](https://www.microsoft.com/microsoft-365) and [Exchange Online](/exchange/exchange-online) comes a set of cloud-native approaches impacting that setup.
+Sending emails from your SAP backend is a standard feature widely distributed for use cases such as alerting for batch jobs, SAP workflow state changes or invoice distribution. Many customers established the setup using [Exchange Server on-premises](/exchange/exchange-server). With a shift to [Microsoft 365](https://www.microsoft.com/microsoft-365) and [Exchange Online](/exchange/exchange-online) comes a set of cloud-native approaches impacting that setup.
 
 This article describes the setup for **outbound** email-communication from NetWeaver-based SAP systems to Exchange Online. That applies to SAP ECC, S/4HANA, SAP RISE managed, and any other NetWeaver based system.
 
@@ -98,7 +98,7 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
 
 3. Restart ICM service from SMICM transaction and make sure SMTP service is active.
 
-   :::image type="content" source="media/exchange-online-integration/scot-smicm-sec-1-3.png" alt-text="Screenshot of ICM setting":::
+   :::image type="content" source="media/exchange-online-integration/scot-smicm-sec-1-3.png" alt-text="Screenshot of ICM setting.":::
 
 4. Activate SAPConnect service in SICF transaction.
 
@@ -118,7 +118,7 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
     
    :::image type="content" source="media/exchange-online-integration/scot-smtp-security-serttings-sec-1-5.png" alt-text="SMTP security config":::
     
-   Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow to send emails to all domains without restriction.
+   Coming back to the previous screen: Click on "Set" button and check "Internet" under "Supported Address Types". Using the wildcard "\*" option will allow you to send emails to all domains without restriction.
     
    :::image type="content" source="media/exchange-online-integration/scot-smtp-address-type-sec-1-5.png" alt-text="SMTP address type":::
     
