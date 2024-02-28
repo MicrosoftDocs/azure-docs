@@ -115,6 +115,6 @@ You can change the display name for a published remote desktop for all users by 
 
 For session hosts in a personal host pool, you can change the display name for a desktop for each individual session host by setting its friendly name using PowerShell. By default, the session host friendly name is empty, so all users only see the same desktop display name. There isn't currently a way to set the session host friendly name in the Azure portal.
 
-[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
+[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)] 
 
 
