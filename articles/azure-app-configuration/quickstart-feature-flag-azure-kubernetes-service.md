@@ -41,7 +41,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     // ... ...
 
     // Add a JSON configuration source 
-    builder.Configuration.AddJsonFile("config/mysettings.json"); 
+    builder.Configuration.AddJsonFile("config/mysettings.json", reloadOnChange: true, optional: false); 
 
     // Add feature management to the container of services.
     builder.Services.AddFeatureManagement();
