@@ -106,7 +106,7 @@ The HTTP probe has additional properties that you can set:
 * `host`: The host IP address to connect to.
 
 > [!NOTE]
-> Port and scheme is not supported for non-containerized applications. For these scenario please use **EndpointRef="EndpointName"** attribute. Replace 'EndpointName' with the name from the Endpoint defined in ServiceManifest.xml.
+> Port and scheme is not supported for non-containerized applications. For this scenario please use **EndpointRef="EndpointName"** attribute. Replace 'EndpointName' with the name from the Endpoint defined in ServiceManifest.xml.
 >
 
 ### TCP probe
