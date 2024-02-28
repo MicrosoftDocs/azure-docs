@@ -5,7 +5,7 @@ description: Learn how to create Azure DNS Private Resolver. This article is a s
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/17/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -17,6 +17,10 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure DNS Private Resolver.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+The following figure summarizes the setup used in this article:
+
+![Conceptual figure displaying components of the private resolver](./media/dns-resolver-getstarted-portal/resolver-components.png)
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
