@@ -1502,20 +1502,7 @@ Below is an example of an HTTP triggered function that receives data via an HTTP
 
  # [JavaScript](#tab/javascript)
 
-  ```javascript
-  const { app } = require('@azure/functions');
-  const { createReadStream } = require('fs');
-
-  app.http('httpTriggerStreamResponse', {
-      methods: ['GET'],
-      authLevel: 'anonymous',
-      handler: async (request, context) => {
-          const body = createReadStream('<input file path>');
-
-          return { body };
-      },
-  });
-  ```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
 
  # [TypeScript](#tab/typescript)
 
