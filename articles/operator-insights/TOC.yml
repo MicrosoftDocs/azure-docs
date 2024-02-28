@@ -15,6 +15,10 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Quality of Experience - Affirmed MCC Data Products
+    href: concept-mcc-data-product.md
+  - name: Monitoring - Affirmed MCC Data Product
+    href: concept-monitoring-mcc-data-product.md
   - name: Business continuity disaster recovery
     href: business-continuity-disaster-recovery.md
   - name: Data quality and data monitoring
@@ -22,48 +26,64 @@
   - name: Data types
     href: concept-data-types.md
   - name: Data visualization
-    href: concept-data-visualization.md 
-  - name: Quality of Experience - Affirmed MCC Data Products
-    href: concept-mcc-data-product.md
-  - name: Monitoring - Affirmed MCC Data Product
-    href: concept-monitoring-mcc-data-product.md
+    href: concept-data-visualization.md
+  - name: Ingestion agents
+    href: ingestion-agent-overview.md
   - name: Managed identity
     href: managed-identity.md
 - name: How-to guides
   expanded: false
   items:
-  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
-    href: purview-setup.md
+  - name: Set up an ingestion agent for uploading data
+    href: set-up-ingestion-agent.md
   - name: Use Azure Operator Insights Data Product dashboards
     href: dashboards-use.md
   - name: Query data in the Azure Operator Insights Data Product
     href: data-query.md
+  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
+    href: purview-setup.md
   - name: Manage permissions to the consumption URL
     href: consumption-plane-configure-permissions.md
-  - name: Deploy Ingestion Agents for MCC protobuf EDRs
+  - name: Manage Azure Operator Insights ingestion agents
     items:
-    - name: Create and configure MCC EDR Ingestion Agents
-      href: how-to-install-mcc-edr-agent.md
-    - name: Manage MCC EDR Ingestion Agents
-      href: how-to-manage-mcc-edr-agent.md
-    - name: Monitor and troubleshoot MCC EDR Ingestion Agents
-      href: troubleshoot-mcc-edr-agent.md
-    - name: MCC EDR Ingestion Agent configuration reference
-      href: mcc-edr-agent-configuration.md
-  - name: Deploy Ingestion Agents for SFTP files
-    items:
-    - name: Overview
-      href: sftp-agent-overview.md
-    - name: Create and configure SFTP Ingestion Agents
-      href: how-to-install-sftp-agent.md
-    - name: Manage SFTP Ingestion Agents
-      href: how-to-manage-sftp-agent.md
-    - name: Monitor and troubleshoot SFTP Ingestion Agents
-      href: troubleshoot-sftp-agent.md
-    - name: SFTP Ingestion Agent configuration reference
-      href: sftp-agent-configuration.md
+    - name: Change configuration
+      href: change-ingestion-agent-configuration.md
+    - name: Monitor and troubleshoot
+      href: monitor-troubleshoot-ingestion-agent.md
+    - name: Upgrade
+      href: upgrade-ingestion-agent.md
+    - name: Rotate secrets
+      href: rotate-secrets-for-ingestion-agent.md
+    - name: Map Microsoft hostnames to IP addresses
+      href: map-hostnames-ip-addresses.md
+    - name: Configuration reference
+      href: ingestion-agent-configuration-reference.md
   - name: Monitor Azure Operator Insights
     href: monitor-operator-insights.md
+  - name: Manage legacy ingestion agents
+    items:
+    - name: MCC EDR Ingestion Agents
+      items:
+      - name: Create and configure MCC EDR Ingestion Agents
+        href: how-to-install-mcc-edr-agent.md
+      - name: Manage MCC EDR Ingestion Agents
+        href: how-to-manage-mcc-edr-agent.md
+      - name: Monitor and troubleshoot MCC EDR Ingestion Agents
+        href: troubleshoot-mcc-edr-agent.md
+      - name: MCC EDR Ingestion Agent configuration reference
+        href: mcc-edr-agent-configuration.md
+    - name: SFTP ingestion agents
+      items:
+      - name: Overview
+        href: sftp-agent-overview.md
+      - name: Create and configure SFTP Ingestion Agents
+        href: how-to-install-sftp-agent.md
+      - name: Manage SFTP Ingestion Agents
+        href: how-to-manage-sftp-agent.md
+      - name: Monitor and troubleshoot SFTP Ingestion Agents
+        href: troubleshoot-sftp-agent.md
+      - name: SFTP Ingestion Agent configuration reference
+        href: sftp-agent-configuration.md
 - name: Reference
   items:
     - name: Monitoring data
