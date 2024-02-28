@@ -47,7 +47,7 @@ Based on customer feedback, we've added the following standards to our complianc
 | CIS Google Kubernetes Engine (GKE) Benchmark          | v1.4.0     | :x:                             | :white_check_mark:              |
 | CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
 | CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
-| CSA Cloud Controls Matrix (CCM)                       | v4.0.6     | :white_check_mark:              | :white_check_mark:              |
+| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
 | Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
 | FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
 | GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
