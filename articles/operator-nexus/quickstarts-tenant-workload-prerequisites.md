@@ -187,7 +187,7 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 
 To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cluster, you must have a cloud services network. Without this network, you can't create a VM or cluster.
 
-While the cloud services network automatically enables access to essential platform endpoints, you need to add others, such as docker.io, if your application requires them. Configuring the cloud services network proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcarding the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pulling from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
+While the cloud services network automatically enables access to essential platform endpoints, you need to add others, such as docker.io, if your application requires them. Configuring the cloud services network proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcards for the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pull from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
 
 The egress endpoints must comply with the domain name structures and hostname specifications outlined in RFC 1034, RFC 1035, and RFC 1123. Valid domain names include alphanumeric characters, hyphens (not at the start or end), and can have subdomains separated by dots. Here are a few examples to demonstrate compliant naming conventions for domain and hostnames.
   
@@ -233,11 +233,11 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 
 ---
 
-Once you have the cloud services network, you can create a VM or cluster with it to enable connectivity to the configured egress endpoints. It's important to note that the proxy only supports HTTPS.
+After setting up the cloud services network, you can use it to create a VM or cluster that can connect to the egress endpoints you have specified. Remember that the proxy only works with HTTPS.
 
 #### Using the proxy to reach outside of the virtual machine
 
-After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you can use the tenant proxy to reach outside of the virtual machine. This proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
+After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you need to additionally set appropriate environment variables within VM to use tenant proxy and to reach outside of virtual machine. This tenant proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 
 To use the proxy, you need to set the following environment variables:
 
@@ -258,7 +258,7 @@ After setting the proxy environment variables, your virtual machine will be able
 
 When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it across multiple racks. This technique can improve resource utilization and fault tolerance.
 
-If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule to spread the VM across racks and bare metal nodes. This rule also aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
+If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule to spread the VM across racks and bare metal nodes and isn't guaranteed. This rule also aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 
