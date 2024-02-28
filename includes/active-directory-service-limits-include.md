@@ -1,7 +1,6 @@
 ---
  title: include file
  description: include file
- services: active-directory
  author: rolyon
  ms.service: active-directory
  ms.topic: include

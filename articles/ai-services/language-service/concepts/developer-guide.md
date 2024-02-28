@@ -3,12 +3,12 @@ title: Use the Language SDK and REST API
 titleSuffix: Azure AI services
 description: Learn about how to integrate the Language service SDK and REST API into your applications.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 # SDK and REST developer guide for the Language service

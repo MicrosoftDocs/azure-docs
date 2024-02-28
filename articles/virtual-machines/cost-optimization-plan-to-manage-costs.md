@@ -6,14 +6,19 @@ ms.author: tomcassidy
 ms.custom: subject-cost-optimization
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 01/02/2024
+ms.date: 02/21/2024
 ---
 
 # Plan to manage costs for virtual machines
 
 This article describes how you plan for and manage costs for virtual machines. Before you deploy the service, you can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for virtual machines. Later, as you deploy Azure resources, review the estimated costs.
 
-After you start using virtual machine resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for virtual machines are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for virtual machines, your bill includes the costs of all Azure services and resources used in your Azure subscription, including the third-party services.
+If you'd like to learn how to monitor costs for virtual machines, see [Monitor costs for virtual machines](cost-optimization-monitor-costs.md). If you'd like to review the best practices for virtual machine cost optimization, see [Best practices for virtual machine cost optimization](cost-optimization-best-practices.md).
+
+In this article, you'll:
+* Learn how to estimate costs before using virtual machines
+* Gain an understanding of the billing model for virtual machines
+* Learn how to review costs of virtual machine deployments in the Azure portal
 
 ## Prerequisites
 
@@ -50,7 +55,7 @@ When you create or use virtual machines resources, you might get charged for the
 - **Virtual machines** - You're charged for it based on the number of hours per VM.
     - The price also changes based on your [VM size](sizes.md).
     - The price also changes based on the region where your virtual machine is located.
-    - As virtual machine instances go through different states, they are [billed differently](states-billing.md).
+    - As virtual machine instances go through different states, they're [billed differently](states-billing.md).
 - **Storage** - You're charged for it based on the disk size in GB and the transactions per hour.
     - For more information about transactions, see the [transactions section of the Understanding billing page for storage](../storage/files/understanding-billing.md#what-are-transactions).
 - **Virtual network** - You're charged for it based on the number of GBs of data transferred.
@@ -92,7 +97,7 @@ After you delete virtual machines resources, the following resources might conti
 
 If your OS disk isn't deleted with your VM, it likely incurs [P10 disk costs](https://azure.microsoft.com/pricing/details/managed-disks/) even in a stopped state. The OS disk size is smaller by default for some images and incurs lower costs accordingly.
 
-For virtual networks, one virtual network is billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges.
+For virtual networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges.
 
 Bandwidth is charged by usage; the more data transferred, the more you're charged.
 
@@ -134,90 +139,14 @@ To create a virtual machine and view the estimated price:
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. If you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Monitor costs
-
-As you use Azure resources with virtual machines, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as virtual machine use starts, costs are incurred, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-When you use cost analysis, you view virtual machine costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends, and you can see where you might be overspending. If you create budgets, you can also easily see where they're exceeded.
-
-To view virtual machine costs in cost analysis:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-
-1. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled virtual machines.
-
-> [!NOTE]
-> If you just created your virtual machine, cost and usage data is typically only available within 8-24 hours. 
-
-Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
-
-:::image type="content" source="media/plan-to-manage-costs/virtual-machines-pricing-all-monthly-costs.png" alt-text="Example of all monthly costs projections in cost analysis in the Azure portal." lightbox="media/plan-to-manage-costs/virtual-machines-pricing-all-monthly-costs.png" :::
-
-To narrow costs for a single service, like virtual machines, select **Add filter** and then select **Service name**. Then, select **Virtual Machines**.
-
-Here's an example showing costs for just virtual machines.
-
-:::image type="content" source="media/plan-to-manage-costs/virtual-machines-pricing-costs-service-filter.png" alt-text="Example of monthly costs for virtual machines in cost analysis in the Azure portal." lightbox="media/plan-to-manage-costs/virtual-machines-pricing-costs-service-filter.png" :::
-
-In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and virtual machines costs by resource group are also shown. From here, you can explore costs on your own.
-
-## Create budgets
-
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
-
-Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-## Export cost data
-
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
-
-## Other ways to manage and reduce costs for virtual machines
-
-The following are some best practices you can use to reduce the cost of your virtual machines:
-
-- Use the [virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/) to identify the best VMs for your needs
-    - For development and test environments:
-        - Use B-Series virtual machines
-            - Use at least B2 for Windows machines
-        - Use HDDs instead of SSDs when you can
-        - Use locally redundant storage (LRS) accounts instead of geo- or zone-redundant storage accounts
-        - Use Logic Apps or Azure Automation to implement an automatic start and stop schedule for your VMs
-    - For production environments:
-        - Use the dedicated Standard pricing tier or higher
-        - Use a Premium SSD v2 disk and programmatically adjust its performance to account for either higher or lower demand based on your workload patterns
-        - For other disk types, size your disks to achieve your desired performance without the need for over-provisioning. Account for fluctuating workload patterns, and minimizing unused provisioned capacity
-- Use [role-based-access-control (RBAC)](../role-based-access-control/built-in-roles.md) to control who can create resources
-- Use [Azure Spot virtual machines](spot-vms.md) where you can
-- For Windows virtual machines, consider [Azure Hybrid Benefit for Windows Server](windows/hybrid-use-benefit-licensing.md) to save cost on licensing
-- Use [cost alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) to monitor usage and spending
-- Minimize idle instances by configuring [autoscaling](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)
-- Configure Azure Bastion for operational access
-
-### Use policies to help manage and reduce costs for virtual machines
-
-You can use [Azure Policy](../governance/policy/overview.md) to help govern and optimize the costs of your resources.
-
-There are built-in policies for [virtual machines](policy-reference.md) and [networking services](../networking/policy-reference.md) that can help with cost savings:
-
-- **Allowed virtual machine SKUs** - This policy enables you to specify a set of virtual machine size SKUs that your organization can deploy. You could use this policy to restrict any virtual machine sizes that exceed your desired budget. This policy would require updates to maintain as new virtual machine SKUs are added.
-    - https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json
-    -  You can review the available [VM sizes](sizes.md) and cross-reference their associated costs on the pricing pages for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
-- **Network interfaces should not have public IPs** - This policy restricts the creation of public IP addresses, except in cases where they are explicitly allowed. Restricting unnecessary exposure to the internet can help reduce bandwidth and virtual network data costs.
-
-You can also make custom policies using Azure Policy. Some examples include:
-
-- Implement policies to restrict what resources can be created:
-     - https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json 
-- Implement policies to not allow certain resources to be created:
-     - https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/InvalidResourceTypes_Deny.json
-- Using the resource policy to limit the allowed locations where virtual machines can be deployed.
-- Auditing resources that are incurring costs even after virtual machine deletion.
-- Auditing resources to enforce the use of the Azure Hybrid Benefit.
-
 ## Next steps
 
+In this article, you learned about estimating costs of virtual machines, the virtual machine billing model, and reviewing virtual machine costs in the Azure portal.
+
+For more information on virtual machine cost optimization, see the following articles:
+
+- Learn how to [monitor costs for virtual machines](cost-optimization-monitor-costs.md).
+- Review the [virtual machine cost optimization best practices](cost-optimization-best-practices.md).
 - Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
