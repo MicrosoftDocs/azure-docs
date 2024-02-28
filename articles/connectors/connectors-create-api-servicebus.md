@@ -146,7 +146,8 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
         }
     }
   ```
-* You can also choose to enable concurrency on the Service Bus trigger, which can be done through the designer or in code:
+
+* You can also enable concurrency on the Service Bus trigger, either through the designer or in code:
   ```json
     "runtimeConfiguration": {
         "concurrency": {
