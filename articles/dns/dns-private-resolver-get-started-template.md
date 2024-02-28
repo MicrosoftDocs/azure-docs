@@ -18,7 +18,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-The following figure summarizes the general setup used. Subnet address ranges used by the bicep and ARM templates are slightly different than those shown in the figure.
+The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
 
 ![Conceptual figure displaying components of the private resolver](./media/dns-resolver-getstarted-portal/resolver-components.png)
 
@@ -43,7 +43,7 @@ This template is configured to create a:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-dns-private-resolver/azuredeploy.json":::
 
-Seven resources have been defined in this template:
+Seven resources are defined in this template:
 
 - [**Microsoft.Network/virtualnetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/dnsResolvers**](/azure/templates/microsoft.network/dnsresolvers)
@@ -116,5 +116,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains.
 - [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md)
