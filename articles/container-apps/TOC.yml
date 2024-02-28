@@ -301,8 +301,6 @@
         items:
           - name: Deploy a WAR file
             href: java-deploy-war-file.md
-      - name: Deploy a WAR file
-        href: java-deploy-war-file.md
 - name: Billing & quotas
   items:
     - name: Billing
