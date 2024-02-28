@@ -89,7 +89,7 @@ For more information on how to install and configure the Azure File Sync agent w
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
 - File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
-- Running sysprep on a server that has the Azure File Sync agent installed is not supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
+- Running sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
