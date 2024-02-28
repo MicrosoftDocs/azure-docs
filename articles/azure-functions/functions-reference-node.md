@@ -1424,7 +1424,7 @@ The response can be set in several ways:
 
 ## HTTP streams (preview)
 
-HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and other HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your app. Use HTTP streams in scenarios where real-time exchange and interaction between client and server over HTTP is required. HTTP streams to get the best performance and reliability for your apps.
+HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your Node.js function app. Use HTTP streams in scenarios where your app requires real-time exchange and interaction between client and server over HTTP. You can also use HTTP streams to get the best performance and reliability for your apps when using HTTP.
 
 HTTP streams is currently in preview.
 
