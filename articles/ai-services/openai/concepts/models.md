@@ -69,7 +69,7 @@ OpenAI's MTEB benchmark testing found that even when the third generation model'
 
 ## DALL-E
 
-The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in private preview.
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in preview.
 
 ## Whisper (Preview)
 
