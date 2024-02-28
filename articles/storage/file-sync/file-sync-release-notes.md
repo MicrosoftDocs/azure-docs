@@ -51,15 +51,6 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## Version 17.2.0.0
-The following release notes are for Azure File Sync version 17.2.0.0 (released February 28, 2024). This release contains improvements for the Azure File Sync service and agent.
-
-### Improvements and issues that are fixed
-- The Azure File Sync v17.2 release is a rollup update for the v17.0 and v17.1 releases:
-	- [Azure File Sync Agent v17 Release - December 2023](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)
- 	- [Azure File Sync Agent v17.1 Release - February 2024](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)
-- **Note**: If your server has v17.1 agent installed, you do not need to install the v17.2 agent.
-
 ### Windows Server 2012 R2 agent support will end on March 4th 2025
 Windows Server 2012 R2 reached [end of support](https://learn.microsoft.com/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on March 4th, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
 
@@ -72,6 +63,15 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 - Option #2: Deploy a new Azure File Sync server that is running a [supported operation system version](https://learn.microsoft.com/azure/storage/file-sync/file-sync-planning#operating-system-requirements) to replace your Windows 2012 R2 servers. For more guidance, see [Replace an Azure File Sync server](https://learn.microsoft.com/azure/storage/file-sync/file-sync-replace-server).
 
 **Note:** Azure File Sync agent v17.2 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
+
+## Version 17.2.0.0
+The following release notes are for Azure File Sync version 17.2.0.0 (released February 28, 2024). This release contains improvements for the Azure File Sync service and agent.
+
+### Improvements and issues that are fixed
+- The Azure File Sync v17.2 release is a rollup update for the v17.0 and v17.1 releases:
+	- [Azure File Sync Agent v17 Release - December 2023](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)
+ 	- [Azure File Sync Agent v17.1 Release - February 2024](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)
+- **Note**: If your server has v17.1 agent installed, you do not need to install the v17.2 agent.
 
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide. 
