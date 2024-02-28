@@ -1,37 +1,39 @@
 ---
-title: "Integrate multiple Immersive Reader resources"
+title: Integrate multiple Immersive Reader resources
 titleSuffix: Azure AI services
-description: In this tutorial, you'll create a Node.js application that launches the Immersive Reader using multiple Immersive Reader resources.
-author: rwallerms
+description: Learn how to create a Node.js application using multiple Immersive Reader resources.
+author: sharmas
 manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 01/14/2020
-ms.author: rwaller
+ms.date: 02/27/2024
+ms.author: sharmas
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
 # Integrate multiple Immersive Reader resources
 
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [quickstart](./quickstarts/client-libraries.md), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
+In the [overview](overview.md), you learned about the Immersive Reader and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [quickstart](quickstarts/client-libraries.md), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create multiple Immersive Reader resource under an existing resource group
-> * Launch the Immersive Reader using multiple resources
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+> * Create multiple Immersive Reader resource under an existing resource group.
+> * Launch the Immersive Reader using multiple resources.
 
 ## Prerequisites
 
-* Follow the [quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) to create a web app that launches the Immersive Reader with NodeJS. In that quickstart, you configure a single Immersive Reader resource. We will build on top of that in this tutorial.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/ai-services).
+* A single Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](how-to-create-immersive-reader.md) to get set up.
+* Follow the [quickstart](quickstarts/client-libraries.md?pivots=programming-language-nodejs) to create a web app that launches the Immersive Reader with NodeJS.
 
-## Create the Immersive Reader resources
+## Create multiple resources
 
-Follow [these instructions](./how-to-create-immersive-reader.md) to create each Immersive Reader resource. The **Create-ImmersiveReaderResource** script has `ResourceName`, `ResourceSubdomain`, and `ResourceLocation` as parameters. These should be unique for each resource being created. The remaining parameters should be the same as what you used when setting up your first Immersive Reader resource. This way, each resource can be linked to the same Azure resource group and Microsoft Entra application.
+Follow [these instructions](how-to-create-immersive-reader.md) again to create each Immersive Reader resource. The `Create-ImmersiveReaderResource` script has `ResourceName`, `ResourceSubdomain`, and `ResourceLocation` as parameters. These parameters should be unique for each resource being created. The remaining parameters should be the same as what you used when setting up your first Immersive Reader resource. This way, each resource can be linked to the same Azure resource group and Microsoft Entra application.
 
-The example below shows how to create two resources, one in WestUS, and another in EastUS. Notice the unique values for `ResourceName`, `ResourceSubdomain`, and `ResourceLocation`.
+The following example shows how to create two resources, one in **WestUS**, and another in **EastUS**. Notice the unique values for `ResourceName`, `ResourceSubdomain`, and `ResourceLocation`.
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
@@ -61,9 +63,9 @@ Create-ImmersiveReaderResource
 
 ## Add resources to environment configuration
 
-In the quickstart, you created an environment configuration file that contains the `TenantId`, `ClientId`, `ClientSecret`, and `Subdomain` parameters. Since all of your resources use the same Microsoft Entra application, we can use the same values for the `TenantId`, `ClientId`, and `ClientSecret`. The only change that needs to be made is to list each subdomain for each resource.
+In the quickstart, you created an environment configuration file that contains the `TenantId`, `ClientId`, `ClientSecret`, and `Subdomain` parameters. Since all of your resources use the same Microsoft Entra application, you can use the same values for the `TenantId`, `ClientId`, and `ClientSecret`. The only change that needs to be made is to list each subdomain for each resource.
 
-Your new __.env__ file should now look something like the following:
+Your new *.env* file should now look something like:
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -73,9 +75,10 @@ SUBDOMAIN_WUS={YOUR_WESTUS_SUBDOMAIN}
 SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 ```
 
-Be sure not to commit this file into source control, as it contains secrets that should not be made public.
+> [!NOTE]
+> Be sure not to commit this file into source control because it contains secrets that shouldn't be made public.
 
-Next, we're going to modify the  _routes\index.js_ file that we created to support our multiple resources. Replace its content with the following code.
+Next, modify the *routes\index.js* file that you created to support your multiple resources. Replace its content with the following code.
 
 As before, this code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. This time, it allows the user to specify a resource location and pass it in as a query parameter. It then returns an object containing the token and the corresponding subdomain.
 
@@ -140,11 +143,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-The **getimmersivereaderlaunchparams** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
+The `getimmersivereaderlaunchparams` API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
 
-## Launch the Immersive Reader with sample content
+## Add sample content
 
-1. Open _views\index.pug_, and replace its content with the following code. This code populates the page with some sample content, and adds two buttons that launches the Immersive Reader. One for launching Immersive Reader for the EastUS resource, and another for the WestUS resource.
+1. Open *views\index.pug*, and replace its content with the following code. This code populates the page with some sample content, and adds two buttons that launch the Immersive Reader. One that launches Immersive Reader for the EastUS resource, and another for the WestUS resource.
 
     ```pug
     doctype html
@@ -249,15 +252,15 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
         }
     ```
 
-3. Our web app is now ready. Start the app by running:
+1. Your web app is now ready. Start the app by running:
 
     ```bash
     npm start
     ```
 
-4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
+1. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
-* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
