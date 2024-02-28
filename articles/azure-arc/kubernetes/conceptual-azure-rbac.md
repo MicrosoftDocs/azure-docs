@@ -13,7 +13,7 @@ Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/refer
 
 ## Architecture
 
-[ ![Diagram showing Azure RBAC architecture.](./media/conceptual-azure-rbac.png) ](./media/conceptual-azure-rbac.png#lightbox)
+[ ![Diagram showing Azure RBAC architecture.](./media/conceptual-azure-rbac.png) ]
 
 In order to route all authorization access checks to the authorization service in Azure, a webhook server ([guard](https://github.com/appscode/guard)) is deployed on the cluster.
 
