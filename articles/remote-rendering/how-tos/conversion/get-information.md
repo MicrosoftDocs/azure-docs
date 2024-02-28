@@ -153,6 +153,7 @@ The content of this section is different for triangular meshes and point clouds.
 For point cloud conversions, this section contains only a single entry:
 
 * `numPoints`: The total number of points in the input model.
+---
 
 ### The *outputInfo* section
 
@@ -177,7 +178,7 @@ This section records information calculated from the converted asset. Again, the
 * `numPoints`: The overall number of points in the converted model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
-
+---
 
 ## Deprecated features
 
