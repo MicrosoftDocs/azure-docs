@@ -14,8 +14,8 @@ ms.service: azure-communication-services
 # Quick Start: Integrating Azure OpenAI with ACS Job Router
 
 ## Prerequisites
-- Create an Azure OpenAI resource. [Setup Guide](./././ai-services/openai/how-to/create-resource.md)
-- Create an Azure Communication Services resource. [Setup Guide](./create-communication-resource?.md)
+- Create an Azure OpenAI resource. [Setup Guide](../../../ai-services/openai/how-to/create-resource.md)
+- Create an Azure Communication Services resource. [Setup Guide](../create-communication-resource?.md)
 - Clone the GitHub solution. [Integrating Azure OpenAI with ACS Job Router](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterOpenAIIntegration)
 - Visual Studio Code Installed. [Visual Studio Code](https://code.visualstudio.com/)
 - Azure Functions Extension for Visual Studio Code. [Azure Function Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
