@@ -93,7 +93,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 * Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure AI services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 * Improved developer productivity
-    * General availability of our [prediction endpoint V3](luis-migration-api-v3.md).
+    * General availability of our prediction endpoint V3.
     * Ability to import and export apps with `.lu` ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process.
 * Language expansion
     * [Arabic and Hindi](luis-language-support.md) in public preview.
@@ -138,7 +138,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 The following features were released at the Build 2019 Conference:
 
-* [Preview of V3 API migration guide](luis-migration-api-v3.md)
+* Preview of V3 API migration guide
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
 * [Improved prebuilt domains](luis-reference-prebuilt-domains.md)
 * [Dynamic list entities](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)

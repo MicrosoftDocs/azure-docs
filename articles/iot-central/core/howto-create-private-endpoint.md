@@ -143,6 +143,9 @@ To restrict public access for your devices to IoT Central, turn off access from 
 
 1. Select **Save**.
 
+> [!TIP]
+> If you choose to define a list of IP addresses/ranges that can connect to the public endpoint of your IoT Central application, be sure to include the IP address of any proxy that your devices use to connect to your IoT Central application.
+
 ## Connect to a private endpoint
 
 When you disable public network access for your IoT Central application, your devices aren't able to connect to the Device Provisioning Service (DPS) global endpoint. This happens because the only FQDN for DPS has a direct IP address in your virtual network. The global endpoint is now unreachable.

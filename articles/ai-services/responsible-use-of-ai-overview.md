@@ -2,7 +2,6 @@
 title: Overview of Responsible use of AI
 titleSuffix: Azure AI services
 description: Azure AI services provides information and guidelines on how to responsibly use our AI services in applications. Below are the links to articles that provide this guidance for the different services within the Azure AI services suite.
-#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
@@ -51,7 +50,7 @@ Azure AI services provides information and guidelines on how to responsibly use 
 ## Other
 - [Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context)
 - [Azure AI Content Safety](/legal/cognitive-services/content-safety/transparency-note?context=%2Fazure%2Fai-services%2Fcontent-safety%2Fcontext%2Fcontext)
-- [Azure AI Document Intelligence](/legal/cognitive-services/document-intelligence/transparency-note?toc=%2Fazure%2Fai-services%2Fdocument-intelligence%2Ftoc.json&bc=%2Fazure%2Fai-services%2Fdocument-intelligence%2Fbreadcrumb%2Ftoc.json&view=doc-intel-4.0.0)
+- [Azure AI Document Intelligence](/legal/cognitive-services/document-intelligence/transparency-note?toc=%2Fazure%2Fai-services%2Fdocument-intelligence%2Ftoc.json&bc=%2Fazure%2Fai-services%2Fdocument-intelligence%2Fbreadcrumb%2Ftoc.json)
 - [Anomaly Detector](/legal/cognitive-services/anomaly-detector/ad-transparency-note?context=/azure/ai-services/anomaly-detector/context/context)
 - [Personalizer](./personalizer/responsible-use-cases.md)
 - [QnA Maker](/legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/ai-services/qnamaker/context/context)

@@ -4,7 +4,6 @@ description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
 author: pepeters
 manager: timlt
-tags: azure-resource-manager
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

@@ -4,12 +4,11 @@ description: Overview of Azure Key Vault REST interface and developer details fo
 services: key-vault
 author: mbaldwin
 manager: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 02/09/2024
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

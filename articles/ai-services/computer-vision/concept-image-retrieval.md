@@ -1,5 +1,5 @@
 ---
-title: Multi-modal embeddings concepts - Image Analysis 4.0
+title: Multimodal embeddings concepts - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Concepts related to image vectorization using the Image Analysis 4.0 API.
 #services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/20/2024
 ms.author: pafarley
 ---
 
-# Multi-modal embeddings (version 4.0 preview)
+# Multimodal embeddings (version 4.0)
 
-Multi-modal embedding is the process of generating a numerical representation of an image that captures its features and characteristics in a vector format. These vectors encode the content and context of an image in a way that is compatible with text search over the same vector space.
+Multimodal embedding is the process of generating a numerical representation of an image that captures its features and characteristics in a vector format. These vectors encode the content and context of an image in a way that is compatible with text search over the same vector space.
 
 Image retrieval systems have traditionally used features extracted from the images, such as content labels, tags, and image descriptors, to compare images and rank them by similarity. However, vector similarity search is gaining more popularity due to a number of benefits over traditional keyword-based search and is becoming a vital component in popular content search services.
 
@@ -26,16 +26,16 @@ Vector search searches large collections of vectors in high-dimensional space to
 
 ## Business applications
 
-Multi-modal embedding has a variety of applications in different fields, including: 
+Multimodal embedding has a variety of applications in different fields, including: 
 
-- **Digital asset management**: Multi-modal embedding can be used to manage large collections of digital images, such as in museums, archives, or online galleries. Users can search for images based on visual features and retrieve the images that match their criteria.
+- **Digital asset management**: Multimodal embedding can be used to manage large collections of digital images, such as in museums, archives, or online galleries. Users can search for images based on visual features and retrieve the images that match their criteria.
 - **Security and surveillance**: Vectorization can be used in security and surveillance systems to search for images based on specific features or patterns, such as in, people & object tracking, or threat detection. 
 - **Forensic image retrieval**: Vectorization can be used in forensic investigations to search for images based on their visual content or metadata, such as in cases of cyber-crime.
 - **E-commerce**: Vectorization can be used in online shopping applications to search for similar products based on their features or descriptions or provide recommendations based on previous purchases.
 - **Fashion and design**: Vectorization can be used in fashion and design to search for images based on their visual features, such as color, pattern, or texture. This can help designers or retailers to identify similar products or trends.
 
 > [!CAUTION]
-> Multi-modal embedding is not designed analyze medical images for diagnostic features or disease patterns. Please do not use Multi-modal embedding for medical purposes.
+> Multimodal embedding is not designed analyze medical images for diagnostic features or disease patterns. Please do not use Multimodal embedding for medical purposes.
 
 ## What are vector embeddings? 
 
@@ -43,18 +43,18 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 
 Each dimension of the vector corresponds to a different feature or attribute of the content, such as its semantic meaning, syntactic role, or context in which it commonly appears. In Azure AI Vision, image and text vector embeddings have 1024 dimensions.
 
-> [!NOTE]
-> Vector embeddings can only be meaningfully compared if they are from the same model type.
+> [!IMPORTANT]
+> Vector embeddings can only be compared and matched if they're from the same model type. Images vectorized by one model won't be searchable through a different model. The latest Image Analysis API offers two models, version `2023-04-15` which supports text search in many languages, and the legacy `2022-04-11` model which supports only English.
 
 ## How does it work? 
 
-The following are the main steps of the image retrieval process using Multi-modal embeddings.
+The following are the main steps of the image retrieval process using Multimodal embeddings.
 
 :::image type="content" source="media/image-retrieval.png" alt-text="Diagram of image retrieval process.":::
 
-1. Vectorize Images and Text: the Multi-modal embeddings APIs, **VectorizeImage** and **VectorizeText**, can be used to extract feature vectors out of an image or text respectively. The APIs return a single feature vector representing the entire input.
+1. Vectorize Images and Text: the Multimodal embeddings APIs, **VectorizeImage** and **VectorizeText**, can be used to extract feature vectors out of an image or text respectively. The APIs return a single feature vector representing the entire input.
    > [!NOTE]
-   > Multi-modal embedding does not do any biometric processing of human faces. For face detection and identification, see the [Azure AI Face service](./overview-identity.md).
+   > Multimodal embedding does not do any biometric processing of human faces. For face detection and identification, see the [Azure AI Face service](./overview-identity.md).
 
 1. Measure similarity: Vector search systems typically use distance metrics, such as cosine distance or Euclidean distance, to compare vectors and rank them by similarity. The [Vision studio](https://portal.vision.cognitive.azure.com/) demo uses [cosine distance](./how-to/image-retrieval.md#calculate-vector-similarity) to measure similarity.  
 1. Retrieve Images: Use the top _N_ vectors similar to the search query and retrieve images corresponding to those vectors from your photo library to  provide as the final result.
@@ -79,6 +79,6 @@ The image and video retrieval services return a field called "relevance." The te
 
 ## Next steps
 
-Enable Multi-modal embeddings for your search service and follow the steps to generate vector embeddings for text and images.  
-* [Call the Multi-modal embeddings APIs](./how-to/image-retrieval.md)
+Enable Multimodal embeddings for your search service and follow the steps to generate vector embeddings for text and images.  
+* [Call the Multimodal embeddings APIs](./how-to/image-retrieval.md)
 

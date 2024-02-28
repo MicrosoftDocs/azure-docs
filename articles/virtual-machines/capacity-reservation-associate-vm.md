@@ -38,7 +38,7 @@ In the request body, include the `capacityReservationGroup` property:
       "vmSize": "Standard_D2s_v3" 
     }, 
     … 
-   "CapacityReservation":{ 
+   "capacityReservation":{ 
     "capacityReservationGroup":{ 
         "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}" 
     } 

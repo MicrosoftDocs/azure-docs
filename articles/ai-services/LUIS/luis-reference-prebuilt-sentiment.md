@@ -50,4 +50,4 @@ For all other cultures, the response is:
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+

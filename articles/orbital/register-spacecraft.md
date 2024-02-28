@@ -81,7 +81,7 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
    > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required to submit a spacecraft authorization request.
 
    > [!NOTE]
-   > **Private spacecraft**: prior to submitting an authorization request, you must have an active spacecraft license for your satellite and work with Mircosot to add your satellite to our ground station licenses. Microsoft can provide technical information required to complete the federal regulator and ITU processes as needed. Learn more about [initiating ground station licensing](initiate-licensing.md).
+   > **Private spacecraft**: prior to submitting an authorization request, you must have an active spacecraft license for your satellite and work with Microsoft to add your satellite to our ground station licenses. Microsoft can provide technical information required to complete the federal regulator and ITU processes as needed. Learn more about [initiating ground station licensing](initiate-licensing.md).
    > 
    > **Public spacecraft**: licensing is not required for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
 

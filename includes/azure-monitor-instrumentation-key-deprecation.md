@@ -2,7 +2,6 @@
 title: "include file for instrumentation key deprecation" 
 description: "include file" 
 services: azure-monitor
-tags: azure-service-management
 ms.topic: "include"
 ms.date: 04/14/2022
 ms.custom: "include file"

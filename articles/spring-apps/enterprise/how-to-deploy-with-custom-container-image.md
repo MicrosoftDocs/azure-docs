@@ -213,7 +213,7 @@ To install the agents for other languages, refer to the official documentation f
 
 New Relic:
 
-* Python: [Standard Python agent install](https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/)
+* Python: [Install the Python agent](https://docs.newrelic.com/install/python/)
 * Node.js: [Install the Node.js agent](https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/)
 
 Dynatrace:
