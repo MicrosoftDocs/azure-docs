@@ -20,7 +20,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
 
-![Conceptual figure displaying components of the private resolver](./media/dns-resolver-getstarted-portal/resolver-components.png)
+![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

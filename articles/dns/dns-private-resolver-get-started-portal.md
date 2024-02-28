@@ -107,7 +107,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     This example has only one conditional forwarding rule, but you can create many. Edit the rules to enable or disable them as needed.
 
-    ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
+    ![Screenshot of Create resolver - review.](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
     After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two. The status of each component is displayed during deployment.
 
