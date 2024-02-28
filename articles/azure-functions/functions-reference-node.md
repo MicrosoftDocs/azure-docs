@@ -1486,25 +1486,7 @@ Below is an example of an HTTP triggered function that receives data via an HTTP
 
  # [TypeScript](#tab/typescript)
 
-  ```typescript
-  import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
-  import { createReadStream } from 'fs';
-
-  export async function httpTriggerStreamResponse(
-        request: HttpRequest,
-        context: InvocationContext
-    ): Promise<HttpResponseInit> {
-         const body = createReadStream('<input file path>');
-
-         return { body };
-    }
-
-    app.http('httpTriggerStreamResponse', {
-        methods: ['GET'],
-        authLevel: 'anonymous',
-        handler: httpTriggerStreamResponse,
-    });
-  ```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
   
   ---
 
