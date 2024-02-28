@@ -927,7 +927,6 @@ By default, all function routes are prefixed with *api*. You can also customize 
 }
 ```
 
-
 ### Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
