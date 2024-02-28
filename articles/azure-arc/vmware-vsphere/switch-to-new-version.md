@@ -16,10 +16,10 @@ manager: jsuri
 
 On August 21, 2023, we rolled out major changes to **Azure Arc-enabled VMware vSphere**. By switching to the new version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
-If you onboarded to Azure Arc-enabled VMware vSpphere before August 21, 2023, and your VMs were Azure-enabled, you'll encounter the following breaking changes:
+If you onboarded to Azure Arc-enabled VMware vSphere before **August 21, 2023**, and your VMs were Azure-enabled, you'll encounter the following breaking changes:
 
-- For the VMs with Arc agents, starting from February 27, 2024, you'll no longer be able to perform any Azure management service-related operations.  
-- From March 15, 2024, you'll no longer be able to perform any operations on the VMs, except the **Remove from Azure** operation. 
+- For the VMs with Arc agents, starting from **February 27, 2024**, you'll no longer be able to perform any Azure management service-related operations.  
+- From **March 15, 2024**, you'll no longer be able to perform any operations on the VMs, except the **Remove from Azure** operation. 
 
 To continue using these machines, follow these instructions to switch to the new version.
 
