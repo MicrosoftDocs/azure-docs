@@ -4,7 +4,7 @@ description: Learn how to enable File Integrity Monitor when you collect data wi
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/28/2024
+ms.date: 02/28/2024
 ---
 # Enable File Integrity Monitoring when using the Azure Monitor Agent
 
@@ -40,9 +40,9 @@ In this article you'll learn how to:
 
 To track changes to your files on machines with AMA:
 
-- Enable [Defender for Servers Plan 2](defender-for-servers-introduction.md)
+- Enable [Defender for Servers Plan 2](defender-for-servers-introduction.md).
 
-- [Install AMA](auto-deploy-azure-monitoring-agent.md) on machines that you want to monitor
+- [Install AMA](#enable-file-integrity-monitoring-with-ama) on machines that you want to monitor.
 
 ## Enable File Integrity Monitoring with AMA
 
