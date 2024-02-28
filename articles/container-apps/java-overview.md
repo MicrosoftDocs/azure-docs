@@ -91,11 +91,16 @@ The Container Apps runtime terminates SSL for you inside your Container Apps env
 
 ## Memory management
 
-To help optimize memory management in your Java application, you can ensure JVM memory fitting is enabled in your app.
+To help optimize memory management in your Java application, you can ensure [JVM memory fitting](java-memory-fit.md) is enabled in your app.
 
-Be aware of your application's memory needs.
+Memory is measured in gibibytes (Gi) and CPU core pairs. The following table shows the range of resources available to your container app.
 
-TODO
+| Threshold | CPU cores | Memory in Gibytes (Gi) |
+|---|---|---|
+| Minimum | 0.25 | 0.5 |
+| Maximum | 4 | 8 |
+
+Cores are available in 0.25 core increments, with memory available at a 2:1 ratio. For instance, if you require 1.25 cores, you have 2.5 Gi of memory available to your container app.
 
 > [!NOTE]
 > For apps using JDK versions 9 and lower, make sure to define custom JVM memory settings to match the memory allocation in Azure Container Apps.
