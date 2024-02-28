@@ -19,7 +19,7 @@
     href: search-get-started-text.md
   - name: Semantic reranking
     href: search-get-started-semantic.md
-  - name: Retrieval Augmented Generation (RAG)
+  - name: Chat with your data (Azure OpenAI Studio)
     href: search-get-started-retrieval-augmented-generation.md
   - name: Portal
     items:
@@ -127,7 +127,7 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Storage (indexes)
+  - name: Storage
     items:
     - name: Search index
       href: search-what-is-an-index.md
@@ -137,7 +137,7 @@
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
       href: search-what-is-data-import.md
-  - name: Enrichment (skills)
+  - name: Enrichment
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
@@ -147,7 +147,7 @@
       href: cognitive-search-working-with-skillsets.md
     - name: Integrated vectorization (preview)
       href: vector-search-integrated-vectorization.md
-  - name: Retrieval (queries)
+  - name: Retrieval
     items:
     - name: Full-text search
       href: search-lucene-query-architecture.md
@@ -280,46 +280,50 @@
       href: knowledge-store-connect-power-bi.md
   - name: Indexers and skills
     items:
-    - name: Indexer overview
-      href: search-indexer-overview.md
     - name: Create an indexer
       href: search-howto-create-indexers.md
-    - name: Run or reset indexers
-      href: search-howto-run-reset-indexers.md
-    - name: Schedule an indexer
-      href: search-howto-schedule-indexers.md
-    - name: Define field mappings
-      href: search-indexer-field-mappings.md
-    - name: Portal indexing
+    - name: Create a skillset
+      href: cognitive-search-defining-skillset.md
+    - name: Indexers
       items:
-      - name: Import data wizard
-        href: search-import-data-portal.md
-    - name: Indexing whole files
-      items:
-      - name: Content metadata properties
-        href: search-blob-metadata-properties.md
-      - name: Index one-to-many
-        href: search-howto-index-one-to-many-blobs.md
-      - name: Index plain text
-        href: search-howto-index-plaintext-blobs.md
-      - name: Index CSV
-        href: search-howto-index-csv-blobs.md
-      - name: Index JSON
-        href: search-howto-index-json-blobs.md
-    - name: Connect with managed identities
-      items:
-      - name: Azure Storage
-        href: search-howto-managed-identities-storage.md
-      - name: Azure Cosmos DB
-        href: search-howto-managed-identities-cosmos-db.md
-      - name: SQL Database
-        href: search-howto-managed-identities-sql.md
-      - name: SQL Managed Instance
-        href: search-index-azure-sql-managed-instance-with-managed-identity.md
-    - name: Troubleshooting guidance
-      href: search-indexer-troubleshooting.md
-    - name: Troubleshoot indexer errors and warnings
-      href: cognitive-search-common-errors-warnings.md
+      - name: Indexer overview
+        href: search-indexer-overview.md
+      - name: Run or reset indexers
+        href: search-howto-run-reset-indexers.md
+      - name: Schedule an indexer
+        href: search-howto-schedule-indexers.md
+      - name: Define field mappings
+        href: search-indexer-field-mappings.md
+      - name: Connect with managed identities
+        items:
+        - name: Azure Storage
+          href: search-howto-managed-identities-storage.md
+        - name: Azure Cosmos DB
+          href: search-howto-managed-identities-cosmos-db.md
+        - name: SQL Database
+          href: search-howto-managed-identities-sql.md
+        - name: SQL Managed Instance
+          href: search-index-azure-sql-managed-instance-with-managed-identity.md
+      - name: Portal indexing
+        items:
+        - name: Import data wizard
+          href: search-import-data-portal.md
+      - name: Indexing whole files
+        items:
+        - name: Content metadata properties
+          href: search-blob-metadata-properties.md
+        - name: Index one-to-many
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Index plain text
+          href: search-howto-index-plaintext-blobs.md
+        - name: Index CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Index JSON
+          href: search-howto-index-json-blobs.md
+      - name: Troubleshooting guidance
+        href: search-indexer-troubleshooting.md
+      - name: Troubleshoot indexer errors and warnings
+        href: cognitive-search-common-errors-warnings.md
     - name: Data sources (indexers)
       items:
         - name: Data sources gallery
@@ -358,19 +362,17 @@
             href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: SharePoint in Microsoft 365
           href: search-howto-index-sharepoint-online.md
-    - name: Skillsets (indexers)
+    - name: Skillsets
       items:
-      - name: Attach an Azure AI multi-service resource
+      - name: Attach an Azure AI resource
         href: cognitive-search-attach-cognitive-services.md
-      - name: Create a skillset
-        href: cognitive-search-defining-skillset.md
       - name: Create an index projection for a secondary index
         href: index-projections-concept-intro.md
       - name: Debug sessions overview
         href: cognitive-search-debug-session.md
       - name: Debug a skillset
         href: cognitive-search-how-to-debug-skillset.md
-      - name: Reference an annotation    
+      - name: Reference a skill output
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
@@ -396,6 +398,8 @@
       href: vector-search-how-to-query.md
     - name: Hybrid query
       href: hybrid-search-how-to-query.md
+    - name: Semantic query
+      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Use simple syntax (examples)
@@ -435,29 +439,29 @@
     - name: Enable or disable semantic ranking
       href: semantic-how-to-enable-disable.md      
     - name: Configure semantic ranking
-      href: semantic-how-to-query-request.md
+      href: semantic-how-to-configure.md
     - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
-  - name: Performance and monitoring
+  - name: Monitoring and performance
     items:
-    - name: Performance analysis
-      href: search-performance-analysis.md
-    - name: Performance benchmarks
-      href: performance-benchmarks.md
-    - name: Tips for better performance
-      href: search-performance-tips.md
-    - name: Monitor Azure AI Search
+    - name: Monitor
       href: monitor-azure-cognitive-search.md
-    - name: Visualize resource logs
-      href: search-monitor-logs-powerbi.md
     - name: Monitor queries
       href: search-monitor-queries.md
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
       href: search-traffic-analytics.md
+    - name: Visualize resource logs
+      href: search-monitor-logs-powerbi.md
+    - name: Performance analysis
+      href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
   - name: Service management
     items:
     - name: Manage in the portal

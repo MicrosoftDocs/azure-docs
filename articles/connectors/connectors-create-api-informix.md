@@ -8,7 +8,6 @@ ms.author: jushiman
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-tags: connectors
 ---
 
 # Manage IBM Informix database resources by using Azure Logic Apps

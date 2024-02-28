@@ -5,7 +5,7 @@ services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/31/2024
+ms.date: 01/30/2024
 ms.topic: quickstart
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell

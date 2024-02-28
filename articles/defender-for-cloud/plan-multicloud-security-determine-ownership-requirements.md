@@ -21,7 +21,7 @@ Depending on the size of your organization, separate teams will manage [security
 
 | Security function | Details |
 |---|---|
-|[Security Operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) | Reducing organizational risk by reducing the time in which bad actors have access to corporate resources. Reactive detection, analysis, response and remediation of attacks. Proactive threat hunting.  
+|[Security Operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) | Reducing organizational risk by reducing the time in which bad actors have access to corporate resources. Reactive detection, analysis, response and remediation of attacks. Proactive threat hunting. |
 | [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)| Security design summarizing and documenting the components, tools, processes, teams, and technologies that protect your business from risk.|
 |[Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)| Processes that ensure the organization is compliant with regulatory requirements and internal policies.|
 |[People security](/azure/cloud-adoption-framework/organize/cloud-security-people)|Protecting the organization from human risk to security.|
@@ -31,7 +31,7 @@ Depending on the size of your organization, separate teams will manage [security
 |[Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)|Authenticating and authorizing users, services, devices, and apps. Provide secure distribution and access for cryptographic operations.|
 |[Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)| Making decisions and acting on security threat intelligence that provides context and actionable insights on active attacks and potential threats.|
 |[Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)|Continuously reporting on, and improving, your organizational security posture.|
-|[Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)|Building tools, processes, and expertise to respond to security incidents.
+|[Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)|Building tools, processes, and expertise to respond to security incidents. |
 
 ## Team alignment
 

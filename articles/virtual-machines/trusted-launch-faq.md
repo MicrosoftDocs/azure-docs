@@ -13,6 +13,9 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 # Trusted Launch FAQ
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Frequently asked questions about trusted launch. Feature use cases, support for other Azure features, and fixes for common errors.
 
 ## Use cases
@@ -354,6 +357,9 @@ Architecture      : x64
 
 ---
 
+### How external communication drivers work with Trusted Launch VMs ?
+
+Adding COM ports requires disabling Secure Boot. Hence, COM ports are disabled by default in Trusted Launch VMs.
 
 ## Power states
 

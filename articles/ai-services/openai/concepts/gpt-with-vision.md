@@ -27,7 +27,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 **Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding.png" alt-text="Screenshot of an image with object grounding applied. Objects have bounding boxes with labels.":::
 
@@ -36,7 +36,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 **Optical Character Recognition (OCR)**: Azure AI Vision complements GPT-4 Turbo with Vision by providing high-quality OCR results as supplementary information to the chat model. It allows the model to produce higher quality responses for images with dense text, transformed images, and numbers-heavy financial documents, and increases the variety of languages the model can recognize in text.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 :::image type="content" source="../media/concepts/gpt-v/receipts.png" alt-text="Photo of several receipts.":::
 
@@ -47,7 +47,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
 
 > [!NOTE]
-> In order to use the video prompt enhancement, you need both an Azure AI Vision resource and an Azure Video Indexer resource, in the paid (S0) tier, in addition to your Azure OpenAI resource.
+> In order to use the video prompt enhancement, you need both an Azure AI Vision resource and an Azure Video Indexer resource, in the paid (S1) tier, in addition to your Azure OpenAI resource.
 
 ## Special pricing information
 
