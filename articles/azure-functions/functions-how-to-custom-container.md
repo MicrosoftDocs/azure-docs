@@ -46,7 +46,7 @@ Functions tooling provides a Docker option that generates a Dockerfile with your
 
 The way you create a Dockerfile depends on how you create your project.
 
-# [Command line](#tab/core-tools)
+#### [Command line](#tab/core-tools)
 
 + When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md), include the `--docker` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command, as in the following example:
 
@@ -61,7 +61,7 @@ The way you create a Dockerfile depends on how you create your project.
 
 For a complete example, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project).
 
-# [Visual Studio Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
 The Azure Functions extension for Visual Studio Code doesn't provide a way to create a Dockerfile when you create the project. However, you can instead create the Dockerfile for an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
 
@@ -69,7 +69,7 @@ The Azure Functions extension for Visual Studio Code doesn't provide a way to cr
 func init --docker-only
 ```  
 
-# [Visual Studio](#tab/vs)
+#### [Visual Studio](#tab/vs)
 
 + When you create a Functions project, make sure to check the **Enable Docker** option on the **Additional Information** page of the new project dialog. 
 
@@ -95,7 +95,7 @@ For an example of how to create the container, see [Build the container image an
 
 When you make changes to your functions code project or need to update to the latest base image, you need to rebuild the container locally and republish the updated image to your chosen container registry. The following command rebuilds the image from the root folder with an updated version number and pushes it to your registry:    
 
-# [Azure Container Registry](#tab/acr)
+### [Azure Container Registry](#tab/acr)
 
 ```console
 az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
@@ -103,7 +103,7 @@ az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsima
 
 Replace `<REGISTRY_NAME>` with your Container Registry instance and `<LOGIN_SERVER>` with the login server name.
 
-# [Docker Hub](#tab/docker)
+### [Docker Hub](#tab/docker)
 
 ```console
 docker build --tag <DOCKER_ID> azurefunctionsimage:v1.0.1 .
@@ -194,7 +194,7 @@ Workload profiles are feature of Container Apps that let you better control your
 
 You can create and manage workload profiles using the Azure CLI or in the Azure portal.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli2)
 
 You enable workload profiles when you create your container app environment. For an example, see [Create a container app in a profile](../container-apps/workload-profiles-manage-cli.md#create-a-container-app-in-a-profile). 
 
@@ -219,6 +219,7 @@ You can add, edit, and delete profiles in your environment. For an example, see 
 When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. In the portal, you can choose your profile during the create process.
 
 ---  
+
 ::: zone-end  
 ## Application settings
 
@@ -234,14 +235,14 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 1. Use the following command to enable continuous deployment and to get the webhook URL:
 
-    # [Azure CLI](#tab/azure-cli)
+    ### [Azure CLI](#tab/azure-cli)
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <APP_NAME> --resource-group AzureFunctionsContainers-rg
     ```
     
     The [`az functionapp deployment container config`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command enables continuous deployment and returns the deployment webhook URL. You can retrieve this URL at any later time by using the [`az functionapp deployment container show-cd-url`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) command.
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    ### [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"DOCKER_ENABLE_CI" = "true"}
     Get-AzWebAppContainerContinuousDeploymentUrl -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg
