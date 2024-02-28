@@ -153,7 +153,7 @@ To view these warnings, select **View Details** next to **Warning Details**.
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/example-backup-job-with-warning-details.png" alt-text="Screenshot shows the job warming details." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/example-backup-job-with-warning-details.png"::: 
 
-Learn [how to identify and resolve the error](). 
+Learn [how to identify and resolve the error](azure-kubernetes-service-backup-troubleshoot.md#aks-backup-extension-installation-error-resolutions). 
 
 ## Next steps
 
