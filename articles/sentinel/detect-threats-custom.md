@@ -122,21 +122,29 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     > - When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
     >   - `project field1 = column_ifexists("field1","")`
 
-#### Alert enrichment
+#### Alert enhancement
 
-- Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** section.
+The following section describes three ways you can enrich and enhance your alerts with essential, specific information to help you detect, classify, investigate, and respond to security threats. These enhancements also provide criteria by which you can group alerts together into incidents in the **Incident settings** section.
 
-    Learn more about [entities in Microsoft Sentinel](entities.md).
+##### Entity mapping
 
-    See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about limitations and [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
+Use the **Entity mapping** configuration section to map elements of your query results to Microsoft Sentinel-recognized entities. This mapping allows Microsoft Sentinel to identify recurring objects&mdash;for example, users, hosts, addresses, files, processes&mdash;across alerts, in order to track them over time and correlate between occurrences.
 
-- Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
+For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
-    Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
+Learn more about [entities in Microsoft Sentinel](entities.md).
 
-- Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+##### Custom details
 
-    See complete instructions on [customizing your alert details](customize-alert-details.md).
+Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
+
+For complete instructions on surfacing custom details in alerts, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
+
+##### Alert details
+
+Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+
+For complete instructions on customizing your alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 > [!NOTE]
 > **The size limit for an entire alert is *64 KB***.
