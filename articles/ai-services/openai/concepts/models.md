@@ -219,6 +219,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 
 ### Whisper models (Preview)
