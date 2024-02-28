@@ -148,7 +148,7 @@ The following steps create and deploy an existing containerized function app fro
 
 ::: zone-end  
 :::zone pivot="azure-functions"  
-   <sup>*</sup>App name must be globally unique amongst all Azure Functions hosted apps.
+   <sup>*</sup>App name must be globally unique among all Azure Functions hosted apps.
 
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
 
@@ -186,7 +186,7 @@ The following steps create and deploy an existing containerized function app fro
 
 8. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
 
-9. In the **Deployment center** you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry.  
+9. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry.  
 ::: zone-end  
 
 ## Work with images in Azure Functions
@@ -218,7 +218,7 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 
 In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you. 
 
-Also, replace `<CPU_COUNT>` with your desired number of virtual CPUs, with a minumum of 0.5 up to the maximum allowed by the profile. For `<MEMORY_SIZE>`, choose a dedicated memory amount from 1GB up to the maximum allowed by the profile. 
+Also, replace `<CPU_COUNT>` with your desired number of virtual CPUs, with a minimum of 0.5 up to the maximum allowed by the profile. For `<MEMORY_SIZE>`, choose a dedicated memory amount from 1 GB up to the maximum allowed by the profile. 
 
 ### [Azure portal](#tab/portal)
 

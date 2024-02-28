@@ -9,13 +9,13 @@ ms.custom: references_regions, build-2023
 
 # Azure Container Apps hosting of Azure Functions 
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA.
 
 [!INCLUDE [functions-container-apps-preview](../../includes/functions-container-apps-preview.md)]
 
 Integration with Container Apps lets you use the existing functions programming model to write function code in your preferred programming language or framework supported by Azure Functions. You still get the Functions triggers and bindings with event-driven scaling. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.
 
-This integration also means that you can use existing Functions client tools and the portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
+This integration also means that you can use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. Network and observability configurations are defined at the Container App environment level and apply to all microservices running in a Container Apps environment, including your function app. You also get the other cloud-native capabilities of Container Apps, including KEDA, Dapr, Envoy. You can still use Application Insights to monitor your functions executions.
 
 ## Hosting and workload profiles
 
