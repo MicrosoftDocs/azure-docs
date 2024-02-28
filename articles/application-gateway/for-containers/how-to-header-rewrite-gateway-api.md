@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to rewrite HTTP headers of client 
 
 ## Usage details
 
-Header rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+Header rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
 
 ## Background
 
@@ -51,7 +51,7 @@ Create a gateway:
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -89,7 +89,7 @@ FRONTEND_NAME='frontend'
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -177,7 +177,7 @@ This example also demonstrates addition of a new header called `AGC-Header-Add` 
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: header-rewrite-route
