@@ -15,7 +15,7 @@ ms.date: 02/28/2024
 
 ## February 2024
 
-Support for using customer managed keys for disk encryption has now reached General Availability (GA).
+Support for using customer managed keys for disk (CMK) encryption has now reached General Availability (GA).
 
 For more information, see [How to configure CMK encryption on Enterprise caches](cache-how-to-encryption.md#how-to-configure-cmk-encryption-on-enterprise-caches).
 
