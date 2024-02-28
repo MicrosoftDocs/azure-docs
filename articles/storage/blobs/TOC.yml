@@ -190,7 +190,7 @@ items:
       - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
       - name: Calculate blob count and total size
-        href: calculate-blob-count-size.md
+        href: calculate-blob-count-size.yml
       - name: 'Tutorial: Analyze blob inventory reports'
         href: storage-blob-inventory-report-analytics.md
       - name: 'Tutorial: Calculate container statistics'

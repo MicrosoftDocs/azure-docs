@@ -179,7 +179,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 - Learn about ways to analyze individual containers in your storage account. See these articles:
 
-  [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
+  [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
   
   [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
 

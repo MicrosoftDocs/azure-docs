@@ -428,7 +428,7 @@ You can't configure an inventory policy in the account if support for version-le
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
-- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.yml)
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
 - [Blob Inventory FAQ](storage-blob-faq.yml#azure-storage-blob-inventory)
