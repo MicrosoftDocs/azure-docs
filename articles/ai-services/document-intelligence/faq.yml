@@ -33,7 +33,7 @@ sections:
 
            - There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
 
-           - There are no breaking changes to application programming interfaces (APIs) or SDKs. REST APIs and SDKs, 2023-10-31-preview and later, will be renamed ```document intelligence```.
+           - There are no breaking changes to application programming interfaces (APIs) or client libraries (SDKs). REST APIs and client libraries (SDKs), 2023-10-31-preview and later, will be renamed ```document intelligence```.
 
            - Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
@@ -115,7 +115,7 @@ sections:
 
            Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
 
-           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores).
 
       - question: |
           How can I improve accuracy scores?
@@ -130,7 +130,7 @@ sections:
 
           - For signature and region labeling, don't include the surrounding text.
 
-          See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy)
+          See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy).
 
       - question: |
            What is the confidence score and how is it calculated?
@@ -142,7 +142,7 @@ sections:
 
            It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, a score of close to 100% is recommended. You can also require human review.
 
-           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
+           See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores).
 
       - question: |
           How can I improve confidence scores?
@@ -160,7 +160,7 @@ sections:
 
             - For custom models, use a larger set of training documents. Tagging more documents teaches your model to recognize fields with greater accuracy.
 
-            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
+            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores).
 
       - question: |
           What is a bounding box?
@@ -191,7 +191,7 @@ sections:
   - name: App development
     questions:
       - question: |
-          What are the development options for Document Intelligence
+          What are the development options for Document Intelligence?
         answer: |
 
           Document Intelligence offers the latest development options within the following platforms:
@@ -218,10 +218,10 @@ sections:
             | ----- | -----|
             | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[**2023-10-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP&branch=main)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
-          For more information, *see* [Supported clients](sdk-overview-v4-0.md#supported-clients)
+          For more information, *see* [Supported clients](sdk-overview-v4-0.md#supported-clients).
 
 
-           For more information, *see* [Supported clients](sdk-overview-v3-1.md#supported-clients)
+           For more information, *see* [Supported clients](sdk-overview-v3-1.md#supported-clients).
 
 
       - question: |
@@ -315,7 +315,7 @@ sections:
 
           - [Create a support request](service-limits.md#create-and-submit-support-request) to increase transactions per second(TPS) limit.
 
-          Learn more about Document Intelligence [service quotas and limits](service-limits.md)
+          Learn more about Document Intelligence [service quotas and limits](service-limits.md).
 
       - question: |
          How long does it take to analyze a document?
@@ -419,7 +419,7 @@ sections:
 
              - If the data isn’t in a table format, can the data fit in a two-dimensional grid?
 
-             - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Document Intelligence. Following the analysis, post-process the pages to a single table.
+             - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages before sending it to Document Intelligence. Following the analysis, post-process the pages to a single table.
 
              - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
 
@@ -450,7 +450,7 @@ sections:
 
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the `virtual network` or firewall.
 
-            Learn how to [create and use a managed identity for your Document Intelligence resource](managed-identities.md)
+            Learn how to [create and use a managed identity for your Document Intelligence resource](managed-identities.md).
 
   - name: Document Intelligence Studio
     questions:
@@ -464,7 +464,7 @@ sections:
 
             - Basic
 
-              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page.
+              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use the Studio.
 
             - Advanced
 
@@ -480,12 +480,12 @@ sections:
 
             - Advanced
 
-              - **Storage Account Contributor**: you need this role to the storage account to setup CORS settings (this is one time effort if the same storage account is reused).
+              - **Storage Account Contributor**: you need this role to the storage account to set up CORS settings (it's a one time effort if the same storage account is reused).
 
               - **Contributor**: you need this role to create resource group and resources.
 
 
-          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and **Azure role assignments** sections in [Document Intelligence Studio](quickstarts/try-document-intelligence-studio.md) page.
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and Azure role assignments sections in [Document Intelligence Studio](quickstarts/try-document-intelligence-studio.md) page.
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
@@ -518,16 +518,16 @@ sections:
           Can I reuse or customize the labeling experience from Studio and build it into my own application?
         answer: |
 
-          Yes. The labeling experience from Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit)
+          Yes. The labeling experience from Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit).
 
       - question: |
           Why am I receiving 'Form Recognizer Not Found' error when opening my custom project?
         answer: |
-          Your Document Intelligence resource bound to this custom project may have been deleted or moved to another resource group.  There are two ways to resolve this issue:
+          Your Document Intelligence resource bound to this custom project is deleted or moved to another resource group. There are two ways to resolve this issue:
           
             - Re-create the Document Intelligence resource under the same subscription/resource group with the same name.
           
-            - Re-create a custom project with the migrated Document Intelligence resource and specify the very same storage account.
+            - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
   - name: Containers
     questions:
@@ -568,15 +568,15 @@ sections:
           What is the best practice for scaling up?
         answer: |
 
-          - For asynchronous calls, you can run multiple containers with shared storages. The container processing the POST Analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the GET calls. Thus, the request ID is not tied to a container. 
+          - For asynchronous calls, you can run multiple containers with shared storages. The container processing the POST Analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the `GET` calls. Thus, the request ID isn't tied to a container. 
 
-          - For synchronous calls, multiple containers can be run and only one container will serve a request. As it is a blocking call, any container from the pool can serve the request and send the response. Here, only one container will be tied to a request at a time and no polling is required.
+          - For synchronous calls, multiple containers can be run and only one container serves a request. As it's a blocking call, any container from the pool can serve the request and send the response. Here, only one container is tied to a request at a time and no polling is required.
 
       - question: |
           How can I set up containers with shared storage?
         answer: |
 
-          The containers use ‘Mounts:Shared’ property while starting up for specifying the shared storage to store the processing files. You can refer the following [documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/containers/install-run?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
+          The containers use "Mounts:Shared" property while starting up for specifying the shared storage to store the processing files. You can refer the following [documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/containers/install-run?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
           
   - name: Security and Privacy
     questions:
