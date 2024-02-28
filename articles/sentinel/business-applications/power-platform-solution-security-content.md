@@ -4,7 +4,7 @@ description: Learn about the built-in security content provided by the Microsoft
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/28/2024
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform: security content reference
