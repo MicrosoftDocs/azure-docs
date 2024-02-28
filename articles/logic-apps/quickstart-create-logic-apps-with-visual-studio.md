@@ -165,9 +165,9 @@ When you have your Azure Resource Group project, create your logic app with the 
 
 Next, add an RSS [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that fires when a new feed item appears. Every workflow starts with a trigger, which fires when specific criteria is met. Each time the trigger fires, the Azure Logic Apps engine creates a logic app workflow instance that runs your workflow.
 
-1. On the workflow designer, [follow these general steps to add the **RSS** trigger named **When a feed item is published**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow).
+1. On the workflow designer, [follow these general steps to add the **RSS** trigger named **When a feed item is published**](quickstart-create-example-consumption-workflow.md?tabs=consumption#add-rss-trigger).
 
-1. After the trigger appears in the designer, finish building the workflow by following the workflow steps in the [Azure portal quickstart](../logic-apps/quickstart-create-example-consumption-workflow.md#add-rss-trigger), then return to this article.
+1. Finish building the workflow by [following these general steps to add the **Office 365 Outlook** action named **Send an email**](quickstart-create-example-consumption-workflow.md#add-email-action), then return to this article.
 
    When you're done, your workflow looks like this example:
 
