@@ -26,7 +26,7 @@ Process flow:
 3. The response from the backend server is sent back to the client by the application gateway. 
 4. The same frontend TCP connection is used for subsequent requests from the client unless the TCP idle timeout closes that connection.
 
-### Comparing Load Balancer with Application Gateway:
+### Comparing Azure Load Balancer with Azure Application Gateway:
 | Product | Type |
 | ---------- | ---------- |
 | [**Azure Load Balancer**](load-balancer/load-balancer-overview.md) | Pass-through load balancer where the clients directly establish a TLS handshake with a backend server. |
