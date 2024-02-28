@@ -706,6 +706,8 @@ Authorization: Bearer <token>
 
 - Moving a cluster to another resource group or subscription isn't currently supported.
 
+- Moving a cluster to another region isn't supported.
+
 - Cluster update shouldn't include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
 - Lockbox isn't currently available in China. 
