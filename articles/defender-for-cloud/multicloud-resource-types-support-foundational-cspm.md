@@ -11,7 +11,7 @@ ms.date: 02/28/2024
 
 ## Resource types supported in AWS
 
-Provider Namespace | Resource Type Name | 
+| Provider Namespace | Resource Type Name | 
 |----|----|
 | AccessAnalyzer | AnalyzerSummary |
 | ApiGateway | Stage | 
