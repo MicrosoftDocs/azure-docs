@@ -99,7 +99,7 @@ The following table lists the gateway IP address subnets of the Azure Database f
 
 ## Frequently asked questions
 
-### What you need to know about this planned maintenance?
+### What you need to know about this planned maintenance
 
 This is a DNS change only,  which makes it transparent to clients. While the IP address for FQDN is changed in the DNS server, the local DNS cache is refreshed within 5 minutes, and it is automatically done by the operating systems. After the local DNS refresh, all the new connections will connect to the new IP address, all existing connections will remain connected to the old IP address with no interruption until the old IP addresses are fully decommissioned. The old IP address takes roughly three to four weeks before getting decommissioned; therefore, it should have no effect on the client applications.
 
