@@ -15,7 +15,7 @@ In a bash shell, run the following command. You need to replace `YourDeploymentN
 
 ```bash
 curl $AZURE_OPENAI_ENDPOINT/openai/deployments/YourDeploymentName/audio/transcriptions?api-version=2023-09-01-preview \
- -H "api-key: $AZURE_OPENAI_KEY" \
+ -H "api-key: $AZURE_OPENAI_API_KEY" \
  -H "Content-Type: multipart/form-data" \
  -F file="@./wikipediaOcelot.wav"
 ```

@@ -15,7 +15,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-The **Network Features** functionality isn't available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
+See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
 
 ## Options for network features 
 
@@ -49,7 +49,7 @@ Two settings are available for network features:
 * When you change the network features option of existing volumes from Basic to Standard network features, access to existing Basic networking volumes might be lost if your UDR or NSG implementations prevent the Basic networking volumes from connecting to DNS and domain controllers. You might also lose the ability to update information, such as the site name, in the Active Directory connector if all volumes can’t communicate with DNS and domain controllers. For guidance about UDRs and NSGs, see [Configure network features for an Azure NetApp Files volume](azure-netapp-files-network-topologies.md#udrs-and-nsgs).
 
 >[!NOTE]
-> The networking features of the DP volume will not be affected by changing the source volume from basic to standard network features.
+> The networking features of the DP volume are not affected by changing the source volume from Basic to Standard network features.
 
 ## <a name="set-the-network-features-option"></a>Set network features option during volume creation
 
@@ -77,15 +77,16 @@ This section shows you how to set the network features option when you create a 
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible. 
 
+The edit network features option is available in [all regions that support Standard network features](azure-netapp-files-network-topologies.md#supported-regions). 
+
 >[!IMPORTANT]
 >It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
 
-See [regions supported for this feature](azure-netapp-files-network-topologies.md#regions-edit-network-features).
-
-This feature currently doesn't support SDK.
+>[!IMPORTANT]
+>You should not use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md). Application volume group for SAP HANA only supports Basic network features. 
 
 > [!NOTE]
-> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+> You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
@@ -96,7 +97,7 @@ This feature currently doesn't support SDK.
 > ```
 
 > [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
+> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      
@@ -110,6 +111,9 @@ This feature currently doesn't support SDK.
 
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
+
+>[!NOTE]
+>If you have enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
 
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 

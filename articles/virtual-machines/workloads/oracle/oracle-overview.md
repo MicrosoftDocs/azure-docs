@@ -84,10 +84,13 @@ With Oracle Active Data Guard, you can achieve high availability with a primary 
 
 To walk through the basic setup procedure on Azure, see [Implement Oracle Golden Gate on an Azure Linux VM](configure-oracle-golden-gate.md).
 
+You can effectively achieve high availability for your Oracle databases by using the storage-based replication functionality of Azure NetApp Files, which is one of the added data management values of this service. Azure NetApp Files volumes can be replicated to another region using [cross-region replication](../../../azure-netapp-files/cross-region-replication-introduction.md) or to another zone within the region using [cross-zone replication](../../../azure-netapp-files/cross-zone-replication-introduction.md).
+
 In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. 
 ## Backup Oracle workloads
 Different [backup strategies](oracle-database-backup-strategies.md) are available for Oracle on Azure VMs, the following backups are other options:
 - Using [Azure files](oracle-database-backup-azure-storage.md)
+- Using [Azure NetApp Files](oracle-database-backup-strategies.md#azure-netapp-files)
 - Using [Azure backup](oracle-database-backup-azure-backup.md) 
 - Using [Oracle RMAN Streaming data](oracle-rman-streaming-backup.md) backup
 ## Deploy Oracle applications on Azure

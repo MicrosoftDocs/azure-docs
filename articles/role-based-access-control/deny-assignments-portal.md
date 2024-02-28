@@ -1,7 +1,6 @@
 ---
 title: List Azure deny assignments using the Azure portal - Azure RBAC
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 
