@@ -38,7 +38,7 @@ To set up an environment for sending messages, take the steps in the following s
 
 1. Use a text editor to create a file called **send-messages.js** in the project root directory.
 1. Add the following code snippet to the file **send-messages.js**.
-   ```typescript
+   ```javascript
    async function main() {
        // Quickstart code goes here.
    }
@@ -109,8 +109,8 @@ npm install dotenv --save
 ```
 
 To instantiate a MessageClient, add the following code to the `Main` method:
-```typescript
-import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
+```javascript
+const MessageClient = require("@azure-rest/communication-messages").default;
 
 // Load the .env file if it exists
 import * as dotenv from "dotenv";
@@ -120,7 +120,7 @@ dotenv.config();
 const connectionString = process.env["COMMUNICATION_SERVICES_CONNECTION_STRING"];
 
 // Instantiate the client
-const client:MessagesServiceClient = MessageClient(connectionString);
+const client = MessageClient(connectionString);
 ```
 
 <a name='azure-active-directory'></a>
@@ -136,32 +136,32 @@ npm install @azure/identity
 The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. The README for `@azure/identity` provides more details and samples to get you started.
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
-```typescript
-import { DefaultAzureCredential } from "@azure/identity";
-import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
+```javascript
+const DefaultAzureCredential = require("@azure/identity").DefaultAzureCredential;
+const MessageClient = require("@azure-rest/communication-messages").default;
 
 // Configure authentication
 const endpoint = "https://<resource name>.communication.azure.com";
 let credential = new DefaultAzureCredential();
 
 // Instantiate the client
-const client:MessagesServiceClient = MessageClient(endpoint, credential);
+const client = MessageClient(endpoint, credential);
 ```
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
 MessagesService clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
-```typescript
-import { AzureKeyCredential } from "@azure/core-auth";
-import MessageClient, { MessagesServiceClient } from "@azure-rest/communication-messages";
+```javascript
+const AzureKeyCredential = require("@azure/core-auth").AzureKeyCredential;
+const MessageClient = require("@azure-rest/communication-messages").default;
 
 // Configure authentication
 const endpoint = "https://<resource-name>.communication.azure.com";
 const credential = new AzureKeyCredential("<your key credential>");
 
 // Instantiate the client
-const client:MessagesServiceClient = MessageClient(endpoint, credential);
+const client = MessageClient(endpoint, credential);
 ```
 
 ---
@@ -173,7 +173,7 @@ The Channel Registration ID GUID was created during [channel registration](../..
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" lightbox="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId.
-```typescript
+```javascript
 const channelRegistrationId = "<your channel registration id GUID>";
 ```
 
@@ -214,9 +214,9 @@ First, create a MessageTemplate using the values for a template.
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
-```typescript
+```javascript
 // Assemble the template content
-const template:MessageTemplate = {
+const template = {
     name: "sample_template",
     language: "en_US"
 };
@@ -230,7 +230,7 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 - [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
 - [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
 
-```typescript
+```javascript
 // Send template message
 const result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
@@ -244,8 +244,7 @@ const result = await client.path("/messages/notifications:send").post({
 
 // Process result
 if (result.status === "202") {
-    const response:Send202Response = result as Send202Response;
-    response.body.receipts.forEach((receipt) => {
+    result.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {
@@ -273,7 +272,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.".
 
 Assemble and send the media message:
-```typescript
+```javascript
 // Send text message
 const result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
@@ -287,8 +286,7 @@ const result = await client.path("/messages/notifications:send").post({
 
 // Process result
 if (result.status === "202") {
-    const response:Send202Response = result as Send202Response;
-    response.body.receipts.forEach((receipt) => {
+    result.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {
@@ -308,7 +306,7 @@ var uri = new Uri("https://aka.ms/acsicon1");
 ```
 
 Assemble and send the media message:
-```typescript
+```javascript
 // Send media message
 const  result = await client.path("/messages/notifications:send").post({
     contentType: "application/json",
@@ -322,8 +320,7 @@ const  result = await client.path("/messages/notifications:send").post({
 
 // Process result
 if (result.status === "202") {
-    const response:Send202Response = result as Send202Response;
-    response.body.receipts.forEach((receipt) => {
+    result.body.receipts.forEach((receipt) => {
         console.log("Message sent to:"+receipt.to+" with message id:"+receipt.messageId);
     });
 } else {
