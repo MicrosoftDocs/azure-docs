@@ -51,7 +51,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 Follow these steps to deploy an MLflow model to a batch endpoint for running batch inference over new data:
 
-1. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
+1. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you're trying to deploy is already registered.
    
     # [Azure CLI](#tab/cli)
    
@@ -142,7 +142,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     > [!IMPORTANT]
     > Configure `timeout` in your deployment based on how long it takes for your model to run inference on a single batch. The bigger the batch size the longer this value has to be. Remeber that `mini_batch_size` indicates the number of files in a batch, not the number of samples. When working with tabular data, each file may contain multiple rows which will increase the time it takes for the batch endpoint to process each file. Use high values on those cases to avoid time out errors.
 
-7. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+7. Although you can invoke a specific deployment inside of an endpoint, you'll usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
     # [Azure CLI](#tab/cli)
    
@@ -270,7 +270,7 @@ Azure Machine Learning supports deploying MLflow models to batch endpoints witho
 Batch Endpoints distribute work at the file level, for both structured and unstructured data. As a consequence, only [URI file](reference-yaml-data.md) and [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. For tabular data, batch endpoints don't take into account the number of rows inside of each file when distributing the work.
 
 > [!WARNING]
-> Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
+> Nested folder structures are not explored during inference. If you're partitioning your data using folders, make sure to flatten the structure beforehand.
 
 Batch deployments will call the `predict` function of the MLflow model once per file. For CSV files containing multiple rows, this may impose a memory pressure in the underlying compute and may increase the time it takes for the model to score a single file (specially for expensive models like large language models). If you encounter several out-of-memory exceptions or time-out entries in logs, consider splitting the data in smaller files with less rows or implement batching at the row level inside of the model/scoring script.
 
@@ -284,7 +284,7 @@ The following data types are supported for batch inference when deploying MLflow
 | `.png`, `.jpg`, `.jpeg`, `.tiff`, `.bmp`, `.gif` | `np.ndarray` | `TensorSpec`. Input is reshaped to match tensors shape if available. If no signature is available, tensors of type `np.uint8` are inferred. For additional guidance read [Considerations for MLflow models processing images](how-to-image-processing-batch.md#considerations-for-mlflow-models-processing-images). |
 
 > [!WARNING]
-> Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.avro'. File type 'avro' is not supported."*.
+> Be advised that any unsupported file that may be present in the input data will make the job to fail. You'll see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.avro'. File type 'avro' is not supported."*.
 
 ### Signature enforcement for MLflow models
 
@@ -303,7 +303,7 @@ Batch deployments only support deploying MLflow models with a `pyfunc` flavor. I
 
 MLflow models can be deployed to batch endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate this file (usually referred as the *batch driver*) to customize how inference is executed. 
 
-You will typically select this workflow when: 
+You'll typically select this workflow when: 
 > [!div class="checklist"]
 > * You need to process a file type not supported by batch deployments MLflow deployments.
 > * You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load()`.
@@ -312,7 +312,7 @@ You will typically select this workflow when:
 > * You model can't process each file at once because of memory constrains and it needs to read it in chunks.
 
 > [!IMPORTANT]
-> If you choose to indicate a scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
+> If you choose to indicate a scoring script for an MLflow model deployment, you'll also have to specify the environment where the deployment will run.
 
 
 ### Steps
@@ -325,7 +325,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     b. Go to the section __Models__.
 
-    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+    c. Select the model you're trying to deploy and click on the tab __Artifacts__.
 
     d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
 
