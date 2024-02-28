@@ -43,7 +43,7 @@ In the **Enterprise** tier, disk encryption is used to encrypt the persistence d
 
 MMK is used to encrypt these disks by default, but CMK can also be used.
 
-In the **Enterprise Flash** tier, keys and values are also partially stored on-disk using nonvolatile memory express (NVMe) flash storage. However, this disk isn't the same as the one used for persisted data. Instead, it's ephemeral, and data isn't persisted after the cache is stopped, deallocated, or rebooted. only MMK is only supported on this disk because this data is transient and ephemeral.
+In the **Enterprise Flash** tier, keys and values are also partially stored on-disk using nonvolatile memory express (NVMe) flash storage. However, this disk isn't the same as the one used for persisted data. Instead, it's ephemeral, and data isn't persisted after the cache is stopped, deallocated, or rebooted. MMK is only supported on this disk because this data is transient and ephemeral.
 
 | Data stored |Disk    |Encryption Options |
 |-------------------|------------------|-------------------|
