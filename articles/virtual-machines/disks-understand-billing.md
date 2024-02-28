@@ -10,13 +10,9 @@ ms.service: azure-disk-storage
 
 # Understand Azure Disk Storage billing
 
-This article helps you understand how Azure managed disks are billed, including what factors that affect Disk Storage billing, and how billing is laid out in your Azure Disk Storage bill. Some disks have unique factors that affect their billing but most disk types have the same set of factors that affect their billing, but depending on the type of disk are affected differently by these factors. We’ll also provide pricing examples for some common scenarios and show how Azure disk types compare.
+This article helps you understand how Azure managed disks are billed, including what affects Disk Storage billing, and how billing is laid out in your Azure Disk Storage bill. Some disks have unique attributes that affect their billing, but most disk types have the same set of attributes and are affected differently by these attributes depending on the disk type. You can also take snapshots of your disks, which are reflected in your bill.
 
 For detailed Azure Disk Storage pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
-
-Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-state drives (SSD) V2, Premium SSD, Standard SSD, and Standard hard-disk drives (HDDs). Most disk types have different factors that change their billing. Ultra Disks and Premium SSD v2 are priced based on the provisioned performance and capacity that you select. Premium SSD, Standard SSD, and Standard HDDs are priced based on the tier they're deployed as. All disk types are billed at an hourly rate. Other factors may impact billing as well, such as transactions or bursting.
-
-You can also take snapshots of your disks, which are reflected in your bill.
 
 ## Snapshots
 
