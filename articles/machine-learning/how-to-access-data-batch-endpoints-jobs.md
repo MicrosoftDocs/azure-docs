@@ -80,6 +80,8 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     > [!TIP]
     > If you are using a credential-less data store or external Azure Storage Account as data input, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
 
+
+
 ## Understanding inputs and outputs
 
 Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to specify the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. 
@@ -135,7 +137,7 @@ Literal inputs are only supported in pipeline component deployments. See [Create
 Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name, and Azure Machine Learning automatically assigns a unique path to each named output. However, you can specify another path if required. 
 
 > [!IMPORTANT]
-> Batch endpoints only support writing outputs in Azure Blob Storage datastores. 
+> Batch endpoints only support writing outputs in Azure Blob Storage datastores. If you need to write to an storage account with hierarchical namespaces enabled (also known as Azure Datalake Gen2 or ADLS Gen2), notice that such storage service can be registered as a Azure Blob Storage datastore since the services are fully compatible. In this way, you can write outputs from batch endpoints to ADLS Gen2.
 
 
 ## Create jobs with data inputs
@@ -820,6 +822,68 @@ Content-Type: application/json
 azureml-model-deployment: DEPLOYMENT_NAME
 ```
 ---
+
+## Configure job properties
+
+You can configure some of the properties in the created job at invocation time.
+
+### Configure experiment name
+
+# [Azure CLI](#tab/cli)
+ 
+Use the argument `--experiment-name` to specify the name of the experiment:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME --experiment-name "my-batch-job-experiment" --input $INPUT_DATA
+```
+
+# [Python](#tab/sdk)
+
+Use the parameter `experiment_name` to specify the name of the experiment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    experiment_name="my-batch-job-experiment",
+    inputs={
+        "heart_dataset": input,
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Use the key `experimentName` in `properties` section to indicate the experiment name:
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        },
+        "properties":
+        {
+            "experimentName": "my-batch-job-experiment"
+        }
+    }
+}
+```
+
+__Request__
+
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+---
+
 
 ## Next steps
 
