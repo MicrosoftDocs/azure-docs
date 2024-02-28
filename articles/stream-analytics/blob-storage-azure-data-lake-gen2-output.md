@@ -1,6 +1,6 @@
 ---
-title: Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
-description: This article describes blob storage and Azure Data Lake Gen 2 as output for Azure Stream Analytics.
+title: Blob storage and Azure Data Lake Gen2 output
+description: This article describes blob storage and Azure Data Lake Gen 2 as output for an Azure Stream Analytics job.
 author: an-emma
 ms.author: raan
 ms.service: stream-analytics
