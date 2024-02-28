@@ -1,10 +1,10 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. <!--Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).-->

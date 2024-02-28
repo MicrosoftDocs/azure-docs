@@ -2,13 +2,14 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/22/2024
+ms.date: 02/27/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[\[Preview\]: Azure Database for PostgreSQL Flexible Server should be Zone Resilient](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F493c215d-2553-4976-bc81-57d2c04fc8c1) |Azure Database for PostgreSQL Flexible Server can be configured to be either Zone Aligned, Zone Redundant, or neither. PostgreSQL Server that has a standby server selected in same zone for high availability is considered Zone Aligned. In contrast, PostgreSQL Server that has a standby server selected to be in a different zone for high availability is recognized as Zone Redundant. This policy helps identify and enforce these resilience configurations. |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Resilience/DBForPostgreSql_flexibleServers_ZoneResilient_Audit.json) |
 |[A Microsoft Entra administrator should be provisioned for PostgreSQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4) |Audit provisioning of a Microsoft Entra administrator for your PostgreSQL server to enable Microsoft Entra authentication. Microsoft Entra authentication enables simplified permission management and centralized identity management of database users and other Microsoft services |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_AuditServerADAdmins_Audit.json) |
 |[Azure Defender for SQL should be enabled for unprotected PostgreSQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38668f5-d155-42c7-ab3d-9b57b50f8fbf) |Audit PostgreSQL flexible servers without Advanced Data Security |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/PostgreSQL_FlexibleServers_DefenderForSQL_Audit.json) |
 |[Configure Advanced Threat Protection to be enabled on Azure database for PostgreSQL flexible servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a6ae02f-7590-40d7-88ba-b18e205a32fd) |Enable Advanced Threat Protection on your Azure database for PostgreSQL flexible servers to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. |DeployIfNotExists, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/DeployAtpOnPostgreSqlFlexibleServers_Deploy.json) |
