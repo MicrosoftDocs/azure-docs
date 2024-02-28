@@ -235,7 +235,7 @@ Ensure your Kubernetes node is running on one of the verified supported operatin
 
 ### Defender agent limitations
 
-The Defender agent is currently not supported on ARM64 nodes.
+The Defender agent in AKS V1.28 and below is not supported on ARM64 nodes.
 
 ### Network restrictions
 

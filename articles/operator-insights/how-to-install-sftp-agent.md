@@ -188,7 +188,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
+1. Install the RPM:  `sudo dnf install ./*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM won't be installed.
 1. Change to the configuration directory: `cd /etc/az-sftp-uploader`
 1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
 1. Edit the *config.yaml* file and fill out the fields. Start by filling out the parameters that don't depend on the type of Data Product.  Many parameters are set to default values and don't need to be changed.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:

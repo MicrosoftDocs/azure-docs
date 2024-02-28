@@ -27,11 +27,12 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 ## GPT-4 and GPT-4 Turbo Preview
 
- GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+ GPT-4 is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+ GPT-4 Turbo with Vision is the version of GPT-4 that accepts image inputs.  It is available as the `vision-preview` model of `gpt-4`.
 
 - `gpt-4`
 - `gpt-4-32k`
-- `gpt-4-vision`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -96,7 +97,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
-
 
 GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview.  Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
 
@@ -205,7 +205,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1,000 |
-| dalle3 | Sweden Central | 4,000 |
+| dall-e-3 | Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
