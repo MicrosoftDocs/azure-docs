@@ -7,7 +7,7 @@ ms.date: 02/28/2024
 
 # Supported resource and service types for multicloud in Foundational CSPM
 
- This page lists what resource and service types are supported in Defender for Cloud’s Foundational Cloud Security Posture Management (CSPM) tier for Amazon Web Services (AWS) and Google Cloud Platform (GCP).
+ This page lists what resource and service types are supported for Amazon Web Services (AWS) and Google Cloud Platform (GCP) in Defender for Cloud’s Foundational Cloud Security Posture Management (CSPM) tier.
 
 ## Resource types supported in AWS
 
@@ -46,9 +46,9 @@ ms.date: 02/28/2024
 | ConfigService | DeliveryChannel |
 | DAX | Cluster |
 | DAX | ClusterTags |
-| DatabaseMigrationService | ReplicationInstance 
-| DynamoDB | ContinuousBackupsDescription 
-| DynamoDB | TableDescription 
+| DatabaseMigrationService | ReplicationInstance |
+| DynamoDB | ContinuousBackupsDescription |
+| DynamoDB | TableDescription |
 | DynamoDB | TableTags |
 | DynamoDB | TableName |
 | EC2 | Snapshot |
@@ -176,7 +176,7 @@ ms.date: 02/28/2024
 | SNS | Topic |
 | SNS | TopicAttributes |
 | SNS | TopicTags |
-| SQS | Queue 
+| SQS | Queue |
 | SQS | QueueAttributes | 
 | SQS | QueueTags |
 | SageMaker | NotebookInstanceSummary |
@@ -190,14 +190,14 @@ ms.date: 02/28/2024
 | SimpleSystemsManagement | ResourceComplianceSummary |
 | SimpleSystemsManagement | InstanceInformation |
 | WAF | LoggingConfiguration |
-| WAF | WebACL 
+| WAF | WebACL |
 | WAF | WebACLSummary |
 | WAFV2 | ApplicationLoadBalancerForWebACL |
 | WAFV2 | WebACLSummary |
 
 ## Resource types supported in GCP
 
-Provider Namespace | Resource Type Name | 
+| Provider Namespace | Resource Type Name | 
 |----|----| 
 | ApiKeys | Key |
 | ArtifactRegistry | Image |
@@ -269,3 +269,10 @@ Provider Namespace | Resource Type Name |
 | SecretManager | SecretPolicy |
 | Storage | Bucket |
 | Storage | BucketPolicy |
+
+## Learn More
+
+- For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
+- Watch [Predict future security incidents! Cloud Security Posture Management with Microsoft Defender](https://www.youtube.com/watch?v=jF3NSR_OepI).
+- Learn about [security standards and recommendations](security-policy-concept.md).
+- Learn about [secure score](secure-score-security-controls.md).

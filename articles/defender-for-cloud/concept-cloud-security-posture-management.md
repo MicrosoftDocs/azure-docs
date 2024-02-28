@@ -92,7 +92,7 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
 
-## Resource type support for AWS and GCP
+## Support for Resource type in AWS and GCP
 
 For multicloud support of resource types (or services) in our foundational multicloud CSPM tier, see the [table of multicloud resource and service types for AWS and GCP](multicloud-resource-types-support-foundational-cspm.md).
 
