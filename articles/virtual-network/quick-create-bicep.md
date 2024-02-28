@@ -280,7 +280,7 @@ Remove-AzResourceGroup -Name TestRG
 
 ---
 
-## Next step
+## Next steps
 
 In this quickstart, you created a virtual network that has two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
