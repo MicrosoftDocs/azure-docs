@@ -7,7 +7,7 @@ ms.date: 02/28/2024
 
 # Supported resource and service types for multicloud in Foundational CSPM
 
- This page lists what resource and service types are supported in Defender for Cloud’s Foundational CSPM tier for AWS and GCP.
+ This page lists what resource and service types are supported in Defender for Cloud’s Foundational Cloud Security Posture Management (CSPM) tier for Amazon Web Services (AWS) and Google Cloud Platform (GCP).
 
 ## Resource types supported in AWS
 
