@@ -14,25 +14,49 @@ For the time being, these templates have limited application as outlined below, 
 
 ## View near-real-time (NRT) rules
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+# [Azure portal](#tab/azure)
 
-1. In the **Active rules** tab of the **Analytics** blade, filter the list for **NRT** templates:
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
-    1. Click the **Rule type** filter, then the drop-down list that appears below.
+1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
 
-    1. Unmark **Select all**, then mark **NRT**.
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
 
-    1. If necessary, click the top of the drop-down list to retract it, then click **OK**.
+    1. From the resulting list, select **NRT**. Then select **Apply**.
+
+# [Defender portal](#tab/defender)
+
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
+
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
+
+    1. From the resulting list, select **NRT**. Then select **Apply**.
+
+---
 
 ## Create NRT rules
 
 You create NRT rules the same way you create regular [scheduled-query analytics rules](detect-threats-custom.md):
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+# [Azure portal](#tab/azure)
 
-1. Select **Create** from the button bar, then **NRT query rule** from the drop-down list.
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+1. In the action bar at the top, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
 
     :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
+
+# [Defender portal](#tab/defender)
+
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+1. In the action bar at the top of the grid, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
+
+    :::image type="content" source="media/create-nrt-rules/defender-create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
+
+---
 
 1. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
 
