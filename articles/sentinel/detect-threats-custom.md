@@ -146,14 +146,6 @@ Use the **Alert details** configuration section to override default values of th
 
 For complete instructions on customizing your alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
-> [!NOTE]
-> **The size limit for an entire alert is *64 KB***.
-> - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
->
-> - The other alert enrichments also contribute to the size of the alert.
->
-> - To reduce the size of your alert, use the `project-away` operator in your query to [remove any unnecessary fields](/azure/data-explorer/kusto/query/projectawayoperator). (Consider also the `project` operator if there are only [a few fields you need to keep](/azure/data-explorer/kusto/query/projectoperator).)
-
 #### Query scheduling and alert threshold
 
 - In the **Query scheduling** section, set the following parameters:
