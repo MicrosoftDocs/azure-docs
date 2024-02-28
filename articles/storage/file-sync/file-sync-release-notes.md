@@ -123,7 +123,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
-- When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+- When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
 ## Version 17.1.0.0 (Security Update)
 The following release notes are for Azure File Sync version 17.1.0.0 (released February 13, 2024). This release contains a security update for the Azure File Sync agent.  These notes are in addition to the release notes listed for version 17.0.0.0. 
