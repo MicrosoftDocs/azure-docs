@@ -594,10 +594,6 @@ items:
     href: essentials/platform-logs-overview.md
   - name: Activity log
     href: essentials/activity-log.md
-  - name: Resource logs
-    href: essentials/resource-logs.md
-  - name: Stream monitoring data
-    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items:
   - name: Overview
@@ -862,6 +858,10 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
+  - name: Stream monitoring data to Event Hubs
+    href: essentials/stream-monitoring-data-event-hubs.md
+  - name: Stream resource log data
+    href: essentials/resource-logs.md
   - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
