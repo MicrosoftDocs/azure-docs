@@ -84,24 +84,24 @@ The following are the current limitations and known issues with PowerShell runbo
 - When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
 - When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
 
-**Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
 
-**Example** - Create a PowerShell object that has stored information around Azure VMs 
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
 
-```azurepowershell
-# Retrieve Azure virtual machines with status information for the 'northeurope' region 
-$AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
-
-$VMstopatch = @($AzVM).Id 
-# Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
-
-# Convert the object to a JSON string 
-$jsonString = $VMstopatch | ConvertTo-Json 
-
-# Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
-```
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
  
 
 # [PowerShell 5.1](#tab/lps51)
@@ -149,24 +149,24 @@ New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutom
 * If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 * When you utilize the `New-AzAutomationVariable` cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
 
-**Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
 
-**Example** - Create a PowerShell object that has stored information around Azure VMs 
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
 
-```azurepowershell
-# Retrieve Azure virtual machines with status information for the 'northeurope' region 
-$AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
-
-$VMstopatch = @($AzVM).Id 
-# Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
-
-# Convert the object to a JSON string 
-$jsonString = $VMstopatch | ConvertTo-Json 
-
-# Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
-```
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 
 # [PowerShell 7.1](#tab/lps71)
 
@@ -226,24 +226,24 @@ New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutom
 - If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 - When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
 
-**Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
 
-**Example** - Create a PowerShell object that has stored information around Azure VMs 
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
 
-```azurepowershell
-# Retrieve Azure virtual machines with status information for the 'northeurope' region 
-$AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
-
-$VMstopatch = @($AzVM).Id 
-# Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
-
-# Convert the object to a JSON string 
-$jsonString = $VMstopatch | ConvertTo-Json 
-
-# Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
-New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
-```
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 ---
 
 ## PowerShell Workflow runbooks
