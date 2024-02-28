@@ -136,7 +136,7 @@ This section provides information about the source scene. There will often be di
 
 The content of this section is different for triangular meshes and point clouds.
 
-#### Input statistics for triangular meshes
+# [Triangular meshes](#tab/TriangularMeshes)
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
 * `numFaces`: The total number of triangles in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
@@ -148,7 +148,7 @@ The content of this section is different for triangular meshes and point clouds.
 * `numMeshUsagesInScene`: The number of times nodes reference meshes. More than one node may reference the same mesh.
 * `maxNodeDepth`: The maximum depth of the nodes within the scene graph.
 
-#### Input statistics for point clouds
+# [Point clouds](#tab/PointClouds)
 
 For point cloud conversions, this section contains only a single entry:
 
@@ -165,14 +165,14 @@ This section records general information about the generated output.
 
 This section records information calculated from the converted asset. Again, the section holds different information for triangular meshes and point clouds.
 
-#### Output statistics for triangular meshes
+# [Triangular meshes](#tab/TriangularMeshes)
 
 * `numMeshPartsCreated`: The number of meshes in the arrAsset. It can differ from `numMeshes` in the `inputStatistics` section, because instancing is affected by the conversion process.
 * `numMeshPartsInstanced`: The number of meshes that are reused in the arrAsset.
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
 
-#### Output statistics for point clouds
+# [Point clouds](#tab/PointClouds)
 
 * `numPoints`: The overall number of points in the converted model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
