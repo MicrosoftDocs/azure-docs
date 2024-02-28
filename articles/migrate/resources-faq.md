@@ -70,8 +70,6 @@ See the metadata storage locations for each geography [here](migrate-support-mat
 
 Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography.
 
-## How to create data residency in preferred regions?
-
 Azure Migrate provides an additional option for creating projects and ensuring data residency in preferred regions beyond the specified geographies. To avail this option, use the link - https://aka.ms/migrate/ProjectRegionSelection.
 
 ## Does Azure Migrate offer Backup and Disaster Recovery?
