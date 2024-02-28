@@ -1206,6 +1206,8 @@
     href: managed-disks-overview.md
   - name: Disk types
     href: disks-types.md
+  - name: Understand Disk Storage billing
+    href: disks-understand-billing.md
   - name: Disk redundancy options
     href: disks-redundancy.md
   - name: What's new in Azure Disk Storage
