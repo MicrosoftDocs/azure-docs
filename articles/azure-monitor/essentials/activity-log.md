@@ -9,7 +9,7 @@ ms.author: guywild
 ms.reviewer: orens
 ---
 
-# Azure Monitor activity log
+# Stream Azure Monitor activity log data
 
 The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
 
@@ -25,42 +25,6 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
 > * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
-
-## Retention period
-
-Activity log events are retained in Azure for *90 days* and then deleted. There's no charge for entries during this time regardless of volume. For more functionality, such as longer retention, create a diagnostic setting and route the entries to another location based on your needs. See the criteria in the preceding section.
-
-## View the activity log
-
-You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-<!-- convertborder later -->
-:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log." border="false":::
-
-For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
-
-## Download the activity log
-
-Select **Download as CSV** to download the events in the current view.
-<!-- convertborder later -->
-:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log." border="false":::
-
-### View change history
-
-For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history** tab to view any changes on the resource up to 30 minutes before and after the time of the operation.
-
-:::image type="content" source="media/activity-log/change-history-event.png" lightbox="media/activity-log/change-history-event.png" alt-text="Screenshot that shows the Change history list for an event.":::
-
-If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
-
-:::image type="content" source="media/activity-log/change-history-event-details.png" lightbox="media/activity-log/change-history-event-details.png" alt-text="Screenshot that shows the Change history page showing differences.":::
-
-### Other methods to retrieve activity log events
-
-You can also access activity log events by using the following methods:
-
-- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
-- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
 
 ## Send to Log Analytics workspace
 

@@ -5,6 +5,8 @@ items:
   items:
     - name: Azure Monitor overview
       href: overview.md
+    - name: Insights and curated visualizations
+      href: insights/insights-overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
     - name: AIOps and machine learning
@@ -35,6 +37,8 @@ items:
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
       href: essentials/tutorial-resource-logs.md
+    - name: Monitor resources using Activity log insights
+      href: essentials/activity-log-insights.md
     - name: Create alerts
       href: alerts/alert-options.md
   - name: Monitor applications with Application Insights
@@ -590,10 +594,6 @@ items:
   items:
   - name: Overview of data sources
     href: data-sources.md
-  - name: Platform logs
-    href: essentials/platform-logs-overview.md
-  - name: Activity log
-    href: essentials/activity-log.md
 - name: Data collection
   items:
   - name: Overview
@@ -616,6 +616,10 @@ items:
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
+  - name: Stream resource log data
+    href: essentials/resource-logs.md
+  - name: Stream activity log data
+    href: essentials/activity-log.md
   - name: Transformations
     items:
       - name: Overview
@@ -860,8 +864,6 @@ items:
     href: logs/ingest-logs-event-hub.md
   - name: Stream monitoring data to Event Hubs
     href: essentials/stream-monitoring-data-event-hubs.md
-  - name: Stream resource log data
-    href: essentials/resource-logs.md
   - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
@@ -1026,13 +1028,6 @@ items:
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
       href: logs/migrate-splunk-to-azure-monitor-logs.md
-- name: Insights
-  items:
-  - name: Overview
-    displayName: insights
-    href: insights/insights-overview.md
-  - name: Activity log insights
-    href: essentials/activity-log-insights.md
 - name: Visualize
   items:
   - name: Workbooks
