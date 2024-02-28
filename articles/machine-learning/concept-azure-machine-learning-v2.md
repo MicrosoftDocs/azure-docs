@@ -65,6 +65,15 @@ To use the Python SDK code examples in this article:
 
 To use the Azure CLI code examples in this article, you need to have the Azure CLI installed and configured. You can install the Azure CLI from the [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
+Once you have the Azure CLI installed, sign in to your Azure account:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
+
+If you have access to multiple Azure subscriptions, you set your active subscription:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
+
+
 ### [Studio](#tab/azure-studio)
 
 Sign in to [Azure Machine Learning studio](https://ml.azure.com).
@@ -108,7 +117,7 @@ To create a workspace using CLI v2, use the following command:
 az ml workspace create --file my_workspace.yml
 ```
 
-For more information, see [workspace YAML schema](reference-yaml-workspace.md).
+For the content of the file, see [workspace YAML examples](https://github.com/Azure/azureml-examples/tree/main/cli/resources/workspace).
 
 ### [Studio](#tab/azure-studio)
 
@@ -156,10 +165,11 @@ To create a compute using CLI v2, use the following command:
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```bash
-az ml compute --file my_compute.yml
+az ml compute create --file my_compute.yml
 ```
 
-For more information, see [compute YAML schema](reference-yaml-overview.md#compute).
+For the content of the file, see [compute YAML examples](https://github.com/Azure/azureml-examples/tree/main/cli/resources/compute).
+.
 
 ### [Studio](#tab/azure-studio)
 
@@ -214,7 +224,7 @@ To create a datastore using CLI v2, use the following command:
 az ml datastore create --file my_datastore.yml
 ```
 
-For more information, see [datastore YAML schema](reference-yaml-overview.md#datastore).
+For the content of the file, see [datastore YAML examples](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore).
 
 ### [Studio](#tab/azure-studio)
 
