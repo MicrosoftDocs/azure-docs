@@ -34,7 +34,7 @@ In this quickstart, you create a Java app to send messages to and receive messag
 
 
 ## Send messages to a queue
-In this section, you create a Java console project, and add code to send messages to the queue that you created earlier.
+In this section, you'll create a Java console project, and add code to send messages to the queue that you created earlier.
 
 ### Create a Java console project
 Create a Java project using Eclipse or a tool of your choice.
@@ -415,7 +415,7 @@ In this section, you add code to retrieve messages from the queue.
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 1. If you're using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file.
-1. If you are signed into the machine using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step.
+1. If you're signed into the machine using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step.
 
     1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine.
     1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role.
@@ -456,7 +456,7 @@ Stopping and closing the processor
 ```
 ---
 
-On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values.
+On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. Wait for a minute or so and then refresh the page to see the latest values.
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
