@@ -3,7 +3,7 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 02/26/2024
 ---
 # Use reference data for lookups in Stream Analytics
 
@@ -25,9 +25,9 @@ ON I1.LicensePlate = R.LicensePlate
 WHERE R.Expired = '1'
 ```
 
-Stream Analytics supports Azure Blob Storage and Azure SQL Database as the storage layer for reference data. You can also transform or copy reference data to Blob Storage from Azure Data Factory to use [cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md).
+Stream Analytics supports Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure SQL Database as the storage layer for reference data. If you have the reference data in other data stores, try to use Azure Data Factory to extract, transform, and load the data to one of the supported data stores. For more information, see [Copy Activity in Azure Data Factory overview](../data-factory/copy-activity-overview.md).
 
-## Azure Blob Storage
+## Azure Blob Storage or Azure Data Lake Storage Gen 2
 
 Reference data is modeled as a sequence of blobs in ascending order of the date/time specified in the blob name. Blobs can only be added to the end of the sequence by using a date/time *greater* than the one specified by the last blob in the sequence. Blobs are defined in the input configuration.
 
@@ -61,7 +61,7 @@ Your reference data might be a slowly changing dataset. To refresh reference dat
 
 For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of YYYY-MM-DD and a time format of HH-mm instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17-30/products.csv` on April 16, 2015, at 5:30 PM UTC.
 
-Stream Analytics automatically scans for refreshed reference data blobs at a one-minute interval. A blob with the timestamp 10:30:00 might be uploaded with a small delay, for example, 10:30:30. You'll notice a small delay in the Stream Analytics job referencing this blob.
+Stream Analytics automatically scans for refreshed reference data blobs at a one-minute interval. A blob with the timestamp 10:30:00 might be uploaded with a small delay, for example, 10:30:30. You notice a small delay in the Stream Analytics job referencing this blob.
 
 To avoid such scenarios, upload the blob earlier than the target effective time, which is 10:30:00 in this example. The Stream Analytics job now has enough time to discover and load the blob in memory and perform operations.
 
@@ -76,7 +76,7 @@ To avoid such scenarios, upload the blob earlier than the target effective time,
 
 At start time, the job looks for the most recent blob produced before the job start time specified. This behavior ensures there's a *non-empty* reference dataset when the job starts. If one can't be found, the job displays the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-When a reference dataset is refreshed, a diagnostic log is generated: `Loaded new reference data from <blob path>`. For many reasons, a job might need to reload a previous reference dataset. Most often, the reason is to reprocess past data. The same diagnostic log is generated at that time. This action doesn't imply that current stream data will use past reference data.
+When a reference dataset is refreshed, a diagnostic log is generated: `Loaded new reference data from <blob path>`. For many reasons, a job might need to reload a previous reference dataset. Most often, the reason is to reprocess past data. The same diagnostic log is generated at that time. This action doesn't imply that current stream data use past reference data.
 
 [Azure Data Factory](../data-factory/index.yml) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions.
 
@@ -91,7 +91,7 @@ For more information on how to set up a Data Factory pipeline to generate refere
     * Use {date}/{time} in the path pattern.
     * Add a new blob by using the same container and path pattern defined in the job input.
     * Use a date/time *greater* than the one specified by the last blob in the sequence.
-- Reference data blobs are *not* ordered by the blob's **Last Modified** time. They're only ordered by the date and time specified in the blob name using the {date} and {time} substitutions.
+- Reference data blobs aren't* ordered by the blob's **Last Modified** time. They're only ordered by the date and time specified in the blob name using the {date} and {time} substitutions.
 - To avoid having to list a large number of blobs, delete old blobs for which processing will no longer be done. Stream Analytics might have to reprocess a small amount in some scenarios, like a restart.
 
 ## Azure SQL Database
@@ -120,7 +120,7 @@ You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-m
 |---------|---------|
 |Input alias|A friendly name used in the job query to reference this input.|
 |Subscription|Your subscription.|
-|Database|The SQL Database instance that contains your reference data. For SQL Managed Instance, you must specify the port 3342. An example is *sampleserver.public.database.windows.net,3342*.|
+|Database|The SQL Database instance that contains your reference data. For SQL Managed Instance, you must specify the port 3342. An example is `sampleserver.public.database.windows.net,3342`.|
 |Username|The username associated with your SQL Database instance.|
 |Password|The password associated with your SQL Database instance.
 |Refresh periodically|This option allows you to select a refresh rate. Select **On** to specify the refresh rate in DD:HH:MM.|
@@ -133,7 +133,7 @@ Use reference datasets that are less than 300 MB for best performance. Reference
 
 Query complexity can increase to include stateful processing such as windowed aggregates, temporal joins, and temporal analytic functions. When complexity increases, the maximum supported size of reference data decreases.
 
-If Stream Analytics can't load the reference data and perform complex operations, the job runs out of memory and fails. In such cases, the streaming unit percent utilization metric will reach 100%.
+If Stream Analytics can't load the reference data and perform complex operations, the job runs out of memory and fails. In such cases, the streaming unit percent utilization metric reaches 100%.
 
 |Number of streaming units  |Recommended size  |
 |---------|---------|
@@ -141,7 +141,7 @@ If Stream Analytics can't load the reference data and perform complex operations
 |3   |150 MB or lower   |
 |6 and beyond   |5 GB or lower    |
 
-Support for compression isn't available for reference data. For reference datasets larger than 300 MB, use SQL Database as the source with the [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If the delta query option isn't used in such scenarios, you'll see spikes in the watermark delay metric every time the reference dataset is refreshed.
+Support for compression isn't available for reference data. For reference datasets larger than 300 MB, use SQL Database as the source with the [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If the delta query option isn't used in such scenarios, you see spikes in the watermark delay metric every time the reference dataset is refreshed.
 
 ## Join multiple reference datasets in a job
 
