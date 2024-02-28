@@ -1034,6 +1034,7 @@ This feature (currently in preview) makes scenarios like processing large data, 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
 ```javascript
 const { app } = require('@azure/functions'); 
 app.setup({ enableHttpStream: true });
@@ -1051,6 +1052,7 @@ app.setup({ enableHttpStream: true });
 
 ---
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
 3. The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support many ways of handling the body, including as a stream. 
@@ -1062,6 +1064,7 @@ Below is an example of an HTTP triggered function that receives data via an HTTP
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"  
+
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
 
 ---
@@ -1070,9 +1073,13 @@ Below is an example of an HTTP triggered function that receives data via an HTTP
 ::: zone pivot="programming-language-typescript"  
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+
 ---
+
 ::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
 Below is an example of an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
 
 ::: zone-end
@@ -1090,7 +1097,8 @@ Below is an example of an HTTP triggered function that streams a file's content 
 ---
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
 > [!WARNING]
 > The `request.params` object is not supported when using HTTP streams during preview. Please refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information, including a suggested workaround.
 
