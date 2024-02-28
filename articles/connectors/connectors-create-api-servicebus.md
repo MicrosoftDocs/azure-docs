@@ -136,7 +136,8 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
 
 ### Service Bus built-in connector triggers
 
-* Some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the "maximum message count" parameter is not supported, the number of messages received can still be controlled through setting the "maxMessageBatchSize" property in the host.json.
+* In Standard workflows, some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the **Maximum message count** parameter isn't supported, you can still control the number of messages received by using the **maxMessageBatchSize** property in the **host.json** file. To find this file, see [Edit host and app settings for Standard logic apps](../logic-apps/edit-app-settings-host-settings.md).
+
   
   ```json
     "extensions": {
