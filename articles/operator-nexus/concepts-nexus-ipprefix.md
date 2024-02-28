@@ -11,13 +11,13 @@ ms.custom: template-concept
 
 # Azure Operator Nexus IP Prefix Resources
 
-An IP prefix resource allows operators to manipulate how the Border Gateway Protocol (BGP) propagates routes based on the IP prefix (IPv4 and IPv6). Operators can use IP prefixes to  drop certain prefixes from being propagated up-stream or down-stream, or tag them with specific community or extended community values. IP prefix resources are modeled as Azure Resource Manager (ARM) resources under Microsoft.managednetworkfabric and can be created, read, updated, and deleted by operators. They're used in conditions and actions of RoutePolicy statements.
+An IP prefix resource allows operators to manipulate how the Border Gateway Protocol (BGP) propagates routes based on the IP prefix (IPv4 and IPv6). Operators can use IP prefixes to  block certain prefixes from being propagated up-stream or down-stream, or tag them with specific community or extended community values. IP prefix resources are modeled as Azure Resource Manager (ARM) resources under Microsoft.managednetworkfabric and can be created, read, updated, and deleted by operators. They're used in conditions and actions of RoutePolicy statements.
 
 ## Objective
 
 IP prefix resources are used to define match criteria for route policies based on the network prefixes of routes. Network prefixes are the first part of an IP address that indicates the network segment to which the address belongs. For example, the IP prefix 10.10.10.0/28 matches any address where the first 28 bits match with 10.10.10.0. Network prefixes can be used to identify the source or destination of routes, and to apply different rules based on the network segments.
 
-IP prefix resources allow operators to create a list of network prefixes with sequence numbers and actions. The sequence numbers determine the order of evaluation of the network prefixes. The actions can be `Permit` or `Deny`, which indicate whether the routes with the matching network prefixes are allowed or rejected. Route policy statements can reference IP prefix resources,and can combine them with other conditions such as IP communities and IP extended community lists.
+IP prefix resources allow operators to create a list of network prefixes with sequence numbers and actions. The sequence numbers determine the order of evaluation of the network prefixes. The action can be `Permit` or `Deny`, which indicates whether routes with matching network prefixes are allowed or rejected. Route policy statements can reference IP prefix resources, and can combine them with other conditions such as IP communities and IP extended community lists.
 
 ## Functionality
 
