@@ -31,6 +31,7 @@ ___
 
 
 ## Safari iOS Mobile
+___
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 **iOS version:** iOS versions 16 to 16.1.<br>
@@ -50,7 +51,7 @@ Bug was fixed with iOS 16.2.<br>
   
 
 ### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
-**iOS version:** All
+**iOS version:** All<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device isn't listed in available microphone options, and other participants aren't able to hear you if you try using Bluetooth over Safari. This regression is a known operating system limitation. With Safari on macOS and iOS/iPadOS, it isn't possible to enumerate or select speaker devices through Communication Services device manager. This is because Safari doesn't support the enumeration or selection of speakers.<br>
 **Recommended workaround:** In this scenario, use the operating system to update your device selection.<br>
@@ -102,11 +103,13 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Users may experience Safari freezing when navigating to YouTube, enabling Siri, receiving incoming PSTN calls, or during other interruption scenarios while in a WebRTC call. This is a known issue introduced with iOS 15 and observed in iOS versions 15.0, 15.0.2, and 15.1.
 - It has been fixed with iOS 15.2+.<br>
+
 **Known issue reference:** Related WebKit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708).<br>
 **Recommended workaround:** Consider updating to the latest iOS version.<br>
 
 
-## iPadOS
+## Safari iPadOS Tablet
+___
 
 ### Rotation of a device can create poor video quality - Apple iPad 8 and Apple iPad X
 **Devices affected:** Apple iPad 8 and Apple iPad X.<br>

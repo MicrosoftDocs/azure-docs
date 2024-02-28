@@ -1,11 +1,11 @@
 ---
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 Create a **POST** request using the following URL, headers, and JSON body to start testing a conversational language understanding model.

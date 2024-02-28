@@ -176,7 +176,7 @@ The Azure Communication Services Calling SDK support up to the following video r
 | **Receiving video** | 1080P | 1080P | 1080P   | 1080P   |
 | **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
 
-The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters. Read 
+The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, and other overall call parameters. 
 
 ## Number of participants on a call support
 - Up to 350 users can join a group call, Room or Teams + ACS call. The maximum number of users that can join through WebJS calling SDK or Teams web client is capped at 100 participants, the remaining calling end point will need to join using Android, iOS, or Windows calling SDK or related Teams desktop or mobile client apps.
