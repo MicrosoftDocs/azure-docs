@@ -440,7 +440,7 @@ Once the script is understood, it's straightforward to rework it to extend its s
 
 ## Get support
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

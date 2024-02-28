@@ -475,13 +475,14 @@ Use the following steps to build the image:
    This command should produce output similar to the following example:
 
    ```output
-   /auxiliary/models/dbmodel.yaml
-   /auxiliary/models/archive.zip
    /auxiliary/models/model.properties
+   /auxiliary/models/dbmodel.yaml
    /auxiliary/models/model.yaml
-   /auxiliary/weblogic-deploy/VERSION.txt
-   /auxiliary/weblogic-deploy/LICENSE.txt
+   /auxiliary/models/archive.zip
+   /auxiliary/models/appmodel.yaml
    /auxiliary/Dockerfile
+   /auxiliary/weblogic-deploy/LICENSE.txt
+   /auxiliary/weblogic-deploy/VERSION.txt
    ```
 
 1. Use the following steps to push the auxiliary image to Azure Container Registry:

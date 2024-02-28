@@ -27,11 +27,12 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 ## GPT-4 and GPT-4 Turbo Preview
 
- GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+ GPT-4 is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+ GPT-4 Turbo with Vision is the version of GPT-4 that accepts image inputs.  It is available as the `vision-preview` model of `gpt-4`.
 
 - `gpt-4`
 - `gpt-4-32k`
-- `gpt-4-vision`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -62,7 +63,7 @@ In testing, OpenAI reports both the large and small third generation embeddings 
 | MIRACL average | 31.4 | 44.0 | 54.9 |
 | MTEB average | 61.0 | 62.3 | 64.6 |
 
-The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. Official support for the dimensions parameter was added to the OpenAI Python library in version `1.10.0`. If you are running an earlier version of the 1.x library you will need to upgrade `pip install openai --upgrade`.
+The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. The `dimensions` parameter is not supported in all versions of the OpenAI 1.x Python library, to take advantage of this parameter  we recommend upgrading to the latest version: `pip install openai --upgrade`.
 
 OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
@@ -96,7 +97,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
-
 
 GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview.  Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
 
@@ -134,7 +134,7 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
 | gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
 | gpt-4 (0125-preview) | East US <br> North Central US <br> South Central US <br> |
-| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
+| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East <br> Switzerland North <br> Australia East|   |  
 
 #### Azure Government regions
 
@@ -205,7 +205,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1,000 |
-| dalle3 | Sweden Central | 4,000 |
+| dall-e-3 | Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
