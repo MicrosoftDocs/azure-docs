@@ -34,7 +34,7 @@ ms.date: 02/27/2024
 | Independent scaling for throughput and storage | Yes, with RU-based Azure Cosmos DB for MongoDB | No |
 | Vector Search for AI applications | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/vector-search.md) | Yes, with MongoDB Atlas dedicated instances |
 | Integrated text search, geospatial processing | Yes | Yes |
-| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. Azure Cosmos DB for MognoDB vCore offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
+| Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want. vCore-based Azure Cosmos DB for MongoDB offers Free Tier with 32GB storage forever. | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |
 | Azure Integrations | [Native first-party integrations with Azure services](./integrations-overview.md) | Third party integrations, including some native Azure services |
 | Choice of instance configuration | Yes, with [vCore-based Azure Cosmos DB for MongoDB](./vcore/introduction.md) | Yes |
