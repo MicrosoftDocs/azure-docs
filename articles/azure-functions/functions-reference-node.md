@@ -1436,13 +1436,13 @@ HTTP streams is currently in preview.
 The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support various ways of handling the message body, including as a stream. 
  
 ### Prerequisites
-- Version 4.3.0 or higher for the `@azure/functions` npm package.
+- The [`@azure/functions` npm package](https://www.npmjs.com/package/@azure/functions) version 4.3.0 or later.
 - [Azure Functions runtime](./functions-versions.md) version 4.28 or later. 
 - [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or a later version, which contains the correct runtime version. 
 
 ### Enable streams
 
-1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default value for this setting is `104857600`, which limits your request to a size of 100 MB. 
+1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The maximum body size allowed is `104857600`, which limits your request to a size of 100 MB. 
 
 1. For local development, also add `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` to the [local.settings.json file](./functions-develop-local.md#local-settings-file).
 
@@ -1452,6 +1452,7 @@ The existing `HttpRequest` and `HttpResponse` types in programming model v4 alre
     
     ```javascript
     const { app } = require('@azure/functions'); 
+    
     app.setup({ enableHttpStream: true });
     ```
 
@@ -1459,6 +1460,7 @@ The existing `HttpRequest` and `HttpResponse` types in programming model v4 alre
     
     ```typescript
     import { app } from '@azure/functions'; 
+    
     app.setup({ enableHttpStream: true }); 
     ```
     
