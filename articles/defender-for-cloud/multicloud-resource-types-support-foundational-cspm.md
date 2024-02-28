@@ -19,7 +19,8 @@ ms.date: 02/28/2024
 | ApplicationAutoScaling | ScalableTarget |
 | AutoScaling | AutoScalingGroup |
 | AWS | Account |
-| AWS | AccountInRegion | CertificateTags |
+| AWS | AccountInRegion |
+| CertificateManager | CertificateTags |
 | CertificateManager | CertificateDetail | 
 | CertificateManager | CertificateSummary |
 | CloudFormation | StackSummary |
