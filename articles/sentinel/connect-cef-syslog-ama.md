@@ -14,8 +14,8 @@ This article describes how to use the **Syslog via AMA** and **Common Event Form
 
 These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog messages.This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on Data Collection Rules (DCRs) that you define. DCRs specify the systems to monitor, and they define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
 
-- [Set up the connector](#set-up-the-common-event-format-cef-via-ama-connector)
-- [Learn more about the connector](#how-microsoft-sentinel-collects-cef-logs-with-the-azure-monitor-agent)
+- [Set up the connector](#set-up-the-data-connectors)
+- [Learn more about the connector](#how-microsoft-sentinel-collects-syslog-and-cef-messages-with-the-azure-monitor-agent)
 
 > [!IMPORTANT]
 >

@@ -21,10 +21,11 @@ These examples are of the API request and response for creating a DCR.
 
 #### Syslog/CEF DCR creation request URL and header
 
-        Example:
-        ```http
-        PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01?api-version=2022-06-01
-        ```
+Example:
+
+```http
+PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01?api-version=2022-06-01
+```
 
 #### Syslog/CEF DCR creation request body
 
