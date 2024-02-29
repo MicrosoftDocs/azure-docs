@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Cache for Redis
 description: Start here to learn how to monitor Azure Cache for Redis.
-ms.date: 01/31/2024
+ms.date: 02/29/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: robb
@@ -101,7 +101,7 @@ For more in-depth information, you can monitor the following useful Azure Cache 
 | --- | --- |
 | Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](cache-configure.md#maxclients) |
-| Server load |[Redis Server Load](cache-how-to-monitor.md#metrics-details) |
+| Server load |[Redis Server Load](cache-how-to-monitor.md#list-of-metrics) |
 | Memory usage |[Cache performance - size](cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 :::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
