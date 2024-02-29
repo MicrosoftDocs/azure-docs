@@ -68,19 +68,18 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - Windows and Azure Linux node pools
 - Kubelet configuration through Node pool configuration
 - IPv6 clusters
-- [Service Principals](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
-  - *Note: must be MSI-based, either system managed identity or user managed identity*
+- [Service Principals](./kubernetes-service-principal.md)
+> [!NOTE]
+  > You can use either a system-assigned or user-assigned managed identity
 - Disk encryption sets
 - CustomCATrustCertificates
 - [Start Stop mode](./start-stop-cluster.md)
-- [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) (deprecated)
 - [HTTP proxy](./http-proxy.md)
 - [OutboundType](./egress-outboundtype.md) mutation (all OutboundTypes are supported, you just cannot change them once created)
 
 ### Other limitations
 - The only network configuration allowed is Cilium + Overlay + Azure
-- Cannot be enabled in a cluster in which **any** AgentPools have autoscaler enabled
-- Cannot be enabled in an existing cluster
+- You can't enable in a cluster where node pools have cluster autoscaler enabled
 
 ## Enable node autoprovisioning
 
